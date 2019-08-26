@@ -1,4 +1,4 @@
-Entando - Survey Plugin
+Entando - Process Driven Apps Plugin
 =====================
 
 ## Scope

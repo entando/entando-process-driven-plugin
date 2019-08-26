@@ -1,13 +1,26 @@
 package org.entando.plugins.pda.controller;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.entando.plugins.pda.service.TaskService;
+import org.entando.plugins.pda.dto.task.TaskDto;
+import org.entando.plugins.pda.engine.Connection;
+import org.entando.plugins.pda.engine.ConnectionManager;
+import org.entando.plugins.pda.exception.ConnectionNotFoundException;
+import org.entando.plugins.pda.exception.EngineNotSupportedException;
+import org.entando.plugins.pda.service.task.TaskService;
+import org.entando.web.request.PagedListRequest;
+import org.entando.web.response.PagedRestResponse;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import static org.entando.plugins.pda.controller.AuthPermissions.TASK_LIST;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Slf4j
 @RestController
@@ -16,7 +29,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class TasksController {
 
-    private final @NonNull
-    TaskService taskService;
+    private final @NonNull ConnectionManager connectionManager;
+
+    @Secured(TASK_LIST)
+    @ApiOperation(notes = "Lists all tasks", nickname = "listTasks", value = "LIST Task")
+    @GetMapping(path = "/{connId}", produces = { APPLICATION_JSON_VALUE })
+    public PagedRestResponse<TaskDto> list(@PathVariable final String connId, final PagedListRequest restListRequest) {
+        log.info("Listing tasks {}", restListRequest);
+        Connection connection = connectionManager.getConnection(connId)
+                .orElseThrow(ConnectionNotFoundException::new);
+
+        return connection.getEngine().getTaskService()
+                .orElseThrow(EngineNotSupportedException::new)
+                .list(connection, restListRequest);
+    }
 
 }
