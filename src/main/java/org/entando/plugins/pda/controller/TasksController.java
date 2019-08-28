@@ -35,7 +35,7 @@ public class TasksController {
     @GetMapping(path = "/{connId}", produces = { APPLICATION_JSON_VALUE })
     public PagedRestResponse<TaskDto> list(@PathVariable final String connId, final PagedListRequest restListRequest) {
         log.info("Listing tasks {}", restListRequest);
-        Connection connection = connectionManager.getConnection(connId)
+        Connection connection = connectionManager.getConnection(connId) // NOPMD: false positive
                 .orElseThrow(ConnectionNotFoundException::new);
 
         return connection.getEngine().getTaskService()
