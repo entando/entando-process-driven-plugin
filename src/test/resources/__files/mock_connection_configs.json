@@ -1,0 +1,41 @@
+{
+  "payload": {
+    "kieStaging": {
+      "name": "kieStaging",
+      "host": "localhost",
+      "port": "8080",
+      "schema": "http",
+      "username": "myUsername",
+      "password": "myPassword",
+      "connectionTimeout": 60000,
+      "engine": "pam"
+    },
+    "kieProduction": {
+      "name": "kieProduction",
+      "host": "remoteserver.com",
+      "port": "80",
+      "schema": "https",
+      "username": "myUsername",
+      "password": "myPassword",
+      "connectionTimeout": 60000,
+      "engine": "pam"
+    }
+  },
+  "metadata": {
+    "createdAt": "2019-08-30T11:00:11.397",
+    "active": true,
+    "version": "6"
+  },
+  "errors": [],
+  "_links": {
+    "self": {
+      "href": "http://localhost:8089/config/pda-plugin/versions/6"
+    },
+    "active": {
+      "href": "http://localhost:8089/config/pda-plugin"
+    },
+    "versions": {
+      "href": "http://localhost:8089/config/pda-plugin/versions"
+    }
+  }
+}
