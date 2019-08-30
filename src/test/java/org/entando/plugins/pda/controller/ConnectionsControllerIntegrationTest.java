@@ -48,11 +48,11 @@ public class ConnectionsControllerIntegrationTest {
 
     @Before
     public void setup() {
-        stubFor(WireMock.get(urlEqualTo("/config/entando-pda-plugin"))
+        stubFor(WireMock.get(urlEqualTo("/config/entando-process-driven-plugin"))
             .willReturn(aResponse().withStatus(200).withHeader("Content-Type", "application/json")
                 .withBodyFile("mock_connection_configs.json")));
 
-        stubFor(WireMock.put(urlEqualTo("/config/entando-pda-plugin"))
+        stubFor(WireMock.put(urlEqualTo("/config/entando-process-driven-plugin"))
                 .willReturn(aResponse().withStatus(200)));
     }
 
