@@ -110,7 +110,7 @@
         <!-- BPM Engines -->
         <dependency>
             <groupId>org.entando</groupId>
-            <artifactId>entando-pda-redhatpam-engine</artifactId>
+            <artifactId>pda-redhatpam-engine</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <!-- BPM Engines -->
