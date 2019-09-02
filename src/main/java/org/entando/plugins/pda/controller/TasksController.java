@@ -24,7 +24,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @Slf4j
 @RestController
 @Api(tags = "Tasks")
-@RequestMapping(path = "/tasks")
+@RequestMapping(path = "/{connId}/tasks")
 @RequiredArgsConstructor
 public class TasksController {
 
@@ -36,7 +36,7 @@ public class TasksController {
 
     @Secured(TASK_LIST)
     @ApiOperation(notes = "Lists all tasks", nickname = "listTasks", value = "LIST Task")
-    @GetMapping(path = "/{connId}", produces = { APPLICATION_JSON_VALUE })
+    @GetMapping(produces = { APPLICATION_JSON_VALUE })
     public PagedRestResponse<Task> list(@PathVariable final String connId, final PagedListRequest restListRequest) {
         log.info("Listing tasks {}", restListRequest);
         Connection connection = connectionService.get(connId);
