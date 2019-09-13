@@ -61,8 +61,7 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload[0].name", is("kieProduction")))
-                .andExpect(jsonPath("payload[1].name", is("kieStaging")))
-                ;
+                .andExpect(jsonPath("payload[1].name", is("kieStaging")));
     }
 
     @Test
@@ -70,14 +69,12 @@ public class ConnectionsControllerIntegrationTest {
         mockMvc.perform(get("/connections/kieStaging"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is("kieStaging")))
-        ;
+                .andExpect(jsonPath("payload.name", is("kieStaging")));
 
         mockMvc.perform(get("/connections/kieProduction"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is("kieProduction")))
-        ;
+                .andExpect(jsonPath("payload.name", is("kieProduction")));
     }
 
     @Test
@@ -110,14 +107,12 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(jsonPath("payload.engine", is(createRequest.getEngine())))
                 .andExpect(jsonPath("payload.connectionTimeout", is(createRequest.getConnectionTimeout())))
                 .andExpect(jsonPath("payload.properties.myCustomProperty1", is(createRequest.getProperties().get("myCustomProperty1"))))
-                .andExpect(jsonPath("payload.properties.myCustomProperty2", is(createRequest.getProperties().get("myCustomProperty2"))))
-        ;
+                .andExpect(jsonPath("payload.properties.myCustomProperty2", is(createRequest.getProperties().get("myCustomProperty2"))));
 
         mockMvc.perform(get("/connections/myConnection"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is(createRequest.getName())))
-        ;
+                .andExpect(jsonPath("payload.name", is(createRequest.getName())));
 
         ConnectionDto updateRequest = ConnectionDto.builder()
                 .name("myConnection")
@@ -141,25 +136,21 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(jsonPath("payload.schema", is(updateRequest.getSchema())))
                 .andExpect(jsonPath("payload.engine", is(updateRequest.getEngine())))
                 .andExpect(jsonPath("payload.connectionTimeout", is(updateRequest.getConnectionTimeout())))
-                .andExpect(jsonPath("payload.properties").doesNotExist())
-        ;
+                .andExpect(jsonPath("payload.properties").doesNotExist());
 
         mockMvc.perform(delete("/connections/myConnection"))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(jsonPath("errors", hasSize(0)))
-        ;
+                .andExpect(jsonPath("errors", hasSize(0)));
 
         mockMvc.perform(get("/connections/myConnection"))
-                .andDo(print()).andExpect(status().isNotFound())
-        ;
+                .andDo(print()).andExpect(status().isNotFound());
 
         mockMvc.perform(get("/connections"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload[0].name", is("kieProduction")))
-                .andExpect(jsonPath("payload[1].name", is("kieStaging")))
-        ;
+                .andExpect(jsonPath("payload[1].name", is("kieStaging")));
     }
 
     @Test
@@ -192,14 +183,12 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(jsonPath("payload.engine", is(createRequest.getEngine())))
                 .andExpect(jsonPath("payload.connectionTimeout", is(createRequest.getConnectionTimeout())))
                 .andExpect(jsonPath("payload.properties.myCustomProperty1", is(createRequest.getProperties().get("myCustomProperty1"))))
-                .andExpect(jsonPath("payload.properties.myCustomProperty2", is(createRequest.getProperties().get("myCustomProperty2"))))
-        ;
+                .andExpect(jsonPath("payload.properties.myCustomProperty2", is(createRequest.getProperties().get("myCustomProperty2"))));
 
         mockMvc.perform(get("/connections/myConnection"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is(createRequest.getName())))
-        ;
+                .andExpect(jsonPath("payload.name", is(createRequest.getName())));
 
         ConnectionDto updateRequest = ConnectionDto.builder()
                 .name("newName")
@@ -223,35 +212,29 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(jsonPath("payload.schema", is(updateRequest.getSchema())))
                 .andExpect(jsonPath("payload.engine", is(updateRequest.getEngine())))
                 .andExpect(jsonPath("payload.connectionTimeout", is(updateRequest.getConnectionTimeout())))
-                .andExpect(jsonPath("payload.password").doesNotExist())
-        ;
+                .andExpect(jsonPath("payload.password").doesNotExist());
 
         mockMvc.perform(get("/connections/myConnection"))
-                .andDo(print()).andExpect(status().isNotFound())
-        ;
+                .andDo(print()).andExpect(status().isNotFound());
 
         mockMvc.perform(get("/connections/newName"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is(updateRequest.getName())))
-        ;
+                .andExpect(jsonPath("payload.name", is(updateRequest.getName())));
 
         mockMvc.perform(delete("/connections/newName"))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(jsonPath("errors", hasSize(0)))
-        ;
+                .andExpect(jsonPath("errors", hasSize(0)));
 
         mockMvc.perform(get("/connections/newName"))
-                .andDo(print()).andExpect(status().isNotFound())
-        ;
+                .andDo(print()).andExpect(status().isNotFound());
 
         mockMvc.perform(get("/connections"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload[0].name", is("kieProduction")))
-                .andExpect(jsonPath("payload[1].name", is("kieStaging")))
-        ;
+                .andExpect(jsonPath("payload[1].name", is("kieStaging")));
     }
 
     @Test
@@ -268,7 +251,6 @@ public class ConnectionsControllerIntegrationTest {
                 .build();
 
         mockMvc.perform(post("/connections").contentType(ContentType.APPLICATION_JSON.getMimeType()).content(mapper.writeValueAsString(request)))
-                .andDo(print()).andExpect(status().isNotFound())
-        ;
+                .andDo(print()).andExpect(status().isNotFound());
     }
 }

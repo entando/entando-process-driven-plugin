@@ -1,5 +1,7 @@
 package org.entando.plugins.pda.service;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConfigServiceConnectionsResponse;
@@ -23,11 +25,13 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class ConnectionService {
 
-    @Autowired
+    @NonNull
     private EngineFactory engineFactory;
 
+    @NonNull
     @Value("${config.url}")
     private String configServiceUrl;
 

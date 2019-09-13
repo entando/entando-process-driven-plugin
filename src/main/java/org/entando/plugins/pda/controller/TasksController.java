@@ -24,7 +24,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @Slf4j
 @RestController
 @Api(tags = "Tasks")
-@RequestMapping(path = "/{connId}/tasks")
+@RequestMapping(path = "/connections/{connId}/tasks")
 @RequiredArgsConstructor
 public class TasksController {
 
