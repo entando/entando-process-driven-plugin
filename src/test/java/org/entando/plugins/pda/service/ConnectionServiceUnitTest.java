@@ -46,6 +46,13 @@ public class ConnectionServiceUnitTest {
     }
 
     @Test
+    public void testGetConnection() {
+        Connection connection = connectionService.get(ConnectionTestHelper.CONNECTION_NAME_1);
+
+        assertThat(connection).isEqualTo(ConnectionTestHelper.createConnections().get(0));
+    }
+
+    @Test
     public void testCreateConnection() {
         reset(engineFactory);
 

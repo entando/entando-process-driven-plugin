@@ -3,10 +3,11 @@ package org.entando.plugins.pda.util;
 import lombok.experimental.UtilityClass;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
-import org.entando.plugins.pda.pam.service.task.model.KieProcessVariable;
-import org.entando.plugins.pda.pam.service.task.model.KieTask;
 
-import java.util.*;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @UtilityClass
@@ -67,19 +68,6 @@ public class ConnectionTestHelper {
     }
 
     public Connection createConnection() {
-        return Connection.builder()
-                .name(CONNECTION_NAME_3)
-                .host(CONNECTION_HOST_3)
-                .port(CONNECTION_PORT_3)
-                .schema(CONNECTION_SCHEMA_3)
-                .connectionTimeout(CONNECTION_TIMEOUT_3)
-                .engine(CONNECTION_ENGINE_3)
-                .username(CONNECTION_USERNAME_3)
-                .password(CONNECTION_PASSWORD_3)
-                .build();
-    }
-
-    public Connection editConnection() {
         return Connection.builder()
                 .name(CONNECTION_NAME_3)
                 .host(CONNECTION_HOST_3)
