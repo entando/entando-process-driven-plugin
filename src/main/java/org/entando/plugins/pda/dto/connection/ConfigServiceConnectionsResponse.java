@@ -5,5 +5,7 @@ import org.entando.web.response.SimpleRestResponse;
 import java.util.Map;
 
 public class ConfigServiceConnectionsResponse extends SimpleRestResponse<Map<String,ConnectionDto>> {
-
+    public ConfigServiceConnectionsResponse(Map<String, ConnectionDto> payload) {
+        super(payload);
+    }
 }

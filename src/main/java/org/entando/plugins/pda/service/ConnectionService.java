@@ -35,11 +35,15 @@ public class ConnectionService {
     @Value("${config.url}")
     private String configServiceUrl;
 
+    private RestTemplate restTemplate = new RestTemplate();
+
     private Map<String, Connection> connections;
 
     public List<Connection> list() {
         initConnections();
-        return new ArrayList<>(connections.values());
+        return connections.values().stream()
+                .sorted(Comparator.comparing(Connection::getName))
+                .collect(Collectors.toList());
     }
 
     public Connection get(String id) {
@@ -95,11 +99,9 @@ public class ConnectionService {
     }
 
     private void loadConfig() {
-        RestTemplate restTemplate = new RestTemplate();
-
         try {
-            ResponseEntity<ConfigServiceConnectionsResponse> response = restTemplate.getForEntity(configServiceUrl, ConfigServiceConnectionsResponse.class);
-            connections = response.getBody().getPayload().entrySet().stream()
+            ConfigServiceConnectionsResponse response = restTemplate.getForObject(configServiceUrl, ConfigServiceConnectionsResponse.class);
+            connections = response.getPayload().entrySet().stream()
                 .map(e -> new AbstractMap.SimpleEntry<>(e.getKey(), fromDto(e.getValue())))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         } catch (HttpStatusCodeException e) {
@@ -117,8 +119,6 @@ public class ConnectionService {
     }
 
     private void updateConfig() {
-        RestTemplate restTemplate = new RestTemplate();
-
         Map<String,ConnectionDto> request = connections.entrySet().stream()
                 .map(e -> new AbstractMap.SimpleEntry<>(e.getKey(), ConnectionDto.fromModel(e.getValue())))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
@@ -131,7 +131,7 @@ public class ConnectionService {
         }
     }
 
-    private Connection fromDto(ConnectionDto dto) {
+    public Connection fromDto(ConnectionDto dto) {
         engineFactory.validateEngine(dto.getEngine());
 
         return Connection.builder()
@@ -147,4 +147,7 @@ public class ConnectionService {
                 .build();
     }
 
+    public void setRestTemplate(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 }

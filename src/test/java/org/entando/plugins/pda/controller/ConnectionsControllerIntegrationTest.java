@@ -91,7 +91,7 @@ public class ConnectionsControllerIntegrationTest {
                 .password("myPassword")
                 .connectionTimeout(30000)
                 .schema("https")
-                .engine(KieEngine.TYPE) //TODO use fake engine so there is no direct dependency to a specific module
+                .engine(KieEngine.TYPE)
                 .properties(properties)
                 .build();
 
