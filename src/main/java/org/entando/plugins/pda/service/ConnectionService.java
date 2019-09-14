@@ -1,7 +1,5 @@
 package org.entando.plugins.pda.service;
 
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConfigServiceConnectionsResponse;
@@ -10,12 +8,9 @@ import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.exception.ConnectionAlreadyExistsException;
 import org.entando.plugins.pda.exception.ConnectionNotFoundException;
 import org.entando.web.exception.HttpException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
@@ -25,19 +20,16 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Component
-@RequiredArgsConstructor
 public class ConnectionService {
-
-    @NonNull
     private EngineFactory engineFactory;
-
-    @NonNull
-    @Value("${config.url}")
     private String configServiceUrl;
-
     private RestTemplate restTemplate = new RestTemplate();
-
     private Map<String, Connection> connections;
+
+    public ConnectionService(EngineFactory engineFactory, @Value("${config.url}") String configServiceUrl) {
+        this.engineFactory = engineFactory;
+        this.configServiceUrl = configServiceUrl;
+    }
 
     public List<Connection> list() {
         initConnections();

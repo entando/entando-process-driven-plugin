@@ -28,11 +28,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequiredArgsConstructor
 public class TasksController {
 
-    private final @NonNull
-    ConnectionService connectionService;
+    private final @NonNull ConnectionService connectionService;
 
-    private final @NonNull
-    EngineFactory engineFactory;
+    private final @NonNull EngineFactory engineFactory;
 
     @Secured(TASK_LIST)
     @ApiOperation(notes = "Lists all tasks", nickname = "listTasks", value = "LIST Task")

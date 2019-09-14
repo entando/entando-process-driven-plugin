@@ -3,12 +3,13 @@ package org.entando.plugins.pda.controller;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import org.apache.http.entity.ContentType;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.entando.plugins.pda.core.engine.FakeEngine;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
-import org.entando.plugins.pda.pam.engine.KieEngine;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
@@ -32,6 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@EnableConfigurationProperties
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
@@ -60,7 +62,7 @@ public class ConnectionsControllerIntegrationTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0].name", is("kieProduction")))
+                .andExpect(jsonPath("payload[0].name", is("fakeConn")))
                 .andExpect(jsonPath("payload[1].name", is("kieStaging")));
     }
 
@@ -71,10 +73,10 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is("kieStaging")));
 
-        mockMvc.perform(get("/connections/kieProduction"))
+        mockMvc.perform(get("/connections/fakeConn"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is("kieProduction")));
+                .andExpect(jsonPath("payload.name", is("fakeConn")));
     }
 
     @Test
@@ -91,7 +93,7 @@ public class ConnectionsControllerIntegrationTest {
                 .password("myPassword")
                 .connectionTimeout(30000)
                 .schema("https")
-                .engine(KieEngine.TYPE)
+                .engine(FakeEngine.TYPE)
                 .properties(properties)
                 .build();
 
@@ -122,7 +124,7 @@ public class ConnectionsControllerIntegrationTest {
                 .password("myPassword2")
                 .connectionTimeout(45000)
                 .schema("http")
-                .engine("pam")
+                .engine(FakeEngine.TYPE)
                 .build();
 
         mockMvc.perform(put("/connections/myConnection").contentType(ContentType.APPLICATION_JSON.getMimeType()).content(mapper.writeValueAsString(updateRequest)))
@@ -149,7 +151,7 @@ public class ConnectionsControllerIntegrationTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0].name", is("kieProduction")))
+                .andExpect(jsonPath("payload[0].name", is("fakeConn")))
                 .andExpect(jsonPath("payload[1].name", is("kieStaging")));
     }
 
@@ -167,7 +169,7 @@ public class ConnectionsControllerIntegrationTest {
                 .password("myPassword")
                 .connectionTimeout(30000)
                 .schema("https")
-                .engine("pam")
+                .engine(FakeEngine.TYPE)
                 .properties(properties)
                 .build();
 
@@ -198,7 +200,7 @@ public class ConnectionsControllerIntegrationTest {
                 .password("myPassword2")
                 .connectionTimeout(45000)
                 .schema("http")
-                .engine("pam")
+                .engine(FakeEngine.TYPE)
                 .build();
 
         mockMvc.perform(put("/connections/myConnection").contentType(ContentType.APPLICATION_JSON.getMimeType()).content(mapper.writeValueAsString(updateRequest)))
@@ -233,7 +235,7 @@ public class ConnectionsControllerIntegrationTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0].name", is("kieProduction")))
+                .andExpect(jsonPath("payload[0].name", is("fakeConn")))
                 .andExpect(jsonPath("payload[1].name", is("kieStaging")));
     }
 

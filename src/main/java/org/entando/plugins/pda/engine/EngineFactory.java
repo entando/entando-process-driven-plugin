@@ -1,6 +1,7 @@
 package org.entando.plugins.pda.engine;
 
 import org.entando.plugins.pda.core.engine.Engine;
+import org.entando.plugins.pda.core.engine.FakeEngine;
 import org.entando.plugins.pda.core.exception.EngineNotFoundException;
 import org.entando.plugins.pda.pam.engine.KieEngine;
 import org.springframework.beans.BeansException;
@@ -18,6 +19,7 @@ public class EngineFactory implements ApplicationContextAware  {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        availableEngines.put(FakeEngine.TYPE, applicationContext.getBean(FakeEngine.class));
         availableEngines.put(KieEngine.TYPE, applicationContext.getBean(KieEngine.class));
     }
 

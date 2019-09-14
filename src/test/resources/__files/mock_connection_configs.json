@@ -10,15 +10,15 @@
       "connectionTimeout": 60000,
       "engine": "pam"
     },
-    "kieProduction": {
-      "name": "kieProduction",
+    "fakeConn": {
+      "name": "fakeConn",
       "host": "remoteserver.com",
       "port": "80",
       "schema": "https",
-      "username": "myUsername",
-      "password": "myPassword",
+      "username": "fakeUsername",
+      "password": "fakePassword",
       "connectionTimeout": 60000,
-      "engine": "pam"
+      "engine": "fake"
     }
   },
   "metadata": {
