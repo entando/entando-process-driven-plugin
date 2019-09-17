@@ -63,21 +63,21 @@ public class ConnectionsControllerIntegrationTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0].name", is("fakeConn")))
-                .andExpect(jsonPath("payload[1].name", is("kieStaging")));
+                .andExpect(jsonPath("payload[0].name", is("fakeProduction")))
+                .andExpect(jsonPath("payload[1].name", is("fakeStaging")));
     }
 
     @Test
     public void testGetConnection() throws Exception {
-        mockMvc.perform(get("/connections/kieStaging"))
+        mockMvc.perform(get("/connections/fakeStaging"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is("kieStaging")));
+                .andExpect(jsonPath("payload.name", is("fakeStaging")));
 
-        mockMvc.perform(get("/connections/fakeConn"))
+        mockMvc.perform(get("/connections/fakeProduction"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is("fakeConn")));
+                .andExpect(jsonPath("payload.name", is("fakeProduction")));
     }
 
     @Test
@@ -152,8 +152,8 @@ public class ConnectionsControllerIntegrationTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0].name", is("fakeConn")))
-                .andExpect(jsonPath("payload[1].name", is("kieStaging")));
+                .andExpect(jsonPath("payload[0].name", is("fakeProduction")))
+                .andExpect(jsonPath("payload[1].name", is("fakeStaging")));
     }
 
     @Test
@@ -236,8 +236,8 @@ public class ConnectionsControllerIntegrationTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0].name", is("fakeConn")))
-                .andExpect(jsonPath("payload[1].name", is("kieStaging")));
+                .andExpect(jsonPath("payload[0].name", is("fakeProduction")))
+                .andExpect(jsonPath("payload[1].name", is("fakeStaging")));
     }
 
     @Test

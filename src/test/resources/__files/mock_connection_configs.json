@@ -1,17 +1,17 @@
 {
   "payload": {
-    "kieStaging": {
-      "name": "kieStaging",
+    "fakeStaging": {
+      "name": "fakeStaging",
       "host": "localhost",
       "port": "8080",
       "schema": "http",
       "username": "myUsername",
       "password": "myPassword",
       "connectionTimeout": 60000,
-      "engine": "pam"
+      "engine": "fake"
     },
-    "fakeConn": {
-      "name": "fakeConn",
+    "fakeProduction": {
+      "name": "fakeProduction",
       "host": "remoteserver.com",
       "port": "80",
       "schema": "https",

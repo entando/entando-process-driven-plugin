@@ -50,7 +50,7 @@ public class TasksControllerIntegrationTest {
 
     @Test
     public void testListTasks() throws Exception {
-        mockMvc.perform(get("/connections/fakeConn/tasks"))
+        mockMvc.perform(get("/connections/fakeProduction/tasks"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
