@@ -1,11 +1,10 @@
 package org.entando.plugins.pda.engine;
 
+import java.util.List;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.exception.EngineNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class EngineFactory {
@@ -15,7 +14,7 @@ public class EngineFactory {
 
     public Engine getEngine(String type) {
         for (Engine engine : availableEngines) {
-            if(engine.getType().equals(type)) {
+            if (engine.getType().equals(type)) {
                 return engine;
             }
         }

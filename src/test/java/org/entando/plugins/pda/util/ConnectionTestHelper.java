@@ -1,14 +1,13 @@
 package org.entando.plugins.pda.util;
 
-import lombok.experimental.UtilityClass;
-import org.entando.plugins.pda.core.engine.Connection;
-import org.entando.plugins.pda.dto.connection.ConnectionDto;
-
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import lombok.experimental.UtilityClass;
+import org.entando.plugins.pda.core.engine.Connection;
+import org.entando.plugins.pda.dto.connection.ConnectionDto;
 
 @UtilityClass
 public class ConnectionTestHelper {

@@ -1,13 +1,12 @@
 package org.entando.plugins.pda.dto.connection;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.entando.plugins.pda.core.engine.Connection;
-
-import java.util.Map;
 
 @Builder
 @Data
