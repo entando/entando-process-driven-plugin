@@ -1,2 +1,10 @@
 *.iml
 target/
+.idea
+
+.classpath
+.project
+.factorypath
+.settings/
+bin/
+

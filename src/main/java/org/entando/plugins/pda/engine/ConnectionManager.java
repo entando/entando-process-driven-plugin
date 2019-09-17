@@ -1,8 +1,7 @@
 package org.entando.plugins.pda.engine;
 
-import org.springframework.stereotype.Component;
-
 import java.util.Optional;
+import org.springframework.stereotype.Component;
 
 @Component
 public class ConnectionManager {

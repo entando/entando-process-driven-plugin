@@ -1,10 +1,8 @@
 package org.entando.plugins.pda.engine;
 
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.entando.plugins.pda.service.task.TaskService;
-
 import java.util.Optional;
+import lombok.AllArgsConstructor;
+import org.entando.plugins.pda.service.task.TaskService;
 
 @AllArgsConstructor
 public abstract class Engine {
