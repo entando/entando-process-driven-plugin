@@ -1,13 +1,17 @@
 package org.entando.plugins.pda.controller;
 
-import lombok.experimental.UtilityClass;
+public interface AuthPermissions {
 
-@UtilityClass
-class AuthPermissions {
+    String TASK_LIST = "task-list";
+    String TASK_GET = "task-get";
+    String TASK_CREATE = "task-create";
+    String TASK_EDIT = "task-edit";
+    String TASK_DELETE = "task-delete";
 
-    public static final String TASK_LIST = "pda-list";
-    public static final String TASK_GET = "pda-get";
-    public static final String TASK_CREATE = "pda-create";
-    public static final String TASK_EDIT = "pda-create";
+    String CONNECTION_LIST = "connection-list";
+    String CONNECTION_GET = "connection-get";
+    String CONNECTION_CREATE = "connection-create";
+    String CONNECTION_EDIT = "connection-edit";
+    String CONNECTION_DELETE = "connection-delete";
 
 }
