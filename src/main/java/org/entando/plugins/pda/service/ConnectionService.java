@@ -1,5 +1,13 @@
 package org.entando.plugins.pda.service;
 
+import java.util.AbstractMap;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConfigServiceConnectionsResponse;
@@ -7,7 +15,9 @@ import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.exception.ConnectionAlreadyExistsException;
 import org.entando.plugins.pda.exception.ConnectionNotFoundException;
+import org.entando.web.exception.BadRequestException;
 import org.entando.web.exception.HttpException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -15,17 +25,15 @@ import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.*;
-import java.util.stream.Collectors;
-
 @Slf4j
 @Component
 public class ConnectionService {
-    private EngineFactory engineFactory;
-    private String configServiceUrl;
+    private final EngineFactory engineFactory;
+    private final String configServiceUrl;
     private RestTemplate restTemplate = new RestTemplate();
-    private Map<String, Connection> connections;
+    private ConcurrentMap<String, Connection> connections;
 
+    @Autowired
     public ConnectionService(EngineFactory engineFactory, @Value("${config.url}") String configServiceUrl) {
         this.engineFactory = engineFactory;
         this.configServiceUrl = configServiceUrl;
@@ -92,26 +100,31 @@ public class ConnectionService {
 
     private void loadConfig() {
         try {
-            ConfigServiceConnectionsResponse response = restTemplate.getForObject(configServiceUrl, ConfigServiceConnectionsResponse.class);
-            connections = response.getPayload().entrySet().stream()
-                .map(e -> new AbstractMap.SimpleEntry<>(e.getKey(), fromDto(e.getValue())))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+            ConfigServiceConnectionsResponse response = Optional.ofNullable(restTemplate.getForObject(configServiceUrl,
+                        ConfigServiceConnectionsResponse.class))
+                    .orElseThrow(BadRequestException::new);
+
+            connections = Optional.ofNullable(response.getPayload())
+                    .orElseThrow(BadRequestException::new)
+                    .entrySet().stream()
+                    .map(e -> new AbstractMap.SimpleEntry<>(e.getKey(), fromDto(e.getValue())))
+                    .collect(Collectors.toConcurrentMap(Map.Entry::getKey, Map.Entry::getValue));
         } catch (HttpStatusCodeException e) {
-            if (!e.getStatusCode().equals(HttpStatus.NOT_FOUND)){
+            if (!e.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
                 log.error("Error reading configurations", e);
-                throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, "org.entando.error.config.read");
+                throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, "org.entando.error.config.read", e);
             }
 
             log.warn("No configuration available");
-            connections = new HashMap<>();
+            connections = new ConcurrentHashMap<>();
         } catch (ResourceAccessException e) {
             log.error("Error reading configurations", e);
-            throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, "org.entando.error.config.read");
+            throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, "org.entando.error.config.read", e);
         }
     }
 
     private void updateConfig() {
-        Map<String,ConnectionDto> request = connections.entrySet().stream()
+        Map<String,ConnectionDto> request = connections.entrySet().stream() // NOPMD
                 .map(e -> new AbstractMap.SimpleEntry<>(e.getKey(), ConnectionDto.fromModel(e.getValue())))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
@@ -119,7 +132,7 @@ public class ConnectionService {
             restTemplate.put(configServiceUrl, request, ConfigServiceConnectionsResponse.class);
         } catch (HttpStatusCodeException | ResourceAccessException e) {
             log.error("Error updating configurations", e);
-            throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, "org.entando.error.config.write");
+            throw new HttpException(HttpStatus.INTERNAL_SERVER_ERROR, "org.entando.error.config.write", e);
         }
     }
 

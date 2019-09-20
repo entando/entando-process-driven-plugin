@@ -1,6 +1,21 @@
 package org.entando.plugins.pda.controller;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import com.github.tomakehurst.wiremock.client.WireMock;
+import java.util.HashMap;
+import java.util.Map;
 import org.apache.http.entity.ContentType;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.entando.plugins.pda.core.engine.FakeEngine;
@@ -18,20 +33,6 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @EnableConfigurationProperties
 @AutoConfigureMockMvc
@@ -62,21 +63,21 @@ public class ConnectionsControllerIntegrationTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0].name", is("fakeConn")))
-                .andExpect(jsonPath("payload[1].name", is("kieStaging")));
+                .andExpect(jsonPath("payload[0].name", is("fakeProduction")))
+                .andExpect(jsonPath("payload[1].name", is("fakeStaging")));
     }
 
     @Test
     public void testGetConnection() throws Exception {
-        mockMvc.perform(get("/connections/kieStaging"))
+        mockMvc.perform(get("/connections/fakeStaging"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is("kieStaging")));
+                .andExpect(jsonPath("payload.name", is("fakeStaging")));
 
-        mockMvc.perform(get("/connections/fakeConn"))
+        mockMvc.perform(get("/connections/fakeProduction"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is("fakeConn")));
+                .andExpect(jsonPath("payload.name", is("fakeProduction")));
     }
 
     @Test
@@ -151,8 +152,8 @@ public class ConnectionsControllerIntegrationTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0].name", is("fakeConn")))
-                .andExpect(jsonPath("payload[1].name", is("kieStaging")));
+                .andExpect(jsonPath("payload[0].name", is("fakeProduction")))
+                .andExpect(jsonPath("payload[1].name", is("fakeStaging")));
     }
 
     @Test
@@ -235,8 +236,8 @@ public class ConnectionsControllerIntegrationTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0].name", is("fakeConn")))
-                .andExpect(jsonPath("payload[1].name", is("kieStaging")));
+                .andExpect(jsonPath("payload[0].name", is("fakeProduction")))
+                .andExpect(jsonPath("payload[1].name", is("fakeStaging")));
     }
 
     @Test

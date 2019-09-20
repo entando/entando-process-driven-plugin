@@ -1,14 +1,13 @@
 package org.entando.plugins.pda.engine;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+import java.util.ArrayList;
+import java.util.List;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.engine.FakeEngine;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class EngineFactoryUnitTest {
     private EngineFactory engineFactory;
