@@ -21,6 +21,8 @@ public class ConnectionDto {
 
     private String schema;
 
+    private String app;
+
     private String username;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -38,6 +40,7 @@ public class ConnectionDto {
                 .host(model.getHost())
                 .port(model.getPort())
                 .schema(model.getSchema())
+                .app(model.getApp())
                 .username(model.getUsername())
                 .password(model.getPassword())
                 .connectionTimeout(model.getConnectionTimeout())
