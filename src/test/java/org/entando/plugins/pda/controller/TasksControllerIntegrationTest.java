@@ -57,4 +57,19 @@ public class TasksControllerIntegrationTest {
                 .andExpect(jsonPath("payload[0].name", is(FakeTaskService.TASK_NAME_1)))
                 .andExpect(jsonPath("payload[1].name", is(FakeTaskService.TASK_NAME_2)));
     }
+
+    @Test
+    public void testGetTask() throws Exception {
+        mockMvc.perform(get("/connections/fakeProduction/tasks/" + FakeTaskService.TASK_ID_1))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(jsonPath("errors", hasSize(0)))
+                .andExpect(jsonPath("payload.id", is(FakeTaskService.TASK_ID_1)))
+                .andExpect(jsonPath("payload.name", is(FakeTaskService.TASK_NAME_1)));
+
+        mockMvc.perform(get("/connections/fakeProduction/tasks/" + FakeTaskService.TASK_ID_2))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(jsonPath("errors", hasSize(0)))
+                .andExpect(jsonPath("payload.id", is(FakeTaskService.TASK_ID_2)))
+                .andExpect(jsonPath("payload.name", is(FakeTaskService.TASK_NAME_2)));
+    }
 }

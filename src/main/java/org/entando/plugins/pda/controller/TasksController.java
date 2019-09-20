@@ -1,5 +1,6 @@
 package org.entando.plugins.pda.controller;
 
+import static org.entando.plugins.pda.controller.AuthPermissions.TASK_GET;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_LIST;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -15,6 +16,7 @@ import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.request.PagedListRequest;
 import org.entando.web.response.PagedRestResponse;
+import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +42,17 @@ public class TasksController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return engine.getTaskService().list(connection, restListRequest);
+    }
+
+    @Secured(TASK_GET)
+    @ApiOperation(notes = "Gets a task", nickname = "getTask", value = "GET Task")
+    @GetMapping(path = "/{taskId}", produces = { APPLICATION_JSON_VALUE })
+    public SimpleRestResponse<Task> get(@PathVariable final String connId, @PathVariable final String taskId) {
+        log.info("Retrieving a task {}", taskId);
+        Connection connection = connectionService.get(connId);
+        Engine engine = engineFactory.getEngine(connection.getEngine());
+        return new SimpleRestResponse<>(
+                engine.getTaskService().get(connection, taskId));
     }
 
 }
