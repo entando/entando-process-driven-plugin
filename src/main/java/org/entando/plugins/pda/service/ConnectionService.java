@@ -144,6 +144,7 @@ public class ConnectionService {
                 .host(dto.getHost())
                 .port(dto.getPort())
                 .schema(dto.getSchema())
+                .app(dto.getApp())
                 .username(dto.getUsername())
                 .password(dto.getPassword())
                 .connectionTimeout(dto.getConnectionTimeout())
