@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.entando.keycloak.security.AuthenticatedUser;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.model.Task;
@@ -37,22 +38,24 @@ public class TasksController {
     @Secured(TASK_LIST)
     @ApiOperation(notes = "Lists all tasks", nickname = "listTasks", value = "LIST Task")
     @GetMapping(produces = { APPLICATION_JSON_VALUE })
-    public PagedRestResponse<Task> list(@PathVariable final String connId, final PagedListRequest restListRequest) {
+    public PagedRestResponse<Task> list(@PathVariable final String connId, final AuthenticatedUser user,
+            final PagedListRequest restListRequest) {
         log.info("Listing tasks {}", restListRequest);
-        Connection connection = connectionService.get(connId);
+        Connection connection = connectionService.get(connId);// NO PMD
         Engine engine = engineFactory.getEngine(connection.getEngine());
-        return engine.getTaskService().list(connection, restListRequest);
+        return engine.getTaskService().list(connection, user, restListRequest);
     }
 
     @Secured(TASK_GET)
     @ApiOperation(notes = "Gets a task", nickname = "getTask", value = "GET Task")
     @GetMapping(path = "/{taskId}", produces = { APPLICATION_JSON_VALUE })
-    public SimpleRestResponse<Task> get(@PathVariable final String connId, @PathVariable final String taskId) {
+    public SimpleRestResponse<Task> get(@PathVariable final String connId, @PathVariable final String taskId,
+            AuthenticatedUser user) {
         log.info("Retrieving a task {}", taskId);
-        Connection connection = connectionService.get(connId);
+        Connection connection = connectionService.get(connId);// NO PMD
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(
-                engine.getTaskService().get(connection, taskId));
+                engine.getTaskService().get(connection, user, taskId));
     }
 
 }
