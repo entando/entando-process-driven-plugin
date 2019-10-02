@@ -1,0 +1,202 @@
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+import withStyles from '@material-ui/styles/withStyles';
+import TableFooter from '@material-ui/core/TableFooter';
+import TableRow from '@material-ui/core/TableRow';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import MuiTable from '@material-ui/core/Table';
+import i18next from 'i18next';
+
+import columnType from 'types/columnType';
+import rowType from 'types/rowType';
+
+import SearchInput from 'components/common/SearchInput';
+import TablePagination from 'components/common/Table/TablePagination';
+import EmptyRow from 'components/common/Table/EmptyRow';
+import InternalTableBody from 'components/common/Table/InternalTableBody';
+import InternalTableHead from 'components/common/Table/InternalTableHead';
+import InternalTablePaginationActions from 'components/common/Table/InternalTablePaginationActions';
+
+export const labelDisplayedRows = ({ from, to, count }) =>
+  i18next
+    .t('table.showing')
+    .replace('$1', from)
+    .replace('$2', to)
+    .replace('$3', count);
+
+export const swapOrder = order => (order === 'asc' ? 'desc' : 'asc');
+
+const styles = {
+  toolbar: {
+    justifyContent: 'space-between',
+    padding: '16px 16px 8px 16px',
+    minHeight: 'unset',
+  },
+  noSubtitleToolbar: {
+    padding: '8px 16px',
+  },
+  title: {
+    textAlign: 'left',
+  },
+  hideShadows: {
+    boxShadow: 'none',
+  },
+  tableWrapper: {
+    overflow: 'auto',
+    position: 'relative',
+  },
+};
+
+class Table extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: 0,
+      rowsPerPage: props.rowsPerPageOptions[0],
+      sortedColumn: props.initialSortedColumn,
+      sortFunction:
+        props.initialSortedColumn &&
+        props.columns.find(column => {
+          return column.accessor === props.initialSortedColumn;
+        }).sortFunction,
+      sortOrder: props.initialSortOrder,
+    };
+  }
+
+  createSortHandler = property => () => {
+    const { columns } = this.props;
+    const { sortFunction } = columns.find(column => {
+      return column.accessor === property;
+    });
+
+    this.setState(({ sortOrder, sortedColumn }) => ({
+      page: 0,
+      sortedColumn: property,
+      sortFunction,
+      sortOrder: sortedColumn === property ? swapOrder(sortOrder) : 'asc',
+    }));
+  };
+
+  handleChangeRowsPerPage = event => {
+    this.setState({
+      page: 0,
+      rowsPerPage: event.target.value,
+    });
+  };
+
+  handleChangePage = page => {
+    this.setState({ page });
+  };
+
+  render() {
+    const {
+      columns,
+      rows = [],
+      rowsPerPageOptions,
+      title,
+      subtitle,
+      hidePagination,
+      classes,
+    } = this.props;
+    const { rowsPerPage, page, sortedColumn, sortOrder, sortFunction } = this.state;
+
+    // Sort the rows
+    const sortedRows = sortFunction ? rows.sort(sortFunction(sortedColumn, sortOrder)) : rows;
+
+    // Slice out the rows for the current page
+    const firstRow = page * rowsPerPage;
+    const lastRow = firstRow + rowsPerPage;
+    const sortedPaginatedRows = hidePagination ? sortedRows : sortedRows.slice(firstRow, lastRow);
+    const hasHeader = title || subtitle;
+
+    return (
+      <>
+        {hasHeader && (
+          <Toolbar className={classNames(classes.toolbar, !subtitle && classes.noSubtitleToolbar)}>
+            <div className={classes.title}>
+              <Typography variant="h5">{title}</Typography>
+              <Typography variant="subtitle2">{subtitle}</Typography>
+            </div>
+            <div>
+              <SearchInput />
+            </div>
+          </Toolbar>
+        )}
+        <div className={classes.tableWrapper}>
+          <MuiTable className={classNames(!hasHeader && hidePagination && classes.hideShadows)}>
+            <InternalTableHead
+              columns={columns}
+              createSortHandler={this.createSortHandler}
+              sortedColumn={sortedColumn}
+              sortOrder={sortOrder}
+            />
+            {sortedPaginatedRows.length ? (
+              <InternalTableBody
+                columns={columns}
+                rows={sortedPaginatedRows}
+                emptyRows={rowsPerPage - sortedPaginatedRows.length}
+              />
+            ) : (
+              <EmptyRow colspan={columns.length} height={rowsPerPage * 55} />
+            )}
+          </MuiTable>
+        </div>
+        <MuiTable>
+          {!hidePagination && (
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  colSpan={columns.length}
+                  count={rows.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  labelDisplayedRows={labelDisplayedRows}
+                  rowsPerPageOptions={rowsPerPageOptions}
+                  onChangePage={this.handleChangePage}
+                  onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                  ActionsComponent={InternalTablePaginationActions}
+                  labelRowsPerPage={i18next.t('table.rowsPerPage')}
+                />
+              </TableRow>
+            </TableFooter>
+          )}
+        </MuiTable>
+      </>
+    );
+  }
+}
+
+Table.propTypes = {
+  classes: PropTypes.shape({
+    toolbar: PropTypes.string,
+    noSubtitleToolbar: PropTypes.string,
+    title: PropTypes.string,
+    hideShadows: PropTypes.string,
+    tableWrapper: PropTypes.string,
+  }),
+  columns: PropTypes.arrayOf(columnType),
+  hidePagination: PropTypes.bool,
+  /** Prop value is required for sortable tables. */
+  initialSortedColumn: PropTypes.string,
+  initialSortOrder: PropTypes.string,
+  rows: PropTypes.arrayOf(rowType),
+  rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+};
+
+Table.defaultProps = {
+  classes: {},
+  rowsPerPageOptions: [5, 10, 15],
+  title: '',
+  subtitle: '',
+  hidePagination: false,
+  initialSortedColumn: '',
+  initialSortOrder: 'asc',
+  rows: [],
+  columns: [],
+};
+
+export default withStyles(styles)(Table);

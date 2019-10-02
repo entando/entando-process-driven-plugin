@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.app-list {
+  width: 250px;
+  padding: 0 10px;
+}
+
+.app-home {
+  padding: 60px;
+}
+
+.app-container {
+  padding: 20px;
+}

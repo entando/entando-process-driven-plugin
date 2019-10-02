@@ -1,0 +1,17 @@
+{
+  "common": {
+    "of": "of"
+  },
+  "table": {
+    "title": "Task List",
+    "subtitle": "List of tasks",
+    "searchPlaceholder": "Search...",
+    "rowsPerPage": "Rows per page:",
+    "showing": "Showing $1-$2 of $3 items"
+  },
+  "messages": {
+    "warnings": {
+      "noData": "there is no data to be displayed"
+    }
+  }
+}
