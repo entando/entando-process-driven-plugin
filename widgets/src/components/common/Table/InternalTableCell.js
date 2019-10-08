@@ -7,7 +7,12 @@ import rowType from 'types/rowType';
 export default function InternalTableCell({ column, row }) {
   const CustomCell = column.customCell;
   return (
-    <TableCell key={column.accessor} align={column.align} style={{ ...column.styles }}>
+    <TableCell
+      size="small"
+      key={column.accessor}
+      align={column.align}
+      style={{ ...column.styles, whiteSpace: 'nowrap' }}
+    >
       {CustomCell ? <CustomCell row={row} /> : row[column.accessor]}
     </TableCell>
   );

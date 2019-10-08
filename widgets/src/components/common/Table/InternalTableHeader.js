@@ -6,6 +6,7 @@ import columnType from 'types/columnType';
 import TableSortLabel from 'components/common/Table/TableSortLabel';
 
 function InternalTableHeader({ column, createSortHandler, sortedColumn, sortOrder }) {
+  const label = column.header || column.accessor;
   const header = column.sortFunction ? (
     <TableSortLabel
       key={column.accessor}
@@ -13,10 +14,10 @@ function InternalTableHeader({ column, createSortHandler, sortedColumn, sortOrde
       onClick={createSortHandler(column.accessor)}
       direction={sortOrder}
     >
-      {column.header}
+      {label}
     </TableSortLabel>
   ) : (
-    column.header
+    label
   );
 
   return (

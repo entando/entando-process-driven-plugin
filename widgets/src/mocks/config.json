@@ -1,0 +1,118 @@
+{
+  "id": "1a78dce8-45f8-4b64-8d1d-47580c22ec7a",
+  "connection": "kieStaging",
+  "processInstances": "mortgageApproval-1.0.0",
+  "groups": {
+    "admin": false,
+    "manager": true,
+    "appraiser": true,
+    "broker": false
+  },
+  "newPageOnClick": false,
+  "showClaimButton": true,
+  "showCompleteButton": true,
+  "columns": [
+    {
+      "key": "application",
+      "header": "Application",
+      "position": 1,
+      "visible": true
+    },
+    {
+      "key": "incdownpayment",
+      "header": "Incdownpayment",
+      "position": 2,
+      "visible": true
+    },
+    {
+      "key": "task-id",
+      "header": "ID",
+      "position": 3,
+      "visible": true
+    },
+    {
+      "key": "task-name",
+      "header": "Name",
+      "position": 4,
+      "visible": true
+    },
+    {
+      "key": "task-subject",
+      "header": "Subject",
+      "position": 5,
+      "visible": true
+    },
+    {
+      "key": "task-description",
+      "header": "Description",
+      "position": 6,
+      "visible": true
+    },
+    {
+      "key": "task-status",
+      "header": "Status",
+      "position": 7,
+      "visible": true
+    },
+    {
+      "key": "task-priority",
+      "header": "Priority",
+      "position": 8,
+      "visible": true
+    },
+    {
+      "key": "inlimit",
+      "header": "",
+      "position": 9,
+      "visible": true
+    },
+    {
+      "key": "task-is-skipable",
+      "header": "Skipable",
+      "position": 10,
+      "visible": true
+    },
+    {
+      "key": "task-actual-owner",
+      "header": "Owner",
+      "position": 11,
+      "visible": true
+    },
+    {
+      "key": "task-created-on",
+      "header": "Created On",
+      "position": 12,
+      "visible": true
+    },
+    {
+      "key": "task-activation-time",
+      "header": "Ativated On",
+      "position": 13,
+      "visible": true
+    },
+    {
+      "key": "task-process-instance-id",
+      "header": "Instance ID",
+      "position": 14,
+      "visible": false
+    },
+    {
+      "key": "processDefinitionId",
+      "header": "Definition ID",
+      "position": 15,
+      "visible": true
+    },
+    {
+      "key": "task-container-id",
+      "header": "Container ID",
+      "position": 16,
+      "visible": true
+    },
+    {
+      "key": "task-parent-id",
+      "header": "",
+      "position": 16,
+      "visible": false
+    }
+  ]
+}

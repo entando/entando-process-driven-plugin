@@ -34,6 +34,7 @@ class IconMenuButton extends React.Component {
           aria-owns={open ? id : null}
           aria-haspopup="true"
           open={open}
+          size="small"
         >
           <MoreVert fontSize="small" />
         </IconButton>
