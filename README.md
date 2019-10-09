@@ -1,5 +1,7 @@
-Entando - Process Driven Apps Plugin
-=====================
+# Entando - Process Driven Apps Plugin
+
+[![Build Status](https://jenkins.entandocloud.com/buildStatus/icon?job=de-entando-process-driven-plugin-master)](https://jenkins.entandocloud.com/job/de-entando-process-driven-plugin-master/)
+[![Coverage Status](https://coveralls.io/repos/github/entando/entando-process-driven-plugin/badge.svg?branch=master)](https://coveralls.io/github/entando/entando-process-driven-plugin?branch=master)
 
 ## Scope
 The scope of this service is to manage and adapt BPM engines.

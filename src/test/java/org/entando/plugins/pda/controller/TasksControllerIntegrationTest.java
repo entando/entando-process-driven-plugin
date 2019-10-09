@@ -30,7 +30,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
-@AutoConfigureWireMock(port = 8089)
+@AutoConfigureWireMock(port = 0)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TasksControllerIntegrationTest {
 
