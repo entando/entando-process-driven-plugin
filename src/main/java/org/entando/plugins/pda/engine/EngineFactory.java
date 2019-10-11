@@ -2,7 +2,7 @@ package org.entando.plugins.pda.engine;
 
 import java.util.List;
 import org.entando.plugins.pda.core.engine.Engine;
-import org.entando.plugins.pda.core.exception.EngineNotFoundException;
+import org.entando.plugins.pda.exception.EngineNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

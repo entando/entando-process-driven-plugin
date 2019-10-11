@@ -37,8 +37,7 @@ public class ConnectionServiceUnitTest {
         when(restTemplate.getForObject(anyString(), eq(ConfigServiceConnectionsResponse.class)))
                 .thenReturn(new ConfigServiceConnectionsResponse(ConnectionTestHelper.createConnectionsDto()));
 
-        connectionService = new ConnectionService(engineFactory, "dummyUrl");
-        connectionService.setRestTemplate(restTemplate);
+        connectionService = new ConnectionService(engineFactory, "dummyUrl", restTemplate);
     }
 
     @Test
