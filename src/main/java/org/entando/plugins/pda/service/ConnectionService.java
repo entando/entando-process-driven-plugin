@@ -17,7 +17,6 @@ import org.entando.plugins.pda.exception.ConnectionAlreadyExistsException;
 import org.entando.plugins.pda.exception.ConnectionNotFoundException;
 import org.entando.web.exception.BadRequestException;
 import org.entando.web.exception.HttpException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -28,15 +27,17 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 @Component
 public class ConnectionService {
+
     private final EngineFactory engineFactory;
     private final String configServiceUrl;
-    private RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
     private ConcurrentMap<String, Connection> connections;
 
-    @Autowired
-    public ConnectionService(EngineFactory engineFactory, @Value("${config.url}") String configServiceUrl) {
+    public ConnectionService(EngineFactory engineFactory, @Value("${config.url}") String configServiceUrl,
+            RestTemplate restTemplate) {
         this.engineFactory = engineFactory;
         this.configServiceUrl = configServiceUrl;
+        this.restTemplate = restTemplate;
     }
 
     public List<Connection> list() {
@@ -101,7 +102,7 @@ public class ConnectionService {
     private void loadConfig() {
         try {
             ConfigServiceConnectionsResponse response = Optional.ofNullable(restTemplate.getForObject(configServiceUrl,
-                        ConfigServiceConnectionsResponse.class))
+                    ConfigServiceConnectionsResponse.class))
                     .orElseThrow(BadRequestException::new);
 
             connections = Optional.ofNullable(response.getPayload())
@@ -124,7 +125,7 @@ public class ConnectionService {
     }
 
     private void updateConfig() {
-        Map<String,ConnectionDto> request = connections.entrySet().stream() // NOPMD
+        Map<String, ConnectionDto> request = connections.entrySet().stream() // NOPMD
                 .map(e -> new AbstractMap.SimpleEntry<>(e.getKey(), ConnectionDto.fromModel(e.getValue())))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
@@ -151,9 +152,5 @@ public class ConnectionService {
                 .engine(dto.getEngine())
                 .properties(dto.getProperties())
                 .build();
-    }
-
-    public void setRestTemplate(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
     }
 }
