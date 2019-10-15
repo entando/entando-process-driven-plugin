@@ -18,6 +18,7 @@ import EmptyRow from 'components/common/Table/EmptyRow';
 import InternalTableBody from 'components/common/Table/InternalTableBody';
 import InternalTableHead from 'components/common/Table/InternalTableHead';
 import InternalTablePaginationActions from 'components/common/Table/InternalTablePaginationActions';
+import TaskListSkeleton from 'components/TaskList/TaskListSkeleton';
 
 export const labelDisplayedRows = ({ from, to, count }) =>
   i18next
@@ -80,14 +81,24 @@ class Table extends React.Component {
   };
 
   handleChangeRowsPerPage = event => {
-    this.setState({
-      page: 0,
-      rowsPerPage: event.target.value,
-    });
+    const { lazyLoadingProps } = this.props;
+    const rowsPerPage = event.target.value;
+
+    if (lazyLoadingProps && lazyLoadingProps.onChange) {
+      lazyLoadingProps.onChange(0, rowsPerPage, () => this.setState({ page: 0, rowsPerPage }));
+    } else {
+      this.setState({ page: 0, rowsPerPage });
+    }
   };
 
   handleChangePage = page => {
+    const { lazyLoadingProps } = this.props;
+    const { rowsPerPage } = this.state;
+
     this.setState({ page });
+    if (lazyLoadingProps && lazyLoadingProps.onChange) {
+      lazyLoadingProps.onChange(page, rowsPerPage);
+    }
   };
 
   render() {
@@ -99,19 +110,29 @@ class Table extends React.Component {
       subtitle,
       hidePagination,
       classes,
+      lazyLoadingProps,
+      loading,
     } = this.props;
     const { rowsPerPage, page, sortedColumn, sortOrder, sortFunction } = this.state;
 
-    // Sort the rows
-    const sortedRows = sortFunction ? rows.sort(sortFunction(sortedColumn, sortOrder)) : rows;
-
-    // Slice out the rows for the current page
-    const firstRow = page * rowsPerPage;
-    const lastRow = firstRow + rowsPerPage;
-    const sortedPaginatedRows = hidePagination ? sortedRows : sortedRows.slice(firstRow, lastRow);
+    const isLazy = lazyLoadingProps !== undefined;
     const hasHeader = title || subtitle;
 
-    return (
+    let displayRows = rows;
+
+    if (!isLazy) {
+      // Sort the rows
+      const sortedRows = sortFunction ? rows.sort(sortFunction(sortedColumn, sortOrder)) : rows;
+
+      // Slice out the rows for the current page
+      const firstRow = page * rowsPerPage;
+      const lastRow = firstRow + rowsPerPage;
+      displayRows = hidePagination ? sortedRows : sortedRows.slice(firstRow, lastRow);
+    }
+
+    return loading ? (
+      <TaskListSkeleton rows={rowsPerPage} />
+    ) : (
       <>
         {hasHeader && (
           <Toolbar className={classNames(classes.toolbar, !subtitle && classes.noSubtitleToolbar)}>
@@ -132,11 +153,11 @@ class Table extends React.Component {
               sortedColumn={sortedColumn}
               sortOrder={sortOrder}
             />
-            {sortedPaginatedRows.length ? (
+            {displayRows.length ? (
               <InternalTableBody
                 columns={columns}
-                rows={sortedPaginatedRows}
-                emptyRows={rowsPerPage - sortedPaginatedRows.length}
+                rows={displayRows}
+                emptyRows={rowsPerPage - displayRows.length}
               />
             ) : (
               <EmptyRow colspan={columns.length} height={rowsPerPage * 55} />
@@ -149,9 +170,9 @@ class Table extends React.Component {
               <TableRow>
                 <TablePagination
                   colSpan={columns.length}
-                  count={rows.length}
+                  count={isLazy ? lazyLoadingProps.size : rows.length}
                   rowsPerPage={rowsPerPage}
-                  page={page}
+                  page={isLazy ? lazyLoadingProps.currentPage : page}
                   labelDisplayedRows={labelDisplayedRows}
                   rowsPerPageOptions={rowsPerPageOptions}
                   onChangePage={this.handleChangePage}
@@ -176,6 +197,13 @@ Table.propTypes = {
     hideShadows: PropTypes.string,
     tableWrapper: PropTypes.string,
   }),
+  lazyLoadingProps: PropTypes.shape({
+    currentPage: PropTypes.number,
+    onChange: PropTypes.func,
+    onFilter: PropTypes.func,
+    size: PropTypes.number,
+  }),
+  loading: PropTypes.bool,
   columns: PropTypes.arrayOf(columnType),
   hidePagination: PropTypes.bool,
   /** Prop value is required for sortable tables. */
@@ -189,6 +217,8 @@ Table.propTypes = {
 
 Table.defaultProps = {
   classes: {},
+  loading: false,
+  lazyLoadingProps: undefined,
   rowsPerPageOptions: [5, 10, 15],
   title: '',
   subtitle: '',

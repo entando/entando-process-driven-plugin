@@ -1,11 +1,11 @@
 import { DOMAIN, IS_MOCKED_API, MOCK_API_DELAY } from 'api/constants';
-import tasks from 'mocks/taskList/tasks';
+import getTasks from 'mocks/taskList/api.mock';
 import utils from 'utils';
 
-const get = async connection => {
+const get = async (connection, page, pageSize) => {
   if (IS_MOCKED_API) {
     await utils.timeout(MOCK_API_DELAY);
-    return tasks;
+    return getTasks(page, pageSize);
   }
 
   const url = `${DOMAIN}/connections/${connection}/tasks`;
