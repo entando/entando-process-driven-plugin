@@ -43,14 +43,19 @@ class TaskList extends React.Component {
 
     this.setState({
       loading: false,
-      columns: normalizeColumns(config.columns),
+      columns: normalizeColumns(config.columns, taskList.payload[0]),
       rows: normalizeRows(taskList.payload),
       size: taskList.metadata.size,
       connection: config.connection,
     });
   };
 
-  updateRows = async (page, rowsPerPage = 5, callback = () => {}, sortedColumn, sortedOrder) => {
+  componentDidUpdate = prevProps => {
+    const { async } = this.props;
+    if (prevProps.async !== async) this.updateRows(0);
+  };
+
+  updateRows = async (page, rowsPerPage = 10, callback = () => {}, sortedColumn, sortedOrder) => {
     const { connection } = this.state;
 
     this.setState({ loading: true });

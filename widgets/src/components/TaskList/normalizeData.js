@@ -1,12 +1,25 @@
 import ActionCell from 'components/common/Table/custom/ActionCell';
+import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
 
-export const normalizeColumns = columns => {
+function getType(column, firstRow) {
+  let sortFunction = compareStrings;
+  if (firstRow[column] instanceof Date) {
+    sortFunction = compareDates;
+  } else if (typeof firstRow[column] === 'number') {
+    sortFunction = compareNumbers;
+  }
+
+  return sortFunction;
+}
+
+export const normalizeColumns = (columns, firstRow) => {
   const normalized = columns
     .filter(column => column.visible)
     .map(column => ({
       header: column.header,
       accessor: column.key,
       position: column.position,
+      sortFunction: getType(column, firstRow),
     }));
   // order columns
   normalized.sort((a, b) => (a.position > b.position ? 1 : a.position < b.position ? -1 : 0));

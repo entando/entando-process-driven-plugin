@@ -50,7 +50,7 @@ class IconMenuButton extends React.Component {
             },
           }}
         >
-          {menuItems.map(({ onClick, text }) => (
+          {menuItems.map(({ onClick, text, icon }) => (
             <MenuItem
               onClick={() => {
                 if (onClick) onClick();
@@ -59,7 +59,7 @@ class IconMenuButton extends React.Component {
               key={text}
               dense
             >
-              {text}
+              {icon} {`\u00a0${text}`}
             </MenuItem>
           ))}
         </Menu>

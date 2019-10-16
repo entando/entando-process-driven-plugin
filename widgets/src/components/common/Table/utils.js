@@ -26,8 +26,8 @@ export function compareDates(accessor, sortOrder) {
 
 export function compareStrings(accessor, sortOrder) {
   return (rowA, rowB) => {
-    const stringA = rowA[accessor].toUpperCase();
-    const stringB = rowB[accessor].toUpperCase();
+    const stringA = rowA[accessor] ? rowA[accessor].toUpperCase() : '';
+    const stringB = rowB[accessor] ? rowB[accessor].toUpperCase() : '';
     if (sortOrder === 'asc') {
       if (stringA < stringB) {
         return -1;

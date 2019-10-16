@@ -14,7 +14,7 @@ export default function(page, rowsPerPage, sortedColumn, sortOrder = 'asc', filt
   let sortFunction = compareStrings;
   if (tasks.payload[0][sortedColumn] instanceof Date) {
     sortFunction = compareDates;
-  } else if (tasks.payload[0][sortedColumn] instanceof Number) {
+  } else if (typeof tasks.payload[0][sortedColumn] === 'number') {
     sortFunction = compareNumbers;
   }
 
@@ -25,7 +25,7 @@ export default function(page, rowsPerPage, sortedColumn, sortOrder = 'asc', filt
   // get the desired page
   const firstRow = page * rowsPerPage;
   const lastRow = firstRow + rowsPerPage;
-  displayRows = page && rowsPerPage ? displayRows.slice(firstRow, lastRow) : displayRows;
+  displayRows = Number.isNaN(firstRow) ? displayRows : displayRows.slice(firstRow, lastRow);
 
   return {
     payload: displayRows,

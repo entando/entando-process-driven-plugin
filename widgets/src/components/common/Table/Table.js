@@ -67,25 +67,50 @@ class Table extends React.Component {
   }
 
   createSortHandler = property => () => {
-    const { columns } = this.props;
-    const { sortFunction } = columns.find(column => {
-      return column.accessor === property;
-    });
+    const { columns, lazyLoadingProps } = this.props;
 
-    this.setState(({ sortOrder, sortedColumn }) => ({
-      page: 0,
-      sortedColumn: property,
-      sortFunction,
-      sortOrder: sortedColumn === property ? swapOrder(sortOrder) : 'asc',
-    }));
+    if (lazyLoadingProps && lazyLoadingProps.onChange) {
+      const { sortOrder, sortedColumn, rowsPerPage } = this.state;
+      const newSortOder = sortedColumn === property ? swapOrder(sortOrder) : 'asc';
+      lazyLoadingProps.onChange(
+        0,
+        rowsPerPage,
+        () =>
+          this.setState({
+            page: 0,
+            sortedColumn: property,
+            sortOrder: newSortOder,
+          }),
+        property,
+        newSortOder
+      );
+    } else {
+      const { sortFunction } = columns.find(column => {
+        return column.accessor === property;
+      });
+
+      this.setState(({ sortOrder, sortedColumn }) => ({
+        page: 0,
+        sortedColumn: property,
+        sortFunction,
+        sortOrder: sortedColumn === property ? swapOrder(sortOrder) : 'asc',
+      }));
+    }
   };
 
   handleChangeRowsPerPage = event => {
     const { lazyLoadingProps } = this.props;
+    const { sortedColumn, sortOrder } = this.state;
     const rowsPerPage = event.target.value;
 
     if (lazyLoadingProps && lazyLoadingProps.onChange) {
-      lazyLoadingProps.onChange(0, rowsPerPage, () => this.setState({ page: 0, rowsPerPage }));
+      lazyLoadingProps.onChange(
+        0,
+        rowsPerPage,
+        () => this.setState({ page: 0, rowsPerPage }),
+        sortedColumn,
+        sortOrder
+      );
     } else {
       this.setState({ page: 0, rowsPerPage });
     }
@@ -93,11 +118,11 @@ class Table extends React.Component {
 
   handleChangePage = page => {
     const { lazyLoadingProps } = this.props;
-    const { rowsPerPage } = this.state;
+    const { rowsPerPage, sortedColumn, sortOrder } = this.state;
 
     this.setState({ page });
     if (lazyLoadingProps && lazyLoadingProps.onChange) {
-      lazyLoadingProps.onChange(page, rowsPerPage);
+      lazyLoadingProps.onChange(page, rowsPerPage, undefined, sortedColumn, sortOrder);
     }
   };
 
