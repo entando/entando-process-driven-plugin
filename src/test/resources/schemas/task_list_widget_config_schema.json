@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Task List Widget Config",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "pageId": {
+      "type": "string"
+    },
+    "frameId": {
+      "type": "string"
+    },
+    "connection": {
+      "type": "string"
+    },
+    "processInstanceId": {
+      "type": "string"
+    },
+    "newPageOnClick": {
+      "type": "boolean"
+    },
+    "showClaimButton": {
+      "type": "boolean"
+    },
+    "showCompleteButton": {
+      "type": "boolean"
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/WidgetTableColumn"
+      }
+    }
+  },
+  "definitions": {
+    "WidgetTableColumn": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "header": {
+          "type": "string"
+        },
+        "position": {
+          "type": "integer"
+        },
+        "visible": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
