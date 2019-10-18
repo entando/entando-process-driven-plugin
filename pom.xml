@@ -91,6 +91,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.entando</groupId>
             <artifactId>web-commons</artifactId>
             <version>${entando.commons.version}</version>
@@ -103,8 +108,8 @@
 
         <dependency>
             <groupId>org.entando</groupId>
-            <artifactId>config-connector</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <artifactId>connection-config-connector</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>

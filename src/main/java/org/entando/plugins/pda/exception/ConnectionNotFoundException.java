@@ -4,8 +4,9 @@ import org.entando.web.exception.NotFoundException;
 
 public class ConnectionNotFoundException extends NotFoundException {
 
-    public ConnectionNotFoundException() {
-        super("org.entando.error.connection.notFound");
-    }
+    public static final String MESSAGE_KEY = "org.entando.error.connection.notFound";
 
+    public ConnectionNotFoundException() {
+        super(MESSAGE_KEY);
+    }
 }

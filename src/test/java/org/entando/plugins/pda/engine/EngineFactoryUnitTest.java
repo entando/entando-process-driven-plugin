@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class EngineFactoryUnitTest {
+
     private EngineFactory engineFactory;
 
     @Before
@@ -17,8 +18,7 @@ public class EngineFactoryUnitTest {
         List<Engine> availableEngines = new ArrayList<>();
         availableEngines.add(new FakeEngine(null));
 
-        engineFactory = new EngineFactory();
-        engineFactory.setAvailableEngines(availableEngines);
+        engineFactory = new EngineFactory(availableEngines);
     }
 
     @Test

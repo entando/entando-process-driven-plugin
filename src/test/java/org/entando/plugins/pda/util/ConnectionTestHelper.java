@@ -1,91 +1,63 @@
 package org.entando.plugins.pda.util;
 
-import java.util.AbstractMap;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 import lombok.experimental.UtilityClass;
-import org.entando.plugins.pda.core.engine.Connection;
+import org.apache.commons.lang.RandomStringUtils;
+import org.entando.connectionconfigconnector.model.ConnectionConfig;
+import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
+import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 
 @UtilityClass
 public class ConnectionTestHelper {
-    public static final String CONNECTION_NAME_1 = "production";
-    public static final String CONNECTION_HOST_1 = "myurl";
-    public static final String CONNECTION_PORT_1 = "80";
-    public static final String CONNECTION_SCHEMA_1 = "https";
-    public static final Integer CONNECTION_TIMEOUT_1 = 60000;
-    public static final String CONNECTION_ENGINE_1 = "fake";
-    public static final String CONNECTION_USERNAME_1 = "pam";
-    public static final String CONNECTION_PASSWORD_1 = "productionPassword";
 
-    public static final String CONNECTION_NAME_2 = "staging";
-    public static final String CONNECTION_HOST_2 = "localhost";
-    public static final String CONNECTION_PORT_2 = "8080";
-    public static final String CONNECTION_SCHEMA_2 = "http";
-    public static final Integer CONNECTION_TIMEOUT_2 = 30000;
-    public static final String CONNECTION_ENGINE_2 = "fake";
-    public static final String CONNECTION_USERNAME_2 = "pam";
-    public static final String CONNECTION_PASSWORD_2 = "stagingPassword";
-
-    public static final String CONNECTION_NAME_3 = "newConn";
-    public static final String CONNECTION_HOST_3 = "myhost";
-    public static final String CONNECTION_PORT_3 = "8081";
-    public static final String CONNECTION_SCHEMA_3 = "https";
-    public static final Integer CONNECTION_TIMEOUT_3 = 45000;
-    public static final String CONNECTION_ENGINE_3 = "fakeEngine";
-    public static final String CONNECTION_USERNAME_3 = "editedusername";
-    public static final String CONNECTION_PASSWORD_3 = "editedpassword";
-
-    public List<Connection> createConnections() {
-        List<Connection> result = new ArrayList<>();
-
-        result.add(Connection.builder()
-                .name(CONNECTION_NAME_1)
-                .host(CONNECTION_HOST_1)
-                .port(CONNECTION_PORT_1)
-                .schema(CONNECTION_SCHEMA_1)
-                .connectionTimeout(CONNECTION_TIMEOUT_1)
-                .engine(CONNECTION_ENGINE_1)
-                .username(CONNECTION_USERNAME_1)
-                .password(CONNECTION_PASSWORD_1)
-                .build());
-
-        result.add(Connection.builder()
-                .name(CONNECTION_NAME_2)
-                .host(CONNECTION_HOST_2)
-                .port(CONNECTION_PORT_2)
-                .schema(CONNECTION_SCHEMA_2)
-                .connectionTimeout(CONNECTION_TIMEOUT_2)
-                .engine(CONNECTION_ENGINE_2)
-                .username(CONNECTION_USERNAME_2)
-                .password(CONNECTION_PASSWORD_2)
-                .build());
-
-        return result;
+    public List<ConnectionConfig> generateConnectionConfigs(ConnectionConfigConnector configConnector) {
+        ConnectionConfig config1 = generateConnectionConfig();
+        ConnectionConfig config2 = generateConnectionConfig();
+        ConnectionConfig config3 = generateConnectionConfig();
+        configConnector.addConnectionConfig(config1);
+        configConnector.addConnectionConfig(config2);
+        configConnector.addConnectionConfig(config3);
+        return Arrays.asList(config1, config2, config3);
     }
 
-    public Connection createConnection() {
-        return Connection.builder()
-                .name(CONNECTION_NAME_3)
-                .host(CONNECTION_HOST_3)
-                .port(CONNECTION_PORT_3)
-                .schema(CONNECTION_SCHEMA_3)
-                .connectionTimeout(CONNECTION_TIMEOUT_3)
-                .engine(CONNECTION_ENGINE_3)
-                .username(CONNECTION_USERNAME_3)
-                .password(CONNECTION_PASSWORD_3)
+    public List<ConnectionConfig> generateConnectionConfigs() {
+        ConnectionConfig config1 = generateConnectionConfig();
+        ConnectionConfig config2 = generateConnectionConfig();
+        ConnectionConfig config3 = generateConnectionConfig();
+        return Arrays.asList(config1, config2, config3);
+    }
+
+    public ConnectionDto generateConnectionDto() {
+        return ConnectionDto.builder()
+                .connectionTimeout(Integer.valueOf(RandomStringUtils.randomNumeric(5)))
+                .engine("fake")
+                .host(RandomStringUtils.randomAlphabetic(10))
+                .name(RandomStringUtils.randomAlphabetic(10))
+                .password(RandomStringUtils.randomAlphabetic(10))
+                .port(RandomStringUtils.randomNumeric(5))
+                .schema(RandomStringUtils.randomAlphabetic(10))
+                .username(RandomStringUtils.randomAlphabetic(10))
+                .app(RandomStringUtils.randomAlphabetic(10))
                 .build();
     }
 
-    public Map<String, ConnectionDto> createConnectionsDto() {
-        return createConnections().stream()
-            .map(c -> new AbstractMap.SimpleEntry<>(c.getName(), ConnectionDto.fromModel(c)))
-            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-    }
-
-    public ConnectionDto createConnectionDto() {
-        return ConnectionDto.fromModel(createConnection());
+    public ConnectionConfig generateConnectionConfig() {
+        ConnectionConfig connectionConfig = ConnectionConfig.builder()
+                .name(RandomStringUtils.randomAlphanumeric(30))
+                .properties(new HashMap<>())
+                .password(RandomStringUtils.randomAlphabetic(30))
+                .username(RandomStringUtils.randomAlphabetic(30))
+                .build();
+        connectionConfig.getProperties().put(ConnectionConfigMapper.ENGINE_KEY, "fake");
+        connectionConfig.getProperties().put(ConnectionConfigMapper.APP_KEY, RandomStringUtils.randomAlphabetic(10));
+        connectionConfig.getProperties()
+                .put(ConnectionConfigMapper.CONNECTION_TIMEOUT, RandomStringUtils.randomNumeric(5));
+        connectionConfig.getProperties().put(ConnectionConfigMapper.HOST, RandomStringUtils.randomAlphabetic(15));
+        connectionConfig.getProperties().put(ConnectionConfigMapper.PORT, RandomStringUtils.randomNumeric(5));
+        connectionConfig.getProperties().put(ConnectionConfigMapper.SCHEMA, RandomStringUtils.randomAlphabetic(5));
+        return connectionConfig;
     }
 }
