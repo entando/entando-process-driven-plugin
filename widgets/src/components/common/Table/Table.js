@@ -63,6 +63,7 @@ class Table extends React.Component {
           return column.accessor === props.initialSortedColumn;
         }).sortFunction,
       sortOrder: props.initialSortOrder,
+      filter: '',
     };
   }
 
@@ -70,19 +71,14 @@ class Table extends React.Component {
     const { columns, lazyLoadingProps } = this.props;
 
     if (lazyLoadingProps && lazyLoadingProps.onChange) {
-      const { sortOrder, sortedColumn, rowsPerPage } = this.state;
+      const { sortOrder, sortedColumn, rowsPerPage, filter } = this.state;
       const newSortOder = sortedColumn === property ? swapOrder(sortOrder) : 'asc';
-      lazyLoadingProps.onChange(
-        0,
-        rowsPerPage,
-        () =>
-          this.setState({
-            page: 0,
-            sortedColumn: property,
-            sortOrder: newSortOder,
-          }),
-        property,
-        newSortOder
+      lazyLoadingProps.onChange(0, rowsPerPage, property, newSortOder, filter, () =>
+        this.setState({
+          page: 0,
+          sortedColumn: property,
+          sortOrder: newSortOder,
+        })
       );
     } else {
       const { sortFunction } = columns.find(column => {
@@ -100,16 +96,12 @@ class Table extends React.Component {
 
   handleChangeRowsPerPage = event => {
     const { lazyLoadingProps } = this.props;
-    const { sortedColumn, sortOrder } = this.state;
+    const { sortedColumn, sortOrder, filter } = this.state;
     const rowsPerPage = event.target.value;
 
     if (lazyLoadingProps && lazyLoadingProps.onChange) {
-      lazyLoadingProps.onChange(
-        0,
-        rowsPerPage,
-        () => this.setState({ page: 0, rowsPerPage }),
-        sortedColumn,
-        sortOrder
+      lazyLoadingProps.onChange(0, rowsPerPage, sortedColumn, sortOrder, filter, () =>
+        this.setState({ page: 0, rowsPerPage })
       );
     } else {
       this.setState({ page: 0, rowsPerPage });
@@ -118,11 +110,30 @@ class Table extends React.Component {
 
   handleChangePage = page => {
     const { lazyLoadingProps } = this.props;
-    const { rowsPerPage, sortedColumn, sortOrder } = this.state;
+    const { rowsPerPage, sortedColumn, sortOrder, filter } = this.state;
 
     this.setState({ page });
     if (lazyLoadingProps && lazyLoadingProps.onChange) {
-      lazyLoadingProps.onChange(page, rowsPerPage, undefined, sortedColumn, sortOrder);
+      lazyLoadingProps.onChange(page, rowsPerPage, sortedColumn, sortOrder, filter);
+    }
+  };
+
+  handleChangeFilter = event => {
+    const { lazyLoadingProps } = this.props;
+    const { rowsPerPage, sortedColumn, sortOrder } = this.state;
+    const filter = event.target.value;
+
+    this.setState({ filter });
+    if (lazyLoadingProps && lazyLoadingProps.onChange) {
+      lazyLoadingProps.onChange(
+        0,
+        rowsPerPage,
+        sortedColumn,
+        sortOrder,
+        filter,
+        () => this.setState({ page: 0, filter }),
+        true
+      );
     }
   };
 
@@ -138,21 +149,45 @@ class Table extends React.Component {
       lazyLoadingProps,
       loading,
     } = this.props;
-    const { rowsPerPage, page, sortedColumn, sortOrder, sortFunction } = this.state;
+    const { rowsPerPage, page, sortedColumn, sortOrder, sortFunction, filter } = this.state;
 
     const isLazy = lazyLoadingProps !== undefined;
     const hasHeader = title || subtitle;
 
     let displayRows = rows;
+    let rowsSize = rows.length;
 
     if (!isLazy) {
+      // filter rows
+      if (filter) {
+        displayRows = [];
+        rows.forEach(row => {
+          const keys = Object.keys(row);
+          for (let i = 0; i < keys.length; i += 1) {
+            if (
+              row[keys[i]] &&
+              row[keys[i]]
+                .toString()
+                .toUpperCase()
+                .includes(filter.toUpperCase())
+            ) {
+              displayRows.push(row);
+              break;
+            }
+          }
+        });
+        rowsSize = displayRows.length;
+      }
+
       // Sort the rows
-      const sortedRows = sortFunction ? rows.sort(sortFunction(sortedColumn, sortOrder)) : rows;
+      displayRows = sortFunction
+        ? displayRows.sort(sortFunction(sortedColumn, sortOrder))
+        : displayRows;
 
       // Slice out the rows for the current page
       const firstRow = page * rowsPerPage;
       const lastRow = firstRow + rowsPerPage;
-      displayRows = hidePagination ? sortedRows : sortedRows.slice(firstRow, lastRow);
+      displayRows = hidePagination ? displayRows : displayRows.slice(firstRow, lastRow);
     }
 
     return loading ? (
@@ -166,7 +201,7 @@ class Table extends React.Component {
               <Typography variant="subtitle2">{subtitle}</Typography>
             </div>
             <div>
-              <SearchInput />
+              <SearchInput value={filter} onChange={this.handleChangeFilter} />
             </div>
           </Toolbar>
         )}
@@ -195,7 +230,7 @@ class Table extends React.Component {
               <TableRow>
                 <TablePagination
                   colSpan={columns.length}
-                  count={isLazy ? lazyLoadingProps.size : rows.length}
+                  count={isLazy ? lazyLoadingProps.size : rowsSize}
                   rowsPerPage={rowsPerPage}
                   page={isLazy ? lazyLoadingProps.currentPage : page}
                   labelDisplayedRows={labelDisplayedRows}

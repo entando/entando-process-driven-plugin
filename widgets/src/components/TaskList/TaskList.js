@@ -7,6 +7,7 @@ import withStyles from '@material-ui/styles/withStyles';
 
 import configApi from 'api/config';
 import taskListApi from 'api/taskList';
+import utils from 'utils';
 
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
 import Table from 'components/common/Table/Table';
@@ -28,6 +29,8 @@ class TaskList extends React.Component {
     currentPage: 0,
     connection: {},
   };
+
+  timer = { ref: null };
 
   componentDidMount = async () => {
     const { async } = this.props;
@@ -55,11 +58,31 @@ class TaskList extends React.Component {
     if (prevProps.async !== async) this.updateRows(0);
   };
 
-  updateRows = async (page, rowsPerPage = 10, callback = () => {}, sortedColumn, sortedOrder) => {
+  updateRows = async (
+    page,
+    rowsPerPage = 10,
+    sortedColumn,
+    sortedOrder,
+    filter,
+    callback = () => {},
+    withDelay
+  ) => {
     const { connection } = this.state;
 
+    if (withDelay) {
+      clearTimeout(this.timer.ref);
+      await utils.timeout(800, this.timer);
+    }
+
     this.setState({ loading: true });
-    const res = await taskListApi.get(connection, page, rowsPerPage, sortedColumn, sortedOrder);
+    const res = await taskListApi.get(
+      connection,
+      page,
+      rowsPerPage,
+      sortedColumn,
+      sortedOrder,
+      filter
+    );
 
     this.setState({
       rows: normalizeRows(res.payload),

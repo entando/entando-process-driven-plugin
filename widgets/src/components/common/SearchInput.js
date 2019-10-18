@@ -21,9 +21,14 @@ const styles = {
   },
 };
 
-const SearchInput = ({ classes }) => (
+const SearchInput = ({ classes, onChange, value }) => (
   <div className={classes.root}>
-    <InputBase className={classes.input} placeholder="Search..." />
+    <InputBase
+      className={classes.input}
+      placeholder="Search..."
+      value={value}
+      onChange={onChange}
+    />
     <IconButton className={classes.iconButton} aria-label="search">
       <SearchIcon />
     </IconButton>
@@ -36,10 +41,13 @@ SearchInput.propTypes = {
     input: PropTypes.string,
     iconButton: PropTypes.string,
   }),
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
 };
 
 SearchInput.defaultProps = {
   classes: {},
+  value: '',
 };
 
 export default withStyles(styles)(SearchInput);

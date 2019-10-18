@@ -4,7 +4,7 @@ export const JWT_TOKEN = process.env.REACT_APP_JWT_TOKEN;
 
 export const IS_MOCKED_API = process.env.MOCKED_API || true;
 
-export const MOCK_API_DELAY = 1500;
+export const MOCK_API_DELAY = 800;
 
 export const WIDGET_CODES = {
   taskList: 'taskListWidget',

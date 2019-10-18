@@ -1,4 +1,7 @@
-const timeout = async ms => new Promise(resolve => setTimeout(resolve, ms));
+const timeout = async (ms, timer = {}) =>
+  new Promise(resolve => {
+    timer.ref = setTimeout(resolve, ms);
+  });
 
 export default {
   timeout,

@@ -1,13 +1,29 @@
 import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
 import tasks from './tasks.json';
 
-export default function(page, rowsPerPage, sortedColumn, sortOrder = 'asc', filterColumn, filter) {
+export default function(page, rowsPerPage, sortedColumn, sortOrder = 'asc', filter) {
   let displayRows = tasks.payload;
+  let size = displayRows.length;
   // apply filter
-  if (filterColumn && filter) {
-    displayRows = tasks.payload.find(row =>
-      row[filterColumn].toUpperCase().includes(filter.toUpperCase())
-    );
+  if (filter) {
+    displayRows = [];
+    tasks.payload.forEach(row => {
+      const keys = Object.keys(row);
+      for (let i = 0; i < keys.length; i += 1) {
+        if (
+          row[keys[i]] !== undefined &&
+          row[keys[i]] !== null &&
+          row[keys[i]]
+            .toString()
+            .toUpperCase()
+            .includes(filter.toUpperCase())
+        ) {
+          displayRows.push(row);
+          break;
+        }
+      }
+    });
+    size = displayRows.length;
   }
 
   // apply sorting
@@ -30,7 +46,7 @@ export default function(page, rowsPerPage, sortedColumn, sortOrder = 'asc', filt
   return {
     payload: displayRows,
     metadata: {
-      size: tasks.payload.length,
+      size,
     },
   };
 }
