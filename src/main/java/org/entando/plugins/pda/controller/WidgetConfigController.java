@@ -26,7 +26,8 @@ public class WidgetConfigController {
     private final @NonNull WidgetConfigService widgetConfigService;
 
     @Secured(WIDGET_CONFIG_SCHEMA)
-    @ApiOperation(notes = "Gets a widget config schema", nickname = "getWidgetConfigSchema", value = "GET WidgetConfigSchema")
+    @ApiOperation(notes = "Gets a widget config schema", nickname = "getWidgetConfigSchema",
+            value = "GET WidgetConfigSchema")
     @GetMapping(path = "/schema/{schemaType}", produces = { APPLICATION_JSON_VALUE })
     public JsonNode getSchema(@PathVariable String schemaType) {
         log.info("Requesting widget config schema {}", schemaType);

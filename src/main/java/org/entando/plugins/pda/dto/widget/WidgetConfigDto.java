@@ -22,7 +22,7 @@ public class WidgetConfigDto {
     private String connection;
 
     @JsonAnySetter
-    private Map<String,Object> extraProperties = new HashMap<>();
+    private Map<String,Object> extraProperties = new HashMap<>(); //NOPMD
 
     @JsonAnyGetter
     public Map<String,Object> getExtraProperties() {
