@@ -6,8 +6,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
+import org.entando.connectionconfigconnector.exception.ConnectionAlreadyExistsException;
+import org.entando.connectionconfigconnector.exception.ConnectionNotFoundException;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
 import org.entando.connectionconfigconnector.service.impl.InMemoryConnectionConfigConnector;
@@ -15,7 +16,6 @@ import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
-import org.entando.plugins.pda.exception.ConnectionNotFoundException;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
@@ -94,9 +94,8 @@ public class ConnectionServiceUnitTest {
         // Then
         assertThat(connectionConfigConnector.getConnectionConfigs().size()).isEqualTo(originalSize + 1);
         assertThat(created).isEqualTo(ConnectionConfigMapper.fromDto(connectionDto));
-        Optional<ConnectionConfig> retrieved = connectionConfigConnector.getConnectionConfig(connectionDto.getName());
-        assertThat(retrieved.isPresent()).isTrue();
-        assertThatIsEqual(created, retrieved.get());
+        ConnectionConfig retrieved = connectionConfigConnector.getConnectionConfig(connectionDto.getName());
+        assertThatIsEqual(created, retrieved);
     }
 
     @Test
@@ -110,9 +109,8 @@ public class ConnectionServiceUnitTest {
         Connection edited = connectionService.edit(connectionDto.getName(), connectionDto);
 
         assertThat(edited).isEqualTo(ConnectionConfigMapper.fromDto(connectionDto));
-        Optional<ConnectionConfig> retrieved = connectionConfigConnector.getConnectionConfig(connectionDto.getName());
-        assertThat(retrieved.isPresent()).isTrue();
-        assertThatIsEqual(edited, retrieved.get());
+        ConnectionConfig retrieved = connectionConfigConnector.getConnectionConfig(connectionDto.getName());
+        assertThatIsEqual(edited, retrieved);
     }
 
     @Test
@@ -125,7 +123,6 @@ public class ConnectionServiceUnitTest {
         connectionService.delete(config1.getName());
 
         assertThat(connectionConfigConnector.getConnectionConfigs().size()).isEqualTo(originalSize - 1);
-        assertThat(connectionConfigConnector.getConnectionConfig(config1.getName())).isEmpty();
     }
 
     @Test
@@ -143,6 +140,16 @@ public class ConnectionServiceUnitTest {
         expectedException.expectMessage(ConnectionNotFoundException.MESSAGE_KEY);
 
         connectionService.delete(UUID.randomUUID().toString());
+    }
+
+    @Test
+    public void shouldThrowConnectionAlreadyExistsExceptionWhenAddingDuplicate() {
+        expectedException.expect(ConnectionAlreadyExistsException.class);
+        expectedException.expectMessage(ConnectionAlreadyExistsException.MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionService.create(connectionDto);
+        connectionService.create(connectionDto);
     }
 
     private void assertThatIsEqual(Connection connection, ConnectionConfig config1) {

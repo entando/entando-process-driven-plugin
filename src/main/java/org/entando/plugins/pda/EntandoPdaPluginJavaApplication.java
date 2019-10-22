@@ -1,10 +1,14 @@
 package org.entando.plugins.pda;
 
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
+import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
+import org.entando.connectionconfigconnector.service.impl.InMemoryConnectionConfigConnector;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
 @ComponentScan("org.entando")
@@ -14,5 +18,11 @@ public class EntandoPdaPluginJavaApplication {
 
     public static void main(final String[] args) {
         SpringApplication.run(EntandoPdaPluginJavaApplication.class, args);
+    }
+
+    @Bean
+    @Profile("dev")
+    public ConnectionConfigConnector connectionConfigConnector() {
+        return new InMemoryConnectionConfigConnector();
     }
 }

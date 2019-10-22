@@ -1,5 +1,6 @@
 package org.entando.plugins.pda.controller;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
@@ -142,10 +143,6 @@ public class ConnectionsControllerIntegrationTest {
         ConnectionConfig connectionConfig = ConnectionConfigMapper.fromConnection(connection);
         connectionConfig.setPassword(null);
         mockRestServiceServer.expect(ExpectedCount.once(),
-                requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config/" + connectionDto.getName()))
-                .andExpect(method(HttpMethod.GET))
-                .andRespond(withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
-        mockRestServiceServer.expect(ExpectedCount.once(),
                 requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config"))
                 .andExpect(method(HttpMethod.PUT))
                 .andExpect(content().json(mapper.writeValueAsString(connectionConfig)))
@@ -173,11 +170,6 @@ public class ConnectionsControllerIntegrationTest {
     public void shouldDeleteConnection() throws Exception {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
         Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
-        ConnectionConfig connectionConfig = ConnectionConfigMapper.fromConnection(connection);
-        mockRestServiceServer.expect(ExpectedCount.once(),
-                requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config/" + connectionDto.getName()))
-                .andExpect(method(HttpMethod.GET))
-                .andRespond(withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
         mockRestServiceServer.expect(ExpectedCount.once(),
                 requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config/" + connectionDto.getName()))
                 .andExpect(method(HttpMethod.DELETE))
@@ -196,5 +188,20 @@ public class ConnectionsControllerIntegrationTest {
         mockMvc.perform(post("/connections").contentType(ContentType.APPLICATION_JSON.getMimeType())
                 .content(mapper.writeValueAsString(connectionDto)))
                 .andDo(print()).andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void shouldHandleConflictErrorWhenAdding() throws Exception {
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+
+        mockRestServiceServer
+                .expect(requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config"))
+                .andExpect(method(HttpMethod.POST))
+                .andRespond(withStatus(HttpStatus.CONFLICT));
+
+        mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(connectionDto)))
+                .andDo(print()).andExpect(status().isConflict())
+                .andExpect(jsonPath("$.message", containsString("already exists")));
     }
 }

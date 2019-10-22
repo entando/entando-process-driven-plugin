@@ -1,7 +1,6 @@
 package org.entando.plugins.pda.service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
@@ -9,7 +8,6 @@ import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
-import org.entando.plugins.pda.exception.ConnectionNotFoundException;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 import org.springframework.stereotype.Component;
 
@@ -32,24 +30,15 @@ public class ConnectionService {
     }
 
     public Connection get(String id) {
-        ConnectionConfig connectionConfig = connectionConfigConnector.getConnectionConfig(id)
-                .orElseThrow(ConnectionNotFoundException::new);
+        ConnectionConfig connectionConfig = connectionConfigConnector.getConnectionConfig(id);
         return ConnectionConfigMapper.fromConnectionConfig(connectionConfig);
     }
 
     public void delete(String id) {
-        Optional<ConnectionConfig> retrived = connectionConfigConnector.getConnectionConfig(id);
-        if (!retrived.isPresent()) {
-            throw new ConnectionNotFoundException();
-        }
         connectionConfigConnector.deleteConnectionConfig(id);
     }
 
     public Connection edit(String id, ConnectionDto request) {
-        Optional<ConnectionConfig> retrived = connectionConfigConnector.getConnectionConfig(request.getName());
-        if (!retrived.isPresent()) {
-            throw new ConnectionNotFoundException();
-        }
         Connection connection = fromConnectionDto(request);
         connectionConfigConnector.editConnectionConfig(ConnectionConfigMapper.fromConnection(connection));
         return connection;
