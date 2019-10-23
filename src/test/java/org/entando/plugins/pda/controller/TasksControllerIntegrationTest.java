@@ -11,20 +11,27 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
+import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.core.service.task.FakeTaskService;
+import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.RestTemplate;
@@ -33,22 +40,28 @@ import org.springframework.web.client.RestTemplate;
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class})
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = TestConnectionConfigConfiguration.class, webEnvironment = WebEnvironment.RANDOM_PORT,
+        properties = "entando.plugin.security.level=LENIENT")
 public class TasksControllerIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
-    private RestTemplate restTemplate;
+    @Qualifier(ConnectionConfigConfiguration.CONFIG_REST_TEMPLATE)
+    private RestTemplate configRestTemplate;
+
+    private ObjectMapper mapper = new ObjectMapper();
 
     @Before
-    public void setup() {
-        MockRestServiceServer mockServer = MockRestServiceServer.createServer(restTemplate);
-        mockServer.expect(requestTo(containsString("/config/entando-process-driven-plugin")))
+    public void setup() throws IOException {
+        ConnectionConfig connectionConfig = ConnectionTestHelper.generateConnectionConfig();
+        MockRestServiceServer mockServer = MockRestServiceServer.createServer(configRestTemplate);
+        mockServer.expect(ExpectedCount.manyTimes(), requestTo(
+                containsString(TestConnectionConfigConfiguration.URL_PREFIX + "/config/fakeProduction")))
                 .andExpect(method(HttpMethod.GET))
                 .andRespond(
-                        withSuccess(new ClassPathResource("mock_connection_configs.json"), MediaType.APPLICATION_JSON));
+                        withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
     }
 
     @Test
