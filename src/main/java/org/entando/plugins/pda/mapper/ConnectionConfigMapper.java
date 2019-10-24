@@ -15,12 +15,12 @@ public class ConnectionConfigMapper {
     public static final String HOST = "host";
     public static final String PORT = "port";
     public static final String SCHEMA = "schema";
+    public static final String USERNAME = "username";
+    public static final String PASSWORD = "password";
 
     public ConnectionConfig fromConnection(Connection connection) {
         ConnectionConfig connectionConfig = ConnectionConfig.builder()
                 .name(connection.getName())
-                .username(connection.getUsername())
-                .password(connection.getPassword())
                 .properties(new HashMap<>())
                 .build();
         connectionConfig.getProperties().put(ENGINE_KEY, connection.getEngine());
@@ -29,14 +29,16 @@ public class ConnectionConfigMapper {
         connectionConfig.getProperties().put(HOST, connection.getHost());
         connectionConfig.getProperties().put(PORT, connection.getPort());
         connectionConfig.getProperties().put(SCHEMA, connection.getSchema());
+        connectionConfig.getProperties().put(USERNAME, connection.getUsername());
+        connectionConfig.getProperties().put(PASSWORD, connection.getPassword());
         return connectionConfig;
     }
 
     public Connection fromConnectionConfig(ConnectionConfig connectionConfig) {
         return Connection.builder()
                 .name(connectionConfig.getName())
-                .username(connectionConfig.getUsername())
-                .password(connectionConfig.getPassword())
+                .username(connectionConfig.getProperties().get(USERNAME))
+                .password(connectionConfig.getProperties().get(PASSWORD))
                 .engine(connectionConfig.getProperties().get(ENGINE_KEY))
                 .app(connectionConfig.getProperties().get(APP_KEY))
                 .connectionTimeout(Integer.valueOf(connectionConfig.getProperties().get(CONNECTION_TIMEOUT)))

@@ -159,9 +159,9 @@ public class ConnectionServiceUnitTest {
         assertThat(connection.getConnectionTimeout())
                 .isEqualTo(Integer.valueOf(config1.getProperties().get(ConnectionConfigMapper.CONNECTION_TIMEOUT)));
         assertThat(connection.getHost()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.HOST));
-        assertThat(connection.getPassword()).isEqualTo(config1.getPassword());
+        assertThat(connection.getPassword()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.PASSWORD));
         assertThat(connection.getPort()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.PORT));
         assertThat(connection.getSchema()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.SCHEMA));
-        assertThat(connection.getUsername()).isEqualTo(config1.getUsername());
+        assertThat(connection.getUsername()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.USERNAME));
     }
 }
