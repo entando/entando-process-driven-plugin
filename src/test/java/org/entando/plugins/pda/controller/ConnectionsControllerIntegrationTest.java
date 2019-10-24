@@ -149,7 +149,7 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(content().json(mapper.writeValueAsString(connectionConfig)))
                 .andRespond(withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
 
-        mockMvc.perform(put("/connections/" + connectionDto.getName())
+        mockMvc.perform(put("/connections")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connectionDto)))
                 .andDo(print()).andExpect(status().isOk())

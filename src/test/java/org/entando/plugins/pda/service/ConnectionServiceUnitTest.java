@@ -106,7 +106,7 @@ public class ConnectionServiceUnitTest {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
         connectionDto.setName(config1.getName());
 
-        Connection edited = connectionService.edit(connectionDto.getName(), connectionDto);
+        Connection edited = connectionService.edit(connectionDto);
 
         assertThat(edited).isEqualTo(ConnectionConfigMapper.fromDto(connectionDto));
         ConnectionConfig retrieved = connectionConfigConnector.getConnectionConfig(connectionDto.getName());
@@ -130,8 +130,8 @@ public class ConnectionServiceUnitTest {
         expectedException.expect(ConnectionNotFoundException.class);
         expectedException.expectMessage(ConnectionNotFoundException.MESSAGE_KEY);
 
-        ConnectionDto request = ConnectionTestHelper.generateConnectionDto();
-        connectionService.edit("invalid", request);
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionService.edit(connectionDto);
     }
 
     @Test
