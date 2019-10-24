@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const [open, setOpen] = React.useState(false);
-  const [async, setAsync] = React.useState(false);
+  const [lazyLoading, setLazyLoading] = React.useState(false);
   const classes = useStyles();
 
   return (
@@ -54,8 +54,10 @@ function App() {
               Entando - PAM Plugin
             </Typography>
             <FormControlLabel
-              control={<Checkbox checked={async} onChange={() => setAsync(!async)} />}
-              label="Async"
+              control={
+                <Checkbox checked={lazyLoading} onChange={() => setLazyLoading(!lazyLoading)} />
+              }
+              label="Lazy Loading"
               labelPlacement="start"
             />
           </Toolbar>
@@ -65,7 +67,7 @@ function App() {
 
         <Container className="app-container">
           <Route path="/" exact component={Home} />
-          <Route path="/TaskList/" render={() => <TaskList async={async} />} />
+          <Route path="/TaskList/" render={() => <TaskList lazyLoading={lazyLoading} />} />
         </Container>
       </Router>
     </div>

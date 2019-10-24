@@ -33,13 +33,13 @@ class TaskList extends React.Component {
   timer = { ref: null };
 
   componentDidMount = async () => {
-    const { async } = this.props;
+    const { lazyLoading } = this.props;
     const { currentPage } = this.state;
 
     const config = await configApi.get();
     console.log(config);
 
-    const taskList = async
+    const taskList = lazyLoading
       ? await taskListApi.get(config.connection, currentPage, 10)
       : await taskListApi.get(config.connection);
     console.log(taskList);
@@ -54,8 +54,10 @@ class TaskList extends React.Component {
   };
 
   componentDidUpdate = prevProps => {
-    const { async } = this.props;
-    if (prevProps.async !== async) this.updateRows(0);
+    const { lazyLoading } = this.props;
+    if (prevProps.lazyLoading !== lazyLoading) {
+      this.updateRows(lazyLoading ? 0 : undefined);
+    }
   };
 
   updateRows = async (
@@ -95,10 +97,10 @@ class TaskList extends React.Component {
 
   render() {
     const { loading, columns, rows, currentPage, size } = this.state;
-    const { classes, async } = this.props;
+    const { classes, lazyLoading } = this.props;
 
     let lazyLoadingProps;
-    if (async) {
+    if (lazyLoading) {
       lazyLoadingProps = {
         currentPage,
         onChange: this.updateRows,
@@ -128,12 +130,12 @@ TaskList.propTypes = {
   classes: PropTypes.shape({
     paper: PropTypes.string,
   }),
-  async: PropTypes.bool,
+  lazyLoading: PropTypes.bool,
 };
 
 TaskList.defaultProps = {
   classes: {},
-  async: false,
+  lazyLoading: false,
 };
 
 export default withStyles(styles)(TaskList);

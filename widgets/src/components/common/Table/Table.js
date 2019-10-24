@@ -260,7 +260,6 @@ Table.propTypes = {
   lazyLoadingProps: PropTypes.shape({
     currentPage: PropTypes.number,
     onChange: PropTypes.func,
-    onFilter: PropTypes.func,
     size: PropTypes.number,
   }),
   loading: PropTypes.bool,
