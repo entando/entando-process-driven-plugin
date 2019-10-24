@@ -6,12 +6,12 @@ exports[`<InternalTableCell /> renders snapshot correctly for a custom cell 1`] 
     <tbody>
       <tr>
         <td
-          class="MuiTableCell-root"
-          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center;"
+          class="MuiTableCell-root MuiTableCell-sizeSmall"
+          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
         >
           <button
             aria-haspopup="true"
-            class="MuiButtonBase-root MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
             tabindex="0"
             type="button"
           >
@@ -47,7 +47,8 @@ exports[`<InternalTableCell /> renders snapshot correctly for a data cell 1`] = 
     <tbody>
       <tr>
         <td
-          class="MuiTableCell-root"
+          class="MuiTableCell-root MuiTableCell-sizeSmall"
+          style="white-space: nowrap;"
         >
           com.myspace.mortgage_app.Application@15f103e7	
         </td>

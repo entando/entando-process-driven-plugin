@@ -1,7 +1,7 @@
 import ActionCell from 'components/common/Table/custom/ActionCell';
 import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
 
-function getType(column, firstRow) {
+export const getType = (column, firstRow) => {
   let sortFunction = compareStrings;
   if (firstRow[column] instanceof Date) {
     sortFunction = compareDates;
@@ -10,7 +10,7 @@ function getType(column, firstRow) {
   }
 
   return sortFunction;
-}
+};
 
 export const normalizeColumns = (columns, firstRow) => {
   const normalized = columns

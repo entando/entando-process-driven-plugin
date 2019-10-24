@@ -22,7 +22,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "MOCKED_API=false react-scripts test",
+    "test:coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "npx eslint --fix ./src",
     "i18n": "./node_modules/i18next-scanner/bin/cli.js --config ./scripts/i18next-scanner.config.js"
@@ -102,6 +103,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "husky": "^3.0.5",
     "i18next-scanner": "^2.10.3",
+    "jest-dom": "^4.0.0",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1"

@@ -11,12 +11,12 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
         style="height: 55px; cursor: initial;"
       >
         <td
-          class="MuiTableCell-root MuiTableCell-body"
-          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center;"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
         >
           <button
             aria-haspopup="true"
-            class="MuiButtonBase-root MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
             tabindex="0"
             type="button"
           >
@@ -41,87 +41,104 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
           </button>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           true
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           com.myspace.mortgage_app.Application@15f103e7	
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Human Resources
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           1
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Final Approval
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Test
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         />
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Reserved
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           0
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           false
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           pamAdmin
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           <span>
             10/12/2016
           </span>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           <span>
             10/12/2016
           </span>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           150
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Mortgage_Process.MortgageApprovalProcess
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         />
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           -1
         </td>
@@ -131,12 +148,12 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
         style="height: 55px; cursor: initial;"
       >
         <td
-          class="MuiTableCell-root MuiTableCell-body"
-          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center;"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
         >
           <button
             aria-haspopup="true"
-            class="MuiButtonBase-root MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
             tabindex="0"
             type="button"
           >
@@ -161,87 +178,104 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
           </button>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           true
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           com.myspace.mortgage_app.Application@3423423	
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Human Resources
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           2
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Final Approval
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Test
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         />
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Reserved
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           0
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           false
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           pamAdmin
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           <span>
             10/12/2016
           </span>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           <span>
             10/12/2016
           </span>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           150
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Mortgage_Process.MortgageApprovalProcess
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         />
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           -1
         </td>
@@ -262,12 +296,12 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
         style="height: 55px; cursor: initial;"
       >
         <td
-          class="MuiTableCell-root MuiTableCell-body"
-          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center;"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
         >
           <button
             aria-haspopup="true"
-            class="MuiButtonBase-root MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
             tabindex="0"
             type="button"
           >
@@ -292,87 +326,104 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
           </button>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           true
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           com.myspace.mortgage_app.Application@15f103e7	
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Human Resources
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           1
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Final Approval
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Test
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         />
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Reserved
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           0
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           false
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           pamAdmin
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           <span>
             10/12/2016
           </span>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           <span>
             10/12/2016
           </span>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           150
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Mortgage_Process.MortgageApprovalProcess
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         />
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           -1
         </td>
@@ -382,12 +433,12 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
         style="height: 55px; cursor: initial;"
       >
         <td
-          class="MuiTableCell-root MuiTableCell-body"
-          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center;"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
         >
           <button
             aria-haspopup="true"
-            class="MuiButtonBase-root MuiIconButton-root"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
             tabindex="0"
             type="button"
           >
@@ -412,87 +463,104 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
           </button>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           true
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           com.myspace.mortgage_app.Application@3423423	
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Human Resources
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           2
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Final Approval
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Test
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         />
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Reserved
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           0
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           false
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           pamAdmin
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           <span>
             10/12/2016
           </span>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           <span>
             10/12/2016
           </span>
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           150
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           Mortgage_Process.MortgageApprovalProcess
         </td>
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         />
         <td
-          class="MuiTableCell-root MuiTableCell-body"
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
           -1
         </td>
