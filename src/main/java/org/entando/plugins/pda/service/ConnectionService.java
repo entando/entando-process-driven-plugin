@@ -38,7 +38,7 @@ public class ConnectionService {
         connectionConfigConnector.deleteConnectionConfig(id);
     }
 
-    public Connection edit(String id, ConnectionDto request) {
+    public Connection edit(ConnectionDto request) {
         Connection connection = fromConnectionDto(request);
         connectionConfigConnector.editConnectionConfig(ConnectionConfigMapper.fromConnection(connection));
         return connection;

@@ -92,6 +92,7 @@ public class ConnectionsControllerIntegrationTest {
     @Test
     public void testGetConnection() throws Exception {
         ConnectionConfig connectionConfig = ConnectionTestHelper.generateConnectionConfig();
+        Connection connection = ConnectionConfigMapper.fromConnectionConfig(connectionConfig);
         mockRestServiceServer.expect(ExpectedCount.once(),
                 requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config/" + connectionConfig.getName()))
                 .andExpect(method(HttpMethod.GET))
@@ -100,8 +101,8 @@ public class ConnectionsControllerIntegrationTest {
         mockMvc.perform(get("/connections/" + connectionConfig.getName()))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.name", is(connectionConfig.getName())))
-                .andExpect(jsonPath("payload.username", is(connectionConfig.getUsername())));
+                .andExpect(jsonPath("payload.name", is(connection.getName())))
+                .andExpect(jsonPath("payload.username", is(connection.getUsername())));
 
         mockRestServiceServer.verify();
     }
@@ -111,7 +112,7 @@ public class ConnectionsControllerIntegrationTest {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
         Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
         ConnectionConfig connectionConfig = ConnectionConfigMapper.fromConnection(connection);
-        connectionConfig.setPassword(null);
+        connectionConfig.getProperties().put(ConnectionConfigMapper.PASSWORD, null);
         mockRestServiceServer.expect(ExpectedCount.once(),
                 requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config"))
                 .andExpect(method(HttpMethod.POST))
@@ -141,14 +142,14 @@ public class ConnectionsControllerIntegrationTest {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
         Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
         ConnectionConfig connectionConfig = ConnectionConfigMapper.fromConnection(connection);
-        connectionConfig.setPassword(null);
+        connectionConfig.getProperties().put(ConnectionConfigMapper.PASSWORD, null);
         mockRestServiceServer.expect(ExpectedCount.once(),
                 requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config"))
                 .andExpect(method(HttpMethod.PUT))
                 .andExpect(content().json(mapper.writeValueAsString(connectionConfig)))
                 .andRespond(withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
 
-        mockMvc.perform(put("/connections/" + connectionDto.getName())
+        mockMvc.perform(put("/connections")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connectionDto)))
                 .andDo(print()).andExpect(status().isOk())
@@ -169,7 +170,6 @@ public class ConnectionsControllerIntegrationTest {
     @Test
     public void shouldDeleteConnection() throws Exception {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
-        Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
         mockRestServiceServer.expect(ExpectedCount.once(),
                 requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config/" + connectionDto.getName()))
                 .andExpect(method(HttpMethod.DELETE))

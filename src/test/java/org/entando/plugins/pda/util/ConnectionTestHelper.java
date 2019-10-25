@@ -48,9 +48,9 @@ public class ConnectionTestHelper {
         ConnectionConfig connectionConfig = ConnectionConfig.builder()
                 .name(RandomStringUtils.randomAlphanumeric(30))
                 .properties(new HashMap<>())
-                .password(RandomStringUtils.randomAlphabetic(30))
-                .username(RandomStringUtils.randomAlphabetic(30))
                 .build();
+        connectionConfig.getProperties().put(ConnectionConfigMapper.PASSWORD, RandomStringUtils.randomAlphabetic(30));
+        connectionConfig.getProperties().put(ConnectionConfigMapper.USERNAME, RandomStringUtils.randomAlphabetic(30));
         connectionConfig.getProperties().put(ConnectionConfigMapper.ENGINE_KEY, "fake");
         connectionConfig.getProperties().put(ConnectionConfigMapper.APP_KEY, RandomStringUtils.randomAlphabetic(10));
         connectionConfig.getProperties()

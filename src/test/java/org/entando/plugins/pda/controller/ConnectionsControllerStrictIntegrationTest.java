@@ -52,7 +52,7 @@ public class ConnectionsControllerStrictIntegrationTest {
     public void shouldReturnErrorWhenEditingConnectionConfigOnStrictLevel() throws Exception {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
 
-        mockMvc.perform(put("/connections/" + connectionDto.getName()).contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(put("/connections").contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connectionDto)))
                 .andDo(print()).andExpect(status().isUnprocessableEntity())
                 .andExpect(jsonPath("$.message", containsString("not allowed")));

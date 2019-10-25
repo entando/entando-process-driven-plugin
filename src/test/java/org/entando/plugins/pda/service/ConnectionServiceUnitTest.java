@@ -106,7 +106,7 @@ public class ConnectionServiceUnitTest {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
         connectionDto.setName(config1.getName());
 
-        Connection edited = connectionService.edit(connectionDto.getName(), connectionDto);
+        Connection edited = connectionService.edit(connectionDto);
 
         assertThat(edited).isEqualTo(ConnectionConfigMapper.fromDto(connectionDto));
         ConnectionConfig retrieved = connectionConfigConnector.getConnectionConfig(connectionDto.getName());
@@ -130,8 +130,8 @@ public class ConnectionServiceUnitTest {
         expectedException.expect(ConnectionNotFoundException.class);
         expectedException.expectMessage(ConnectionNotFoundException.MESSAGE_KEY);
 
-        ConnectionDto request = ConnectionTestHelper.generateConnectionDto();
-        connectionService.edit("invalid", request);
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionService.edit(connectionDto);
     }
 
     @Test
@@ -159,9 +159,9 @@ public class ConnectionServiceUnitTest {
         assertThat(connection.getConnectionTimeout())
                 .isEqualTo(Integer.valueOf(config1.getProperties().get(ConnectionConfigMapper.CONNECTION_TIMEOUT)));
         assertThat(connection.getHost()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.HOST));
-        assertThat(connection.getPassword()).isEqualTo(config1.getPassword());
+        assertThat(connection.getPassword()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.PASSWORD));
         assertThat(connection.getPort()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.PORT));
         assertThat(connection.getSchema()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.SCHEMA));
-        assertThat(connection.getUsername()).isEqualTo(config1.getUsername());
+        assertThat(connection.getUsername()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.USERNAME));
     }
 }
