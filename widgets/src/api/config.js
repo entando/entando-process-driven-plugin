@@ -3,7 +3,6 @@ import utils from 'utils';
 import config from 'mocks/config';
 
 const get = async widgetCode => {
-  console.log(IS_MOCKED_API);
   if (IS_MOCKED_API) {
     await utils.timeout(MOCK_API_DELAY);
     return config;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import SearchInput from 'components/common/SearchInput';
-import '@testing-library/jest-dom/extend-expect';
 import 'mocks/i18nMock';
 
 describe('<SearchInput />', () => {

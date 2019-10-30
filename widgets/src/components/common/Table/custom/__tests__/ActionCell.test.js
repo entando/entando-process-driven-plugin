@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import ActionCell from 'components/common/Table/custom/ActionCell';
-import '@testing-library/jest-dom/extend-expect';
 
 describe('<ActionCell />', () => {
   it('renders snapshot correctly', () => {

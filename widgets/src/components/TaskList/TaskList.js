@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/styles/withStyles';
 
+import { WIDGET_CODES } from 'api/constants';
 import configApi from 'api/config';
 import taskListApi from 'api/taskList';
 import utils from 'utils';
@@ -36,21 +37,25 @@ class TaskList extends React.Component {
     const { lazyLoading } = this.props;
     const { currentPage } = this.state;
 
-    const config = await configApi.get();
-    console.log(config);
+    try {
+      const config = await configApi.get(WIDGET_CODES.taskList);
+      // console.log(config);
 
-    const taskList = lazyLoading
-      ? await taskListApi.get(config.connection, currentPage, 10)
-      : await taskListApi.get(config.connection);
-    console.log(taskList);
+      const taskList = lazyLoading
+        ? await taskListApi.get(config.connection, currentPage, 10)
+        : await taskListApi.get(config.connection);
+      // console.log(taskList);
 
-    this.setState({
-      loading: false,
-      columns: normalizeColumns(config.columns, taskList.payload[0]),
-      rows: normalizeRows(taskList.payload),
-      size: taskList.metadata.size,
-      connection: config.connection,
-    });
+      this.setState({
+        loading: false,
+        columns: normalizeColumns(config.columns, taskList.payload[0]),
+        rows: normalizeRows(taskList.payload),
+        size: taskList.metadata.size,
+        connection: config.connection,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   componentDidUpdate = prevProps => {

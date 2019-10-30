@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import IconMenuButton from 'components/common/IconMenuButton';
-import '@testing-library/jest-dom/extend-expect';
 
 const menuItems = [
   {
