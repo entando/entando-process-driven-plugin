@@ -33,7 +33,8 @@ class InternalTablePaginationActions extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (props.page !== +state.pageNumber + 1) {
+    const lastPage = Math.floor(props.count / props.rowsPerPage);
+    if (props.page === lastPage || props.page !== +state.pageNumber + 1) {
       return { pageNumber: props.page + 1 };
     }
     return state;
@@ -57,7 +58,7 @@ class InternalTablePaginationActions extends React.Component {
     const { value } = event.target;
     const { onChangePage } = this.props;
     // sync state and entered value
-    this.setpageNumber(value);
+    this.setPageNumber(value);
     // navigate to entered page number if valid
     const pageNumber = +value;
     if (pageNumber && pageNumber <= this.numberOfPages) {
