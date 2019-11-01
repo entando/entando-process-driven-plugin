@@ -11,6 +11,8 @@ import taskListApi from 'api/taskList';
 import utils from 'utils';
 
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
+import ErrorNotification from 'components/common/ErrorNotification';
+import ErrorComponent from 'components/common/ErrorComponent';
 import Table from 'components/common/Table/Table';
 import theme from 'theme';
 
@@ -29,6 +31,8 @@ class TaskList extends React.Component {
     size: 0,
     currentPage: 0,
     connection: {},
+    error: null,
+    errorAlert: null,
   };
 
   timer = { ref: null };
@@ -39,12 +43,12 @@ class TaskList extends React.Component {
 
     try {
       const config = await configApi.get(WIDGET_CODES.taskList);
-      // console.log(config);
+      console.log(config);
 
       const taskList = lazyLoading
         ? await taskListApi.get(config.connection, currentPage, 10)
         : await taskListApi.get(config.connection);
-      // console.log(taskList);
+      console.log(taskList);
 
       this.setState({
         loading: false,
@@ -54,7 +58,7 @@ class TaskList extends React.Component {
         connection: config.connection,
       });
     } catch (error) {
-      console.log(error);
+      this.handleError(error);
     }
   };
 
@@ -82,26 +86,44 @@ class TaskList extends React.Component {
     }
 
     this.setState({ loading: true });
-    const res = await taskListApi.get(
-      connection,
-      page,
-      rowsPerPage,
-      sortedColumn,
-      sortedOrder,
-      filter
-    );
+    try {
+      const res = await taskListApi.get(
+        connection,
+        page,
+        rowsPerPage,
+        sortedColumn,
+        sortedOrder,
+        filter
+      );
 
-    this.setState({
-      rows: normalizeRows(res.payload),
-      size: res.metadata.size,
-      currentPage: page || 0,
-      loading: false,
-    });
-    callback();
+      this.setState({
+        rows: normalizeRows(res.payload),
+        size: res.metadata.size,
+        currentPage: page || 0,
+        loading: false,
+      });
+      callback();
+    } catch (error) {
+      this.handleError(error);
+      this.setState({ loading: false });
+    }
   };
 
+  closeNotification = () => {
+    this.setState({ errorAlert: null });
+  };
+
+  handleError(err) {
+    const { onError } = this.props;
+    onError(err);
+    this.setState({
+      error: true,
+      errorAlert: err,
+    });
+  }
+
   render() {
-    const { loading, columns, rows, currentPage, size } = this.state;
+    const { loading, columns, rows, currentPage, size, error, errorAlert } = this.state;
     const { classes, lazyLoading } = this.props;
 
     let lazyLoadingProps;
@@ -116,16 +138,21 @@ class TaskList extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Paper className={classes.paper}>
-          <Table
-            loading={loading}
-            title={i18next.t('table.title')}
-            subtitle={i18next.t('table.subtitle')}
-            columns={columns}
-            rows={rows}
-            rowsPerPageOptions={[10, 25, 50, 100]}
-            lazyLoadingProps={lazyLoadingProps}
-          />
+          {error ? (
+            <ErrorComponent message={i18next.t('messages.errors.dataLoading')} />
+          ) : (
+            <Table
+              loading={loading}
+              title={i18next.t('table.title')}
+              subtitle={i18next.t('table.subtitle')}
+              columns={columns}
+              rows={rows}
+              rowsPerPageOptions={[10, 25, 50, 100]}
+              lazyLoadingProps={lazyLoadingProps}
+            />
+          )}
         </Paper>
+        <ErrorNotification message={errorAlert} onClose={this.closeNotification} />
       </ThemeProvider>
     );
   }
@@ -136,11 +163,13 @@ TaskList.propTypes = {
     paper: PropTypes.string,
   }),
   lazyLoading: PropTypes.bool,
+  onError: PropTypes.func,
 };
 
 TaskList.defaultProps = {
   classes: {},
   lazyLoading: false,
+  onError: () => {},
 };
 
 export default withStyles(styles)(TaskList);

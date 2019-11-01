@@ -9,6 +9,7 @@
     "@material-ui/lab": "^4.0.0-alpha.28",
     "@material-ui/styles": "^4.4.3",
     "classnames": "^2.2.6",
+    "clsx": "^1.0.4",
     "date-fns": "^2.0.0-alpha.16",
     "i18next": "^17.0.16",
     "moment": "^2.24.0",

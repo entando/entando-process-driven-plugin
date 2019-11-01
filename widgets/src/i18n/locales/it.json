@@ -12,6 +12,9 @@
   "messages": {
     "warnings": {
       "noData": "non ci sono dati da visualizzare"
+    },
+    "errors": {
+      "dataLoading": "Impossibile caricare i dati del server"
     }
   }
 }
