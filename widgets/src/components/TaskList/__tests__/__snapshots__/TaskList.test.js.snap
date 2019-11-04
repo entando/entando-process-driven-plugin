@@ -24,10 +24,10 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
       </div>
       <div>
         <div
-          class="SearchInput-root-77"
+          class="SearchInput-root-81"
         >
           <div
-            class="MuiInputBase-root SearchInput-input-78"
+            class="MuiInputBase-root SearchInput-input-82"
           >
             <input
               class="MuiInputBase-input"
@@ -75,7 +75,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -99,7 +99,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -123,7 +123,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -147,7 +147,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -171,7 +171,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -195,7 +195,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -219,7 +219,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -243,7 +243,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -267,7 +267,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -291,7 +291,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -315,7 +315,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -339,7 +339,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -363,7 +363,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -387,7 +387,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -411,7 +411,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               style="white-space: nowrap;"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-128"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-132"
                 role="button"
                 tabindex="0"
               >
@@ -1596,7 +1596,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
               class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar MuiToolbar-gutters"
             >
               <div
-                class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-151"
+                class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-155"
               />
               <span
                 class="MuiTypography-root MuiTablePagination-caption MuiTypography-caption MuiTypography-colorInherit"
@@ -1620,7 +1620,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
                 />
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-152"
+                  class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-156"
                   focusable="false"
                   role="presentation"
                   viewBox="0 0 24 24"
@@ -1636,7 +1636,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
                 table.showing
               </span>
               <div
-                class="InternalTablePaginationActions-root-172"
+                class="InternalTablePaginationActions-root-176"
               >
                 <button
                   class="MuiButtonBase-root MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
@@ -1671,7 +1671,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-173"
+                      class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-177"
                       focusable="false"
                       role="presentation"
                       viewBox="0 0 24 24"
@@ -1683,7 +1683,7 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
                   </span>
                 </button>
                 <div
-                  class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-174"
+                  class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-178"
                   style="width: 35px;"
                 >
                   <div
@@ -1757,5 +1757,6 @@ exports[`<TaskList /> renders snapshot correctly 1`] = `
       </tfoot>
     </table>
   </div>
+  
 </div>
 `;
