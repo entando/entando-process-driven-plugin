@@ -6,7 +6,7 @@
 
     <groupId>org.entando</groupId>
     <artifactId>entando-process-driven-plugin</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>6.0.0-SNAPSHOT</version>
 
     <packaging>jar</packaging>
 
@@ -81,7 +81,8 @@
         <maven.snapshot.repository.url>https://oss.sonatype.org/content/repositories/snapshots</maven.snapshot.repository.url>
         <maven.relase.repository.id>sonatype-nexus-staging</maven.relase.repository.id>
         <maven.release.repository.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</maven.release.repository.url>
-        <jib-maven-plugin.version>0.9.11</jib-maven-plugin.version>
+        <jib.registry>docker.io</jib.registry>
+        <jib-maven-plugin.version>1.2.0</jib-maven-plugin.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -240,27 +241,20 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>${jib-maven-plugin.version}</version>
                 <configuration>
+                    <allowInsecureRegistries>true</allowInsecureRegistries>
                     <from>
                         <image>openjdk:8-jre-alpine</image>
                     </from>
                     <to>
-                        <image>entando/${project.artifactId}:${project.version}</image>
+                        <image>${jib.registry}/entando/${project.artifactId}:${project.version}</image>
                     </to>
                     <container>
-                        <entrypoint>
-                            <shell>sh</shell>
-                            <option>-c</option>
-                            <arg>exec java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -cp
-                                /app/resources/:/app/classes/:/app/libs/*
-                                "org.entando.plugins.pda.EntandoPDAPluginJavaApplication"
-                                "$@"</arg>
-                        </entrypoint>
-                        <ports>
-                            <port>8080</port>
-                        </ports>
                         <environment>
                         </environment>
                         <useCurrentTimestamp>true</useCurrentTimestamp>
+                        <ports>
+                            <port>8080</port>
+                        </ports>
                     </container>
                 </configuration>
             </plugin>
