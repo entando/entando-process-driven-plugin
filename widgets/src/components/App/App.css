@@ -1,13 +1,10 @@
-.App {
-  text-align: center;
-}
-
 .app-list {
   width: 250px;
   padding: 0 10px;
 }
 
 .app-home {
+  text-align: center;
   padding: 60px;
 }
 

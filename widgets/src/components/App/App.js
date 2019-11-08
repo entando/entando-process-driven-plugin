@@ -17,7 +17,8 @@ import Menu from 'components/App/Menu';
 
 // widgets
 import Home from 'components/App/Home';
-import TaskList from 'components/TaskList/TaskList';
+import TaskListContainer from 'components/TaskList/TaskListContainer';
+import TaskListConfig from 'components/TaskList/TaskListConfig';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -67,7 +68,8 @@ function App() {
 
         <Container className="app-container">
           <Route path="/" exact component={Home} />
-          <Route path="/TaskList/" render={() => <TaskList lazyLoading={lazyLoading} />} />
+          <Route path="/TaskList/" render={() => <TaskListContainer lazyLoading={lazyLoading} />} />
+          <Route path="/TaskListConfig" component={TaskListConfig} />
         </Container>
       </Router>
     </div>

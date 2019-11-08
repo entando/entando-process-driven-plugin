@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TaskList /> renders snapshot correctly 1`] = `
+exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
 <div>
   <div
     class="MuiPaper-root MuiPaper-elevation1 TaskList-paper-1 MuiPaper-rounded"

@@ -11,6 +11,7 @@
     "classnames": "^2.2.6",
     "clsx": "^1.0.4",
     "date-fns": "^2.0.0-alpha.16",
+    "formik": "^2.0.3",
     "i18next": "^17.0.16",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",

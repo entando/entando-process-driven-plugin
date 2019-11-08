@@ -3,11 +3,11 @@ import React from 'react';
 import 'mocks/i18nMock';
 
 import { DOMAIN, WIDGET_CODES } from 'api/constants';
-import TaskList from 'components/TaskList/TaskList';
+import TaskListContainer from 'components/TaskList/TaskListContainer';
 import mockTasks from 'mocks/taskList/tasks.json';
 import mockConfig from 'mocks/config.json';
 
-describe('<TaskList />', () => {
+describe('<TaskListContainer />', () => {
   it('renders snapshot correctly', async () => {
     const configUrl = `${DOMAIN}/configs/${WIDGET_CODES.taskList}`;
     const connection = 'kieStaging';
@@ -15,7 +15,7 @@ describe('<TaskList />', () => {
 
     fetch.once(JSON.stringify(mockConfig)).once(JSON.stringify(mockTasks));
 
-    const { container } = render(<TaskList />);
+    const { container } = render(<TaskListContainer />);
 
     await wait(() => expect(container).toMatchSnapshot());
 
