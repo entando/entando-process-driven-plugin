@@ -1,4 +1,4 @@
-import { DOMAIN, IS_MOCKED_API, MOCK_API_DELAY } from 'api/constants';
+import { IS_MOCKED_API, MOCK_API_DELAY, SERVICE } from 'api/constants';
 import getTasks from 'mocks/taskList/api.mock';
 import utils from 'utils';
 
@@ -8,7 +8,7 @@ const get = async (connection, page, pageSize, sortedColumn, sortOrder, filter) 
     return getTasks(page, pageSize, sortedColumn, sortOrder, filter);
   }
 
-  const url = `${DOMAIN}/connections/${connection}/tasks`;
+  const url = `${SERVICE.URL}/connections/${connection}/tasks`;
   const response = await fetch(url);
 
   return response.json();

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/styles/withStyles';
 
-import { WIDGET_CODES } from 'api/constants';
+import { WIDGET_CODES, SERVICE } from 'api/constants';
 import configApi from 'api/config';
 import taskListApi from 'api/taskList';
 import utils from 'utils';
@@ -38,17 +38,19 @@ class TaskList extends React.Component {
   timer = { ref: null };
 
   componentDidMount = async () => {
-    const { lazyLoading } = this.props;
+    const { lazyLoading, 'service-url': url } = this.props;
     const { currentPage } = this.state;
 
+    SERVICE.URL = url;
+
     try {
+      // TODO: needs refactor
+      // config will be fetched from app-builder
       const config = await configApi.get(WIDGET_CODES.taskList);
-      console.log(config);
 
       const taskList = lazyLoading
         ? await taskListApi.get(config.connection, currentPage, 10)
         : await taskListApi.get(config.connection);
-      console.log(taskList);
 
       this.setState({
         loading: false,
@@ -58,7 +60,7 @@ class TaskList extends React.Component {
         connection: config.connection,
       });
     } catch (error) {
-      this.handleError(error);
+      this.handleError(error.message);
     }
   };
 
@@ -164,12 +166,14 @@ TaskList.propTypes = {
   }),
   lazyLoading: PropTypes.bool,
   onError: PropTypes.func,
+  'service-url': PropTypes.string,
 };
 
 TaskList.defaultProps = {
   classes: {},
   lazyLoading: false,
   onError: () => {},
+  'service-url': '/pda',
 };
 
 export default withStyles(styles)(TaskList);

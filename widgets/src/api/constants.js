@@ -9,3 +9,5 @@ export const MOCK_API_DELAY = 800;
 export const WIDGET_CODES = {
   taskList: 'taskListWidget',
 };
+
+export const SERVICE = {};
