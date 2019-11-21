@@ -8,8 +8,15 @@ const get = async (connection, page, pageSize, sortedColumn, sortOrder, filter) 
     return getTasks(page, pageSize, sortedColumn, sortOrder, filter);
   }
 
-  const url = `${SERVICE.URL}/connections/${connection}/tasks`;
-  const response = await fetch(url);
+  const url = `${SERVICE.URL}/connections/${connection}/tasks?sort=taskId`;
+  const token = localStorage.getItem('token');
+  const response = await fetch(url, {
+    method: 'get',
+    headers: new Headers({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    }),
+  });
 
   return response.json();
 };
