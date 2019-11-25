@@ -25,17 +25,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@Api(tags = "Tasks")
+@Api(tags = "Task")
 @RequestMapping(path = "/connections/{connId}/tasks")
 @RequiredArgsConstructor
-public class TasksController {
+public class TaskController {
 
     private final ConnectionService connectionService;
 
     private final EngineFactory engineFactory;
 
     @Secured(TASK_LIST)
-    @ApiOperation(notes = "Lists all tasks", nickname = "listTasks", value = "LIST Task")
+    @ApiOperation(notes = "Lists all tasks", nickname = "listTask", value = "LIST Task")
     @GetMapping(produces = {APPLICATION_JSON_VALUE})
     public PagedRestResponse<Task> list(@PathVariable final String connId, final AuthenticatedUser user,
             final PagedListRequest restListRequest) {
