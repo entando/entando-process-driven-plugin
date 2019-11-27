@@ -40,7 +40,7 @@ public class TaskController {
     public PagedRestResponse<Task> list(@PathVariable final String connId, final AuthenticatedUser user,
             final PagedListRequest restListRequest) {
         log.info("Listing tasks {}", restListRequest);
-        Connection connection = connectionService.get(connId);// NO PMD
+        Connection connection = connectionService.get(connId);// NOPMD
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return engine.getTaskService().list(connection, user, restListRequest);
     }
@@ -51,7 +51,7 @@ public class TaskController {
     public SimpleRestResponse<Task> get(@PathVariable final String connId, @PathVariable final String taskId,
             AuthenticatedUser user) {
         log.info("Retrieving a task {}", taskId);
-        Connection connection = connectionService.get(connId);// NO PMD
+        Connection connection = connectionService.get(connId);// NOPMD
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(
                 engine.getTaskService().get(connection, user, taskId));
