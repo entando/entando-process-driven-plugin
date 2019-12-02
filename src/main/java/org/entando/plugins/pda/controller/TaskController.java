@@ -25,22 +25,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@Api(tags = "Tasks")
+@Api(tags = "Task")
 @RequestMapping(path = "/connections/{connId}/tasks")
 @RequiredArgsConstructor
-public class TasksController {
+public class TaskController {
 
     private final ConnectionService connectionService;
 
     private final EngineFactory engineFactory;
 
     @Secured(TASK_LIST)
-    @ApiOperation(notes = "Lists all tasks", nickname = "listTasks", value = "LIST Task")
+    @ApiOperation(notes = "Lists all tasks", nickname = "listTask", value = "LIST Task")
     @GetMapping(produces = {APPLICATION_JSON_VALUE})
     public PagedRestResponse<Task> list(@PathVariable final String connId, final AuthenticatedUser user,
             final PagedListRequest restListRequest) {
         log.info("Listing tasks {}", restListRequest);
-        Connection connection = connectionService.get(connId);// NO PMD
+        Connection connection = connectionService.get(connId);// NOPMD
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return engine.getTaskService().list(connection, user, restListRequest);
     }
@@ -51,7 +51,7 @@ public class TasksController {
     public SimpleRestResponse<Task> get(@PathVariable final String connId, @PathVariable final String taskId,
             AuthenticatedUser user) {
         log.info("Retrieving a task {}", taskId);
-        Connection connection = connectionService.get(connId);// NO PMD
+        Connection connection = connectionService.get(connId);// NOPMD
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(
                 engine.getTaskService().get(connection, user, taskId));

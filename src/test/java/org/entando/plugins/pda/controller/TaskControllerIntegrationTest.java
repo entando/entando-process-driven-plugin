@@ -42,7 +42,7 @@ import org.springframework.web.client.RestTemplate;
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class})
 @SpringBootTest(classes = TestConnectionConfigConfiguration.class, webEnvironment = WebEnvironment.RANDOM_PORT,
         properties = "entando.plugin.security.level=LENIENT")
-public class TasksControllerIntegrationTest {
+public class TaskControllerIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;

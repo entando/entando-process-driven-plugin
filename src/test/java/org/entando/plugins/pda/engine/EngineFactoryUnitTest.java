@@ -16,7 +16,7 @@ public class EngineFactoryUnitTest {
     @Before
     public void setup() {
         List<Engine> availableEngines = new ArrayList<>();
-        availableEngines.add(new FakeEngine(null));
+        availableEngines.add(new FakeEngine(null, null));
 
         engineFactory = new EngineFactory(availableEngines);
     }
