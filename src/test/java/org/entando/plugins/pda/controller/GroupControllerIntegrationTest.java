@@ -13,6 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Arrays;
+import java.util.Collections;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.core.service.group.FakeGroupService;
@@ -50,6 +51,7 @@ public class GroupControllerIntegrationTest {
     private static final String GROUP_1 = "group1";
     private static final String GROUP_2 = "group2";
     private static final String GROUP_3 = "group3";
+    private static final String GROUP_4 = "group4";
 
     @Autowired
     private MockMvc mockMvc;
@@ -76,22 +78,23 @@ public class GroupControllerIntegrationTest {
 
     @Test
     public void shouldListAllGroups() throws Exception {
-        groupService.addGroups(null, null, Arrays.asList(GROUP_1, GROUP_2, GROUP_3));
+        groupService.addGroups("process-1", Arrays.asList(GROUP_1, GROUP_2, GROUP_3));
+        groupService.addGroups("process-2", Collections.singletonList(GROUP_4));
 
         mockMvc.perform(get("/connections/fakeConnection/groups"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(MockMvcResultMatchers.jsonPath("payload", containsInAnyOrder(GROUP_1, GROUP_2, GROUP_3)));
+                .andExpect(MockMvcResultMatchers
+                        .jsonPath("payload", containsInAnyOrder(GROUP_1, GROUP_2, GROUP_3, GROUP_4)));
     }
 
     @Test
     public void shouldListGroupsByProcess() throws Exception {
-        String containerId = "container-1";
         String processId = "process-1";
-        groupService.addGroups(containerId, processId, Arrays.asList(GROUP_1, GROUP_2));
+        groupService.addGroups(processId, Arrays.asList(GROUP_1, GROUP_2));
 
         mockMvc.perform(get(String
-                .format("/connections/fakeConnection/groups?containerId=%s&processId=%s", containerId, processId)))
+                .format("/connections/fakeConnection/groups?processId=%s", processId)))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(MockMvcResultMatchers.jsonPath("payload", containsInAnyOrder(GROUP_1, GROUP_2)));

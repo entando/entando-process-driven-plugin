@@ -34,10 +34,9 @@ public class GroupController {
     @ApiOperation(notes = "Lists BPM groups", nickname = "listGroups", value = "LIST Group")
     @GetMapping
     public SimpleRestResponse<List<String>> listGroups(@PathVariable String connId,
-            @QueryParam("containerId") String containerId,
             @QueryParam("processId") String processId) {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
-        return new SimpleRestResponse<>(engine.getGroupService().list(connection, containerId, processId));
+        return new SimpleRestResponse<>(engine.getGroupService().list(connection, processId));
     }
 }
