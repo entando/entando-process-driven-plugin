@@ -14,7 +14,8 @@ public class AuthPermissions {
     public static final String CONNECTION_EDIT = "connection-edit";
     public static final String CONNECTION_DELETE = "connection-delete";
 
-    public static final String PROCESS_LIST = "process-list";
+    public static final String PROCESS_DEFINITION_LIST = "process-definition-list";
+    public static final String PROCESS_DIAGRAM = "process-diagram";
 
     public static final String GROUP_LIST = "group-list";
 }
