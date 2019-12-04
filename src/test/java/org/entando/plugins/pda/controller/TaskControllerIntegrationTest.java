@@ -1,5 +1,6 @@
 package org.entando.plugins.pda.controller;
 
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -87,5 +88,14 @@ public class TaskControllerIntegrationTest {
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.id", is(FakeTaskService.TASK_ID_2)))
                 .andExpect(jsonPath("payload.name", is(FakeTaskService.TASK_NAME_2)));
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testListTaskColumns() throws Exception {
+        mockMvc.perform(get("/connections/fakeProduction/tasks/columns"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(jsonPath("errors", hasSize(0)))
+                .andExpect(jsonPath("payload", contains(FakeTaskService.TASK_COLUMNS.toArray())));
     }
 }
