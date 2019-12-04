@@ -1,8 +1,6 @@
 package org.entando.plugins.pda.controller;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DEFINITION_LIST;
-import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DIAGRAM;
+import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_LIST;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
@@ -33,7 +31,7 @@ public class ProcessController {
 
     private final EngineFactory engineFactory;
 
-    @Secured(PROCESS_DEFINITION_LIST)
+    @Secured(PROCESS_LIST)
     @ApiOperation(notes = "Lists all processes definitions", nickname = "listProcessDefinitions",
             value = "LIST ProcessDefinition")
     @GetMapping(path = "/definitions", produces = {APPLICATION_JSON_VALUE})
@@ -43,18 +41,5 @@ public class ProcessController {
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(
                 engine.getProcessService().listDefinitions(connection));
-    }
-
-    @Secured(PROCESS_DIAGRAM)
-    @ApiOperation(notes = "Gets the process diagram", nickname = "getProcessDiagram",
-            value = "GET Process Diagram")
-    @GetMapping(path = "/{id}/diagram", produces = {"application/svg+xml"})
-    public byte[] getProcessDiagram(@PathVariable final String connId,
-            @PathVariable final String id) {
-        log.info("Retrieving process diagram for {}", id);
-        Connection connection = connectionService.get(connId);// NOPMD
-        Engine engine = engineFactory.getEngine(connection.getEngine());
-        return engine.getProcessService().getProcessDiagram(connection, id)
-                .getBytes(UTF_8);
     }
 }

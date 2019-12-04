@@ -13,7 +13,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.util.UUID;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.core.service.task.FakeTaskService;
@@ -88,11 +87,5 @@ public class TaskControllerIntegrationTest {
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.id", is(FakeTaskService.TASK_ID_2)))
                 .andExpect(jsonPath("payload.name", is(FakeTaskService.TASK_NAME_2)));
-    }
-
-    @Test
-    public void testGetTaskShouldThrowNotFound() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/tasks/" + UUID.randomUUID().toString()))
-                .andDo(print()).andExpect(status().isNotFound());
     }
 }

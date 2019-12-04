@@ -1,6 +1,5 @@
 package org.entando.plugins.pda.controller;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -14,7 +13,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.util.UUID;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.core.service.process.FakeProcessService;
@@ -36,7 +34,6 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.web.client.RestTemplate;
 
 @AutoConfigureMockMvc
@@ -75,28 +72,6 @@ public class ProcessControllerIntegrationTest {
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload[0].name", is(FakeProcessService.PROCESS_NAME_1)))
                 .andExpect(jsonPath("payload[1].name", is(FakeProcessService.PROCESS_NAME_2)));
-    }
-
-    @Test
-    public void testGetProcessDiagram() throws Exception {
-        MvcResult result = mockMvc.perform(get("/connections/fakeProduction/processes/{id}/diagram"
-                    .replace("{id}", FakeProcessService.PROCESS_ID_1)))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andReturn();
-
-        String diagram = result.getResponse().getContentAsString();
-
-        assertThat(diagram.length()).isEqualTo(FakeProcessService.PROCESS_DIAGRAM_LENGTH_1);
-    }
-
-    @Test
-    public void testGetProcessDiagramShouldThrowNotFound() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/processes/{id}/diagram"
-                .replace("{id}", UUID.randomUUID().toString())))
-                .andDo(print())
-                .andExpect(status().isNotFound())
-                .andReturn();
     }
 
 }
