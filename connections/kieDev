@@ -1,0 +1,9 @@
+name: kieDev
+properties:
+    host: localhost
+    port: 8080
+    schema: http
+    app: /server/queries
+    username: krisv
+    connectionTimeout: 60000
+    engine: pam
