@@ -39,7 +39,7 @@ public class ProcessController {
     @GetMapping(path = "/definitions", produces = {APPLICATION_JSON_VALUE})
     public SimpleRestResponse<List<ProcessDefinition>> listDefinitions(@PathVariable final String connId) {
         log.info("Listing processes definitions for connection {}", connId);
-        Connection connection = connectionService.get(connId);// NOPMD
+        Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(
                 engine.getProcessService().listDefinitions(connection));
@@ -52,7 +52,7 @@ public class ProcessController {
     public byte[] getProcessDiagram(@PathVariable final String connId,
             @PathVariable final String id) {
         log.info("Retrieving process diagram for {}", id);
-        Connection connection = connectionService.get(connId);// NOPMD
+        Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return engine.getProcessService().getProcessDiagram(connection, id)
                 .getBytes(UTF_8);

@@ -95,8 +95,8 @@ public class TaskControllerIntegrationTest {
     public void testGetTaskShouldThrowNotFound() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/tasks/" + UUID.randomUUID().toString()))
                 .andDo(print()).andExpect(status().isNotFound());
+    }
       
-    @SuppressWarnings("unchecked")
     public void testListTaskColumns() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/tasks/columns"))
                 .andDo(print()).andExpect(status().isOk())
