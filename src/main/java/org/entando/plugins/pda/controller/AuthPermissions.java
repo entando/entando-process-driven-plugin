@@ -7,6 +7,7 @@ public class AuthPermissions {
 
     public static final String TASK_LIST = "task-list";
     public static final String TASK_GET = "task-get";
+    public static final String TASK_LIST_COLUMNS = "task-list-columns";
 
     public static final String CONNECTION_LIST = "connection-list";
     public static final String CONNECTION_GET = "connection-get";

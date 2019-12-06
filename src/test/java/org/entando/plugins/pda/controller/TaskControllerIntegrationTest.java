@@ -1,5 +1,6 @@
 package org.entando.plugins.pda.controller;
 
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -94,5 +95,12 @@ public class TaskControllerIntegrationTest {
     public void testGetTaskShouldThrowNotFound() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/tasks/" + UUID.randomUUID().toString()))
                 .andDo(print()).andExpect(status().isNotFound());
+      
+    @SuppressWarnings("unchecked")
+    public void testListTaskColumns() throws Exception {
+        mockMvc.perform(get("/connections/fakeProduction/tasks/columns"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(jsonPath("errors", hasSize(0)))
+                .andExpect(jsonPath("payload", contains(FakeTaskService.TASK_COLUMNS.toArray())));
     }
 }
