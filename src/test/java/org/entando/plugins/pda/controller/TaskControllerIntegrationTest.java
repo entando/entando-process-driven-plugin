@@ -14,6 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import java.util.UUID;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.core.service.task.FakeTaskService;
@@ -91,7 +92,11 @@ public class TaskControllerIntegrationTest {
     }
 
     @Test
-    @SuppressWarnings("unchecked")
+    public void testGetTaskShouldThrowNotFound() throws Exception {
+        mockMvc.perform(get("/connections/fakeProduction/tasks/" + UUID.randomUUID().toString()))
+                .andDo(print()).andExpect(status().isNotFound());
+    }
+      
     public void testListTaskColumns() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/tasks/columns"))
                 .andDo(print()).andExpect(status().isOk())
