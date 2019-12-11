@@ -37,6 +37,7 @@ import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.client.RestTemplate;
 
 @AutoConfigureMockMvc
@@ -71,6 +72,7 @@ public class ProcessControllerIntegrationTest {
     public void testListProcessesDefinitions() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/processes/definitions"))
                 .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload[0].name", is(FakeProcessService.PROCESS_NAME_1)))

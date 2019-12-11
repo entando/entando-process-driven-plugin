@@ -36,6 +36,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.client.RestTemplate;
 
 @AutoConfigureMockMvc
@@ -70,6 +71,7 @@ public class TaskControllerIntegrationTest {
     public void testListTasks() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/tasks"))
                 .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload[0].name", is(FakeTaskService.TASK_NAME_1)))
@@ -80,12 +82,14 @@ public class TaskControllerIntegrationTest {
     public void testGetTask() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/tasks/" + FakeTaskService.TASK_ID_1))
                 .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.id", is(FakeTaskService.TASK_ID_1)))
                 .andExpect(jsonPath("payload.name", is(FakeTaskService.TASK_NAME_1)));
 
         mockMvc.perform(get("/connections/fakeProduction/tasks/" + FakeTaskService.TASK_ID_2))
                 .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.id", is(FakeTaskService.TASK_ID_2)))
                 .andExpect(jsonPath("payload.name", is(FakeTaskService.TASK_NAME_2)));
@@ -94,12 +98,14 @@ public class TaskControllerIntegrationTest {
     @Test
     public void testGetTaskShouldThrowNotFound() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/tasks/" + UUID.randomUUID().toString()))
-                .andDo(print()).andExpect(status().isNotFound());
+                .andDo(print()).andExpect(status().isNotFound())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8));
     }
       
     public void testListTaskColumns() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/tasks/columns"))
                 .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload", contains(FakeTaskService.TASK_COLUMNS.toArray())));
     }

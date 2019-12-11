@@ -3,6 +3,7 @@ package org.entando.plugins.pda.controller;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_GET;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_LIST;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_LIST_COLUMNS;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -37,7 +38,7 @@ public class TaskController {
 
     @Secured(TASK_LIST)
     @ApiOperation(notes = "Lists all tasks", nickname = "listTask", value = "LIST Task")
-    @GetMapping
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
     public PagedRestResponse<Task> list(@PathVariable final String connId, final AuthenticatedUser user,
             final PagedListRequest restListRequest) {
         log.debug("Listing tasks {}", restListRequest);
@@ -48,7 +49,7 @@ public class TaskController {
 
     @Secured(TASK_GET)
     @ApiOperation(notes = "Gets a task", nickname = "getTask", value = "GET Task")
-    @GetMapping("/{taskId}")
+    @GetMapping(value = "/{taskId}", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<Task> get(@PathVariable final String connId, @PathVariable final String taskId,
             AuthenticatedUser user) {
         log.debug("Retrieving a task {}", taskId);
@@ -59,7 +60,7 @@ public class TaskController {
 
     @Secured(TASK_LIST_COLUMNS)
     @ApiOperation(notes = "Lists task columns", nickname = "listTaskColumns", value = "LIST Task Columns")
-    @GetMapping("/columns")
+    @GetMapping(value = "/columns", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<Set<String>> listTaskColumns(@PathVariable final String connId, AuthenticatedUser user) {
         log.debug("Listing task columns");
         Connection connection = connectionService.get(connId);

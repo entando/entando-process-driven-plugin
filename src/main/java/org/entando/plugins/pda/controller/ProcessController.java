@@ -17,6 +17,7 @@ import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "Process")
 @RequestMapping(path = "/connections/{connId}/processes")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3001")
 public class ProcessController {
 
     private final ConnectionService connectionService;
@@ -36,7 +38,7 @@ public class ProcessController {
     @Secured(PROCESS_DEFINITION_LIST)
     @ApiOperation(notes = "Lists all processes definitions", nickname = "listProcessDefinitions",
             value = "LIST ProcessDefinition")
-    @GetMapping(path = "/definitions", produces = {APPLICATION_JSON_VALUE})
+    @GetMapping(path = "/definitions", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<List<ProcessDefinition>> listDefinitions(@PathVariable final String connId) {
         log.info("Listing processes definitions for connection {}", connId);
         Connection connection = connectionService.get(connId);
@@ -48,7 +50,7 @@ public class ProcessController {
     @Secured(PROCESS_DIAGRAM)
     @ApiOperation(notes = "Gets the process diagram", nickname = "getProcessDiagram",
             value = "GET Process Diagram")
-    @GetMapping(path = "/{id}/diagram", produces = {"application/svg+xml"})
+    @GetMapping(path = "/{id}/diagram", produces = "application/svg+xml")
     public byte[] getProcessDiagram(@PathVariable final String connId,
             @PathVariable final String id) {
         log.info("Retrieving process diagram for {}", id);
