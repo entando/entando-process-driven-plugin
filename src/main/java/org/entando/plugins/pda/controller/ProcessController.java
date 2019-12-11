@@ -17,7 +17,6 @@ import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +27,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "Process")
 @RequestMapping(path = "/connections/{connId}/processes")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3001")
 public class ProcessController {
 
     private final ConnectionService connectionService;
