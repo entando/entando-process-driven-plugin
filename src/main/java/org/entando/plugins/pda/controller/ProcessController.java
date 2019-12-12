@@ -1,6 +1,7 @@
 package org.entando.plugins.pda.controller;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DEFINITION_FORM;
 import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DEFINITION_LIST;
 import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DIAGRAM;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -12,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
+import org.entando.plugins.pda.core.model.form.Form;
 import org.entando.plugins.pda.core.model.ProcessDefinition;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
@@ -56,5 +58,17 @@ public class ProcessController {
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return engine.getProcessService().getProcessDiagram(connection, id)
                 .getBytes(UTF_8);
+    }
+
+    @Secured(PROCESS_DEFINITION_FORM)
+    @ApiOperation(notes = "Get process form metadata", nickname = "getProcessForm", value = "GET ProcessForm")
+    @GetMapping(path = "/definitions/{id}/form", produces = {APPLICATION_JSON_VALUE})
+    public SimpleRestResponse<List<Form>> getProcessForm(@PathVariable String connId,
+            @PathVariable String id) {
+        log.info("Retrieving a process form definitions for connection {} and processId {}", connId, id);
+        Connection connection = connectionService.get(connId);
+        Engine engine = engineFactory.getEngine(connection.getEngine());
+        return new SimpleRestResponse<>(
+                engine.getProcessService().getProcessForm(connection, id));
     }
 }
