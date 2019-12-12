@@ -44,6 +44,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.client.RestTemplate;
 
 @EnableConfigurationProperties
@@ -80,6 +81,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(get("/connections"))
                 .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(3)))
                 .andExpect(jsonPath("payload[0].name", is(connectionConfigs.get(0).getName())))
@@ -100,6 +102,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(get("/connections/" + connectionConfig.getName()))
                 .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(connection.getName())))
                 .andExpect(jsonPath("payload.username", is(connection.getUsername())));
@@ -124,6 +127,7 @@ public class ConnectionsControllerIntegrationTest {
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connectionDto)))
                 .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(connectionDto.getName())))
                 .andExpect(jsonPath("payload.host", is(connectionDto.getHost())))
@@ -153,6 +157,7 @@ public class ConnectionsControllerIntegrationTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connectionDto)))
                 .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(connectionDto.getName())))
                 .andExpect(jsonPath("payload.host", is(connectionDto.getHost())))
@@ -177,6 +182,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(delete("/connections/" + connectionDto.getName()))
                 .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)));
     }
 
@@ -187,6 +193,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(post("/connections").contentType(ContentType.APPLICATION_JSON.getMimeType())
                 .content(mapper.writeValueAsString(connectionDto)))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andDo(print()).andExpect(status().isNotFound());
     }
 
@@ -202,6 +209,7 @@ public class ConnectionsControllerIntegrationTest {
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connectionDto)))
                 .andDo(print()).andExpect(status().isConflict())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.message", containsString("already exists")));
     }
 }
