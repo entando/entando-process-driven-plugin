@@ -1,6 +1,7 @@
 package org.entando.plugins.pda.controller;
 
 import static org.entando.plugins.pda.controller.AuthPermissions.GROUP_LIST;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,7 +33,7 @@ public class GroupController {
 
     @Secured(GROUP_LIST)
     @ApiOperation(notes = "Lists BPM groups", nickname = "listGroups", value = "LIST Group")
-    @GetMapping
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<List<String>> listGroups(@PathVariable String connId,
             @QueryParam("processId") String processId) {
         Connection connection = connectionService.get(connId);

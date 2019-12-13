@@ -24,6 +24,7 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @EnableConfigurationProperties
 @AutoConfigureMockMvc
@@ -45,6 +46,7 @@ public class ConnectionsControllerStrictIntegrationTest {
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connectionDto)))
                 .andDo(print()).andExpect(status().isUnprocessableEntity())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.message", containsString("not allowed")));
     }
 
@@ -55,6 +57,7 @@ public class ConnectionsControllerStrictIntegrationTest {
         mockMvc.perform(put("/connections").contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connectionDto)))
                 .andDo(print()).andExpect(status().isUnprocessableEntity())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.message", containsString("not allowed")));
     }
 
@@ -64,6 +67,7 @@ public class ConnectionsControllerStrictIntegrationTest {
 
         mockMvc.perform(delete("/connections/" + connectionDto.getName()).contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()).andExpect(status().isUnprocessableEntity())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.message", containsString("not allowed")));
     }
 }
