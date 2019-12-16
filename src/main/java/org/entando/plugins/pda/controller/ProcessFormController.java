@@ -1,9 +1,6 @@
 package org.entando.plugins.pda.controller;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DEFINITION_FORM;
-import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DEFINITION_LIST;
-import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DIAGRAM;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
@@ -13,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
-import org.entando.plugins.pda.core.model.ProcessDefinition;
 import org.entando.plugins.pda.core.model.form.Form;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
