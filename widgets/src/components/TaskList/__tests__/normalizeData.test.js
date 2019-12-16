@@ -30,13 +30,15 @@ describe('normalizeData', () => {
   });
 
   it('normalizeColumns to change the columns to fit Table needs', () => {
-    const normalized = normalizeColumns(config.columns, tasks.payload[0]);
+    const columns = JSON.parse(config.payload.config.columns);
 
-    const expected = config.columns
-      .filter(column => column.visible)
+    const normalized = normalizeColumns(columns, tasks.payload[0]);
+
+    const expected = columns
+      .filter(column => column.isVisible)
       .map(column => ({
         header: column.header,
-        accessor: column.key,
+        accessor: column.name,
         position: column.position,
         sortFunction: getType(column, tasks.payload[0]),
       }));

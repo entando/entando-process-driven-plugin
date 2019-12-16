@@ -2,16 +2,15 @@ import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
-import { DOMAIN, WIDGET_CODES } from 'api/constants';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import mockTasks from 'mocks/taskList/tasks.json';
 import mockConfig from 'mocks/config.json';
 
 describe('<TaskListContainer />', () => {
   it('renders snapshot correctly', async () => {
-    const configUrl = `${DOMAIN}/configs/${WIDGET_CODES.taskList}`;
+    const configUrl = `/entando-de-app/api/pages//widgets/`;
     const connection = 'kieStaging';
-    const taskListUrl = `${DOMAIN}/connections/${connection}/tasks`;
+    const taskListUrl = `/pda/connections/${connection}/tasks?sort=taskId`;
 
     fetch.once(JSON.stringify(mockConfig)).once(JSON.stringify(mockTasks));
 
