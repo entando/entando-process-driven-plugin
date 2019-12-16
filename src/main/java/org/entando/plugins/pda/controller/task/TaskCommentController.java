@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @Api(tags = "TaskComment")
-@RequestMapping(path = "/connections/{connId}/tasks")
+@RequestMapping(path = "/connections/{connId}/tasks/{id}/comments")
 @RequiredArgsConstructor
 public class TaskCommentController {
 
@@ -41,7 +41,7 @@ public class TaskCommentController {
 
     @Secured(TASK_COMMENTS_LIST)
     @ApiOperation(notes = "Lists a task's comments", nickname = "listTaskComments", value = "LIST Task Comment")
-    @GetMapping(value = "/{taskId}/comments", produces = APPLICATION_JSON_VALUE)
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<List<Comment>> listTaskComments(@PathVariable final String connId,
             @PathVariable final String taskId, AuthenticatedUser user) {
         log.debug("Retrieving comments from task {}", taskId);
@@ -53,7 +53,7 @@ public class TaskCommentController {
 
     @Secured(TASK_COMMENTS_CREATE)
     @ApiOperation(notes = "Creates a task comment", nickname = "createTaskComment", value = "CREATE Task Comment")
-    @PostMapping(value = "/{taskId}/comments", produces = APPLICATION_JSON_VALUE)
+    @PostMapping(produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<Comment> createTaskComment(@PathVariable final String connId,
             @PathVariable final String taskId, @RequestBody final CreateCommentRequest request,
             AuthenticatedUser user) {
@@ -66,7 +66,7 @@ public class TaskCommentController {
 
     @Secured(TASK_COMMENTS_GET)
     @ApiOperation(notes = "Gets a task comment", nickname = "getTaskComment", value = "GET Task Comment")
-    @GetMapping(value = "/{taskId}/comments/{commentId}", produces = APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{commentId}", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<Comment> getTaskComment(@PathVariable final String connId,
             @PathVariable final String taskId, @PathVariable final String commentId, AuthenticatedUser user) {
         log.debug("Retrieving comment {} from task {}", commentId, taskId);
@@ -78,7 +78,7 @@ public class TaskCommentController {
 
     @Secured(TASK_COMMENTS_DELETE)
     @ApiOperation(notes = "Deletes a task comment", nickname = "deleteTaskComment", value = "DELETE Task Comment")
-    @DeleteMapping(value = "/{taskId}/comments/{commentId}", produces = APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/{commentId}", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<String> deleteTaskComment(@PathVariable final String connId,
             @PathVariable final String taskId, @PathVariable final String commentId, AuthenticatedUser user) {
         log.debug("Deleting comment {} from task {}", commentId, taskId);
