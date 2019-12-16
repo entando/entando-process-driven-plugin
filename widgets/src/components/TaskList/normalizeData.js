@@ -14,10 +14,10 @@ export const getType = (column, firstRow) => {
 
 export const normalizeColumns = (columns, firstRow) => {
   const normalized = columns
-    .filter(column => column.visible)
+    .filter(column => column.isVisible)
     .map(column => ({
       header: column.header,
-      accessor: column.key,
+      accessor: column.name,
       position: column.position,
       sortFunction: getType(column, firstRow),
     }));

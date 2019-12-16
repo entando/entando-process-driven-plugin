@@ -23,7 +23,15 @@ class TaskListElement extends HTMLElement {
       this.dispatchEvent(customEvent);
     };
 
-    const reactRoot = React.createElement(TaskList, { onError }, null);
+    const pageCode = this.getAttribute('page-code');
+    const frameId = this.getAttribute('frame-id');
+    const serviceUrl = this.getAttribute('service-url');
+
+    const reactRoot = React.createElement(
+      TaskList,
+      { onError, pageCode, frameId, serviceUrl },
+      null
+    );
     ReactDOM.render(reactRoot, mountPoint);
   }
 }

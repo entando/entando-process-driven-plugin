@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/styles/withStyles';
 
-import { WIDGET_CODES, SERVICE } from 'api/constants';
+import { SERVICE } from 'api/constants';
 import configApi from 'api/config';
 import taskListApi from 'api/taskList';
 import utils from 'utils';
@@ -38,26 +38,29 @@ class TaskList extends React.Component {
   timer = { ref: null };
 
   componentDidMount = async () => {
-    const { lazyLoading, 'service-url': url } = this.props;
+    const { lazyLoading, serviceUrl, pageCode, frameId } = this.props;
     const { currentPage } = this.state;
 
-    SERVICE.URL = url;
+    SERVICE.URL = serviceUrl;
 
     try {
-      // TODO: needs refactor
       // config will be fetched from app-builder
-      const config = await configApi.get(WIDGET_CODES.taskList);
+      const widgetConfigs = await configApi.get(pageCode, frameId);
+      if (widgetConfigs.errors.length) {
+        throw widgetConfigs.errors[0];
+      }
+      const { config } = widgetConfigs.payload;
 
       const taskList = lazyLoading
-        ? await taskListApi.get(config.connection, currentPage, 10)
-        : await taskListApi.get(config.connection);
+        ? await taskListApi.get(config.knowledgeSource, currentPage, 10)
+        : await taskListApi.get(config.knowledgeSource);
 
       this.setState({
         loading: false,
-        columns: normalizeColumns(config.columns, taskList.payload[0]),
+        columns: normalizeColumns(JSON.parse(config.columns), taskList.payload[0]),
         rows: normalizeRows(taskList.payload),
         size: taskList.metadata.size,
-        connection: config.connection,
+        connection: config.knowledgeSource,
       });
     } catch (error) {
       this.handleError(error.message);
@@ -166,14 +169,18 @@ TaskList.propTypes = {
   }),
   lazyLoading: PropTypes.bool,
   onError: PropTypes.func,
-  'service-url': PropTypes.string,
+  serviceUrl: PropTypes.string,
+  pageCode: PropTypes.string,
+  frameId: PropTypes.string,
 };
 
 TaskList.defaultProps = {
   classes: {},
   lazyLoading: false,
   onError: () => {},
-  'service-url': '/pda',
+  serviceUrl: '/pda',
+  pageCode: '',
+  frameId: '',
 };
 
 export default withStyles(styles)(TaskList);
