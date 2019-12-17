@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @Api(tags = "TaskComment")
-@RequestMapping(path = "/connections/{connId}/tasks/{id}/comments")
+@RequestMapping(path = "/connections/{connId}/tasks/{taskId}/comments")
 @RequiredArgsConstructor
 public class TaskCommentController {
 
