@@ -13,9 +13,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
-import org.entando.plugins.pda.core.model.form.Form;
 import org.entando.plugins.pda.core.model.ProcessDefinition;
 import org.entando.plugins.pda.engine.EngineFactory;
+import org.entando.plugins.pda.serializer.JsonSchemaForm;
+import org.entando.plugins.pda.serializer.JsonSchemaFormSerializer;
+import org.entando.plugins.pda.serializer.V7JsonSchemaForm;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
@@ -34,6 +36,8 @@ public class ProcessController {
     private final ConnectionService connectionService;
 
     private final EngineFactory engineFactory;
+
+    private final JsonSchemaFormSerializer jsonSchemaFormSerializer;
 
     @Secured(PROCESS_DEFINITION_LIST)
     @ApiOperation(notes = "Lists all processes definitions", nickname = "listProcessDefinitions",
@@ -63,12 +67,12 @@ public class ProcessController {
     @Secured(PROCESS_DEFINITION_FORM)
     @ApiOperation(notes = "Get process form metadata", nickname = "getProcessForm", value = "GET ProcessForm")
     @GetMapping(path = "/definitions/{id}/form", produces = {APPLICATION_JSON_VALUE})
-    public SimpleRestResponse<List<Form>> getProcessForm(@PathVariable String connId,
+    public JsonSchemaForm getProcessForm(@PathVariable String connId,
             @PathVariable String id) {
         log.info("Retrieving a process form definitions for connection {} and processId {}", connId, id);
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
-        return new SimpleRestResponse<>(
+        return new V7JsonSchemaForm(
                 engine.getProcessService().getProcessForm(connection, id));
     }
 }

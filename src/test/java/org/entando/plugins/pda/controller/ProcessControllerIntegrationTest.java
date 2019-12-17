@@ -1,6 +1,8 @@
 package org.entando.plugins.pda.controller;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.entando.plugins.pda.core.utils.TestUtils.minifyJsonString;
+import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -88,13 +90,36 @@ public class ProcessControllerIntegrationTest {
                 .andReturn();
 
         String diagram = result.getResponse().getContentAsString();
+        String expected = readFromFile(FakeProcessService.PROCESS_DIAGRAM_FILENAME_1);
 
-        assertThat(diagram.length()).isEqualTo(FakeProcessService.PROCESS_DIAGRAM_LENGTH_1);
+        assertThat(diagram).isEqualTo(expected);
+    }
+
+    @Test
+    public void testGetProcessFormJsonSchema() throws Exception {
+        MvcResult result = mockMvc.perform(get("/connections/fakeProduction/processes/definitions/{id}/form"
+                .replace("{id}", FakeProcessService.PROCESS_ID_1)))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String json = result.getResponse().getContentAsString();
+        String expected = minifyJsonString(readFromFile("process_form_json_schema_1.json"));
+        assertThat(json).isEqualTo(expected);
     }
 
     @Test
     public void testGetProcessDiagramShouldThrowNotFound() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/processes/{id}/diagram"
+                .replace("{id}", UUID.randomUUID().toString())))
+                .andDo(print())
+                .andExpect(status().isNotFound())
+                .andReturn();
+    }
+
+    @Test
+    public void testGetProcessFormShouldThrowNotFound() throws Exception {
+        mockMvc.perform(get("/connections/fakeProduction/processes/definitions/{id}/form"
                 .replace("{id}", UUID.randomUUID().toString())))
                 .andDo(print())
                 .andExpect(status().isNotFound())
