@@ -1,6 +1,7 @@
 package org.entando.plugins.pda.controller;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -88,8 +89,9 @@ public class ProcessControllerIntegrationTest {
                 .andReturn();
 
         String diagram = result.getResponse().getContentAsString();
+        String expected = readFromFile(FakeProcessService.PROCESS_DIAGRAM_FILENAME_1);
 
-        assertThat(diagram.length()).isEqualTo(FakeProcessService.PROCESS_DIAGRAM_LENGTH_1);
+        assertThat(diagram).isEqualTo(expected);
     }
 
     @Test
