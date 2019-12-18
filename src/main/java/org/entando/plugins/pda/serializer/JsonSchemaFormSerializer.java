@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.entando.plugins.pda.core.model.form.Form;
 import org.entando.plugins.pda.core.model.form.FormField;
 import org.entando.plugins.pda.core.model.form.FormFieldInteger;
@@ -85,7 +86,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     }
 
     private void writeDescription(JsonGenerator jsonGenerator, String description) throws IOException {
-        if (description != null && !description.trim().isEmpty()) {
+        if (StringUtils.isEmpty(description)) {
             jsonGenerator.writeStringField(DESCRIPTION, description);
         }
     }
