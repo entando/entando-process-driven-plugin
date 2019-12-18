@@ -1,7 +1,6 @@
 package org.entando.plugins.pda.controller;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
-import static org.entando.plugins.pda.core.utils.TestUtils.minifyJsonString;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
