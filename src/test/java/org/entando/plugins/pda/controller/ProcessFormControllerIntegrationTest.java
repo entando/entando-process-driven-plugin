@@ -1,6 +1,7 @@
 package org.entando.plugins.pda.controller;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_ID_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.minifyJsonString;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import static org.hamcrest.Matchers.containsString;
@@ -69,7 +70,7 @@ public class ProcessFormControllerIntegrationTest {
     @Test
     public void testGetProcessFormJsonSchema() throws Exception {
         MvcResult result = mockMvc.perform(get("/connections/fakeProduction/processes/definitions/{id}/form"
-                .replace("{id}", FakeProcessService.PROCESS_ID_1)))
+                .replace("{id}", PROCESS_ID_1)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn();
