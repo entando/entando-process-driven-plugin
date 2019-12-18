@@ -1,7 +1,6 @@
 package org.entando.plugins.pda.controller;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DEFINITION_FORM;
 import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DEFINITION_LIST;
 import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DIAGRAM;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -15,9 +14,6 @@ import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.model.ProcessDefinition;
 import org.entando.plugins.pda.engine.EngineFactory;
-import org.entando.plugins.pda.serializer.JsonSchemaForm;
-import org.entando.plugins.pda.serializer.JsonSchemaFormSerializer;
-import org.entando.plugins.pda.serializer.V7JsonSchemaForm;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
@@ -36,8 +32,6 @@ public class ProcessController {
     private final ConnectionService connectionService;
 
     private final EngineFactory engineFactory;
-
-    private final JsonSchemaFormSerializer jsonSchemaFormSerializer;
 
     @Secured(PROCESS_DEFINITION_LIST)
     @ApiOperation(notes = "Lists all processes definitions", nickname = "listProcessDefinitions",
@@ -62,17 +56,5 @@ public class ProcessController {
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return engine.getProcessService().getProcessDiagram(connection, id)
                 .getBytes(UTF_8);
-    }
-
-    @Secured(PROCESS_DEFINITION_FORM)
-    @ApiOperation(notes = "Get process form metadata", nickname = "getProcessForm", value = "GET ProcessForm")
-    @GetMapping(path = "/definitions/{id}/form", produces = {APPLICATION_JSON_VALUE})
-    public JsonSchemaForm getProcessForm(@PathVariable String connId,
-            @PathVariable String id) {
-        log.info("Retrieving a process form definitions for connection {} and processId {}", connId, id);
-        Connection connection = connectionService.get(connId);
-        Engine engine = engineFactory.getEngine(connection.getEngine());
-        return new V7JsonSchemaForm(
-                engine.getProcessService().getProcessForm(connection, id));
     }
 }
