@@ -54,7 +54,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
             throws IOException {
 
         jsonGenerator.writeStartObject();
-        writeSchemaHeder(jsonGenerator, schema);
+        writeSchemaHeader(jsonGenerator, schema);
 
         writeFieldType(jsonGenerator, TYPE_OBJECT);
         jsonGenerator.writeFieldName(PROPERTIES);
@@ -76,7 +76,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         jsonGenerator.writeEndObject();
     }
 
-    private void writeSchemaHeder(JsonGenerator jsonGenerator, JsonSchemaForm schema) throws IOException {
+    private void writeSchemaHeader(JsonGenerator jsonGenerator, JsonSchemaForm schema) throws IOException {
         jsonGenerator.writeStringField(SCHEMA_VERSION, schema.getVersion());
         jsonGenerator.writeStringField(SCHEMA_ID, schema.getId());
     }
@@ -86,7 +86,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     }
 
     private void writeDescription(JsonGenerator jsonGenerator, String description) throws IOException {
-        if (StringUtils.isEmpty(description)) {
+        if (!StringUtils.isEmpty(description)) {
             jsonGenerator.writeStringField(DESCRIPTION, description);
         }
     }
