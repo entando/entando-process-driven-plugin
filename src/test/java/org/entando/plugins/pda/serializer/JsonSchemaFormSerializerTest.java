@@ -6,7 +6,7 @@ import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import org.entando.plugins.pda.core.service.process.FakeProcessService;
+import org.entando.plugins.pda.core.service.process.FakeProcessFormService;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class JsonSchemaFormSerializerTest {
     @Test
     public void shouldSerializeProcessFormIntoJsonSchemaV7() throws Exception {
         String result = mapper.writeValueAsString(
-                new V7JsonSchemaForm(FakeProcessService.createProcessForm()));
+                new V7JsonSchemaForm(FakeProcessFormService.FORMS));
         String expected = readFromFile("process_form_json_schema_1.json");
 
         assertThat(result).isEqualTo(expected);
