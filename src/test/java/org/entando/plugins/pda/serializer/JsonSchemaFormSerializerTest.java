@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.entando.plugins.pda.core.service.process.FakeProcessFormService;
+import org.entando.plugins.pda.core.service.task.FakeTaskFormService;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,8 +27,17 @@ public class JsonSchemaFormSerializerTest {
     @Test
     public void shouldSerializeProcessFormIntoJsonSchemaV7() throws Exception {
         String result = mapper.writeValueAsString(
-                new V7JsonSchemaForm(FakeProcessFormService.FORMS));
+                new V7JsonSchemaForm(FakeProcessFormService.PROCESS_FORMS));
         String expected = readFromFile("process_form_json_schema_1.json");
+
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldSerializeTaskFormIntoJsonSchemaV7() throws Exception {
+        String result = mapper.writeValueAsString(
+                new V7JsonSchemaForm(FakeTaskFormService.TASK_FORMS));
+        String expected = readFromFile("task_form_json_schema_1.json");
 
         assertThat(result).isEqualTo(expected);
     }

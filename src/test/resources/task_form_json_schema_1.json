@@ -1,0 +1,33 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "http://entando.org/schemas/pda-form.json",
+  "type" : "object",
+  "properties" : {
+    "1" : {
+      "title" : "Task 1",
+      "type" : "object",
+      "required" : [ ],
+      "properties" : {
+        "reason" : {
+          "type" : "integer",
+          "title" : "Reason",
+          "description" : "This is the placeholder for form field 1",
+          "minimum" : 0,
+          "maximum" : 10
+        }
+      }
+    },
+    "2" : {
+      "title" : "Task 2",
+      "type" : "object",
+      "required" : [ ],
+      "properties" : {
+        "performance" : {
+          "type" : "string",
+          "title" : "Performance",
+          "description" : "This is the placeholder for form field 2"
+        }
+      }
+    }
+  }
+}
