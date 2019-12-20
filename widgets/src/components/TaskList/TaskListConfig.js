@@ -97,29 +97,23 @@ class TaskListConfig extends React.Component {
   componentDidMount = () => {
     const { framePos, pageCode } = this.props;
     // get existing configs
-    getPageWidget(pageCode, framePos).then(response => {
-      response.json().then(data => {
-        const configs = data.payload && data.payload.config;
-        if (response.ok && configs && configs.knowledgeSource) {
-          this.onChangeSource(configs.knowledgeSource, () => {
-            this.onChangeProcess(configs.process, () => {
-              this.setState({
-                groups: JSON.parse(configs.groups),
-                options: JSON.parse(configs.options),
-                columns: JSON.parse(configs.columns),
-              });
+    getPageWidget(pageCode, framePos).then(data => {
+      const configs = data.payload && data.payload.config;
+      if (configs && configs.knowledgeSource) {
+        this.onChangeSource(configs.knowledgeSource, () => {
+          this.onChangeProcess(configs.process, () => {
+            this.setState({
+              groups: JSON.parse(configs.groups),
+              options: JSON.parse(configs.options),
+              columns: JSON.parse(configs.columns),
             });
           });
-        }
-      });
+        });
+      }
     });
 
-    getConnections().then(response => {
-      response.json().then(data => {
-        if (response.ok) {
-          this.setState({ sourceList: data.payload });
-        }
-      });
+    getConnections().then(data => {
+      this.setState({ sourceList: data.payload });
     });
   };
 
@@ -127,13 +121,9 @@ class TaskListConfig extends React.Component {
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState({ knowledgeSource });
 
-    getProcess(knowledgeSource).then(response => {
-      response.json().then(data => {
-        if (response.ok) {
-          this.setState({ processList: data.payload });
-          cb();
-        }
-      });
+    getProcess(knowledgeSource).then(data => {
+      this.setState({ processList: data.payload });
+      cb();
     });
   };
 

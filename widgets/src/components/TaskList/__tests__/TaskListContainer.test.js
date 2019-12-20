@@ -22,4 +22,10 @@ describe('<TaskListContainer />', () => {
     expect(fetch.mock.calls[0][0]).toEqual(configUrl);
     expect(fetch.mock.calls[1][0]).toEqual(taskListUrl);
   });
+
+  it('renders snapshot correctly on error state', async () => {
+    const { container } = render(<TaskListContainer />);
+
+    await wait(() => expect(container).toMatchSnapshot());
+  });
 });

@@ -127,7 +127,9 @@
       "!src/**/mocks/**/*.*",
       "!src/**/types/**/*.*",
       "!<rootDir>/node_modules/",
-      "!<rootDir>/path/to/dir/"
+      "!<rootDir>/path/to/dir/",
+      "!src/**/custom-elements/*.*",
+      "!src/**/index.js"
     ],
     "coverageThreshold": {
       "global": {

@@ -1,7 +1,7 @@
 import { IS_MOCKED_API, MOCK_API_DELAY } from 'api/constants';
 import utils from 'utils';
 
-export default async ({ domain, uri, method, mockResponse, withAuth, body }) => {
+export default async ({ domain, uri, method, mockResponse, withAuthentication, body }) => {
   if (IS_MOCKED_API) {
     await utils.timeout(MOCK_API_DELAY);
     return mockResponse;
@@ -18,7 +18,7 @@ export default async ({ domain, uri, method, mockResponse, withAuth, body }) => 
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
 
-  if (withAuth) {
+  if (withAuthentication) {
     const token = localStorage.getItem('token');
     headers.append('Authorization', `Bearer ${token}`);
   }
