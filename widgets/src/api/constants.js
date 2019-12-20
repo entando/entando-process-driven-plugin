@@ -11,3 +11,10 @@ export const WIDGET_CODES = {
 };
 
 export const SERVICE = {};
+
+export const METHODS = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
+};

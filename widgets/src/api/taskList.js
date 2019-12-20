@@ -1,26 +1,52 @@
-import { IS_MOCKED_API, MOCK_API_DELAY, SERVICE } from 'api/constants';
-import getTasks from 'mocks/taskList/api.mock';
-import utils from 'utils';
+import { SERVICE, METHODS } from 'api/constants';
+import getMockedTasks from 'mocks/taskList/api.mock';
 
-const get = async (connection, page, pageSize, sortedColumn, sortOrder, filter) => {
-  if (IS_MOCKED_API) {
-    await utils.timeout(MOCK_API_DELAY);
-    return getTasks(page, pageSize, sortedColumn, sortOrder, filter);
-  }
+import { CONNECTIONS, PROCESS, GROUPS, COLUMNS } from 'mocks/taskList/configs';
+import makeRequest from 'api/makeRequest';
 
-  const url = `${SERVICE.URL}/connections/${connection}/tasks?sort=taskId`;
-  const token = localStorage.getItem('token');
-  const response = await fetch(url, {
-    method: 'get',
-    headers: new Headers({
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    }),
+export const getTasks = async (connection, page, pageSize, sortedColumn, sortOrder, filter) =>
+  makeRequest({
+    domain: SERVICE.URL,
+    uri: `/connections/${connection}/tasks?sort=taskId`,
+    method: METHODS.GET,
+    mockResponse: getMockedTasks(page, pageSize, sortedColumn, sortOrder, filter),
+    useAuthentication: true,
   });
 
-  return response.json();
-};
+// Configs
 
-export default {
-  get,
-};
+export const getConnections = async () =>
+  makeRequest({
+    domain: SERVICE.URL,
+    uri: '/connections',
+    method: METHODS.GET,
+    mockResponse: CONNECTIONS,
+    useAuthentication: false,
+  });
+
+export const getProcess = async connection =>
+  makeRequest({
+    // domain: PDA_DOMAIN,
+    uri: `/connections/${connection}/processes/definitions`,
+    method: METHODS.GET,
+    mockResponse: PROCESS,
+    useAuthentication: true,
+  });
+
+export const getGroups = async connection =>
+  makeRequest({
+    // domain: PDA_DOMAIN,
+    uri: `/connections/${connection}/groups`,
+    method: METHODS.GET,
+    mockResponse: GROUPS,
+    useAuthentication: true,
+  });
+
+export const getColumns = async connection =>
+  makeRequest({
+    // domain: PDA_DOMAIN,
+    uri: `/connections/${connection}/tasks/columns`,
+    method: METHODS.GET,
+    mockResponse: COLUMNS,
+    useAuthentication: true,
+  });

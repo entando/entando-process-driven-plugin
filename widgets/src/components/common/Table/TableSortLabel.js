@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import MuiTableSortLabel from '@material-ui/core/TableSortLabel';
-import withStyles from '@material-ui/styles/withStyles';
+import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = {
   ascActive: {

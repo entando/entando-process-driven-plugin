@@ -4,15 +4,15 @@ import 'mocks/i18nMock';
 
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import mockTasks from 'mocks/taskList/tasks.json';
-import mockConfig from 'mocks/config.json';
+import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
 
 describe('<TaskListContainer />', () => {
   it('renders snapshot correctly', async () => {
-    const configUrl = `/entando-de-app/api/pages//widgets/`;
+    const configUrl = `/api/pages//widgets/`;
     const connection = 'kieStaging';
     const taskListUrl = `/pda/connections/${connection}/tasks?sort=taskId`;
 
-    fetch.once(JSON.stringify(mockConfig)).once(JSON.stringify(mockTasks));
+    fetch.once(JSON.stringify(WIDGET_CONFIGS)).once(JSON.stringify(mockTasks));
 
     const { container } = render(<TaskListContainer />);
 

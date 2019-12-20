@@ -1,13 +1,13 @@
-import { ThemeProvider } from '@material-ui/styles';
+import { MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import i18next from 'i18next';
 import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
-import withStyles from '@material-ui/styles/withStyles';
+import withStyles from '@material-ui/core/styles/withStyles';
 
 import { SERVICE } from 'api/constants';
-import configApi from 'api/config';
-import taskListApi from 'api/taskList';
+import { getTasks } from 'api/taskList';
+import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
 
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
@@ -45,15 +45,15 @@ class TaskList extends React.Component {
 
     try {
       // config will be fetched from app-builder
-      const widgetConfigs = await configApi.get(pageCode, frameId);
-      if (widgetConfigs.errors.length) {
+      const widgetConfigs = await getPageWidget(pageCode, frameId);
+      if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }
       const { config } = widgetConfigs.payload;
 
       const taskList = lazyLoading
-        ? await taskListApi.get(config.knowledgeSource, currentPage, 10)
-        : await taskListApi.get(config.knowledgeSource);
+        ? await getTasks(config.knowledgeSource, currentPage, 10)
+        : await getTasks(config.knowledgeSource);
 
       this.setState({
         loading: false,
@@ -92,14 +92,7 @@ class TaskList extends React.Component {
 
     this.setState({ loading: true });
     try {
-      const res = await taskListApi.get(
-        connection,
-        page,
-        rowsPerPage,
-        sortedColumn,
-        sortedOrder,
-        filter
-      );
+      const res = await getTasks(connection, page, rowsPerPage, sortedColumn, sortedOrder, filter);
 
       this.setState({
         rows: normalizeRows(res.payload),

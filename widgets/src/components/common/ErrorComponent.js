@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CloudOff from '@material-ui/icons/CloudOff';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   root: {

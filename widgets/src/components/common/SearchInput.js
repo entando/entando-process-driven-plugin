@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
-import withStyles from '@material-ui/styles/withStyles';
+import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = {
   root: {

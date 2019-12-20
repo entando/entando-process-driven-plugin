@@ -56,3 +56,17 @@ export const normalizeRows = rows =>
     });
     return normalizedRow;
   });
+
+export const normalizeConfigColumns = columns =>
+  columns.map((column, i) => ({
+    name: column,
+    position: i,
+    isVisible: true,
+  }));
+
+export const normalizeConfigGroups = groups =>
+  groups.map(group => ({
+    label: group,
+    key: group,
+    checked: true,
+  }));
