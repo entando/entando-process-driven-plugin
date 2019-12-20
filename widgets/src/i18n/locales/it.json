@@ -1,0 +1,20 @@
+{
+  "common": {
+    "of": "di"
+  },
+  "table": {
+    "title": "Elenco attività",
+    "subtitle": "Elenco delle attività",
+    "searchPlaceholder": "Cerca...",
+    "rowsPerPage": "Righe per pagina:",
+    "showing": "Mostra $1-$2 di $3 articoli"
+  },
+  "messages": {
+    "warnings": {
+      "noData": "non ci sono dati da visualizzare"
+    },
+    "errors": {
+      "dataLoading": "Impossibile caricare i dati del server"
+    }
+  }
+}

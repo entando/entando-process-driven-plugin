@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmptyRow /> renders snapshot correctly 1`] = `
+<div>
+  <table>
+    <tbody>
+      <tr
+        class="EmptyRow-root-1"
+      >
+        <td
+          colspan="1"
+          style="height: 250px;"
+        >
+          <p
+            class="MuiTypography-root EmptyRow-text-2 MuiTypography-body1"
+          >
+            No data to display
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`<EmptyRow /> renders snapshot correctly with custom message 1`] = `
+<div>
+  <table>
+    <tbody>
+      <tr
+        class="EmptyRow-root-33"
+      >
+        <td
+          colspan="1"
+          style="height: 250px;"
+        >
+          <p
+            class="MuiTypography-root EmptyRow-text-34 MuiTypography-body1"
+          >
+            test message
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

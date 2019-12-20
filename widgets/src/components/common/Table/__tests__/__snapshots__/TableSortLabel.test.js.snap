@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TableSortLabel /> renders snapshot correctly 1`] = `
+<div>
+  <span
+    class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-3"
+    role="button"
+    tabindex="0"
+  >
+    Test
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+      focusable="false"
+      role="presentation"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+      />
+    </svg>
+  </span>
+</div>
+`;
+
+exports[`<TableSortLabel /> renders snapshot correctly with desc direction and active 1`] = `
+<div>
+  <span
+    class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-descActive-22 MuiTableSortLabel-active"
+    role="button"
+    tabindex="0"
+  >
+    Test
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionDesc"
+      focusable="false"
+      role="presentation"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+      />
+    </svg>
+  </span>
+</div>
+`;
