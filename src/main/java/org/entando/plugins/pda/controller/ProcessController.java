@@ -36,7 +36,7 @@ public class ProcessController {
     @Secured(PROCESS_DEFINITION_LIST)
     @ApiOperation(notes = "Lists all processes definitions", nickname = "listProcessDefinitions",
             value = "LIST ProcessDefinition")
-    @GetMapping(path = "/definitions", produces = {APPLICATION_JSON_VALUE})
+    @GetMapping(path = "/definitions", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<List<ProcessDefinition>> listDefinitions(@PathVariable final String connId) {
         log.info("Listing processes definitions for connection {}", connId);
         Connection connection = connectionService.get(connId);
@@ -48,7 +48,7 @@ public class ProcessController {
     @Secured(PROCESS_DIAGRAM)
     @ApiOperation(notes = "Gets the process diagram", nickname = "getProcessDiagram",
             value = "GET Process Diagram")
-    @GetMapping(path = "/{id}/diagram", produces = {"application/svg+xml"})
+    @GetMapping(path = "/{id}/diagram", produces = "application/svg+xml")
     public byte[] getProcessDiagram(@PathVariable final String connId,
             @PathVariable final String id) {
         log.info("Retrieving process diagram for {}", id);

@@ -5,6 +5,7 @@ import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_DELE
 import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_EDIT;
 import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_GET;
 import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_LIST;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,7 +37,7 @@ public class ConnectionsController {
 
     @Secured(CONNECTION_LIST)
     @ApiOperation(notes = "Lists all connections", nickname = "listConnections", value = "LIST Connection")
-    @GetMapping
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<List<ConnectionDto>> list() {
         log.debug("Listing connections");
         return new SimpleRestResponse<>(
@@ -47,7 +48,7 @@ public class ConnectionsController {
 
     @Secured(CONNECTION_GET)
     @ApiOperation(notes = "Gets a connection", nickname = "getConnection", value = "GET Connection")
-    @GetMapping("/{connId}")
+    @GetMapping(value = "/{connId}", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<ConnectionDto> get(@PathVariable String connId) {
         log.debug("Requesting connection {}", connId);
         return new SimpleRestResponse<>(
@@ -56,7 +57,7 @@ public class ConnectionsController {
 
     @Secured(CONNECTION_DELETE)
     @ApiOperation(notes = "Deletes a connection", nickname = "deleteConnection", value = "DELETE Connection")
-    @DeleteMapping("/{connId}")
+    @DeleteMapping(value = "/{connId}", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<Void> delete(@PathVariable String connId) {
         log.debug("Deleting connection {}", connId);
         connectionService.delete(connId);
@@ -65,7 +66,7 @@ public class ConnectionsController {
 
     @Secured(CONNECTION_EDIT)
     @ApiOperation(notes = "Edits a connection", nickname = "editConnection", value = "EDIT Connection")
-    @PutMapping
+    @PutMapping(produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<ConnectionDto> edit(@RequestBody ConnectionDto request) {
         log.debug("Editing connection {}", request.getName());
         return new SimpleRestResponse<>(
@@ -74,7 +75,7 @@ public class ConnectionsController {
 
     @Secured(CONNECTION_CREATE)
     @ApiOperation(notes = "Creates a connection", nickname = "createConnection", value = "CREATE Connection")
-    @PostMapping
+    @PostMapping(produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<ConnectionDto> create(@RequestBody ConnectionDto request) {
         log.debug("Creating connection {}", request);
         return new SimpleRestResponse<>(
