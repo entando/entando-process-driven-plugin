@@ -69,7 +69,7 @@ public class TaskFormControllerIntegrationTest {
 
     @Test
     public void testGetTaskFormJsonSchema() throws Exception {
-        MvcResult result = mockMvc.perform(get("/connections/fakeProduction/tasks/definitions/{id}/form"
+        MvcResult result = mockMvc.perform(get("/connections/fakeProduction/tasks/{id}/form"
                 .replace("{id}", TASK_ID_1)))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -82,7 +82,7 @@ public class TaskFormControllerIntegrationTest {
 
     @Test
     public void testGetTaskFormShouldThrowNotFound() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/tasks/definitions/{id}/form"
+        mockMvc.perform(get("/connections/fakeProduction/tasks/{id}/form"
                 .replace("{id}", UUID.randomUUID().toString())))
                 .andDo(print())
                 .andExpect(status().isNotFound())

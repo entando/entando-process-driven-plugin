@@ -11,9 +11,14 @@
         "reason" : {
           "type" : "integer",
           "title" : "Reason",
-          "description" : "This is the placeholder for form field 1",
+          "description" : "This is the placeholder for task form field 1",
           "minimum" : 0,
           "maximum" : 10
+        },
+        "external" : {
+          "type" : "boolean",
+          "title" : "External",
+          "description" : "This is the placeholder for task form field 2"
         }
       }
     },
@@ -25,7 +30,7 @@
         "performance" : {
           "type" : "string",
           "title" : "Performance",
-          "description" : "This is the placeholder for form field 2"
+          "description" : "This is the placeholder for task form field 3"
         }
       }
     }

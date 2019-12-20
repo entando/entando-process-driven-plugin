@@ -1,6 +1,6 @@
 package org.entando.plugins.pda.controller.task;
 
-import static org.entando.plugins.pda.controller.AuthPermissions.TASK_DEFINITION_FORM;
+import static org.entando.plugins.pda.controller.AuthPermissions.TASK_FORM;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @Api(tags = "Task")
-@RequestMapping(path = "/connections/{connId}/tasks")
+@RequestMapping(path = "/connections/{connId}/tasks/{taskId}/form")
 @RequiredArgsConstructor
 public class TaskFormController {
 
@@ -30,9 +30,9 @@ public class TaskFormController {
 
     private final EngineFactory engineFactory;
 
-    @Secured(TASK_DEFINITION_FORM)
+    @Secured(TASK_FORM)
     @ApiOperation(notes = "Get task form metadata", nickname = "getTaskForm", value = "GET TaskForm")
-    @GetMapping(path = "/definitions/{taskId}/form", produces = {APPLICATION_JSON_VALUE})
+    @GetMapping(produces = {APPLICATION_JSON_VALUE})
     public JsonSchemaForm getTaskForm(@PathVariable String connId, @PathVariable String taskId) {
         log.info("Retrieving a task form definitions for connection {} and taskId {}", connId, taskId);
         Connection connection = connectionService.get(connId);
