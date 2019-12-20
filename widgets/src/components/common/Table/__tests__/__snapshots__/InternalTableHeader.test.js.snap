@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InternalTableHeader /> renders snapshot correctly 1`] = `
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td
+          class="MuiTableCell-root MuiTableCell-head"
+          style="white-space: nowrap;"
+        >
+          <span
+            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-15"
+            role="button"
+            tabindex="0"
+          >
+            Application
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+              />
+            </svg>
+          </span>
+        </td>
+      </tr>
+    </thead>
+  </table>
+</div>
+`;
+
+exports[`<InternalTableHeader /> renders snapshot correctly without sort functionality 1`] = `
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td
+          class="MuiTableCell-root MuiTableCell-head"
+          style="white-space: nowrap; position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center;"
+        >
+          Action
+        </td>
+      </tr>
+    </thead>
+  </table>
+</div>
+`;
