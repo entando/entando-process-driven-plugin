@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { FormGroup, ControlLabel, Checkbox, Button, HelpBlock, Row, Col } from 'patternfly-react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
@@ -8,6 +9,9 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { getConnections, getProcess, getGroups, getColumns } from 'api/taskList';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 import { normalizeConfigColumns, normalizeConfigGroups } from 'components/TaskList/normalizeData';
+import 'patternfly-react/dist/css/patternfly-react.css';
+import 'patternfly/dist/css/patternfly.css';
+import 'patternfly/dist/css/patternfly-additions.css';
 import RenderSwitch from 'components/common/RenderSwitch';
 
 const generalOptions = [
@@ -94,27 +98,26 @@ class TaskListConfig extends React.Component {
     selectedProcess: '',
   };
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     const { framePos, pageCode } = this.props;
+    // get list of connections
+    const sourceList = await getConnections();
+    this.setState({ sourceList: sourceList.payload });
+
     // get existing configs
-    getPageWidget(pageCode, framePos).then(data => {
-      const configs = data.payload && data.payload.config;
-      if (configs && configs.knowledgeSource) {
-        this.onChangeSource(configs.knowledgeSource, () => {
-          this.onChangeProcess(configs.process, () => {
-            this.setState({
-              groups: JSON.parse(configs.groups),
-              options: JSON.parse(configs.options),
-              columns: JSON.parse(configs.columns),
-            });
+    const pageWidgetsConfigs = await getPageWidget(pageCode, framePos);
+    const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
+    if (configs && configs.knowledgeSource) {
+      this.onChangeSource(configs.knowledgeSource, () => {
+        this.onChangeProcess(configs.process, () => {
+          this.setState({
+            groups: JSON.parse(configs.groups),
+            options: JSON.parse(configs.options),
+            columns: JSON.parse(configs.columns),
           });
         });
-      }
-    });
-
-    getConnections().then(data => {
-      this.setState({ sourceList: data.payload });
-    });
+      });
+    }
   };
 
   onChangeSource = (e, cb = () => {}) => {
@@ -127,7 +130,7 @@ class TaskListConfig extends React.Component {
     });
   };
 
-  onChangeProcess = (e, cb) => {
+  onChangeProcess = async (e, cb) => {
     const { knowledgeSource } = this.state;
     const selectedProcess = e.target ? e.target.value : e;
     this.setState({ selectedProcess });
@@ -135,22 +138,17 @@ class TaskListConfig extends React.Component {
     if (cb) {
       cb();
     } else {
-      Promise.all([
-        getGroups(knowledgeSource, selectedProcess),
-        getColumns(knowledgeSource, selectedProcess),
-      ])
-        .then(async responses => {
-          if (responses[0].ok && responses[1].ok) {
-            return [await responses[0].json(), await responses[1].json()];
-          }
-          return null;
-        })
-        .then(([r1, r2]) => {
-          this.setState({
-            groups: normalizeConfigGroups(r1.payload),
-            columns: normalizeConfigColumns(r2.payload),
-          });
+      try {
+        const { payload: groups } = await getGroups(knowledgeSource, selectedProcess);
+        const { payload: columns } = await getColumns(knowledgeSource, selectedProcess);
+
+        this.setState({
+          groups: normalizeConfigGroups(groups),
+          columns: normalizeConfigColumns(columns),
         });
+      } catch (error) {
+        console.log('Error while trying to fetch groups and columns from PDA server', error);
+      }
     }
   };
 
@@ -183,7 +181,8 @@ class TaskListConfig extends React.Component {
   };
 
   handleOptions = index => e => {
-    const { value, options } = e.state;
+    const { options } = this.state;
+    const { value } = e.state;
     const newOptions = [...options];
 
     newOptions[index].checked = value;
@@ -191,14 +190,15 @@ class TaskListConfig extends React.Component {
   };
 
   handleGroups = index => e => {
-    const { value, groups } = e.state;
+    const { groups } = this.state;
+    const { value } = e.state;
     const newGroups = [...groups];
 
     newGroups[index].checked = value;
     this.setState({ groups: newGroups });
   };
 
-  handleSave = () => {
+  handleSave = async () => {
     const { framePos, pageCode, widgetCode } = this.props;
     const { knowledgeSource, selectedProcess, options, groups, columns } = this.state;
     const body = {
@@ -213,13 +213,12 @@ class TaskListConfig extends React.Component {
       columns: JSON.stringify(columns),
     };
 
-    putPageWidget(pageCode, framePos, body).then(response =>
-      response.json().then(() => {
-        if (response.ok) {
-          // history.push(routeConverter(ROUTE_PAGE_CONFIG, { pageCode }));
-        }
-      })
-    );
+    try {
+      const response = await putPageWidget(pageCode, framePos, body);
+      console.log('Configs got saved', response);
+    } catch (error) {
+      console.log('Error while saving configs', error);
+    }
   };
 
   render() {
@@ -343,7 +342,7 @@ class TaskListConfig extends React.Component {
 }
 
 TaskListConfig.propTypes = {
-  framePos: PropTypes.number.isRequired,
+  framePos: PropTypes.string.isRequired,
   widgetCode: PropTypes.string.isRequired,
   pageCode: PropTypes.string.isRequired,
 };
