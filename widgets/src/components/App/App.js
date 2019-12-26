@@ -69,7 +69,10 @@ function App() {
         <Container className="app-container">
           <Route path="/" exact component={Home} />
           <Route path="/TaskList/" render={() => <TaskListContainer lazyLoading={lazyLoading} />} />
-          <Route path="/TaskListConfig" component={TaskListConfig} />
+          <Route
+            path="/TaskListConfig"
+            render={() => <TaskListConfig pageCode="0" framePos="0" widgetCode="pda_task_list" />}
+          />
         </Container>
       </Router>
     </div>
