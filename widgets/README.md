@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[![Build Status](https://jenkins.entandocloud.com/buildStatus/icon?job=pda-widgets-master)](https://jenkins.entandocloud.com/job/pda-widgets-master/)
+
 ## Available Scripts
 
 In the project directory, you can run:
