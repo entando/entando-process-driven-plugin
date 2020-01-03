@@ -2,7 +2,6 @@ import { METHODS } from 'api/constants';
 import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
 import makeRequest from 'api/makeRequest';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getPageWidget = (pageCode, frameId) =>
   makeRequest({
     uri: `/api/pages/${pageCode}/widgets/${frameId}`,

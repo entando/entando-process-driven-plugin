@@ -2,7 +2,7 @@ import { getType, normalizeColumns, normalizeRows } from 'components/TaskList/no
 import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
 import ActionCell from 'components/common/Table/custom/ActionCell';
 import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
-import tasks from 'mocks/taskList/tasks';
+import tasks from 'mocks/taskList/tasks.json';
 
 const row = {
   name: 'string',

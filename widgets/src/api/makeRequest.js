@@ -1,4 +1,4 @@
-import { IS_MOCKED_API, MOCK_API_DELAY } from 'api/constants';
+import { IS_MOCKED_API, MOCK_API_DELAY, DOMAIN } from 'api/constants';
 import utils from 'utils';
 
 export default async ({ domain, uri, method, mockResponse, withAuthentication, body }) => {
@@ -7,7 +7,7 @@ export default async ({ domain, uri, method, mockResponse, withAuthentication, b
     return mockResponse;
   }
 
-  const url = `${domain || ''}${uri}`;
+  const url = `${domain || DOMAIN}${uri}`;
   const configs = {};
   configs.method = method;
 

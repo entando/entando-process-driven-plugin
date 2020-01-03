@@ -55,6 +55,21 @@ const Menu = ({ open, setOpen, classes }) => (
             <SettingsIcon fontSize="small" />
           </IconButton>
         </div>
+        <div className={classes.item}>
+          <ListItem button component={Link} to="/TaskDetails" onClick={() => setOpen(false)}>
+            <ListIcon />
+            <ListItemText primary="TaskDetails" />
+          </ListItem>
+          <IconButton
+            className={classes.iconButton}
+            size="small"
+            component={Link}
+            to="/TaskDetailsConfig"
+            onClick={() => setOpen(false)}
+          >
+            <SettingsIcon fontSize="small" />
+          </IconButton>
+        </div>
       </List>
     </div>
   </Drawer>

@@ -17,8 +17,11 @@ import Menu from 'components/App/Menu';
 
 // widgets
 import Home from 'components/App/Home';
+
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
+
+import TaskDetailsContainer from 'components/TaskDetails/TaskDetailsContainer';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -72,6 +75,10 @@ function App() {
           <Route
             path="/TaskListConfig"
             render={() => <TaskListConfig pageCode="0" framePos="0" widgetCode="pda_task_list" />}
+          />
+          <Route
+            path="/TaskDetails/"
+            render={() => <TaskDetailsContainer taskId="290" pageCode="0" framePos="0" />}
           />
         </Container>
       </Router>
