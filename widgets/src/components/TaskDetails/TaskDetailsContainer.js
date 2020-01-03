@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { ThemeProvider } from '@material-ui/core/styles';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Container from '@material-ui/core/Container';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 
 import { SERVICE } from 'api/constants';
 import { getTask } from 'api/taskDetails';
@@ -102,11 +100,6 @@ class TaskDetailsContainer extends React.Component {
       <CustomEventContext.Provider value={{ onPressPrevious, onPressNext, onError }}>
         <ThemeProvider theme={theme}>
           <Container disableGutters>
-            <FormControlLabel
-              control={<Checkbox onChange={this.handleSkeletonChange} />}
-              label="Switch skeleton on"
-            />
-
             <WidgetBox passedClassName={classes.taskDetailWidgetBox} mb={10}>
               <Overview task={task} loadingTask={loadingTask} />
             </WidgetBox>
