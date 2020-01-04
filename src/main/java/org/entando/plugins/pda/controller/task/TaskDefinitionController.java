@@ -39,6 +39,6 @@ public class TaskDefinitionController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskDefinitionService()
-                .listColumns(connection, user));
+                .listColumns());
     }
 }

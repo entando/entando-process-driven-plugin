@@ -34,7 +34,7 @@ public class TaskFormController {
     @ApiOperation(notes = "Get task form metadata", nickname = "getTaskForm", value = "GET TaskForm")
     @GetMapping(produces = {APPLICATION_JSON_VALUE})
     public JsonSchemaForm getTaskForm(@PathVariable String connId, @PathVariable String taskId) {
-        log.info("Retrieving a task form definitions for connection {} and taskId {}", connId, taskId);
+        log.info("Retrieving a task form definition for connection {} and taskId {}", connId, taskId);
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new V7JsonSchemaForm(
