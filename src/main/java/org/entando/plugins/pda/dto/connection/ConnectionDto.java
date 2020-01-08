@@ -18,12 +18,12 @@ public class ConnectionDto {
     private String host;
 
     @Builder.Default
-    private String port = "80";;
+    private String port = "80";
 
     private String schema;
 
     @Builder.Default
-    private String app = "/";;
+    private String app = "/";
 
     private String username;
 
