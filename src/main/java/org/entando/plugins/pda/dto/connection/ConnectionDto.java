@@ -17,18 +17,21 @@ public class ConnectionDto {
 
     private String host;
 
-    private String port;
+    @Builder.Default
+    private String port = "80";;
 
     private String schema;
 
-    private String app;
+    @Builder.Default
+    private String app = "/";;
 
     private String username;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    private Integer connectionTimeout;
+    @Builder.Default
+    private Integer connectionTimeout = 60_000; //millis
 
     private String engine;
 
