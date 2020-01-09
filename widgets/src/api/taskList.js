@@ -7,7 +7,14 @@ import makeRequest from 'api/makeRequest';
 export const getTasks = async (connection, page, pageSize, sortedColumn, sortOrder, filter) =>
   makeRequest({
     domain: SERVICE.URL,
-    uri: `/connections/${connection}/tasks?sort=taskId`,
+    uri: `/connections/${connection}/tasks`,
+    queryParams: {
+      page: page || 1,
+      pageSize: pageSize || 30,
+      sort: sortedColumn || 'taskId',
+      direction: sortOrder,
+      filter,
+    },
     method: METHODS.GET,
     mockResponse: getMockedTasks(page, pageSize, sortedColumn, sortOrder, filter),
     useAuthentication: true,

@@ -33,7 +33,7 @@ class InternalTablePaginationActions extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    const lastPage = Math.floor(props.count / props.rowsPerPage);
+    const lastPage = Math.floor(props.count / props.rowsPerPage) - 1;
     if (props.page === lastPage || props.page !== +state.pageNumber + 1) {
       return { pageNumber: props.page + 1 };
     }

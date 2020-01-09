@@ -29,36 +29,36 @@ class TaskList extends React.Component {
     columns: [],
     rows: [],
     size: 0,
-    currentPage: 0,
     connection: {},
     error: null,
     errorAlert: null,
+    lastPage: false,
   };
 
   timer = { ref: null };
 
   componentDidMount = async () => {
     const { lazyLoading, serviceUrl, pageCode, frameId } = this.props;
-    const { currentPage } = this.state;
 
     SERVICE.URL = serviceUrl;
 
     try {
       // config will be fetched from app-builder
-      const widgetConfigs = await getPageWidget(pageCode, frameId);
+      const widgetConfigs = await getPageWidget(pageCode, frameId, true);
       if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }
       const { config } = widgetConfigs.payload;
 
       const taskList = lazyLoading
-        ? await getTasks(config.knowledgeSource, currentPage, 10)
+        ? await getTasks(config.knowledgeSource, 1, 10)
         : await getTasks(config.knowledgeSource);
 
       this.setState({
         loading: false,
         columns: normalizeColumns(JSON.parse(config.columns), taskList.payload[0]),
         rows: normalizeRows(taskList.payload),
+        lastPage: taskList.metadata.lastPage === 1,
         size: taskList.metadata.size,
         connection: config.knowledgeSource,
       });
@@ -92,12 +92,22 @@ class TaskList extends React.Component {
 
     this.setState({ loading: true });
     try {
-      const res = await getTasks(connection, page, rowsPerPage, sortedColumn, sortedOrder, filter);
+      const res = await getTasks(
+        connection,
+        page + 1,
+        rowsPerPage,
+        sortedColumn,
+        sortedOrder,
+        filter
+      );
+      if (!res.payload) {
+        throw res.message;
+      }
 
       this.setState({
         rows: normalizeRows(res.payload),
         size: res.metadata.size,
-        currentPage: page || 0,
+        lastPage: res.metadata.lastPage === 1,
         loading: false,
       });
       callback();
@@ -121,15 +131,15 @@ class TaskList extends React.Component {
   }
 
   render() {
-    const { loading, columns, rows, currentPage, size, error, errorAlert } = this.state;
+    const { loading, columns, rows, size, error, errorAlert, lastPage } = this.state;
     const { classes, lazyLoading } = this.props;
 
     let lazyLoadingProps;
     if (lazyLoading) {
       lazyLoadingProps = {
-        currentPage,
         onChange: this.updateRows,
         size,
+        lastPage,
       };
     }
 

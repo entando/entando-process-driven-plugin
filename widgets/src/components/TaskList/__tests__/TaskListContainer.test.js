@@ -10,7 +10,7 @@ describe('<TaskListContainer />', () => {
   it('renders snapshot correctly', async () => {
     const configUrl = `/api/pages//widgets/`;
     const connection = 'kieStaging';
-    const taskListUrl = `/pda/connections/${connection}/tasks?sort=taskId`;
+    const taskListUrl = `/pda/connections/${connection}/tasks?page=1&pageSize=30&sort=taskId`;
 
     fetch.once(JSON.stringify(WIDGET_CONFIGS)).once(JSON.stringify(mockTasks));
 

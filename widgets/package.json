@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "REACT_APP_LOCAL=false react-scripts build",
-    "test": "REACT_APP_MOCKED_API=false react-scripts test --setupFilesAfterEnv ./setupTests.js",
+    "test": "REACT_APP_LOCAL=false REACT_APP_MOCKED_API=false react-scripts test --setupFilesAfterEnv ./setupTests.js",
     "test:coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "npx eslint --fix ./src",
