@@ -24,9 +24,6 @@ import TaskListConfig from 'components/TaskList/TaskListConfig';
 import TaskDetailsContainer from 'components/TaskDetails/TaskDetailsContainer';
 import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 
-import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompletionFormContainer';
-import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompletionFormConfig';
-
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -93,22 +90,6 @@ function App() {
                 pageCode="phase_1_widgets"
                 frameId="4"
                 widgetCode="phase_1_widgets_task_details"
-              />
-            )}
-          />
-          <Route
-            path="/TaskCompletionForm/"
-            render={() => (
-              <TaskCompletionFormContainer taskId="290" pageCode="phase_1_widgets" frameId="2" />
-            )}
-          />
-          <Route
-            path="/TaskCompletionFormConfig"
-            render={() => (
-              <TaskCompletionFormConfig
-                pageCode="phase_1_widgets"
-                frameId="2"
-                widgetCode="phase_1_widgets_completion_form"
               />
             )}
           />
