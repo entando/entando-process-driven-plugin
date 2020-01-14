@@ -20,12 +20,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SuppressWarnings("PMD.UseUtilityClass")
 public class EntandoPdaPluginJavaApplication {
 
+    @Value("${pda.mock-connection-config}")
+    private boolean mockConnectionConfig;
+
     public static void main(final String[] args) {
         SpringApplication.run(EntandoPdaPluginJavaApplication.class, args);
     }
-
-    @Value("${pda.mock-connection-config}")
-    private boolean mockConnectionConfig;
 
     @Bean
     public ConnectionConfigConnector connectionConfigConnector(ConnectionConfigConnectorImpl connectionConfigImpl) {
