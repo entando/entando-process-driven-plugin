@@ -2,8 +2,16 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import InternalTableCell from 'components/common/Table/InternalTableCell';
-import columns from 'mocks/taskList/columns';
-import rows from 'mocks/taskList/rows';
+import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
+import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
+import jsonRows from 'mocks/taskList/tasks';
+import 'mocks/i18nMock';
+
+const columns = normalizeColumns(
+  JSON.parse(WIDGET_CONFIGS.payload.config.columns),
+  jsonRows.payload[0]
+);
+const rows = normalizeRows(jsonRows.payload);
 
 describe('<InternalTableCell />', () => {
   it('renders snapshot correctly for a data cell', () => {

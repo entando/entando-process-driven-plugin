@@ -14,7 +14,7 @@ exports[`<InternalTableHeader /> renders snapshot correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            Application
+            name
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"

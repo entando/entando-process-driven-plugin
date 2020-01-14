@@ -3,6 +3,7 @@
 exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
 <div>
   <div>
+    
     <form>
       <div
         class="row"
@@ -391,7 +392,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                 class="input-group"
               >
                 <div
-                  class="bootstrap-switch wrapper bootstrap-switch-off bootstrap-switch-normal"
+                  class="bootstrap-switch wrapper bootstrap-switch-on bootstrap-switch-normal"
                   style="width: auto;"
                   tabindex="0"
                 >
@@ -434,7 +435,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                 class="input-group"
               >
                 <div
-                  class="bootstrap-switch wrapper bootstrap-switch-on bootstrap-switch-normal"
+                  class="bootstrap-switch wrapper bootstrap-switch-off bootstrap-switch-normal"
                   style="width: auto;"
                   tabindex="0"
                 >
@@ -728,6 +729,49 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                 </label>
               </span>
             </div>
+            <div
+              class="form-group"
+            >
+              <span
+                class="input-group"
+              >
+                <div
+                  class="bootstrap-switch wrapper bootstrap-switch-on bootstrap-switch-normal"
+                  style="width: auto;"
+                  tabindex="0"
+                >
+                  <div
+                    class="bootstrap-switch-container"
+                    style="width: auto; margin-left: 0px;"
+                  >
+                    <span
+                      class="bootstrap-switch-handle-on bootstrap-switch-primary"
+                      style="width: 0px;"
+                    >
+                      ON
+                    </span>
+                    <span
+                      class="bootstrap-switch-label"
+                      style="width: 0px;"
+                    >
+                       
+                    </span>
+                    <span
+                      class="bootstrap-switch-handle-off bootstrap-switch-default"
+                      style="width: 0px;"
+                    >
+                      OFF
+                    </span>
+                  </div>
+                </div>
+                <label
+                  class="switch-label control-label"
+                  for="approver"
+                >
+                  approver
+                </label>
+              </span>
+            </div>
           </div>
         </div>
         <legend>
@@ -769,7 +813,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     0
                   </td>
                   <td>
-                    task-is-skipable
+                    id
                   </td>
                   <td>
                     <div
@@ -780,6 +824,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                         title=""
                       >
                         <input
+                          checked=""
                           type="checkbox"
                         />
                       </label>
@@ -803,7 +848,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     1
                   </td>
                   <td>
-                    task-parent-id
+                    name
                   </td>
                   <td>
                     <div
@@ -814,6 +859,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                         title=""
                       >
                         <input
+                          checked=""
                           type="checkbox"
                         />
                       </label>
@@ -837,7 +883,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     2
                   </td>
                   <td>
-                    task-created-by
+                    createdBy
                   </td>
                   <td>
                     <div
@@ -872,7 +918,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     3
                   </td>
                   <td>
-                    task-input-data.application.property.saleprice
+                    createdAt
                   </td>
                   <td>
                     <div
@@ -907,7 +953,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     4
                   </td>
                   <td>
-                    task-input-data.TaskName
+                    dueTo
                   </td>
                   <td>
                     <div
@@ -942,7 +988,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     5
                   </td>
                   <td>
-                    initiator
+                    status
                   </td>
                   <td>
                     <div
@@ -977,7 +1023,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     6
                   </td>
                   <td>
-                    task-created-on
+                    description
                   </td>
                   <td>
                     <div
@@ -1012,7 +1058,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     7
                   </td>
                   <td>
-                    task-priority
+                    owner
                   </td>
                   <td>
                     <div
@@ -1023,6 +1069,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                         title=""
                       >
                         <input
+                          checked=""
                           type="checkbox"
                         />
                       </label>
@@ -1046,7 +1093,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     8
                   </td>
                   <td>
-                    task-proc-def-id
+                    inputData
                   </td>
                   <td>
                     <div
@@ -1081,7 +1128,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     9
                   </td>
                   <td>
-                    task-form
+                    outputData
                   </td>
                   <td>
                     <div
@@ -1116,7 +1163,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     10
                   </td>
                   <td>
-                    task-skippable
+                    priority
                   </td>
                   <td>
                     <div
@@ -1151,7 +1198,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     11
                   </td>
                   <td>
-                    task-input-data.application.applicant.name
+                    subject
                   </td>
                   <td>
                     <div
@@ -1186,7 +1233,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     12
                   </td>
                   <td>
-                    task-actual-owner
+                    type
                   </td>
                   <td>
                     <div
@@ -1221,7 +1268,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     13
                   </td>
                   <td>
-                    task-activation-time
+                    form
                   </td>
                   <td>
                     <div
@@ -1256,7 +1303,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     14
                   </td>
                   <td>
-                    task-input-data.application.applicant.address
+                    activatedAt
                   </td>
                   <td>
                     <div
@@ -1291,7 +1338,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     15
                   </td>
                   <td>
-                    task-input-data.application.errors
+                    skipable
                   </td>
                   <td>
                     <div
@@ -1326,7 +1373,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     16
                   </td>
                   <td>
-                    task-name
+                    workItemId
                   </td>
                   <td>
                     <div
@@ -1361,7 +1408,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     17
                   </td>
                   <td>
-                    task-input-data.application.property.address
+                    processId
                   </td>
                   <td>
                     <div
@@ -1396,7 +1443,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     18
                   </td>
                   <td>
-                    task-subject
+                    processDefinitionId
                   </td>
                   <td>
                     <div
@@ -1431,7 +1478,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     19
                   </td>
                   <td>
-                    containerId
+                    parentId
                   </td>
                   <td>
                     <div
@@ -1466,7 +1513,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     20
                   </td>
                   <td>
-                    task-container-id
+                    slaCompliance
                   </td>
                   <td>
                     <div
@@ -1501,7 +1548,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     21
                   </td>
                   <td>
-                    processDefinitionId
+                    slaDueTo
                   </td>
                   <td>
                     <div
@@ -1536,7 +1583,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     22
                   </td>
                   <td>
-                    task-input-data.application.applicant.ssn
+                    potentialOwners
                   </td>
                   <td>
                     <div
@@ -1571,7 +1618,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     23
                   </td>
                   <td>
-                    task-description
+                    excludedOwners
                   </td>
                   <td>
                     <div
@@ -1606,602 +1653,7 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
                     24
                   </td>
                   <td>
-                    task-input-data.Skippable
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    25
-                  </td>
-                  <td>
-                    task-workitem-id
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    26
-                  </td>
-                  <td>
-                    task-expiration-time
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    27
-                  </td>
-                  <td>
-                    task-input-data.application.property.age
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    28
-                  </td>
-                  <td>
-                    task-status
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    29
-                  </td>
-                  <td>
-                    task-input-data.application.mortgageamount
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    30
-                  </td>
-                  <td>
-                    task-process-instance-id
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    31
-                  </td>
-                  <td>
-                    task-input-data.ActorId
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    32
-                  </td>
-                  <td>
-                    task-process-id
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    33
-                  </td>
-                  <td>
-                    task-input-data.application.property.locale
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    34
-                  </td>
-                  <td>
-                    task-input-data.application.amortization
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    35
-                  </td>
-                  <td>
-                    task-input-data.application.applicant.creditrating
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    36
-                  </td>
-                  <td>
-                    application
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    37
-                  </td>
-                  <td>
-                    task-input-data.NodeName
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    38
-                  </td>
-                  <td>
-                    task-proc-inst-id
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    39
-                  </td>
-                  <td>
-                    task-input-data.application.downpayment
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    40
-                  </td>
-                  <td>
-                    task-input-data.application.applicant.annualincome
-                  </td>
-                  <td>
-                    <div
-                      class="checkbox"
-                      style="margin: 0px;"
-                    >
-                      <label
-                        title=""
-                      >
-                        <input
-                          checked=""
-                          type="checkbox"
-                        />
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <input
-                      class="form-control"
-                      type="text"
-                      value=""
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <i
-                      class="fa fa-bars"
-                      style="cursor: ns-resize;"
-                    />
-                     
-                    41
-                  </td>
-                  <td>
-                    task-id
+                    businessAdmins
                   </td>
                   <td>
                     <div

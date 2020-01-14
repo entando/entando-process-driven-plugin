@@ -44,59 +44,13 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          true
+          294@mortgage-process_1.0.0-SNAPSHOT
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          com.myspace.mortgage_app.Application@15f103e7	
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Human Resources
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          1
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Final Approval
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Test
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        />
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Reserved
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          0
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          false
+          Correct Data
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
@@ -108,23 +62,75 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          <span>
-            10/12/2016
-          </span>
+          2020-01-07T04:17:51Z
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          RESERVED
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          pamAdmin
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          0
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          2020-01-07T04:17:51Z
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          <span>
-            10/12/2016
-          </span>
+          false
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
-          150
+          160
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
@@ -135,13 +141,29 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
+        >
+          -1
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         />
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
-        >
-          -1
-        </td>
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
       </tr>
       <tr
         class="MuiTableRow-root MuiTableRow-hover"
@@ -181,59 +203,13 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          true
+          293@evaluation_1.0.0-SNAPSHOT
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          com.myspace.mortgage_app.Application@3423423	
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Human Resources
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          2
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Final Approval
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Test
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        />
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Reserved
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          0
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          false
+          PM Evaluation
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
@@ -245,29 +221,7 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          <span>
-            10/12/2016
-          </span>
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          <span>
-            10/12/2016
-          </span>
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          150
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Mortgage_Process.MortgageApprovalProcess
+          2019-11-14T09:26:30Z
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
@@ -277,8 +231,100 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
+          CREATED
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          You need to evaluate Alessio.
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          0
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          You need to evaluate Alessio.
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          2019-11-14T09:26:30Z
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          false
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          159
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          evaluation
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
           -1
         </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
       </tr>
     </tbody>
   </table>
@@ -329,59 +375,13 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          true
+          294@mortgage-process_1.0.0-SNAPSHOT
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          com.myspace.mortgage_app.Application@15f103e7	
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Human Resources
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          1
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Final Approval
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Test
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        />
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Reserved
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          0
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          false
+          Correct Data
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
@@ -393,23 +393,75 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          <span>
-            10/12/2016
-          </span>
+          2020-01-07T04:17:51Z
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          RESERVED
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          pamAdmin
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          0
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          2020-01-07T04:17:51Z
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          <span>
-            10/12/2016
-          </span>
+          false
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         >
-          150
+          160
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
@@ -420,13 +472,29 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
+        >
+          -1
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
         />
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
-        >
-          -1
-        </td>
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
       </tr>
       <tr
         class="MuiTableRow-root MuiTableRow-hover"
@@ -466,59 +534,13 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          true
+          293@evaluation_1.0.0-SNAPSHOT
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          com.myspace.mortgage_app.Application@3423423	
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Human Resources
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          2
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Final Approval
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Test
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        />
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Reserved
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          0
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          false
+          PM Evaluation
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
@@ -530,29 +552,7 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
-          <span>
-            10/12/2016
-          </span>
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          <span>
-            10/12/2016
-          </span>
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          150
-        </td>
-        <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
-          style="white-space: nowrap;"
-        >
-          Mortgage_Process.MortgageApprovalProcess
+          2019-11-14T09:26:30Z
         </td>
         <td
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
@@ -562,8 +562,100 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
           class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
           style="white-space: nowrap;"
         >
+          CREATED
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          You need to evaluate Alessio.
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          0
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          You need to evaluate Alessio.
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          2019-11-14T09:26:30Z
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          false
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          159
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
+          evaluation
+        </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        >
           -1
         </td>
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
+        <td
+          class="MuiTableCell-root MuiTableCell-sizeSmall MuiTableCell-body"
+          style="white-space: nowrap;"
+        />
       </tr>
       <tr
         class="MuiTableRow-root"

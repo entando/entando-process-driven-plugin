@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import { SERVICE } from 'api/constants';
+import { DOMAINS, LOCAL } from 'api/constants';
 import { getTasks } from 'api/taskList';
 import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
@@ -40,7 +40,10 @@ class TaskList extends React.Component {
   componentDidMount = async () => {
     const { lazyLoading, serviceUrl, pageCode, frameId } = this.props;
 
-    SERVICE.URL = serviceUrl;
+    if (!LOCAL) {
+      // set the PDA domain to the URL passed via props
+      DOMAINS.PDA = serviceUrl;
+    }
 
     try {
       // config will be fetched from app-builder
@@ -48,6 +51,10 @@ class TaskList extends React.Component {
       if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }
+      if (!widgetConfigs.payload) {
+        throw new Error('No configuration found for this widget');
+      }
+
       const { config } = widgetConfigs.payload;
 
       const taskList = lazyLoading
@@ -181,7 +188,7 @@ TaskList.defaultProps = {
   classes: {},
   lazyLoading: false,
   onError: () => {},
-  serviceUrl: '/pda',
+  serviceUrl: '',
   pageCode: '',
   frameId: '',
 };

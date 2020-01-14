@@ -13,7 +13,7 @@ describe('<TaskListConfig />', () => {
       .once(JSON.stringify(PROCESS));
 
     const { container } = render(
-      <TaskListConfig pageCode="1" framePos="2" widgetCode="pda_task_list" />
+      <TaskListConfig pageCode="1" frameId="2" widgetCode="pda_task_list" />
     );
 
     await wait(() => expect(container).toMatchSnapshot());

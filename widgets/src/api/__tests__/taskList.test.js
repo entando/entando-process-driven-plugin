@@ -1,5 +1,5 @@
 import { getTasks, getConnections, getProcess, getGroups, getColumns } from 'api/taskList';
-
+import { DOMAINS } from 'api/constants';
 import mockTasks from 'mocks/taskList/tasks.json';
 import { CONNECTIONS, PROCESS, GROUPS, COLUMNS } from 'mocks/taskList/configs';
 
@@ -10,7 +10,7 @@ describe('TaskList API', () => {
 
   it('getTasks to return expected data', async () => {
     const connection = 'kieStaging';
-    const url = `/connections/${connection}/tasks?page=1&pageSize=30&sort=taskId`;
+    const url = `${DOMAINS.PDA}/connections/${connection}/tasks?page=1&pageSize=30`;
 
     fetch.mockResponseOnce(JSON.stringify(mockTasks));
     const result = await getTasks(connection);
@@ -25,7 +25,7 @@ describe('TaskList API', () => {
     const result = await getConnections();
 
     expect(fetch.mock.calls.length).toBe(1);
-    expect(fetch.mock.calls[0][0]).toEqual('/connections');
+    expect(fetch.mock.calls[0][0]).toEqual(`${DOMAINS.PDA}/connections`);
     expect(result).toEqual(CONNECTIONS);
   });
 
@@ -35,7 +35,9 @@ describe('TaskList API', () => {
     const result = await getProcess(connection);
 
     expect(fetch.mock.calls.length).toBe(1);
-    expect(fetch.mock.calls[0][0]).toEqual(`/connections/${connection}/processes/definitions`);
+    expect(fetch.mock.calls[0][0]).toEqual(
+      `${DOMAINS.PDA}/connections/${connection}/processes/definitions`
+    );
     expect(result).toEqual(PROCESS);
   });
 
@@ -45,7 +47,7 @@ describe('TaskList API', () => {
     const result = await getGroups(connection);
 
     expect(fetch.mock.calls.length).toBe(1);
-    expect(fetch.mock.calls[0][0]).toEqual(`/connections/${connection}/groups`);
+    expect(fetch.mock.calls[0][0]).toEqual(`${DOMAINS.PDA}/connections/${connection}/groups`);
     expect(result).toEqual(GROUPS);
   });
 
@@ -55,7 +57,9 @@ describe('TaskList API', () => {
     const result = await getColumns(connection);
 
     expect(fetch.mock.calls.length).toBe(1);
-    expect(fetch.mock.calls[0][0]).toEqual(`/connections/${connection}/tasks/columns`);
+    expect(fetch.mock.calls[0][0]).toEqual(
+      `${DOMAINS.PDA}/connections/${connection}/tasks/columns`
+    );
     expect(result).toEqual(COLUMNS);
   });
 });

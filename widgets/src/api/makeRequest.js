@@ -1,4 +1,4 @@
-import { IS_MOCKED_API, MOCK_API_DELAY, LOCAL, DOMAINS, METHODS } from 'api/constants';
+import { IS_MOCKED_API, MOCK_API_DELAY, METHODS, TOKENS } from 'api/constants';
 import utils from 'utils';
 
 export default async ({
@@ -6,7 +6,7 @@ export default async ({
   uri,
   method,
   mockResponse,
-  withAuthentication,
+  useAuthentication,
   body,
   queryParams,
   forceMock,
@@ -16,7 +16,7 @@ export default async ({
     return mockResponse;
   }
 
-  let url = LOCAL ? `${DOMAINS.PDA}${uri}` : `${domain || ''}${uri}`;
+  let url = `${domain || ''}${uri}`;
   if (queryParams) {
     url += '?';
     url += Object.keys(queryParams)
@@ -25,8 +25,9 @@ export default async ({
       .join('&');
   }
 
-  const configs = {};
-  configs.method = method || METHODS.GET;
+  const configs = {
+    method: method || METHODS.GET,
+  };
 
   if (body) {
     configs.body = body;
@@ -34,14 +35,17 @@ export default async ({
 
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
-  headers.append('Accept', 'application/json');
 
-  if (withAuthentication) {
-    const token = localStorage.getItem('token');
+  if (useAuthentication) {
+    const token = localStorage.getItem('token') || TOKENS.APP_BUILDER;
     headers.append('Authorization', `Bearer ${token}`);
   }
+  configs.headers = headers;
 
   const response = await fetch(url, configs);
+  if (!response.ok) {
+    throw new Error(`Bad Response from server: ${response.status} ${response.statusText}`);
+  }
 
   return response.json();
 };

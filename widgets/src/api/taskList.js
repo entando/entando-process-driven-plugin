@@ -1,4 +1,4 @@
-import { SERVICE, METHODS } from 'api/constants';
+import { METHODS, DOMAINS } from 'api/constants';
 import getMockedTasks from 'mocks/taskList/api.mock';
 
 import { CONNECTIONS, PROCESS, GROUPS, COLUMNS } from 'mocks/taskList/configs';
@@ -6,12 +6,12 @@ import makeRequest from 'api/makeRequest';
 
 export const getTasks = async (connection, page, pageSize, sortedColumn, sortOrder, filter) =>
   makeRequest({
-    domain: SERVICE.URL,
+    domain: DOMAINS.PDA,
     uri: `/connections/${connection}/tasks`,
     queryParams: {
       page: page || 1,
       pageSize: pageSize || 30,
-      sort: sortedColumn || 'taskId',
+      sort: sortedColumn,
       direction: sortOrder,
       filter,
     },
@@ -24,7 +24,7 @@ export const getTasks = async (connection, page, pageSize, sortedColumn, sortOrd
 
 export const getConnections = async () =>
   makeRequest({
-    domain: SERVICE.URL,
+    domain: DOMAINS.PDA,
     uri: '/connections',
     method: METHODS.GET,
     mockResponse: CONNECTIONS,
@@ -33,7 +33,7 @@ export const getConnections = async () =>
 
 export const getProcess = async connection =>
   makeRequest({
-    // domain: PDA_DOMAIN,
+    domain: DOMAINS.PDA,
     uri: `/connections/${connection}/processes/definitions`,
     method: METHODS.GET,
     mockResponse: PROCESS,
@@ -42,7 +42,7 @@ export const getProcess = async connection =>
 
 export const getGroups = async connection =>
   makeRequest({
-    // domain: PDA_DOMAIN,
+    domain: DOMAINS.PDA,
     uri: `/connections/${connection}/groups`,
     method: METHODS.GET,
     mockResponse: GROUPS,
@@ -51,7 +51,7 @@ export const getGroups = async connection =>
 
 export const getColumns = async connection =>
   makeRequest({
-    // domain: PDA_DOMAIN,
+    domain: DOMAINS.PDA,
     uri: `/connections/${connection}/tasks/columns`,
     method: METHODS.GET,
     mockResponse: COLUMNS,
