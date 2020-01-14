@@ -1,6 +1,7 @@
 {
   "common": {
-    "of": "of"
+    "of": "of",
+    "submit": "Submit"
   },
   "table": {
     "title": "Task List",

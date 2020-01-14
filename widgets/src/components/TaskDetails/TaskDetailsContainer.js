@@ -24,21 +24,25 @@ class TaskDetailsContainer extends React.Component {
     super(props);
 
     this.state = {
+      config: null,
       loadingTask: false,
       task: null,
-      connection: null,
     };
 
     this.fetchTask = this.fetchTask.bind(this);
     this.fetchWidgetConfigs = this.fetchWidgetConfigs.bind(this);
-    this.handleSkeletonChange = this.handleSkeletonChange.bind(this);
   }
 
   componentDidMount() {
     const { serviceUrl } = this.props;
     SERVICE.URL = serviceUrl;
 
-    this.setState({ loadingTask: true }, this.fetchTask);
+    this.setState({ loadingTask: true }, async () => {
+      const { config: storedConfig } = this.state;
+      const config = storedConfig || (await this.fetchWidgetConfigs());
+
+      this.setState({ config }, () => this.fetchTask());
+    });
   }
 
   componentDidUpdate = prevProps => {
@@ -48,29 +52,6 @@ class TaskDetailsContainer extends React.Component {
     }
   };
 
-  async fetchTask() {
-    const { connection: storedConnection } = this.state;
-    const { taskId } = this.props;
-    try {
-      const connection = storedConnection || (await this.fetchWidgetConfigs());
-
-      const task = await getTask(connection, taskId);
-
-      const taskInputData = Object.keys(task)
-        .filter(key => key.startsWith('task-input-data.'))
-        .reduce((acc, key) => ({ ...acc, [key]: task[key] }), {});
-
-      this.setState({
-        loadingTask: false,
-        task,
-        taskInputData,
-        connection,
-      });
-    } catch (error) {
-      this.handleError(error.message);
-    }
-  }
-
   async fetchWidgetConfigs() {
     const { pageCode, frameId } = this.props;
     try {
@@ -79,17 +60,45 @@ class TaskDetailsContainer extends React.Component {
       if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }
+
       const { config } = widgetConfigs.payload;
-      return config.knowledgeSource;
+
+      return config;
     } catch (error) {
       this.handleError(error.message);
     }
     return null;
   }
 
-  handleSkeletonChange() {
-    const { loadingTask } = this.state;
-    this.setState({ loadingTask: !loadingTask });
+  async fetchTask() {
+    const { config } = this.state;
+    const { taskId } = this.props;
+
+    const connection = (config && config.knowledgeSource) || '';
+    const containerId = (config && config.containerId) || '';
+    const taskContainerId = `${taskId}@${containerId}`;
+
+    try {
+      const task = await getTask(connection, taskContainerId);
+
+      const taskInputData =
+        (task &&
+          task.payload &&
+          Object.keys(task.payload)
+            .filter(key => key.startsWith('task-input-data.'))
+            .reduce((acc, key) => ({ ...acc, [key]: task.payload[key] }), {})) ||
+        {};
+
+      this.setState({
+        loadingTask: false,
+        task: (task && task.payload) || null,
+        taskInputData,
+        // CODE FOR UPDATED API WHEN THAT GOES LIVE
+        // taskInputData: (task && task.payload && task.payload.inputData) || {},
+      });
+    } catch (error) {
+      this.handleError(error.message);
+    }
   }
 
   render() {

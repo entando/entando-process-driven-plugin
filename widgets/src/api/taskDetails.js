@@ -1,7 +1,7 @@
 import { SERVICE, METHODS } from 'api/constants';
 import mockedTask from 'mocks/taskDetails/task';
+import mockedTaskForm from 'mocks/taskCompletionForm/formSchema';
 
-import { CONNECTIONS, PROCESS, GROUPS, COLUMNS } from 'mocks/taskList/configs';
 import makeRequest from 'api/makeRequest';
 
 export const getTask = async (connection, taskId) => {
@@ -10,44 +10,16 @@ export const getTask = async (connection, taskId) => {
     uri: `/connections/${connection}/tasks/${taskId}`,
     method: METHODS.GET,
     mockResponse: mockedTask,
-    useAuthentication: true,
+    useAuthentication: false,
   });
 };
 
-// Configs
-
-export const getConnections = async () =>
-  makeRequest({
+export const getTaskForm = async (connection, taskId) => {
+  return makeRequest({
     domain: SERVICE.URL,
-    uri: '/connections',
+    uri: `/connections/${connection}/tasks/${taskId}/form`,
     method: METHODS.GET,
-    mockResponse: CONNECTIONS,
+    mockResponse: mockedTaskForm,
     useAuthentication: false,
   });
-
-export const getProcess = async connection =>
-  makeRequest({
-    // domain: PDA_DOMAIN,
-    uri: `/connections/${connection}/processes/definitions`,
-    method: METHODS.GET,
-    mockResponse: PROCESS,
-    useAuthentication: true,
-  });
-
-export const getGroups = async connection =>
-  makeRequest({
-    // domain: PDA_DOMAIN,
-    uri: `/connections/${connection}/groups`,
-    method: METHODS.GET,
-    mockResponse: GROUPS,
-    useAuthentication: true,
-  });
-
-export const getColumns = async connection =>
-  makeRequest({
-    // domain: PDA_DOMAIN,
-    uri: `/connections/${connection}/tasks/columns`,
-    method: METHODS.GET,
-    mockResponse: COLUMNS,
-    useAuthentication: true,
-  });
+};

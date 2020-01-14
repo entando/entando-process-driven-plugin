@@ -24,7 +24,7 @@ describe('makeRequest API', () => {
       uri,
       method: METHODS.PUT,
       body: { test: 'test' },
-      withAuthentication: true,
+      useAuthentication: true,
     });
 
     expect(result).toEqual(mockTasks);

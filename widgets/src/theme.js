@@ -32,5 +32,22 @@ export default createMuiTheme({
         fontWeight: 700,
       },
     },
+    MuiButton: {
+      root: {
+        height: '31px',
+        borderRadius: '5px',
+        fontWeight: 700,
+        fontSize: '13px',
+        lineHeight: '15px',
+        textTransform: 'none',
+      },
+      containedPrimary: {
+        backgroundColor: '#1C84C6',
+        '&:hover': {
+          backgroundColor: '#135783',
+        },
+        color: '#FFFEFE',
+      },
+    },
   },
 });
