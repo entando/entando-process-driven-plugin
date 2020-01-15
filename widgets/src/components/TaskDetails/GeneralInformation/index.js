@@ -40,7 +40,7 @@ const GeneralInformation = ({ classes, taskInputData, loadingTask }) => {
           return (
             <div key={key} className={classes.taskDatum}>
               <Typography variant="body1">
-                <span className={classes.label}>{i18next.t(`task.${key}`)}:</span>
+                <span className={classes.label}>{i18next.t(`task.inputData.${key}`)}:</span>
                 {taskInputData[key]}
               </Typography>
             </div>

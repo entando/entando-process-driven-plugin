@@ -81,20 +81,10 @@ class TaskDetailsContainer extends React.Component {
     try {
       const task = await getTask(connection, taskContainerId);
 
-      const taskInputData =
-        (task &&
-          task.payload &&
-          Object.keys(task.payload)
-            .filter(key => key.startsWith('task-input-data.'))
-            .reduce((acc, key) => ({ ...acc, [key]: task.payload[key] }), {})) ||
-        {};
-
       this.setState({
         loadingTask: false,
         task: (task && task.payload) || null,
-        taskInputData,
-        // CODE FOR UPDATED API WHEN THAT GOES LIVE
-        // taskInputData: (task && task.payload && task.payload.inputData) || {},
+        taskInputData: (task && task.payload && task.payload.inputData) || {},
       });
     } catch (error) {
       this.handleError(error.message);

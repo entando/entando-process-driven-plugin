@@ -13,25 +13,25 @@ const parseDate = value => (value ? new Date(value).toLocaleString(i18next.langu
 const displayedDetails = [
   {
     label: 'task.fields.createdBy',
-    value: 'task-created-by',
+    value: 'createdBy',
   },
   {
     label: 'task.fields.name',
-    value: 'task-name',
+    value: 'name',
   },
   {
     label: 'task.fields.createdOn',
-    value: 'task-created-on',
+    value: 'createdAt',
     parse: parseDate,
   },
   {
     label: 'task.fields.status',
-    value: 'task-status',
+    value: 'status',
     render: value => <BadgeChip label={value} />,
   },
   {
     label: 'task.fields.due',
-    value: 'task-expiration-time',
+    value: 'expirationTime',
     parse: parseDate,
   },
 ];

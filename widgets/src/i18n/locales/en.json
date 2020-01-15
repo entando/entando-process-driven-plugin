@@ -29,7 +29,7 @@
       "status": "Status",
       "due": "Due"
     },
-    "task-input-data": {
+    "inputData": {
       "TaskName": "Task name",
       "BusinessAdministratorId": "Business administrator ID",
       "GroupId": "Group ID",
