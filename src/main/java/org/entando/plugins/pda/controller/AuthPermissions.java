@@ -14,7 +14,9 @@ public class AuthPermissions {
     public static final String TASK_COMMENTS_GET = "task-comments-get";
     public static final String TASK_COMMENTS_CREATE = "task-comments-create";
     public static final String TASK_COMMENTS_DELETE = "task-comments-delete";
-    public static final String TASK_FORM = "task-form";
+
+    public static final String TASK_FORM_GET = "task-form-get";
+    public static final String TASK_FORM_SUBMIT = "task-form-submit";
 
     public static final String CONNECTION_LIST = "connection-list";
     public static final String CONNECTION_GET = "connection-get";
