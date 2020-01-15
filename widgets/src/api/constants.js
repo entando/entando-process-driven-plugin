@@ -18,5 +18,5 @@ export const METHODS = {
 
 // Inject ur access_token if you are trying to reach the APP-BUILDER API locally
 export const TOKENS = {
-  APP_BUILDER: '0694821a5bdc2229aac820e8a773669a',
+  APP_BUILDER: 'd1018be5263bc4b1e9bcc586848812a6',
 };

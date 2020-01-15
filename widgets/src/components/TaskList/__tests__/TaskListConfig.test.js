@@ -2,7 +2,9 @@ import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
-import { CONNECTIONS, WIDGET_CONFIGS, PROCESS } from 'mocks/taskList/configs';
+import { taskListConfigs as WIDGET_CONFIGS } from 'mocks/app-builder/pages';
+import CONNECTIONS from 'mocks/pda/connections';
+import PROCESS from 'mocks/pda/process';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 
 describe('<TaskListConfig />', () => {

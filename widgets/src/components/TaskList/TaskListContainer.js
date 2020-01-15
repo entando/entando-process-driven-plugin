@@ -6,7 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import { DOMAINS, LOCAL } from 'api/constants';
-import { getTasks } from 'api/taskList';
+import { getTasks } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
 

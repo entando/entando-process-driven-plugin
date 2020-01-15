@@ -1,6 +1,6 @@
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 import { DOMAINS } from 'api/constants';
-import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
+import { taskListConfigs as WIDGET_CONFIGS } from 'mocks/app-builder/pages';
 
 describe('TaskList API', () => {
   beforeEach(() => {

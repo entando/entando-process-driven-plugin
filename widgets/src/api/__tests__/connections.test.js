@@ -1,6 +1,6 @@
-import { getConnections } from 'api/connections';
+import { getConnections } from 'api/pda/connections';
 import { DOMAINS } from 'api/constants';
-import { CONNECTIONS } from 'mocks/taskList/configs';
+import CONNECTIONS from 'mocks/pda/connections';
 
 describe('Connections API', () => {
   beforeEach(() => {

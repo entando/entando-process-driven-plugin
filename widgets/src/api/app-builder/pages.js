@@ -1,5 +1,5 @@
 import { METHODS, DOMAINS } from 'api/constants';
-import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
+import { taskListConfigs } from 'mocks/app-builder/pages';
 import makeRequest from 'api/makeRequest';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -8,7 +8,7 @@ export const getPageWidget = (pageCode, frameId) =>
     domain: DOMAINS.APP_BUILDER,
     uri: `/api/pages/${pageCode}/widgets/${frameId}`,
     method: METHODS.GET,
-    mockResponse: WIDGET_CONFIGS,
+    mockResponse: taskListConfigs,
     useAuthentication: true,
     // forceMock: true,
   });

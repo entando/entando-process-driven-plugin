@@ -2,9 +2,9 @@ import React from 'react';
 import { cleanup, render } from '@testing-library/react';
 
 import Table, { swapOrder } from 'components/common/Table/Table';
-import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
+import { taskListConfigs as WIDGET_CONFIGS } from 'mocks/app-builder/pages';
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
-import jsonRows from 'mocks/taskList/tasks';
+import jsonRows from 'mocks/pda/tasks.json';
 import 'mocks/i18nMock';
 
 const columns = normalizeColumns(

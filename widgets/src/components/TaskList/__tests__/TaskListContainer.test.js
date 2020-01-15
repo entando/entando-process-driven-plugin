@@ -4,8 +4,8 @@ import 'mocks/i18nMock';
 
 import { DOMAINS } from 'api/constants';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
-import mockTasks from 'mocks/taskList/tasks.json';
-import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
+import mockTasks from 'mocks/pda/tasks.json';
+import { taskListConfigs as WIDGET_CONFIGS } from 'mocks/app-builder/pages';
 
 describe('<TaskListContainer />', () => {
   it('renders snapshot correctly', async () => {

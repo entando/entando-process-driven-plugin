@@ -6,8 +6,10 @@ import PropTypes from 'prop-types';
 import arrayMove from 'array-move';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import { getConnections } from 'api/connections';
-import { getProcess, getGroups, getColumns } from 'api/taskList';
+import { getConnections } from 'api/pda/connections';
+import { getProcess } from 'api/pda/process';
+import { getGroups } from 'api/pda/groups';
+import { getColumns } from 'api/pda/tasks';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 import { normalizeConfigColumns, normalizeConfigGroups } from 'components/TaskList/normalizeData';
 import 'patternfly-react/dist/css/patternfly-react.css';

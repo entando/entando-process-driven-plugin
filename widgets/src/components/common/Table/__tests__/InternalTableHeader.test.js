@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import InternalTableHeader from 'components/common/Table/InternalTableHeader';
-import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
+import { taskListConfigs as WIDGET_CONFIGS } from 'mocks/app-builder/pages';
 import { normalizeColumns } from 'components/TaskList/normalizeData';
-import jsonRows from 'mocks/taskList/tasks';
+import jsonRows from 'mocks/pda/tasks.json';
 
 const columns = normalizeColumns(
   JSON.parse(WIDGET_CONFIGS.payload.config.columns),
