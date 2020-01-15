@@ -4,13 +4,20 @@ import getMockedTasks from 'mocks/pda/taskList.api';
 import COLUMNS from 'mocks/pda/columns';
 import makeRequest from 'api/makeRequest';
 
-export const getTasks = async (connection, page, pageSize, sortedColumn, sortOrder, filter) =>
+export const getTasks = async (
+  connection,
+  page = 0,
+  pageSize = 30,
+  sortedColumn,
+  sortOrder,
+  filter
+) =>
   makeRequest({
     domain: DOMAINS.PDA,
     uri: `/connections/${connection}/tasks`,
     queryParams: {
-      page: page || 1,
-      pageSize: pageSize || 30,
+      page: page + 1,
+      pageSize,
       sort: sortedColumn,
       direction: sortOrder,
       filter,
@@ -19,8 +26,6 @@ export const getTasks = async (connection, page, pageSize, sortedColumn, sortOrd
     mockResponse: getMockedTasks(page, pageSize, sortedColumn, sortOrder, filter),
     useAuthentication: true,
   });
-
-// Configs
 
 export const getColumns = async connection =>
   makeRequest({

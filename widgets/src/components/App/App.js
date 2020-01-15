@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import 'components/App/App.css';
 import Menu from 'components/App/Menu';
+import { PAGES_CONFIG } from 'api/constants';
 
 // widgets
 import Home from 'components/App/Home';
@@ -71,13 +72,21 @@ function App() {
           <Route
             path="/TaskList/"
             render={() => (
-              <TaskListContainer lazyLoading={lazyLoading} pageCode="task_list" frameId="1" />
+              <TaskListContainer
+                lazyLoading={lazyLoading}
+                pageCode={PAGES_CONFIG.taskList.pageCode}
+                frameId={PAGES_CONFIG.taskList.frameId}
+              />
             )}
           />
           <Route
             path="/TaskListConfig"
             render={() => (
-              <TaskListConfig pageCode="task_list" frameId="1" widgetCode="pda_task_list" />
+              <TaskListConfig
+                pageCode={PAGES_CONFIG.taskList.pageCode}
+                frameId={PAGES_CONFIG.taskList.frameId}
+                widgetCode={PAGES_CONFIG.taskList.widgetCode}
+              />
             )}
           />
         </Container>

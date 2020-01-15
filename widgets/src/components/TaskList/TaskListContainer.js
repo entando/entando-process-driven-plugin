@@ -58,7 +58,7 @@ class TaskList extends React.Component {
       const { config } = widgetConfigs.payload;
 
       const taskList = lazyLoading
-        ? await getTasks(config.knowledgeSource, 1, 10)
+        ? await getTasks(config.knowledgeSource, 0, 10)
         : await getTasks(config.knowledgeSource);
 
       this.setState({
@@ -99,14 +99,7 @@ class TaskList extends React.Component {
 
     this.setState({ loading: true });
     try {
-      const res = await getTasks(
-        connection,
-        page + 1,
-        rowsPerPage,
-        sortedColumn,
-        sortedOrder,
-        filter
-      );
+      const res = await getTasks(connection, page, rowsPerPage, sortedColumn, sortedOrder, filter);
       if (!res.payload) {
         throw res.message;
       }

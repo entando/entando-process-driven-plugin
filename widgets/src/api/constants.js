@@ -1,3 +1,5 @@
+import { taskListConfigs } from 'mocks/app-builder/pages';
+
 export const DOMAINS = {
   PDA: process.env.REACT_APP_DOMAIN || '',
   APP_BUILDER: process.env.REACT_APP_APP_BUILDER_DOMAIN || '',
@@ -16,7 +18,16 @@ export const METHODS = {
   DELETE: 'DELETE',
 };
 
+export const PAGES_CONFIG = {
+  taskList: {
+    frameId: '1',
+    pageCode: 'task_list',
+    widgetCode: 'pda_task_list',
+    configs: taskListConfigs,
+  },
+};
+
 // Inject ur access_token if you are trying to reach the APP-BUILDER API locally
 export const TOKENS = {
-  APP_BUILDER: 'd1018be5263bc4b1e9bcc586848812a6',
+  APP_BUILDER: '7129635d98f076c7b89c7e6c2b615aad',
 };
