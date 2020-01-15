@@ -101,6 +101,11 @@ class TaskDetailsContainer extends React.Component {
     }
   }
 
+  handleError(err) {
+    const { onError } = this.props;
+    onError(err);
+  }
+
   render() {
     const { loadingTask, task, taskInputData } = this.state;
     const { classes, onPressPrevious, onPressNext, onError } = this.props;
