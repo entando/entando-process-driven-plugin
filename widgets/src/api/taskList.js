@@ -1,7 +1,7 @@
 import { METHODS, DOMAINS } from 'api/constants';
 import getMockedTasks from 'mocks/taskList/api.mock';
 
-import { CONNECTIONS, PROCESS, GROUPS, COLUMNS } from 'mocks/taskList/configs';
+import { PROCESS, GROUPS, COLUMNS } from 'mocks/taskList/configs';
 import makeRequest from 'api/makeRequest';
 
 export const getTasks = async (connection, page, pageSize, sortedColumn, sortOrder, filter) =>
@@ -21,15 +21,6 @@ export const getTasks = async (connection, page, pageSize, sortedColumn, sortOrd
   });
 
 // Configs
-
-export const getConnections = async () =>
-  makeRequest({
-    domain: DOMAINS.PDA,
-    uri: '/connections',
-    method: METHODS.GET,
-    mockResponse: CONNECTIONS,
-    useAuthentication: false,
-  });
 
 export const getProcess = async connection =>
   makeRequest({

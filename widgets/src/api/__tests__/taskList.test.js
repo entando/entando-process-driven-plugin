@@ -1,7 +1,7 @@
-import { getTasks, getConnections, getProcess, getGroups, getColumns } from 'api/taskList';
+import { getTasks, getProcess, getGroups, getColumns } from 'api/taskList';
 import { DOMAINS } from 'api/constants';
 import mockTasks from 'mocks/taskList/tasks.json';
-import { CONNECTIONS, PROCESS, GROUPS, COLUMNS } from 'mocks/taskList/configs';
+import { PROCESS, GROUPS, COLUMNS } from 'mocks/taskList/configs';
 
 describe('TaskList API', () => {
   beforeEach(() => {
@@ -18,15 +18,6 @@ describe('TaskList API', () => {
     expect(fetch.mock.calls.length).toBe(1);
     expect(fetch.mock.calls[0][0]).toEqual(url);
     expect(result).toEqual(mockTasks);
-  });
-
-  it('getConnections to return expected data', async () => {
-    fetch.mockResponseOnce(JSON.stringify(CONNECTIONS));
-    const result = await getConnections();
-
-    expect(fetch.mock.calls.length).toBe(1);
-    expect(fetch.mock.calls[0][0]).toEqual(`${DOMAINS.PDA}/connections`);
-    expect(result).toEqual(CONNECTIONS);
   });
 
   it('getProcess to return expected data', async () => {

@@ -20,11 +20,6 @@ import Home from 'components/App/Home';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 
-// mocked data for development
-const pageCode = 'task_list';
-const frameId = '1';
-const widgetCode = 'pda_task_list';
-
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -76,13 +71,13 @@ function App() {
           <Route
             path="/TaskList/"
             render={() => (
-              <TaskListContainer lazyLoading={lazyLoading} pageCode={pageCode} frameId={frameId} />
+              <TaskListContainer lazyLoading={lazyLoading} pageCode="task_list" frameId="1" />
             )}
           />
           <Route
             path="/TaskListConfig"
             render={() => (
-              <TaskListConfig pageCode={pageCode} frameId={frameId} widgetCode={widgetCode} />
+              <TaskListConfig pageCode="task_list" frameId="1" widgetCode="pda_task_list" />
             )}
           />
         </Container>
