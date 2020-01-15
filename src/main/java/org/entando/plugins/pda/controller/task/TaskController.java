@@ -54,6 +54,8 @@ public class TaskController {
         log.debug("Retrieving a task {}", taskId);
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
-        return new SimpleRestResponse<>(engine.getTaskService().get(connection, user, taskId));
+        return new SimpleRestResponse<>(engine.getTaskService()
+                .get(connection, user, taskId));
     }
+
 }
