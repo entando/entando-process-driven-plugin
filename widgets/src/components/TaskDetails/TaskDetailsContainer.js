@@ -5,7 +5,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Container from '@material-ui/core/Container';
 
 import { SERVICE } from 'api/constants';
-import { getTask } from 'api/taskDetails';
+import { getTask } from 'api/app-builder/taskDetails';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
 import CustomEventContext from 'components/TaskDetails/CustomEventContext';

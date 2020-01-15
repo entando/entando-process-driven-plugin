@@ -1,4 +1,10 @@
-import { getTasks, getConnections, getProcess, getGroups, getColumns } from 'api/taskList';
+import {
+  getTasks,
+  getConnections,
+  getProcess,
+  getGroups,
+  getColumns,
+} from 'api/app-builder/taskList';
 
 import mockTasks from 'mocks/taskList/tasks.json';
 import { CONNECTIONS, PROCESS, GROUPS, COLUMNS } from 'mocks/taskList/configs';

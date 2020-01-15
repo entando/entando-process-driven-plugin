@@ -7,7 +7,7 @@ import theme from 'theme';
 import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import CompletionForm from 'components/TaskCompletionForm/CompletionForm';
-import { getTask, getTaskForm } from 'api/taskDetails';
+import { getTask, getTaskForm } from 'api/app-builder/taskDetails';
 import { getPageWidget } from 'api/app-builder/pages';
 
 class TaskCompletionFormContainer extends React.Component {
