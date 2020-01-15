@@ -21,7 +21,7 @@ export const putPageWidget = (pageCode, frameId, configs) =>
     useAuthentication: true,
   });
 
-// for ease of development
+// TODO: for ease of development - remove when authetication token is managed by wrapper
 export const authenticate = async () => {
   const formData = {
     username: 'admin',

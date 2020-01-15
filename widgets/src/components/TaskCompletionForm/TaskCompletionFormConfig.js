@@ -12,7 +12,7 @@ import {
 } from 'patternfly-react';
 
 import { getConnections, getProcess } from 'api/pda';
-import { authenticate, getPageWidget, putPageWidget } from 'api/app-builder/pages';
+import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -44,13 +44,6 @@ class CompletionFormConfig extends React.Component {
     // getting list of Kie server connections
     const sourceList = await getConnections();
     this.setState({ sourceList: sourceList.payload });
-
-    // temporary fetch for ease of development
-    console.log('Fetching auth token for ease of development! DEV ONLY');
-    const authentication = await authenticate();
-    if (authentication && authentication.access_token) {
-      localStorage.setItem('token', authentication.access_token);
-    }
 
     // getting existing configs
     const pageWidgetsConfigs = await getPageWidget(pageCode, frameId);

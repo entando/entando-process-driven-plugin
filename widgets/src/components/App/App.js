@@ -12,8 +12,9 @@ import {
 import { Menu as MenuIcon } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 
-import 'components/App/App.css';
+import { authenticate } from 'api/app-builder/pages';
 import Menu from 'components/App/Menu';
+import 'components/App/App.css';
 
 // widgets
 import Home from 'components/App/Home';
@@ -42,6 +43,22 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const [open, setOpen] = React.useState(false);
   const [lazyLoading, setLazyLoading] = React.useState(false);
+
+  // TODO: Remove when token is managed by wrapper
+  React.useEffect(() => {
+    async function fetchToken() {
+      // temporary fetch token for ease of development
+      console.log('Fetching auth token for ease of development! DEV ONLY');
+
+      const authentication = await authenticate();
+      if (authentication && authentication.access_token) {
+        console.log('New authenticaton token is:', authentication.access_token);
+        localStorage.setItem('token', authentication.access_token);
+      }
+    }
+    fetchToken();
+  });
+
   const classes = useStyles();
 
   return (
