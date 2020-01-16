@@ -27,7 +27,7 @@ export const PAGES_CONFIG = {
   },
 };
 
-// Inject ur access_token if you are trying to reach the APP-BUILDER API locally
+// Inject your access_token if you are trying to reach the APP-BUILDER API locally
 export const TOKENS = {
   // APP_BUILDER: '1b34e2d5924e0705f6e69fbf8e1c3c5a',
 };
