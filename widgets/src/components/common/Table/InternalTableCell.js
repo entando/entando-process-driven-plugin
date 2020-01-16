@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TableCell from '@material-ui/core/TableCell';
 
 import columnType from 'types/columnType';
-import rowType from 'types/rowType';
 
 export default function InternalTableCell({ column, row }) {
   const CustomCell = column.customCell;
@@ -20,5 +20,6 @@ export default function InternalTableCell({ column, row }) {
 
 InternalTableCell.propTypes = {
   column: columnType.isRequired,
-  row: rowType.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  row: PropTypes.object.isRequired,
 };

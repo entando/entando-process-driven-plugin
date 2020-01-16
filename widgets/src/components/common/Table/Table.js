@@ -10,7 +10,6 @@ import MuiTable from '@material-ui/core/Table';
 import i18next from 'i18next';
 
 import columnType from 'types/columnType';
-import rowType from 'types/rowType';
 
 import SearchInput from 'components/common/SearchInput';
 import TablePagination from 'components/common/Table/TablePagination';
@@ -280,7 +279,7 @@ Table.propTypes = {
   /** Prop value is required for sortable tables. */
   initialSortedColumn: PropTypes.string,
   initialSortOrder: PropTypes.string,
-  rows: PropTypes.arrayOf(rowType),
+  rows: PropTypes.arrayOf(PropTypes.object),
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   title: PropTypes.string,
   subtitle: PropTypes.string,
