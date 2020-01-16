@@ -6,8 +6,7 @@ const DateCell = rowName => {
   const Cell = ({ row }) => <span>{moment(row[rowName]).format('MM/DD/YYYY')}</span>;
 
   Cell.propTypes = {
-    // eslint-disable-next-line react/forbid-prop-types
-    row: PropTypes.object.isRequired,
+    row: PropTypes.shape({}).isRequired,
   };
 
   return Cell;

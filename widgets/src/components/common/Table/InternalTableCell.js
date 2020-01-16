@@ -20,6 +20,5 @@ export default function InternalTableCell({ column, row }) {
 
 InternalTableCell.propTypes = {
   column: columnType.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  row: PropTypes.object.isRequired,
+  row: PropTypes.shape({}).isRequired,
 };

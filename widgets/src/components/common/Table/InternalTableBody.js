@@ -32,7 +32,7 @@ const InternalTableBody = ({ columns, rows, emptyRows, rowHeight }) => {
 
 InternalTableBody.propTypes = {
   columns: PropTypes.arrayOf(columnType),
-  rows: PropTypes.arrayOf(PropTypes.object),
+  rows: PropTypes.arrayOf(PropTypes.shape({})),
   emptyRows: PropTypes.number,
   rowHeight: PropTypes.number,
 };

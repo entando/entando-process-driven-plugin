@@ -279,7 +279,7 @@ Table.propTypes = {
   /** Prop value is required for sortable tables. */
   initialSortedColumn: PropTypes.string,
   initialSortOrder: PropTypes.string,
-  rows: PropTypes.arrayOf(PropTypes.object),
+  rows: PropTypes.arrayOf(PropTypes.shape({})),
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   title: PropTypes.string,
   subtitle: PropTypes.string,
