@@ -1,23 +1,36 @@
 package org.entando.plugins.pda.controller.task;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_ID_1;
+import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_1;
+import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_2;
+import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_3;
+import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_KEY_1;
+import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_KEY_2;
+import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_KEY_3;
 import static org.entando.plugins.pda.core.utils.TestUtils.TASK_ID_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.minifyJsonString;
+import static org.entando.plugins.pda.core.utils.TestUtils.randomStringId;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.util.UUID;
+import java.util.HashMap;
+import java.util.Map;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.controller.TestConnectionConfigConfiguration;
+import org.entando.plugins.pda.core.model.task.CreateTaskFormSubmissionRequest;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -83,7 +96,43 @@ public class TaskFormControllerIntegrationTest {
     @Test
     public void testGetTaskFormShouldThrowNotFound() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/tasks/{id}/form"
-                .replace("{id}", UUID.randomUUID().toString())))
+                .replace("{id}", randomStringId())))
+                .andDo(print())
+                .andExpect(status().isNotFound())
+                .andReturn();
+    }
+
+    @Test
+    public void testSubmitTaskForm() throws Exception {
+        Map<String, Object> variables = new HashMap<>();
+        variables.put(TASK_FORM_PROP_KEY_1, TASK_FORM_PROP_1);
+        variables.put(TASK_FORM_PROP_KEY_2, TASK_FORM_PROP_2);
+        variables.put(TASK_FORM_PROP_KEY_3, TASK_FORM_PROP_3);
+
+        CreateTaskFormSubmissionRequest request = CreateTaskFormSubmissionRequest.builder()
+                .form(TASK_FORM_ID_1, variables)
+                .build();
+
+        mockMvc.perform(post("/connections/fakeProduction/tasks/{id}/form"
+                .replace("{id}", TASK_ID_1))
+                .header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+                .content(mapper.writeValueAsString(request)))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("payload.id", is(TASK_ID_1)))
+                .andExpect(jsonPath("payload.outputData.size()", is(3)))
+                .andExpect(jsonPath("payload.outputData." + TASK_FORM_PROP_KEY_1, is(TASK_FORM_PROP_1)))
+                .andExpect(jsonPath("payload.outputData." + TASK_FORM_PROP_KEY_2, is(TASK_FORM_PROP_2)))
+                .andExpect(jsonPath("payload.outputData." + TASK_FORM_PROP_KEY_3, is(TASK_FORM_PROP_3)))
+                .andReturn();
+    }
+
+    @Test
+    public void testSubmitTaskFormShouldThrowNotFound() throws Exception {
+        mockMvc.perform(post("/connections/fakeProduction/tasks/{id}/form"
+                .replace("{id}", randomStringId()))
+                .header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+                .content(mapper.writeValueAsString(CreateTaskFormSubmissionRequest.builder().build())))
                 .andDo(print())
                 .andExpect(status().isNotFound())
                 .andReturn();
