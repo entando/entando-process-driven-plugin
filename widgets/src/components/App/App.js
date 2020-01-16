@@ -48,11 +48,11 @@ function App() {
   React.useEffect(() => {
     async function fetchToken() {
       // temporary fetch token for ease of development
-      console.log('Fetching auth token for ease of development! DEV ONLY');
+      console.log('Fetching auth token for ease of development! DEV ONLY'); // eslint-ignore-line no-console
 
       const authentication = await authenticate();
       if (authentication && authentication.access_token) {
-        console.log('New authenticaton token is:', authentication.access_token);
+        console.log('New authenticaton token is:', authentication.access_token); // eslint-ignore-line no-console
         localStorage.setItem('token', authentication.access_token);
       }
     }

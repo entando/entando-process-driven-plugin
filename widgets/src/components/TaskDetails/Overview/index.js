@@ -13,7 +13,7 @@ const Overview = ({ task, loadingTask }) => {
       {!loadingTask && task && (
         <>
           <OverviewHeader
-            title={`${i18next.t('taskDetails.overview.title')} - ${task['task-id']}`}
+            title={`${i18next.t('taskDetails.overview.title')} - ${task.workItemId || ''}`}
           />
           <OverviewDetails task={task} />
         </>
@@ -24,7 +24,7 @@ const Overview = ({ task, loadingTask }) => {
 
 Overview.propTypes = {
   task: PropTypes.shape({
-    'task-id': PropTypes.number,
+    workItemId: PropTypes.number,
   }),
   loadingTask: PropTypes.bool,
 };
