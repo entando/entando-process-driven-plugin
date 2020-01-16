@@ -2,15 +2,16 @@ import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
+import { DOMAINS } from 'api/constants';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
-import mockTasks from 'mocks/taskList/tasks.json';
-import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
+import mockTasks from 'mocks/pda/tasks.json';
+import { taskListConfigs as WIDGET_CONFIGS } from 'mocks/app-builder/pages';
 
 describe('<TaskListContainer />', () => {
   it('renders snapshot correctly', async () => {
-    const configUrl = `/api/pages//widgets/`;
+    const configUrl = `${DOMAINS.APP_BUILDER}/api/pages//widgets/`;
     const connection = 'kieStaging';
-    const taskListUrl = `/pda/connections/${connection}/tasks?sort=taskId`;
+    const taskListUrl = `/connections/${connection}/tasks?page=1&pageSize=30`;
 
     fetch.once(JSON.stringify(WIDGET_CONFIGS)).once(JSON.stringify(mockTasks));
 

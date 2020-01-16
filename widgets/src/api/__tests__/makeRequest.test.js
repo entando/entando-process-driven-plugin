@@ -1,7 +1,7 @@
 import { METHODS } from 'api/constants';
 import makeRequest from 'api/makeRequest';
 
-import mockTasks from 'mocks/taskList/tasks.json';
+import mockTasks from 'mocks/pda/tasks.json';
 
 describe('makeRequest API', () => {
   it('makeRequest to return expected response', async () => {
@@ -24,7 +24,7 @@ describe('makeRequest API', () => {
       uri,
       method: METHODS.PUT,
       body: { test: 'test' },
-      withAuthentication: true,
+      useAuthentication: true,
     });
 
     expect(result).toEqual(mockTasks);
