@@ -2,7 +2,7 @@
 
 ## Running locally
 
-The widgets consumes APIs from two different sources, the PDA and APP-BUILDER. The APP-BUILDER API's doesn't allows cross domain requests, so we won't be able to ping it without run through the CORS policy with a [browser plugin](http://tiny.cc/0ysoiz).
+The widgets consume APIs from two different sources, the PDA and APP-BUILDER. The APP-BUILDER APIs do not allow cross domain requests, so we won't be able to ping it without running it through the CORS policy with a [browser plugin](http://tiny.cc/0ysoiz).
 
 To set up for un-mocked local run:
 
