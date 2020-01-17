@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LazyTablePagination /> renders snapshot correctly 1`] = `
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <td
+          class="MuiTableCell-root LazyTablePagination-root-1"
+        >
+          <div
+            class="LazyTablePagination-pageControl-2"
+          >
+            <span
+              class="MuiTypography-root MuiTypography-caption"
+            />
+            <div
+              class="MuiInputBase-root MuiInput-root MuiInput-underline LazyTablePagination-select-4"
+            >
+              <div
+                aria-haspopup="listbox"
+                aria-labelledby=" "
+                class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+                role="button"
+                tabindex="0"
+              >
+                5
+              </div>
+              <input
+                type="hidden"
+                value="5"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSelect-icon"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="LazyTablePagination-pageControl-2"
+          >
+            <button
+              class="MuiButtonBase-root MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6 6h2v12H6zm3.5 6l8.5 6V6z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root LazyTablePagination-previousIcon-3"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8 5v14l11-7z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              1
+            </p>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8 5v14l11-7z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

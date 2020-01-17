@@ -1,6 +1,6 @@
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
-
-import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
+import { DOMAINS } from 'api/constants';
+import { taskListConfigs as WIDGET_CONFIGS } from 'mocks/app-builder/pages';
 
 describe('TaskList API', () => {
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('TaskList API', () => {
   it('getPageWidget to return expected data', async () => {
     const pageCode = 0;
     const frameId = 1;
-    const url = `/api/pages/${pageCode}/widgets/${frameId}`;
+    const url = `${DOMAINS.APP_BUILDER}/api/pages/${pageCode}/widgets/${frameId}`;
 
     fetch.mockResponseOnce(JSON.stringify(WIDGET_CONFIGS));
     const result = await getPageWidget(pageCode, frameId);
@@ -23,7 +23,7 @@ describe('TaskList API', () => {
   it('putPageWidget to return expected data', async () => {
     const pageCode = 0;
     const frameId = 1;
-    const url = `/api/pages/${pageCode}/widgets/${frameId}`;
+    const url = `${DOMAINS.APP_BUILDER}/api/pages/${pageCode}/widgets/${frameId}`;
     fetch.mockResponseOnce(JSON.stringify({}));
 
     const result = await putPageWidget(pageCode, frameId, {});

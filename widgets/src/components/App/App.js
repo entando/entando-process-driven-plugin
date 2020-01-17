@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import 'components/App/App.css';
 import Menu from 'components/App/Menu';
+import { PAGES_CONFIG } from 'api/constants';
 
 // widgets
 import Home from 'components/App/Home';
@@ -34,7 +35,7 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const [open, setOpen] = React.useState(false);
-  const [lazyLoading, setLazyLoading] = React.useState(false);
+  const [lazyLoading, setLazyLoading] = React.useState(true);
   const classes = useStyles();
 
   return (
@@ -68,10 +69,25 @@ function App() {
 
         <Container className="app-container">
           <Route path="/" exact component={Home} />
-          <Route path="/TaskList/" render={() => <TaskListContainer lazyLoading={lazyLoading} />} />
+          <Route
+            path="/TaskList/"
+            render={() => (
+              <TaskListContainer
+                lazyLoading={lazyLoading}
+                pageCode={PAGES_CONFIG.taskList.pageCode}
+                frameId={PAGES_CONFIG.taskList.frameId}
+              />
+            )}
+          />
           <Route
             path="/TaskListConfig"
-            render={() => <TaskListConfig pageCode="0" framePos="0" widgetCode="pda_task_list" />}
+            render={() => (
+              <TaskListConfig
+                pageCode={PAGES_CONFIG.taskList.pageCode}
+                frameId={PAGES_CONFIG.taskList.frameId}
+                widgetCode={PAGES_CONFIG.taskList.widgetCode}
+              />
+            )}
           />
         </Container>
       </Router>

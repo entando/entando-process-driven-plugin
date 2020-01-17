@@ -21,9 +21,9 @@
     "react-scripts": "3.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "REACT_APP_LOCAL=false react-scripts build",
-    "test": "REACT_APP_MOCKED_API=false react-scripts test --setupFilesAfterEnv ./setupTests.js",
+    "start": "REACT_APP_LOCAL=true react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --setupFilesAfterEnv ./setupTests.js",
     "test:coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "npx eslint --fix ./src",

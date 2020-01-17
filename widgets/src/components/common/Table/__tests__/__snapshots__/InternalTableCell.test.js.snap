@@ -50,7 +50,7 @@ exports[`<InternalTableCell /> renders snapshot correctly for a data cell 1`] = 
           class="MuiTableCell-root MuiTableCell-sizeSmall"
           style="white-space: nowrap;"
         >
-          com.myspace.mortgage_app.Application@15f103e7	
+          Correct Data
         </td>
       </tr>
     </tbody>

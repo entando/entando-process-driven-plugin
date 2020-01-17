@@ -2,7 +2,14 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import InternalTableHead from 'components/common/Table/InternalTableHead';
-import columns from 'mocks/taskList/columns';
+import { taskListConfigs as WIDGET_CONFIGS } from 'mocks/app-builder/pages';
+import { normalizeColumns } from 'components/TaskList/normalizeData';
+import jsonRows from 'mocks/pda/tasks.json';
+
+const columns = normalizeColumns(
+  JSON.parse(WIDGET_CONFIGS.payload.config.columns),
+  jsonRows.payload[0]
+);
 
 describe('<InternalTableHead />', () => {
   it('renders snapshot correctly', () => {

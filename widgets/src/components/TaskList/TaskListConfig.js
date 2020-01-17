@@ -6,13 +6,18 @@ import PropTypes from 'prop-types';
 import arrayMove from 'array-move';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import { getConnections, getProcess, getGroups, getColumns } from 'api/taskList';
+import { getConnections } from 'api/pda/connections';
+import { getProcess } from 'api/pda/process';
+import { getGroups } from 'api/pda/groups';
+import { getColumns } from 'api/pda/tasks';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 import { normalizeConfigColumns, normalizeConfigGroups } from 'components/TaskList/normalizeData';
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
 import 'patternfly/dist/css/patternfly-additions.css';
 import RenderSwitch from 'components/common/RenderSwitch';
+
+import ErrorNotification from 'components/common/ErrorNotification';
 
 const generalOptions = [
   {
@@ -96,27 +101,41 @@ class TaskListConfig extends React.Component {
     options: generalOptions,
     knowledgeSource: '',
     selectedProcess: '',
+    errorAlert: null,
   };
 
   componentDidMount = async () => {
-    const { framePos, pageCode } = this.props;
-    // get list of connections
-    const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload });
+    const { frameId, pageCode } = this.props;
 
-    // get existing configs
-    const pageWidgetsConfigs = await getPageWidget(pageCode, framePos);
-    const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
-    if (configs && configs.knowledgeSource) {
-      this.onChangeSource(configs.knowledgeSource, () => {
-        this.onChangeProcess(configs.process, () => {
-          this.setState({
-            groups: JSON.parse(configs.groups),
-            options: JSON.parse(configs.options),
-            columns: JSON.parse(configs.columns),
+    try {
+      // get list of connections
+      const sourceList = await getConnections();
+      if (sourceList.errors && sourceList.errors.length) {
+        throw sourceList.errors[0];
+      }
+
+      this.setState({ sourceList: sourceList.payload });
+
+      // get existing configs
+      const pageWidgetsConfigs = await getPageWidget(pageCode, frameId);
+      if (pageWidgetsConfigs.errors && pageWidgetsConfigs.errors.length) {
+        throw pageWidgetsConfigs.errors[0];
+      }
+
+      const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
+      if (configs && configs.knowledgeSource) {
+        this.onChangeSource(configs.knowledgeSource, () => {
+          this.onChangeProcess(configs.process, () => {
+            this.setState({
+              groups: JSON.parse(configs.groups),
+              options: JSON.parse(configs.options),
+              columns: JSON.parse(configs.columns),
+            });
           });
         });
-      });
+      }
+    } catch (error) {
+      this.handleError(error.message);
     }
   };
 
@@ -199,27 +218,36 @@ class TaskListConfig extends React.Component {
   };
 
   handleSave = async () => {
-    const { framePos, pageCode, widgetCode } = this.props;
+    const { frameId, pageCode, widgetCode } = this.props;
     const { knowledgeSource, selectedProcess, options, groups, columns } = this.state;
     const body = {
       code: widgetCode,
-    };
-
-    body.config = {
-      knowledgeSource,
-      process: selectedProcess,
-      options: JSON.stringify(options),
-      groups: JSON.stringify(groups),
-      columns: JSON.stringify(columns),
+      config: {
+        knowledgeSource,
+        process: selectedProcess,
+        options: JSON.stringify(options),
+        groups: JSON.stringify(groups),
+        columns: JSON.stringify(columns),
+      },
     };
 
     try {
-      const response = await putPageWidget(pageCode, framePos, body);
+      const response = await putPageWidget(pageCode, frameId, body);
       console.log('Configs got saved', response);
     } catch (error) {
       console.log('Error while saving configs', error);
     }
   };
+
+  closeNotification = () => {
+    this.setState({ errorAlert: null });
+  };
+
+  handleError(err) {
+    this.setState({
+      errorAlert: err,
+    });
+  }
 
   render() {
     const {
@@ -230,10 +258,12 @@ class TaskListConfig extends React.Component {
       groups,
       columns,
       options,
+      errorAlert,
     } = this.state;
 
     return (
       <div>
+        <ErrorNotification message={errorAlert} onClose={this.closeNotification} />
         <form>
           <Row>
             <Col xs={12}>
@@ -342,7 +372,7 @@ class TaskListConfig extends React.Component {
 }
 
 TaskListConfig.propTypes = {
-  framePos: PropTypes.string.isRequired,
+  frameId: PropTypes.string.isRequired,
   widgetCode: PropTypes.string.isRequired,
   pageCode: PropTypes.string.isRequired,
 };

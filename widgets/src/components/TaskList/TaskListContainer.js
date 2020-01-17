@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import { SERVICE } from 'api/constants';
-import { getTasks } from 'api/taskList';
+import { DOMAINS, LOCAL } from 'api/constants';
+import { getTasks } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
 
@@ -29,36 +29,43 @@ class TaskList extends React.Component {
     columns: [],
     rows: [],
     size: 0,
-    currentPage: 0,
     connection: {},
     error: null,
     errorAlert: null,
+    lastPage: false,
   };
 
   timer = { ref: null };
 
   componentDidMount = async () => {
     const { lazyLoading, serviceUrl, pageCode, frameId } = this.props;
-    const { currentPage } = this.state;
 
-    SERVICE.URL = serviceUrl;
+    if (!LOCAL) {
+      // set the PDA domain to the URL passed via props
+      DOMAINS.PDA = serviceUrl;
+    }
 
     try {
       // config will be fetched from app-builder
-      const widgetConfigs = await getPageWidget(pageCode, frameId);
+      const widgetConfigs = await getPageWidget(pageCode, frameId, true);
       if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }
+      if (!widgetConfigs.payload) {
+        throw new Error('No configuration found for this widget');
+      }
+
       const { config } = widgetConfigs.payload;
 
       const taskList = lazyLoading
-        ? await getTasks(config.knowledgeSource, currentPage, 10)
+        ? await getTasks(config.knowledgeSource, 0, 10)
         : await getTasks(config.knowledgeSource);
 
       this.setState({
         loading: false,
         columns: normalizeColumns(JSON.parse(config.columns), taskList.payload[0]),
         rows: normalizeRows(taskList.payload),
+        lastPage: taskList.metadata.lastPage === 1,
         size: taskList.metadata.size,
         connection: config.knowledgeSource,
       });
@@ -93,11 +100,14 @@ class TaskList extends React.Component {
     this.setState({ loading: true });
     try {
       const res = await getTasks(connection, page, rowsPerPage, sortedColumn, sortedOrder, filter);
+      if (!res.payload) {
+        throw res.message;
+      }
 
       this.setState({
         rows: normalizeRows(res.payload),
         size: res.metadata.size,
-        currentPage: page || 0,
+        lastPage: res.metadata.lastPage === 1,
         loading: false,
       });
       callback();
@@ -121,15 +131,15 @@ class TaskList extends React.Component {
   }
 
   render() {
-    const { loading, columns, rows, currentPage, size, error, errorAlert } = this.state;
+    const { loading, columns, rows, size, error, errorAlert, lastPage } = this.state;
     const { classes, lazyLoading } = this.props;
 
     let lazyLoadingProps;
     if (lazyLoading) {
       lazyLoadingProps = {
-        currentPage,
         onChange: this.updateRows,
         size,
+        lastPage,
       };
     }
 
@@ -171,7 +181,7 @@ TaskList.defaultProps = {
   classes: {},
   lazyLoading: false,
   onError: () => {},
-  serviceUrl: '/pda',
+  serviceUrl: '',
   pageCode: '',
   frameId: '',
 };
