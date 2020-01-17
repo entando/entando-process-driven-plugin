@@ -5,21 +5,28 @@ import AssessmentIcon from '@material-ui/icons/Assessment';
 
 import IconMenuButton from 'components/common/IconMenuButton';
 
-const ActionCell = () => {
-  const menuItems = [
-    {
-      text: 'Claim',
-      icon: <HowToRegIcon fontSize="small" />,
-    },
-    {
+const ActionCell = (options, openDiagram) => data => {
+  const menuItems = [];
+
+  if (options.showComplete) {
+    menuItems.push({
       text: 'Complete',
       icon: <DoneIcon fontSize="small" />,
-    },
-    {
-      text: 'Diagram',
-      icon: <AssessmentIcon fontSize="small" />,
-    },
-  ];
+    });
+  }
+
+  if (options.showClaim) {
+    menuItems.push({
+      text: 'Claim',
+      icon: <HowToRegIcon fontSize="small" />,
+    });
+  }
+
+  menuItems.push({
+    text: 'Diagram',
+    icon: <AssessmentIcon fontSize="small" />,
+    onClick: openDiagram(data.row),
+  });
 
   return <IconMenuButton menuItems={menuItems} />;
 };
