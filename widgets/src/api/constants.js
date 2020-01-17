@@ -16,7 +16,3 @@ export const METHODS = {
   PUT: 'PUT',
   DELETE: 'DELETE',
 };
-
-export const TOKENS = {
-  APP_BUILDER: '',
-};

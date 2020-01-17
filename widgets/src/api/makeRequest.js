@@ -1,4 +1,4 @@
-import { IS_MOCKED_API, MOCK_API_DELAY, DOMAINS, METHODS, TOKENS } from 'api/constants';
+import { IS_MOCKED_API, MOCK_API_DELAY, DOMAINS, METHODS } from 'api/constants';
 import utils from 'utils';
 
 const getParams = queryParams =>
@@ -28,7 +28,7 @@ export default async ({
   const requestHeaders = useAuthentication
     ? new Headers({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token') || TOKENS.APP_BUILDER}`,
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
         ...headers,
       })
     : new Headers(headers);

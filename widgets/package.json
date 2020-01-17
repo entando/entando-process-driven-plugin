@@ -29,9 +29,7 @@
     "test:coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "npx eslint --fix ./src",
-    "i18n": "./node_modules/i18next-scanner/bin/cli.js --config ./scripts/i18next-scanner.config.js",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "i18n": "./node_modules/i18next-scanner/bin/cli.js --config ./scripts/i18next-scanner.config.js"
   },
   "eslintConfig": {
     "extends": [
@@ -102,12 +100,6 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.2.8",
-    "@storybook/addon-links": "^5.2.8",
-    "@storybook/addon-options": "^5.2.8",
-    "@storybook/addon-storysource": "^5.2.8",
-    "@storybook/addons": "^5.2.8",
-    "@storybook/react": "^5.2.8",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "array-move": "^2.2.1",

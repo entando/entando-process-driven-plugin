@@ -27,9 +27,7 @@ class TaskCompletionFormContainer extends React.Component {
 
   componentDidMount() {
     this.setState({ loading: true }, async () => {
-      const { config: storedConfig } = this.state;
-
-      const config = storedConfig || (await this.fetchWidgetConfigs());
+      const config = await this.fetchWidgetConfigs();
 
       this.setState({ config }, () => {
         Promise.all([this.fetchTaskFormData(), this.fetchSchema()]).then(responses => {
