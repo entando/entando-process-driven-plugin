@@ -42,7 +42,7 @@ To set up for un-mocked local run:
 
 1. Configure the page and drag&drop the newly created widget (previous steps) to any slot you like. Each slot has a frameId (starting from zero).
 
-1. Now you should have page code, widget code and, frameId in which the widget was placed. For sanity check you can snd a request using POSTMAN: GET `http://localhost:8090/entando-pam-app/api/pages/{{pageCode}}/widgets/` (where `http://localhost:8090/entando-pam-app` is your APP BUILDER host and `{{pageCode}}` is the code of the page you have created). This should list an array of widgets in that page (the frameId is the zero-based position of your widget on the array).
+1. Now you should have page code, widget code and, frameId in which the widget was placed. For sanity check you can send a request using POSTMAN: GET `http://localhost:8090/entando-pam-app/api/pages/{{pageCode}}/widgets/` (where `http://localhost:8090/entando-pam-app` is your APP BUILDER host and `{{pageCode}}` is the code of the page you have created). This should list an array of widgets in that page (the frameId is the zero-based position of your widget on the array).
 
 1. Update `/widgets/src/mocks/app-builder/widgets.js` with pageCodes, frameIds, and widgetCodes that you have just created.
 
