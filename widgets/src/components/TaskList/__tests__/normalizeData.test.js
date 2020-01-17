@@ -1,8 +1,8 @@
 import { getType, normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
 import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
 import ActionCell from 'components/common/Table/custom/ActionCell';
-import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
-import tasks from 'mocks/taskList/tasks.json';
+import WIDGET_CONFIGS from 'mocks/app-builder/pages';
+import tasks from 'mocks/pda/tasks.json';
 
 const row = {
   name: 'string',
@@ -30,7 +30,7 @@ describe('normalizeData', () => {
   });
 
   it('normalizeColumns to change the columns to fit Table needs', () => {
-    const columns = JSON.parse(WIDGET_CONFIGS.payload.config.columns);
+    const columns = JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.columns);
 
     const normalized = normalizeColumns(columns, tasks.payload[0]);
 

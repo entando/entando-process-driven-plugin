@@ -1,4 +1,4 @@
-import { SERVICE, METHODS } from 'api/constants';
+import { METHODS, DOMAINS } from 'api/constants';
 import mockedTask from 'mocks/taskDetails/task';
 import mockedTaskForm from 'mocks/taskCompletionForm/formSchema';
 
@@ -6,7 +6,7 @@ import makeRequest from 'api/makeRequest';
 
 export const getTask = async (connection, taskId) => {
   return makeRequest({
-    domain: SERVICE.URL,
+    domain: DOMAINS.PDA,
     uri: `/connections/${connection}/tasks/${taskId}`,
     method: METHODS.GET,
     mockResponse: mockedTask,
@@ -16,7 +16,7 @@ export const getTask = async (connection, taskId) => {
 
 export const getTaskForm = async (connection, taskId) => {
   return makeRequest({
-    domain: SERVICE.URL,
+    domain: DOMAINS.PDA,
     uri: `/connections/${connection}/tasks/${taskId}/form`,
     method: METHODS.GET,
     mockResponse: mockedTaskForm,

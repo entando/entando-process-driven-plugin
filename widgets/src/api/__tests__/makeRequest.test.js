@@ -1,7 +1,7 @@
 import { METHODS } from 'api/constants';
 import makeRequest from 'api/makeRequest';
 
-import mockTasks from 'mocks/taskList/tasks.json';
+import mockTasks from 'mocks/pda/tasks.json';
 
 describe('makeRequest API', () => {
   it('makeRequest to return expected response', async () => {

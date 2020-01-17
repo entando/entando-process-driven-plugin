@@ -1,22 +1,26 @@
-import { METHODS } from 'api/constants';
-import WIDGET_CONFIG from 'mocks/appBuilder/widgetConfig';
+import { METHODS, DOMAINS, MOCKED_COMPONENT } from 'api/constants';
+import WIDGET_CONFIG_MOCKUPS from 'mocks/app-builder/pages';
 import makeRequest from 'api/makeRequest';
 
 export const getPageWidget = (pageCode, frameId) =>
   makeRequest({
-    domain: process.env.REACT_APP_APP_BUILDER_DOMAIN,
+    // TODO: remove one of these
+    // domain: process.env.REACT_APP_APP_BUILDER_DOMAIN,
+    domain: DOMAINS.APP_BUILDER,
     uri: `/api/pages/${pageCode}/widgets/${frameId}`,
     method: METHODS.GET,
-    mockResponse: WIDGET_CONFIG,
+    mockResponse: WIDGET_CONFIG_MOCKUPS[MOCKED_COMPONENT],
     useAuthentication: true,
+    // forceMock: true,
   });
 
 export const putPageWidget = (pageCode, frameId, configs) =>
   makeRequest({
-    domain: process.env.REACT_APP_APP_BUILDER_DOMAIN,
+    // TODO: remove one of these
+    // domain: process.env.REACT_APP_APP_BUILDER_DOMAIN,
+    domain: DOMAINS.APP_BUILDER,
     uri: `/api/pages/${pageCode}/widgets/${frameId}`,
     method: METHODS.PUT,
-    mockResponse: {},
     body: configs,
     useAuthentication: true,
   });
@@ -29,7 +33,9 @@ export const authenticate = async () => {
     grant_type: 'password',
   };
   return makeRequest({
-    domain: process.env.REACT_APP_APP_BUILDER_DOMAIN,
+    // TODO: remove one of these
+    // domain: process.env.REACT_APP_APP_BUILDER_DOMAIN,
+    domain: DOMAINS.APP_BUILDER,
     uri: '/api/oauth/token',
     method: METHODS.POST,
     mockResponse: {

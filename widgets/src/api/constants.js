@@ -1,20 +1,22 @@
-export const DOMAIN = process.env.REACT_APP_DOMAIN || 'http://localhost:8082';
-
-export const JWT_TOKEN = process.env.REACT_APP_JWT_TOKEN;
+export const DOMAINS = {
+  PDA: process.env.REACT_APP_DOMAIN || '',
+  APP_BUILDER: process.env.REACT_APP_APP_BUILDER_DOMAIN || '',
+};
 
 export const IS_MOCKED_API = process.env.REACT_APP_MOCKED_API === 'true';
+export const MOCKED_COMPONENT = process.env.REACT_APP_MOCKED_COMPONENT;
 
 export const MOCK_API_DELAY = 800;
 
-export const WIDGET_CODES = {
-  taskList: 'taskListWidget',
-};
-
-export const SERVICE = {};
+export const LOCAL = process.env.REACT_APP_LOCAL === 'true';
 
 export const METHODS = {
   GET: 'GET',
   POST: 'POST',
   PUT: 'PUT',
   DELETE: 'DELETE',
+};
+
+export const TOKENS = {
+  APP_BUILDER: '',
 };

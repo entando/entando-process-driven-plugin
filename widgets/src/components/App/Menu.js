@@ -14,7 +14,8 @@ import {
 import { Home as HomeIcon, List as ListIcon, Settings as SettingsIcon } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 
-import 'components/App/App.css';
+// TODO: Is this needed?
+// import 'components/App/App.css';
 
 const styles = {
   item: {

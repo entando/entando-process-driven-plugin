@@ -4,7 +4,6 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Container from '@material-ui/core/Container';
 
-import { SERVICE } from 'api/constants';
 import { getTask } from 'api/app-builder/taskDetails';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
@@ -34,9 +33,6 @@ class TaskDetailsContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { serviceUrl } = this.props;
-    SERVICE.URL = serviceUrl;
-
     this.setState({ loadingTask: true }, async () => {
       const { config: storedConfig } = this.state;
       const config = storedConfig || (await this.fetchWidgetConfigs());
@@ -125,7 +121,6 @@ TaskDetailsContainer.propTypes = {
   onError: PropTypes.func,
   onPressPrevious: PropTypes.func,
   onPressNext: PropTypes.func,
-  serviceUrl: PropTypes.string,
   pageCode: PropTypes.string,
   frameId: PropTypes.string,
 };
@@ -134,7 +129,6 @@ TaskDetailsContainer.defaultProps = {
   onError: () => {},
   onPressPrevious: () => {},
   onPressNext: () => {},
-  serviceUrl: '',
   pageCode: '',
   frameId: '',
 };

@@ -11,7 +11,8 @@ import {
   FormControl,
 } from 'patternfly-react';
 
-import { getConnections, getProcess } from 'api/pda';
+import { getConnections } from 'api/pda/connections';
+import { getProcesses } from 'api/pda/processes';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
@@ -68,7 +69,7 @@ class CompletionFormConfig extends React.Component {
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState({ knowledgeSource });
 
-    getProcess(knowledgeSource).then(data => {
+    getProcesses(knowledgeSource).then(data => {
       this.setState({ processList: data.payload });
 
       cb();
