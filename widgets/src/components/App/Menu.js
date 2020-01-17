@@ -14,9 +14,6 @@ import {
 import { Home as HomeIcon, List as ListIcon, Settings as SettingsIcon } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 
-// TODO: Is this needed?
-// import 'components/App/App.css';
-
 const styles = {
   item: {
     position: 'relative',

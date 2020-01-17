@@ -4,8 +4,6 @@ import makeRequest from 'api/makeRequest';
 
 export const getPageWidget = (pageCode, frameId) =>
   makeRequest({
-    // TODO: remove one of these
-    // domain: process.env.REACT_APP_APP_BUILDER_DOMAIN,
     domain: DOMAINS.APP_BUILDER,
     uri: `/api/pages/${pageCode}/widgets/${frameId}`,
     method: METHODS.GET,
@@ -16,8 +14,6 @@ export const getPageWidget = (pageCode, frameId) =>
 
 export const putPageWidget = (pageCode, frameId, configs) =>
   makeRequest({
-    // TODO: remove one of these
-    // domain: process.env.REACT_APP_APP_BUILDER_DOMAIN,
     domain: DOMAINS.APP_BUILDER,
     uri: `/api/pages/${pageCode}/widgets/${frameId}`,
     method: METHODS.PUT,
@@ -33,8 +29,6 @@ export const authenticate = async () => {
     grant_type: 'password',
   };
   return makeRequest({
-    // TODO: remove one of these
-    // domain: process.env.REACT_APP_APP_BUILDER_DOMAIN,
     domain: DOMAINS.APP_BUILDER,
     uri: '/api/oauth/token',
     method: METHODS.POST,

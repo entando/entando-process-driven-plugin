@@ -23,7 +23,6 @@ export default async ({
     return mockResponse;
   }
 
-  // TODO: CHECK DOMAIN VARIABLE
   const url = `${domain || DOMAINS.PDA}${uri}${queryParams ? `?${getParams(queryParams)}` : ''}`;
 
   const requestHeaders = useAuthentication
