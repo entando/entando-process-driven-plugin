@@ -29,11 +29,14 @@ class TaskCompletionFormContainer extends React.Component {
     this.setState({ loading: true }, async () => {
       const config = await this.fetchWidgetConfigs();
 
-      this.setState({ config }, () => {
-        Promise.all([this.fetchTaskFormData(), this.fetchSchema()]).then(responses => {
-          const [formData, formSchema] = responses;
-          this.setState({ formData, formSchema, loading: false });
-        });
+      this.setState({ config }, async () => {
+        const formDataPromise = this.fetchTaskFormData();
+        const formSchemaPromise = this.fetchSchema();
+
+        const formData = await formDataPromise;
+        const formSchema = await formSchemaPromise;
+
+        this.setState({ formData, formSchema, loading: false });
       });
     });
   }
@@ -95,7 +98,6 @@ class TaskCompletionFormContainer extends React.Component {
 
     try {
       const formSchema = await getTaskForm(connection, taskContainerId);
-
       return formSchema;
     } catch (error) {
       this.handleError(error.message);
