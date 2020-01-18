@@ -117,7 +117,7 @@ class TaskListConfig extends React.Component {
       this.setState({ sourceList: sourceList.payload });
 
       // get existing configs
-      const pageWidgetsConfigs = await getPageWidget(pageCode, frameId);
+      const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'TASK_LIST');
       if (pageWidgetsConfigs.errors && pageWidgetsConfigs.errors.length) {
         throw pageWidgetsConfigs.errors[0];
       }

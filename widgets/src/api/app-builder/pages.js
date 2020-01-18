@@ -1,13 +1,14 @@
-import { METHODS, DOMAINS, MOCKED_COMPONENT } from 'api/constants';
+import { METHODS, DOMAINS } from 'api/constants';
 import WIDGET_CONFIG_MOCKUPS from 'mocks/app-builder/pages';
 import makeRequest from 'api/makeRequest';
 
-export const getPageWidget = (pageCode, frameId) =>
+// TODO: widgetType should be removed
+export const getPageWidget = (pageCode, frameId, widgetType) =>
   makeRequest({
     domain: DOMAINS.APP_BUILDER,
     uri: `/api/pages/${pageCode}/widgets/${frameId}`,
     method: METHODS.GET,
-    mockResponse: WIDGET_CONFIG_MOCKUPS[MOCKED_COMPONENT],
+    mockResponse: WIDGET_CONFIG_MOCKUPS[widgetType],
     useAuthentication: true,
     // forceMock: true,
   });

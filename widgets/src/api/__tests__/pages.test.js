@@ -13,7 +13,7 @@ describe('TaskList API', () => {
     const url = `${DOMAINS.APP_BUILDER}/api/pages/${pageCode}/widgets/${frameId}`;
 
     fetch.mockResponseOnce(JSON.stringify(WIDGET_CONFIGS.TASK_LIST));
-    const result = await getPageWidget(pageCode, frameId);
+    const result = await getPageWidget(pageCode, frameId, 'TASK_LIST');
 
     expect(fetch.mock.calls.length).toBe(1);
     expect(fetch.mock.calls[0][0]).toEqual(url);

@@ -4,7 +4,6 @@ export const DOMAINS = {
 };
 
 export const IS_MOCKED_API = process.env.REACT_APP_MOCKED_API === 'true';
-export const MOCKED_COMPONENT = process.env.REACT_APP_MOCKED_COMPONENT;
 
 export const MOCK_API_DELAY = 800;
 

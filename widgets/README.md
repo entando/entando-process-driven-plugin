@@ -127,8 +127,6 @@ To set up for un-mocked local run:
 
 1. Open `/widgets/src/.env` file
 1. Set `REACT_APP_MOCKED_API=true`
-1. Set `REACT_APP_MOCKED_COMPONENT` to appropriate widget for configuration loading. Refer to
-   `mocks/app-builder/pages.js` for correct constant value (`TASK_LIST`, `TASK_DETAILS`, `COMPLETION_FORM`).
 1. Start server with `npm start`
 
 #### With real data

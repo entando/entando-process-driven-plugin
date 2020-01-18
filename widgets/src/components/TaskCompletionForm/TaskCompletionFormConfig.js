@@ -47,7 +47,7 @@ class CompletionFormConfig extends React.Component {
     this.setState({ sourceList: sourceList.payload });
 
     // getting existing configs
-    const pageWidgetsConfigs = await getPageWidget(pageCode, frameId);
+    const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'COMPLETION_FORM');
 
     const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
     if (configs && configs.knowledgeSource) {
