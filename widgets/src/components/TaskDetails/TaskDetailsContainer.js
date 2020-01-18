@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Container from '@material-ui/core/Container';
 
-import { getTask } from 'api/app-builder/taskDetails';
+import { getTask } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
 import CustomEventContext from 'components/TaskDetails/CustomEventContext';
