@@ -29,4 +29,7 @@ public class AuthPermissions {
     public static final String PROCESS_DIAGRAM = "process-diagram";
 
     public static final String GROUP_LIST = "group-list";
+
+    public static final String SUMMARY_LIST = "summary-list";
+    public static final String SUMMARY_GET = "summary-get";
 }

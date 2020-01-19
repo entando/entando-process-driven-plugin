@@ -1,5 +1,7 @@
-package org.entando.plugins.pda.management;
+package org.entando.plugins.pda.controller;
 
+import static org.entando.plugins.pda.controller.AuthPermissions.SUMMARY_GET;
+import static org.entando.plugins.pda.controller.AuthPermissions.SUMMARY_LIST;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
@@ -15,6 +17,7 @@ import org.entando.plugins.pda.core.model.summary.SummaryType;
 import org.entando.plugins.pda.core.service.summary.SummaryService;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.response.SimpleRestResponse;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +32,7 @@ public class SummaryController {
     private final ConnectionService connectionService;
     private final SummaryService summaryService;
 
+    @Secured(SUMMARY_LIST)
     @ApiOperation(notes = "Lists all summary types for a given connection", nickname = "listSummaryTypes", value = "LIST SummaryType")
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<List<SummaryType>> listSummaryTypes(@PathVariable String connId) {
@@ -36,6 +40,7 @@ public class SummaryController {
         return new SimpleRestResponse<>(summaryService.getSummaryTypesByEngine(connection.getEngine()));
     }
 
+    @Secured(SUMMARY_GET)
     @ApiOperation(notes = "Gets a summary", nickname = "getSummaryById", value = "GET Summary")
     @GetMapping(value = "/{summaryId}", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<Summary> getSummaryById(@PathVariable String connId, @PathVariable String summaryId,
