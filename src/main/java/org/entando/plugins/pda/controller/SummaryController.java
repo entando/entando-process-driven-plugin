@@ -33,7 +33,8 @@ public class SummaryController {
     private final SummaryService summaryService;
 
     @Secured(SUMMARY_LIST)
-    @ApiOperation(notes = "Lists all summary types for a given connection", nickname = "listSummaryTypes", value = "LIST SummaryType")
+    @ApiOperation(notes = "Lists all summary types for a given connection", nickname = "listSummaryTypes",
+            value = "LIST SummaryType")
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<List<SummaryType>> listSummaryTypes(@PathVariable String connId) {
         Connection connection = connectionService.get(connId);

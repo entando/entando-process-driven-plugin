@@ -14,6 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.UUID;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
@@ -53,6 +54,8 @@ public class SummaryControllerIntegrationTest {
     private static final String ID_PREFIX = "summary";
     private static final String TITLE_PREFIX = "Summary ";
     private static final String LABEL_PREFIX = "Summary Label ";
+
+    private DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
     @Autowired
     private MockMvc mockMvc;
@@ -106,7 +109,7 @@ public class SummaryControllerIntegrationTest {
                 .andExpect(jsonPath("payload.title", is(TITLE_PREFIX + 1)))
                 .andExpect(jsonPath("payload.totalLabel", is(LABEL_PREFIX + 1)))
                 .andExpect(jsonPath("payload.total", is("1")))
-                .andExpect(jsonPath("payload.percentage", is(10.0)));
+                .andExpect(jsonPath("payload.percentage", is("10")));
     }
 
     @Test
@@ -120,7 +123,8 @@ public class SummaryControllerIntegrationTest {
         return new SummaryType() {
             @Override
             public Summary calculateSummary(Connection connection, FrequencyEnum frequency) {
-                return new Summary(TITLE_PREFIX + value, LABEL_PREFIX + value, String.valueOf(value), value * 10);
+                return new Summary(TITLE_PREFIX + value, LABEL_PREFIX + value, String.valueOf(value),
+                        decimalFormat.format(value * 10));
             }
 
             @Override
