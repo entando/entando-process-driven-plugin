@@ -19,8 +19,7 @@ exports[`<LazyTablePagination /> renders snapshot correctly 1`] = `
             >
               <div
                 aria-haspopup="listbox"
-                aria-labelledby=" "
-                class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+                class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
                 role="button"
                 tabindex="0"
               >
