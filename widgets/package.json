@@ -18,10 +18,11 @@
     "react-dom": "^16.9.0",
     "react-i18next": "^10.13.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "recharts": "^2.0.0-beta.1"
   },
   "scripts": {
-    "start": "REACT_APP_LOCAL=true react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --setupFilesAfterEnv ./setupTests.js",
     "test:coverage": "npm test -- --coverage --watchAll=false",
