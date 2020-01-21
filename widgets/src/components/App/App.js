@@ -21,6 +21,9 @@ import Home from 'components/App/Home';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 
+import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
+import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -86,6 +89,22 @@ function App() {
                 pageCode={PAGES_CONFIG.taskList.pageCode}
                 frameId={PAGES_CONFIG.taskList.frameId}
                 widgetCode={PAGES_CONFIG.taskList.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/SummaryCard/"
+            render={() => (
+              <SummaryCardContainer summaryId="290" pageCode="phase_1_widgets" frameId="1" />
+            )}
+          />
+          <Route
+            path="/SummaryCardConfig/"
+            render={() => (
+              <SummaryCardConfig
+                pageCode="phase_1_widgets"
+                frameId="1"
+                widgetCode="phase_1_widgets_summary_card"
               />
             )}
           />

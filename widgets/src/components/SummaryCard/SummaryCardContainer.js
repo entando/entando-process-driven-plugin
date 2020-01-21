@@ -1,23 +1,44 @@
 import React from 'react';
 import { MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { SERVICE } from 'api/constants';
+import { DOMAINS, LOCAL } from 'api/constants';
 import theme from 'theme';
-import classNames from 'classnames';
-import WidgetBox from 'components/common/WidgetBox';
+import { getPageWidget } from 'api/app-builder/pages';
+import { getSummary } from 'api/pda/summary';
+import { HotTrend as HotTrendIcon, UpTrend as UpTrendIcon, DownTrend as DownTrendIcon } from 'components/common/Icons';
 import CustomEventContext from 'components/SummaryCard/CustomEventContext';
-// import SummaryCardSkeleton from 'components/SummaryCard/SummaryCardSkeleton';
+import SummaryCardSkeleton from 'components/SummaryCard/SummaryCardSkeleton';
 
 const styles = {
   root: {
-    padding: 0,
-    border: 0,
+    background: '#FFF',
     borderTop: '4px solid #E7EAEC',
+    color: '#676A6C',
+    '&.hotTrend $periodSelectRoot': {
+      backgroundColor: '#1C84C6',
+    },
+    '&.upTrend $periodSelectRoot': {
+      backgroundColor: '#23C6C8',
+    },
+    '&.downTrend $periodSelectRoot': {
+      backgroundColor: '#ED5565',
+    },
+    '&.hotTrend $value': {
+      color: '#1C84C6',
+    },
+    '&.upTrend $value': {
+      color: '#23C6C8',
+    },
+    '&.downTrend $value': {
+      color: '#ED5565',
+    },
   },
   header: {
     display: 'flex',
@@ -25,9 +46,11 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  headline: {
+    fontWeight: 'bold',
+  },
   periodSelectRoot: {
     border: 0,
-    backgroundColor: '#1C84C6',
     padding: '4px 24px 4px 14px',
     borderRadius: 4,
     fontSize: 10,
@@ -48,28 +71,21 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'flex-end',
   },
+  value: {
+    fontWeight: 'bold',
+  },
   valueIcon: {
+    width: 13,
+    height: 13,
     verticalAlign: 'middle',
   },
 };
 
-const BoltIcon = props => (
-  <svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path d="M6.91208 3.84435C6.84678 3.77905 6.75971 3.73552 6.66539 3.73552C6.63637 3.73552 6.60734 3.74277 6.57832 3.75003L3.70511 4.46107L4.94582 1.10174C4.96758 1.05821 4.98209 1.01467 4.98209 0.97114C4.98209 0.804262 4.83698 0.666406 4.65559 0.666406H2.27576C2.1234 0.666406 1.9928 0.760728 1.95652 0.898584L0.498146 6.88444C0.476379 6.98602 0.505402 7.09485 0.592469 7.16741C0.650513 7.21819 0.73758 7.24722 0.817392 7.24722C0.846414 7.24722 0.875436 7.24722 0.904459 7.23996L3.85022 6.50715L2.42087 12.3697C2.3846 12.522 2.47892 12.6744 2.63854 12.7252C2.67482 12.7324 2.7111 12.7397 2.74012 12.7397C2.87072 12.7397 2.98681 12.6671 3.04485 12.5583L6.96287 4.1636C7.01366 4.05476 6.99189 3.93142 6.91208 3.84435Z" fill="#1C84C6"/>
-  </svg>
-);
-
-const DownIcon = props => (
-  <svg width="9" height="11" viewBox="0 0 9 11" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path d="M0.997315 0.366849C0.910248 0.366849 0.823181 0.424893 0.786903 0.504704C0.750626 0.584516 0.757881 0.686094 0.815926 0.751394L1.97682 2.14447C2.02761 2.19525 2.09291 2.22428 2.15821 2.22428H4.47999V6.86785H3.08692C2.90553 6.86785 2.74591 6.97668 2.6661 7.13631C2.59354 7.30318 2.61531 7.49908 2.7314 7.63694L5.05318 10.4231C5.22732 10.6335 5.5901 10.6335 5.76423 10.4231L8.08602 7.63694C8.20211 7.49908 8.23113 7.30318 8.15132 7.13631C8.07151 6.97668 7.91188 6.86785 7.73049 6.86785H6.33742V0.606283C6.33742 0.475682 6.23584 0.366849 6.10524 0.366849H0.997315Z" fill="#ED5565"/>
-  </svg>
-);
-
-const UpIcon = props => (
-  <svg width="8" height="11" viewBox="0 0 8 11" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <path d="M7.38618 4.23054C7.46599 4.07092 7.43697 3.87502 7.32088 3.73716L4.99909 0.951021C4.82496 0.740609 4.46218 0.740609 4.28805 0.951021L1.96626 3.73716C1.85017 3.87502 1.82841 4.07092 1.90096 4.23054C1.98077 4.39742 2.1404 4.499 2.32179 4.499H3.71486V9.14257H1.39307C1.32777 9.14257 1.25522 9.17159 1.21168 9.22238L0.0507891 10.6155C-0.00725558 10.688 -0.0145112 10.7823 0.0217667 10.8694C0.0580446 10.9492 0.145112 11 0.232179 11H5.34011C5.47071 11 5.57229 10.8984 5.57229 10.7678V4.499H6.96536C7.14675 4.499 7.30637 4.39742 7.38618 4.23054Z" fill="#23C6C8"/>
-  </svg>
-);
+const trendMarkers = {
+  hot: 50,
+  up: 0,
+  down: 0,
+};
 
 class SummaryCard extends React.Component {
   constructor(props) {
@@ -77,30 +93,70 @@ class SummaryCard extends React.Component {
 
     this.state = {
       config: null,
-      loadingTask: false,
-      task: null,
+      loading: false,
+      summary: null,
+      period: 'monthly',
+      trend: 'up',
     };
 
-    // this.fetchTask = this.fetchTask.bind(this);
-    // this.fetchWidgetConfigs = this.fetchWidgetConfigs.bind(this);
+    this.fetchSummary = this.fetchSummary.bind(this);
+    this.fetchWidgetConfigs = this.fetchWidgetConfigs.bind(this);
+    this.handlePeriodChange = this.handlePeriodChange.bind(this);
   }
 
   componentDidMount() {
     const { serviceUrl } = this.props;
-    SERVICE.URL = serviceUrl;
+    if (!LOCAL) {
+      // set the PDA domain to the URL passed via props
+      DOMAINS.PDA = serviceUrl;
+    }
 
-    // this.setState({ loadingTask: true }, async () => {
-    //   const { config: storedConfig } = this.state;
-    //   const config = storedConfig || (await this.fetchWidgetConfigs());
+    this.setState({ loading: true }, async () => {
+      const { config: storedConfig } = this.state;
+      const config = storedConfig || (await this.fetchWidgetConfigs());
 
-    //   this.setState({ config }, () => this.fetchTask());
-    // });
+      this.setState({ config }, () => this.fetchSummary());
+    });
   }
 
   async fetchWidgetConfigs() {
+    const { pageCode, frameId } = this.props;
+    try {
+      // config will be fetched from app-builder
+      const widgetConfigs = await getPageWidget(pageCode, frameId);
+      if (widgetConfigs.errors && widgetConfigs.errors.length) {
+        throw widgetConfigs.errors[0];
+      }
+
+      const { config } = widgetConfigs.payload;
+
+      return config;
+    } catch (error) {
+      this.handleError(error.message);
+    }
+    return null;
   }
 
-  async fetchTask() {
+  async fetchSummary() {
+    const { config, period } = this.state;
+    const { summaryId } = this.props;
+
+    const connection = (config && config.knowledgeSource) || '';
+    const containerId = (config && config.containerId) || '';
+    const summaryContainerId = `${summaryId}@${containerId}`;
+
+    try {
+      const summary = await getSummary(connection, summaryContainerId, period);
+
+      console.log(summary);
+
+      this.setState({
+        loading: false,
+        summary: (summary && summary.payload) || null,
+      });
+    } catch (error) {
+      this.handleError(error.message);
+    }
   }
 
   handleError(err) {
@@ -108,47 +164,98 @@ class SummaryCard extends React.Component {
     onError(err);
   }
 
+  checkTrend(value) {
+    if (value >= trendMarkers.hot) {
+      return 'hot';
+    }
+    if (value >= trendMarkers.up) {
+      return 'up';
+    }
+    if (value < trendMarkers.down) {
+      return 'down';
+    }
+    return '';
+  }
+
+  trendNotation(trend) {
+    const { classes } = this.props;
+    switch (trend) {
+      case 'hot':
+        return { class: classes.trendhot, icon: <HotTrendIcon className={classes.valueIcon} /> };
+      case 'up':
+        return { class: classes.trendup, icon: <UpTrendIcon className={classes.valueIcon} /> };
+      case 'down':
+        return { class: classes.trenddown, icon: <DownTrendIcon className={classes.valueIcon} /> };
+      default:
+        return { class: '', icon: null };
+    }
+  }
+
+  handlePeriodChange(event) {
+    console.log('event change', event.target.value);
+    this.setState({ period: event.target.value }, () => this.fetchSummary());
+  }
+
   render() {
-    // const { loadingTask, task, taskInputData } = this.state;
+    const { period, loading, summary } = this.state;
     const { classes, width, onError } = this.props;
+
+    const percVal = summary && summary.percentage ? Math.round(summary.percentage * 100) : null;
+    const percent = percVal ? `${percVal}%` : '-';
+
+    const trend = this.checkTrend(percVal);
+    console.log(percVal, trend);
+
+    const { class: trendClass, icon: trendIcon } = this.trendNotation(trend);
+
     return (
       <CustomEventContext.Provider value={{ onError }}>
         <ThemeProvider theme={theme}>
           <div style={{ width }}>
-            <WidgetBox passedClassName={classes.root}>
-              <div className={classes.header}>
-                <Typography variant="subtitle2">Requests</Typography>
-                <Select
-                  value="monthly"
-                  variant="outlined"
-                  classes={{
-                    root: classes.periodSelectRoot,
-                    outlined: classes.periodSelectRoot,
-                    iconOutlined: classes.periodSelectIcon,
-                    input: classes.periodSelectInputOutline,
-                  }}>
-                  <MenuItem value="monthly">Monthly</MenuItem>
-                  <MenuItem value="annual">Annual</MenuItem>
-                  <MenuItem value="daily">Daily</MenuItem>
-                </Select>
-              </div>
-              <Divider className={classes.divider} />
-              <div className={classes.values}>
-                <div>
-                  <Typography variant="h4">2,123</Typography>
-                  <Typography variant="caption">Total Requests</Typography>
-                </div>
-                <div>
-                  <Typography variant="body2">98% <BoltIcon className={classes.valueIcon} /></Typography>
-                </div>
-              </div>
-            </WidgetBox>
+            <Paper square elevation={0} className={classNames(classes.root, `${trend}Trend`)}>
+              {loading && <SummaryCardSkeleton />}
+              {!loading && summary && (
+                <>
+                  <div className={classes.header}>
+                    <Typography variant="subtitle2" component="h3" className={classes.headline}>
+                      {summary.title}
+                    </Typography>
+                    <Select
+                      value={period}
+                      variant="outlined"
+                      classes={{
+                        root: classes.periodSelectRoot,
+                        outlined: classes.periodSelectRoot,
+                        iconOutlined: classes.periodSelectIcon,
+                      }}
+                      onChange={this.handlePeriodChange}
+                    >
+                      <MenuItem value="monthly">Monthly</MenuItem>
+                      <MenuItem value="annual">Annual</MenuItem>
+                      <MenuItem value="daily">Daily</MenuItem>
+                    </Select>
+                  </div>
+                  <Divider className={classes.divider} />
+                  <div className={classes.values}>
+                    <div>
+                      <Typography variant="h4">{summary.total}</Typography>
+                      <Typography variant="caption">{summary.totalLabel}</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="body2" className={classNames(classes.value, trendClass)}>
+                        {percent} {trendIcon}
+                      </Typography>
+                    </div>
+                  </div>
+                </>
+              )}
+            </Paper>
           </div>
         </ThemeProvider>
       </CustomEventContext.Provider>
     );
   }
-};
+}
 
 SummaryCard.propTypes = {
   classes: PropTypes.shape({
@@ -164,7 +271,7 @@ SummaryCard.propTypes = {
 
 SummaryCard.defaultProps = {
   onError: () => {},
-  width: 242,
+  width: 256,
   serviceUrl: '',
   pageCode: '',
   frameId: '',

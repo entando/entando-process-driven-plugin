@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly-react';
 
-import { getConnections, getSummaries } from 'api/pda';
+import { getConnections } from 'api/pda/connections';
+import { getSummaries } from 'api/pda/summary';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
 import 'patternfly-react/dist/css/patternfly-react.css';

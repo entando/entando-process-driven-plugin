@@ -9,35 +9,37 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: '20px',
+    padding: '20px 25px',
   },
   values: {
-    paddingTop: '20px',
+    padding: '20px 25px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
+  },
+  totalLabel: {
+    marginTop: 10,
   },
 };
 
 const SummaryCardSkeleton = ({ classes }) => (
   <>
     <div className={classes.header}>
-      <Skeleton width="100px" height={18} variant="rect" />
-      <Skeleton width="90px" height={18} variant="rect" />
+      <Skeleton width="100px" height={32} variant="rect" />
+      <Skeleton width="60px" height={32} variant="rect" />
     </div>
     <Divider className={classes.divider} />
     <div className={classes.values}>
       <div>
         <Skeleton width="110px" height={37} variant="rect" />
-        <Skeleton width="90px" height={14} variant="rect" />
+        <Skeleton width="90px" height={14} variant="rect" className={classes.totalLabel} />
       </div>
       <div>
-      <Skeleton width="50px" height={16} variant="rect" />
+        <Skeleton width="50px" height={16} variant="rect" />
       </div>
     </div>
   </>
 );
-
 
 SummaryCardSkeleton.propTypes = {
   classes: PropTypes.shape({
