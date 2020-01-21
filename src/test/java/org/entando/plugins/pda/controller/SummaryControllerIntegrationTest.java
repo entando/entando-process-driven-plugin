@@ -119,6 +119,13 @@ public class SummaryControllerIntegrationTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
     }
 
+    @Test
+    public void shouldThrowExceptionForInvalidFrequency() throws Exception {
+        mockMvc.perform(get("/connections/fakeProduction/summaries/" + ID_PREFIX + 1 + "?frequency=invalid"))
+                .andDo(print()).andExpect(status().isBadRequest())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
+    }
+
     private SummaryType getSummaryType(int value) {
         return new SummaryType() {
             @Override

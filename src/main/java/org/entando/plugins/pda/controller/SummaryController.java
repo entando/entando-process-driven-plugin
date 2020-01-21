@@ -15,6 +15,7 @@ import org.entando.plugins.pda.core.model.summary.FrequencyEnum;
 import org.entando.plugins.pda.core.model.summary.Summary;
 import org.entando.plugins.pda.core.model.summary.SummaryType;
 import org.entando.plugins.pda.core.service.summary.SummaryService;
+import org.entando.plugins.pda.exception.InvalidFrequencyException;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
@@ -46,9 +47,13 @@ public class SummaryController {
     @GetMapping(value = "/{summaryId}", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<Summary> getSummaryById(@PathVariable String connId, @PathVariable String summaryId,
             @QueryParam("frequency") String frequency) {
-        FrequencyEnum frequencyEnum =
-                StringUtils.isEmpty(frequency) ? FrequencyEnum.MONTHLY : FrequencyEnum.valueOf(frequency.toUpperCase());
-        Connection connection = connectionService.get(connId);
-        return new SimpleRestResponse<>(summaryService.calculateSummary(connection, summaryId, frequencyEnum));
+        try {
+            FrequencyEnum frequencyEnum = StringUtils.isEmpty(frequency) ? FrequencyEnum.MONTHLY
+                    : FrequencyEnum.valueOf(frequency.toUpperCase());
+            Connection connection = connectionService.get(connId);
+            return new SimpleRestResponse<>(summaryService.calculateSummary(connection, summaryId, frequencyEnum));
+        } catch (IllegalArgumentException e) {
+            throw new InvalidFrequencyException(e);
+        }
     }
 }
