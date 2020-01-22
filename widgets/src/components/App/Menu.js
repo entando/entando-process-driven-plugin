@@ -11,7 +11,12 @@ import {
   Divider,
   IconButton,
 } from '@material-ui/core';
-import { Home as HomeIcon, List as ListIcon, Settings as SettingsIcon } from '@material-ui/icons';
+import {
+  Home as HomeIcon,
+  List as ListIcon,
+  BarChart as BarChartIcon,
+  Settings as SettingsIcon,
+} from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 
 import 'components/App/App.css';
@@ -50,6 +55,21 @@ const Menu = ({ open, setOpen, classes }) => (
             size="small"
             component={Link}
             to="/TaskListConfig"
+            onClick={() => setOpen(false)}
+          >
+            <SettingsIcon fontSize="small" />
+          </IconButton>
+        </div>
+        <div className={classes.item}>
+          <ListItem button component={Link} to="/OvertimeGraph" onClick={() => setOpen(false)}>
+            <BarChartIcon />
+            <ListItemText primary="OvertimeGraph" />
+          </ListItem>
+          <IconButton
+            className={classes.iconButton}
+            size="small"
+            component={Link}
+            to="/OvertimeGraphConfig"
             onClick={() => setOpen(false)}
           >
             <SettingsIcon fontSize="small" />

@@ -20,6 +20,7 @@ import { PAGES_CONFIG } from 'api/constants';
 import Home from 'components/App/Home';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
+import OvertimeGraphContainer from 'components/OvertimeGraph/OvertimeGraphContainer';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -89,6 +90,7 @@ function App() {
               />
             )}
           />
+          <Route path="/OvertimeGraph" component={OvertimeGraphContainer} />
         </Container>
       </Router>
     </div>

@@ -52,7 +52,7 @@ const DataSummary = ({ value, label, percent, trend }) => (
     </Grid>
     <Grid item xs={12}>
       <Box my={1}>
-        <PercentBar value={50} barColor={trend === 'up' ? UP_COLOR : DOWN_COLOR} />
+        <PercentBar value={percent} barColor={trend === 'up' ? UP_COLOR : DOWN_COLOR} />
       </Box>
     </Grid>
   </Grid>
