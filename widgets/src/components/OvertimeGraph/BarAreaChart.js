@@ -6,7 +6,7 @@ const BarAreaChart = ({ data, legends }) => (
   <ResponsiveContainer>
     <ComposedChart data={data}>
       <XAxis dataKey="x" tickLine={false} />
-      <YAxis yAxisId="left" tickLine={false} />
+      <YAxis width={40} yAxisId="left" tickLine={false} />
       <YAxis yAxisId="right" orientation="right" tickLine={false} />
       <Bar yAxisId="left" dataKey="bar" barSize={20} fill="#1AB394" opacity={0.4} />
       <Area yAxisId="right" dataKey="area" stroke="#464F88" fill="#464F88" fillOpacity={0.2} />

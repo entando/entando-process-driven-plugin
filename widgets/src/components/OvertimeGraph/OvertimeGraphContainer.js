@@ -1,34 +1,88 @@
 import React, { Component } from 'react';
-import { MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
-import { Paper, Typography, Grid, Box } from '@material-ui/core';
+import { MuiThemeProvider as ThemeProvider, withStyles } from '@material-ui/core/styles';
+import { Paper, Typography, Grid, Box, Tabs, Tab, Divider } from '@material-ui/core';
 
 import theme from 'theme';
 import BarAreaChart from 'components/OvertimeGraph/BarAreaChart';
+import DataSummary from 'components/OvertimeGraph/DataSummary';
+
+const ThickDivider = withStyles({
+  root: {
+    height: 4,
+  },
+})(Divider);
+
+const StyledTabs = withStyles({
+  indicator: {
+    display: 'none',
+  },
+})(Tabs);
+
+const StyledTab = withStyles({
+  root: {
+    minWidth: 64,
+    border: '1px solid #E7EAEC',
+    '&:first-child': {
+      borderTopLeftRadius: 4,
+      borderBottomLeftRadius: 4,
+    },
+    '&:last-child': {
+      borderTopRightRadius: 4,
+      borderBottomRightRadius: 4,
+    },
+  },
+  selected: {
+    color: '#1C84C6',
+  },
+
+  // eslint-disable-next-line react/jsx-props-no-spreading
+})(props => <Tab disableRipple {...props} />);
 
 class OvertimeGraph extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      selectedTab: 0,
+    };
   }
 
+  handleTabChange = (event, value) => {
+    this.setState({
+      selectedTab: value,
+    });
+  };
+
   render() {
+    const { selectedTab } = this.state;
+
     return (
       <ThemeProvider theme={theme}>
         <Paper>
           <Box p={2}>
-            <Typography variant="h5" gutterBottom>
-              Requests Volume
-            </Typography>
+            <Typography variant="h5">Requests Volume</Typography>
+          </Box>
+          <Divider />
+          <ThickDivider variant="middle" />
+          <Box p={2}>
             <Grid container>
               <Grid item xs={8}>
-                <Typography variant="subtitle1">Requests</Typography>
+                <Typography variant="subtitle1">
+                  <Box fontWeight="fontWeightBold">Requests</Box>
+                </Typography>
               </Grid>
               <Grid item xs={4}>
-                tabs
+                <StyledTabs value={selectedTab} onChange={this.handleTabChange} centered>
+                  <StyledTab label="Today" />
+                  <StyledTab label="Monthly" />
+                  <StyledTab label="Annual" />
+                </StyledTabs>
               </Grid>
             </Grid>
+            <Box my={1}>
+              <Divider />
+            </Box>
             <Grid container>
-              <Grid item xs={8} style={{ height: '250px' }}>
+              <Grid item xs={8} style={{ height: '300px' }}>
                 <BarAreaChart
                   data={[
                     { x: 'Jan 03', bar: 60, area: 8 },
@@ -43,7 +97,28 @@ class OvertimeGraph extends Component {
                 />
               </Grid>
               <Grid item xs={4}>
-                details here
+                <Box mb={1}>
+                  <DataSummary
+                    value={2346}
+                    label="Total requests this year"
+                    percent={48}
+                    trend="up"
+                  />
+                </Box>
+                <Box mb={1}>
+                  <DataSummary
+                    value={1422}
+                    label="Bookings in the last month"
+                    percent={60}
+                    trend="up"
+                  />
+                </Box>
+                <DataSummary
+                  value="$109,180"
+                  label="Annual income from requests"
+                  percent={22}
+                  trend="down"
+                />
               </Grid>
             </Grid>
           </Box>
