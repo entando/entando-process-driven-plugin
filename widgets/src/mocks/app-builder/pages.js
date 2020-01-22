@@ -20,7 +20,7 @@ const taskDetailsConfigs = {
     code: 'phase_1_widgets_task_details',
     config: {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
-      knowledgeSource: 'kieDev',
+      knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
     },
   },
@@ -33,7 +33,7 @@ const completionFormConfigs = {
     code: 'phase_1_widgets_completion_form',
     config: {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
-      knowledgeSource: 'kieDev',
+      knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
       settings:
         '{"uiSchema":"{\\n  \\"47078d21-7da5-4d3f-8355-0fcd78b09f39\\": {\\n    \\"reason\\": {\\n      \\"ui:widget\\": \\"textarea\\"\\n    },\\n    \\"performance\\": {\\n      \\"ui:widget\\": \\"updown\\"\\n    }\\n  }\\n}"}',

@@ -59,7 +59,7 @@ function App() {
       }
     }
     fetchToken();
-  });
+  }, []);
 
   const classes = useStyles();
 

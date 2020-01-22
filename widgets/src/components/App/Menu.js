@@ -11,7 +11,13 @@ import {
   Divider,
   IconButton,
 } from '@material-ui/core';
-import { Home as HomeIcon, List as ListIcon, Settings as SettingsIcon } from '@material-ui/icons';
+import {
+  Home as HomeIcon,
+  List as ListIcon,
+  Settings as SettingsIcon,
+  Description as DescriptionIcon,
+  DoneAll as DoneAllIcon,
+} from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
@@ -55,7 +61,7 @@ const Menu = ({ open, setOpen, classes }) => (
         </div>
         <div className={classes.item}>
           <ListItem button component={Link} to="/TaskDetails" onClick={() => setOpen(false)}>
-            <ListIcon />
+            <DescriptionIcon />
             <ListItemText primary="TaskDetails" />
           </ListItem>
           <IconButton
@@ -70,7 +76,7 @@ const Menu = ({ open, setOpen, classes }) => (
         </div>
         <div className={classes.item}>
           <ListItem button component={Link} to="/TaskCompletionForm" onClick={() => setOpen(false)}>
-            <ListIcon />
+            <DoneAllIcon />
             <ListItemText primary="TaskCompletionForm" />
           </ListItem>
           <IconButton
