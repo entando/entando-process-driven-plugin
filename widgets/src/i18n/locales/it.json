@@ -1,6 +1,7 @@
 {
   "common": {
-    "of": "di"
+    "of": "di",
+    "submit": "Submit"
   },
   "table": {
     "title": "Elenco attività",
@@ -9,9 +10,40 @@
     "rowsPerPage": "Righe per pagina:",
     "showing": "Mostra $1-$2 di $3 articoli"
   },
+  "taskDetails": {
+    "overview": {
+      "title": "Task details",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "generalInformation": {
+      "title": "General Information",
+      "noInformation": "No information available"
+    }
+  },
+  "task": {
+    "fields": {
+      "createdBy": "Created by",
+      "name": "Task name",
+      "createdOn": "Date created",
+      "status": "Status",
+      "due": "Due"
+    },
+    "inputData": {
+      "TaskName": "Task name",
+      "BusinessAdministratorId": "Business administrator ID",
+      "GroupId": "Group ID",
+      "Comment": "Comment",
+      "performance": "Performance",
+      "Skippable": "Skippable",
+      "ActorId": "Actor ID",
+      "reason": "Reason",
+      "NodeName": "Node name"
+    }
+  },
   "messages": {
     "warnings": {
-      "noData": "non ci sono dati da visualizzare"
+      "noData": "Non ci sono dati da visualizzare"
     },
     "errors": {
       "dataLoading": "Impossibile caricare i dati del server"

@@ -5,7 +5,7 @@ import 'mocks/i18nMock';
 import { DOMAINS } from 'api/constants';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import mockTasks from 'mocks/pda/tasks.json';
-import { taskListConfigs as WIDGET_CONFIGS } from 'mocks/app-builder/pages';
+import WIDGET_CONFIGS from 'mocks/app-builder/pages';
 
 describe('<TaskListContainer />', () => {
   it('renders snapshot correctly', async () => {
@@ -13,7 +13,7 @@ describe('<TaskListContainer />', () => {
     const connection = 'kieStaging';
     const taskListUrl = `/connections/${connection}/tasks?page=1&pageSize=30`;
 
-    fetch.once(JSON.stringify(WIDGET_CONFIGS)).once(JSON.stringify(mockTasks));
+    fetch.once(JSON.stringify(WIDGET_CONFIGS.TASK_LIST)).once(JSON.stringify(mockTasks));
 
     const { container } = render(<TaskListContainer />);
 
