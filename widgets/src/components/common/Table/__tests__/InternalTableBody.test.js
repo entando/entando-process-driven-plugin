@@ -5,6 +5,7 @@ import InternalTableBody from 'components/common/Table/InternalTableBody';
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
 import jsonRows from 'mocks/pda/tasks.json';
+import 'mocks/i18nMock';
 
 const columns = normalizeColumns(
   JSON.parse(WIDGET_CONFIGS.payload.config.columns),

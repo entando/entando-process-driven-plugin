@@ -1,5 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 import ActionCell from 'components/common/Table/custom/ActionCell';
+import 'mocks/i18nMock';
 
 describe('<ActionCell />', () => {
   it('renders snapshot correctly', () => {
@@ -25,8 +26,12 @@ describe('<ActionCell />', () => {
 
     fireEvent.click(getByRole('button'));
 
-    expect(getByText('Claim')).toBeInTheDocument();
-    expect(getByText('Complete')).toBeInTheDocument();
-    expect(getByText('Diagram')).toBeInTheDocument();
+    const claimKey = 'taskList.actionButtons.claim';
+    const completeKey = 'taskList.actionButtons.complete';
+    const diagramKey = 'taskList.actionButtons.diagram';
+
+    expect(getByText(claimKey)).toBeInTheDocument();
+    expect(getByText(completeKey)).toBeInTheDocument();
+    expect(getByText(diagramKey)).toBeInTheDocument();
   });
 });

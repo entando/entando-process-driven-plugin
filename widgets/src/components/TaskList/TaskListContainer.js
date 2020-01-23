@@ -142,7 +142,7 @@ class TaskList extends React.Component {
         const diagram = await getDiagram(connection, process);
         this.setState({
           diagramModal: {
-            title: `Process: ${process}`,
+            title: `${i18next.t('taskList.diagramModalTitle')}: ${process}`,
             body: <SVG src={diagram} />,
             open: true,
           },
