@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MuiThemeProvider as ThemeProvider, withStyles } from '@material-ui/core/styles';
 import { Paper, Typography, Grid, Box, Tabs, Tab, Divider } from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 import theme from 'theme';
 import BarAreaChart from 'components/OvertimeGraph/BarAreaChart';
@@ -42,8 +43,17 @@ class OvertimeGraph extends Component {
   constructor() {
     super();
     this.state = {
+      loading: true,
       selectedTab: 0,
     };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        loading: false,
+      });
+    }, 1000);
   }
 
   handleTabChange = (event, value) => {
@@ -53,13 +63,17 @@ class OvertimeGraph extends Component {
   };
 
   render() {
-    const { selectedTab } = this.state;
+    const { loading, selectedTab } = this.state;
 
     return (
       <ThemeProvider theme={theme}>
         <Paper>
           <Box p={2}>
-            <Typography variant="h5">Requests Volume</Typography>
+            {loading ? (
+              <Skeleton width={250} />
+            ) : (
+              <Typography variant="h5">Requests Volume</Typography>
+            )}
           </Box>
           <Divider />
           <ThickDivider variant="middle" />
@@ -67,15 +81,21 @@ class OvertimeGraph extends Component {
             <Grid container>
               <Grid item xs={8}>
                 <Typography variant="subtitle1">
-                  <Box fontWeight="fontWeightBold">Requests</Box>
+                  {loading ? (
+                    <Skeleton width={100} />
+                  ) : (
+                    <Box fontWeight="fontWeightBold">Requests</Box>
+                  )}
                 </Typography>
               </Grid>
               <Grid item xs={4}>
-                <StyledTabs value={selectedTab} onChange={this.handleTabChange} centered>
-                  <StyledTab label="Today" />
-                  <StyledTab label="Monthly" />
-                  <StyledTab label="Annual" />
-                </StyledTabs>
+                {loading ? null : (
+                  <StyledTabs value={selectedTab} onChange={this.handleTabChange} centered>
+                    <StyledTab label="Today" />
+                    <StyledTab label="Monthly" />
+                    <StyledTab label="Annual" />
+                  </StyledTabs>
+                )}
               </Grid>
             </Grid>
             <Box my={1}>
@@ -83,18 +103,22 @@ class OvertimeGraph extends Component {
             </Box>
             <Grid container>
               <Grid item xs={8} style={{ height: '300px' }}>
-                <BarAreaChart
-                  data={[
-                    { x: 'Jan 03', bar: 60, area: 8 },
-                    { x: 'Jan 06', bar: 45, area: 5 },
-                    { x: 'Jan 09', bar: 20, area: 10 },
-                    { x: 'Jan 12', bar: 75, area: 15 },
-                  ]}
-                  legends={{
-                    bar: 'Number of Requests',
-                    area: 'Bookings Made',
-                  }}
-                />
+                {loading ? (
+                  <Skeleton variant="rectangle" height="100%" />
+                ) : (
+                  <BarAreaChart
+                    data={[
+                      { x: 'Jan 03', bar: 60, area: 8 },
+                      { x: 'Jan 06', bar: 45, area: 5 },
+                      { x: 'Jan 09', bar: 20, area: 10 },
+                      { x: 'Jan 12', bar: 75, area: 15 },
+                    ]}
+                    legends={{
+                      bar: 'Number of Requests',
+                      area: 'Bookings Made',
+                    }}
+                  />
+                )}
               </Grid>
               <Grid item xs={4}>
                 <Box mb={1}>
