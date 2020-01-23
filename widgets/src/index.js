@@ -7,6 +7,7 @@ import 'index.css';
 
 // insert the custom elements to the scope
 import 'custom-elements/TaskListElement';
+import 'custom-elements/SummaryCardElement';
 
 // We only want to show the App demo in DEV mode.
 if (process.env.REACT_APP_LOCAL === 'true') {

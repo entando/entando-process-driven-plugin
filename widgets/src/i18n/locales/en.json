@@ -2,6 +2,11 @@
   "common": {
     "of": "of"
   },
+  "card": {
+    "monthly": "Monthly",
+    "annual": "Annual",
+    "daily": "Daily"
+  },
   "table": {
     "title": "Task List",
     "subtitle": "List of tasks",

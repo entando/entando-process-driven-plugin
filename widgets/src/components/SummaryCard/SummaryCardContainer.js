@@ -1,7 +1,7 @@
 import React from 'react';
 import { MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import i18next from 'i18next';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -12,33 +12,15 @@ import { DOMAINS, LOCAL } from 'api/constants';
 import theme from 'theme';
 import { getPageWidget } from 'api/app-builder/pages';
 import { getSummary } from 'api/pda/summary';
-import { HotTrend as HotTrendIcon, UpTrend as UpTrendIcon, DownTrend as DownTrendIcon } from 'components/common/Icons';
 import CustomEventContext from 'components/SummaryCard/CustomEventContext';
-import SummaryCardSkeleton from 'components/SummaryCard/SummaryCardSkeleton';
+import Skeleton from '@material-ui/lab/Skeleton';
+import SummaryCardValues from 'components/SummaryCard/SummaryCardValues';
 
-const styles = {
+const styles = ({ palette }) => ({
   root: {
     background: '#FFF',
     borderTop: '4px solid #E7EAEC',
     color: '#676A6C',
-    '&.hotTrend $periodSelectRoot': {
-      backgroundColor: '#1C84C6',
-    },
-    '&.upTrend $periodSelectRoot': {
-      backgroundColor: '#23C6C8',
-    },
-    '&.downTrend $periodSelectRoot': {
-      backgroundColor: '#ED5565',
-    },
-    '&.hotTrend $value': {
-      color: '#1C84C6',
-    },
-    '&.upTrend $value': {
-      color: '#23C6C8',
-    },
-    '&.downTrend $value': {
-      color: '#ED5565',
-    },
   },
   header: {
     display: 'flex',
@@ -50,12 +32,12 @@ const styles = {
     fontWeight: 'bold',
   },
   periodSelectRoot: {
-    border: 0,
+    border: `2px solid ${palette.primary.main}`,
     padding: '4px 24px 4px 14px',
     borderRadius: 4,
     fontSize: 10,
     fontWeight: 'bold',
-    color: '#fff',
+    color: palette.primary.main,
   },
   periodSelectInputOutline: {
     '&$focused $notchedOutline': {
@@ -64,28 +46,12 @@ const styles = {
   },
   periodSelectIcon: {
     right: 3,
+    color: palette.primary.main,
   },
-  values: {
-    display: 'flex',
-    padding: '20px 25px',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
-  },
-  value: {
-    fontWeight: 'bold',
-  },
-  valueIcon: {
-    width: 13,
-    height: 13,
-    verticalAlign: 'middle',
-  },
-};
-
-const trendMarkers = {
-  hot: 50,
-  up: 0,
-  down: 0,
-};
+  periodSelectItem: {
+    fontSize: 12,
+  }
+});
 
 class SummaryCard extends React.Component {
   constructor(props) {
@@ -94,6 +60,7 @@ class SummaryCard extends React.Component {
     this.state = {
       config: null,
       loading: false,
+      loadingValues: false,
       summary: null,
       period: 'monthly',
       trend: 'up',
@@ -111,7 +78,7 @@ class SummaryCard extends React.Component {
       DOMAINS.PDA = serviceUrl;
     }
 
-    this.setState({ loading: true }, async () => {
+    this.setState({ loading: true, loadingValues: true }, async () => {
       const { config: storedConfig } = this.state;
       const config = storedConfig || (await this.fetchWidgetConfigs());
 
@@ -148,10 +115,9 @@ class SummaryCard extends React.Component {
     try {
       const summary = await getSummary(connection, summaryContainerId, period);
 
-      console.log(summary);
-
       this.setState({
         loading: false,
+        loadingValues: false,
         summary: (summary && summary.payload) || null,
       });
     } catch (error) {
@@ -164,91 +130,65 @@ class SummaryCard extends React.Component {
     onError(err);
   }
 
-  checkTrend(value) {
-    if (value >= trendMarkers.hot) {
-      return 'hot';
-    }
-    if (value >= trendMarkers.up) {
-      return 'up';
-    }
-    if (value < trendMarkers.down) {
-      return 'down';
-    }
-    return '';
-  }
-
-  trendNotation(trend) {
-    const { classes } = this.props;
-    switch (trend) {
-      case 'hot':
-        return { class: classes.trendhot, icon: <HotTrendIcon className={classes.valueIcon} /> };
-      case 'up':
-        return { class: classes.trendup, icon: <UpTrendIcon className={classes.valueIcon} /> };
-      case 'down':
-        return { class: classes.trenddown, icon: <DownTrendIcon className={classes.valueIcon} /> };
-      default:
-        return { class: '', icon: null };
-    }
-  }
-
   handlePeriodChange(event) {
-    console.log('event change', event.target.value);
-    this.setState({ period: event.target.value }, () => this.fetchSummary());
+    this.setState({ period: event.target.value, loadingValues: true }, () => this.fetchSummary());
+  }
+
+  renderSkeletonHeader() {
+    const { classes } = this.props;
+    return (
+      <div className={classes.header}>
+        <Skeleton width="100px" height={27} variant="rect" />
+        <Skeleton width="60px" height={27} variant="rect" />
+      </div>
+    );
+  }
+
+  renderHeader() {
+    const { period, summary } = this.state;
+    const { classes } = this.props;
+    return (
+      <div className={classes.header}>
+        <Typography variant="subtitle2" component="h3" className={classes.headline}>
+          {summary.title}
+        </Typography>
+        <Select
+          value={period}
+          variant="outlined"
+          classes={{
+            root: classes.periodSelectRoot,
+            outlined: classes.periodSelectInputOutline,
+            iconOutlined: classes.periodSelectIcon,
+          }}
+          onChange={this.handlePeriodChange}
+        >
+          {['monthly', 'annual', 'daily'].map(periodi => (
+            <MenuItem
+              key={periodi}
+              value={periodi}
+              className={classes.periodSelectItem}
+            >
+              {i18next.t(`card.${periodi}`)}
+            </MenuItem>  
+          ))}
+        </Select>
+      </div>
+    );
   }
 
   render() {
-    const { period, loading, summary } = this.state;
+    const { loading, loadingValues, summary } = this.state;
     const { classes, width, onError } = this.props;
-
-    const percVal = summary && summary.percentage ? Math.round(summary.percentage * 100) : null;
-    const percent = percVal ? `${percVal}%` : '-';
-
-    const trend = this.checkTrend(percVal);
-    console.log(percVal, trend);
-
-    const { class: trendClass, icon: trendIcon } = this.trendNotation(trend);
 
     return (
       <CustomEventContext.Provider value={{ onError }}>
         <ThemeProvider theme={theme}>
           <div style={{ width }}>
-            <Paper square elevation={0} className={classNames(classes.root, `${trend}Trend`)}>
-              {loading && <SummaryCardSkeleton />}
-              {!loading && summary && (
-                <>
-                  <div className={classes.header}>
-                    <Typography variant="subtitle2" component="h3" className={classes.headline}>
-                      {summary.title}
-                    </Typography>
-                    <Select
-                      value={period}
-                      variant="outlined"
-                      classes={{
-                        root: classes.periodSelectRoot,
-                        outlined: classes.periodSelectRoot,
-                        iconOutlined: classes.periodSelectIcon,
-                      }}
-                      onChange={this.handlePeriodChange}
-                    >
-                      <MenuItem value="monthly">Monthly</MenuItem>
-                      <MenuItem value="annual">Annual</MenuItem>
-                      <MenuItem value="daily">Daily</MenuItem>
-                    </Select>
-                  </div>
-                  <Divider className={classes.divider} />
-                  <div className={classes.values}>
-                    <div>
-                      <Typography variant="h4">{summary.total}</Typography>
-                      <Typography variant="caption">{summary.totalLabel}</Typography>
-                    </div>
-                    <div>
-                      <Typography variant="body2" className={classNames(classes.value, trendClass)}>
-                        {percent} {trendIcon}
-                      </Typography>
-                    </div>
-                  </div>
-                </>
-              )}
+            <Paper square elevation={0} className={classes.root}>
+              {loading && this.renderSkeletonHeader()}
+              {!loading && summary && this.renderHeader()}
+              <Divider className={classes.divider} />
+              <SummaryCardValues loading={loadingValues} values={summary} />
             </Paper>
           </div>
         </ThemeProvider>

@@ -2,6 +2,11 @@
   "common": {
     "of": "di"
   },
+  "card": {
+    "monthly": "Mensile",
+    "annual": "Annuale",
+    "daily": "Giornaliero"
+  },
   "table": {
     "title": "Elenco attività",
     "subtitle": "Elenco delle attività",
