@@ -21,6 +21,7 @@ import Home from 'components/App/Home';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 import OvertimeGraphContainer from 'components/OvertimeGraph/OvertimeGraphContainer';
+import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -91,6 +92,16 @@ function App() {
             )}
           />
           <Route path="/OvertimeGraph" component={OvertimeGraphContainer} />
+          <Route
+            path="/OvertimeGraphConfig"
+            render={() => (
+              <OvertimeGraphConfig
+                pageCode={PAGES_CONFIG.taskList.pageCode}
+                frameId={PAGES_CONFIG.taskList.frameId}
+                widgetCode={PAGES_CONFIG.taskList.widgetCode}
+              />
+            )}
+          />
         </Container>
       </Router>
     </div>
