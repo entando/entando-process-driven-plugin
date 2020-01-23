@@ -1,4 +1,4 @@
-package org.entando.plugins.pda.controller;
+package org.entando.plugins.pda.controller.process;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_DEFINITION_LIST;

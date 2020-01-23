@@ -6,13 +6,12 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.keycloak.security.AuthenticatedUser;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
-import org.entando.plugins.pda.core.model.Task;
-import org.entando.plugins.pda.core.model.task.CreateTaskFormSubmissionRequest;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.serializer.JsonSchemaForm;
 import org.entando.plugins.pda.serializer.V7JsonSchemaForm;
@@ -51,15 +50,15 @@ public class TaskFormController {
     @Secured(TASK_FORM_SUBMIT)
     @ApiOperation(notes = "Submit task form", nickname = "submitTaskForm", value = "SUBMIT TaskForm")
     @PostMapping(produces = {APPLICATION_JSON_VALUE})
-    public SimpleRestResponse<Task> submitTaskForm(@PathVariable String connId, @PathVariable String taskId,
-            final AuthenticatedUser user, @RequestBody CreateTaskFormSubmissionRequest request) {
+    public SimpleRestResponse<String> submitTaskForm(@PathVariable String connId, @PathVariable String taskId,
+            final AuthenticatedUser user, @RequestBody Map<String, Object> form) {
 
         log.info("Submitting a task form for connection {} and taskId {}", connId, taskId);
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
 
         return new SimpleRestResponse<>(engine.getTaskFormService()
-                .submit(connection, user, taskId, request));
+                .submit(connection, user, taskId, form));
     }
 
 }
