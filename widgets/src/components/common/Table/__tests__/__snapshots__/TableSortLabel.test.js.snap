@@ -3,6 +3,7 @@
 exports[`<TableSortLabel /> renders snapshot correctly 1`] = `
 <div>
   <span
+    aria-disabled="false"
     class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-3"
     role="button"
     tabindex="0"
@@ -26,6 +27,7 @@ exports[`<TableSortLabel /> renders snapshot correctly 1`] = `
 exports[`<TableSortLabel /> renders snapshot correctly with desc direction and active 1`] = `
 <div>
   <span
+    aria-disabled="false"
     class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-descActive-22 MuiTableSortLabel-active"
     role="button"
     tabindex="0"
