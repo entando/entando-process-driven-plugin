@@ -30,8 +30,8 @@ describe('normalizeData', () => {
   });
 
   it('normalizeColumns to change the columns to fit Table needs', () => {
-    const columns = JSON.parse(WIDGET_CONFIGS.payload.config.columns);
-    const options = JSON.parse(WIDGET_CONFIGS.payload.config.options);
+    const columns = JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.columns);
+    const options = JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.options);
     const openDiagram = jest.fn();
 
     const normalized = normalizeColumns(columns, tasks.payload[0], options, openDiagram);

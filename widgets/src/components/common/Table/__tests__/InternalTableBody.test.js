@@ -8,9 +8,9 @@ import jsonRows from 'mocks/pda/tasks.json';
 import 'mocks/i18nMock';
 
 const columns = normalizeColumns(
-  JSON.parse(WIDGET_CONFIGS.payload.config.columns),
+  JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.columns),
   jsonRows.payload[0],
-  JSON.parse(WIDGET_CONFIGS.payload.config.options),
+  JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.options),
   jest.fn()
 );
 const rows = normalizeRows(jsonRows.payload);

@@ -7,9 +7,9 @@ import { normalizeColumns } from 'components/TaskList/normalizeData';
 import jsonRows from 'mocks/pda/tasks.json';
 
 const columns = normalizeColumns(
-  JSON.parse(WIDGET_CONFIGS.payload.config.columns),
+  JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.columns),
   jsonRows.payload[0],
-  JSON.parse(WIDGET_CONFIGS.payload.config.options)
+  JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.options)
 );
 
 describe('<InternalTableHead />', () => {
