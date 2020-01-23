@@ -24,6 +24,7 @@ import Home from 'components/App/Home';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 import OvertimeGraphContainer from 'components/OvertimeGraph/OvertimeGraphContainer';
+import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
 
 import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
@@ -199,6 +200,16 @@ function App() {
           />
           <Route path="/ProcessFormConfig" render={() => <ProcessFormConfig config={{}} />} />
           <Route path="/OvertimeGraph" component={OvertimeGraphContainer} />
+          <Route
+            path="/OvertimeGraphConfig"
+            render={() => (
+              <OvertimeGraphConfig
+                pageCode={PAGES_CONFIG.taskList.pageCode}
+                frameId={PAGES_CONFIG.taskList.frameId}
+                widgetCode={PAGES_CONFIG.taskList.widgetCode}
+              />
+            )}
+          />
         </Container>
       </Router>
     </div>
