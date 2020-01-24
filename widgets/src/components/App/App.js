@@ -12,17 +12,26 @@ import {
 import { Menu as MenuIcon } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 
-import 'components/App/App.css';
+import { authenticate } from 'api/app-builder/pages';
+import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
 import Menu from 'components/App/Menu';
-import { PAGES_CONFIG } from 'api/constants';
+
+import 'components/App/App.css';
 
 // widgets
 import Home from 'components/App/Home';
+
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 
 import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
+
+import TaskDetailsContainer from 'components/TaskDetails/TaskDetailsContainer';
+import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
+
+import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompletionFormContainer';
+import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompletionFormConfig';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -39,6 +48,22 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const [open, setOpen] = React.useState(false);
   const [lazyLoading, setLazyLoading] = React.useState(true);
+
+  // TODO: Remove when token is managed by wrapper
+  React.useEffect(() => {
+    async function fetchToken() {
+      // temporary fetch token for ease of development
+      console.log('Fetching authentication token for ease of development! DEV ONLY'); // eslint-disable-line no-console
+
+      const authentication = await authenticate();
+      if (authentication && authentication.access_token) {
+        console.log('New authentication token is:', authentication.access_token); // eslint-disable-line no-console
+        localStorage.setItem('token', authentication.access_token);
+      }
+    }
+    fetchToken();
+  }, []);
+
   const classes = useStyles();
 
   return (
@@ -77,8 +102,8 @@ function App() {
             render={() => (
               <TaskListContainer
                 lazyLoading={lazyLoading}
-                pageCode={PAGES_CONFIG.taskList.pageCode}
-                frameId={PAGES_CONFIG.taskList.frameId}
+                pageCode={WIDGETS_CONFIG.TASK_LIST.pageCode}
+                frameId={WIDGETS_CONFIG.TASK_LIST.frameId}
               />
             )}
           />
@@ -86,9 +111,51 @@ function App() {
             path="/TaskListConfig"
             render={() => (
               <TaskListConfig
-                pageCode={PAGES_CONFIG.taskList.pageCode}
-                frameId={PAGES_CONFIG.taskList.frameId}
-                widgetCode={PAGES_CONFIG.taskList.widgetCode}
+                pageCode={WIDGETS_CONFIG.TASK_LIST.pageCode}
+                frameId={WIDGETS_CONFIG.TASK_LIST.frameId}
+                widgetCode={WIDGETS_CONFIG.TASK_LIST.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/TaskDetails/"
+            render={() => (
+              <TaskDetailsContainer
+                taskId={WIDGETS_CONFIG.TASK_DETAILS.taskId}
+                pageCode={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
+                frameId={WIDGETS_CONFIG.TASK_DETAILS.frameId}
+                widgetCode={WIDGETS_CONFIG.TASK_DETAILS.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/TaskDetailsConfig"
+            render={() => (
+              <TaskDetailsConfig
+                pageCode={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
+                frameId={WIDGETS_CONFIG.TASK_DETAILS.frameId}
+                widgetCode={WIDGETS_CONFIG.TASK_DETAILS.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/TaskCompletionForm/"
+            render={() => (
+              <TaskCompletionFormContainer
+                taskId={WIDGETS_CONFIG.COMPLETION_FORM.taskId}
+                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/TaskCompletionFormConfig"
+            render={() => (
+              <TaskCompletionFormConfig
+                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
               />
             )}
           />

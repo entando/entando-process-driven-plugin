@@ -16,10 +16,10 @@ import {
   List as ListIcon,
   Settings as SettingsIcon,
   Dashboard as DashboardIcon,
+  Description as DescriptionIcon,
+  DoneAll as DoneAllIcon,
 } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
-
-import 'components/App/App.css';
 
 const styles = {
   item: {
@@ -61,15 +61,40 @@ const Menu = ({ open, setOpen, classes }) => (
           </IconButton>
         </div>
         <div className={classes.item}>
+<<<<<<< HEAD
           <ListItem button component={Link} to="/SummaryCard" onClick={() => setOpen(false)}>
             <DashboardIcon />
             <ListItemText primary="SummaryCard" />
+=======
+          <ListItem button component={Link} to="/TaskDetails" onClick={() => setOpen(false)}>
+            <DescriptionIcon />
+            <ListItemText primary="TaskDetails" />
+>>>>>>> ade3decd98afa0501403b3da22b547477040e183
           </ListItem>
           <IconButton
             className={classes.iconButton}
             size="small"
             component={Link}
+<<<<<<< HEAD
             to="/SummaryCardConfig"
+=======
+            to="/TaskDetailsConfig"
+            onClick={() => setOpen(false)}
+          >
+            <SettingsIcon fontSize="small" />
+          </IconButton>
+        </div>
+        <div className={classes.item}>
+          <ListItem button component={Link} to="/TaskCompletionForm" onClick={() => setOpen(false)}>
+            <DoneAllIcon />
+            <ListItemText primary="TaskCompletionForm" />
+          </ListItem>
+          <IconButton
+            className={classes.iconButton}
+            size="small"
+            component={Link}
+            to="/TaskCompletionFormConfig"
+>>>>>>> ade3decd98afa0501403b3da22b547477040e183
             onClick={() => setOpen(false)}
           >
             <SettingsIcon fontSize="small" />

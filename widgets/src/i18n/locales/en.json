@@ -1,6 +1,7 @@
 {
   "common": {
-    "of": "of"
+    "of": "of",
+    "submit": "Submit"
   },
   "card": {
     "monthly": "Monthly",
@@ -20,9 +21,40 @@
     "rowsPerPage": "Rows per page:",
     "showing": "Showing $1-$2 of $3 items"
   },
+  "taskDetails": {
+    "overview": {
+      "title": "Task details",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "generalInformation": {
+      "title": "General Information",
+      "noInformation": "No information available"
+    }
+  },
+  "task": {
+    "fields": {
+      "createdBy": "Created by",
+      "name": "Task name",
+      "createdOn": "Date created",
+      "status": "Status",
+      "due": "Due"
+    },
+    "inputData": {
+      "TaskName": "Task name",
+      "BusinessAdministratorId": "Business administrator ID",
+      "GroupId": "Group ID",
+      "Comment": "Comment",
+      "performance": "Performance",
+      "Skippable": "Skippable",
+      "ActorId": "Actor ID",
+      "reason": "Reason",
+      "NodeName": "Node name"
+    }
+  },
   "messages": {
     "warnings": {
-      "noData": "there is no data to be displayed"
+      "noData": "There is no data to be displayed"
     },
     "errors": {
       "dataLoading": "Unable to load server data."
