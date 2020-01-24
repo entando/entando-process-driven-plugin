@@ -162,16 +162,21 @@ function App() {
           <Route
             path="/SummaryCard/"
             render={() => (
-              <SummaryCardContainer summaryId="290" pageCode="phase_1_widgets" frameId="1" />
+              <SummaryCardContainer
+                summaryId={WIDGETS_CONFIG.SUMMARY_CARD.summaryId}
+                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+              />
             )}
           />
           <Route
             path="/SummaryCardConfig/"
             render={() => (
               <SummaryCardConfig
-                pageCode="phase_1_widgets"
-                frameId="1"
-                widgetCode="phase_1_widgets_summary_card"
+                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
               />
             )}
           />

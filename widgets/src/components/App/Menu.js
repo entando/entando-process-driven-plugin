@@ -61,23 +61,14 @@ const Menu = ({ open, setOpen, classes }) => (
           </IconButton>
         </div>
         <div className={classes.item}>
-<<<<<<< HEAD
-          <ListItem button component={Link} to="/SummaryCard" onClick={() => setOpen(false)}>
-            <DashboardIcon />
-            <ListItemText primary="SummaryCard" />
-=======
           <ListItem button component={Link} to="/TaskDetails" onClick={() => setOpen(false)}>
             <DescriptionIcon />
             <ListItemText primary="TaskDetails" />
->>>>>>> ade3decd98afa0501403b3da22b547477040e183
           </ListItem>
           <IconButton
             className={classes.iconButton}
             size="small"
             component={Link}
-<<<<<<< HEAD
-            to="/SummaryCardConfig"
-=======
             to="/TaskDetailsConfig"
             onClick={() => setOpen(false)}
           >
@@ -94,7 +85,21 @@ const Menu = ({ open, setOpen, classes }) => (
             size="small"
             component={Link}
             to="/TaskCompletionFormConfig"
->>>>>>> ade3decd98afa0501403b3da22b547477040e183
+            onClick={() => setOpen(false)}
+          >
+            <SettingsIcon fontSize="small" />
+          </IconButton>
+        </div>
+        <div className={classes.item}>
+          <ListItem button component={Link} to="/SummaryCard" onClick={() => setOpen(false)}>
+            <DashboardIcon />
+            <ListItemText primary="SummaryCard" />
+          </ListItem>
+          <IconButton
+            className={classes.iconButton}
+            size="small"
+            component={Link}
+            to="/SummaryCardConfig"
             onClick={() => setOpen(false)}
           >
             <SettingsIcon fontSize="small" />

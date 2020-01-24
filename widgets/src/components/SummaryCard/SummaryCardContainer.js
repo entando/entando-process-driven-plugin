@@ -39,11 +39,6 @@ const styles = ({ palette }) => ({
     fontWeight: 'bold',
     color: palette.primary.main,
   },
-  periodSelectInputOutline: {
-    '&$focused $notchedOutline': {
-      border: 0,
-    },
-  },
   periodSelectIcon: {
     right: 3,
     color: palette.primary.main,
@@ -63,7 +58,6 @@ class SummaryCard extends React.Component {
       loadingValues: false,
       summary: null,
       period: 'monthly',
-      trend: 'up',
     };
 
     this.fetchSummary = this.fetchSummary.bind(this);
@@ -157,7 +151,6 @@ class SummaryCard extends React.Component {
           variant="outlined"
           classes={{
             root: classes.periodSelectRoot,
-            outlined: classes.periodSelectInputOutline,
             iconOutlined: classes.periodSelectIcon,
           }}
           onChange={this.handlePeriodChange}
@@ -182,7 +175,7 @@ class SummaryCard extends React.Component {
           <Paper square elevation={0} className={classes.root} style={{ width, display }}>
             {loading && this.renderSkeletonHeader()}
             {!loading && summary && this.renderHeader()}
-            <Divider className={classes.divider} />
+            <Divider />
             <SummaryCardValues loading={loadingValues} values={summary} />
           </Paper>
         </ThemeProvider>
@@ -193,7 +186,12 @@ class SummaryCard extends React.Component {
 
 SummaryCard.propTypes = {
   classes: PropTypes.shape({
-    summaryCardWidgetBox: PropTypes.string,
+    root: PropTypes.string.isRequired,
+    header: PropTypes.string.isRequired,
+    headline: PropTypes.string.isRequired,
+    periodSelectRoot: PropTypes.string.isRequired,
+    periodSelectIcon: PropTypes.string.isRequired,
+    periodSelectItem: PropTypes.string.isRequired,
   }).isRequired,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   display: PropTypes.string,
@@ -211,7 +209,6 @@ SummaryCard.defaultProps = {
   serviceUrl: '',
   pageCode: '',
   frameId: '',
-  summaryId: 1,
 };
 
 export default withStyles(styles, { name: 'EntSummaryCard' })(SummaryCard);

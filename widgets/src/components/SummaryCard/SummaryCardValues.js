@@ -86,16 +86,21 @@ const SummaryCardValues = ({ values, classes, loading }) => {
 SummaryCardValues.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string,
-    value: PropTypes.string,
+    totalLabel: PropTypes.string,
+    trendValue: PropTypes.string,
     valueIcon: PropTypes.string,
   }).isRequired,
   loading: PropTypes.bool,
-  values: PropTypes.shape({}),
+  values: PropTypes.shape({
+    totalLabel: PropTypes.string,
+    total: PropTypes.string,
+    percentage: PropTypes.string,
+  }),
 };
 
 SummaryCardValues.defaultProps = {
   loading: false,
-  values: null,
+  values: {},
 };
 
 export default withStyles(styles, { name: 'EntSummaryCardValues' })(SummaryCardValues);

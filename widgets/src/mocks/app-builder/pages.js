@@ -43,8 +43,22 @@ const completionFormConfigs = {
   errors: [],
 };
 
+const SummaryCardConfigs = {
+  payload: {
+    code: 'summary_card',
+    config: {
+      containerId: 'evaluation_1.0.0-SNAPSHOT',
+      knowledgeSource: 'kieStaging',
+      process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
 export default {
   TASK_LIST: taskListConfigs,
   TASK_DETAILS: taskDetailsConfigs,
   COMPLETION_FORM: completionFormConfigs,
+  SUMMARY_CARD: SummaryCardConfigs,
 };
