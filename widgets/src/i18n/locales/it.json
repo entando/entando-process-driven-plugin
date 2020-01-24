@@ -5,7 +5,13 @@
   "card": {
     "monthly": "Mensile",
     "annual": "Annuale",
-    "daily": "Giornaliero"
+    "daily": "Giornaliero",
+    "labels": {
+      "REQUESTS": {
+        "TITLE": "Richieste",
+        "TOTAL_LABEL": "Richieste Totali"
+      }
+    }
   },
   "table": {
     "title": "Elenco attività",

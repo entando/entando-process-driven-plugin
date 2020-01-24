@@ -50,7 +50,7 @@ const styles = ({ palette }) => ({
   },
   periodSelectItem: {
     fontSize: 12,
-  }
+  },
 });
 
 class SummaryCard extends React.Component {
@@ -150,7 +150,7 @@ class SummaryCard extends React.Component {
     return (
       <div className={classes.header}>
         <Typography variant="subtitle2" component="h3" className={classes.headline}>
-          {summary.title}
+          {i18next.t(`card.labels.${summary.title}`)}
         </Typography>
         <Select
           value={period}
@@ -163,13 +163,9 @@ class SummaryCard extends React.Component {
           onChange={this.handlePeriodChange}
         >
           {['monthly', 'annual', 'daily'].map(periodi => (
-            <MenuItem
-              key={periodi}
-              value={periodi}
-              className={classes.periodSelectItem}
-            >
+            <MenuItem key={periodi} value={periodi} className={classes.periodSelectItem}>
               {i18next.t(`card.${periodi}`)}
-            </MenuItem>  
+            </MenuItem>
           ))}
         </Select>
       </div>
@@ -178,19 +174,17 @@ class SummaryCard extends React.Component {
 
   render() {
     const { loading, loadingValues, summary } = this.state;
-    const { classes, width, onError } = this.props;
+    const { classes, width, display, onError } = this.props;
 
     return (
       <CustomEventContext.Provider value={{ onError }}>
         <ThemeProvider theme={theme}>
-          <div style={{ width }}>
-            <Paper square elevation={0} className={classes.root}>
-              {loading && this.renderSkeletonHeader()}
-              {!loading && summary && this.renderHeader()}
-              <Divider className={classes.divider} />
-              <SummaryCardValues loading={loadingValues} values={summary} />
-            </Paper>
-          </div>
+          <Paper square elevation={0} className={classes.root} style={{ width, display }}>
+            {loading && this.renderSkeletonHeader()}
+            {!loading && summary && this.renderHeader()}
+            <Divider className={classes.divider} />
+            <SummaryCardValues loading={loadingValues} values={summary} />
+          </Paper>
         </ThemeProvider>
       </CustomEventContext.Provider>
     );
@@ -202,6 +196,7 @@ SummaryCard.propTypes = {
     summaryCardWidgetBox: PropTypes.string,
   }).isRequired,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  display: PropTypes.string,
   summaryId: PropTypes.string.isRequired,
   onError: PropTypes.func,
   serviceUrl: PropTypes.string,
@@ -211,6 +206,7 @@ SummaryCard.propTypes = {
 
 SummaryCard.defaultProps = {
   onError: () => {},
+  display: 'inline-block',
   width: 256,
   serviceUrl: '',
   pageCode: '',

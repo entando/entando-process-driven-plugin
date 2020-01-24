@@ -5,7 +5,13 @@
   "card": {
     "monthly": "Monthly",
     "annual": "Annual",
-    "daily": "Daily"
+    "daily": "Daily",
+    "labels": {
+      "REQUESTS": {
+        "TITLE": "Requests",
+        "TOTAL_LABEL": "Total Requests"
+      }
+    }
   },
   "table": {
     "title": "Task List",

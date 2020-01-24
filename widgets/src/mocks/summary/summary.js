@@ -1,7 +1,7 @@
 export default {
   payload: {
-    title: 'Requests',
-    totalLabel: 'Total requests',
+    title: 'REQUESTS.TITLE',
+    totalLabel: 'REQUESTS.TOTAL_LABEL',
     total: '2123',
     percentage: '0.9243234',
   },

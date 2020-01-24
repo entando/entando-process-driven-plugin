@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import i18next from 'i18next';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -44,7 +45,7 @@ const SummaryCardValues = ({ values, classes, loading }) => {
     </>
   );
 
-  const trendNotation = (trend) => {
+  const trendNotation = trend => {
     switch (trend) {
       case 'up':
         return <UpTrendIcon className={classes.valueIcon} />;
@@ -53,7 +54,7 @@ const SummaryCardValues = ({ values, classes, loading }) => {
       default:
         return '-';
     }
-  }
+  };
 
   const percVal = values && values.percentage ? Math.round(values.percentage * 100) : null;
   const percent = percVal ? `${percVal}%` : '-';
@@ -67,7 +68,9 @@ const SummaryCardValues = ({ values, classes, loading }) => {
         <>
           <div>
             <Typography variant="h4">{values.total}</Typography>
-            <Typography variant="caption">{values.totalLabel}</Typography>
+            <Typography variant="caption">
+              {i18next.t(`card.labels.${values.totalLabel}`)}
+            </Typography>
           </div>
           <div>
             <Typography variant="body2" component="span" className={classes.trendValue}>
