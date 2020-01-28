@@ -4,7 +4,6 @@ import MOCK_PROCESSES from 'mocks/pda/processes';
 import MOCK_DIAGRAM from 'mocks/pda/diagram.svg';
 import makeRequest from 'api/makeRequest';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getProcesses = async connection =>
   makeRequest({
     domain: DOMAINS.PDA,
