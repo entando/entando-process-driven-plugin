@@ -30,6 +30,8 @@ import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompletionFormContainer';
 import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompletionFormConfig';
 
+import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -150,6 +152,16 @@ function App() {
             path="/TaskCompletionFormConfig"
             render={() => (
               <TaskCompletionFormConfig
+                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/ProcessForm"
+            render={() => (
+              <ProcessFormContainer
                 pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
                 frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
                 widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}

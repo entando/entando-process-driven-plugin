@@ -24,16 +24,25 @@ const styles = {
   },
 };
 
-const GeneralInformation = ({ classes, taskInputData, loadingTask }) => {
+const GeneralInformation = ({ classes, taskInputData, loadingTask, noHeadline }) => {
   const inputDataNotAvailable = !taskInputData || Object.keys(taskInputData).length === 0;
 
   if (loadingTask) {
     return <GeneralInformationSkeleton />;
   }
+
+  const renderHeadline = () => (
+    !noHeadline ? (
+      <>
+        <Typography variant="h3">{i18next.t('taskDetails.generalInformation.title')}</Typography>
+        <Divider className={classes.divider} />
+      </>
+    ) : null
+  );
+
   return (
     <div>
-      <Typography variant="h3">{i18next.t('taskDetails.generalInformation.title')}</Typography>
-      <Divider className={classes.divider} />
+      {renderHeadline()}
       {inputDataNotAvailable && i18next.t('taskDetails.generalInformation.noInformation')}
       {!inputDataNotAvailable &&
         Object.keys(taskInputData).map(key => {
@@ -58,11 +67,13 @@ GeneralInformation.propTypes = {
   }).isRequired,
   taskInputData: PropTypes.shape(),
   loadingTask: PropTypes.bool,
+  noHeadline: PropTypes.bool,
 };
 
 GeneralInformation.defaultProps = {
   taskInputData: null,
   loadingTask: false,
+  noHeadline: false,
 };
 
 export default withStyles(styles)(GeneralInformation);
