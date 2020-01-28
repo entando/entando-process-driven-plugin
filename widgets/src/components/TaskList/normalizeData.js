@@ -12,7 +12,7 @@ export const getType = (column, firstRow) => {
   return sortFunction;
 };
 
-export const normalizeColumns = (columns, firstRow) => {
+export const normalizeColumns = (columns, firstRow, options, openDiagram) => {
   const normalized = columns
     .filter(column => column.isVisible)
     .map(column => ({
@@ -24,11 +24,17 @@ export const normalizeColumns = (columns, firstRow) => {
   // order columns
   normalized.sort((a, b) => (a.position > b.position ? 1 : a.position < b.position ? -1 : 0));
 
+  // find required fields according to options
+  const requiredFields = options.reduce((obj, option) => {
+    obj[option.key] = option.checked;
+    return obj;
+  }, {});
+
   // add action field
   normalized.unshift({
     header: 'Action',
     accessor: 'action',
-    customCell: ActionCell,
+    customCell: ActionCell(requiredFields, openDiagram),
     styles: {
       position: 'sticky',
       left: 0,

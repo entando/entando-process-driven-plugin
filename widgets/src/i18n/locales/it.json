@@ -3,6 +3,14 @@
     "of": "di",
     "submit": "Submit"
   },
+  "taskList": {
+    "diagramModalTitle": "Processi",
+    "actionButtons": {
+      "complete": "Completare",
+      "claim": "Richiesta",
+      "diagram": "Diagramma"
+    }
+  },
   "table": {
     "title": "Elenco attività",
     "subtitle": "Elenco delle attività",
