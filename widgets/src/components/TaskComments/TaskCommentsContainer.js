@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import { getTaskComments, postTaskComment, deleteTaskComment } from 'api/pda/comments';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
-import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import Comment from 'components/TaskComments/Comment';
 import AddComment from 'components/TaskComments/AddComment';
@@ -148,46 +147,43 @@ class TaskCommentsContainer extends React.Component {
 
   render() {
     const { comments, loading, addingComment } = this.state;
-    const { onClickAddComment, onError, classes, taskId } = this.props;
+    const { classes, taskId } = this.props;
 
     const hasComments = comments.length > 0;
     return (
-      // TODO: remove provider
-      <CustomEventContext.Provider value={{ onClickAddComment, onError }}>
-        <ThemeProvider theme={theme}>
-          <Container disableGutters>
-            <WidgetBox mb={10}>
-              {loading ? (
-                <TaskCommentsSkeleton />
-              ) : (
-                <>
-                  <Typography variant="h3">
-                    {i18next.t('taskComments.title')} - {taskId}
+      <ThemeProvider theme={theme}>
+        <Container disableGutters>
+          <WidgetBox mb={10}>
+            {loading ? (
+              <TaskCommentsSkeleton />
+            ) : (
+              <>
+                <Typography variant="h3">
+                  {i18next.t('taskComments.title')} - {taskId}
+                </Typography>
+                <Divider className={classes.divider} />
+                {!hasComments && (
+                  <Typography className={classes.noComments} variant="body1">
+                    {i18next.t('taskComments.noComments')}
                   </Typography>
-                  <Divider className={classes.divider} />
-                  {!hasComments && (
-                    <Typography className={classes.noComments} variant="body1">
-                      {i18next.t('taskComments.noComments')}
-                    </Typography>
-                  )}
-                  {hasComments && (
-                    <div className={classes.commentContainer}>
-                      {comments.map(comment => (
-                        <Comment
-                          key={comment.id}
-                          comment={comment}
-                          onClickRemoveComment={this.onClickRemoveComment}
-                        />
-                      ))}
-                    </div>
-                  )}
-                  <AddComment loading={addingComment} onClickAddComment={this.onClickAddComment} />
-                </>
-              )}
-            </WidgetBox>
-          </Container>
-        </ThemeProvider>
-      </CustomEventContext.Provider>
+                )}
+                {hasComments && (
+                  <div className={classes.commentContainer}>
+                    {comments.map(comment => (
+                      <Comment
+                        key={comment.id}
+                        comment={comment}
+                        onClickRemoveComment={this.onClickRemoveComment}
+                      />
+                    ))}
+                  </div>
+                )}
+                <AddComment loading={addingComment} onClickAddComment={this.onClickAddComment} />
+              </>
+            )}
+          </WidgetBox>
+        </Container>
+      </ThemeProvider>
     );
   }
 }
