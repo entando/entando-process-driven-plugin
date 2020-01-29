@@ -137,12 +137,7 @@ class TaskCommentsContainer extends React.Component {
     } catch (error) {
       this.handleError(error.message);
     }
-    return null;
-  }
-
-  handleSkeletonToggle() {
-    const { loading } = this.state;
-    this.setState({ loading: !loading });
+    return {};
   }
 
   render() {

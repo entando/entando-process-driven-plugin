@@ -52,7 +52,7 @@ class AddComment extends React.Component {
         <TextField
           className={classes.addNoteField}
           id="standard-textarea"
-          label="Add note"
+          label={i18next.t('taskComments.addNote')}
           value={comment}
           onChange={this.onChangeComment}
           multiline
