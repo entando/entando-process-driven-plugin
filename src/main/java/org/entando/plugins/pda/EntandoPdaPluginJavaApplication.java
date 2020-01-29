@@ -23,8 +23,9 @@ public class EntandoPdaPluginJavaApplication {
     @Value("${pda.mock-connection-config}")
     private boolean mockConnectionConfig;
 
+    @SuppressWarnings("PMD.DefaultPackage")
     @Value("${pda.allowed-origins-dev}")
-    private String allowedOriginsDev;
+    String allowedOriginsDev;
 
     public static void main(final String[] args) {
         SpringApplication.run(EntandoPdaPluginJavaApplication.class, args);
