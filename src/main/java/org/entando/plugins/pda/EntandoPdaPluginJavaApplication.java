@@ -23,6 +23,10 @@ public class EntandoPdaPluginJavaApplication {
     @Value("${pda.mock-connection-config}")
     private boolean mockConnectionConfig;
 
+    @SuppressWarnings("PMD.DefaultPackage")
+    @Value("${pda.allowed-origins-dev}")
+    String allowedOriginsDev;
+
     public static void main(final String[] args) {
         SpringApplication.run(EntandoPdaPluginJavaApplication.class, args);
     }
@@ -41,7 +45,10 @@ public class EntandoPdaPluginJavaApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/*").allowedOrigins("http://localhost:3333");
+                registry.addMapping("/**")
+                        .allowedOrigins(allowedOriginsDev)
+                        .allowedMethods("*")
+                        .allowCredentials(true);
             }
         };
     }
