@@ -43,8 +43,22 @@ const completionFormConfigs = {
   errors: [],
 };
 
+const taskCommentsConfigs = {
+  payload: {
+    code: 'phase_1_widgets_comments',
+    config: {
+      containerId: 'evaluation_1.0.0-SNAPSHOT',
+      knowledgeSource: 'kieDev',
+      process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
 export default {
   TASK_LIST: taskListConfigs,
   TASK_DETAILS: taskDetailsConfigs,
   COMPLETION_FORM: completionFormConfigs,
+  TASK_COMMENTS: taskCommentsConfigs,
 };
