@@ -31,14 +31,13 @@ const GeneralInformation = ({ classes, taskInputData, loadingTask, noHeadline })
     return <GeneralInformationSkeleton />;
   }
 
-  const renderHeadline = () => (
+  const renderHeadline = () =>
     !noHeadline ? (
       <>
         <Typography variant="h3">{i18next.t('taskDetails.generalInformation.title')}</Typography>
         <Divider className={classes.divider} />
       </>
-    ) : null
-  );
+    ) : null;
 
   return (
     <div>

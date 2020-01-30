@@ -1,9 +1,9 @@
 import { METHODS, DOMAINS } from 'api/constants';
 
 import MOCK_PROCESSES from 'mocks/pda/processes';
+import MOCKED_PROCESS_FORM from 'mocks/process-form/formSchema';
 import makeRequest from 'api/makeRequest';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getProcesses = async connection =>
   makeRequest({
     domain: DOMAINS.PDA,
@@ -11,4 +11,12 @@ export const getProcesses = async connection =>
     method: METHODS.GET,
     mockResponse: MOCK_PROCESSES,
     useAuthentication: true,
+  });
+
+export const getProcessForm = async (connection, processId) =>
+  makeRequest({
+    domain: DOMAINS.PDA,
+    uri: `/connections/${connection}/processes/definitions/${processId}/form`,
+    method: METHODS.GET,
+    mockResponse: MOCKED_PROCESS_FORM,
   });

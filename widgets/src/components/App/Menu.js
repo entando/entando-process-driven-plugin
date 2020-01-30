@@ -89,6 +89,21 @@ const Menu = ({ open, setOpen, classes }) => (
             <SettingsIcon fontSize="small" />
           </IconButton>
         </div>
+        <div className={classes.item}>
+          <ListItem button component={Link} to="/ProcessForm" onClick={() => setOpen(false)}>
+            <DescriptionIcon />
+            <ListItemText primary="ProcessForm" />
+          </ListItem>
+          <IconButton
+            className={classes.iconButton}
+            size="small"
+            component={Link}
+            to="/ProcessFormConfig"
+            onClick={() => setOpen(false)}
+          >
+            <SettingsIcon fontSize="small" />
+          </IconButton>
+        </div>
       </List>
     </div>
   </Drawer>

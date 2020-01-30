@@ -31,6 +31,7 @@ import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompl
 import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompletionFormConfig';
 
 import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
+import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -162,9 +163,19 @@ function App() {
             path="/ProcessForm"
             render={() => (
               <ProcessFormContainer
-                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/ProcessFormConfig"
+            render={() => (
+              <ProcessFormConfig
+                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
               />
             )}
           />
