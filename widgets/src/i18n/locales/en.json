@@ -14,6 +14,14 @@
       }
     }
   },
+  "taskList": {
+    "diagramModalTitle": "Process",
+    "actionButtons": {
+      "complete": "Complete",
+      "claim": "Claim",
+      "diagram": "Diagram"
+    }
+  },
   "table": {
     "title": "Task List",
     "subtitle": "List of tasks",
