@@ -22,11 +22,12 @@ exports[`<InternalTableHead /> renders snapshot correctly 1`] = `
           style="white-space: nowrap;"
         >
           <span
+            aria-disabled="false"
             class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-21"
             role="button"
             tabindex="0"
           >
-            Inlimit
+            id
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"

@@ -1,8 +1,8 @@
 import { getType, normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
 import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
 import ActionCell from 'components/common/Table/custom/ActionCell';
-import { WIDGET_CONFIGS } from 'mocks/taskList/configs';
-import tasks from 'mocks/taskList/tasks';
+import WIDGET_CONFIGS from 'mocks/app-builder/pages';
+import tasks from 'mocks/pda/tasks.json';
 
 const row = {
   name: 'string',
@@ -30,9 +30,11 @@ describe('normalizeData', () => {
   });
 
   it('normalizeColumns to change the columns to fit Table needs', () => {
-    const columns = JSON.parse(WIDGET_CONFIGS.payload.config.columns);
+    const columns = JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.columns);
+    const options = JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.options);
+    const openDiagram = jest.fn();
 
-    const normalized = normalizeColumns(columns, tasks.payload[0]);
+    const normalized = normalizeColumns(columns, tasks.payload[0], options, openDiagram);
 
     const expected = columns
       .filter(column => column.isVisible)
@@ -46,11 +48,17 @@ describe('normalizeData', () => {
     // order columns
     expected.sort((a, b) => (a.position > b.position ? 1 : a.position < b.position ? -1 : 0));
 
+    // find required fields according to options
+    const requiredFields = options.reduce((obj, option) => {
+      obj[option.key] = option.checked;
+      return obj;
+    }, {});
+
     // add action field
     expected.unshift({
       header: 'Action',
       accessor: 'action',
-      customCell: ActionCell,
+      customCell: ActionCell(requiredFields, openDiagram),
       styles: {
         position: 'sticky',
         left: 0,
@@ -63,7 +71,7 @@ describe('normalizeData', () => {
       },
     });
 
-    expect(normalized).toEqual(expected);
+    expect(JSON.stringify(normalized)).toEqual(JSON.stringify(expected));
   });
 
   it('normalizeRows to change the columns to fit Table needs', () => {

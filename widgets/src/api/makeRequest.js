@@ -1,29 +1,50 @@
-import { IS_MOCKED_API, MOCK_API_DELAY } from 'api/constants';
+import { IS_MOCKED_API, MOCK_API_DELAY, DOMAINS, METHODS } from 'api/constants';
 import utils from 'utils';
 
-export default async ({ domain, uri, method, mockResponse, withAuthentication, body }) => {
-  if (IS_MOCKED_API) {
+const getParams = queryParams =>
+  Object.keys(queryParams)
+    .filter(k => queryParams[k] !== undefined && queryParams[k] !== '')
+    .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(queryParams[k])}`)
+    .join('&');
+
+export default async ({
+  domain,
+  uri,
+  method,
+  mockResponse = {},
+  useAuthentication,
+  body,
+  headers = {},
+  queryParams,
+  forceMock,
+}) => {
+  if (IS_MOCKED_API || forceMock) {
     await utils.timeout(MOCK_API_DELAY);
     return mockResponse;
   }
 
-  const url = `${domain || ''}${uri}`;
-  const configs = {};
-  configs.method = method;
+  const url = `${domain || DOMAINS.PDA}${uri}${queryParams ? `?${getParams(queryParams)}` : ''}`;
 
-  if (body) {
-    configs.body = body;
-  }
+  const requestHeaders = useAuthentication
+    ? new Headers({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        ...headers,
+      })
+    : new Headers(headers);
 
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-
-  if (withAuthentication) {
-    const token = localStorage.getItem('token');
-    headers.append('Authorization', `Bearer ${token}`);
-  }
+  const configs = {
+    method: method || METHODS.GET,
+    ...(body ? { body } : {}),
+    headers: requestHeaders,
+  };
 
   const response = await fetch(url, configs);
+  if (!response.ok) {
+    throw new Error(`Bad Response from server: ${response.status} ${response.statusText}`);
+  }
 
-  return response.json();
+  const responseHeaders = response.headers.get('Content-Type');
+
+  return responseHeaders && responseHeaders.includes('xml') ? response.text() : response.json();
 };

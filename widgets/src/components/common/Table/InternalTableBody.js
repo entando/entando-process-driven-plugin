@@ -5,7 +5,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
 import columnType from 'types/columnType';
-import rowType from 'types/rowType';
 import InternalTableCell from './InternalTableCell';
 
 const InternalTableBody = ({ columns, rows, emptyRows, rowHeight }) => {
@@ -33,7 +32,7 @@ const InternalTableBody = ({ columns, rows, emptyRows, rowHeight }) => {
 
 InternalTableBody.propTypes = {
   columns: PropTypes.arrayOf(columnType),
-  rows: PropTypes.arrayOf(rowType),
+  rows: PropTypes.arrayOf(PropTypes.shape({})),
   emptyRows: PropTypes.number,
   rowHeight: PropTypes.number,
 };

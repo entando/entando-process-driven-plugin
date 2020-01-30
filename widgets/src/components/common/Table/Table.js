@@ -10,7 +10,6 @@ import MuiTable from '@material-ui/core/Table';
 import i18next from 'i18next';
 
 import columnType from 'types/columnType';
-import rowType from 'types/rowType';
 
 import SearchInput from 'components/common/SearchInput';
 import TablePagination from 'components/common/Table/TablePagination';
@@ -18,6 +17,7 @@ import EmptyRow from 'components/common/Table/EmptyRow';
 import InternalTableBody from 'components/common/Table/InternalTableBody';
 import InternalTableHead from 'components/common/Table/InternalTableHead';
 import InternalTablePaginationActions from 'components/common/Table/InternalTablePaginationActions';
+import LazyTablePagination from 'components/common/Table/LazyTablePagination';
 import TaskListSkeleton from 'components/TaskList/TaskListSkeleton';
 
 export const labelDisplayedRows = ({ from, to, count }) =>
@@ -228,18 +228,29 @@ class Table extends React.Component {
           {!hidePagination && (
             <TableFooter>
               <TableRow>
-                <TablePagination
-                  colSpan={columns.length}
-                  count={isLazy ? lazyLoadingProps.size : rowsSize}
-                  rowsPerPage={rowsPerPage}
-                  page={isLazy ? lazyLoadingProps.currentPage : page}
-                  labelDisplayedRows={labelDisplayedRows}
-                  rowsPerPageOptions={rowsPerPageOptions}
-                  onChangePage={this.handleChangePage}
-                  onChangeRowsPerPage={this.handleChangeRowsPerPage}
-                  ActionsComponent={InternalTablePaginationActions}
-                  labelRowsPerPage={i18next.t('table.rowsPerPage')}
-                />
+                {!isLazy ? (
+                  <TablePagination
+                    colSpan={columns.length}
+                    count={rowsSize}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    labelDisplayedRows={labelDisplayedRows}
+                    rowsPerPageOptions={rowsPerPageOptions}
+                    onChangePage={this.handleChangePage}
+                    onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                    ActionsComponent={InternalTablePaginationActions}
+                    labelRowsPerPage={i18next.t('table.rowsPerPage')}
+                  />
+                ) : (
+                  <LazyTablePagination
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    rowsPerPageOptions={rowsPerPageOptions}
+                    onChangePage={this.handleChangePage}
+                    onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                    lastPage={lazyLoadingProps.lastPage}
+                  />
+                )}
               </TableRow>
             </TableFooter>
           )}
@@ -258,9 +269,9 @@ Table.propTypes = {
     tableWrapper: PropTypes.string,
   }),
   lazyLoadingProps: PropTypes.shape({
-    currentPage: PropTypes.number,
     onChange: PropTypes.func,
     size: PropTypes.number,
+    lastPage: PropTypes.bool,
   }),
   loading: PropTypes.bool,
   columns: PropTypes.arrayOf(columnType),
@@ -268,7 +279,7 @@ Table.propTypes = {
   /** Prop value is required for sortable tables. */
   initialSortedColumn: PropTypes.string,
   initialSortOrder: PropTypes.string,
-  rows: PropTypes.arrayOf(rowType),
+  rows: PropTypes.arrayOf(PropTypes.shape({})),
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   title: PropTypes.string,
   subtitle: PropTypes.string,
