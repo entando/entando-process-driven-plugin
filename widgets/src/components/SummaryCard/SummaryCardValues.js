@@ -13,8 +13,8 @@ const styles = {
     padding: '20px 25px',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
-    '&.hotTrend $trendValue': {
-      color: '#1C84C6',
+    '&.downTrend $trendValue': {
+      color: '#ED5565',
     },
     '&.upTrend $trendValue': {
       color: '#23C6C8',
@@ -52,14 +52,14 @@ const SummaryCardValues = ({ values, classes, loading }) => {
       case 'down':
         return <DownTrendIcon className={classes.valueIcon} />;
       default:
-        return '-';
+        return null;
     }
   };
 
-  const percVal = values && values.percentage ? Math.round(values.percentage * 100) : null;
-  const percent = percVal ? `${percVal}%` : '-';
+  const percVal = values && values.percentage ? Math.round(values.percentage) : null;
+  const percent = !Number.isNaN(percVal) ? `${percVal < 0 ? 0 - percVal : percVal}%` : '-';
 
-  const trend = percVal >= 0 ? 'up' : 'down';
+  const trend = percVal === 0 ? '' : percVal >= 0 ? 'up' : 'down';
 
   return (
     <div className={classNames(classes.root, `${trend}Trend`)}>

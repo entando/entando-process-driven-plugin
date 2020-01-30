@@ -11,11 +11,11 @@ describe('<SummaryCardContainer />', () => {
   it('renders snapshot correctly', async () => {
     const configUrl = `${DOMAINS.APP_BUILDER}/api/pages//widgets/`;
     const connection = 'kieStaging';
-    const summaryUrl = `/connections/${connection}/summaries/1@evaluation_1.0.0-SNAPSHOT?frequency=monthly`;
+    const summaryUrl = `/connections/${connection}/summaries/request?frequency=monthly`;
 
     fetch.once(JSON.stringify(WIDGET_CONFIGS.SUMMARY_CARD)).once(JSON.stringify(mockSummary));
 
-    const { container } = render(<SummaryCardContainer summaryId="1" />);
+    const { container } = render(<SummaryCardContainer />);
 
     await wait(() => expect(container).toMatchSnapshot());
 

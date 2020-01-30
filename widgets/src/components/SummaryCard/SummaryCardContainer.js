@@ -100,14 +100,12 @@ class SummaryCard extends React.Component {
 
   async fetchSummary() {
     const { config, period } = this.state;
-    const { summaryId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const containerId = (config && config.containerId) || '';
-    const summaryContainerId = `${summaryId}@${containerId}`;
+    const settings = (config && config.settings && JSON.parse(config.settings)) || '';
 
     try {
-      const summary = await getSummary(connection, summaryContainerId, period);
+      const summary = await getSummary(connection, settings.summaryId, period);
 
       this.setState({
         loading: false,
@@ -155,7 +153,7 @@ class SummaryCard extends React.Component {
           }}
           onChange={this.handlePeriodChange}
         >
-          {['monthly', 'annual', 'daily'].map(periodi => (
+          {['monthly', 'annually', 'daily'].map(periodi => (
             <MenuItem key={periodi} value={periodi} className={classes.periodSelectItem}>
               {i18next.t(`card.${periodi}`)}
             </MenuItem>
@@ -195,7 +193,6 @@ SummaryCard.propTypes = {
   }).isRequired,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   display: PropTypes.string,
-  summaryId: PropTypes.string.isRequired,
   onError: PropTypes.func,
   serviceUrl: PropTypes.string,
   pageCode: PropTypes.string,

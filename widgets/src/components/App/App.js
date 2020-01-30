@@ -163,10 +163,9 @@ function App() {
             path="/SummaryCard/"
             render={() => (
               <SummaryCardContainer
-                summaryId={WIDGETS_CONFIG.SUMMARY_CARD.summaryId}
-                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
+                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
+                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
               />
             )}
           />
@@ -174,9 +173,9 @@ function App() {
             path="/SummaryCardConfig/"
             render={() => (
               <SummaryCardConfig
-                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
+                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
+                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
               />
             )}
           />

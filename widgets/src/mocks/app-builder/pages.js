@@ -50,6 +50,7 @@ const SummaryCardConfigs = {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
+      settings: '{"summaryId": "request"}',
     },
   },
   metaData: { status: 'draft' },

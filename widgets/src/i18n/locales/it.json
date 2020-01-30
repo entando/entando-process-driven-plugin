@@ -5,7 +5,7 @@
   },
   "card": {
     "monthly": "Mensile",
-    "annual": "Annuale",
+    "annually": "Annuale",
     "daily": "Giornaliero",
     "labels": {
       "REQUESTS": {

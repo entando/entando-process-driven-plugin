@@ -79,7 +79,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
         <span
           class="MuiTypography-root EntSummaryCardValues-trendValue-43 MuiTypography-body2"
         >
-          92%
+          1%
            
           <svg
             aria-hidden="true"

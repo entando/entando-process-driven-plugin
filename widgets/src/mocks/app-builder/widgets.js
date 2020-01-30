@@ -22,7 +22,6 @@ export default {
     configs: MOCKED_WIDGET_CONFIGS.COMPLETION_FORM,
   },
   SUMMARY_CARD: {
-    summaryId: '1',
     pageCode: 'phase_1_widgets',
     frameId: '1',
     widgetCode: 'summary_card',

@@ -15,7 +15,7 @@ describe('<SummaryCardConfig />', () => {
       .once(JSON.stringify(PROCESSES));
 
     const { container } = render(
-      <SummaryCardConfig pageCode="phase_1_widgets" frameId="1" widgetCode="task_list" />
+      <SummaryCardConfig pageCode="phase_1_widgets" frameId="1" widgetCode="summary_code" />
     );
 
     await wait(() => expect(container).toMatchSnapshot());
