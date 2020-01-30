@@ -17,6 +17,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-i18next": "^10.13.2",
+    "react-inlinesvg": "^1.2.0",
     "react-jsonschema-form": "^1.8.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
@@ -100,6 +101,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/runtime": "^7.8.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "array-move": "^2.2.1",

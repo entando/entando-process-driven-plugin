@@ -44,5 +44,7 @@ export default async ({
     throw new Error(`Bad Response from server: ${response.status} ${response.statusText}`);
   }
 
-  return response.json();
+  const responseHeaders = response.headers.get('Content-Type');
+
+  return responseHeaders && responseHeaders.includes('xml') ? response.text() : response.json();
 };

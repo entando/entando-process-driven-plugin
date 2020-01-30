@@ -5,10 +5,13 @@ import InternalTableBody from 'components/common/Table/InternalTableBody';
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
 import jsonRows from 'mocks/pda/tasks.json';
+import 'mocks/i18nMock';
 
 const columns = normalizeColumns(
   JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.columns),
-  jsonRows.payload[0]
+  jsonRows.payload[0],
+  JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.options),
+  jest.fn()
 );
 const rows = normalizeRows(jsonRows.payload);
 
