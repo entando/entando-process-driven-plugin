@@ -43,6 +43,8 @@ import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
 import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
 import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 
+import AttachmentsContainer from 'components/Attachments/AttachmentsContainer';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -219,6 +221,16 @@ function App() {
             )}
           />
           <Route path="/OvertimeGraphConfig" render={() => <OvertimeGraphConfig config={{}} />} />
+          <Route
+            path="/Attachments"
+            render={() => (
+              <AttachmentsContainer
+                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+              />
+            )}
+          />
         </Container>
       </Router>
     </div>

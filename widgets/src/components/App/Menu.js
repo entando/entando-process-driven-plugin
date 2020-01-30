@@ -12,6 +12,7 @@ import {
   IconButton,
 } from '@material-ui/core';
 import {
+  Attachment as AttachmentIcon,
   Home as HomeIcon,
   List as ListIcon,
   BarChart as BarChartIcon,
@@ -87,6 +88,12 @@ const menuItems = [
     Icon: <BarChartIcon />,
     configLinkTo: '/OvertimeGraphConfig',
   },
+  {
+    linkTo: '/Attachments',
+    linkText: 'Attachments',
+    Icon: <AttachmentIcon />,
+    configLinkTo: '/AttachmentsConfig',
+  },
 ];
 
 const Menu = ({ open, setOpen, classes }) => (
@@ -95,7 +102,7 @@ const Menu = ({ open, setOpen, classes }) => (
       <List>
         <ListItem button component={Link} to="/" onClick={() => setOpen(false)}>
           <ListItemIcon>
-            <HomeIcon />
+            <HomeIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>

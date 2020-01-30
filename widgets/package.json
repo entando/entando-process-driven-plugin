@@ -16,6 +16,7 @@
     "formik": "^2.0.8",
     "i18next": "^17.3.1",
     "keycloak-js": "^8.0.2",
+    "material-ui-dropzone": "^2.4.7",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
