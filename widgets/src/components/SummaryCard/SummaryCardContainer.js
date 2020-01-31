@@ -48,6 +48,8 @@ const styles = ({ palette }) => ({
   },
 });
 
+const PERIODS = ['monthly', 'annually', 'daily'];
+
 class SummaryCard extends React.Component {
   constructor(props) {
     super(props);
@@ -63,6 +65,7 @@ class SummaryCard extends React.Component {
     this.fetchSummary = this.fetchSummary.bind(this);
     this.fetchWidgetConfigs = this.fetchWidgetConfigs.bind(this);
     this.handlePeriodChange = this.handlePeriodChange.bind(this);
+    this.handleError = this.handleError.bind(this);
   }
 
   componentDidMount() {
@@ -73,8 +76,7 @@ class SummaryCard extends React.Component {
     }
 
     this.setState({ loading: true, loadingValues: true }, async () => {
-      const { config: storedConfig } = this.state;
-      const config = storedConfig || (await this.fetchWidgetConfigs());
+      const config = await this.fetchWidgetConfigs();
 
       this.setState({ config }, () => this.fetchSummary());
     });
@@ -153,9 +155,9 @@ class SummaryCard extends React.Component {
           }}
           onChange={this.handlePeriodChange}
         >
-          {['monthly', 'annually', 'daily'].map(periodi => (
-            <MenuItem key={periodi} value={periodi} className={classes.periodSelectItem}>
-              {i18next.t(`card.${periodi}`)}
+          {PERIODS.map(periodItem => (
+            <MenuItem key={periodItem} value={periodItem} className={classes.periodSelectItem}>
+              {i18next.t(`card.${periodItem}`)}
             </MenuItem>
           ))}
         </Select>
@@ -208,4 +210,4 @@ SummaryCard.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles, { name: 'EntSummaryCard' })(SummaryCard);
+export default withStyles(styles)(SummaryCard);

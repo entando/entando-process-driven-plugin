@@ -2,20 +2,21 @@ import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
-import WIDGET_CONFIGS from 'mocks/app-builder/pages';
+import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
+import PAGE_CONFIG from 'mocks/app-builder/pages';
 import CONNECTIONS from 'mocks/pda/connections';
-import PROCESSES from 'mocks/pda/processes';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 
 describe('<SummaryCardConfig />', () => {
   it('renders snapshot correctly', async () => {
-    fetch
-      .once(JSON.stringify(CONNECTIONS))
-      .once(JSON.stringify(WIDGET_CONFIGS.SUMMARY_CARD))
-      .once(JSON.stringify(PROCESSES));
+    fetch.once(JSON.stringify(CONNECTIONS)).once(JSON.stringify(PAGE_CONFIG.SUMMARY_CARD));
 
     const { container } = render(
-      <SummaryCardConfig pageCode="phase_1_widgets" frameId="1" widgetCode="summary_code" />
+      <SummaryCardConfig
+        pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
+        frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
+        widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
+      />
     );
 
     await wait(() => expect(container).toMatchSnapshot());

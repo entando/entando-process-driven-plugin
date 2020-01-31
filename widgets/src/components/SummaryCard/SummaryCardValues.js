@@ -103,4 +103,4 @@ SummaryCardValues.defaultProps = {
   values: {},
 };
 
-export default withStyles(styles, { name: 'EntSummaryCardValues' })(SummaryCardValues);
+export default withStyles(styles)(SummaryCardValues);
