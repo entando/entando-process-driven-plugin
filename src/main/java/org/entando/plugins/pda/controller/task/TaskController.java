@@ -39,7 +39,7 @@ public class TaskController {
     @ApiOperation(notes = "Lists all tasks", nickname = "listTask", value = "LIST Task")
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public PagedRestResponse<Task> list(@PathVariable final String connId, final AuthenticatedUser user,
-            final PagedListRequest restListRequest, @QueryParam("q") final String filter) {
+            final PagedListRequest restListRequest, @QueryParam("filter") final String filter) {
         log.debug("Listing tasks {}", restListRequest);
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());

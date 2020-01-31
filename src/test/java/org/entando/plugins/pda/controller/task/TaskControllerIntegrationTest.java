@@ -85,7 +85,7 @@ public class TaskControllerIntegrationTest {
     public void testSearchListTasks() throws Exception {
         String filter = "* 1";
 
-        mockMvc.perform(get("/connections/fakeProduction/tasks?q=" + filter))
+        mockMvc.perform(get("/connections/fakeProduction/tasks?filter=" + filter))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
