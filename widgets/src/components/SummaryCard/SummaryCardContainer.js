@@ -59,7 +59,7 @@ class SummaryCard extends React.Component {
       loading: false,
       loadingValues: false,
       summary: null,
-      period: 'monthly',
+      period: PERIODS[0],
     };
 
     this.fetchSummary = this.fetchSummary.bind(this);
