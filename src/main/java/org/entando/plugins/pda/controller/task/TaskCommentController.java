@@ -48,7 +48,7 @@ public class TaskCommentController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskCommentService()
-                .listComments(connection, user, taskId));
+                .list(connection, user, taskId));
     }
 
     @Secured(TASK_COMMENTS_CREATE)
@@ -61,7 +61,7 @@ public class TaskCommentController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskCommentService()
-                .createComment(connection, user, taskId, request));
+                .create(connection, user, taskId, request));
     }
 
     @Secured(TASK_COMMENTS_GET)
@@ -73,7 +73,7 @@ public class TaskCommentController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskCommentService()
-                .getComment(connection, user, taskId, commentId));
+                .get(connection, user, taskId, commentId));
     }
 
     @Secured(TASK_COMMENTS_DELETE)
@@ -85,6 +85,6 @@ public class TaskCommentController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskCommentService()
-                .deleteComment(connection, user, taskId, commentId));
+                .delete(connection, user, taskId, commentId));
     }
 }

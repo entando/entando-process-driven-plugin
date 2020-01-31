@@ -22,6 +22,12 @@ public class AuthPermissions {
     public static final String TASK_COMMENTS_CREATE = "task-comments-create";
     public static final String TASK_COMMENTS_DELETE = "task-comments-delete";
 
+    public static final String TASK_ATTACHMENTS_LIST = "task-attachments-list";
+    public static final String TASK_ATTACHMENTS_GET = "task-attachments-get";
+    public static final String TASK_ATTACHMENTS_CREATE = "task-attachments-create";
+    public static final String TASK_ATTACHMENTS_DELETE = "task-attachments-delete";
+    public static final String TASK_ATTACHMENTS_FILE = "task-attachments-file";
+
     public static final String TASK_FORM_GET = "task-form-get";
     public static final String TASK_FORM_SUBMIT = "task-form-submit";
 
