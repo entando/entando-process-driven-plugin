@@ -22,6 +22,8 @@ import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.model.summary.FrequencyEnum;
 import org.entando.plugins.pda.core.model.summary.Summary;
 import org.entando.plugins.pda.core.model.summary.SummaryType;
+import org.entando.plugins.pda.core.model.summary.SummaryValue;
+import org.entando.plugins.pda.core.model.summary.ValuePercentageSummaryValue;
 import org.entando.plugins.pda.core.service.summary.SummaryService;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
@@ -79,10 +81,10 @@ public class SummaryControllerIntegrationTest {
                 .andRespond(
                         withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
 
-        SummaryType summaryType1 = getSummaryType(1);
-        SummaryType summaryType2 = getSummaryType(2);
-        summaryService.registerSummaryType(summaryType1);
-        summaryService.registerSummaryType(summaryType2);
+        Summary summary1 = getSummary(1);
+        Summary summary2 = getSummary(2);
+        summaryService.registerSummary(summary1);
+        summaryService.registerSummary(summary2);
     }
 
     @Test
@@ -112,6 +114,21 @@ public class SummaryControllerIntegrationTest {
                 .andExpect(jsonPath("payload.percentage", is("10")));
     }
 
+//    @Test
+//    public void shouldGetSummaryTypes() throws  Exception {
+//
+//    }
+//
+//    @Test
+//    public void shouldListSummariesByType() throws  Exception {
+//
+//    }
+//
+//    @Test
+//    public void shouldGetSummaryValueById() throws  Exception {
+//
+//    }
+
     @Test
     public void shouldThrowNotFoundForInvalidSummary() throws Exception {
         mockMvc.perform(get("/connections/fakeProduction/summaries/" + UUID.randomUUID().toString()))
@@ -126,11 +143,12 @@ public class SummaryControllerIntegrationTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
     }
 
-    private SummaryType getSummaryType(int value) {
-        return new SummaryType() {
+    //TODO this should probably not be fixed to the ValuePercentageSummaryValue
+    private Summary getSummary(int value) {
+        return new Summary() {
             @Override
-            public Summary calculateSummary(Connection connection, FrequencyEnum frequency) {
-                return new Summary(TITLE_PREFIX + value, LABEL_PREFIX + value, String.valueOf(value),
+            public SummaryValue calculateSummary(Connection connection, FrequencyEnum frequency) {
+                return new ValuePercentageSummaryValue(TITLE_PREFIX + value, LABEL_PREFIX + value, String.valueOf(value),
                         decimalFormat.format(value * 10));
             }
 
@@ -147,6 +165,10 @@ public class SummaryControllerIntegrationTest {
             @Override
             public String getDescription() {
                 return TITLE_PREFIX + value;
+            }
+
+            public SummaryType getSummaryType() {
+                return SummaryType.VALUE_PERCENTAGE;
             }
         };
     }

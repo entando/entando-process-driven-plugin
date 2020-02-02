@@ -14,6 +14,7 @@ import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.model.summary.FrequencyEnum;
 import org.entando.plugins.pda.core.model.summary.Summary;
 import org.entando.plugins.pda.core.model.summary.SummaryType;
+import org.entando.plugins.pda.core.model.summary.SummaryValue;
 import org.entando.plugins.pda.core.service.summary.SummaryService;
 import org.entando.plugins.pda.exception.InvalidFrequencyException;
 import org.entando.plugins.pda.service.ConnectionService;
@@ -34,18 +35,40 @@ public class SummaryController {
     private final SummaryService summaryService;
 
     @Secured(SUMMARY_LIST)
-    @ApiOperation(notes = "Lists all summary types for a given connection", nickname = "listSummaryTypes",
-            value = "LIST SummaryType")
+    @ApiOperation(notes = "Lists all summaries for a given connection", nickname = "listSummaryTypes",
+            value = "LIST Summaries")
     @GetMapping(produces = APPLICATION_JSON_VALUE)
+    public SimpleRestResponse<List<Summary>> listSummaries(@PathVariable String connId) {
+        Connection connection = connectionService.get(connId);
+        return new SimpleRestResponse<>(summaryService.getSummariesByEngine(connection.getEngine()));
+    }
+
+    @Secured(SUMMARY_LIST)
+    @ApiOperation(notes = "Lists all summary types for a given connection", nickname = "listSummaryTypes",
+            value = "LIST SummaryTypes")
+    @GetMapping(value = "/summaryTypes", produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<List<SummaryType>> listSummaryTypes(@PathVariable String connId) {
         Connection connection = connectionService.get(connId);
         return new SimpleRestResponse<>(summaryService.getSummaryTypesByEngine(connection.getEngine()));
     }
 
+    @Secured(SUMMARY_LIST)
+    @ApiOperation(notes = "Lists all summary types for a given connection", nickname = "listSummaryTypes",
+            value = "LIST Summaries by Type")
+    @GetMapping(value = "/summaryTypes/{summaryType}", produces = APPLICATION_JSON_VALUE)
+    public SimpleRestResponse<List<Summary>> listSummariesByType(@PathVariable String connId,
+                                                                @PathVariable String summaryType) {
+        Connection connection = connectionService.get(connId);
+        return new SimpleRestResponse<>(summaryService
+                                        .getSummariesByEngineAndSummaryType(connection.getEngine(), summaryType));
+    }
+
     @Secured(SUMMARY_GET)
-    @ApiOperation(notes = "Gets a summary", nickname = "getSummaryById", value = "GET Summary")
+    @ApiOperation(notes = "Gets the calculated value for a summary",
+                  nickname = "getSummaryValueById", value = "GET Summary")
     @GetMapping(value = "/{summaryId}", produces = APPLICATION_JSON_VALUE)
-    public SimpleRestResponse<Summary> getSummaryById(@PathVariable String connId, @PathVariable String summaryId,
+    public SimpleRestResponse<SummaryValue> getSummaryValueById(@PathVariable String connId,
+                                                                @PathVariable String summaryId,
             @QueryParam("frequency") String frequency) {
         try {
             FrequencyEnum frequencyEnum = StringUtils.isEmpty(frequency) ? FrequencyEnum.MONTHLY
