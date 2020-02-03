@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly-react';
 
+import withAuth from 'components/common/authentication/withAuth';
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
@@ -51,11 +52,14 @@ class TaskCommentsConfig extends React.Component {
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState({ knowledgeSource });
 
-    getProcesses(knowledgeSource).then(data => {
-      this.setState({ processList: data.payload });
-
-      cb();
-    });
+    getProcesses(knowledgeSource)
+      .then(data => {
+        this.setState({ processList: data.payload });
+        cb();
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   onChangeProcess(e, cb = () => {}) {
@@ -155,4 +159,4 @@ TaskCommentsConfig.propTypes = {
   pageCode: PropTypes.string.isRequired,
 };
 
-export default TaskCommentsConfig;
+export default withAuth(TaskCommentsConfig, ['connection-list', 'process-definition-list']);

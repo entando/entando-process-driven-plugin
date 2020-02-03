@@ -5,8 +5,76 @@
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="description" content="Web site created using create-react-app" />
     <title>React App</title>
+    <script src="http://localhost:9080/auth/js/keycloak.js"></script>
+    <script>
+      const onLoad = (function() {
+        function createKcDispatcher(payload) {
+          // 'detail' is used per CustomEvent interface definition
+          return () => window.dispatchEvent(new CustomEvent('keycloak', { detail: payload }));
+        }
+
+        function initKeycloak() {
+          const keycloak = Keycloak({
+            url: 'http://localhost:9080/auth',
+            realm: 'entando',
+            clientId: 'pda-client',
+          });
+
+          keycloak.onReady = () => {
+            console.log('dispatching onReady()');
+            createKcDispatcher({ eventType: 'onReady' })();
+          };
+          keycloak.onAuthSuccess = () => {
+            console.log('dispatching onAuthSuccess()');
+            createKcDispatcher({ eventType: 'onAuthSuccess' });
+          };
+          keycloak.onAuthError = () => {
+            console.log('dispatching onAuthError()');
+            createKcDispatcher({ eventType: 'onAuthError' });
+          };
+          keycloak.onAuthRefreshSuccess = () => {
+            console.log('dispatching onAuthRefreshSuccess()');
+            createKcDispatcher({ eventType: 'onAuthRefreshSuccess' });
+          };
+          keycloak.onAuthRefreshError = () => {
+            console.log('dispatching onAuthRefreshError()');
+            createKcDispatcher({ eventType: 'onAuthRefreshError' });
+          };
+          keycloak.onAuthLogout = () => {
+            console.log('dispatching onAuthLogout()');
+            createKcDispatcher({ eventType: 'onAuthLogout' });
+          };
+          keycloak.onTokenExpired = () => {
+            console.log('dispatching onTokenExpired()');
+            createKcDispatcher({ eventType: 'onTokenExpired' });
+          };
+          const onInit = () => {
+            console.log('dispatching onInit()');
+            createKcDispatcher({ eventType: 'onInit' })();
+          };
+
+          window.entando = {
+            ...(window.entando || {}),
+            keycloak,
+          };
+
+          window.entando.keycloak
+            .init({
+              onLoad: 'check-sso',
+              promiseType: 'native',
+              enableLogging: true,
+            })
+            .then(onInit)
+            .catch(e => {
+              console.log(e);
+              console.log('Failed to initialize Keycloak');
+            });
+        }
+        return initKeycloak;
+      })();
+    </script>
   </head>
-  <body>
+  <body onLoad="onLoad();">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>

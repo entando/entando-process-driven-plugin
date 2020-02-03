@@ -29,7 +29,7 @@ class TaskCommentsElement extends HTMLElement {
     const pageCode = this.getAttribute('page-code');
     const frameId = this.getAttribute('frame-id');
     const serviceUrl = this.getAttribute('service-url');
-    const taskId = this.getAttribute('id');
+    const taskId = this.getAttribute('task-id');
 
     const reactRoot = React.createElement(
       TaskComments,

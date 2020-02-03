@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withAuth() passes props through 1`] = `
+<div>
+  <div>
+    Some value
+  </div>
+</div>
+`;
+
+exports[`withAuth() shows that permissions are not met 1`] = `<div />`;

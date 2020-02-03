@@ -30,7 +30,7 @@ import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompletionFormContainer';
 import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompletionFormConfig';
 
-import TaskCommentsContainer from 'components/TaskComments/TaskCommentsContainer';
+import TaskCommentsPage from 'components/TaskComments/TaskCommentsPage';
 import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
 
 const useStyles = makeStyles(theme => ({
@@ -174,7 +174,7 @@ function App() {
           <Route
             path="/TaskComments/"
             render={() => (
-              <TaskCommentsContainer
+              <TaskCommentsPage
                 skeletonLoading={skeletonLoading}
                 taskId={WIDGETS_CONFIG.TASK_COMMENTS.taskId}
                 pageCode={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}

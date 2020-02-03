@@ -1,6 +1,18 @@
 import { IS_MOCKED_API, MOCK_API_DELAY, DOMAINS, METHODS } from 'api/constants';
 import utils from 'utils';
 
+const getKeycloakToken = () => {
+  if (
+    window &&
+    window.entando &&
+    window.entando.keycloak &&
+    window.entando.keycloak.authenticated
+  ) {
+    return window.entando.keycloak.token;
+  }
+  return '';
+};
+
 const getParams = queryParams =>
   Object.keys(queryParams)
     .filter(k => queryParams[k] !== undefined && queryParams[k] !== '')
@@ -13,6 +25,7 @@ export default async ({
   method,
   mockResponse = {},
   useAuthentication,
+  authMethod = '',
   body,
   headers = {},
   queryParams,
@@ -25,10 +38,13 @@ export default async ({
 
   const url = `${domain || DOMAINS.PDA}${uri}${queryParams ? `?${getParams(queryParams)}` : ''}`;
 
+  const keycloakToken = getKeycloakToken();
+  const token = authMethod === 'entando-api' ? localStorage.getItem('token') : keycloakToken;
+
   const requestHeaders = useAuthentication
     ? new Headers({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${token || ''}`,
         ...headers,
       })
     : new Headers(headers);

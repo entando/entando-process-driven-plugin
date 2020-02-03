@@ -1,7 +1,14 @@
 {
   "common": {
     "of": "di",
-    "submit": "Submit"
+    "submit": "Submit",
+    "add": "Add",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "authentication": {
+    "notAuthenticated": "Please authenticate to view the content.",
+    "missingPermissions": "User does not have these roles assigned"
   },
   "taskList": {
     "diagramModalTitle": "Processi",
@@ -28,6 +35,12 @@
       "title": "General Information",
       "noInformation": "No information available"
     }
+  },
+  "taskComments": {
+    "addNote": "Add note",
+    "title": "Task notes",
+    "noComments": "No notes on this task",
+    "remove": "Remove"
   },
   "task": {
     "fields": {

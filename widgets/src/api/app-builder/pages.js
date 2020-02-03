@@ -10,6 +10,7 @@ export const getPageWidget = (pageCode, frameId, widgetType) =>
     method: METHODS.GET,
     mockResponse: WIDGET_CONFIG_MOCKUPS[widgetType],
     useAuthentication: true,
+    authMethod: 'entando-api',
     // forceMock: true,
   });
 
@@ -20,6 +21,7 @@ export const putPageWidget = (pageCode, frameId, configs) =>
     method: METHODS.PUT,
     body: configs,
     useAuthentication: true,
+    authMethod: 'entando-api',
   });
 
 // TODO: for ease of development - remove when authetication token is managed by wrapper

@@ -6,6 +6,10 @@
     "yes": "Yes",
     "no": "No"
   },
+  "authentication": {
+    "notAuthenticated": "Please authenticate to view the content.",
+    "missingPermissions": "User does not have these roles assigned"
+  },
   "taskList": {
     "diagramModalTitle": "Process",
     "actionButtons": {
