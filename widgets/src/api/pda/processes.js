@@ -10,6 +10,7 @@ export const getProcesses = async connection =>
     uri: `/connections/${connection}/processes/definitions`,
     method: METHODS.GET,
     mockResponse: MOCK_PROCESSES,
+    useAuthentication: true,
   });
 
 export const getDiagram = async (connection, processId) =>

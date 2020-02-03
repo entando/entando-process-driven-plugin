@@ -68,14 +68,27 @@ exports[`<SummaryCardConfig /> renders snapshot correctly 1`] = `
                 class="control-label"
                 for="textarea"
               >
-                Config
+                Summary
               </label>
-              <textarea
+              <select
                 class="form-control"
-                id="textarea"
               >
-                {"summaryId": "request"}
-              </textarea>
+                <option
+                  value=""
+                >
+                  Select...
+                </option>
+                <option
+                  value="requests"
+                >
+                  card.labels.Requests
+                </option>
+              </select>
+              <span
+                class="help-block"
+              >
+                Choose a summary to display information on your card.
+              </span>
             </div>
           </div>
         </div>

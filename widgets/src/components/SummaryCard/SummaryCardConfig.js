@@ -1,17 +1,11 @@
 /* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  Button,
-  HelpBlock,
-  Row,
-  Col,
-} from 'patternfly-react';
+import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly-react';
+import i18next from 'i18next';
 
 import { getConnections } from 'api/pda/connections';
+import { getSummaries } from 'api/pda/summary';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
@@ -24,7 +18,8 @@ class SummaryCardConfig extends React.Component {
 
     this.state = {
       sourceList: [],
-      settings: '{"summaryId": ""}',
+      summaryList: [],
+      settings: { summaryId: '' },
       knowledgeSource: '',
     };
 
@@ -49,7 +44,7 @@ class SummaryCardConfig extends React.Component {
       this.onChangeKnowledgeSource(configs.knowledgeSource, () => {
         if (configs.settings) {
           this.setState({
-            settings: configs.settings,
+            settings: JSON.parse(configs.settings),
           });
         }
       });
@@ -58,11 +53,16 @@ class SummaryCardConfig extends React.Component {
 
   onChangeKnowledgeSource(e, cb = () => {}) {
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ knowledgeSource }, cb);
+    this.setState({ knowledgeSource });
+
+    getSummaries(knowledgeSource).then(data => {
+      this.setState({ summaryList: data.payload });
+      cb();
+    });
   }
 
-  onChangeSettings({ target: { value } }) {
-    this.setState({ settings: value });
+  onChangeSettings({ target: { value: summaryId } }) {
+    this.setState({ settings: { summaryId } });
   }
 
   async handleSave() {
@@ -73,7 +73,7 @@ class SummaryCardConfig extends React.Component {
       code: widgetCode,
       config: {
         knowledgeSource,
-        settings,
+        settings: JSON.stringify(settings),
       },
     });
 
@@ -86,7 +86,7 @@ class SummaryCardConfig extends React.Component {
   }
 
   render() {
-    const { knowledgeSource, sourceList, settings } = this.state;
+    const { knowledgeSource, sourceList, summaryList, settings } = this.state;
 
     return (
       <div>
@@ -117,13 +117,20 @@ class SummaryCardConfig extends React.Component {
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group" controlId="textarea">
-                    <ControlLabel bsClass="control-label">Config</ControlLabel>
-                    <FormControl
-                      bsClass="form-control"
-                      componentClass="textarea"
-                      value={settings}
+                    <ControlLabel bsClass="control-label">Summary</ControlLabel>
+                    <select
+                      className="form-control"
+                      value={settings.summaryId}
                       onChange={this.onChangeSettings}
-                    />
+                    >
+                      <option value="">Select...</option>
+                      {summaryList.map(summary => (
+                        <option key={summary.id} value={summary.id}>
+                          {i18next.t(`card.labels.${summary.description}`)}
+                        </option>
+                      ))}
+                    </select>
+                    <HelpBlock>Choose a summary to display information on your card.</HelpBlock>
                   </FormGroup>
                 </Col>
               </Row>

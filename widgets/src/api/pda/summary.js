@@ -9,7 +9,7 @@ export const getSummaries = async connection =>
     uri: `/connections/${connection}/summaries`,
     method: METHODS.GET,
     mockResponse: MOCK_SUMMARIES,
-    useAuthentication: false,
+    useAuthentication: true,
   });
 
 export const getSummary = async (connection, summaryId, frequency = 'monthly') =>
@@ -19,5 +19,5 @@ export const getSummary = async (connection, summaryId, frequency = 'monthly') =
     method: METHODS.GET,
     queryParams: { frequency },
     mockResponse: MOCK_SUMMARY,
-    useAuthentication: false,
+    useAuthentication: true,
   });
