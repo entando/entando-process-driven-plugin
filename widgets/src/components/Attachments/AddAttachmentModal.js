@@ -35,7 +35,7 @@ class AddAttachmentModal extends React.Component {
 
   render() {
     const { files } = this.state;
-    const { classes } = this.props;
+    const { classes, onClose } = this.props;
 
     return (
       <>
@@ -46,7 +46,15 @@ class AddAttachmentModal extends React.Component {
           dropzoneClass={classes.dropZone}
         />
         <div className={classes.buttonWrapper}>
-          <Button disabled={!files.length} variant="contained" color="primary">
+          <Button variant="outlined" color="default" onClick={onClose}>
+            Close
+          </Button>{' '}
+          <Button
+            disabled={!files.length}
+            variant="contained"
+            color="primary"
+            onClick={this.handleUploadButton}
+          >
             Upload files
           </Button>
         </div>
@@ -62,6 +70,7 @@ AddAttachmentModal.propTypes = {
     dropZoneText: PropTypes.string,
   }).isRequired,
   onUpload: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(AddAttachmentModal);

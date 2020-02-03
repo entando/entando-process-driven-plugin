@@ -225,9 +225,10 @@ function App() {
             path="/Attachments"
             render={() => (
               <AttachmentsContainer
-                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+                taskId={WIDGETS_CONFIG.ATTACHMENTS.taskId}
+                pageCode={WIDGETS_CONFIG.ATTACHMENTS.pageCode}
+                frameId={WIDGETS_CONFIG.ATTACHMENTS.frameId}
+                widgetCode={WIDGETS_CONFIG.ATTACHMENTS.widgetCode}
               />
             )}
           />

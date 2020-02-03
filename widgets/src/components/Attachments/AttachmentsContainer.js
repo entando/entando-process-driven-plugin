@@ -3,15 +3,8 @@ import { MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import withStyles from '@material-ui/core/styles/withStyles';
-import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
-import DeleteIcon from '@material-ui/icons/Delete';
 
 import { DOMAINS, LOCAL } from 'api/constants';
 import { getAttachments, saveAttachment } from 'api/pda/attachments';
@@ -21,32 +14,20 @@ import SimpleDialog from 'components/common/SimpleDialog';
 import theme from 'theme';
 import AttachmentsSkeleton from './AttachmentsSkeleton';
 import AddAttachmentModal from './AddAttachmentModal';
+import Attachment from './Attachment';
 
 const styles = {
-  listItem: {
-    border: 'solid 1px #eee',
-    marginBottom: 2,
-    background: 'white',
-    borderRadius: 3,
-  },
-  truncate: {
-    display: 'block',
-    overflow: 'hidden',
-    width: '80%',
-    textOverflow: 'ellipsis',
-  },
   footer: {
     textAlign: 'right',
   },
 };
 
-class Attachments extends React.Component {
+class AttachmentsContainer extends React.Component {
   state = {
     attachments: [],
     loading: true,
     dialogOpen: false,
     connection: '',
-    process: '',
   };
 
   componentDidMount = async () => {
@@ -57,38 +38,47 @@ class Attachments extends React.Component {
       DOMAINS.PDA = serviceUrl;
     }
 
-    try {
-      await this.fetchConfigs();
-      await this.fetchAttachments();
-    } catch (error) {
-      console.log(error);
-    } finally {
-      this.setState({ loading: false });
-    }
+    const config = await this.fetchConfigs();
+    this.setState({ connection: config.knowledgeSource }, async () => {
+      const attachments = await this.fetchAttachments();
+      this.setState({ attachments, loading: false });
+    });
   };
 
   fetchConfigs = async () => {
     const { pageCode, frameId } = this.props;
 
-    const widgetConfigs = await getPageWidget(pageCode, frameId, 'ATTACHMENTS');
-    if (widgetConfigs.errors.length) {
-      throw widgetConfigs.errors[0];
-    }
-    if (!widgetConfigs.payload) {
-      throw new Error('No configuration found for this widget');
-    }
+    try {
+      const widgetConfigs = await getPageWidget(pageCode, frameId, 'ATTACHMENTS');
+      if (widgetConfigs.errors.length) {
+        throw widgetConfigs.errors[0];
+      }
+      if (!widgetConfigs.payload) {
+        throw new Error('No configuration found for this widget');
+      }
 
-    const { config } = widgetConfigs.payload;
-    await this.setState({ connection: config.knowledgeSource, process: config.process });
+      const { config } = widgetConfigs.payload;
+      return config;
+    } catch (error) {
+      this.handleError(error);
+    }
+    return null;
   };
 
   fetchAttachments = async () => {
     const { connection, process } = this.state;
-    const attachments = await getAttachments(connection, process);
-    if (attachments.errors.length) {
-      throw attachments.errors[0];
+
+    try {
+      const attachments = await getAttachments(connection, process);
+      if (attachments.errors.length) {
+        throw attachments.errors[0];
+      }
+
+      return attachments.payload;
+    } catch (error) {
+      this.handleError(error);
     }
-    await this.setState({ attachments: attachments.payload });
+    return null;
   };
 
   toggleDialog = () => {
@@ -96,18 +86,28 @@ class Attachments extends React.Component {
   };
 
   handleUpload = async files => {
+    const { connection } = this.state;
+    const { taskId } = this.props;
     console.log('begin upload of files:');
     try {
       const responses = [];
       await files.forEach(async file => {
-        responses.push(await saveAttachment(file));
+        responses.push(await saveAttachment(connection, taskId, file));
       });
       console.log('Uploaded!');
     } catch (error) {
-      console.log(error);
+      this.handleError(error);
     }
 
-    console.log('end of upload of files:');
+    console.log('end upload of files:');
+  };
+
+  handleDelete = item => () => {
+    console.log(item);
+  };
+
+  handleError = error => {
+    console.log(error);
   };
 
   render() {
@@ -119,21 +119,11 @@ class Attachments extends React.Component {
         <div>
           <Typography variant="h3">Attachments</Typography>
           {loading ? (
-            <AttachmentsSkeleton rows={5} />
+            <AttachmentsSkeleton rows={3} />
           ) : (
             <List>
               {attachments.map(item => (
-                <ListItem key={item.id} className={classes.listItem}>
-                  <ListItemIcon>
-                    <FileCopyIcon fontSize="small" />
-                  </ListItemIcon>
-                  <ListItemText className={classes.truncate}>{item.name}</ListItemText>
-                  <ListItemSecondaryAction>
-                    <IconButton size="small">
-                      <DeleteIcon fontSize="small" />
-                    </IconButton>
-                  </ListItemSecondaryAction>
-                </ListItem>
+                <Attachment key={item.id} item={item} onDelete={this.handleDelete} />
               ))}
             </List>
           )}
@@ -146,7 +136,7 @@ class Attachments extends React.Component {
         <SimpleDialog
           title="Add new Attachment"
           open={dialogOpen}
-          body={<AddAttachmentModal onUpload={this.handleUpload} />}
+          body={<AddAttachmentModal onUpload={this.handleUpload} onClose={this.toggleDialog} />}
           onClose={this.toggleDialog}
           maxWidth="md"
         />
@@ -155,22 +145,23 @@ class Attachments extends React.Component {
   }
 }
 
-Attachments.propTypes = {
+AttachmentsContainer.propTypes = {
   classes: PropTypes.shape({
     listItem: PropTypes.string,
     truncate: PropTypes.string,
     footer: PropTypes.string,
   }),
+  taskId: PropTypes.string.isRequired,
   serviceUrl: PropTypes.string,
   pageCode: PropTypes.string,
   frameId: PropTypes.string,
 };
 
-Attachments.defaultProps = {
+AttachmentsContainer.defaultProps = {
   classes: {},
   serviceUrl: '',
   pageCode: '',
   frameId: '',
 };
 
-export default withStyles(styles)(Attachments);
+export default withStyles(styles)(AttachmentsContainer);
