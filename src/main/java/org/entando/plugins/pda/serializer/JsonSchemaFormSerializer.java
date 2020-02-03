@@ -11,10 +11,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.entando.plugins.pda.core.model.form.Form;
 import org.entando.plugins.pda.core.model.form.FormField;
 import org.entando.plugins.pda.core.model.form.FormFieldInteger;
+import org.entando.plugins.pda.core.model.form.FormFieldSubForm;
 import org.entando.plugins.pda.core.model.form.FormFieldText;
 import org.entando.plugins.pda.core.model.form.FormFieldType;
 import org.springframework.stereotype.Component;
 
+@SuppressWarnings("PMD.TooManyMethods")
 @Component
 public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     private static final String SCHEMA_VERSION = "$schema";
@@ -53,26 +55,15 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     public void serialize(JsonSchemaForm schema, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
             throws IOException {
 
+        Form form = schema.getForm();
+
         jsonGenerator.writeStartObject();
+
         writeSchemaHeader(jsonGenerator, schema);
-
+        writeTitle(jsonGenerator, form.getName());
         writeFieldType(jsonGenerator, TYPE_OBJECT);
-        jsonGenerator.writeFieldName(PROPERTIES);
-        jsonGenerator.writeStartObject();
+        writeProperties(jsonGenerator, form.getFields());
 
-        for (Form form : schema.getForms()) {
-            jsonGenerator.writeFieldName(form.getId());
-            jsonGenerator.writeStartObject();
-            writeTitle(jsonGenerator, form.getName());
-            jsonGenerator.writeStringField(TYPE, TYPE_OBJECT);
-
-            writeRequiredFields(jsonGenerator, form.getFields());
-            writeProperties(jsonGenerator, form.getFields());
-
-            jsonGenerator.writeEndObject();
-        }
-
-        jsonGenerator.writeEndObject();
         jsonGenerator.writeEndObject();
     }
 
@@ -89,6 +80,30 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         if (!StringUtils.isEmpty(description)) {
             jsonGenerator.writeStringField(DESCRIPTION, description);
         }
+    }
+
+    private void writeForm(JsonGenerator jsonGenerator, Form form) throws IOException {
+        jsonGenerator.writeFieldName(form.getId());
+        jsonGenerator.writeStartObject();
+        writeTitle(jsonGenerator, form.getName());
+        jsonGenerator.writeStringField(TYPE, TYPE_OBJECT);
+
+        writeRequiredFields(jsonGenerator, form.getFields());
+        writeProperties(jsonGenerator, form.getFields());
+
+        jsonGenerator.writeEndObject();
+    }
+
+    private void writeField(JsonGenerator jsonGenerator, FormField field) throws IOException {
+        jsonGenerator.writeFieldName(field.getName());
+        jsonGenerator.writeStartObject();
+
+        writeFieldType(jsonGenerator, field.getType());
+        writeTitle(jsonGenerator, field.getLabel());
+        writeDescription(jsonGenerator, field.getPlaceholder());
+        writeFieldMinMax(jsonGenerator, field);
+
+        jsonGenerator.writeEndObject();
     }
 
     private void writeRequiredFields(JsonGenerator jsonGenerator, List<FormField> fields) throws IOException {
@@ -108,15 +123,12 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         jsonGenerator.writeStartObject();
 
         for (FormField field : fields) {
-            jsonGenerator.writeFieldName(field.getName());
-            jsonGenerator.writeStartObject();
-
-            writeFieldType(jsonGenerator, field.getType());
-            writeTitle(jsonGenerator, field.getLabel());
-            writeDescription(jsonGenerator, field.getPlaceholder());
-            writeFieldMinMax(jsonGenerator, field);
-
-            jsonGenerator.writeEndObject();
+            if (field.getType().equals(FormFieldType.SUBFORM)) {
+                FormFieldSubForm fieldSubForm = (FormFieldSubForm) field;
+                writeForm(jsonGenerator, fieldSubForm.getForm());
+            } else {
+                writeField(jsonGenerator, field);
+            }
         }
 
         jsonGenerator.writeEndObject();

@@ -1,36 +1,30 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "http://entando.org/schemas/pda-form.json",
-  "type" : "object",
-  "properties" : {
-    "1" : {
-      "title" : "Task 1",
-      "type" : "object",
-      "required" : [ ],
-      "properties" : {
-        "reason" : {
-          "type" : "integer",
-          "title" : "Reason",
-          "description" : "This is the placeholder for task form field 1",
-          "minimum" : 0,
-          "maximum" : 10
-        },
-        "external" : {
-          "type" : "boolean",
-          "title" : "External",
-          "description" : "This is the placeholder for task form field 2"
-        }
-      }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://entando.org/schemas/pda-form.json",
+  "title": "Task 1",
+  "type": "object",
+  "properties": {
+    "reason": {
+      "type": "integer",
+      "title": "Reason",
+      "description": "This is the placeholder for task form field 1",
+      "minimum": 0,
+      "maximum": 10
     },
-    "2" : {
-      "title" : "Task 2",
-      "type" : "object",
-      "required" : [ ],
-      "properties" : {
-        "performance" : {
-          "type" : "string",
-          "title" : "Performance",
-          "description" : "This is the placeholder for task form field 3"
+    "external": {
+      "type": "boolean",
+      "title": "External",
+      "description": "This is the placeholder for task form field 2"
+    },
+    "2": {
+      "title": "Task 2",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "subform": {
+          "type": "string",
+          "title": "Performance",
+          "description": "This is the placeholder for task form field 4"
         }
       }
     }

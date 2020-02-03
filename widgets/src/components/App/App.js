@@ -24,6 +24,9 @@ import Home from 'components/App/Home';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 
+import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
+import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
+
 import TaskDetailsContainer from 'components/TaskDetails/TaskDetailsContainer';
 import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 
@@ -156,6 +159,26 @@ function App() {
                 pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
                 frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
                 widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/SummaryCard/"
+            render={() => (
+              <SummaryCardContainer
+                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
+                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
+                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/SummaryCardConfig/"
+            render={() => (
+              <SummaryCardConfig
+                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
+                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
+                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
               />
             )}
           />
