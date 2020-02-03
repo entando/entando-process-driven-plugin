@@ -24,10 +24,10 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
       </div>
       <div>
         <div
-          class="SearchInput-root-82"
+          class="SearchInput-root-97"
         >
           <div
-            class="MuiInputBase-root SearchInput-input-83"
+            class="MuiInputBase-root SearchInput-input-98"
           >
             <input
               class="MuiInputBase-input"
@@ -76,7 +76,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -101,7 +101,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -126,7 +126,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -151,7 +151,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -176,7 +176,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -201,7 +201,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -226,7 +226,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -251,7 +251,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -276,7 +276,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -301,7 +301,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -326,7 +326,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -351,7 +351,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -376,7 +376,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -401,7 +401,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -426,7 +426,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -451,7 +451,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -476,7 +476,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -501,7 +501,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -526,7 +526,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -551,7 +551,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -576,7 +576,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -601,7 +601,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -626,7 +626,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -651,7 +651,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -676,7 +676,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               <span
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-135"
+                class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-150"
                 role="button"
                 tabindex="0"
               >
@@ -2325,7 +2325,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
               class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar MuiToolbar-gutters"
             >
               <div
-                class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-159"
+                class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-174"
               />
               <p
                 class="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
@@ -2350,7 +2350,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-160"
+                  class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-175"
                   focusable="false"
                   role="presentation"
                   viewBox="0 0 24 24"
@@ -2366,7 +2366,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 table.showing
               </p>
               <div
-                class="InternalTablePaginationActions-root-181"
+                class="InternalTablePaginationActions-root-196"
               >
                 <button
                   class="MuiButtonBase-root MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
@@ -2401,7 +2401,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-182"
+                      class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-197"
                       focusable="false"
                       role="presentation"
                       viewBox="0 0 24 24"
@@ -2413,7 +2413,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                   </span>
                 </button>
                 <div
-                  class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-183"
+                  class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-198"
                   style="width: 35px;"
                 >
                   <div
@@ -2494,14 +2494,14 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
 exports[`<TaskListContainer /> renders snapshot correctly on error state 1`] = `
 <div>
   <div
-    class="MuiPaper-root TaskList-paper-213 MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root TaskList-paper-228 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="ErrorComponent-root-260"
+      class="ErrorComponent-root-290"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root ErrorComponent-icon-261"
+        class="MuiSvgIcon-root ErrorComponent-icon-291"
         focusable="false"
         role="presentation"
         viewBox="0 0 24 24"
@@ -2521,7 +2521,7 @@ exports[`<TaskListContainer /> renders snapshot correctly on error state 1`] = `
     class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
   >
     <div
-      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-259 MuiPaper-elevation6"
+      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-289 MuiPaper-elevation6"
       direction="up"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -2530,11 +2530,11 @@ exports[`<TaskListContainer /> renders snapshot correctly on error state 1`] = `
         class="MuiSnackbarContent-message"
       >
         <span
-          class="ErrorNotification-message-256"
+          class="ErrorNotification-message-286"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root ErrorNotification-icon-257 ErrorNotification-iconVariant-258"
+            class="MuiSvgIcon-root ErrorNotification-icon-287 ErrorNotification-iconVariant-288"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -2560,7 +2560,7 @@ exports[`<TaskListContainer /> renders snapshot correctly on error state 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root ErrorNotification-icon-257"
+              class="MuiSvgIcon-root ErrorNotification-icon-287"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"

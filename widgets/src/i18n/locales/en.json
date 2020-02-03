@@ -3,6 +3,25 @@
     "of": "of",
     "submit": "Submit"
   },
+  "card": {
+    "monthly": "Monthly",
+    "annually": "Annual",
+    "daily": "Daily",
+    "labels": {
+      "REQUESTS": {
+        "TITLE": "Requests",
+        "TOTAL_LABEL": "Total Requests"
+      }
+    }
+  },
+  "taskList": {
+    "diagramModalTitle": "Process",
+    "actionButtons": {
+      "complete": "Complete",
+      "claim": "Claim",
+      "diagram": "Diagram"
+    }
+  },
   "table": {
     "title": "Task List",
     "subtitle": "List of tasks",
