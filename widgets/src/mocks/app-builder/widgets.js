@@ -21,4 +21,10 @@ export default {
     widgetCode: 'phase_1_widgets_completion_form',
     configs: MOCKED_WIDGET_CONFIGS.COMPLETION_FORM,
   },
+  SUMMARY_CARD: {
+    pageCode: 'phase_1_widgets',
+    frameId: '1',
+    widgetCode: 'summary_card',
+    configs: MOCKED_WIDGET_CONFIGS.SUMMARY_CARD,
+  },
 };
