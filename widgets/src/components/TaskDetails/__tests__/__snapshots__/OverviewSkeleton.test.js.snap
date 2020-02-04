@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OverviewSkeleton /> renders snapshot correctly 1`] = `
+<div>
+  <div
+    class="TaskListSkeleton-header-1"
+  >
+    <div
+      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+      style="width: 200px; height: 33px;"
+    />
+    <div
+      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+      style="width: 230px; height: 40px;"
+    />
+  </div>
+  <div>
+    <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item"
+      >
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+          style="width: 80px;"
+        />
+        <div
+          class="TaskListSkeleton-value-2"
+        >
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+            style="width: 60px;"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item"
+      >
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+          style="width: 80px;"
+        />
+        <div
+          class="TaskListSkeleton-value-2"
+        >
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+            style="width: 100px;"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item"
+      >
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+          style="width: 80px;"
+        />
+        <div
+          class="TaskListSkeleton-value-2"
+        >
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+            style="width: 120px;"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item"
+      >
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+          style="width: 80px;"
+        />
+        <div
+          class="TaskListSkeleton-value-2"
+        >
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+            style="width: 100px; height: 32px;"
+          />
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item"
+      >
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+          style="width: 80px;"
+        />
+        <div
+          class="TaskListSkeleton-value-2"
+        >
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+            style="width: 100px;"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Comment /> renders snapshot correctly 1`] = `
+<div>
+  <div
+    class="Comment-comment-1"
+  >
+    <div
+      class="Comment-avatar-2"
+    >
+      <div
+        class="MuiAvatar-root MuiAvatar-circle"
+      >
+        <img
+          alt="pamAdmin"
+          class="MuiAvatar-img"
+          src="/"
+        />
+      </div>
+    </div>
+    <div
+      class="Comment-commentText-3"
+    >
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis volutpat est ipsum, quis congue est pharetra ut. Morbi mollis sem eu tellus elementum, et bibendum dolor viverra. Donec maximus quam ligula, et commodo risus ultricies vel. Morbi mollis dui odio, id accumsan turpis pulvinar vitae. Mauris fringilla in mauris nec ullamcorper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu sagittis metus, vitae posuere neque. Etiam ultrices, leo a convallis pharetra, magna ante mollis est, ut tristique neque mauris quis lacus.
+
+In pulvinar, leo quis congue molestie, metus dolor sagittis magna, nec efficitur leo tortor at orci. Sed fringilla urna non urna dapibus, ac imperdiet libero condimentum. Phasellus vulputate vel est eu facilisis. Pellentesque eu purus egestas, condimentum ante finibus, consectetur purus. Sed commodo ante aliquam, vestibulum est at, laoreet lorem. Etiam blandit mi sed lectus fermentum, sit amet lacinia ligula egestas. Curabitur id elit mattis, ultricies mauris sagittis, viverra nulla. Nunc id ligula a dolor placerat porttitor ut in neque. Curabitur imperdiet felis a magna fringilla, nec tempus justo scelerisque.
+      </div>
+      <div
+        class="Comment-created-4"
+      >
+        pamAdmin - 1/1/2020, 12:00:00 AM - 
+        <span
+          role="button"
+          tabindex="0"
+        >
+          taskComments.remove
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

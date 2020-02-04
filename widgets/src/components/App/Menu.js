@@ -18,6 +18,7 @@ import {
   Dashboard as DashboardIcon,
   Description as DescriptionIcon,
   DoneAll as DoneAllIcon,
+  Comment as CommentsIcon,
 } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -32,6 +33,45 @@ const styles = {
   },
 };
 
+const menuItems = [
+  {
+    linkTo: '/TaskList',
+    linkText: 'Task list',
+    Icon: <ListIcon />,
+    configLinkTo: '/TaskListConfig',
+  },
+  {
+    linkTo: '/TaskDetails',
+    linkText: 'Task details',
+    Icon: <DescriptionIcon />,
+    configLinkTo: '/TaskDetailsConfig',
+  },
+  {
+    linkTo: '/TaskCompletionForm',
+    linkText: 'Task completion form',
+    Icon: <DoneAllIcon />,
+    configLinkTo: '/TaskCompletionFormConfig',
+  },
+  {
+    linkTo: '/TaskComments',
+    linkText: 'Task comments',
+    Icon: <CommentsIcon />,
+    configLinkTo: '/TaskCommentsConfig',
+  },
+  {
+    linkTo: '/SummaryCard',
+    linkText: 'Summary card',
+    Icon: <DashboardIcon />,
+    configLinkTo: '/SummaryCardConfig',
+  },
+  {
+    linkTo: '/ProcessForm',
+    linkText: 'Process form',
+    Icon: <DescriptionIcon />,
+    configLinkTo: '/ProcessFormConfig',
+  },
+];
+
 const Menu = ({ open, setOpen, classes }) => (
   <Drawer open={open} onClose={() => setOpen(false)}>
     <div className="app-list">
@@ -45,6 +85,23 @@ const Menu = ({ open, setOpen, classes }) => (
 
         <Typography variant="overline">Widgets</Typography>
         <Divider />
+        {menuItems.map(({ linkTo, Icon, linkText, configLinkTo }) => (
+          <div className={classes.item} key={linkTo}>
+            <ListItem button component={Link} to={linkTo} onClick={() => setOpen(false)}>
+              {Icon}
+              <ListItemText primary={linkText} />
+            </ListItem>
+            <IconButton
+              className={classes.iconButton}
+              size="small"
+              component={Link}
+              to={configLinkTo}
+              onClick={() => setOpen(false)}
+            >
+              <SettingsIcon fontSize="small" />
+            </IconButton>
+          </div>
+        ))}
         <div className={classes.item}>
           <ListItem button component={Link} to="/TaskList" onClick={() => setOpen(false)}>
             <ListIcon />
@@ -100,21 +157,6 @@ const Menu = ({ open, setOpen, classes }) => (
             size="small"
             component={Link}
             to="/SummaryCardConfig"
-            onClick={() => setOpen(false)}
-          >
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </div>
-        <div className={classes.item}>
-          <ListItem button component={Link} to="/ProcessForm" onClick={() => setOpen(false)}>
-            <DescriptionIcon />
-            <ListItemText primary="ProcessForm" />
-          </ListItem>
-          <IconButton
-            className={classes.iconButton}
-            size="small"
-            component={Link}
-            to="/ProcessFormConfig"
             onClick={() => setOpen(false)}
           >
             <SettingsIcon fontSize="small" />

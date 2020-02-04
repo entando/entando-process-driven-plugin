@@ -26,7 +26,7 @@
   "scripts": {
     "start": "REACT_APP_LOCAL=true react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --setupFilesAfterEnv ./setupTests.js",
+    "test": "react-scripts test --verbose --setupFilesAfterEnv ./setupTests.js",
     "test:coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "npx eslint --fix ./src",

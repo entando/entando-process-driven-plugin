@@ -21,6 +21,13 @@ export default {
     widgetCode: 'phase_1_widgets_completion_form',
     configs: MOCKED_WIDGET_CONFIGS.COMPLETION_FORM,
   },
+  TASK_COMMENTS: {
+    taskId: '32',
+    pageCode: 'phase_1_widgets',
+    frameId: '5',
+    widgetCode: 'phase_1_widgets_comments',
+    configs: MOCKED_WIDGET_CONFIGS.TASK_COMMENTS,
+  },
   SUMMARY_CARD: {
     pageCode: 'phase_1_widgets',
     frameId: '1',
