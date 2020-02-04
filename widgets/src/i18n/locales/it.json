@@ -1,7 +1,10 @@
 {
   "common": {
     "of": "di",
-    "submit": "Submit"
+    "submit": "Submit",
+    "add": "Add",
+    "yes": "Yes",
+    "no": "No"
   },
   "taskList": {
     "diagramModalTitle": "Processi",
@@ -28,6 +31,12 @@
       "title": "General Information",
       "noInformation": "No information available"
     }
+  },
+  "taskComments": {
+    "addNote": "Add note",
+    "title": "Task notes",
+    "noComments": "No notes on this task",
+    "remove": "Remove"
   },
   "task": {
     "fields": {

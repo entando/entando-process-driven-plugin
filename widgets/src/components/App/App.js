@@ -175,7 +175,6 @@ function App() {
             path="/TaskComments/"
             render={() => (
               <TaskCommentsContainer
-                skeletonLoading={skeletonLoading}
                 taskId={WIDGETS_CONFIG.TASK_COMMENTS.taskId}
                 pageCode={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}
                 frameId={WIDGETS_CONFIG.TASK_COMMENTS.frameId}

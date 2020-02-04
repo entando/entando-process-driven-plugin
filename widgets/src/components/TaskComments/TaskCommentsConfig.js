@@ -6,6 +6,7 @@ import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
+import ErrorNotification from 'components/common/ErrorNotification';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -20,30 +21,37 @@ class TaskCommentsConfig extends React.Component {
       processList: [],
       knowledgeSource: '',
       selectedProcess: '',
+      errorMessage: '',
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeProcess = this.onChangeProcess.bind(this);
+    this.closeNotification = this.closeNotification.bind(this);
+    this.handleError = this.handleError.bind(this);
     this.handleSave = this.handleSave.bind(this);
   }
 
   async componentDidMount() {
-    const { frameId, pageCode } = this.props;
+    try {
+      const { frameId, pageCode } = this.props;
 
-    // getting list of Kie server connections
-    const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload });
+      // getting list of Kie server connections
+      const sourceList = await getConnections();
+      this.setState({ sourceList: sourceList.payload });
 
-    // getting existing configs
-    const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'TASK_COMMENTS');
+      // getting existing configs
+      const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'TASK_COMMENTS');
 
-    const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
-    if (configs && configs.knowledgeSource) {
-      this.onChangeKnowledgeSource(configs.knowledgeSource, () => {
-        if (configs.process) {
-          this.onChangeProcess(configs.process);
-        }
-      });
+      const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
+      if (configs && configs.knowledgeSource) {
+        this.onChangeKnowledgeSource(configs.knowledgeSource, () => {
+          if (configs.process) {
+            this.onChangeProcess(configs.process);
+          }
+        });
+      }
+    } catch (error) {
+      this.handleError(error.message);
     }
   }
 
@@ -65,6 +73,14 @@ class TaskCommentsConfig extends React.Component {
     cb();
   }
 
+  closeNotification = () => {
+    this.setState({ errorMessage: '' });
+  };
+
+  handleError(errorMessage) {
+    this.setState({ errorMessage });
+  }
+
   async handleSave() {
     const { frameId, pageCode, widgetCode } = this.props;
     const { knowledgeSource, selectedProcess } = this.state;
@@ -83,15 +99,22 @@ class TaskCommentsConfig extends React.Component {
       const response = await putPageWidget(pageCode, frameId, body);
       console.log('Configs got saved', response);
     } catch (error) {
-      console.log('Error while saving configs', error);
+      this.handleError(error.message);
     }
   }
 
   render() {
-    const { knowledgeSource, sourceList, processList = [], selectedProcess = '' } = this.state;
+    const {
+      knowledgeSource,
+      sourceList,
+      processList = [],
+      selectedProcess = '',
+      errorMessage,
+    } = this.state;
 
     return (
       <div>
+        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
         <form>
           <Row>
             <Col xs={12}>

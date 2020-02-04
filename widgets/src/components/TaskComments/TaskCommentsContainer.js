@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { getTaskComments, postTaskComment, deleteTaskComment } from 'api/pda/comments';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
+import ErrorNotification from 'components/common/ErrorNotification';
 import WidgetBox from 'components/common/WidgetBox';
 import Comment from 'components/TaskComments/Comment';
 import AddComment from 'components/TaskComments/AddComment';
@@ -38,8 +39,10 @@ class TaskCommentsContainer extends React.Component {
       addingComment: false,
       config: {},
       comments: [],
+      errorMessage: '',
     };
 
+    this.closeNotification = this.closeNotification.bind(this);
     this.handleError = this.handleError.bind(this);
     this.fetchWidgetConfigs = this.fetchWidgetConfigs.bind(this);
     this.onClickAddComment = this.onClickAddComment.bind(this);
@@ -106,9 +109,14 @@ class TaskCommentsContainer extends React.Component {
     onClickRemoveComment(id);
   }
 
-  handleError(err) {
+  closeNotification = () => {
+    this.setState({ errorMessage: '' });
+  };
+
+  handleError(errorMessage) {
+    this.setState({ errorMessage });
     const { onError } = this.props;
-    onError(err);
+    onError(errorMessage);
   }
 
   async fetchWidgetConfigs() {
@@ -141,7 +149,7 @@ class TaskCommentsContainer extends React.Component {
   }
 
   render() {
-    const { comments, loading, addingComment } = this.state;
+    const { comments, loading, addingComment, errorMessage } = this.state;
     const { classes, taskId } = this.props;
 
     const hasComments = comments.length > 0;
@@ -178,6 +186,7 @@ class TaskCommentsContainer extends React.Component {
             )}
           </WidgetBox>
         </Container>
+        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
       </ThemeProvider>
     );
   }

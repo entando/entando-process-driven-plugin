@@ -12,7 +12,7 @@ export const getTaskComments = async (connection, taskId) => {
     uri: `/connections/${connection}/tasks/${taskId}/comments`,
     method: METHODS.GET,
     mockResponse: MOCKED_GET_TASK_COMMENTS_RESPONSE,
-    useAuthentication: false,
+    useAuthentication: true,
   });
 };
 
@@ -24,7 +24,7 @@ export const postTaskComment = async (connection, taskId, comment) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ comment }),
     mockResponse: MOCKED_POST_COMMENT_RESPONSE,
-    useAuthentication: false,
+    useAuthentication: true,
   });
 };
 
@@ -34,6 +34,6 @@ export const deleteTaskComment = async (connection, taskId, commentId) => {
     uri: `/connections/${connection}/tasks/${taskId}/comments/${commentId}`,
     method: METHODS.DELETE,
     mockResponse: MOCKED_DELETE_COMMENT_RESPONSE,
-    useAuthentication: false,
+    useAuthentication: true,
   });
 };

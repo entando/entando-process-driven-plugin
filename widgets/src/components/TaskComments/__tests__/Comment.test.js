@@ -58,18 +58,4 @@ describe('<Comment />', () => {
       expect(onClickRemoveComment).toHaveBeenCalledTimes(1);
     });
   });
-
-  // it('does not call onClickAddComment when "Add" button is clicked without comment added', async () => {
-  //   const onClickAddComment = jest.fn();
-  //   const { findByText } = render(
-  //     <Comment comment={MOCKED_COMMENT} onClickAddComment={onClickAddComment} />
-  //   );
-
-  //   const addButton = await findByText('common.add');
-  //   fireEvent.click(addButton);
-
-  //   await wait(() => {
-  //     expect(onClickAddComment).toHaveBeenCalledTimes(0);
-  //   });
-  // });
 });
