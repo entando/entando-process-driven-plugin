@@ -104,7 +104,7 @@ class OvertimeGraph extends Component {
             <Grid container>
               <Grid item xs={8} style={{ height: '300px' }}>
                 {loading ? (
-                  <Skeleton variant="rectangle" height="100%" />
+                  <Skeleton variant="rect" height="100%" />
                 ) : (
                   <BarAreaChart
                     data={[
@@ -127,6 +127,7 @@ class OvertimeGraph extends Component {
                     label="Total requests this year"
                     percent={48}
                     trend="up"
+                    loading={loading}
                   />
                 </Box>
                 <Box mb={1}>
@@ -135,6 +136,7 @@ class OvertimeGraph extends Component {
                     label="Bookings in the last month"
                     percent={60}
                     trend="up"
+                    loading={loading}
                   />
                 </Box>
                 <DataSummary
@@ -142,6 +144,7 @@ class OvertimeGraph extends Component {
                   label="Annual income from requests"
                   percent={22}
                   trend="down"
+                  loading={loading}
                 />
               </Grid>
             </Grid>
