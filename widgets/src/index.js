@@ -7,6 +7,7 @@ import 'index.css';
 
 // insert the custom elements to the scope
 import 'custom-elements/TaskListElement';
+import 'custom-elements/SummaryCardElement';
 import 'custom-elements/TaskDetailsElement';
 import 'custom-elements/TaskCompletionFormElement';
 import 'custom-elements/TaskCommentsElement';

@@ -6,6 +6,17 @@
     "yes": "Yes",
     "no": "No"
   },
+  "card": {
+    "monthly": "Monthly",
+    "annually": "Annual",
+    "daily": "Daily",
+    "labels": {
+      "REQUESTS": {
+        "TITLE": "Requests",
+        "TOTAL_LABEL": "Total Requests"
+      }
+    }
+  },
   "taskList": {
     "diagramModalTitle": "Process",
     "actionButtons": {

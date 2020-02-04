@@ -6,6 +6,17 @@
     "yes": "Yes",
     "no": "No"
   },
+  "card": {
+    "monthly": "Mensile",
+    "annually": "Annuale",
+    "daily": "Giornaliero",
+    "labels": {
+      "REQUESTS": {
+        "TITLE": "Richieste",
+        "TOTAL_LABEL": "Richieste Totali"
+      }
+    }
+  },
   "taskList": {
     "diagramModalTitle": "Processi",
     "actionButtons": {
