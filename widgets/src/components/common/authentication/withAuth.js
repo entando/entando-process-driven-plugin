@@ -18,6 +18,7 @@ export default function withAuth(AuthenticatedComponent, permissions = []) {
         authenticated: false, // user is logged-in
         authorized: false, // user has correct access rights (roles)
         missingPermissions: [],
+        userRoles: [],
       };
 
       this.handleKeycloakEvent = this.handleKeycloakEvent.bind(this);
@@ -62,13 +63,14 @@ export default function withAuth(AuthenticatedComponent, permissions = []) {
             initialized: true,
             authenticated: keycloak.authenticated || false,
             missingPermissions,
+            userRoles,
           });
         }
       }
     }
 
     render() {
-      const { authenticated, initialized, missingPermissions } = this.state;
+      const { authenticated, initialized, missingPermissions, userRoles } = this.state;
 
       // if there are no mandatory permissions, component can be displayed as is
       if (permissions.length === 0 || process.env.REACT_APP_DISABLE_KEYCLOAK === 'true') {
@@ -91,7 +93,7 @@ export default function withAuth(AuthenticatedComponent, permissions = []) {
         }
 
         // eslint-disable-next-line react/jsx-props-no-spreading
-        return <AuthenticatedComponent {...this.props} />;
+        return <AuthenticatedComponent {...this.props} userRoles={userRoles} />;
       }
 
       return null;

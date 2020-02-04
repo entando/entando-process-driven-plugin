@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { render } from '@testing-library/react';
-import 'mocks/i18nMock';
+import { render, screen } from '@testing-library/react';
 
+import 'mocks/i18nMock';
 import withAuth from 'components/common/authentication/withAuth';
+import mockKeycloak from 'mocks/auth/keycloak';
 
 const AuthenticatedComponent = ({ value }) => <div>{value}</div>;
 AuthenticatedComponent.propTypes = { value: PropTypes.string.isRequired };
+
+// beforeEach(() => {
+//   window.entando = {};
+// });
 
 describe('withAuth()', () => {
   it('passes props through', async () => {
@@ -17,11 +22,31 @@ describe('withAuth()', () => {
     expect(container).toMatchSnapshot();
   });
 
-  // it('shows that permissions are not met', async () => {
-  //   const ComponentWithAuth = withAuth(AuthenticatedComponent, ['connection-list']);
+  it('shows loading screen when keycloak is not initialized', async () => {
+    const ComponentWithAuth = withAuth(AuthenticatedComponent, ['unmet-permission']);
 
-  //   const { container } = render(<ComponentWithAuth value="Some value" />);
+    const { container } = render(<ComponentWithAuth value="Some value" />);
 
-  //   expect(container).toMatchSnapshot();
-  // });
+    expect(container).toMatchSnapshot();
+  });
+
+  it('shows that permissions are not met', async () => {
+    mockKeycloak();
+    const ComponentWithAuth = withAuth(AuthenticatedComponent, ['unmet-permission']);
+
+    render(<ComponentWithAuth value="Some value" />);
+
+    expect(
+      screen.getByText('authentication.missingPermissions: unmet-permission.')
+    ).toBeInTheDocument();
+  });
+
+  it('shows widget when keycloak is initialized and permissions are met', async () => {
+    mockKeycloak();
+    const ComponentWithAuth = withAuth(AuthenticatedComponent, ['task-list']);
+
+    const { container } = render(<ComponentWithAuth value="Some value" />);
+
+    expect(container).toMatchSnapshot();
+  });
 });

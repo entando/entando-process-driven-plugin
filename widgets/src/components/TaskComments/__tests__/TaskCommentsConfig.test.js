@@ -10,6 +10,9 @@ import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
+import mockKeycloak from 'mocks/auth/keycloak';
+
+mockKeycloak();
 
 jest.mock('api/app-builder/pages');
 jest.mock('api/pda/connections');

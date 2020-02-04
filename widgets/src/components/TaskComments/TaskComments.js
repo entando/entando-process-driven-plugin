@@ -7,7 +7,6 @@ import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
-import withAuth from 'components/common/authentication/withAuth';
 import { getTaskComments, postTaskComment, deleteTaskComment } from 'api/pda/comments';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
@@ -206,8 +205,4 @@ TaskCommentsContainer.defaultProps = {
   frameId: '',
 };
 
-export default withAuth(withStyles(styles)(TaskCommentsContainer), [
-  'task-comments-create',
-  'task-comments-delete',
-  'task-comments-list',
-]);
+export default withStyles(styles)(TaskCommentsContainer);

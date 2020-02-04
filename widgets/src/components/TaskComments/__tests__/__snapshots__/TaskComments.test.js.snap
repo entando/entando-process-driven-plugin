@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TaskCommentsContainer /> renders snapshot correctly 1`] = `
+exports[`<TaskComments /> renders snapshot correctly 1`] = `
 <div>
   <div
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"

@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TaskComments from 'components/TaskComments/TaskCommentsContainer';
+import TaskCommentsWrapper from 'components/TaskComments/TaskCommentsWrapper';
 import { createWidgetEvent } from 'custom-elements/customEventsUtils';
 
 const CUSTOM_EVENT_PREFIX = 'task.comments';
@@ -32,7 +32,7 @@ class TaskCommentsElement extends HTMLElement {
     const taskId = this.getAttribute('task-id');
 
     const reactRoot = React.createElement(
-      TaskComments,
+      TaskCommentsWrapper,
       {
         onError: this.onError,
         onClickAddComment: this.onClickAddComment,

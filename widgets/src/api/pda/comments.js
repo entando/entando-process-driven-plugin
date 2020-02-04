@@ -11,7 +11,7 @@ export const getTaskComments = async (connection, taskId) => {
     domain: DOMAINS.PDA,
     uri: `/connections/${connection}/tasks/${taskId}/comments`,
     method: METHODS.GET,
-    mockResponse: MOCKED_GET_TASK_COMMENTS_RESPONSE,
+    mockResponse: MOCKED_GET_TASK_COMMENTS_RESPONSE.WITH_COMMENTS,
     useAuthentication: true,
   });
 };

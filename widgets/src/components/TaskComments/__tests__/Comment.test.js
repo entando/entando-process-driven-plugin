@@ -7,7 +7,7 @@ import Comment from 'components/TaskComments/Comment';
 import MOCKED_GET_TASK_COMMENTS_RESPONSE from 'mocks/taskComments/getComments';
 
 describe('<Comment />', () => {
-  const MOCKED_COMMENT = MOCKED_GET_TASK_COMMENTS_RESPONSE.payload[0];
+  const MOCKED_COMMENT = MOCKED_GET_TASK_COMMENTS_RESPONSE.WITH_COMMENTS.payload[0];
 
   it('renders snapshot correctly', async () => {
     const { container } = render(<Comment comment={MOCKED_COMMENT} />);

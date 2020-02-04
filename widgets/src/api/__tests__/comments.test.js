@@ -15,12 +15,12 @@ describe('Task comments API', () => {
     const taskId = 32;
     const url = `${DOMAINS.PDA}/connections/${connection}/tasks/${taskId}/comments`;
 
-    fetch.mockResponseOnce(JSON.stringify(MOCKED_GET_TASK_COMMENTS_RESPONSE));
+    fetch.mockResponseOnce(JSON.stringify(MOCKED_GET_TASK_COMMENTS_RESPONSE.WITH_COMMENTS));
     const result = await getTaskComments(connection, taskId);
 
     expect(fetch.mock.calls.length).toBe(1);
     expect(fetch.mock.calls[0][0]).toEqual(url);
-    expect(result).toEqual(MOCKED_GET_TASK_COMMENTS_RESPONSE);
+    expect(result).toEqual(MOCKED_GET_TASK_COMMENTS_RESPONSE.WITH_COMMENTS);
   });
 
   it('postTaskComment to return expected data', async () => {
