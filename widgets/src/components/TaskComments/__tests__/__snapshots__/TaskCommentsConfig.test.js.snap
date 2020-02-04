@@ -3,6 +3,7 @@
 exports[`<TaskCommentsConfig /> renders snapshot correctly 1`] = `
 <div>
   <div>
+    
     <form>
       <div
         class="row"
