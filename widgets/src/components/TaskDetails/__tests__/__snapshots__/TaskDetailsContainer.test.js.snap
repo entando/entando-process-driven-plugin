@@ -135,7 +135,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               <p
                 class="MuiTypography-root MuiTypography-body1"
               >
-                11/14/2019, 11:26:30 AM
+                1/1/2020, 12:00:00 AM
               </p>
             </div>
           </div>

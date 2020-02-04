@@ -2,11 +2,11 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
-import CompletionFormSkeleton from 'components/TaskCompletionForm/CompletionFormSkeleton';
+import JSONFormSkeleton from 'components/common/form/JSONFormSkeleton';
 
-describe('<CompletionFormSkeleton />', () => {
+describe('<JSONFormSkeleton />', () => {
   it('renders snapshot correctly', async () => {
-    const { container } = render(<CompletionFormSkeleton />);
+    const { container } = render(<JSONFormSkeleton />);
 
     expect(container).toMatchSnapshot();
   });

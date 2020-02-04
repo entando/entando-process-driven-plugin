@@ -10,6 +10,17 @@
     "notAuthenticated": "Please authenticate to view the content.",
     "missingPermissions": "User does not have these roles assigned"
   },
+  "card": {
+    "monthly": "Monthly",
+    "annually": "Annual",
+    "daily": "Daily",
+    "labels": {
+      "REQUESTS": {
+        "TITLE": "Requests",
+        "TOTAL_LABEL": "Total Requests"
+      }
+    }
+  },
   "taskList": {
     "diagramModalTitle": "Process",
     "actionButtons": {

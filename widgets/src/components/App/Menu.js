@@ -15,6 +15,7 @@ import {
   Home as HomeIcon,
   List as ListIcon,
   Settings as SettingsIcon,
+  Dashboard as DashboardIcon,
   Description as DescriptionIcon,
   DoneAll as DoneAllIcon,
   Comment as CommentsIcon,
@@ -56,6 +57,18 @@ const menuItems = [
     linkText: 'Task comments',
     Icon: <CommentsIcon />,
     configLinkTo: '/TaskCommentsConfig',
+  },
+  {
+    linkTo: '/SummaryCard',
+    linkText: 'Summary card',
+    Icon: <DashboardIcon />,
+    configLinkTo: '/SummaryCardConfig',
+  },
+  {
+    linkTo: '/ProcessForm',
+    linkText: 'Process form',
+    Icon: <DescriptionIcon />,
+    configLinkTo: '/ProcessFormConfig',
   },
 ];
 

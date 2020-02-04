@@ -24,6 +24,9 @@ import Home from 'components/App/Home';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 
+import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
+import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
+
 import TaskDetailsContainer from 'components/TaskDetails/TaskDetailsContainer';
 import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 
@@ -31,6 +34,9 @@ import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompl
 import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompletionFormConfig';
 
 import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
+
+import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
+import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -188,6 +194,46 @@ function App() {
                 pageCode={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}
                 frameId={WIDGETS_CONFIG.TASK_COMMENTS.frameId}
                 widgetCode={WIDGETS_CONFIG.TASK_COMMENTS.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/SummaryCard/"
+            render={() => (
+              <SummaryCardContainer
+                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
+                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
+                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/SummaryCardConfig/"
+            render={() => (
+              <SummaryCardConfig
+                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
+                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
+                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/ProcessForm"
+            render={() => (
+              <ProcessFormContainer
+                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/ProcessFormConfig"
+            render={() => (
+              <ProcessFormConfig
+                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
               />
             )}
           />

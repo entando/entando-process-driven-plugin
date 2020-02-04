@@ -9,6 +9,10 @@ import MOCKED_GET_TASK_COMMENTS_RESPONSE from 'mocks/taskComments/getComments';
 describe('<Comment />', () => {
   const MOCKED_COMMENT = MOCKED_GET_TASK_COMMENTS_RESPONSE.WITH_COMMENTS.payload[0];
 
+  const fixedDate = new Date(2020, 0, 1);
+  global.Date = jest.fn(() => fixedDate);
+  global.Date.now = jest.fn(() => fixedDate);
+
   it('renders snapshot correctly', async () => {
     const { container } = render(<Comment comment={MOCKED_COMMENT} />);
 
@@ -58,18 +62,4 @@ describe('<Comment />', () => {
       expect(onClickRemoveComment).toHaveBeenCalledTimes(1);
     });
   });
-
-  // it('does not call onClickAddComment when "Add" button is clicked without comment added', async () => {
-  //   const onClickAddComment = jest.fn();
-  //   const { findByText } = render(
-  //     <Comment comment={MOCKED_COMMENT} onClickAddComment={onClickAddComment} />
-  //   );
-
-  //   const addButton = await findByText('common.add');
-  //   fireEvent.click(addButton);
-
-  //   await wait(() => {
-  //     expect(onClickAddComment).toHaveBeenCalledTimes(0);
-  //   });
-  // });
 });

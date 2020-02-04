@@ -28,4 +28,16 @@ export default {
     widgetCode: 'phase_1_widgets_comments',
     configs: MOCKED_WIDGET_CONFIGS.TASK_COMMENTS,
   },
+  SUMMARY_CARD: {
+    pageCode: 'phase_1_widgets',
+    frameId: '1',
+    widgetCode: 'summary_card',
+    configs: MOCKED_WIDGET_CONFIGS.SUMMARY_CARD,
+  },
+  PROCESS_FORM: {
+    pageCode: 'phase_1_widgets',
+    frameId: '3',
+    widgetCode: 'process_form',
+    configs: MOCKED_WIDGET_CONFIGS.PROCESS_FORM,
+  },
 };

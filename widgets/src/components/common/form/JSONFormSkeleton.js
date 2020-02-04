@@ -26,7 +26,7 @@ const styles = {
   },
 };
 
-const CompletionFormSkeleton = ({ classes }) => (
+const JSONFormSkeleton = ({ classes }) => (
   <>
     <div>
       <Skeleton width="280px" height={18} variant="rect" className={classes.header} />
@@ -48,7 +48,7 @@ const CompletionFormSkeleton = ({ classes }) => (
   </>
 );
 
-CompletionFormSkeleton.propTypes = {
+JSONFormSkeleton.propTypes = {
   classes: PropTypes.shape({
     header: PropTypes.string,
     divider: PropTypes.string,
@@ -58,4 +58,4 @@ CompletionFormSkeleton.propTypes = {
   }).isRequired,
 };
 
-export default withStyles(styles)(CompletionFormSkeleton);
+export default withStyles(styles)(JSONFormSkeleton);
