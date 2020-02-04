@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
-import { getProcess } from 'api/pda/process';
+import { getProcesses } from 'api/pda/processes';
 
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
@@ -52,7 +52,7 @@ class OvertimeGraphConfig extends React.Component {
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState({ knowledgeSource });
 
-    getProcess(knowledgeSource).then(data => {
+    getProcesses(knowledgeSource).then(data => {
       this.setState({ processList: data.payload });
 
       cb();

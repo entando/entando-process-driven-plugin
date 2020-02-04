@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SummaryCardConfig /> renders snapshot correctly 1`] = `
+<div>
+  <div>
+    <form>
+      <div
+        class="row"
+      >
+        <div
+          class="col-xs-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="control-label"
+              for="connection"
+            >
+              Knowledge Source
+            </label>
+            <select
+              class="form-control"
+            >
+              <option
+                value=""
+              >
+                Select...
+              </option>
+              <option
+                value="kieStaging"
+              >
+                kieStaging
+              </option>
+              <option
+                value="kie2Server"
+              >
+                kie2Server
+              </option>
+              <option
+                value="test"
+              >
+                test
+              </option>
+            </select>
+            <span
+              class="help-block"
+            >
+              Select one of the Kie server connections.
+            </span>
+          </div>
+        </div>
+      </div>
+      <section>
+        <legend>
+          Settings
+        </legend>
+        <div
+          class="row"
+        >
+          <div
+            class="col-xs-12"
+          >
+            <div
+              class="form-group"
+            >
+              <label
+                class="control-label"
+                for="textarea"
+              >
+                Summary
+              </label>
+              <select
+                class="form-control"
+              >
+                <option
+                  value=""
+                >
+                  Select...
+                </option>
+                <option
+                  value="requests"
+                >
+                  card.labels.Requests
+                </option>
+              </select>
+              <span
+                class="help-block"
+              >
+                Choose a summary to display information on your card.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+        >
+          <div
+            class="text-right col-xs-12"
+          >
+            <button
+              class="btn btn-primary"
+              type="button"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </section>
+    </form>
+  </div>
+</div>
+`;

@@ -7,7 +7,7 @@ import arrayMove from 'array-move';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import { getConnections } from 'api/pda/connections';
-import { getProcess } from 'api/pda/process';
+import { getProcesses } from 'api/pda/processes';
 import { getGroups } from 'api/pda/groups';
 import { getColumns } from 'api/pda/tasks';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
@@ -117,7 +117,7 @@ class TaskListConfig extends React.Component {
       this.setState({ sourceList: sourceList.payload });
 
       // get existing configs
-      const pageWidgetsConfigs = await getPageWidget(pageCode, frameId);
+      const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'TASK_LIST');
       if (pageWidgetsConfigs.errors && pageWidgetsConfigs.errors.length) {
         throw pageWidgetsConfigs.errors[0];
       }
@@ -143,7 +143,7 @@ class TaskListConfig extends React.Component {
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState({ knowledgeSource });
 
-    getProcess(knowledgeSource).then(data => {
+    getProcesses(knowledgeSource).then(data => {
       this.setState({ processList: data.payload });
       cb();
     });

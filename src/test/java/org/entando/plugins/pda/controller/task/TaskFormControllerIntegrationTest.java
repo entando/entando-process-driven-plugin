@@ -30,7 +30,6 @@ import java.util.Map;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.controller.TestConnectionConfigConfiguration;
-import org.entando.plugins.pda.core.model.task.CreateTaskFormSubmissionRequest;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -109,9 +108,8 @@ public class TaskFormControllerIntegrationTest {
         variables.put(TASK_FORM_PROP_KEY_2, TASK_FORM_PROP_2);
         variables.put(TASK_FORM_PROP_KEY_3, TASK_FORM_PROP_3);
 
-        CreateTaskFormSubmissionRequest request = CreateTaskFormSubmissionRequest.builder()
-                .form(TASK_FORM_ID_1, variables)
-                .build();
+        Map<String, Object> request = new HashMap<>();
+        request.put(TASK_FORM_ID_1, variables);
 
         mockMvc.perform(post("/connections/fakeProduction/tasks/{id}/form"
                 .replace("{id}", TASK_ID_1))
@@ -119,11 +117,7 @@ public class TaskFormControllerIntegrationTest {
                 .content(mapper.writeValueAsString(request)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("payload.id", is(TASK_ID_1)))
-                .andExpect(jsonPath("payload.outputData.size()", is(3)))
-                .andExpect(jsonPath("payload.outputData." + TASK_FORM_PROP_KEY_1, is(TASK_FORM_PROP_1)))
-                .andExpect(jsonPath("payload.outputData." + TASK_FORM_PROP_KEY_2, is(TASK_FORM_PROP_2)))
-                .andExpect(jsonPath("payload.outputData." + TASK_FORM_PROP_KEY_3, is(TASK_FORM_PROP_3)))
+                .andExpect(jsonPath("payload", is(TASK_ID_1)))
                 .andReturn();
     }
 
@@ -132,7 +126,7 @@ public class TaskFormControllerIntegrationTest {
         mockMvc.perform(post("/connections/fakeProduction/tasks/{id}/form"
                 .replace("{id}", randomStringId()))
                 .header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
-                .content(mapper.writeValueAsString(CreateTaskFormSubmissionRequest.builder().build())))
+                .content(mapper.writeValueAsString(new HashMap<>())))
                 .andDo(print())
                 .andExpect(status().isNotFound())
                 .andReturn();

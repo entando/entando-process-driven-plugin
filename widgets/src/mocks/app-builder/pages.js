@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/prefer-default-export
-export const taskListConfigs = {
+const taskListConfigs = {
   payload: {
     code: 'pda_task_list',
     config: {
@@ -16,4 +15,51 @@ export const taskListConfigs = {
   errors: {},
 };
 
-// add others widgets configs here
+const taskDetailsConfigs = {
+  payload: {
+    code: 'phase_1_widgets_task_details',
+    config: {
+      containerId: 'evaluation_1.0.0-SNAPSHOT',
+      knowledgeSource: 'kieStaging',
+      process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
+const completionFormConfigs = {
+  payload: {
+    code: 'phase_1_widgets_completion_form',
+    config: {
+      containerId: 'evaluation_1.0.0-SNAPSHOT',
+      knowledgeSource: 'kieStaging',
+      process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
+      settings:
+        '{"uiSchema":"{\\n  \\"47078d21-7da5-4d3f-8355-0fcd78b09f39\\": {\\n    \\"reason\\": {\\n      \\"ui:widget\\": \\"textarea\\"\\n    },\\n    \\"performance\\": {\\n      \\"ui:widget\\": \\"updown\\"\\n    }\\n  }\\n}"}',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
+const SummaryCardConfigs = {
+  payload: {
+    code: 'summary_card',
+    config: {
+      containerId: 'evaluation_1.0.0-SNAPSHOT',
+      knowledgeSource: 'kieStaging',
+      process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
+      settings: '{"summaryId": "request"}',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
+export default {
+  TASK_LIST: taskListConfigs,
+  TASK_DETAILS: taskDetailsConfigs,
+  COMPLETION_FORM: completionFormConfigs,
+  SUMMARY_CARD: SummaryCardConfigs,
+};

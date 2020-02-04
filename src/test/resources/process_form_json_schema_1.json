@@ -1,38 +1,32 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "http://entando.org/schemas/pda-form.json",
+  "title" : "Process 1",
   "type" : "object",
   "properties" : {
-    "process-1" : {
-      "title" : "Process 1",
-      "type" : "object",
-      "required" : [ ],
-      "properties" : {
-        "age" : {
-          "type" : "integer",
-          "title" : "Age of Property",
-          "description" : "This is the placeholder for form field 1",
-          "minimum" : 0,
-          "maximum" : 10
-        },
-        "address" : {
-          "type" : "string",
-          "title" : "Address",
-          "description" : "This is the placeholder for form field 2",
-          "minLength" : 0,
-          "maxLength" : 20
-        }
-      }
+    "age" : {
+      "type" : "integer",
+      "title" : "Age of Property",
+      "description" : "This is the placeholder for form field 1",
+      "minimum" : 0,
+      "maximum" : 10
     },
-    "process-2" : {
+    "address" : {
+      "type" : "string",
+      "title" : "Address",
+      "description" : "This is the placeholder for form field 2",
+      "minLength" : 0,
+      "maxLength" : 20
+    },
+    "processForm2" : {
       "title" : "Process 2",
       "type" : "object",
       "required" : [ ],
       "properties" : {
-        "isNew" : {
+        "subForm" : {
           "type" : "boolean",
-          "title" : "Is Property New?",
-          "description" : "This is the placeholder for form field 3"
+          "title" : "Applicant",
+          "description" : "This is the placeholder for form field 4"
         }
       }
     }

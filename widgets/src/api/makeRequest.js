@@ -1,13 +1,20 @@
-import { IS_MOCKED_API, MOCK_API_DELAY, METHODS, TOKENS } from 'api/constants';
+import { IS_MOCKED_API, MOCK_API_DELAY, DOMAINS, METHODS } from 'api/constants';
 import utils from 'utils';
+
+const getParams = queryParams =>
+  Object.keys(queryParams)
+    .filter(k => queryParams[k] !== undefined && queryParams[k] !== '')
+    .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(queryParams[k])}`)
+    .join('&');
 
 export default async ({
   domain,
   uri,
   method,
-  mockResponse,
+  mockResponse = {},
   useAuthentication,
   body,
+  headers = {},
   queryParams,
   forceMock,
 }) => {
@@ -16,36 +23,28 @@ export default async ({
     return mockResponse;
   }
 
-  let url = `${domain || ''}${uri}`;
-  if (queryParams) {
-    url += '?';
-    url += Object.keys(queryParams)
-      .filter(k => queryParams[k] !== undefined && queryParams[k] !== '')
-      .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(queryParams[k])}`)
-      .join('&');
-  }
+  const url = `${domain || DOMAINS.PDA}${uri}${queryParams ? `?${getParams(queryParams)}` : ''}`;
+
+  const requestHeaders = useAuthentication
+    ? new Headers({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        ...headers,
+      })
+    : new Headers(headers);
 
   const configs = {
     method: method || METHODS.GET,
+    ...(body ? { body } : {}),
+    headers: requestHeaders,
   };
-
-  if (body) {
-    configs.body = body;
-  }
-
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-
-  if (useAuthentication) {
-    const token = localStorage.getItem('token') || TOKENS.APP_BUILDER;
-    headers.append('Authorization', `Bearer ${token}`);
-  }
-  configs.headers = headers;
 
   const response = await fetch(url, configs);
   if (!response.ok) {
     throw new Error(`Bad Response from server: ${response.status} ${response.statusText}`);
   }
 
-  return response.json();
+  const responseHeaders = response.headers.get('Content-Type');
+
+  return responseHeaders && responseHeaders.includes('xml') ? response.text() : response.json();
 };
