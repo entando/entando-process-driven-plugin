@@ -70,10 +70,26 @@ const summaryCardConfigs = {
   errors: [],
 };
 
+const processFormConfigs = {
+  payload: {
+    code: 'phase_1_widgets',
+    config: {
+      containerId: 'evaluation_1.0.0-SNAPSHOT',
+      knowledgeSource: 'kieStaging',
+      process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
+      settings:
+        '{"uiSchema":"{\\n  \\"d1e6dd47-b24c-4f93-ba25-337832926124\\": {\\n    \\"employee\\": {\\n      \\"ui:autofocus\\": true\\n    },\\n    \\"reason\\": {\\n      \\"ui:widget\\": \\"textarea\\"\\n    },\\n    \\"list\\": {},\\n    \\"checkbox\\": {}  }\\n}"}',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
 export default {
   TASK_LIST: taskListConfigs,
   TASK_DETAILS: taskDetailsConfigs,
   COMPLETION_FORM: completionFormConfigs,
   TASK_COMMENTS: taskCommentsConfigs,
   SUMMARY_CARD: summaryCardConfigs,
+  PROCESS_FORM: processFormConfigs,
 };

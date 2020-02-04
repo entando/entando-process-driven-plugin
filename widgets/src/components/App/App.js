@@ -36,6 +36,9 @@ import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompleti
 import TaskCommentsContainer from 'components/TaskComments/TaskCommentsContainer';
 import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
 
+import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
+import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -212,6 +215,26 @@ function App() {
                 pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
                 frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
                 widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/ProcessForm"
+            render={() => (
+              <ProcessFormContainer
+                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/ProcessFormConfig"
+            render={() => (
+              <ProcessFormConfig
+                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
               />
             )}
           />
