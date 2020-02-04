@@ -102,66 +102,6 @@ const Menu = ({ open, setOpen, classes }) => (
             </IconButton>
           </div>
         ))}
-        <div className={classes.item}>
-          <ListItem button component={Link} to="/TaskList" onClick={() => setOpen(false)}>
-            <ListIcon />
-            <ListItemText primary="TaskList" />
-          </ListItem>
-          <IconButton
-            className={classes.iconButton}
-            size="small"
-            component={Link}
-            to="/TaskListConfig"
-            onClick={() => setOpen(false)}
-          >
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </div>
-        <div className={classes.item}>
-          <ListItem button component={Link} to="/TaskDetails" onClick={() => setOpen(false)}>
-            <DescriptionIcon />
-            <ListItemText primary="TaskDetails" />
-          </ListItem>
-          <IconButton
-            className={classes.iconButton}
-            size="small"
-            component={Link}
-            to="/TaskDetailsConfig"
-            onClick={() => setOpen(false)}
-          >
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </div>
-        <div className={classes.item}>
-          <ListItem button component={Link} to="/TaskCompletionForm" onClick={() => setOpen(false)}>
-            <DoneAllIcon />
-            <ListItemText primary="TaskCompletionForm" />
-          </ListItem>
-          <IconButton
-            className={classes.iconButton}
-            size="small"
-            component={Link}
-            to="/TaskCompletionFormConfig"
-            onClick={() => setOpen(false)}
-          >
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </div>
-        <div className={classes.item}>
-          <ListItem button component={Link} to="/SummaryCard" onClick={() => setOpen(false)}>
-            <DashboardIcon />
-            <ListItemText primary="SummaryCard" />
-          </ListItem>
-          <IconButton
-            className={classes.iconButton}
-            size="small"
-            component={Link}
-            to="/SummaryCardConfig"
-            onClick={() => setOpen(false)}
-          >
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </div>
       </List>
     </div>
   </Drawer>
