@@ -7,7 +7,10 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
+import Link from '@material-ui/core/Link';
 import withStyles from '@material-ui/core/styles/withStyles';
+
+import ConfirmDialog from 'components/common/ConfirmDialog';
 
 const styles = {
   listItem: {
@@ -24,19 +27,48 @@ const styles = {
   },
 };
 
-const Attachment = ({ classes, item, onDelete }) => (
-  <ListItem className={classes.listItem}>
-    <ListItemIcon>
-      <FileCopyIcon fontSize="small" />
-    </ListItemIcon>
-    <ListItemText className={classes.truncate}>{item.name}</ListItemText>
-    <ListItemSecondaryAction>
-      <IconButton size="small" onClick={onDelete(item)}>
-        <DeleteIcon fontSize="small" />
-      </IconButton>
-    </ListItemSecondaryAction>
-  </ListItem>
-);
+class Attachment extends React.Component {
+  state = {
+    dialogOpen: false,
+  };
+
+  handleDeleteDialog = () => {
+    this.setState(state => ({ dialogOpen: !state.dialogOpen }));
+  };
+
+  render() {
+    const { dialogOpen } = this.state;
+    const { classes, item, onDelete, downloadLink } = this.props;
+
+    return (
+      <>
+        <ListItem className={classes.listItem}>
+          <ListItemIcon>
+            <FileCopyIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText className={classes.truncate}>
+            <Link href={`${downloadLink}/${item.id}/file`} download>
+              {item.name}
+            </Link>
+          </ListItemText>
+          <ListItemSecondaryAction>
+            <IconButton size="small" onClick={this.handleDeleteDialog}>
+              <DeleteIcon fontSize="small" />
+            </IconButton>
+          </ListItemSecondaryAction>
+        </ListItem>
+        <ConfirmDialog
+          title="Attachment exclusion"
+          message={`Do you wish to delete this file permanently?\n${item.name}`}
+          open={dialogOpen}
+          onClose={this.handleDeleteDialog}
+          onConfirm={onDelete(item)}
+          maxWidth="md"
+        />
+      </>
+    );
+  }
+}
 
 Attachment.propTypes = {
   classes: PropTypes.shape({
@@ -44,9 +76,11 @@ Attachment.propTypes = {
     truncate: PropTypes.string,
   }),
   item: PropTypes.shape({
+    id: PropTypes.string,
     name: PropTypes.string,
   }),
   onDelete: PropTypes.func.isRequired,
+  downloadLink: PropTypes.string.isRequired,
 };
 
 Attachment.defaultProps = {

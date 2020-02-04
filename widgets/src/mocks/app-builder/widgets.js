@@ -47,7 +47,7 @@ export default {
     configs: MOCKED_WIDGET_CONFIGS.OVERTIME_GRAPH,
   },
   ATTACHMENTS: {
-    taskId: '293@evaluation_1.0.0-SNAPSHOT',
+    taskId: '28@mortgage-process_1.0.0-SNAPSHOT',
     pageCode: 'phase_1_widgets',
     frameId: '2',
     widgetCode: 'phase_1_widgets_attachments',

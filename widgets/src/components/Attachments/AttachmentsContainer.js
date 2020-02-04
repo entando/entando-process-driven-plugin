@@ -7,7 +7,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Button from '@material-ui/core/Button';
 
 import { DOMAINS, LOCAL } from 'api/constants';
-import { getAttachments, saveAttachment } from 'api/pda/attachments';
+import { getAttachments, saveAttachment, deleteAttachment } from 'api/pda/attachments';
 import { Typography } from '@material-ui/core';
 import { getPageWidget } from 'api/app-builder/pages';
 import SimpleDialog from 'components/common/SimpleDialog';
@@ -19,6 +19,16 @@ import Attachment from './Attachment';
 const styles = {
   footer: {
     textAlign: 'right',
+  },
+  empty: {
+    border: 'solid 1px #eee',
+    marginTop: 8,
+    marginBottom: 2,
+    background: 'white',
+    borderRadius: 3,
+    padding: 18,
+    textAlign: 'center',
+    height: 52,
   },
 };
 
@@ -62,23 +72,28 @@ class AttachmentsContainer extends React.Component {
     } catch (error) {
       this.handleError(error);
     }
-    return null;
+    return {};
   };
 
   fetchAttachments = async () => {
-    const { connection, process } = this.state;
+    const { connection } = this.state;
+    const { taskId } = this.props;
+
+    let payload = [];
 
     try {
-      const attachments = await getAttachments(connection, process);
+      const attachments = await getAttachments(connection, taskId);
       if (attachments.errors.length) {
         throw attachments.errors[0];
       }
 
-      return attachments.payload;
+      payload = attachments.payload;
     } catch (error) {
-      this.handleError(error);
+      if (!error.message.includes('404')) {
+        this.handleError(error);
+      }
     }
-    return null;
+    return payload;
   };
 
   toggleDialog = () => {
@@ -103,6 +118,13 @@ class AttachmentsContainer extends React.Component {
   };
 
   handleDelete = item => () => {
+    const { connection } = this.state;
+    const { taskId } = this.props;
+    try {
+      deleteAttachment(connection, taskId, item.id);
+    } catch (error) {
+      this.handleError(error);
+    }
     console.log(item);
   };
 
@@ -111,8 +133,8 @@ class AttachmentsContainer extends React.Component {
   };
 
   render() {
-    const { attachments, loading, dialogOpen } = this.state;
-    const { classes } = this.props;
+    const { attachments, loading, dialogOpen, connection } = this.state;
+    const { classes, taskId } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
@@ -120,12 +142,21 @@ class AttachmentsContainer extends React.Component {
           <Typography variant="h3">Attachments</Typography>
           {loading ? (
             <AttachmentsSkeleton rows={3} />
-          ) : (
+          ) : attachments.length ? (
             <List>
               {attachments.map(item => (
-                <Attachment key={item.id} item={item} onDelete={this.handleDelete} />
+                <Attachment
+                  key={item.id}
+                  item={item}
+                  onDelete={this.handleDelete}
+                  downloadLink={`/connections/${connection}/tasks/${taskId}/attachments`}
+                />
               ))}
             </List>
+          ) : (
+            <div className={classes.empty}>
+              <Typography>There is no attachment available for this task.</Typography>
+            </div>
           )}
           <div className={classes.footer}>
             <Button variant="outlined" color="primary" onClick={this.toggleDialog}>
@@ -147,9 +178,8 @@ class AttachmentsContainer extends React.Component {
 
 AttachmentsContainer.propTypes = {
   classes: PropTypes.shape({
-    listItem: PropTypes.string,
-    truncate: PropTypes.string,
     footer: PropTypes.string,
+    empty: PropTypes.string,
   }),
   taskId: PropTypes.string.isRequired,
   serviceUrl: PropTypes.string,

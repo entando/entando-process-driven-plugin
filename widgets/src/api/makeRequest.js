@@ -33,6 +33,11 @@ export default async ({
       })
     : new Headers(headers);
 
+  // to upload a file, we need to remove content-type and let browser handles it
+  if (requestHeaders.get('Content-Type').includes('upload')) {
+    requestHeaders.delete('Content-Type');
+  }
+
   const configs = {
     method: method || METHODS.GET,
     ...(body ? { body } : {}),

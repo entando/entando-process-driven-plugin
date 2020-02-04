@@ -17,7 +17,7 @@ export const saveAttachment = async (connection, taskId, file) => {
   body.append('file', file);
 
   const headers = {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'upload',
   };
 
   return makeRequest({
@@ -30,3 +30,12 @@ export const saveAttachment = async (connection, taskId, file) => {
     useAuthentication: true,
   });
 };
+
+export const deleteAttachment = async (connection, taskId, attachmentId) =>
+  makeRequest({
+    domain: DOMAINS.PDA,
+    uri: `/connections/${connection}/tasks/${taskId}/attachments/${attachmentId}`,
+    method: METHODS.DELETE,
+    mockResponse: {},
+    useAuthentication: true,
+  });
