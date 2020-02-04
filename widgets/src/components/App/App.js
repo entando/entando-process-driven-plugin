@@ -27,7 +27,6 @@ import TaskListConfig from 'components/TaskList/TaskListConfig';
 import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 
-import TaskDetailsContainer from 'components/TaskDetails/TaskDetailsContainer';
 import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 
 import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompletionFormContainer';
@@ -137,11 +136,11 @@ function App() {
           <Route
             path="/TaskDetails/"
             render={() => (
-              <TaskDetailsContainer
-                taskId={WIDGETS_CONFIG.TASK_DETAILS.taskId}
-                pageCode={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_DETAILS.frameId}
-                widgetCode={WIDGETS_CONFIG.TASK_DETAILS.widgetCode}
+              <task-details
+                task-id={WIDGETS_CONFIG.TASK_DETAILS.taskId}
+                page-code={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
+                frame-id={WIDGETS_CONFIG.TASK_DETAILS.frameId}
+                service-url={WIDGETS_CONFIG.TASK_DETAILS.serviceUrl}
               />
             )}
           />
@@ -183,7 +182,7 @@ function App() {
                 task-id={WIDGETS_CONFIG.TASK_COMMENTS.taskId}
                 page-code={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}
                 frame-id={WIDGETS_CONFIG.TASK_COMMENTS.frameId}
-                service-url={WIDGETS_CONFIG.TASK_COMMENTS.widgetCode}
+                service-url={WIDGETS_CONFIG.TASK_COMMENTS.serviceUrl}
               />
             )}
           />

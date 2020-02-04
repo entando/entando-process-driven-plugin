@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly-react';
 
+import withAuth from 'components/common/authentication/withAuth';
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
@@ -155,4 +156,4 @@ TaskDetailsConfig.propTypes = {
   pageCode: PropTypes.string.isRequired,
 };
 
-export default TaskDetailsConfig;
+export default withAuth(TaskDetailsConfig, ['connection-list', 'process-definition-list']);

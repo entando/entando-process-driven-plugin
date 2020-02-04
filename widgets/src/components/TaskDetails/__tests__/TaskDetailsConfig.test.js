@@ -2,6 +2,7 @@ import { render, fireEvent, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
+import mockKeycloak from 'mocks/auth/keycloak';
 import WIDGET_CONFIGS from 'mocks/app-builder/widgets';
 import CONNECTIONS from 'mocks/pda/connections';
 import PROCESSES from 'mocks/pda/processes';
@@ -11,6 +12,7 @@ import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
+mockKeycloak();
 jest.mock('api/app-builder/pages');
 jest.mock('api/pda/connections');
 jest.mock('api/pda/processes');

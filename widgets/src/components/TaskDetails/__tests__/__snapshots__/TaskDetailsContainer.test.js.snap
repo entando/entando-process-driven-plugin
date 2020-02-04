@@ -6,11 +6,11 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-10 TaskDetailsContainer-taskDetailWidgetBox-1 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-32 TaskDetailsContainer-taskDetailWidgetBox-23 MuiPaper-outlined"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-193"
+          class="MuiBox-root MuiBox-root-215"
         >
           <h2
             class="MuiTypography-root MuiTypography-h2"
@@ -94,7 +94,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               task.fields.createdBy
             </label>
             <div
-              class="OverviewDetails-value-288"
+              class="OverviewDetails-value-310"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1"
@@ -112,7 +112,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               task.fields.name
             </label>
             <div
-              class="OverviewDetails-value-288"
+              class="OverviewDetails-value-310"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1"
@@ -130,7 +130,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               task.fields.createdOn
             </label>
             <div
-              class="OverviewDetails-value-288"
+              class="OverviewDetails-value-310"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1"
@@ -148,10 +148,10 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               task.fields.status
             </label>
             <div
-              class="OverviewDetails-value-288"
+              class="OverviewDetails-value-310"
             >
               <div
-                class="MuiChip-root BadgeChip-root-297"
+                class="MuiChip-root BadgeChip-root-319"
               >
                 <span
                   class="MuiChip-label"
@@ -170,7 +170,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               task.fields.due
             </label>
             <div
-              class="OverviewDetails-value-288"
+              class="OverviewDetails-value-310"
             >
               <p
                 class="MuiTypography-root MuiTypography-body1"
@@ -183,7 +183,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-10 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-32 MuiPaper-outlined"
     >
       <div>
         <h3
@@ -192,16 +192,16 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           taskDetails.generalInformation.title
         </h3>
         <hr
-          class="MuiDivider-root GeneralInformation-divider-39"
+          class="MuiDivider-root GeneralInformation-divider-61"
         />
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-62"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-63"
             >
               task.inputData.Comment
               :
@@ -210,13 +210,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-62"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-63"
             >
               task.inputData.reason
               :
@@ -225,13 +225,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-62"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-63"
             >
               task.inputData.performance
               :
@@ -240,13 +240,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-62"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-63"
             >
               task.inputData.TaskName
               :
@@ -255,13 +255,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-62"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-63"
             >
               task.inputData.NodeName
               :
@@ -270,13 +270,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-62"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-63"
             >
               task.inputData.Skippable
               :
@@ -285,13 +285,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-62"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-63"
             >
               task.inputData.ActorId
               :
@@ -300,13 +300,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-62"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-63"
             >
               task.inputData.BusinessAdministratorId
               :
@@ -315,13 +315,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-62"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-63"
             >
               task.inputData.GroupId
               :

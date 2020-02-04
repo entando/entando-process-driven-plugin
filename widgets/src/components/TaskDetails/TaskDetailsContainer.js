@@ -4,6 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Container from '@material-ui/core/Container';
 
+import withAuth from 'components/common/authentication/withAuth';
 import { getTask } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
@@ -133,4 +134,4 @@ TaskDetailsContainer.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles)(TaskDetailsContainer);
+export default withAuth(withStyles(styles)(TaskDetailsContainer), ['task-get']);

@@ -45,7 +45,7 @@ export const getTask = async (connection, taskId) => {
     uri: `/connections/${connection}/tasks/${taskId}`,
     method: METHODS.GET,
     mockResponse: MOCKED_GET_TASK_RESPONSE,
-    useAuthentication: false,
+    useAuthentication: true,
   });
 };
 
