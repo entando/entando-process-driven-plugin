@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProcessFormConfig /> renders snapshot correctly 1`] = `
+<div>
+  <div>
+    <form>
+      <div
+        class="row"
+      >
+        <div
+          class="col-xs-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="control-label"
+              for="connection"
+            >
+              Knowledge Source
+            </label>
+            <select
+              class="form-control"
+            >
+              <option
+                value=""
+              >
+                Select...
+              </option>
+              <option
+                value="kieStaging"
+              >
+                kieStaging
+              </option>
+              <option
+                value="kie2Server"
+              >
+                kie2Server
+              </option>
+              <option
+                value="test"
+              >
+                test
+              </option>
+            </select>
+            <span
+              class="help-block"
+            >
+              Select one of the Kie server connections.
+            </span>
+          </div>
+          <div
+            class="form-group"
+          >
+            <label
+              class="control-label"
+              for="connection"
+            >
+              Process
+            </label>
+            <select
+              class="form-control"
+            >
+              <option
+                value=""
+              >
+                Select...
+              </option>
+              <option
+                value="Mortgage_Process.MortgageApprovalProcess@mortgage-process_1.0.0-SNAPSHOT"
+              >
+                MortgageApprovalProcess @ mortgage-process_1.0.0-SNAPSHOT
+              </option>
+              <option
+                value="evaluation@evaluation_1.0.0-SNAPSHOT"
+              >
+                Evaluation @ evaluation_1.0.0-SNAPSHOT
+              </option>
+              <option
+                value="itorders.orderhardware@itorders_1.0.0-SNAPSHOT"
+              >
+                Order for IT hardware @ itorders_1.0.0-SNAPSHOT
+              </option>
+              <option
+                value="Mortgage_Process.MortgageApprovalProcess@mortgage-process_1.0.1-SNAPSHOT"
+              >
+                MortgageApprovalProcess @ mortgage-process_1.0.1-SNAPSHOT
+              </option>
+              <option
+                value="com.redhat.bpms.examples.mortgage.MortgageApplication@mortgage_1.0"
+              >
+                MortgageApplication @ mortgage_1.0
+              </option>
+              <option
+                value="itorders-data.place-order@itorders_1.0.0-SNAPSHOT"
+              >
+                place-order @ itorders_1.0.0-SNAPSHOT
+              </option>
+            </select>
+            <span
+              class="help-block"
+            >
+              Select one BPM Process.
+            </span>
+          </div>
+        </div>
+      </div>
+      <section>
+        <legend>
+          Settings
+        </legend>
+        <div
+          class="row"
+        >
+          <div
+            class="col-xs-12"
+          >
+            <div
+              class="form-group"
+            >
+              <label
+                class="control-label"
+                for="textarea"
+              >
+                UI Schema
+              </label>
+              <textarea
+                class="form-control"
+                id="textarea"
+              >
+                {
+  "d1e6dd47-b24c-4f93-ba25-337832926124": {
+    "employee": {
+      "ui:autofocus": true
+    },
+    "reason": {
+      "ui:widget": "textarea"
+    },
+    "list": {},
+    "checkbox": {}  }
+}
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+        >
+          <div
+            class="text-right col-xs-12"
+          >
+            <button
+              class="btn btn-primary"
+              type="button"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </section>
+    </form>
+  </div>
+</div>
+`;

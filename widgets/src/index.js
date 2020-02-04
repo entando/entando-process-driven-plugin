@@ -10,6 +10,7 @@ import 'custom-elements/TaskListElement';
 import 'custom-elements/SummaryCardElement';
 import 'custom-elements/TaskDetailsElement';
 import 'custom-elements/TaskCompletionFormElement';
+import 'custom-elements/ProcessFormElement';
 
 // We only want to show the App demo in DEV mode.
 if (process.env.REACT_APP_LOCAL === 'true') {

@@ -16,22 +16,22 @@ const styles = {
   },
 };
 
-const CompletionFormTitle = ({ classes, title }) => (
+const JSONFormTitle = ({ classes, title }) => (
   <div>
     <Typography variant="h3">{i18next.t(title)}</Typography>
     <Divider className={classes.divider} />
   </div>
 );
 
-CompletionFormTitle.propTypes = {
+JSONFormTitle.propTypes = {
   classes: PropTypes.shape({
     divider: PropTypes.string,
   }).isRequired,
   title: PropTypes.string,
 };
 
-CompletionFormTitle.defaultProps = {
+JSONFormTitle.defaultProps = {
   title: '',
 };
 
-export default withStyles(styles)(CompletionFormTitle);
+export default withStyles(styles)(JSONFormTitle);
