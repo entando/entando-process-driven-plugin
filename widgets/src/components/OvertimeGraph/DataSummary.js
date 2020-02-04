@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Typography, Box, withStyles } from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 import { UpTrend, DownTrend } from 'components/common/Icons';
 
@@ -42,23 +43,27 @@ PercentBar.propTypes = {
   barColor: PropTypes.string.isRequired,
 };
 
-const DataSummary = ({ value, label, percent, trend }) => (
+const DataSummary = ({ value, label, percent, trend, loading }) => (
   <Grid container>
     <Grid item xs={12}>
-      <Typography variant="h6">{value}</Typography>
+      {loading ? <Skeleton width={100} /> : <Typography variant="h6">{value}</Typography>}
     </Grid>
     <Grid item xs={8}>
-      <Typography variant="caption">{label}</Typography>
+      {loading ? <Skeleton width={150} /> : <Typography variant="caption">{label}</Typography>}
     </Grid>
     <Grid item xs={2} style={{ textAlign: 'right' }}>
-      <Typography variant="subtitle1">{percent}%</Typography>
+      {loading ? <Skeleton width={75} /> : <Typography variant="subtitle1">{percent}%</Typography>}
     </Grid>
     <Grid item xs={2} style={{ textAlign: 'right' }}>
-      <TrendIconWrapper trend={trend} />
+      {loading ? <Skeleton width={50} /> : <TrendIconWrapper trend={trend} />}
     </Grid>
     <Grid item xs={12}>
       <Box my={1}>
-        <PercentBar value={percent} barColor={trend === 'up' ? UP_COLOR : DOWN_COLOR} />
+        {loading ? (
+          <Skeleton />
+        ) : (
+          <PercentBar value={percent} barColor={trend === 'up' ? UP_COLOR : DOWN_COLOR} />
+        )}
       </Box>
     </Grid>
   </Grid>
@@ -69,6 +74,11 @@ DataSummary.propTypes = {
   label: PropTypes.string.isRequired,
   percent: PropTypes.number.isRequired,
   trend: PropTypes.oneOf(['up', 'down']).isRequired,
+  loading: PropTypes.bool,
+};
+
+DataSummary.defaultProps = {
+  loading: false,
 };
 
 export default DataSummary;
