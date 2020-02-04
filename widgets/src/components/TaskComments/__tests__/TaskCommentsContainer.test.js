@@ -21,6 +21,10 @@ describe('<TaskCommentsContainer />', () => {
   getPageWidget.mockImplementation(() => Promise.resolve(WIDGET_CONFIGS.TASK_COMMENTS.configs));
   getTaskComments.mockImplementation(() => Promise.resolve(MOCKED_GET_TASK_COMMENTS_RESPONSE));
 
+  const fixedDate = new Date(2020, 0, 1);
+  global.Date = jest.fn(() => fixedDate);
+  global.Date.now = jest.fn(() => fixedDate);
+
   it('renders snapshot correctly', async () => {
     const { container } = render(
       <TaskCommentsContainer

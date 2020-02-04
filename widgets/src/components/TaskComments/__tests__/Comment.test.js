@@ -9,6 +9,10 @@ import MOCKED_GET_TASK_COMMENTS_RESPONSE from 'mocks/taskComments/getComments';
 describe('<Comment />', () => {
   const MOCKED_COMMENT = MOCKED_GET_TASK_COMMENTS_RESPONSE.payload[0];
 
+  const fixedDate = new Date(2020, 0, 1);
+  global.Date = jest.fn(() => fixedDate);
+  global.Date.now = jest.fn(() => fixedDate);
+
   it('renders snapshot correctly', async () => {
     const { container } = render(<Comment comment={MOCKED_COMMENT} />);
 
