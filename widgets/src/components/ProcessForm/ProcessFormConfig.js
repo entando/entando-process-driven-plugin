@@ -11,6 +11,7 @@ import {
   FormControl,
 } from 'patternfly-react';
 
+import withAuth from 'components/common/authentication/withAuth';
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
@@ -199,4 +200,4 @@ ProcessFormConfig.propTypes = {
   pageCode: PropTypes.string.isRequired,
 };
 
-export default ProcessFormConfig;
+export default withAuth(ProcessFormConfig, ['connection-list', 'process-definition-list']);

@@ -2,10 +2,13 @@ import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
+import mockKeycloak from 'mocks/auth/keycloak';
 import { DOMAINS } from 'api/constants';
 import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
 import MOCKED_PROCESS_FORM from 'mocks/process-form/formSchema';
+
+mockKeycloak();
 
 describe('<ProcessFormContainer />', () => {
   it('renders snapshot correctly', async () => {

@@ -31,7 +31,6 @@ import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
 
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 
-import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
 import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 
 const useStyles = makeStyles(theme => ({
@@ -217,10 +216,10 @@ function App() {
           <Route
             path="/ProcessForm"
             render={() => (
-              <ProcessFormContainer
-                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
+              <process-form
+                page-code={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                frame-id={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+                widget-code={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
               />
             )}
           />

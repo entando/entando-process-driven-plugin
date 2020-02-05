@@ -4,6 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import theme from 'theme';
+import withAuth from 'components/common/authentication/withAuth';
 import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
@@ -117,4 +118,7 @@ ProcessFormContainer.defaultProps = {
   frameId: '',
 };
 
-export default ProcessFormContainer;
+export default withAuth(ProcessFormContainer, [
+  'process-definition-form-get',
+  'process-definition-form-submit',
+]);

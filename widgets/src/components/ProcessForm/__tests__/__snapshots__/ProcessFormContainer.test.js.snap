@@ -6,7 +6,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-9 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-31 MuiPaper-outlined"
     >
       <div>
         <form
@@ -16,7 +16,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
             class="MuiFormControl-root MuiFormControl-fullWidth"
           >
             <div
-              class="MuiGrid-root makeStyles-root-62 MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root makeStyles-root-84 MuiGrid-container MuiGrid-spacing-xs-2"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
@@ -32,11 +32,11 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                       evaluation-taskform.frm
                     </h3>
                     <hr
-                      class="MuiDivider-root JSONFormTitle-divider-167"
+                      class="MuiDivider-root JSONFormTitle-divider-189"
                     />
                   </div>
                   <div
-                    class="MuiGrid-root makeStyles-root-62 MuiGrid-container MuiGrid-spacing-xs-2"
+                    class="MuiGrid-root makeStyles-root-84 MuiGrid-container MuiGrid-spacing-xs-2"
                   >
                     <div
                       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
@@ -192,13 +192,13 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                           >
                             <span
                               aria-disabled="false"
-                              class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-265 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary"
+                              class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-287 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary"
                             >
                               <span
                                 class="MuiIconButton-label"
                               >
                                 <input
-                                  class="PrivateSwitchBase-input-268"
+                                  class="PrivateSwitchBase-input-290"
                                   data-indeterminate="false"
                                   id="root_d1e6dd47-b24c-4f93-ba25-337832926124_checkBox"
                                   type="checkbox"
@@ -235,7 +235,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="CompletionForm-actionButtons-38"
+            class="CompletionForm-actionButtons-60"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
@@ -265,7 +265,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly on error state 1`] 
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-337 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-381 MuiPaper-outlined"
     >
       messages.warnings.noData
     </div>
