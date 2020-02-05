@@ -8,10 +8,12 @@ import Divider from '@material-ui/core/Divider';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { DOMAINS, LOCAL } from 'api/constants';
+
 import theme from 'theme';
+import { DOMAINS, LOCAL } from 'api/constants';
 import { getPageWidget } from 'api/app-builder/pages';
 import { getSummary } from 'api/pda/summary';
+import withAuth from 'components/common/authentication/withAuth';
 import CustomEventContext from 'components/SummaryCard/CustomEventContext';
 import Skeleton from '@material-ui/lab/Skeleton';
 import SummaryCardValues from 'components/SummaryCard/SummaryCardValues';
@@ -210,4 +212,4 @@ SummaryCard.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles)(SummaryCard);
+export default withAuth(withStyles(styles)(SummaryCard), ['summary-get']);

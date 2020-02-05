@@ -2,10 +2,13 @@ import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
+import mockKeycloak from 'mocks/auth/keycloak';
 import { DOMAINS } from 'api/constants';
 import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
 import mockSummary from 'mocks/summary/summary';
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
+
+mockKeycloak();
 
 describe('<SummaryCardContainer />', () => {
   it('renders snapshot correctly', async () => {

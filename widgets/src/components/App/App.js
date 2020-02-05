@@ -29,7 +29,6 @@ import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompleti
 
 import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
 
-import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 
 import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
@@ -198,10 +197,10 @@ function App() {
           <Route
             path="/SummaryCard/"
             render={() => (
-              <SummaryCardContainer
-                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
-                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
-                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
+              <summary-card
+                page-code={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
+                frame-id={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
+                widget-code={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
               />
             )}
           />

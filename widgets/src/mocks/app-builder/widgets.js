@@ -34,8 +34,8 @@ export default {
   },
   SUMMARY_CARD: {
     pageCode: 'phase_1_widgets',
-    frameId: '1',
-    widgetCode: 'summary_card',
+    frameId: '3',
+    widgetCode: 'phase_1_widgets_summary_card',
     serviceUrl: '',
     configs: MOCKED_WIDGET_CONFIGS.SUMMARY_CARD,
   },

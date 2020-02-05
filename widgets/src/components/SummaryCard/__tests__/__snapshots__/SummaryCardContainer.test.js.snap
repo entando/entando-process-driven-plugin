@@ -3,14 +3,14 @@
 exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
 <div>
   <div
-    class="MuiPaper-root SummaryCard-root-1 MuiPaper-elevation0"
+    class="MuiPaper-root SummaryCard-root-23 MuiPaper-elevation0"
     style="width: 256px; display: inline-block;"
   >
     <div
-      class="SummaryCard-header-2"
+      class="SummaryCard-header-24"
     >
       <h3
-        class="MuiTypography-root SummaryCard-headline-3 MuiTypography-subtitle2"
+        class="MuiTypography-root SummaryCard-headline-25 MuiTypography-subtitle2"
       >
         card.labels.REQUESTS.TITLE
       </h3>
@@ -20,7 +20,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
         <div
           aria-haspopup="listbox"
           aria-labelledby=" "
-          class="MuiSelect-root SummaryCard-periodSelectRoot-4 MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+          class="MuiSelect-root SummaryCard-periodSelectRoot-26 MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
           role="button"
           tabindex="0"
         >
@@ -32,7 +32,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined SummaryCard-periodSelectIcon-5"
+          class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined SummaryCard-periodSelectIcon-27"
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
@@ -43,11 +43,11 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
         </svg>
         <fieldset
           aria-hidden="true"
-          class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
+          class="PrivateNotchedOutline-root-161 MuiOutlinedInput-notchedOutline"
           style="padding-left: 8px;"
         >
           <legend
-            class="PrivateNotchedOutline-legend-140"
+            class="PrivateNotchedOutline-legend-162"
             style="width: 0.01px;"
           >
             <span>
@@ -61,7 +61,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
       class="MuiDivider-root"
     />
     <div
-      class="SummaryCardValues-root-41 upTrend"
+      class="SummaryCardValues-root-63 upTrend"
     >
       <div>
         <h4
@@ -77,13 +77,13 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
       </div>
       <div>
         <span
-          class="MuiTypography-root SummaryCardValues-trendValue-43 MuiTypography-body2"
+          class="MuiTypography-root SummaryCardValues-trendValue-65 MuiTypography-body2"
         >
           1%
            
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root SummaryCardValues-valueIcon-44"
+            class="MuiSvgIcon-root SummaryCardValues-valueIcon-66"
             fill="none"
             focusable="false"
             height="11"
@@ -106,11 +106,11 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
 exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] = `
 <div>
   <div
-    class="MuiPaper-root SummaryCard-root-141 MuiPaper-elevation0"
+    class="MuiPaper-root SummaryCard-root-185 MuiPaper-elevation0"
     style="width: 256px; display: inline-block;"
   >
     <div
-      class="SummaryCard-header-142"
+      class="SummaryCard-header-186"
     >
       <div
         class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
@@ -125,7 +125,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
       class="MuiDivider-root"
     />
     <div
-      class="SummaryCardValues-root-181 upTrend"
+      class="SummaryCardValues-root-225 upTrend"
     >
       <div>
         <div
@@ -133,7 +133,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
           style="width: 110px; height: 37px;"
         />
         <div
-          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-182 MuiSkeleton-animate"
+          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-226 MuiSkeleton-animate"
           style="width: 90px; height: 14px;"
         />
       </div>

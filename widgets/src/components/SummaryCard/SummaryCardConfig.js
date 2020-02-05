@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly-react';
 import i18next from 'i18next';
 
+import withAuth from 'components/common/authentication/withAuth';
 import { getConnections } from 'api/pda/connections';
 import { getSummaries } from 'api/pda/summary';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
@@ -155,4 +156,8 @@ SummaryCardConfig.propTypes = {
   pageCode: PropTypes.string.isRequired,
 };
 
-export default SummaryCardConfig;
+export default withAuth(SummaryCardConfig, [
+  'connection-list',
+  'process-definition-list',
+  'summary-list',
+]);
