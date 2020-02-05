@@ -4,8 +4,11 @@ import 'mocks/i18nMock';
 
 import { DOMAINS } from 'api/constants';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
+import mockKeycloak from 'mocks/auth/keycloak';
 import mockTasks from 'mocks/pda/tasks.json';
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
+
+mockKeycloak();
 
 describe('<TaskListContainer />', () => {
   it('renders snapshot correctly', async () => {

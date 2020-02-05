@@ -2,9 +2,9 @@ import MOCKED_WIDGET_CONFIGS from 'mocks/app-builder/pages';
 
 export default {
   TASK_LIST: {
-    pageCode: 'task_list',
+    pageCode: 'phase_1_widgets',
     frameId: '1',
-    widgetCode: 'pda_task_list',
+    widgetCode: 'phase_1_widgets_task_list',
     serviceUrl: '',
     configs: MOCKED_WIDGET_CONFIGS.TASK_LIST,
   },

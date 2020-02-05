@@ -26,10 +26,11 @@ class TaskListElement extends HTMLElement {
     const pageCode = this.getAttribute('page-code');
     const frameId = this.getAttribute('frame-id');
     const serviceUrl = this.getAttribute('service-url');
+    const lazyLoading = this.getAttribute('lazy-loading');
 
     const reactRoot = React.createElement(
       TaskList,
-      { onError, pageCode, frameId, serviceUrl },
+      { onError, pageCode, frameId, serviceUrl, lazyLoading: lazyLoading === 'true' },
       null
     );
     ReactDOM.render(reactRoot, mountPoint);

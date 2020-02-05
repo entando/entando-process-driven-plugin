@@ -21,17 +21,16 @@ import 'components/App/App.css';
 // widgets
 import Home from 'components/App/Home';
 
-import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
-
-import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
-import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 
 import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 
 import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompletionFormConfig';
 
 import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
+
+import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
+import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 
 import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
 import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
@@ -115,10 +114,11 @@ function App() {
           <Route
             path="/TaskList/"
             render={() => (
-              <TaskListContainer
-                lazyLoading={lazyLoading}
-                pageCode={WIDGETS_CONFIG.TASK_LIST.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_LIST.frameId}
+              <task-list
+                lazy-loading={lazyLoading}
+                page-code={WIDGETS_CONFIG.TASK_LIST.pageCode}
+                frame-id={WIDGETS_CONFIG.TASK_LIST.frameId}
+                service-url={WIDGETS_CONFIG.TASK_LIST.serviceUrl}
               />
             )}
           />

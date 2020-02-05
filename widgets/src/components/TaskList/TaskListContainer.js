@@ -12,6 +12,7 @@ import { getDiagram } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
 
+import withAuth from 'components/common/authentication/withAuth';
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
 import ErrorNotification from 'components/common/ErrorNotification';
 import ErrorComponent from 'components/common/ErrorComponent';
@@ -237,4 +238,8 @@ TaskList.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles)(TaskList);
+export default withAuth(withStyles(styles)(TaskList), [
+  'task-list',
+  // 'task-comments-delete',
+  // 'task-comments-list',
+]);

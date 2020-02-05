@@ -6,18 +6,19 @@ import PropTypes from 'prop-types';
 import arrayMove from 'array-move';
 import withStyles from '@material-ui/core/styles/withStyles';
 
+import withAuth from 'components/common/authentication/withAuth';
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
 import { getGroups } from 'api/pda/groups';
 import { getColumns } from 'api/pda/tasks';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 import { normalizeConfigColumns, normalizeConfigGroups } from 'components/TaskList/normalizeData';
+import RenderSwitch from 'components/common/RenderSwitch';
+import ErrorNotification from 'components/common/ErrorNotification';
+
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
 import 'patternfly/dist/css/patternfly-additions.css';
-import RenderSwitch from 'components/common/RenderSwitch';
-
-import ErrorNotification from 'components/common/ErrorNotification';
 
 const generalOptions = [
   {
@@ -379,4 +380,7 @@ TaskListConfig.propTypes = {
 
 TaskListConfig.defaultProps = {};
 
-export default withStyles(styles)(TaskListConfig);
+export default withAuth(withStyles(styles)(TaskListConfig), [
+  'connection-list',
+  'process-definition-list',
+]);
