@@ -6,7 +6,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-9 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-31 MuiPaper-outlined"
     >
       <div>
         <form
@@ -16,7 +16,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
             class="MuiFormControl-root MuiFormControl-fullWidth"
           >
             <div
-              class="MuiGrid-root makeStyles-root-62 MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root makeStyles-root-88 MuiGrid-container MuiGrid-spacing-xs-2"
             >
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
@@ -32,11 +32,11 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                       PerformanceEvaluation-taskform.frm
                     </h3>
                     <hr
-                      class="MuiDivider-root JSONFormTitle-divider-167"
+                      class="MuiDivider-root JSONFormTitle-divider-193"
                     />
                   </div>
                   <div
-                    class="MuiGrid-root makeStyles-root-62 MuiGrid-container MuiGrid-spacing-xs-2"
+                    class="MuiGrid-root makeStyles-root-88 MuiGrid-container MuiGrid-spacing-xs-2"
                   >
                     <div
                       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
@@ -133,7 +133,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="CompletionForm-actionButtons-38"
+            class="CompletionForm-actionButtons-60"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
@@ -154,19 +154,6 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
       </div>
     </div>
   </div>
-</div>
-`;
-
-exports[`<TaskCompletionFormContainer /> renders snapshot correctly on error state 1`] = `
-<div>
-  <div
-    class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
-  >
-    <div
-      class="MuiPaper-root WidgetBox-widgetBox-303 MuiPaper-outlined"
-    >
-      messages.warnings.noData
-    </div>
-  </div>
+  
 </div>
 `;

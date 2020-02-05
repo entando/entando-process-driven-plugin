@@ -11,9 +11,11 @@ import {
   FormControl,
 } from 'patternfly-react';
 
+import withAuth from 'components/common/authentication/withAuth';
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
+import ErrorNotification from 'components/common/ErrorNotification';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -31,37 +33,44 @@ class CompletionFormConfig extends React.Component {
       },
       knowledgeSource: '',
       selectedProcess: '',
+      errorMessage: '',
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeProcess = this.onChangeProcess.bind(this);
     this.onChangeUiSchema = this.onChangeUiSchema.bind(this);
+    this.closeNotification = this.closeNotification.bind(this);
+    this.handleError = this.handleError.bind(this);
     this.handleSave = this.handleSave.bind(this);
   }
 
   async componentDidMount() {
-    const { frameId, pageCode } = this.props;
+    try {
+      const { frameId, pageCode } = this.props;
 
-    // getting list of Kie server connections
-    const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload });
+      // getting list of Kie server connections
+      const sourceList = await getConnections();
+      this.setState({ sourceList: sourceList.payload });
 
-    // getting existing configs
-    const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'COMPLETION_FORM');
+      // getting existing configs
+      const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'COMPLETION_FORM');
 
-    const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
-    if (configs && configs.knowledgeSource) {
-      this.onChangeKnowledgeSource(configs.knowledgeSource, () => {
-        if (configs.process) {
-          this.onChangeProcess(configs.process, () => {
-            if (configs.settings) {
-              this.setState({
-                settings: JSON.parse(configs.settings),
-              });
-            }
-          });
-        }
-      });
+      const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
+      if (configs && configs.knowledgeSource) {
+        this.onChangeKnowledgeSource(configs.knowledgeSource, () => {
+          if (configs.process) {
+            this.onChangeProcess(configs.process, () => {
+              if (configs.settings) {
+                this.setState({
+                  settings: JSON.parse(configs.settings),
+                });
+              }
+            });
+          }
+        });
+      }
+    } catch (error) {
+      this.handleError(error.message);
     }
   }
 
@@ -88,6 +97,14 @@ class CompletionFormConfig extends React.Component {
     this.setState({ settings: { ...settings, uiSchema } });
   }
 
+  closeNotification = () => {
+    this.setState({ errorMessage: '' });
+  };
+
+  handleError(errorMessage) {
+    this.setState({ errorMessage });
+  }
+
   async handleSave() {
     const { frameId, pageCode, widgetCode } = this.props;
     const { knowledgeSource, selectedProcess, settings } = this.state;
@@ -107,7 +124,7 @@ class CompletionFormConfig extends React.Component {
       const response = await putPageWidget(pageCode, frameId, body);
       console.log('Configs got saved', response);
     } catch (error) {
-      console.log('Error while saving configs', error);
+      this.handleError(error.message);
     }
   }
 
@@ -118,10 +135,12 @@ class CompletionFormConfig extends React.Component {
       settings,
       processList = [],
       selectedProcess = '',
+      errorMessage,
     } = this.state;
 
     return (
       <div>
+        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
         <form>
           <Row>
             <Col xs={12}>
@@ -199,4 +218,4 @@ CompletionFormConfig.propTypes = {
   pageCode: PropTypes.string.isRequired,
 };
 
-export default CompletionFormConfig;
+export default withAuth(CompletionFormConfig, ['connection-list', 'process-definition-list']);

@@ -6,7 +6,6 @@ import { Theme as MuiRJSForm } from 'rjsf-material-ui';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-import CustomEventContext from 'components/common/CustomEventContext';
 import JSONFormSkeleton from 'components/common/form/JSONFormSkeleton';
 import JSONFormTitle from 'components/common/form/JSONFormTitle';
 
@@ -25,7 +24,7 @@ const styles = {
   },
 };
 
-const CompletionForm = ({ classes, loading, formSchema, formData, uiSchema }) => {
+const CompletionForm = ({ classes, loading, formSchema, formData, uiSchema, onSubmitForm }) => {
   if (loading) {
     return <JSONFormSkeleton />;
   }
@@ -42,28 +41,24 @@ const CompletionForm = ({ classes, loading, formSchema, formData, uiSchema }) =>
   };
 
   return (
-    <CustomEventContext.Consumer>
-      {({ onSubmitForm }) => (
-        <div>
-          {loading && <JSONFormSkeleton />}
-          {!loading && (
-            <ThemedForm
-              schema={formSchema}
-              uiSchema={uiSchema}
-              fields={fields}
-              formData={formData}
-              onSubmit={e => onSubmitForm(e)}
-            >
-              <div className={classes.actionButtons}>
-                <Button type="submit" variant="contained" color="primary">
-                  {i18next.t('common.submit')}
-                </Button>
-              </div>
-            </ThemedForm>
-          )}
-        </div>
+    <div>
+      {loading && <JSONFormSkeleton />}
+      {!loading && (
+        <ThemedForm
+          schema={formSchema}
+          uiSchema={uiSchema}
+          fields={fields}
+          formData={formData}
+          onSubmit={e => onSubmitForm(e)}
+        >
+          <div className={classes.actionButtons}>
+            <Button type="submit" variant="contained" color="primary">
+              {i18next.t('common.submit')}
+            </Button>
+          </div>
+        </ThemedForm>
       )}
-    </CustomEventContext.Consumer>
+    </div>
   );
 };
 
@@ -76,6 +71,7 @@ CompletionForm.propTypes = {
   formSchema: PropTypes.shape({}),
   formData: PropTypes.shape({}),
   uiSchema: PropTypes.shape({}),
+  onSubmitForm: PropTypes.func,
 };
 
 CompletionForm.defaultProps = {
@@ -83,6 +79,7 @@ CompletionForm.defaultProps = {
   formSchema: null,
   formData: {},
   uiSchema: {},
+  onSubmitForm: () => {},
 };
 
 export default withStyles(styles)(CompletionForm);

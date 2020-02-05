@@ -29,7 +29,6 @@ import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 
 import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 
-import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompletionFormContainer';
 import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompletionFormConfig';
 
 import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
@@ -157,11 +156,11 @@ function App() {
           <Route
             path="/TaskCompletionForm/"
             render={() => (
-              <TaskCompletionFormContainer
-                taskId={WIDGETS_CONFIG.COMPLETION_FORM.taskId}
-                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+              <task-completion-form
+                task-id={WIDGETS_CONFIG.COMPLETION_FORM.taskId}
+                page-code={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
+                frame-id={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
+                service-url={WIDGETS_CONFIG.COMPLETION_FORM.serviceUrl}
               />
             )}
           />

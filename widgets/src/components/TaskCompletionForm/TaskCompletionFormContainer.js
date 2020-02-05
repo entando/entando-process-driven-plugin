@@ -4,10 +4,11 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import theme from 'theme';
-import CustomEventContext from 'components/TaskDetails/CustomEventContext';
+import withAuth from 'components/common/authentication/withAuth';
+import ErrorNotification from 'components/common/ErrorNotification';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
-import { getTask, getTaskForm } from 'api/pda/tasks';
+import { getTask, getTaskForm, postTaskForm } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 
 class TaskCompletionFormContainer extends React.Component {
@@ -19,10 +20,14 @@ class TaskCompletionFormContainer extends React.Component {
       loading: false,
       formSchema: null,
       formData: {},
+      errorMessage: '',
     };
 
     this.fetchTaskFormData = this.fetchTaskFormData.bind(this);
     this.fetchSchema = this.fetchSchema.bind(this);
+    this.onSubmitForm = this.onSubmitForm.bind(this);
+    this.closeNotification = this.closeNotification.bind(this);
+    this.handleError = this.handleError.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +45,27 @@ class TaskCompletionFormContainer extends React.Component {
       });
     });
   }
+
+  async onSubmitForm({ formData }) {
+    const { config } = this.state;
+    const { taskId, onSubmitForm } = this.props;
+
+    const connection = (config && config.knowledgeSource) || '';
+    const containerId = (config && config.containerId) || '';
+    const taskContainerId = `${taskId}@${containerId}`;
+
+    try {
+      await postTaskForm(connection, taskContainerId, formData);
+    } catch (error) {
+      this.handleError(error.message);
+    }
+
+    onSubmitForm(formData);
+  }
+
+  closeNotification = () => {
+    this.setState({ errorMessage: '' });
+  };
 
   async fetchWidgetConfigs() {
     const { pageCode, frameId } = this.props;
@@ -105,32 +131,32 @@ class TaskCompletionFormContainer extends React.Component {
     return null;
   }
 
-  handleError(err) {
+  handleError(errorMessage) {
+    this.setState({ errorMessage });
     const { onError } = this.props;
-    onError(err);
+    onError(errorMessage);
   }
 
   render() {
-    const { loading, formData, formSchema, config } = this.state;
-    const { onSubmitForm, onError } = this.props;
+    const { loading, formData, formSchema, config, errorMessage } = this.state;
 
     const uiSchema = (config && config.settings && config.settings.uiSchema) || {};
 
     return (
-      <CustomEventContext.Provider value={{ onSubmitForm, onError }}>
-        <ThemeProvider theme={theme}>
-          <Container disableGutters>
-            <WidgetBox>
-              <JSONForm
-                loading={loading}
-                formSchema={formSchema}
-                formData={formData}
-                uiSchema={uiSchema}
-              />
-            </WidgetBox>
-          </Container>
-        </ThemeProvider>
-      </CustomEventContext.Provider>
+      <ThemeProvider theme={theme}>
+        <Container disableGutters>
+          <WidgetBox>
+            <JSONForm
+              loading={loading}
+              formSchema={formSchema}
+              formData={formData}
+              uiSchema={uiSchema}
+              onSubmitForm={this.onSubmitForm}
+            />
+          </WidgetBox>
+        </Container>
+        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
+      </ThemeProvider>
     );
   }
 }
@@ -150,4 +176,8 @@ TaskCompletionFormContainer.defaultProps = {
   frameId: '',
 };
 
-export default TaskCompletionFormContainer;
+export default withAuth(TaskCompletionFormContainer, [
+  'task-get',
+  'task-form-get',
+  'task-form-submit',
+]);

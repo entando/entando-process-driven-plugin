@@ -7,6 +7,9 @@ import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompl
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
 import MOCKED_GET_TASK_RESPONSE from 'mocks/taskDetails/getTask';
 import MOCKED_GET_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/getFormSchema';
+import mockKeycloak from 'mocks/auth/keycloak';
+
+mockKeycloak();
 
 describe('<TaskCompletionFormContainer />', () => {
   it('renders snapshot correctly', async () => {
@@ -29,11 +32,5 @@ describe('<TaskCompletionFormContainer />', () => {
     expect(fetch.mock.calls.length).toBe(3);
     expect(fetch.mock.calls[0][0]).toEqual(configUrl);
     expect(fetch.mock.calls[1][0]).toEqual(taskListUrl);
-  });
-
-  it('renders snapshot correctly on error state', async () => {
-    const { container } = render(<TaskCompletionFormContainer taskId="1" />);
-
-    await wait(() => expect(container).toMatchSnapshot());
   });
 });
