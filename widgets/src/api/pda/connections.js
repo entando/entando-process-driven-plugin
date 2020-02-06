@@ -10,5 +10,5 @@ export const getConnections = async () =>
     uri: '/connections',
     method: METHODS.GET,
     mockResponse: MOCK_CONNECTIONS,
-    useAuthentication: false,
+    useAuthentication: true,
   });

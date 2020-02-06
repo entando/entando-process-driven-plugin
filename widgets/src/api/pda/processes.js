@@ -29,4 +29,5 @@ export const getProcessForm = async (connection, processId) =>
     uri: `/connections/${connection}/processes/definitions/${processId}/form`,
     method: METHODS.GET,
     mockResponse: MOCKED_PROCESS_FORM,
+    useAuthentication: true,
   });
