@@ -6,6 +6,7 @@ import 'i18n';
 import 'index.css';
 
 // insert the custom elements to the scope
+import 'custom-elements/GenericConfigElement';
 import 'custom-elements/TaskListElement';
 import 'custom-elements/TaskDetailsElement';
 import 'custom-elements/TaskCompletionFormElement';
