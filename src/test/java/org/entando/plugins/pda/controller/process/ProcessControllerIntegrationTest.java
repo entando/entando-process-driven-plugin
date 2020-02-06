@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.UUID;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
-import org.entando.plugins.pda.controller.TestConnectionConfigConfiguration;
+import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
 import org.entando.plugins.pda.core.service.process.FakeProcessService;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
