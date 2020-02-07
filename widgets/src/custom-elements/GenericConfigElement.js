@@ -1,6 +1,7 @@
 import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import retargetEvents from 'react-shadow-dom-retarget-events';
 
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
@@ -46,19 +47,45 @@ const elements = {};
 
 configNames.forEach(({ name, Component, className }) => {
   elements[className] = class extends HTMLElement {
+    constructor() {
+      super();
+      this.reactRootRef = React.createRef();
+      this.mountPoint = null;
+    }
+
+    get config() {
+      const { config } = this.reactRootRef.current && this.reactRootRef.current.state;
+      if (config) {
+        const normalizedConfig = {};
+        Object.keys(config).forEach(key => {
+          normalizedConfig[key] =
+            typeof config[key] === 'string' ? config[key] : JSON.stringify(config[key]);
+        });
+        return normalizedConfig;
+      }
+      return {};
+    }
+
+    set config(value) {
+      return this.reactRootRef.current.setState({ config: value });
+    }
+
     connectedCallback() {
-      const mountPoint = document.createElement('div');
-      this.appendChild(mountPoint);
+      this.mountPoint = document.createElement('div');
+
+      const shadowRoot = this.attachShadow({ mode: 'open' });
+      shadowRoot.appendChild(this.mountPoint);
 
       const locale = this.getAttribute('locale') || 'en';
       i18next.changeLanguage(locale);
 
-      const pageCode = this.getAttribute('page-code');
-      const frameId = this.getAttribute('frame-id');
-      const widgetCode = this.getAttribute('widget-code');
+      this.render();
 
-      const reactRoot = React.createElement(Component, { pageCode, frameId, widgetCode });
-      ReactDOM.render(reactRoot, mountPoint);
+      retargetEvents(shadowRoot);
+    }
+
+    render() {
+      ReactDOM.render(<Component ref={this.reactRootRef} config={this.config} />, this.mountPoint);
     }
   };
 

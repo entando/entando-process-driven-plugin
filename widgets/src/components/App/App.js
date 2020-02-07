@@ -125,16 +125,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/TaskListConfig"
-            render={() => (
-              <TaskListConfig
-                pageCode={WIDGETS_CONFIG.TASK_LIST.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_LIST.frameId}
-                widgetCode={WIDGETS_CONFIG.TASK_LIST.widgetCode}
-              />
-            )}
-          />
+          <Route path="/TaskListConfig" render={() => <TaskListConfig config={{}} />} />
           <Route
             path="/TaskDetails/"
             render={() => (
