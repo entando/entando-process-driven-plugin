@@ -52,7 +52,7 @@ configNames.forEach(({ name, Component, className }) => {
     }
 
     get config() {
-      const config = this.reactRootRef.current ? this.reactRootRef.current.state : {};
+      const config = this.reactRootRef.current ? this.reactRootRef.current.state.config : {};
       console.log('config:', config);
 
       Object.keys(config).forEach(key => {
