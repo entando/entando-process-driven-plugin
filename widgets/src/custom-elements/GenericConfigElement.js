@@ -1,7 +1,6 @@
 import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import retargetEvents from 'react-shadow-dom-retarget-events';
 
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
@@ -50,7 +49,6 @@ configNames.forEach(({ name, Component, className }) => {
     constructor() {
       super();
       this.reactRootRef = React.createRef();
-      this.mountPoint = null;
     }
 
     get config() {
@@ -68,21 +66,13 @@ configNames.forEach(({ name, Component, className }) => {
     }
 
     connectedCallback() {
-      this.mountPoint = document.createElement('div');
-
-      const shadowRoot = this.attachShadow({ mode: 'open' });
-      shadowRoot.appendChild(this.mountPoint);
+      const mountPoint = document.createElement('div');
+      this.appendChild(mountPoint);
 
       const locale = this.getAttribute('locale') || 'en';
       i18next.changeLanguage(locale);
 
-      this.render();
-
-      retargetEvents(shadowRoot);
-    }
-
-    render() {
-      ReactDOM.render(<Component ref={this.reactRootRef} config={this.config} />, this.mountPoint);
+      ReactDOM.render(<Component ref={this.reactRootRef} config={this.config} />, mountPoint);
     }
   };
 
