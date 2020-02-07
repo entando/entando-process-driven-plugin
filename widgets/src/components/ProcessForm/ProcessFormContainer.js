@@ -4,13 +4,13 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import theme from 'theme';
-import CustomEventContext from 'components/TaskDetails/CustomEventContext';
+import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
-import { getTask, getTaskForm } from 'api/pda/tasks';
+import { getProcessForm } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 
-class TaskCompletionFormContainer extends React.Component {
+class ProcessFormContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,10 +18,8 @@ class TaskCompletionFormContainer extends React.Component {
       config: null,
       loading: false,
       formSchema: null,
-      formData: {},
     };
 
-    this.fetchTaskFormData = this.fetchTaskFormData.bind(this);
     this.fetchSchema = this.fetchSchema.bind(this);
   }
 
@@ -30,13 +28,8 @@ class TaskCompletionFormContainer extends React.Component {
       const config = await this.fetchWidgetConfigs();
 
       this.setState({ config }, async () => {
-        const formDataPromise = this.fetchTaskFormData();
-        const formSchemaPromise = this.fetchSchema();
-
-        const formData = await formDataPromise;
-        const formSchema = await formSchemaPromise;
-
-        this.setState({ formData, formSchema, loading: false });
+        const formSchema = await this.fetchSchema();
+        this.setState({ formSchema, loading: false });
       });
     });
   }
@@ -45,7 +38,7 @@ class TaskCompletionFormContainer extends React.Component {
     const { pageCode, frameId } = this.props;
     try {
       // config will be fetched from app-builder
-      const widgetConfigs = await getPageWidget(pageCode, frameId, 'COMPLETION_FORM');
+      const widgetConfigs = await getPageWidget(pageCode, frameId, 'PROCESS_FORM');
       if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }
@@ -70,34 +63,14 @@ class TaskCompletionFormContainer extends React.Component {
     return null;
   }
 
-  async fetchTaskFormData() {
-    const { config } = this.state;
-    const { taskId } = this.props;
-
-    const connection = (config && config.knowledgeSource) || '';
-    const containerId = (config && config.containerId) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
-
-    try {
-      const task = await getTask(connection, taskContainerId);
-
-      return (task && task.payload && task.payload.outputData) || {};
-    } catch (error) {
-      this.handleError(error.message);
-    }
-    return {};
-  }
-
   async fetchSchema() {
     const { config } = this.state;
-    const { taskId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const containerId = (config && config.containerId) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
+    const processContainerId = (config && config.process) || '';
 
     try {
-      const formSchema = await getTaskForm(connection, taskContainerId);
+      const formSchema = await getProcessForm(connection, processContainerId);
       return formSchema;
     } catch (error) {
       this.handleError(error.message);
@@ -111,7 +84,7 @@ class TaskCompletionFormContainer extends React.Component {
   }
 
   render() {
-    const { loading, formData, formSchema, config } = this.state;
+    const { loading, formSchema, config } = this.state;
     const { onSubmitForm, onError } = this.props;
 
     const uiSchema = (config && config.settings && config.settings.uiSchema) || {};
@@ -121,12 +94,7 @@ class TaskCompletionFormContainer extends React.Component {
         <ThemeProvider theme={theme}>
           <Container disableGutters>
             <WidgetBox>
-              <JSONForm
-                loading={loading}
-                formSchema={formSchema}
-                formData={formData}
-                uiSchema={uiSchema}
-              />
+              <JSONForm loading={loading} formSchema={formSchema} uiSchema={uiSchema} />
             </WidgetBox>
           </Container>
         </ThemeProvider>
@@ -135,19 +103,18 @@ class TaskCompletionFormContainer extends React.Component {
   }
 }
 
-TaskCompletionFormContainer.propTypes = {
-  taskId: PropTypes.string.isRequired,
+ProcessFormContainer.propTypes = {
   onError: PropTypes.func,
   onSubmitForm: PropTypes.func,
   pageCode: PropTypes.string,
   frameId: PropTypes.string,
 };
 
-TaskCompletionFormContainer.defaultProps = {
+ProcessFormContainer.defaultProps = {
   onError: () => {},
   onSubmitForm: () => {},
   pageCode: '',
   frameId: '',
 };
 
-export default TaskCompletionFormContainer;
+export default ProcessFormContainer;

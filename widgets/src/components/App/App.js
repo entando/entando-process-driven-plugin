@@ -35,6 +35,12 @@ import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompletionFormContainer';
 import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompletionFormConfig';
 
+import TaskCommentsContainer from 'components/TaskComments/TaskCommentsContainer';
+import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
+
+import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
+import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -50,6 +56,7 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const [open, setOpen] = React.useState(false);
   const [lazyLoading, setLazyLoading] = React.useState(true);
+  const [skeletonLoading, setSkeletonLoading] = React.useState(false);
 
   // TODO: Remove when token is managed by wrapper
   React.useEffect(() => {
@@ -85,6 +92,17 @@ function App() {
             <Typography variant="h6" className={classes.title}>
               Entando - PAM Plugin
             </Typography>
+            <FormControlLabel
+              control={
+                // eslint-disable-next-line react/jsx-wrap-multilines
+                <Checkbox
+                  checked={skeletonLoading}
+                  onChange={() => setSkeletonLoading(!skeletonLoading)}
+                />
+              }
+              label="Show skeleton"
+              labelPlacement="start"
+            />
             <FormControlLabel
               control={
                 <Checkbox checked={lazyLoading} onChange={() => setLazyLoading(!lazyLoading)} />
@@ -162,6 +180,27 @@ function App() {
             )}
           />
           <Route
+            path="/TaskComments/"
+            render={() => (
+              <TaskCommentsContainer
+                taskId={WIDGETS_CONFIG.TASK_COMMENTS.taskId}
+                pageCode={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}
+                frameId={WIDGETS_CONFIG.TASK_COMMENTS.frameId}
+                widgetCode={WIDGETS_CONFIG.TASK_COMMENTS.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/TaskCommentsConfig"
+            render={() => (
+              <TaskCommentsConfig
+                pageCode={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}
+                frameId={WIDGETS_CONFIG.TASK_COMMENTS.frameId}
+                widgetCode={WIDGETS_CONFIG.TASK_COMMENTS.widgetCode}
+              />
+            )}
+          />
+          <Route
             path="/SummaryCard/"
             render={() => (
               <SummaryCardContainer
@@ -189,6 +228,26 @@ function App() {
                 pageCode={WIDGETS_CONFIG.TASK_LIST.pageCode}
                 frameId={WIDGETS_CONFIG.TASK_LIST.frameId}
                 widgetCode={WIDGETS_CONFIG.TASK_LIST.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/ProcessForm"
+            render={() => (
+              <ProcessFormContainer
+                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/ProcessFormConfig"
+            render={() => (
+              <ProcessFormConfig
+                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
               />
             )}
           />

@@ -2,11 +2,11 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
-import CompletionForm from 'components/TaskCompletionForm/CompletionForm';
+import OverviewSkeleton from 'components/TaskDetails/Overview/OverviewSkeleton';
 
-describe('<CompletionForm />', () => {
+describe('<OverviewSkeleton />', () => {
   it('renders snapshot correctly', async () => {
-    const { container } = render(<CompletionForm />);
+    const { container } = render(<OverviewSkeleton />);
 
     expect(container).toMatchSnapshot();
   });

@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CompletionFormSkeleton /> renders snapshot correctly 1`] = `
+exports[`<JSONFormSkeleton /> renders snapshot correctly 1`] = `
 <div>
   <div>
     <div
-      class="MuiSkeleton-root MuiSkeleton-rect CompletionFormSkeleton-header-1 MuiSkeleton-animate"
+      class="MuiSkeleton-root MuiSkeleton-rect JSONFormSkeleton-header-1 MuiSkeleton-animate"
       style="width: 280px; height: 18px;"
     />
     <hr
-      class="MuiDivider-root CompletionFormSkeleton-divider-2"
+      class="MuiDivider-root JSONFormSkeleton-divider-2"
     />
   </div>
   <div
-    class="CompletionFormSkeleton-item-3"
+    class="JSONFormSkeleton-item-3"
   >
     <div
       class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
       style="width: 80px; height: 15px;"
     />
     <hr
-      class="MuiDivider-root CompletionFormSkeleton-field-4"
+      class="MuiDivider-root JSONFormSkeleton-field-4"
     />
     <div
       class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
@@ -32,7 +32,7 @@ exports[`<CompletionFormSkeleton /> renders snapshot correctly 1`] = `
       style="width: 80px; height: 15px;"
     />
     <hr
-      class="MuiDivider-root CompletionFormSkeleton-field-4"
+      class="MuiDivider-root JSONFormSkeleton-field-4"
     />
     <div
       class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
@@ -40,7 +40,7 @@ exports[`<CompletionFormSkeleton /> renders snapshot correctly 1`] = `
     />
   </div>
   <div
-    class="CompletionFormSkeleton-controls-5"
+    class="JSONFormSkeleton-controls-5"
   >
     <div
       class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"

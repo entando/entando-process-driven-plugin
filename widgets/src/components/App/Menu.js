@@ -19,6 +19,7 @@ import {
   Description as DescriptionIcon,
   DoneAll as DoneAllIcon,
   BarChart as BarChartIcon,
+  Comment as CommentsIcon,
 } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -33,6 +34,51 @@ const styles = {
   },
 };
 
+const menuItems = [
+  {
+    linkTo: '/TaskList',
+    linkText: 'Task list',
+    Icon: <ListIcon />,
+    configLinkTo: '/TaskListConfig',
+  },
+  {
+    linkTo: '/TaskDetails',
+    linkText: 'Task details',
+    Icon: <DescriptionIcon />,
+    configLinkTo: '/TaskDetailsConfig',
+  },
+  {
+    linkTo: '/TaskCompletionForm',
+    linkText: 'Task completion form',
+    Icon: <DoneAllIcon />,
+    configLinkTo: '/TaskCompletionFormConfig',
+  },
+  {
+    linkTo: '/TaskComments',
+    linkText: 'Task comments',
+    Icon: <CommentsIcon />,
+    configLinkTo: '/TaskCommentsConfig',
+  },
+  {
+    linkTo: '/SummaryCard',
+    linkText: 'Summary card',
+    Icon: <DashboardIcon />,
+    configLinkTo: '/SummaryCardConfig',
+  },
+  {
+    linkTo: '/OvertimeGraph',
+    linkText: 'Overtime Graph',
+    Icon: <BarChartIcon />,
+    configLinkTo: '/OvertimeGraphConfig',
+  },
+  {
+    linkTo: '/ProcessForm',
+    linkText: 'Process form',
+    Icon: <DescriptionIcon />,
+    configLinkTo: '/ProcessFormConfig',
+  },
+];
+
 const Menu = ({ open, setOpen, classes }) => (
   <Drawer open={open} onClose={() => setOpen(false)}>
     <div className="app-list">
@@ -46,81 +92,23 @@ const Menu = ({ open, setOpen, classes }) => (
 
         <Typography variant="overline">Widgets</Typography>
         <Divider />
-        <div className={classes.item}>
-          <ListItem button component={Link} to="/TaskList" onClick={() => setOpen(false)}>
-            <ListIcon />
-            <ListItemText primary="TaskList" />
-          </ListItem>
-          <IconButton
-            className={classes.iconButton}
-            size="small"
-            component={Link}
-            to="/TaskListConfig"
-            onClick={() => setOpen(false)}
-          >
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </div>
-        <div className={classes.item}>
-          <ListItem button component={Link} to="/TaskDetails" onClick={() => setOpen(false)}>
-            <DescriptionIcon />
-            <ListItemText primary="TaskDetails" />
-          </ListItem>
-          <IconButton
-            className={classes.iconButton}
-            size="small"
-            component={Link}
-            to="/TaskDetailsConfig"
-            onClick={() => setOpen(false)}
-          >
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </div>
-        <div className={classes.item}>
-          <ListItem button component={Link} to="/TaskCompletionForm" onClick={() => setOpen(false)}>
-            <DoneAllIcon />
-            <ListItemText primary="TaskCompletionForm" />
-          </ListItem>
-          <IconButton
-            className={classes.iconButton}
-            size="small"
-            component={Link}
-            to="/TaskCompletionFormConfig"
-            onClick={() => setOpen(false)}
-          >
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </div>
-        <div className={classes.item}>
-          <ListItem button component={Link} to="/SummaryCard" onClick={() => setOpen(false)}>
-            <DashboardIcon />
-            <ListItemText primary="SummaryCard" />
-          </ListItem>
-          <IconButton
-            className={classes.iconButton}
-            size="small"
-            component={Link}
-            to="/SummaryCardConfig"
-            onClick={() => setOpen(false)}
-          >
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </div>
-        <div className={classes.item}>
-          <ListItem button component={Link} to="/OvertimeGraph" onClick={() => setOpen(false)}>
-            <BarChartIcon />
-            <ListItemText primary="OvertimeGraph" />
-          </ListItem>
-          <IconButton
-            className={classes.iconButton}
-            size="small"
-            component={Link}
-            to="/OvertimeGraphConfig"
-            onClick={() => setOpen(false)}
-          >
-            <SettingsIcon fontSize="small" />
-          </IconButton>
-        </div>
+        {menuItems.map(({ linkTo, Icon, linkText, configLinkTo }) => (
+          <div className={classes.item} key={linkTo}>
+            <ListItem button component={Link} to={linkTo} onClick={() => setOpen(false)}>
+              {Icon}
+              <ListItemText primary={linkText} />
+            </ListItem>
+            <IconButton
+              className={classes.iconButton}
+              size="small"
+              component={Link}
+              to={configLinkTo}
+              onClick={() => setOpen(false)}
+            >
+              <SettingsIcon fontSize="small" />
+            </IconButton>
+          </div>
+        ))}
       </List>
     </div>
   </Drawer>
