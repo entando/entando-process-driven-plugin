@@ -54,16 +54,13 @@ configNames.forEach(({ name, Component, className }) => {
     }
 
     get config() {
-      const { config } = this.reactRootRef.current && this.reactRootRef.current.state;
-      if (config) {
-        const normalizedConfig = {};
-        Object.keys(config).forEach(key => {
-          normalizedConfig[key] =
-            typeof config[key] === 'string' ? config[key] : JSON.stringify(config[key]);
-        });
-        return normalizedConfig;
-      }
-      return {};
+      const config = this.reactRootRef.current ? this.reactRootRef.current.state : {};
+      console.log('config:', config);
+
+      Object.keys(config).forEach(key => {
+        config[key] = typeof config[key] === 'string' ? config[key] : JSON.stringify(config[key]);
+      });
+      return config;
     }
 
     set config(value) {
