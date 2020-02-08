@@ -137,16 +137,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/TaskDetailsConfig"
-            render={() => (
-              <TaskDetailsConfig
-                pageCode={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_DETAILS.frameId}
-                widgetCode={WIDGETS_CONFIG.TASK_DETAILS.widgetCode}
-              />
-            )}
-          />
+          <Route path="/TaskDetailsConfig" render={() => <TaskDetailsConfig config={{}} />} />
           <Route
             path="/TaskCompletionForm/"
             render={() => (
@@ -160,13 +151,7 @@ function App() {
           />
           <Route
             path="/TaskCompletionFormConfig"
-            render={() => (
-              <TaskCompletionFormConfig
-                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
-              />
-            )}
+            render={() => <TaskCompletionFormConfig config={{}} />}
           />
           <Route
             path="/TaskComments/"
@@ -179,16 +164,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/TaskCommentsConfig"
-            render={() => (
-              <TaskCommentsConfig
-                pageCode={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_COMMENTS.frameId}
-                widgetCode={WIDGETS_CONFIG.TASK_COMMENTS.widgetCode}
-              />
-            )}
-          />
+          <Route path="/TaskCommentsConfig" render={() => <TaskCommentsConfig config={{}} />} />
           <Route
             path="/SummaryCard/"
             render={() => (
@@ -199,16 +175,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/SummaryCardConfig/"
-            render={() => (
-              <SummaryCardConfig
-                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
-                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
-                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
-              />
-            )}
-          />
+          <Route path="/SummaryCardConfig/" render={() => <SummaryCardConfig config={{}} />} />
           <Route
             path="/ProcessForm"
             render={() => (
@@ -219,16 +186,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/ProcessFormConfig"
-            render={() => (
-              <ProcessFormConfig
-                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
-              />
-            )}
-          />
+          <Route path="/ProcessFormConfig" render={() => <ProcessFormConfig config={{}} />} />
         </Container>
       </Router>
     </div>

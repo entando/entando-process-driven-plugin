@@ -351,6 +351,4 @@ TaskListConfig.propTypes = {
   config: taskListConfigType.isRequired,
 };
 
-TaskListConfig.defaultProps = {};
-
 export default withStyles(styles)(TaskListConfig);
