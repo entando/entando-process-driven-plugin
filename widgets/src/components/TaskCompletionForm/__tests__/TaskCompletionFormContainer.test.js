@@ -5,8 +5,8 @@ import 'mocks/i18nMock';
 import { DOMAINS } from 'api/constants';
 import TaskCompletionFormContainer from 'components/TaskCompletionForm/TaskCompletionFormContainer';
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
-import MOCKED_TASK from 'mocks/taskDetails/task';
-import MOCKED_TASK_FORM from 'mocks/taskCompletionForm/formSchema';
+import MOCKED_GET_TASK_RESPONSE from 'mocks/taskDetails/getTask';
+import MOCKED_GET_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/getFormSchema';
 
 describe('<TaskCompletionFormContainer />', () => {
   it('renders snapshot correctly', async () => {
@@ -14,13 +14,13 @@ describe('<TaskCompletionFormContainer />', () => {
     const connection = 'kieStaging';
     const taskId = 'test';
     const taskListUrl = `${DOMAINS.PDA}/connections/${connection}/tasks/${taskId}@${
-      MOCKED_TASK.payload.id.split('@')[1]
+      MOCKED_GET_TASK_RESPONSE.payload.id.split('@')[1]
     }`;
 
     fetch
       .once(JSON.stringify(WIDGET_CONFIGS.TASK_DETAILS))
-      .once(JSON.stringify(MOCKED_TASK))
-      .once(JSON.stringify(MOCKED_TASK_FORM));
+      .once(JSON.stringify(MOCKED_GET_TASK_RESPONSE))
+      .once(JSON.stringify(MOCKED_GET_TASK_FORM_RESPONSE));
 
     const { container } = render(<TaskCompletionFormContainer taskId={taskId} />);
 

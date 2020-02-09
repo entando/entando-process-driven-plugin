@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CompletionForm /> renders snapshot correctly 1`] = `
+exports[`<JSONForm /> renders snapshot correctly 1`] = `
 <div>
   messages.warnings.noData
 </div>

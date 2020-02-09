@@ -21,7 +21,7 @@
     "processForm2": {
       "title": "Process 2",
       "type": "object",
-      "required": [ ],
+      "required": [],
       "properties": {
         "subForm": {
           "type": "boolean",

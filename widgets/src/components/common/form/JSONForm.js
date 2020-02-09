@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import { withTheme } from 'react-jsonschema-form';
-import { Theme as MuiTheme } from 'rjsf-material-ui';
+import { Theme as MuiRJSForm } from 'rjsf-material-ui';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-import CustomEventContext from 'components/TaskDetails/CustomEventContext';
-import CompletionFormSkeleton from 'components/TaskCompletionForm/CompletionFormSkeleton';
-import CompletionFormTitle from 'components/TaskCompletionForm/CompletionFormTitle';
+import CustomEventContext from 'components/common/CustomEventContext';
+import JSONFormSkeleton from 'components/common/form/JSONFormSkeleton';
+import JSONFormTitle from 'components/common/form/JSONFormTitle';
 
 const styles = {
   actionButtons: {
@@ -27,25 +27,25 @@ const styles = {
 
 const CompletionForm = ({ classes, loading, formSchema, formData, uiSchema }) => {
   if (loading) {
-    return <CompletionFormSkeleton />;
+    return <JSONFormSkeleton />;
   }
 
   if (!loading && !formSchema) {
     return i18next.t('messages.warnings.noData');
   }
 
-  const ThemedForm = withTheme(MuiTheme);
+  const ThemedForm = withTheme(MuiRJSForm);
 
   const fields = {
     // eslint-disable-next-line react/jsx-props-no-spreading
-    TitleField: props => <CompletionFormTitle {...props} />,
+    TitleField: props => <JSONFormTitle {...props} />,
   };
 
   return (
     <CustomEventContext.Consumer>
       {({ onSubmitForm }) => (
         <div>
-          {loading && <CompletionFormSkeleton />}
+          {loading && <JSONFormSkeleton />}
           {!loading && (
             <ThemedForm
               schema={formSchema}

@@ -19,7 +19,7 @@
     "2": {
       "title": "Task 2",
       "type": "object",
-      "required": [ ],
+      "required": [],
       "properties": {
         "subform": {
           "type": "string",
