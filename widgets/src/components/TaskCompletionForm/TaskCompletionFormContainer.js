@@ -75,7 +75,7 @@ class TaskCompletionFormContainer extends React.Component {
     const { taskId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const containerId = (config && config.containerId) || '';
+    const [, containerId] = config.process && config.process.split('@');
     const taskContainerId = `${taskId}@${containerId}`;
 
     try {
@@ -93,7 +93,7 @@ class TaskCompletionFormContainer extends React.Component {
     const { taskId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const containerId = (config && config.containerId) || '';
+    const [, containerId] = config.process && config.process.split('@');
     const taskContainerId = `${taskId}@${containerId}`;
 
     try {
