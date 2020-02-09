@@ -1,6 +1,5 @@
 package org.entando.plugins.pda.controller.process;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_FORM_ID_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_FORM_PROP_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_FORM_PROP_2;
@@ -10,6 +9,7 @@ import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_ID_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.minifyJsonString;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import static org.hamcrest.Matchers.containsString;
+import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
@@ -31,6 +31,7 @@ import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -86,7 +87,7 @@ public class ProcessFormControllerIntegrationTest {
 
         String json = result.getResponse().getContentAsString();
         String expected = minifyJsonString(readFromFile("process_form_json_schema_1.json"));
-        assertThat(json).isEqualTo(expected);
+        assertEquals(expected, json, JSONCompareMode.STRICT);
     }
 
     @Test
