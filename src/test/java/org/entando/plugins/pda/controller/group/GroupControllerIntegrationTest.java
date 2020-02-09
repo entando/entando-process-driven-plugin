@@ -1,4 +1,4 @@
-package org.entando.plugins.pda.controller;
+package org.entando.plugins.pda.controller.group;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.containsString;
@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
+import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
 import org.entando.plugins.pda.core.service.group.FakeGroupService;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;

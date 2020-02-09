@@ -2,6 +2,7 @@ package org.entando.plugins.pda.serializer;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
+import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -10,6 +11,7 @@ import org.entando.plugins.pda.core.service.process.FakeProcessFormService;
 import org.entando.plugins.pda.core.service.task.FakeTaskFormService;
 import org.junit.Before;
 import org.junit.Test;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 
 public class JsonSchemaFormSerializerTest {
 
@@ -30,7 +32,7 @@ public class JsonSchemaFormSerializerTest {
                 new V7JsonSchemaForm(FakeProcessFormService.PROCESS_FORM_1));
         String expected = readFromFile("process_form_json_schema_1.json");
 
-        assertThat(result).isEqualTo(expected);
+        assertEquals(expected, result, JSONCompareMode.STRICT);
     }
 
     @Test
@@ -39,6 +41,6 @@ public class JsonSchemaFormSerializerTest {
                 new V7JsonSchemaForm(FakeTaskFormService.TASK_FORM_1));
         String expected = readFromFile("task_form_json_schema_1.json");
 
-        assertThat(result).isEqualTo(expected);
+        assertEquals(expected, result, JSONCompareMode.STRICT);
     }
 }

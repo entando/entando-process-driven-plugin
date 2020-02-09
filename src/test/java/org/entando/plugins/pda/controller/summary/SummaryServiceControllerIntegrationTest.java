@@ -1,12 +1,15 @@
-package org.entando.plugins.pda.controller;
+package org.entando.plugins.pda.controller.summary;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -14,15 +17,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.util.UUID;
+import java.util.Arrays;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
-import org.entando.plugins.pda.core.engine.Connection;
-import org.entando.plugins.pda.core.model.summary.FrequencyEnum;
-import org.entando.plugins.pda.core.model.summary.Summary;
-import org.entando.plugins.pda.core.model.summary.SummaryType;
-import org.entando.plugins.pda.core.service.summary.SummaryService;
+import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
+import org.entando.plugins.pda.core.engine.FakeEngine;
+import org.entando.plugins.pda.core.service.summary.DataType;
+import org.entando.plugins.pda.core.service.summary.DataTypeService;
+import org.entando.plugins.pda.core.service.summary.processor.CardSummaryProcessor;
+import org.entando.plugins.pda.core.service.summary.processor.ChartSummaryProcessor;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,13 +52,9 @@ import org.springframework.web.client.RestTemplate;
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class})
 @SpringBootTest(classes = TestConnectionConfigConfiguration.class, webEnvironment = WebEnvironment.RANDOM_PORT,
         properties = "entando.plugin.security.level=LENIENT")
-public class SummaryControllerIntegrationTest {
-
-    private static final String ID_PREFIX = "summary";
-    private static final String TITLE_PREFIX = "Summary ";
-    private static final String LABEL_PREFIX = "Summary Label ";
-
-    private DecimalFormat decimalFormat = new DecimalFormat("#.##");
+public class SummaryServiceControllerIntegrationTest {
+    private static final String DATA_TYPE_1 = MockSummaryProcessor.TYPE;
+    private static final String DATA_TYPE_2 = "DataTypeWithoutProcessor";
 
     @Autowired
     private MockMvc mockMvc;
@@ -67,7 +66,7 @@ public class SummaryControllerIntegrationTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
-    private SummaryService summaryService;
+    private DataTypeService dataTypeService;
 
     @Before
     public void setup() throws IOException {
@@ -79,75 +78,62 @@ public class SummaryControllerIntegrationTest {
                 .andRespond(
                         withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
 
-        SummaryType summaryType1 = getSummaryType(1);
-        SummaryType summaryType2 = getSummaryType(2);
-        summaryService.registerSummaryType(summaryType1);
-        summaryService.registerSummaryType(summaryType2);
+        dataTypeService.setDataTypes(Arrays.asList(
+                createDataType(DATA_TYPE_1),
+                createDataType(DATA_TYPE_2)));
     }
 
     @Test
-    public void shouldListSummaries() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/summaries"))
-                .andDo(print()).andExpect(status().isOk())
+    public void shouldListSummaryTypes() throws Exception {
+        mockMvc.perform(get("/connections/fakeProduction/summaries/summaryTypes"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("errors", hasSize(0)))
+                .andExpect(jsonPath("payload.size()", is(3)))
+                .andExpect(jsonPath("payload[0]", is(MockSummaryProcessor.TYPE)))
+                .andExpect(jsonPath("payload[1]", is(CardSummaryProcessor.TYPE)))
+                .andExpect(jsonPath("payload[2]", is(ChartSummaryProcessor.TYPE)));
+    }
+
+    @Test
+    public void shouldListDataTypes() throws Exception {
+        mockMvc.perform(get("/connections/fakeProduction/summaries/dataTypes"))
+                .andDo(print())
+                .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0].description", is(TITLE_PREFIX + 1)))
-                .andExpect(jsonPath("payload[0].engine", is("fake")))
-                .andExpect(jsonPath("payload[0].id", is(ID_PREFIX + 1)))
-                .andExpect(jsonPath("payload[1].description", is(TITLE_PREFIX + 2)))
-                .andExpect(jsonPath("payload[1].engine", is("fake")))
-                .andExpect(jsonPath("payload[1].id", is(ID_PREFIX + 2)));
+                .andExpect(jsonPath("payload[0]", is(DATA_TYPE_1)))
+                .andExpect(jsonPath("payload[1]", is(DATA_TYPE_2)));
     }
 
     @Test
-    public void shouldGetSummary() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/summaries/" + ID_PREFIX + 1))
-                .andDo(print()).andExpect(status().isOk())
+    public void shouldCalculateSummary() throws Exception {
+        String request = "MyField";
+
+        mockMvc.perform(post("/connections/fakeProduction/summaries/summaryTypes/" + DATA_TYPE_1.toLowerCase())
+                .content(request))
+                .andDo(print())
+                .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
-                .andExpect(jsonPath("payload.title", is(TITLE_PREFIX + 1)))
-                .andExpect(jsonPath("payload.totalLabel", is(LABEL_PREFIX + 1)))
-                .andExpect(jsonPath("payload.total", is("1")))
-                .andExpect(jsonPath("payload.percentage", is("10")));
+                .andExpect(jsonPath("payload.myField", is(request)));
     }
 
     @Test
-    public void shouldThrowNotFoundForInvalidSummary() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/summaries/" + UUID.randomUUID().toString()))
-                .andDo(print()).andExpect(status().isNotFound())
+    public void shouldThrowNotFoundForInvalidSummaryType() throws Exception {
+        mockMvc.perform(post("/connections/fakeProduction/summaries/summaryTypes/invalid")
+                .content("{}"))
+                .andDo(print())
+                .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
     }
 
-    @Test
-    public void shouldThrowExceptionForInvalidFrequency() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/summaries/" + ID_PREFIX + 1 + "?frequency=invalid"))
-                .andDo(print()).andExpect(status().isBadRequest())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
-    }
-
-    private SummaryType getSummaryType(int value) {
-        return new SummaryType() {
-            @Override
-            public Summary calculateSummary(Connection connection, FrequencyEnum frequency) {
-                return new Summary(TITLE_PREFIX + value, LABEL_PREFIX + value, String.valueOf(value),
-                        decimalFormat.format(value * 10));
-            }
-
-            @Override
-            public String getEngine() {
-                return "fake";
-            }
-
-            @Override
-            public String getId() {
-                return ID_PREFIX + value;
-            }
-
-            @Override
-            public String getDescription() {
-                return TITLE_PREFIX + value;
-            }
-        };
+    private DataType createDataType(String type) {
+        DataType dataType = mock(DataType.class);
+        when(dataType.getId()).thenReturn(type);
+        when(dataType.getEngine()).thenReturn(FakeEngine.TYPE);
+        return dataType;
     }
 }

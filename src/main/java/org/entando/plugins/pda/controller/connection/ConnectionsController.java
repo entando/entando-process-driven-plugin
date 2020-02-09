@@ -1,4 +1,4 @@
-package org.entando.plugins.pda.controller;
+package org.entando.plugins.pda.controller.connection;
 
 import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_CREATE;
 import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_DELETE;
