@@ -58,7 +58,7 @@ class TaskCommentsContainer extends React.Component {
         const { taskId } = this.props;
 
         const connection = (config && config.knowledgeSource) || '';
-        const [, containerId] = config.process && config.process.split('@');
+        const [, containerId] = (config && config.process && config.process.split('@')) || '';
         const taskContainerId = `${taskId}@${containerId}`;
 
         try {
@@ -77,7 +77,7 @@ class TaskCommentsContainer extends React.Component {
       const { taskId, onClickAddComment } = this.props;
 
       const connection = (config && config.knowledgeSource) || '';
-      const [, containerId] = config.process && config.process.split('@');
+      const [, containerId] = (config && config.process && config.process.split('@')) || '';
       const taskContainerId = `${taskId}@${containerId}`;
 
       try {
@@ -96,7 +96,7 @@ class TaskCommentsContainer extends React.Component {
     const { taskId, onClickRemoveComment } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const [, containerId] = config.process && config.process.split('@');
+    const [, containerId] = (config && config.process && config.process.split('@')) || '';
     const taskContainerId = `${taskId}@${containerId}`;
 
     try {
