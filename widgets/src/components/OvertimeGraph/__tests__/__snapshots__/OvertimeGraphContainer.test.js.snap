@@ -1,18 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<OvertimeGraphContainer /> should match snapshot 1`] = `
+exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
 <div>
   <div
     class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="MuiBox-root MuiBox-root-29"
+      class="MuiBox-root MuiBox-root-30"
     >
       <h5
-        class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+        class="MuiTypography-root MuiTypography-h5"
       >
         Requests Volume
       </h5>
+    </div>
+    <hr
+      class="MuiDivider-root"
+    />
+    <hr
+      class="MuiDivider-root WithStyles(ForwardRef(Divider))-root-43 MuiDivider-middle"
+    />
+    <div
+      class="MuiBox-root MuiBox-root-44"
+    >
       <div
         class="MuiGrid-root MuiGrid-container"
       >
@@ -22,21 +32,88 @@ exports[`<OvertimeGraphContainer /> should match snapshot 1`] = `
           <h6
             class="MuiTypography-root MuiTypography-subtitle1"
           >
-            Requests
+            <div
+              class="MuiBox-root MuiBox-root-183"
+            >
+              Requests
+            </div>
           </h6>
         </div>
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
         >
-          tabs
+          <div
+            class="MuiTabs-root"
+          >
+            <div
+              class="MuiTabs-scroller MuiTabs-fixed"
+              style="overflow: hidden;"
+            >
+              <div
+                class="MuiTabs-flexContainer MuiTabs-centered"
+                role="tablist"
+              >
+                <button
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root Component-root-196 MuiTab-textColorInherit Mui-selected Component-selected-197"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    Daily
+                  </span>
+                </button>
+                <button
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root Component-root-196 MuiTab-textColorInherit"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    Monthly
+                  </span>
+                </button>
+                <button
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root Component-root-196 MuiTab-textColorInherit"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    Annually
+                  </span>
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-211 PrivateTabIndicator-colorSecondary-213 MuiTabs-indicator WithStyles(ForwardRef(Tabs))-indicator-184"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
         </div>
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-178"
+      >
+        <hr
+          class="MuiDivider-root"
+        />
       </div>
       <div
         class="MuiGrid-root MuiGrid-container"
       >
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
-          style="height: 250px;"
+          style="height: 300px;"
         >
           <div
             class="recharts-responsive-container"
@@ -49,7 +126,334 @@ exports[`<OvertimeGraphContainer /> should match snapshot 1`] = `
         <div
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
         >
-          details here
+          <div
+            class="MuiBox-root MuiBox-root-179"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
+                >
+                  18
+                </h6>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-caption"
+                >
+                  Total requests this year
+                </span>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-subtitle1"
+                >
+                  16.22
+                  %
+                </h6>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <span
+                  class="Component-root-215 upTrend"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root Component-icon-216"
+                    fill="none"
+                    focusable="false"
+                    height="11"
+                    role="presentation"
+                    viewBox="0 0 8 11"
+                    width="8"
+                  >
+                    <path
+                      d="M7.38618 4.23054C7.46599 4.07092 7.43697 3.87502 7.32088 3.73716L4.99909 0.951021C4.82496 0.740609 4.46218 0.740609 4.28805 0.951021L1.96626 3.73716C1.85017 3.87502 1.82841 4.07092 1.90096 4.23054C1.98077 4.39742 2.1404 4.499 2.32179 4.499H3.71486V9.14257H1.39307C1.32777 9.14257 1.25522 9.17159 1.21168 9.22238L0.0507891 10.6155C-0.00725558 10.688 -0.0145112 10.7823 0.0217667 10.8694C0.0580446 10.9492 0.145112 11 0.232179 11H5.34011C5.47071 11 5.57229 10.8984 5.57229 10.7678V4.499H6.96536C7.14675 4.499 7.30637 4.39742 7.38618 4.23054Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-180"
+                >
+                  <div
+                    style="height: 6px; border-radius: 4px; background-color: rgb(245, 245, 245); overflow: hidden;"
+                  >
+                    <div
+                      style="height: 100%; width: 16.22%; background-color: rgb(26, 179, 148);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root MuiBox-root-181"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
+                >
+                  18
+                </h6>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-caption"
+                >
+                  Bookings in the last month
+                </span>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-subtitle1"
+                >
+                  16.22
+                  %
+                </h6>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <span
+                  class="Component-root-215 upTrend"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root Component-icon-216"
+                    fill="none"
+                    focusable="false"
+                    height="11"
+                    role="presentation"
+                    viewBox="0 0 8 11"
+                    width="8"
+                  >
+                    <path
+                      d="M7.38618 4.23054C7.46599 4.07092 7.43697 3.87502 7.32088 3.73716L4.99909 0.951021C4.82496 0.740609 4.46218 0.740609 4.28805 0.951021L1.96626 3.73716C1.85017 3.87502 1.82841 4.07092 1.90096 4.23054C1.98077 4.39742 2.1404 4.499 2.32179 4.499H3.71486V9.14257H1.39307C1.32777 9.14257 1.25522 9.17159 1.21168 9.22238L0.0507891 10.6155C-0.00725558 10.688 -0.0145112 10.7823 0.0217667 10.8694C0.0580446 10.9492 0.145112 11 0.232179 11H5.34011C5.47071 11 5.57229 10.8984 5.57229 10.7678V4.499H6.96536C7.14675 4.499 7.30637 4.39742 7.38618 4.23054Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-182"
+                >
+                  <div
+                    style="height: 6px; border-radius: 4px; background-color: rgb(245, 245, 245); overflow: hidden;"
+                  >
+                    <div
+                      style="height: 100%; width: 16.22%; background-color: rgb(26, 179, 148);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <div
+      class="MuiBox-root MuiBox-root-255"
+    >
+      <div
+        class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+        style="width: 250px;"
+      />
+    </div>
+    <hr
+      class="MuiDivider-root"
+    />
+    <hr
+      class="MuiDivider-root WithStyles(ForwardRef(Divider))-root-268 MuiDivider-middle"
+    />
+    <div
+      class="MuiBox-root MuiBox-root-269"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+        >
+          <h6
+            class="MuiTypography-root MuiTypography-subtitle1"
+          >
+            <div
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+              style="width: 100px;"
+            />
+          </h6>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+        />
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-403"
+      >
+        <hr
+          class="MuiDivider-root"
+        />
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+          style="height: 300px;"
+        >
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+            style="height: 100%;"
+          />
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-404"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 100px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 150px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 75px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 50px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-405"
+                >
+                  <div
+                    class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root MuiBox-root-406"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 100px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 150px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 75px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 50px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-407"
+                >
+                  <div
+                    class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
