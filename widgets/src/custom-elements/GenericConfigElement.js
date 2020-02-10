@@ -46,6 +46,25 @@ const elements = {};
 
 configNames.forEach(({ name, Component, className }) => {
   elements[className] = class extends HTMLElement {
+    constructor() {
+      super();
+      this.reactRootRef = React.createRef();
+    }
+
+    get config() {
+      const config = this.reactRootRef.current ? this.reactRootRef.current.state.config : {};
+      console.log('config:', config);
+
+      Object.keys(config).forEach(key => {
+        config[key] = typeof config[key] === 'string' ? config[key] : JSON.stringify(config[key]);
+      });
+      return config;
+    }
+
+    set config(value) {
+      return this.reactRootRef.current.setState({ config: value });
+    }
+
     connectedCallback() {
       const mountPoint = document.createElement('div');
       this.appendChild(mountPoint);
@@ -53,12 +72,7 @@ configNames.forEach(({ name, Component, className }) => {
       const locale = this.getAttribute('locale') || 'en';
       i18next.changeLanguage(locale);
 
-      const pageCode = this.getAttribute('page-code');
-      const frameId = this.getAttribute('frame-id');
-      const widgetCode = this.getAttribute('widget-code');
-
-      const reactRoot = React.createElement(Component, { pageCode, frameId, widgetCode });
-      ReactDOM.render(reactRoot, mountPoint);
+      ReactDOM.render(<Component ref={this.reactRootRef} config={this.config} />, mountPoint);
     }
   };
 
