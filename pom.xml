@@ -169,6 +169,11 @@
             <version>2.1.3.RELEASE</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.skyscreamer</groupId>
+            <artifactId>jsonassert</artifactId>
+            <version>1.5.0</version>
+        </dependency>
     </dependencies>
 
     <reporting>

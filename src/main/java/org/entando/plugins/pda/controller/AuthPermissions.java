@@ -32,6 +32,7 @@ public class AuthPermissions {
 
     public static final String GROUP_LIST = "group-list";
 
-    public static final String SUMMARY_LIST = "summary-list";
+    public static final String SUMMARY_DATA_TYPE_LIST = "summary-data-type-list";
+    public static final String SUMMARY_TYPE_LIST = "summary-type-list";
     public static final String SUMMARY_GET = "summary-get";
 }

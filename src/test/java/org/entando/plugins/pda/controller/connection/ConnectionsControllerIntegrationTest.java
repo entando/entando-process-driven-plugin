@@ -1,4 +1,4 @@
-package org.entando.plugins.pda.controller;
+package org.entando.plugins.pda.controller.connection;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;

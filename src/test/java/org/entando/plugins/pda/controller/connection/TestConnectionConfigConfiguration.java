@@ -1,4 +1,4 @@
-package org.entando.plugins.pda.controller;
+package org.entando.plugins.pda.controller.connection;
 
 import static org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration.CONFIG_REST_TEMPLATE;
 
