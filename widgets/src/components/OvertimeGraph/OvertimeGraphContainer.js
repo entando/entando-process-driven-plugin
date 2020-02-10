@@ -10,6 +10,7 @@ import DataSummary from 'components/OvertimeGraph/DataSummary';
 import CustomEventContext from 'components/OvertimeGraph/CustomEventContext';
 import { getPageWidget } from 'api/app-builder/pages';
 import { getSummaryByType } from 'api/pda/summary';
+import { DOMAINS, LOCAL } from 'api/constants';
 
 const roundTo2Dec = num => Math.round((num + Number.EPSILON) * 100) / 100;
 
@@ -65,6 +66,12 @@ class OvertimeGraph extends Component {
   }
 
   async componentDidMount() {
+    const { serviceUrl } = this.props;
+    if (!LOCAL) {
+      // set the PDA domain to the URL passed via props
+      DOMAINS.PDA = serviceUrl;
+    }
+
     await this.fetchWidgetConfigs();
     await this.fetchSummary();
   }
@@ -225,12 +232,14 @@ class OvertimeGraph extends Component {
 OvertimeGraph.propTypes = {
   pageCode: PropTypes.string,
   frameId: PropTypes.string,
+  serviceUrl: PropTypes.string,
   onError: PropTypes.func,
 };
 
 OvertimeGraph.defaultProps = {
   pageCode: '',
   frameId: '',
+  serviceUrl: '',
   onError: () => {},
 };
 
