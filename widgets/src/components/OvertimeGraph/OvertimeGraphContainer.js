@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import { MuiThemeProvider as ThemeProvider, withStyles } from '@material-ui/core/styles';
 import { Paper, Typography, Grid, Box, Tabs, Tab, Divider } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -13,6 +14,20 @@ import { getSummaryByType } from 'api/pda/summary';
 import { DOMAINS, LOCAL } from 'api/constants';
 
 const roundTo2Dec = num => Math.round((num + Number.EPSILON) * 100) / 100;
+
+const formatDate = (dateStr, frequency) => {
+  const date = moment(dateStr, 'YYYY-MM-DD');
+  switch (frequency) {
+    case 'DAILY':
+      return date.format('MMM DD');
+    case 'MONTHLY':
+      return date.format('MMM YYYY');
+    case 'ANNUALLY':
+      return date.format('YYYY');
+    default:
+      return null;
+  }
+};
 
 const ThickDivider = withStyles({
   root: {
@@ -59,6 +74,7 @@ class OvertimeGraph extends Component {
       loading: true,
       selectedTab: 'DAILY',
       summary: {},
+      summaryFetching: false,
       config: {},
     };
 
@@ -101,6 +117,10 @@ class OvertimeGraph extends Component {
   }
 
   async fetchSummary() {
+    this.setState({
+      summaryFetching: true,
+    });
+
     const { config, selectedTab } = this.state;
     const connection = (config && config.knowledgeSource) || '';
     const periods = (config && config.periods) || PERIODS[selectedTab];
@@ -116,6 +136,7 @@ class OvertimeGraph extends Component {
 
       this.setState({
         loading: false,
+        summaryFetching: false,
         summary: payload,
       });
     } catch (error) {
@@ -130,17 +151,17 @@ class OvertimeGraph extends Component {
 
   render() {
     const { onError } = this.props;
-    const { loading, selectedTab, config, summary } = this.state;
+    const { loading, selectedTab, config, summary, summaryFetching } = this.state;
     const title = config.title || 'Requests Volume';
     const subtitle = config.subtitle || 'Requests';
     const seriesLabel1 = (config.seriesLabels && config.seriesLabels[0]) || 'Number of Requests';
     const seriesLabel2 = (config.seriesLabels && config.seriesLabels[1]) || 'Bookings Made';
     const series1 = (summary.series && summary.series[0]) || { values: [] };
     const series2 = (summary.series && summary.series[1]) || { values: [] };
-    const graphData = series1.values.map(({ date, value }, i) => ({
-      x: date,
+    const graphData = series1.values.reverse().map(({ date, value }, i) => ({
+      x: formatDate(date, selectedTab),
       bar: value,
-      area: series2.values[i].value,
+      area: series2.values[series2.values.length - 1 - i].value,
     }));
     const cardValue1 = (series1.card && series1.card.value) || 0;
     const cardValue2 = (series1.card && series2.card.value) || 0;
@@ -188,7 +209,7 @@ class OvertimeGraph extends Component {
               </Box>
               <Grid container>
                 <Grid item xs={8} style={{ height: '300px' }}>
-                  {loading ? (
+                  {loading || summaryFetching ? (
                     <Skeleton variant="rect" height="100%" />
                   ) : (
                     <BarAreaChart
@@ -207,7 +228,7 @@ class OvertimeGraph extends Component {
                       label="Total requests this year"
                       percent={cardPercent1}
                       trend={trend1}
-                      loading={loading}
+                      loading={loading || summaryFetching}
                     />
                   </Box>
                   <Box mb={1}>
@@ -216,7 +237,7 @@ class OvertimeGraph extends Component {
                       label="Bookings in the last month"
                       percent={cardPercent2}
                       trend={trend2}
-                      loading={loading}
+                      loading={loading || summaryFetching}
                     />
                   </Box>
                 </Grid>
