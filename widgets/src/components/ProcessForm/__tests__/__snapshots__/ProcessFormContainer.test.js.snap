@@ -272,17 +272,3 @@ exports[`<ProcessFormContainer /> renders snapshot correctly on error state 1`] 
   </div>
 </div>
 `;
-
-exports[`<TaskCompletionFormContainer /> renders snapshot correctly on error state 1`] = `
-<div>
-  <div
-    class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
-  >
-    <div
-      class="MuiPaper-root WidgetBox-widgetBox-9 MuiPaper-outlined"
-    >
-      messages.warnings.noData
-    </div>
-  </div>
-</div>
-`;

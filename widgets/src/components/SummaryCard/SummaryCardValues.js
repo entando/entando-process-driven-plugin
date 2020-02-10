@@ -32,7 +32,7 @@ const styles = {
   },
 };
 
-const SummaryCardValues = ({ values, classes, loading }) => {
+const SummaryCardValues = ({ dataType, values, classes, loading }) => {
   const generateSkeleton = () => (
     <>
       <div>
@@ -56,7 +56,7 @@ const SummaryCardValues = ({ values, classes, loading }) => {
     }
   };
 
-  const percVal = values && values.percentage ? Math.round(values.percentage) : null;
+  const percVal = values && 'percentage' in values ? Math.round(values.percentage * 100) : null;
   const percent = !Number.isNaN(percVal) ? `${percVal < 0 ? 0 - percVal : percVal}%` : '-';
 
   const trend = percVal === 0 ? '' : percVal >= 0 ? 'up' : 'down';
@@ -67,9 +67,9 @@ const SummaryCardValues = ({ values, classes, loading }) => {
       {!loading && values && (
         <>
           <div>
-            <Typography variant="h4">{values.total}</Typography>
+            <Typography variant="h4">{values.value}</Typography>
             <Typography variant="caption">
-              {i18next.t(`card.labels.${values.totalLabel}`)}
+              {i18next.t(`summary.labels.${dataType}.total_label`)}
             </Typography>
           </div>
           <div>
@@ -91,10 +91,10 @@ SummaryCardValues.propTypes = {
     valueIcon: PropTypes.string,
   }).isRequired,
   loading: PropTypes.bool,
+  dataType: PropTypes.string.isRequired,
   values: PropTypes.shape({
-    totalLabel: PropTypes.string,
-    total: PropTypes.string,
-    percentage: PropTypes.string,
+    value: PropTypes.number,
+    percentage: PropTypes.number,
   }),
 };
 

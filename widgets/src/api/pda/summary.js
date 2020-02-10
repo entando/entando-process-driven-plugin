@@ -1,23 +1,26 @@
 import makeRequest from 'api/makeRequest';
 import { DOMAINS, METHODS } from 'api/constants';
-import MOCK_SUMMARIES from 'mocks/summary/summaries';
-import MOCK_SUMMARY from 'mocks/summary/summary';
+import getMockSummary, { MOCK_SUMMARY_DATATYPES } from 'mocks/summary/summary';
 
-export const getSummaries = async connection =>
+export const getSummaryDataTypes = async connection =>
   makeRequest({
     domain: DOMAINS.PDA,
-    uri: `/connections/${connection}/summaries`,
+    uri: `/connections/${connection}/summaries/dataTypes`,
     method: METHODS.GET,
-    mockResponse: MOCK_SUMMARIES,
+    mockResponse: MOCK_SUMMARY_DATATYPES,
     useAuthentication: true,
   });
 
-export const getSummary = async (connection, summaryId, frequency = 'monthly') =>
+export const defaultSummaryParams = {
+  frequency: 'DAILY',
+};
+
+export const getSummaryByType = async (connection, type, payload) =>
   makeRequest({
     domain: DOMAINS.PDA,
-    uri: `/connections/${connection}/summaries/${summaryId}`,
-    method: METHODS.GET,
-    queryParams: { frequency },
-    mockResponse: MOCK_SUMMARY,
+    uri: `/connections/${connection}/summaries/summaryTypes/${type}`,
+    method: METHODS.POST,
+    body: JSON.stringify({ ...defaultSummaryParams, ...payload }), // note: dataType is needed here
+    mockResponse: getMockSummary(type),
     useAuthentication: true,
   });

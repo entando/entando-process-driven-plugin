@@ -68,7 +68,7 @@ exports[`<SummaryCardConfig /> renders snapshot correctly 1`] = `
                 class="control-label"
                 for="textarea"
               >
-                Summary
+                Data Type
               </label>
               <select
                 class="form-control"
@@ -81,13 +81,18 @@ exports[`<SummaryCardConfig /> renders snapshot correctly 1`] = `
                 <option
                   value="requests"
                 >
-                  card.labels.Requests
+                  summary.labels.requests.title
+                </option>
+                <option
+                  value="impressions"
+                >
+                  summary.labels.impressions.title
                 </option>
               </select>
               <span
                 class="help-block"
               >
-                Choose a summary to display information on your card.
+                Choose a data type to display information on your card.
               </span>
             </div>
           </div>
