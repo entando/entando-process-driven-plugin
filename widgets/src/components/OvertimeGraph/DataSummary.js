@@ -30,6 +30,7 @@ const TrendIconWrapper = withStyles({
     height: 13,
   },
 })(({ classes, trend }) => {
+  if (trend === 'none') return null;
   const Icon = trend === 'up' ? UpTrend : DownTrend;
   return (
     <span className={`${classes.root} ${trend}Trend`}>
@@ -73,7 +74,7 @@ DataSummary.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   label: PropTypes.string.isRequired,
   percent: PropTypes.number.isRequired,
-  trend: PropTypes.oneOf(['up', 'down']).isRequired,
+  trend: PropTypes.oneOf(['up', 'down', 'none']).isRequired,
   loading: PropTypes.bool,
 };
 

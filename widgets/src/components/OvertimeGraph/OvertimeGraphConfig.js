@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
-import { getProcess } from 'api/pda/process';
 
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
@@ -18,13 +17,10 @@ class OvertimeGraphConfig extends React.Component {
 
     this.state = {
       sourceList: [],
-      processList: [],
       knowledgeSource: '',
-      selectedProcess: '',
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
-    this.onChangeProcess = this.onChangeProcess.bind(this);
     this.handleSave = this.handleSave.bind(this);
   }
 
@@ -40,43 +36,23 @@ class OvertimeGraphConfig extends React.Component {
 
     const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
     if (configs && configs.knowledgeSource) {
-      this.onChangeKnowledgeSource(configs.knowledgeSource, () => {
-        if (configs.process) {
-          this.onChangeProcess(configs.process);
-        }
-      });
+      this.onChangeKnowledgeSource(configs.knowledgeSource);
     }
   }
 
-  onChangeKnowledgeSource(e, cb = () => {}) {
+  onChangeKnowledgeSource(e) {
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState({ knowledgeSource });
-
-    getProcess(knowledgeSource).then(data => {
-      this.setState({ processList: data.payload });
-
-      cb();
-    });
-  }
-
-  onChangeProcess(e, cb = () => {}) {
-    const selectedProcess = e.target ? e.target.value : e;
-    this.setState({ selectedProcess });
-
-    cb();
   }
 
   async handleSave() {
     const { frameId, pageCode, widgetCode } = this.props;
-    const { knowledgeSource, selectedProcess } = this.state;
-    const [, containerId] = selectedProcess.split('@');
+    const { knowledgeSource } = this.state;
 
     const body = JSON.stringify({
       code: widgetCode,
       config: {
         knowledgeSource,
-        process: selectedProcess,
-        containerId,
       },
     });
 
@@ -89,7 +65,7 @@ class OvertimeGraphConfig extends React.Component {
   }
 
   render() {
-    const { knowledgeSource, sourceList, processList = [], selectedProcess = '' } = this.state;
+    const { knowledgeSource, sourceList } = this.state;
 
     return (
       <div>
@@ -112,28 +88,9 @@ class OvertimeGraphConfig extends React.Component {
                 </select>
                 <HelpBlock>Select one of the Kie server connections.</HelpBlock>
               </FormGroup>
-              <FormGroup controlId="connection">
-                <ControlLabel>Process</ControlLabel>
-                <select
-                  className="form-control"
-                  value={selectedProcess}
-                  onChange={this.onChangeProcess}
-                >
-                  <option value="">Select...</option>
-                  {processList.map(process => (
-                    <option
-                      key={`${process['process-id']}@${process['container-id']}`}
-                      value={`${process['process-id']}@${process['container-id']}`}
-                    >
-                      {`${process['process-name']} @ ${process['container-id']}`}
-                    </option>
-                  ))}
-                </select>
-                <HelpBlock>Select one BPM Process.</HelpBlock>
-              </FormGroup>
             </Col>
           </Row>
-          {selectedProcess && (
+          {knowledgeSource && (
             <section>
               <Row>
                 <Col xs={12} className="text-right">

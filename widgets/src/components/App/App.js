@@ -199,14 +199,23 @@ function App() {
             )}
           />
           <Route path="/ProcessFormConfig" render={() => <ProcessFormConfig config={{}} />} />
-          <Route path="/OvertimeGraph" component={OvertimeGraphContainer} />
+          <Route
+            path="/OvertimeGraph"
+            render={() => (
+              <OvertimeGraphContainer
+                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
+                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
+                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
+              />
+            )}
+          />
           <Route
             path="/OvertimeGraphConfig"
             render={() => (
               <OvertimeGraphConfig
-                pageCode={PAGES_CONFIG.taskList.pageCode}
-                frameId={PAGES_CONFIG.taskList.frameId}
-                widgetCode={PAGES_CONFIG.taskList.widgetCode}
+                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
+                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
+                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
               />
             )}
           />
