@@ -25,7 +25,7 @@
     "rjsf-material-ui": "^0.3.9"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "REACT_APP_LOCAL=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose --setupFilesAfterEnv ./setupTests.js",
     "test:coverage": "npm test -- --coverage --watchAll=false",
