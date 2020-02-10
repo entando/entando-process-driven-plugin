@@ -1,4 +1,4 @@
-import { render, fireEvent, wait } from '@testing-library/react';
+import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
@@ -28,36 +28,8 @@ describe('<TaskCompletionFormConfig />', () => {
     getProcesses.mockImplementation(() => Promise.resolve(PROCESSES));
     getPageWidget.mockImplementation(() => Promise.resolve(WIDGET_CONFIGS.COMPLETION_FORM.configs));
 
-    const { container } = render(
-      <TaskCompletionFormConfig
-        pageCode={WIDGET_CONFIGS.COMPLETION_FORM.pageCode}
-        frameId={WIDGET_CONFIGS.COMPLETION_FORM.frameId}
-        widgetCode={WIDGET_CONFIGS.COMPLETION_FORM.widgetCode}
-      />
-    );
+    const { container } = render(<TaskCompletionFormConfig config={{}} />);
 
     await wait(() => expect(container).toMatchSnapshot());
-  });
-
-  it('calls putPageWidget after Save button is pressed', async () => {
-    getConnections.mockImplementation(() => Promise.resolve(CONNECTIONS));
-    getProcesses.mockImplementation(() => Promise.resolve(PROCESSES));
-    getPageWidget.mockImplementation(() => Promise.resolve(WIDGET_CONFIGS.COMPLETION_FORM.configs));
-    putPageWidget.mockImplementation(() => {});
-
-    const { findByText } = render(
-      <TaskCompletionFormConfig
-        pageCode={WIDGET_CONFIGS.COMPLETION_FORM.pageCode}
-        frameId={WIDGET_CONFIGS.COMPLETION_FORM.frameId}
-        widgetCode={WIDGET_CONFIGS.COMPLETION_FORM.widgetCode}
-      />
-    );
-
-    const saveButton = await findByText('Save');
-    fireEvent.click(saveButton);
-
-    await wait(() => {
-      expect(putPageWidget).toHaveBeenCalledTimes(1);
-    });
   });
 });
