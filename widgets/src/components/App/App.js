@@ -220,14 +220,23 @@ function App() {
               />
             )}
           />
-          <Route path="/OvertimeGraph" component={OvertimeGraphContainer} />
+          <Route
+            path="/OvertimeGraph"
+            render={() => (
+              <OvertimeGraphContainer
+                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
+                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
+                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
+              />
+            )}
+          />
           <Route
             path="/OvertimeGraphConfig"
             render={() => (
               <OvertimeGraphConfig
-                pageCode={WIDGETS_CONFIG.TASK_LIST.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_LIST.frameId}
-                widgetCode={WIDGETS_CONFIG.TASK_LIST.widgetCode}
+                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
+                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
+                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
               />
             )}
           />
