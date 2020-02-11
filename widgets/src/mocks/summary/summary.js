@@ -1,4 +1,4 @@
-export const MOCK_SUMMARY_DATATYPES = {
+export const MOCK_SUMMARY_TYPES = {
   payload: ['requests', 'impressions'],
   errors: [],
 };
@@ -81,7 +81,7 @@ export const getMockSummaryOf = type => {
   switch (type) {
     case 'Card':
       return MOCK_SUMMARY_CARD;
-    case 'Chart':
+    case 'TimeSeries':
       return MOCK_SUMMARY_CHART;
     default:
       return {};

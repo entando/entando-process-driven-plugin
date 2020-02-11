@@ -14,9 +14,7 @@ describe('<ProcessFormConfig />', () => {
       .once(JSON.stringify(WIDGET_CONFIGS.PROCESS_FORM))
       .once(JSON.stringify(PROCESSES));
 
-    const { container } = render(
-      <ProcessFormConfig pageCode="phase_1_widgets" frameId="1" widgetCode="process_form" />
-    );
+    const { container } = render(<ProcessFormConfig config={{}} />);
 
     await wait(() => expect(container).toMatchSnapshot());
   });

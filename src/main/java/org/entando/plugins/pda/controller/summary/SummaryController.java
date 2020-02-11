@@ -1,6 +1,6 @@
 package org.entando.plugins.pda.controller.summary;
 
-import static org.entando.plugins.pda.controller.AuthPermissions.SUMMARY_DATA_TYPE_LIST;
+import static org.entando.plugins.pda.controller.AuthPermissions.SUMMARY_DATA_REPOSITORY_LIST;
 import static org.entando.plugins.pda.controller.AuthPermissions.SUMMARY_GET;
 import static org.entando.plugins.pda.controller.AuthPermissions.SUMMARY_TYPE_LIST;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -8,12 +8,10 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.model.summary.Summary;
-import org.entando.plugins.pda.core.service.summary.DataType;
-import org.entando.plugins.pda.core.service.summary.DataTypeService;
+import org.entando.plugins.pda.core.service.summary.DataService;
 import org.entando.plugins.pda.core.service.summary.SummaryService;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.response.SimpleRestResponse;
@@ -33,19 +31,15 @@ public class SummaryController {
 
     private final ConnectionService connectionService;
     private final SummaryService summaryService;
-    private final DataTypeService dataTypeService;
+    private final DataService dataService;
 
-    @Secured(SUMMARY_DATA_TYPE_LIST)
-    @ApiOperation(notes = "Lists all Summary Data Types for a Connection",
-            nickname = "listSummaryDataTypes", value = "LIST DataType")
-    @GetMapping(value = "/dataTypes", produces = APPLICATION_JSON_VALUE)
-    public SimpleRestResponse<List<String>> listSummaryDataTypes(@PathVariable String connId) {
+    @Secured(SUMMARY_DATA_REPOSITORY_LIST)
+    @ApiOperation(notes = "Lists all Summary Data Repositories for a Connection",
+            nickname = "listSummaryDataRepositories", value = "LIST DataRepository")
+    @GetMapping(value = "/repositories", produces = APPLICATION_JSON_VALUE)
+    public SimpleRestResponse<List<String>> listSummaryDataRepositories(@PathVariable String connId) {
         Connection connection = connectionService.get(connId);
-        return new SimpleRestResponse<>(dataTypeService
-                .listDataTypes(connection.getEngine())
-                .stream()
-                .map(DataType::getId)
-                .collect(Collectors.toList()));
+        return new SimpleRestResponse<>(dataService.listDataRepositories(connection.getEngine()));
     }
 
     @Secured(SUMMARY_TYPE_LIST)

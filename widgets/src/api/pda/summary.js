@@ -1,13 +1,13 @@
 import makeRequest from 'api/makeRequest';
 import { DOMAINS, METHODS } from 'api/constants';
-import getMockSummary, { MOCK_SUMMARY_DATATYPES } from 'mocks/summary/summary';
+import getMockSummary, { MOCK_SUMMARY_TYPES } from 'mocks/summary/summary';
 
-export const getSummaryDataTypes = async connection =>
+export const getSummaryRepositories = async connection =>
   makeRequest({
     domain: DOMAINS.PDA,
-    uri: `/connections/${connection}/summaries/dataTypes`,
+    uri: `/connections/${connection}/summaries/repositories`,
     method: METHODS.GET,
-    mockResponse: MOCK_SUMMARY_DATATYPES,
+    mockResponse: MOCK_SUMMARY_TYPES,
     useAuthentication: true,
   });
 
@@ -20,7 +20,7 @@ export const getSummaryByType = async (connection, type, payload) =>
     domain: DOMAINS.PDA,
     uri: `/connections/${connection}/summaries/summaryTypes/${type}`,
     method: METHODS.POST,
-    body: JSON.stringify({ ...defaultSummaryParams, ...payload }), // note: dataType is needed here
+    body: JSON.stringify({ ...defaultSummaryParams, ...payload }), // note: type is needed here
     mockResponse: getMockSummary(type),
     useAuthentication: true,
   });

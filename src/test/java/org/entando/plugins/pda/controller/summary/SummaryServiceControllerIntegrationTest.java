@@ -22,10 +22,10 @@ import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguratio
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
 import org.entando.plugins.pda.core.engine.FakeEngine;
-import org.entando.plugins.pda.core.service.summary.DataType;
-import org.entando.plugins.pda.core.service.summary.DataTypeService;
+import org.entando.plugins.pda.core.service.summary.DataRepository;
+import org.entando.plugins.pda.core.service.summary.DataService;
 import org.entando.plugins.pda.core.service.summary.processor.CardSummaryProcessor;
-import org.entando.plugins.pda.core.service.summary.processor.ChartSummaryProcessor;
+import org.entando.plugins.pda.core.service.summary.processor.TimeSeriesSummaryProcessor;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,8 +53,8 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootTest(classes = TestConnectionConfigConfiguration.class, webEnvironment = WebEnvironment.RANDOM_PORT,
         properties = "entando.plugin.security.level=LENIENT")
 public class SummaryServiceControllerIntegrationTest {
-    private static final String DATA_TYPE_1 = MockSummaryProcessor.TYPE;
-    private static final String DATA_TYPE_2 = "DataTypeWithoutProcessor";
+    private static final String TYPE_1 = MockSummaryProcessor.TYPE;
+    private static final String TYPE_2 = "TypeWithoutProcessor";
 
     @Autowired
     private MockMvc mockMvc;
@@ -66,7 +66,7 @@ public class SummaryServiceControllerIntegrationTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
-    private DataTypeService dataTypeService;
+    private DataService dataService;
 
     @Before
     public void setup() throws IOException {
@@ -78,9 +78,9 @@ public class SummaryServiceControllerIntegrationTest {
                 .andRespond(
                         withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
 
-        dataTypeService.setDataTypes(Arrays.asList(
-                createDataType(DATA_TYPE_1),
-                createDataType(DATA_TYPE_2)));
+        dataService.setRepositories(Arrays.asList(
+                createDataRepository(TYPE_1),
+                createDataRepository(TYPE_2)));
     }
 
     @Test
@@ -93,26 +93,26 @@ public class SummaryServiceControllerIntegrationTest {
                 .andExpect(jsonPath("payload.size()", is(3)))
                 .andExpect(jsonPath("payload[0]", is(MockSummaryProcessor.TYPE)))
                 .andExpect(jsonPath("payload[1]", is(CardSummaryProcessor.TYPE)))
-                .andExpect(jsonPath("payload[2]", is(ChartSummaryProcessor.TYPE)));
+                .andExpect(jsonPath("payload[2]", is(TimeSeriesSummaryProcessor.TYPE)));
     }
 
     @Test
-    public void shouldListDataTypes() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/summaries/dataTypes"))
+    public void shouldListDataRepositories() throws Exception {
+        mockMvc.perform(get("/connections/fakeProduction/summaries/repositories"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0]", is(DATA_TYPE_1)))
-                .andExpect(jsonPath("payload[1]", is(DATA_TYPE_2)));
+                .andExpect(jsonPath("payload[0]", is(TYPE_1)))
+                .andExpect(jsonPath("payload[1]", is(TYPE_2)));
     }
 
     @Test
     public void shouldCalculateSummary() throws Exception {
         String request = "MyField";
 
-        mockMvc.perform(post("/connections/fakeProduction/summaries/summaryTypes/" + DATA_TYPE_1.toLowerCase())
+        mockMvc.perform(post("/connections/fakeProduction/summaries/summaryTypes/" + TYPE_1.toLowerCase())
                 .content(request))
                 .andDo(print())
                 .andExpect(status().isOk())
@@ -130,10 +130,10 @@ public class SummaryServiceControllerIntegrationTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
     }
 
-    private DataType createDataType(String type) {
-        DataType dataType = mock(DataType.class);
-        when(dataType.getId()).thenReturn(type);
-        when(dataType.getEngine()).thenReturn(FakeEngine.TYPE);
-        return dataType;
+    private DataRepository createDataRepository(String type) {
+        DataRepository dataRepository = mock(DataRepository.class);
+        when(dataRepository.getId()).thenReturn(type);
+        when(dataRepository.getEngine()).thenReturn(FakeEngine.TYPE);
+        return dataRepository;
     }
 }

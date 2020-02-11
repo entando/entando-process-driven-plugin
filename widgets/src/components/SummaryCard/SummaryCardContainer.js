@@ -105,15 +105,15 @@ class SummaryCard extends React.Component {
 
     const connection = (config && config.knowledgeSource) || '';
     const settings = (config && config.settings && JSON.parse(config.settings)) || {};
-    const { dataType } = settings;
+    const { type } = settings;
 
     try {
-      const summary = await getSummaryByType(connection, 'Card', { dataType, frequency });
+      const summary = await getSummaryByType(connection, 'Card', { type, frequency });
 
       this.setState({
         loading: false,
         loadingValues: false,
-        dataType,
+        dataType: type,
         summary: (summary && summary.payload) || null,
       });
     } catch (error) {
