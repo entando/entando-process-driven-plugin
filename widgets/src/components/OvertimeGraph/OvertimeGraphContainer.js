@@ -74,7 +74,11 @@ class OvertimeGraph extends Component {
     this.state = {
       loading: true,
       selectedTab: 'DAILY',
-      summary: {},
+      summary: {
+        graphData: [],
+        card1: {},
+        card2: {},
+      },
       summaryFetching: false,
       config: {},
     };
@@ -135,11 +139,42 @@ class OvertimeGraph extends Component {
     try {
       const { payload } = await getSummaryByType(connection, 'Chart', bodyPayload);
 
-      this.setState({
-        loading: false,
-        summaryFetching: false,
-        summary: payload,
-      });
+      if (payload) {
+        const series1 = (payload.series && payload.series[0]) || { values: [] };
+        const series2 = (payload.series && payload.series[1]) || { values: [] };
+        const graphData = series1.values.reverse().map(({ date, value }, i) => ({
+          x: formatDate(date, selectedTab),
+          bar: value,
+          area: series2.values[series2.values.length - 1 - i].value,
+        }));
+        const cardValue1 = (series1.card && series1.card.value) || 0;
+        const cardValue2 = (series1.card && series2.card.value) || 0;
+        const cardPercent1 =
+          (series1.card && roundTo2Dec(Math.abs(series1.card.percentage * 100))) || 0;
+        const cardPercent2 =
+          (series2.card && roundTo2Dec(Math.abs(series2.card.percentage * 100))) || 0;
+        const trend1 = cardPercent1 !== 100 ? (cardPercent1 < 100 ? 'down' : 'up') : 'none';
+        const trend2 = cardPercent2 !== 100 ? (cardPercent2 < 100 ? 'down' : 'up') : 'none';
+        const summary = {
+          graphData,
+          card1: {
+            value: cardValue1,
+            percent: cardPercent1,
+            trend: trend1,
+          },
+          card2: {
+            value: cardValue2,
+            percent: cardPercent2,
+            trend: trend2,
+          },
+        };
+
+        this.setState({
+          loading: false,
+          summaryFetching: false,
+          summary,
+        });
+      }
     } catch (error) {
       this.handleError(error.message);
     }
@@ -153,21 +188,7 @@ class OvertimeGraph extends Component {
   render() {
     const { onError } = this.props;
     const { loading, selectedTab, summary, summaryFetching } = this.state;
-    const series1 = (summary.series && summary.series[0]) || { values: [] };
-    const series2 = (summary.series && summary.series[1]) || { values: [] };
-    const graphData = series1.values.reverse().map(({ date, value }, i) => ({
-      x: formatDate(date, selectedTab),
-      bar: value,
-      area: series2.values[series2.values.length - 1 - i].value,
-    }));
-    const cardValue1 = (series1.card && series1.card.value) || 0;
-    const cardValue2 = (series1.card && series2.card.value) || 0;
-    const cardPercent1 =
-      (series1.card && roundTo2Dec(Math.abs(series1.card.percentage * 100))) || 0;
-    const cardPercent2 =
-      (series2.card && roundTo2Dec(Math.abs(series2.card.percentage * 100))) || 0;
-    const trend1 = cardPercent1 !== 100 ? (cardPercent1 < 100 ? 'down' : 'up') : 'none';
-    const trend2 = cardPercent2 !== 100 ? (cardPercent2 < 100 ? 'down' : 'up') : 'none';
+    const { graphData, card1, card2 } = summary;
 
     return (
       <CustomEventContext.Provider value={{ onError }}>
@@ -225,19 +246,19 @@ class OvertimeGraph extends Component {
                 <Grid item xs={4}>
                   <Box mb={1}>
                     <DataSummary
-                      value={cardValue1}
+                      value={card1.value}
                       label={i18next.t(`summary.labels.chart.card.requests`)}
-                      percent={cardPercent1}
-                      trend={trend1}
+                      percent={card1.percent}
+                      trend={card1.trend}
                       loading={loading || summaryFetching}
                     />
                   </Box>
                   <Box mb={1}>
                     <DataSummary
-                      value={cardValue2}
+                      value={card2.value}
                       label={i18next.t(`summary.labels.chart.card.cases`)}
-                      percent={cardPercent2}
-                      trend={trend2}
+                      percent={card2.percent}
+                      trend={card2.trend}
                       loading={loading || summaryFetching}
                     />
                   </Box>

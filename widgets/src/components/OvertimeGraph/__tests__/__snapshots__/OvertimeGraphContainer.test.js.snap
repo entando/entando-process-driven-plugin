@@ -10,9 +10,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
     >
       <h5
         class="MuiTypography-root MuiTypography-h5"
-      >
-        Requests Volume
-      </h5>
+      />
     </div>
     <hr
       class="MuiDivider-root"
@@ -34,9 +32,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
           >
             <div
               class="MuiBox-root MuiBox-root-183"
-            >
-              Requests
-            </div>
+            />
           </h6>
         </div>
         <div
@@ -62,9 +58,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 >
                   <span
                     class="MuiTab-wrapper"
-                  >
-                    Daily
-                  </span>
+                  />
                 </button>
                 <button
                   aria-selected="false"
@@ -75,9 +69,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 >
                   <span
                     class="MuiTab-wrapper"
-                  >
-                    Monthly
-                  </span>
+                  />
                 </button>
                 <button
                   aria-selected="false"
@@ -88,9 +80,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 >
                   <span
                     class="MuiTab-wrapper"
-                  >
-                    Annually
-                  </span>
+                  />
                 </button>
               </div>
               <span
@@ -146,9 +136,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
               >
                 <span
                   class="MuiTypography-root MuiTypography-caption"
-                >
-                  Total requests this year
-                </span>
+                />
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
@@ -166,7 +154,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 style="text-align: right;"
               >
                 <span
-                  class="Component-root-215 upTrend"
+                  class="Component-root-215 downTrend"
                 >
                   <svg
                     aria-hidden="true"
@@ -175,11 +163,11 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                     focusable="false"
                     height="11"
                     role="presentation"
-                    viewBox="0 0 8 11"
-                    width="8"
+                    viewBox="0 0 9 11"
+                    width="9"
                   >
                     <path
-                      d="M7.38618 4.23054C7.46599 4.07092 7.43697 3.87502 7.32088 3.73716L4.99909 0.951021C4.82496 0.740609 4.46218 0.740609 4.28805 0.951021L1.96626 3.73716C1.85017 3.87502 1.82841 4.07092 1.90096 4.23054C1.98077 4.39742 2.1404 4.499 2.32179 4.499H3.71486V9.14257H1.39307C1.32777 9.14257 1.25522 9.17159 1.21168 9.22238L0.0507891 10.6155C-0.00725558 10.688 -0.0145112 10.7823 0.0217667 10.8694C0.0580446 10.9492 0.145112 11 0.232179 11H5.34011C5.47071 11 5.57229 10.8984 5.57229 10.7678V4.499H6.96536C7.14675 4.499 7.30637 4.39742 7.38618 4.23054Z"
+                      d="M0.997315 0.366849C0.910248 0.366849 0.823181 0.424893 0.786903 0.504704C0.750626 0.584516 0.757881 0.686094 0.815926 0.751394L1.97682 2.14447C2.02761 2.19525 2.09291 2.22428 2.15821 2.22428H4.47999V6.86785H3.08692C2.90553 6.86785 2.74591 6.97668 2.6661 7.13631C2.59354 7.30318 2.61531 7.49908 2.7314 7.63694L5.05318 10.4231C5.22732 10.6335 5.5901 10.6335 5.76423 10.4231L8.08602 7.63694C8.20211 7.49908 8.23113 7.30318 8.15132 7.13631C8.07151 6.97668 7.91188 6.86785 7.73049 6.86785H6.33742V0.606283C6.33742 0.475682 6.23584 0.366849 6.10524 0.366849H0.997315Z"
                       fill="currentcolor"
                     />
                   </svg>
@@ -195,7 +183,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                     style="height: 6px; border-radius: 4px; background-color: rgb(245, 245, 245); overflow: hidden;"
                   >
                     <div
-                      style="height: 100%; width: 16.22%; background-color: rgb(26, 179, 148);"
+                      style="height: 100%; width: 16.22%; background-color: rgb(237, 85, 101);"
                     />
                   </div>
                 </div>
@@ -222,9 +210,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
               >
                 <span
                   class="MuiTypography-root MuiTypography-caption"
-                >
-                  Bookings in the last month
-                </span>
+                />
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
@@ -242,7 +228,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 style="text-align: right;"
               >
                 <span
-                  class="Component-root-215 upTrend"
+                  class="Component-root-215 downTrend"
                 >
                   <svg
                     aria-hidden="true"
@@ -251,11 +237,11 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                     focusable="false"
                     height="11"
                     role="presentation"
-                    viewBox="0 0 8 11"
-                    width="8"
+                    viewBox="0 0 9 11"
+                    width="9"
                   >
                     <path
-                      d="M7.38618 4.23054C7.46599 4.07092 7.43697 3.87502 7.32088 3.73716L4.99909 0.951021C4.82496 0.740609 4.46218 0.740609 4.28805 0.951021L1.96626 3.73716C1.85017 3.87502 1.82841 4.07092 1.90096 4.23054C1.98077 4.39742 2.1404 4.499 2.32179 4.499H3.71486V9.14257H1.39307C1.32777 9.14257 1.25522 9.17159 1.21168 9.22238L0.0507891 10.6155C-0.00725558 10.688 -0.0145112 10.7823 0.0217667 10.8694C0.0580446 10.9492 0.145112 11 0.232179 11H5.34011C5.47071 11 5.57229 10.8984 5.57229 10.7678V4.499H6.96536C7.14675 4.499 7.30637 4.39742 7.38618 4.23054Z"
+                      d="M0.997315 0.366849C0.910248 0.366849 0.823181 0.424893 0.786903 0.504704C0.750626 0.584516 0.757881 0.686094 0.815926 0.751394L1.97682 2.14447C2.02761 2.19525 2.09291 2.22428 2.15821 2.22428H4.47999V6.86785H3.08692C2.90553 6.86785 2.74591 6.97668 2.6661 7.13631C2.59354 7.30318 2.61531 7.49908 2.7314 7.63694L5.05318 10.4231C5.22732 10.6335 5.5901 10.6335 5.76423 10.4231L8.08602 7.63694C8.20211 7.49908 8.23113 7.30318 8.15132 7.13631C8.07151 6.97668 7.91188 6.86785 7.73049 6.86785H6.33742V0.606283C6.33742 0.475682 6.23584 0.366849 6.10524 0.366849H0.997315Z"
                       fill="currentcolor"
                     />
                   </svg>
@@ -271,7 +257,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                     style="height: 6px; border-radius: 4px; background-color: rgb(245, 245, 245); overflow: hidden;"
                   >
                     <div
-                      style="height: 100%; width: 16.22%; background-color: rgb(26, 179, 148);"
+                      style="height: 100%; width: 16.22%; background-color: rgb(237, 85, 101);"
                     />
                   </div>
                 </div>
@@ -376,7 +362,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
               >
                 <div
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
-                  style="width: 75px;"
+                  style="width: 50px;"
                 />
               </div>
               <div
@@ -385,7 +371,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
               >
                 <div
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
-                  style="width: 50px;"
+                  style="width: 40px;"
                 />
               </div>
               <div
@@ -429,7 +415,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
               >
                 <div
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
-                  style="width: 75px;"
+                  style="width: 50px;"
                 />
               </div>
               <div
@@ -438,7 +424,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
               >
                 <div
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
-                  style="width: 50px;"
+                  style="width: 40px;"
                 />
               </div>
               <div
