@@ -53,17 +53,20 @@ const DataSummary = ({ value, label, percent, trend, loading }) => (
       {loading ? <Skeleton width={150} /> : <Typography variant="caption">{label}</Typography>}
     </Grid>
     <Grid item xs={2} style={{ textAlign: 'right' }}>
-      {loading ? <Skeleton width={75} /> : <Typography variant="subtitle1">{percent}%</Typography>}
+      {loading ? <Skeleton width={50} /> : <Typography variant="subtitle1">{percent}%</Typography>}
     </Grid>
     <Grid item xs={2} style={{ textAlign: 'right' }}>
-      {loading ? <Skeleton width={50} /> : <TrendIconWrapper trend={trend} />}
+      {loading ? <Skeleton width={40} /> : <TrendIconWrapper trend={trend} />}
     </Grid>
     <Grid item xs={12}>
       <Box my={1}>
         {loading ? (
           <Skeleton />
         ) : (
-          <PercentBar value={percent} barColor={trend === 'up' ? UP_COLOR : DOWN_COLOR} />
+          <PercentBar
+            value={percent}
+            barColor={trend === 'up' ? UP_COLOR : trend === 'down' ? DOWN_COLOR : ''}
+          />
         )}
       </Box>
     </Grid>

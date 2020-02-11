@@ -169,10 +169,8 @@ class OvertimeGraph extends Component {
       (series1.card && roundTo2Dec(Math.abs(series1.card.percentage * 100))) || 0;
     const cardPercent2 =
       (series2.card && roundTo2Dec(Math.abs(series2.card.percentage * 100))) || 0;
-    const trend1 =
-      series1.card && cardPercent1 ? (series1.card.percentage < 0 ? 'down' : 'up') : 'none';
-    const trend2 =
-      series2.card && cardPercent2 ? (series2.card.percentage < 0 ? 'down' : 'up') : 'none';
+    const trend1 = cardPercent1 !== 100 ? (cardPercent1 < 100 ? 'down' : 'up') : 'none';
+    const trend2 = cardPercent2 !== 100 ? (cardPercent2 < 100 ? 'down' : 'up') : 'none';
 
     return (
       <CustomEventContext.Provider value={{ onError }}>
