@@ -6,14 +6,30 @@
     "yes": "Yes",
     "no": "No"
   },
-  "card": {
-    "monthly": "Mensile",
-    "annually": "Annuale",
-    "daily": "Giornaliero",
+  "summary": {
+    "frequency": {
+      "monthly": "Mensile",
+      "annually": "Annuale",
+      "daily": "Giornaliero"
+    },
     "labels": {
-      "REQUESTS": {
-        "TITLE": "Richieste",
-        "TOTAL_LABEL": "Richieste Totali"
+      "requests": {
+        "title": "Richieste",
+        "total_label": "Richieste totali"
+      },
+      "cases": {
+        "title": "Casi",
+        "total_label": "Casi totali"
+      },
+      "chart": {
+        "title": "Volume delle richieste",
+        "subtitle": "Richieste",
+        "requests": "Numero di richieste",
+        "cases": "Numero di casi",
+        "card": {
+          "requests": "Richieste totali",
+          "cases": "Casi totali"
+        }
       }
     }
   },
