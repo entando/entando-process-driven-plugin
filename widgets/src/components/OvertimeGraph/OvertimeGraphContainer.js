@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import i18next from 'i18next';
 import { MuiThemeProvider as ThemeProvider, withStyles } from '@material-ui/core/styles';
 import { Paper, Typography, Grid, Box, Tabs, Tab, Divider } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -151,11 +152,7 @@ class OvertimeGraph extends Component {
 
   render() {
     const { onError } = this.props;
-    const { loading, selectedTab, config, summary, summaryFetching } = this.state;
-    const title = config.title || 'Requests Volume';
-    const subtitle = config.subtitle || 'Requests';
-    const seriesLabel1 = (config.seriesLabels && config.seriesLabels[0]) || 'Number of Requests';
-    const seriesLabel2 = (config.seriesLabels && config.seriesLabels[1]) || 'Bookings Made';
+    const { loading, selectedTab, summary, summaryFetching } = this.state;
     const series1 = (summary.series && summary.series[0]) || { values: [] };
     const series2 = (summary.series && summary.series[1]) || { values: [] };
     const graphData = series1.values.reverse().map(({ date, value }, i) => ({
@@ -177,7 +174,11 @@ class OvertimeGraph extends Component {
         <ThemeProvider theme={theme}>
           <Paper>
             <Box p={2}>
-              {loading ? <Skeleton width={250} /> : <Typography variant="h5">{title}</Typography>}
+              {loading ? (
+                <Skeleton width={250} />
+              ) : (
+                <Typography variant="h5">{i18next.t(`summary.labels.chart.title`)}</Typography>
+              )}
             </Box>
             <Divider />
             <ThickDivider variant="middle" />
@@ -188,16 +189,18 @@ class OvertimeGraph extends Component {
                     {loading ? (
                       <Skeleton width={100} />
                     ) : (
-                      <Box fontWeight="fontWeightBold">{subtitle}</Box>
+                      <Box fontWeight="fontWeightBold">
+                        {i18next.t(`summary.labels.chart.subtitle`)}
+                      </Box>
                     )}
                   </Typography>
                 </Grid>
                 <Grid item xs={4}>
                   {loading ? null : (
                     <StyledTabs value={selectedTab} onChange={this.handleTabChange} centered>
-                      <StyledTab value="DAILY" label="Daily" />
-                      <StyledTab value="MONTHLY" label="Monthly" />
-                      <StyledTab value="ANNUALLY" label="Annually" />
+                      <StyledTab value="DAILY" label={i18next.t(`summary.frequency.daily`)} />
+                      <StyledTab value="MONTHLY" label={i18next.t(`summary.frequency.monthly`)} />
+                      <StyledTab value="ANNUALLY" label={i18next.t(`summary.frequency.annually`)} />
                     </StyledTabs>
                   )}
                 </Grid>
@@ -213,8 +216,8 @@ class OvertimeGraph extends Component {
                     <BarAreaChart
                       data={graphData}
                       legends={{
-                        bar: seriesLabel1,
-                        area: seriesLabel2,
+                        bar: i18next.t(`summary.labels.chart.requests`),
+                        area: i18next.t(`summary.labels.chart.cases`),
                       }}
                     />
                   )}
@@ -223,7 +226,7 @@ class OvertimeGraph extends Component {
                   <Box mb={1}>
                     <DataSummary
                       value={cardValue1}
-                      label="Total requests this year"
+                      label={i18next.t(`summary.labels.chart.card.requests`)}
                       percent={cardPercent1}
                       trend={trend1}
                       loading={loading || summaryFetching}
@@ -232,7 +235,7 @@ class OvertimeGraph extends Component {
                   <Box mb={1}>
                     <DataSummary
                       value={cardValue2}
-                      label="Bookings in the last month"
+                      label={i18next.t(`summary.labels.chart.card.cases`)}
                       percent={cardPercent2}
                       trend={trend2}
                       loading={loading || summaryFetching}
