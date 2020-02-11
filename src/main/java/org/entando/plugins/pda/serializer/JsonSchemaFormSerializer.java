@@ -10,7 +10,8 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.entando.plugins.pda.core.model.form.Form;
 import org.entando.plugins.pda.core.model.form.FormField;
-import org.entando.plugins.pda.core.model.form.FormFieldInteger;
+import org.entando.plugins.pda.core.model.form.FormFieldDate;
+import org.entando.plugins.pda.core.model.form.FormFieldNumber;
 import org.entando.plugins.pda.core.model.form.FormFieldSubForm;
 import org.entando.plugins.pda.core.model.form.FormFieldText;
 import org.entando.plugins.pda.core.model.form.FormFieldType;
@@ -27,16 +28,22 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     private static final String REQUIRED = "required";
     private static final String PROPERTIES = "properties";
     private static final String DESCRIPTION = "description";
+    private static final String READ_ONLY = "readOnly";
 
     private static final String TYPE_OBJECT = "object";
     private static final String TYPE_BOOLEAN = "boolean";
     private static final String TYPE_STRING = "string";
     private static final String TYPE_INTEGER = "integer";
+    private static final String TYPE_NUMBER = "number";
 
-    private static final String TYPE_INTEGER_MIN = "minimum";
-    private static final String TYPE_INTEGER_MAX = "maximum";
+    private static final String TYPE_NUMBER_MIN = "minimum";
+    private static final String TYPE_NUMBER_MAX = "maximum";
     private static final String TYPE_STRING_MIN = "minLength";
     private static final String TYPE_STRING_MAX = "maxLength";
+    private static final String TYPE_DATE_FORMAT = "format";
+
+    private static final String DATE_FORMAT = "date";
+    private static final String DATE_TIME_FORMAT = "date-time";
 
     private static final ObjectMapper MAPPER;
 
@@ -73,7 +80,9 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     }
 
     private void writeTitle(JsonGenerator jsonGenerator, String title) throws IOException {
-        jsonGenerator.writeStringField(TITLE, title);
+        if (StringUtils.isNotEmpty(title)) {
+            jsonGenerator.writeStringField(TITLE, title);
+        }
     }
 
     private void writeDescription(JsonGenerator jsonGenerator, String description) throws IOException {
@@ -101,7 +110,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         writeFieldType(jsonGenerator, field.getType());
         writeTitle(jsonGenerator, field.getLabel());
         writeDescription(jsonGenerator, field.getPlaceholder());
-        writeFieldMinMax(jsonGenerator, field);
+        writeFieldProperties(jsonGenerator, field);
 
         jsonGenerator.writeEndObject();
     }
@@ -140,6 +149,9 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
             case INTEGER:
                 type = TYPE_INTEGER;
                 break;
+            case DOUBLE:
+                type = TYPE_NUMBER;
+                break;
             case BOOLEAN:
                 type = TYPE_BOOLEAN;
                 break;
@@ -155,25 +167,45 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         jsonGenerator.writeStringField(TYPE, fieldType);
     }
 
-    private void writeFieldMinMax(JsonGenerator jsonGenerator, FormField field) throws IOException {
-        if (field.getType().equals(FormFieldType.INTEGER)) {
-            FormFieldInteger intField = (FormFieldInteger) field;
-            if (intField.getMinValue() != null) {
-                jsonGenerator.writeNumberField(TYPE_INTEGER_MIN, intField.getMinValue());
-            }
+    private void writeFieldProperties(JsonGenerator jsonGenerator, FormField field) throws IOException {
+        if (field.isReadOnly()) {
+            jsonGenerator.writeBooleanField(READ_ONLY, true);
+        }
 
-            if (intField.getMaxValue() != null) {
-                jsonGenerator.writeNumberField(TYPE_INTEGER_MAX, intField.getMaxValue());
-            }
-        } else if (field.getType().equals(FormFieldType.STRING)) {
-            FormFieldText strField = (FormFieldText) field;
-            if (strField.getMinLength() != null) {
-                jsonGenerator.writeNumberField(TYPE_STRING_MIN, strField.getMinLength());
-            }
+        if (field.getType() == FormFieldType.INTEGER || field.getType() == FormFieldType.DOUBLE) {
+            writeFieldNumberMinMax(jsonGenerator, (FormFieldNumber) field);
+        } else if (field.getType() == FormFieldType.STRING) {
+            writeFieldStringMinMax(jsonGenerator, (FormFieldText) field);
+        } else if (field.getType() == FormFieldType.DATE) {
+            writeFieldDateFormat(jsonGenerator, (FormFieldDate) field);
+        }
+    }
 
-            if (strField.getMaxLength() != null) {
-                jsonGenerator.writeNumberField(TYPE_STRING_MAX, strField.getMaxLength());
-            }
+    private void writeFieldNumberMinMax(JsonGenerator jsonGenerator, FormFieldNumber field) throws IOException {
+        if (field.getMinValue() != null) {
+            jsonGenerator.writeNumberField(TYPE_NUMBER_MIN, field.getMinValue());
+        }
+
+        if (field.getMaxValue() != null) {
+            jsonGenerator.writeNumberField(TYPE_NUMBER_MAX, field.getMaxValue());
+        }
+    }
+
+    private void writeFieldStringMinMax(JsonGenerator jsonGenerator, FormFieldText field) throws IOException {
+        if (field.getMinLength() != null) {
+            jsonGenerator.writeNumberField(TYPE_STRING_MIN, field.getMinLength());
+        }
+
+        if (field.getMaxLength() != null) {
+            jsonGenerator.writeNumberField(TYPE_STRING_MAX, field.getMaxLength());
+        }
+    }
+
+    private void writeFieldDateFormat(JsonGenerator jsonGenerator, FormFieldDate field) throws IOException {
+        if (field.isWithTime()) {
+            jsonGenerator.writeStringField(TYPE_DATE_FORMAT, DATE_TIME_FORMAT);
+        } else {
+            jsonGenerator.writeStringField(TYPE_DATE_FORMAT, DATE_FORMAT);
         }
     }
 }
