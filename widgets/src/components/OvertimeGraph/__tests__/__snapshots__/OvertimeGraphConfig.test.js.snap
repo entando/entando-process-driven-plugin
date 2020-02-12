@@ -51,22 +51,6 @@ exports[`<OvertimeGraphConfig /> renders snapshot correctly 1`] = `
           </div>
         </div>
       </div>
-      <section>
-        <div
-          class="row"
-        >
-          <div
-            class="text-right col-xs-12"
-          >
-            <button
-              class="btn btn-primary"
-              type="button"
-            >
-              Save
-            </button>
-          </div>
-        </div>
-      </section>
     </form>
   </div>
 </div>
