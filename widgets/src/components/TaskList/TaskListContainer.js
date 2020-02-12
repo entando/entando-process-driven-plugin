@@ -70,14 +70,18 @@ class TaskList extends React.Component {
         : await getTasks(config.knowledgeSource);
 
       const options = JSON.parse(config.options);
+      const rows = normalizeRows(taskList.payload);
+
+      // dispatch onSelectTask event for the first item on list
+      onSelectTask(rows[0]);
 
       this.setState({
         loading: false,
-        columns: normalizeColumns(JSON.parse(config.columns), taskList.payload[0], options, {
+        columns: normalizeColumns(JSON.parse(config.columns), rows[0], options, {
           openDiagram: this.openDiagram,
           selectTask: onSelectTask,
         }),
-        rows: normalizeRows(taskList.payload),
+        rows,
         lastPage: taskList.metadata.lastPage === 1,
         size: taskList.metadata.size,
         connection: config.knowledgeSource,
@@ -229,7 +233,7 @@ TaskList.propTypes = {
 
 TaskList.defaultProps = {
   classes: {},
-  lazyLoading: false,
+  lazyLoading: true,
   onError: () => {},
   onSelectTask: row => {
     console.log('test', row);

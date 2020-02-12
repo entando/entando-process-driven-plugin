@@ -44,11 +44,29 @@ const configNames = [
 
 const elements = {};
 
+const ATTRIBUTES = {
+  config: 'config',
+};
+
 configNames.forEach(({ name, Component, className }) => {
   elements[className] = class extends HTMLElement {
     constructor() {
       super();
+      this.container = null;
       this.reactRootRef = React.createRef();
+    }
+
+    static get observedAttributes() {
+      return Object.values(ATTRIBUTES);
+    }
+
+    attributeChangedCallback(attribute, oldValue, newValue) {
+      if (!Object.values(ATTRIBUTES).includes(attribute)) {
+        throw new Error(`Untracked changed attribute: ${attribute}`);
+      }
+      if (this.container && newValue !== oldValue) {
+        this.render();
+      }
     }
 
     get config() {
@@ -62,17 +80,22 @@ configNames.forEach(({ name, Component, className }) => {
     }
 
     set config(value) {
-      return this.reactRootRef.current.setState({ config: value });
+      this.setAttribute('config', value);
     }
 
     connectedCallback() {
-      const mountPoint = document.createElement('div');
-      this.appendChild(mountPoint);
+      this.container = document.createElement('div');
+      this.appendChild(this.container);
 
+      this.render();
+    }
+
+    render() {
       const locale = this.getAttribute('locale') || 'en';
-      i18next.changeLanguage(locale);
+      const config = this.getAttribute(ATTRIBUTES.config) || {};
 
-      ReactDOM.render(<Component ref={this.reactRootRef} config={this.config} />, mountPoint);
+      i18next.changeLanguage(locale);
+      ReactDOM.render(<Component ref={this.reactRootRef} config={config} />, this.container);
     }
   };
 

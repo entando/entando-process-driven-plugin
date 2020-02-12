@@ -37,10 +37,6 @@ class TaskDetailsElement extends HTMLElement {
     return Object.values(ATTRIBUTES);
   }
 
-  isAttributeTruthy(attribute) {
-    return this.hasAttribute(attribute) && this.getAttribute(attribute) !== 'false';
-  }
-
   attributeChangedCallback(name, oldValue, newValue) {
     if (!Object.values(ATTRIBUTES).includes(name)) {
       throw new Error(`Untracked changed attribute: ${name}`);

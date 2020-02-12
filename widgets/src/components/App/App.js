@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { authenticate } from 'api/app-builder/pages';
 import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
+import SETTINGS from 'mocks/app-builder/pages';
 import Menu from 'components/App/Menu';
 
 import 'components/App/App.css';
@@ -137,7 +138,10 @@ function App() {
               />
             )}
           />
-          <Route path="/TaskListConfig" render={() => <TaskListConfig config={{}} />} />
+          <Route
+            path="/TaskListConfig"
+            render={() => <TaskListConfig config={SETTINGS.TASK_LIST.payload.config} />}
+          />
           <Route
             path="/TaskDetails/"
             render={() => (
