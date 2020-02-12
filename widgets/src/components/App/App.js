@@ -175,17 +175,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/SummaryCardConfig/"
-            render={() => (
-              <SummaryCardConfig
-                config={{}}
-                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
-                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
-                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
-              />
-            )}
-          />
+          <Route path="/SummaryCardConfig/" render={() => <SummaryCardConfig config={{}} />} />
           <Route
             path="/ProcessForm"
             render={() => (

@@ -9,12 +9,12 @@ exports[`<SummaryCardValues /> renders snapshot correctly 1`] = `
       <h4
         class="MuiTypography-root MuiTypography-h4"
       >
-        2123
+        summary.labels.requests.value
       </h4>
       <span
         class="MuiTypography-root MuiTypography-caption"
       >
-        summary.labels.request.total_label
+        summary.labels.requests.total_label
       </span>
     </div>
     <div>

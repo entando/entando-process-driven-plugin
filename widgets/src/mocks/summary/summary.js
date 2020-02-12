@@ -5,8 +5,8 @@ export const MOCK_SUMMARY_TYPES = {
 
 export const MOCK_SUMMARY_CARD = {
   payload: {
-    value: '2123',
-    percentage: '92.43234',
+    value: 2123,
+    percentage: 0.9243,
   },
   errors: [],
 };

@@ -4,7 +4,6 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
 <div>
   <div
     class="MuiPaper-root SummaryCard-root-1 MuiPaper-elevation0"
-    style="width: 256px; display: inline-block;"
   >
     <div
       class="SummaryCard-header-2"
@@ -49,7 +48,6 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
 <div>
   <div
     class="MuiPaper-root SummaryCard-root-51 MuiPaper-elevation0"
-    style="width: 256px; display: inline-block;"
   >
     <div
       class="SummaryCard-header-52"

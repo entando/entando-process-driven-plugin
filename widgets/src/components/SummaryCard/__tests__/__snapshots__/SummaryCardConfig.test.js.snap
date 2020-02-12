@@ -51,67 +51,7 @@ exports[`<SummaryCardConfig /> renders snapshot correctly 1`] = `
           </div>
         </div>
       </div>
-      <section>
-        <legend>
-          Settings
-        </legend>
-        <div
-          class="row"
-        >
-          <div
-            class="col-xs-12"
-          >
-            <div
-              class="form-group"
-            >
-              <label
-                class="control-label"
-                for="textarea"
-              >
-                Data Type
-              </label>
-              <select
-                class="form-control"
-              >
-                <option
-                  value=""
-                >
-                  Select...
-                </option>
-                <option
-                  value="requests"
-                >
-                  summary.labels.requests.title
-                </option>
-                <option
-                  value="impressions"
-                >
-                  summary.labels.impressions.title
-                </option>
-              </select>
-              <span
-                class="help-block"
-              >
-                Choose a data type to display information on your card.
-              </span>
-            </div>
-          </div>
-        </div>
-        <div
-          class="row"
-        >
-          <div
-            class="text-right col-xs-12"
-          >
-            <button
-              class="btn btn-primary"
-              type="button"
-            >
-              Save
-            </button>
-          </div>
-        </div>
-      </section>
+      
     </form>
   </div>
 </div>

@@ -15,11 +15,13 @@
     "labels": {
       "requests": {
         "title": "Requests",
-        "total_label": "Total Requests"
+        "total_label": "Total Requests",
+        "value": "{{value, number}}"
       },
       "cases": {
         "title": "Cases",
-        "total_label": "Total Cases"
+        "total_label": "Total Cases",
+        "value": "{{value, number}}"
       }
     }
   },

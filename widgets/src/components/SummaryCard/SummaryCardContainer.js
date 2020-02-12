@@ -86,7 +86,7 @@ class SummaryCard extends React.Component {
     const { pageCode, frameId } = this.props;
     try {
       // config will be fetched from app-builder
-      const widgetConfigs = await getPageWidget(pageCode, frameId);
+      const widgetConfigs = await getPageWidget(pageCode, frameId, 'SUMMARY_CARD');
       if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }
@@ -175,12 +175,12 @@ class SummaryCard extends React.Component {
 
   render() {
     const { loading, loadingValues, summary, dataType } = this.state;
-    const { classes, width, display, onError } = this.props;
+    const { classes, onError } = this.props;
 
     return (
       <CustomEventContext.Provider value={{ onError }}>
         <ThemeProvider theme={theme}>
-          <Paper square elevation={0} className={classes.root} style={{ width, display }}>
+          <Paper square elevation={0} className={classes.root}>
             {loading && this.renderSkeletonHeader()}
             {!loading && summary && this.renderHeader()}
             <Divider />
@@ -201,8 +201,6 @@ SummaryCard.propTypes = {
     frequencySelectIcon: PropTypes.string.isRequired,
     frequencySelectItem: PropTypes.string.isRequired,
   }).isRequired,
-  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  display: PropTypes.string,
   onError: PropTypes.func,
   serviceUrl: PropTypes.string,
   pageCode: PropTypes.string,
@@ -211,8 +209,6 @@ SummaryCard.propTypes = {
 
 SummaryCard.defaultProps = {
   onError: () => {},
-  display: 'inline-block',
-  width: 256,
   serviceUrl: '',
   pageCode: '',
   frameId: '',

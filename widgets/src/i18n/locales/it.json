@@ -15,11 +15,13 @@
     "labels": {
       "requests": {
         "title": "Richieste",
-        "total_label": "Richieste Totali"
+        "total_label": "Richieste Totali",
+        "value": "{{value, number}}"
       },
       "cases": {
         "title": "Casi",
-        "total_label": "Casi Totali"
+        "total_label": "Casi Totali",
+        "value": "{{value, number}}"
       }
     }
   },

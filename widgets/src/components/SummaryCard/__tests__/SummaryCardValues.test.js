@@ -9,7 +9,7 @@ describe('<SummaryCardValues />', () => {
       value: 2123,
       percentage: 0.9243234,
     };
-    const { container } = render(<SummaryCardValues dataType="request" values={values} />);
+    const { container } = render(<SummaryCardValues dataType="requests" values={values} />);
 
     expect(container).toMatchSnapshot();
   });
