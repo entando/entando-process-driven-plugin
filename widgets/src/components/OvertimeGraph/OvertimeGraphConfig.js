@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly-react';
+import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
 
-import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
+import { getPageWidget } from 'api/app-builder/pages';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -21,7 +21,6 @@ class OvertimeGraphConfig extends React.Component {
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
-    this.handleSave = this.handleSave.bind(this);
   }
 
   async componentDidMount() {
@@ -43,25 +42,6 @@ class OvertimeGraphConfig extends React.Component {
   onChangeKnowledgeSource(e) {
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState({ knowledgeSource });
-  }
-
-  async handleSave() {
-    const { frameId, pageCode, widgetCode } = this.props;
-    const { knowledgeSource } = this.state;
-
-    const body = JSON.stringify({
-      code: widgetCode,
-      config: {
-        knowledgeSource,
-      },
-    });
-
-    try {
-      const response = await putPageWidget(pageCode, frameId, body);
-      console.log('Configs got saved', response);
-    } catch (error) {
-      console.log('Error while saving configs', error);
-    }
   }
 
   render() {
@@ -90,17 +70,6 @@ class OvertimeGraphConfig extends React.Component {
               </FormGroup>
             </Col>
           </Row>
-          {knowledgeSource && (
-            <section>
-              <Row>
-                <Col xs={12} className="text-right">
-                  <Button bsClass="btn" bsStyle="primary" onClick={this.handleSave}>
-                    Save
-                  </Button>
-                </Col>
-              </Row>
-            </section>
-          )}
         </form>
       </div>
     );
@@ -109,7 +78,6 @@ class OvertimeGraphConfig extends React.Component {
 
 OvertimeGraphConfig.propTypes = {
   frameId: PropTypes.string.isRequired,
-  widgetCode: PropTypes.string.isRequired,
   pageCode: PropTypes.string.isRequired,
 };
 
