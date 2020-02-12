@@ -1,6 +1,5 @@
 package org.entando.plugins.pda.controller.task;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_ID_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_2;

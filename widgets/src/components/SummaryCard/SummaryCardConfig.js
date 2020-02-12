@@ -1,12 +1,11 @@
 /* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly-react';
+import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 import i18next from 'i18next';
 
 import { getConnections } from 'api/pda/connections';
 import { getSummaries } from 'api/pda/summary';
-import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -19,32 +18,31 @@ class SummaryCardConfig extends React.Component {
     this.state = {
       sourceList: [],
       summaryList: [],
-      settings: { summaryId: '' },
-      knowledgeSource: '',
+      config: {
+        settings: { summaryId: '' },
+        knowledgeSource: '',
+      },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeSettings = this.onChangeSettings.bind(this);
-    this.handleSave = this.handleSave.bind(this);
   }
 
   async componentDidMount() {
-    const { frameId, pageCode } = this.props;
+    const { config } = this.props;
 
     // getting list of Kie server connections
     const sourceList = await getConnections();
     this.setState({ sourceList: sourceList.payload });
 
-    // getting existing configs
-    const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'SUMMARY_CARD');
-
-    const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
-
-    if (configs && configs.knowledgeSource) {
-      this.onChangeKnowledgeSource(configs.knowledgeSource, () => {
-        if (configs.settings) {
+    if (config && config.knowledgeSource) {
+      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
+        if (config.settings) {
           this.setState({
-            settings: JSON.parse(configs.settings),
+            config: {
+              ...config,
+              settings: JSON.parse(config.settings),
+            },
           });
         }
       });
@@ -52,8 +50,9 @@ class SummaryCardConfig extends React.Component {
   }
 
   onChangeKnowledgeSource(e, cb = () => {}) {
+    const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ knowledgeSource });
+    this.setState({ config: { ...config, knowledgeSource } });
 
     getSummaries(knowledgeSource).then(data => {
       this.setState({ summaryList: data.payload });
@@ -62,31 +61,19 @@ class SummaryCardConfig extends React.Component {
   }
 
   onChangeSettings({ target: { value: summaryId } }) {
-    this.setState({ settings: { summaryId } });
-  }
+    const { config } = this.state;
 
-  async handleSave() {
-    const { frameId, pageCode, widgetCode } = this.props;
-    const { knowledgeSource, settings } = this.state;
-
-    const body = JSON.stringify({
-      code: widgetCode,
+    this.setState({
       config: {
-        knowledgeSource,
-        settings: JSON.stringify(settings),
+        ...config,
+        settings: { summaryId },
       },
     });
-
-    try {
-      const response = await putPageWidget(pageCode, frameId, body);
-      console.log('Configs got saved', response);
-    } catch (error) {
-      console.log('Error while saving configs', error);
-    }
   }
 
   render() {
-    const { knowledgeSource, sourceList, summaryList, settings } = this.state;
+    const { sourceList, summaryList, config } = this.state;
+    const { knowledgeSource, settings } = config;
 
     return (
       <div>
@@ -134,13 +121,6 @@ class SummaryCardConfig extends React.Component {
                   </FormGroup>
                 </Col>
               </Row>
-              <Row>
-                <Col xs={12} className="text-right">
-                  <Button bsClass="btn" bsStyle="primary" onClick={this.handleSave}>
-                    Save
-                  </Button>
-                </Col>
-              </Row>
             </section>
           )}
         </form>
@@ -150,9 +130,10 @@ class SummaryCardConfig extends React.Component {
 }
 
 SummaryCardConfig.propTypes = {
-  frameId: PropTypes.string.isRequired,
-  widgetCode: PropTypes.string.isRequired,
-  pageCode: PropTypes.string.isRequired,
+  config: PropTypes.shape({
+    knowledgeSource: PropTypes.string,
+    settings: PropTypes.string,
+  }).isRequired,
 };
 
 export default SummaryCardConfig;
