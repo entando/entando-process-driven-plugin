@@ -71,9 +71,12 @@
   },
   "messages": {
     "warnings": {
-      "noData": "There is no data to be displayed"
+      "noData": "There is no data to be displayed",
+      "emptyList": "List is empty"
     },
     "errors": {
+      "widgetConfig": "No configuration found for this widget",
+      "errorResponse": "There seems to be an error",
       "dataLoading": "Unable to load server data."
     }
   }

@@ -28,10 +28,12 @@ export default function(page, rowsPerPage, sortedColumn, sortOrder = 'asc', filt
 
   // apply sorting
   let sortFunction = compareStrings;
-  if (tasks.payload[0][sortedColumn] instanceof Date) {
-    sortFunction = compareDates;
-  } else if (typeof tasks.payload[0][sortedColumn] === 'number') {
-    sortFunction = compareNumbers;
+  if (sortedColumn) {
+    if (tasks.payload[0][sortedColumn] instanceof Date) {
+      sortFunction = compareDates;
+    } else if (typeof tasks.payload[0][sortedColumn] === 'number') {
+      sortFunction = compareNumbers;
+    }
   }
 
   displayRows = sortedColumn

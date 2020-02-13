@@ -71,9 +71,12 @@
   },
   "messages": {
     "warnings": {
-      "noData": "Non ci sono dati da visualizzare"
+      "noData": "Non ci sono dati da visualizzare",
+      "emptyList": "L'elenco è vuoto"
     },
     "errors": {
+      "widgetConfig": "Nessuna configurazione trovata per questo widget",
+      "errorResponse": "Sembra esserci un errore",
       "dataLoading": "Impossibile caricare i dati del server"
     }
   }

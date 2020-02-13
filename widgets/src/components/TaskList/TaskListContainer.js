@@ -33,7 +33,8 @@ class TaskList extends React.Component {
     rows: [],
     size: 0,
     connection: {},
-    error: null,
+    blocker: false,
+    blockerMessage: '',
     errorAlert: null,
     lastPage: false,
     diagramModal: {
@@ -60,7 +61,7 @@ class TaskList extends React.Component {
         throw widgetConfigs.errors[0];
       }
       if (!widgetConfigs.payload) {
-        throw new Error('No configuration found for this widget');
+        throw new Error('messages.errors.widgetConfig');
       }
 
       const { config } = widgetConfigs.payload;
@@ -71,19 +72,31 @@ class TaskList extends React.Component {
 
       const options = JSON.parse(config.options);
 
-      this.setState({
+      if (!taskList.payload) {
+        throw new Error('messages.errors.errorResponse');
+      }
+
+      const states = {
         loading: false,
-        columns: normalizeColumns(
-          JSON.parse(config.columns),
-          taskList.payload[0],
-          options,
-          this.openDiagram
-        ),
-        rows: normalizeRows(taskList.payload),
-        lastPage: taskList.metadata.lastPage === 1,
-        size: taskList.metadata.size,
         connection: config.knowledgeSource,
-      });
+      };
+
+      if (!taskList.payload.length) {
+        this.handleDisableScreen('messages.warnings.emptyList');
+      } else {
+        this.setState({
+          ...states,
+          columns: normalizeColumns(
+            JSON.parse(config.columns),
+            taskList.payload[0],
+            options,
+            this.openDiagram
+          ),
+          rows: normalizeRows(taskList.payload),
+          lastPage: taskList.metadata.lastPage === 1,
+          size: taskList.metadata.size,
+        });
+      }
     } catch (error) {
       this.handleError(error.message, true);
     }
@@ -164,17 +177,35 @@ class TaskList extends React.Component {
     this.setState({ errorAlert: null });
   };
 
-  handleError(err, disableScreen) {
+  handleDisableScreen = message => {
+    this.setState({
+      blocker: true,
+      blockerMessage: message,
+    });
+  };
+
+  handleError(err, blocker, blockerMessage = '') {
     const { onError } = this.props;
     onError(err);
     this.setState({
-      error: disableScreen,
       errorAlert: err.toString(),
+      blocker,
+      blockerMessage,
     });
   }
 
   render() {
-    const { loading, columns, rows, size, error, errorAlert, lastPage, diagramModal } = this.state;
+    const {
+      loading,
+      columns,
+      rows,
+      size,
+      blocker,
+      blockerMessage,
+      errorAlert,
+      lastPage,
+      diagramModal,
+    } = this.state;
     const { classes, lazyLoading } = this.props;
 
     let lazyLoadingProps;
@@ -189,8 +220,8 @@ class TaskList extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Paper className={classes.paper}>
-          {error ? (
-            <ErrorComponent message={i18next.t('messages.errors.dataLoading')} />
+          {blocker ? (
+            <ErrorComponent message={blockerMessage} />
           ) : (
             <Table
               loading={loading}

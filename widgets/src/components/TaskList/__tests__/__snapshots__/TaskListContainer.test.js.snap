@@ -2512,9 +2512,7 @@ exports[`<TaskListContainer /> renders snapshot correctly on error state 1`] = `
       </svg>
       <p
         class="MuiTypography-root MuiTypography-body1"
-      >
-        messages.errors.dataLoading
-      </p>
+      />
     </div>
   </div>
   <div
