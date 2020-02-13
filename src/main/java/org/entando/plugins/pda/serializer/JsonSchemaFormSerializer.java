@@ -12,6 +12,7 @@ import org.entando.plugins.pda.core.model.form.Form;
 import org.entando.plugins.pda.core.model.form.FormField;
 import org.entando.plugins.pda.core.model.form.FormFieldDate;
 import org.entando.plugins.pda.core.model.form.FormFieldNumber;
+import org.entando.plugins.pda.core.model.form.FormFieldSelector;
 import org.entando.plugins.pda.core.model.form.FormFieldSubForm;
 import org.entando.plugins.pda.core.model.form.FormFieldText;
 import org.entando.plugins.pda.core.model.form.FormFieldType;
@@ -29,9 +30,16 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     private static final String PROPERTIES = "properties";
     private static final String DESCRIPTION = "description";
     private static final String READ_ONLY = "readOnly";
+    private static final String ONE_OF = "oneOf";
+    private static final String CONST = "const";
+    private static final String ITEMS = "items";
+    private static final String ENUM = "enum";
+    private static final String DEFAULT = "default";
+    private static final String UNIQUE_ITEMS = "uniqueItems";
 
     private static final String TYPE_OBJECT = "object";
     private static final String TYPE_BOOLEAN = "boolean";
+    private static final String TYPE_ARRAY = "array";
     private static final String TYPE_STRING = "string";
     private static final String TYPE_INTEGER = "integer";
     private static final String TYPE_NUMBER = "number";
@@ -41,6 +49,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     private static final String TYPE_STRING_MIN = "minLength";
     private static final String TYPE_STRING_MAX = "maxLength";
     private static final String TYPE_DATE_FORMAT = "format";
+    private static final String TYPE_NUMBER_MULTIPLE = "multipleOf";
 
     private static final String DATE_FORMAT = "date";
     private static final String DATE_TIME_FORMAT = "date-time";
@@ -61,17 +70,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     @Override
     public void serialize(JsonSchemaForm schema, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
             throws IOException {
-
-        Form form = schema.getForm();
-
-        jsonGenerator.writeStartObject();
-
-        writeSchemaHeader(jsonGenerator, schema);
-        writeTitle(jsonGenerator, form.getName());
-        writeFieldType(jsonGenerator, TYPE_OBJECT);
-        writeProperties(jsonGenerator, form.getFields());
-
-        jsonGenerator.writeEndObject();
+        writeForm(jsonGenerator, schema.getForm(), schema);
     }
 
     private void writeSchemaHeader(JsonGenerator jsonGenerator, JsonSchemaForm schema) throws IOException {
@@ -92,11 +91,18 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     }
 
     private void writeForm(JsonGenerator jsonGenerator, Form form) throws IOException {
-        jsonGenerator.writeFieldName(form.getId());
-        jsonGenerator.writeStartObject();
-        writeTitle(jsonGenerator, form.getName());
-        jsonGenerator.writeStringField(TYPE, TYPE_OBJECT);
+        writeForm(jsonGenerator, form, null);
+    }
 
+    private void writeForm(JsonGenerator jsonGenerator, Form form, JsonSchemaForm schema) throws IOException {
+        jsonGenerator.writeStartObject();
+
+        if (schema != null) {
+            writeSchemaHeader(jsonGenerator, schema);
+        }
+
+        writeTitle(jsonGenerator, form.getName());
+        writeFieldType(jsonGenerator, TYPE_OBJECT);
         writeRequiredFields(jsonGenerator, form.getFields());
         writeProperties(jsonGenerator, form.getFields());
 
@@ -134,6 +140,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         for (FormField field : fields) {
             if (field.getType().equals(FormFieldType.SUBFORM)) {
                 FormFieldSubForm fieldSubForm = (FormFieldSubForm) field;
+                jsonGenerator.writeFieldName(fieldSubForm.getForm().getId());
                 writeForm(jsonGenerator, fieldSubForm.getForm());
             } else {
                 writeField(jsonGenerator, field);
@@ -149,11 +156,16 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
             case INTEGER:
                 type = TYPE_INTEGER;
                 break;
+            case SLIDER:
             case DOUBLE:
                 type = TYPE_NUMBER;
                 break;
             case BOOLEAN:
                 type = TYPE_BOOLEAN;
+                break;
+            case INPUT_LIST:
+            case MULTIPLE:
+                type = TYPE_ARRAY;
                 break;
             default:
                 type = TYPE_STRING;
@@ -172,22 +184,47 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
             jsonGenerator.writeBooleanField(READ_ONLY, true);
         }
 
-        if (field.getType() == FormFieldType.INTEGER || field.getType() == FormFieldType.DOUBLE) {
-            writeFieldNumberMinMax(jsonGenerator, (FormFieldNumber) field);
+        if (field.getType() == FormFieldType.INTEGER || field.getType() == FormFieldType.DOUBLE
+                || field.getType() == FormFieldType.SLIDER) {
+            writeFieldNumberProperties(jsonGenerator, (FormFieldNumber) field);
         } else if (field.getType() == FormFieldType.STRING) {
             writeFieldStringMinMax(jsonGenerator, (FormFieldText) field);
         } else if (field.getType() == FormFieldType.DATE) {
             writeFieldDateFormat(jsonGenerator, (FormFieldDate) field);
+        } else if (field.getType() == FormFieldType.COMBO || field.getType() == FormFieldType.RADIO) {
+            writeFieldSelector(jsonGenerator, (FormFieldSelector) field);
+        } else if (field.getType() == FormFieldType.MULTIPLE) {
+            writeFieldMultipleSelector(jsonGenerator, (FormFieldSelector) field);
+        } else if (field.getType() == FormFieldType.INPUT_LIST) {
+            writeFieldInputList(jsonGenerator);
         }
     }
 
-    private void writeFieldNumberMinMax(JsonGenerator jsonGenerator, FormFieldNumber field) throws IOException {
-        if (field.getMinValue() != null) {
-            jsonGenerator.writeNumberField(TYPE_NUMBER_MIN, field.getMinValue());
-        }
+    private void writeFieldNumberProperties(JsonGenerator jsonGenerator, FormFieldNumber field) throws IOException {
+        if (field.getType() == FormFieldType.INTEGER) {
+            if (field.getMinValue() != null) {
+                jsonGenerator.writeNumberField(TYPE_NUMBER_MIN, field.getMinValue().intValue());
+            }
 
-        if (field.getMaxValue() != null) {
-            jsonGenerator.writeNumberField(TYPE_NUMBER_MAX, field.getMaxValue());
+            if (field.getMaxValue() != null) {
+                jsonGenerator.writeNumberField(TYPE_NUMBER_MAX, field.getMaxValue().intValue());
+            }
+
+            if (field.getMultipleOf() != null) {
+                jsonGenerator.writeNumberField(TYPE_NUMBER_MULTIPLE, field.getMultipleOf().intValue());
+            }
+        } else {
+            if (field.getMinValue() != null) {
+                jsonGenerator.writeNumberField(TYPE_NUMBER_MIN, field.getMinValue());
+            }
+
+            if (field.getMaxValue() != null) {
+                jsonGenerator.writeNumberField(TYPE_NUMBER_MAX, field.getMaxValue());
+            }
+
+            if (field.getMultipleOf() != null) {
+                jsonGenerator.writeNumberField(TYPE_NUMBER_MULTIPLE, field.getMultipleOf());
+            }
         }
     }
 
@@ -207,5 +244,47 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         } else {
             jsonGenerator.writeStringField(TYPE_DATE_FORMAT, DATE_FORMAT);
         }
+    }
+
+    private void writeFieldSelector(JsonGenerator jsonGenerator, FormFieldSelector field) throws IOException {
+        if (StringUtils.isNotEmpty(field.getDefaultValue())) {
+            jsonGenerator.writeStringField(DEFAULT, field.getDefaultValue());
+        }
+
+        jsonGenerator.writeFieldName(ONE_OF);
+        jsonGenerator.writeStartArray();
+        for (FormFieldSelector.Option option : field.getOptions()) {
+            jsonGenerator.writeStartObject();
+            jsonGenerator.writeStringField(CONST, option.getValue());
+            writeTitle(jsonGenerator, option.getLabel());
+            jsonGenerator.writeEndObject();
+        }
+        jsonGenerator.writeEndArray();
+    }
+
+    private void writeFieldMultipleSelector(JsonGenerator jsonGenerator, FormFieldSelector field) throws IOException {
+        jsonGenerator.writeFieldName(ITEMS);
+        jsonGenerator.writeStartObject();
+        writeFieldType(jsonGenerator, TYPE_STRING);
+
+        jsonGenerator.writeFieldName(ONE_OF);
+        jsonGenerator.writeStartArray();
+        for (FormFieldSelector.Option option : field.getOptions()) {
+            jsonGenerator.writeStartObject();
+            jsonGenerator.writeStringField(CONST, option.getValue());
+            writeTitle(jsonGenerator, option.getLabel());
+            jsonGenerator.writeEndObject();
+        }
+        jsonGenerator.writeEndArray();
+
+        jsonGenerator.writeEndObject();
+        jsonGenerator.writeBooleanField(UNIQUE_ITEMS, true);
+    }
+
+    private void writeFieldInputList(JsonGenerator jsonGenerator) throws IOException {
+        jsonGenerator.writeFieldName(ITEMS);
+        jsonGenerator.writeStartObject();
+        writeFieldType(jsonGenerator, TYPE_STRING);
+        jsonGenerator.writeEndObject();
     }
 }
