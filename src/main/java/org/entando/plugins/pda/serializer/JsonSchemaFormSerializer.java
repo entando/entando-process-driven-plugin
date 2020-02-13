@@ -18,7 +18,7 @@ import org.entando.plugins.pda.core.model.form.FormFieldText;
 import org.entando.plugins.pda.core.model.form.FormFieldType;
 import org.springframework.stereotype.Component;
 
-@SuppressWarnings("PMD.TooManyMethods")
+@SuppressWarnings({"PMD.TooManyMethods", "PMD.GodClass"})
 @Component
 public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     private static final String SCHEMA_VERSION = "$schema";
@@ -33,7 +33,6 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     private static final String ONE_OF = "oneOf";
     private static final String CONST = "const";
     private static final String ITEMS = "items";
-    private static final String ENUM = "enum";
     private static final String DEFAULT = "default";
     private static final String UNIQUE_ITEMS = "uniqueItems";
 
@@ -179,6 +178,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         jsonGenerator.writeStringField(TYPE, fieldType);
     }
 
+    @SuppressWarnings("PMD.CyclomaticComplexity")
     private void writeFieldProperties(JsonGenerator jsonGenerator, FormField field) throws IOException {
         if (field.isReadOnly()) {
             jsonGenerator.writeBooleanField(READ_ONLY, true);
