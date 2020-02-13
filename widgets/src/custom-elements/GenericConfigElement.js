@@ -80,7 +80,7 @@ configNames.forEach(({ name, Component, className }) => {
     }
 
     set config(value) {
-      this.setAttribute('config', value);
+      this.setAttribute('config', JSON.stringify(value));
     }
 
     connectedCallback() {
@@ -92,7 +92,7 @@ configNames.forEach(({ name, Component, className }) => {
 
     render() {
       const locale = this.getAttribute('locale') || 'en';
-      const config = this.getAttribute(ATTRIBUTES.config) || {};
+      const config = this.getAttribute(JSON.parse(ATTRIBUTES.config)) || {};
 
       i18next.changeLanguage(locale);
       ReactDOM.render(<Component ref={this.reactRootRef} config={config} />, this.container);
