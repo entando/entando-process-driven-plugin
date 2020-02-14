@@ -44,29 +44,13 @@ const configNames = [
 
 const elements = {};
 
-const ATTRIBUTES = {
-  config: 'config',
-};
-
 configNames.forEach(({ name, Component, className }) => {
   elements[className] = class extends HTMLElement {
     constructor() {
       super();
+      this.config = {};
       this.container = null;
       this.reactRootRef = React.createRef();
-    }
-
-    static get observedAttributes() {
-      return Object.values(ATTRIBUTES);
-    }
-
-    attributeChangedCallback(attribute, oldValue, newValue) {
-      if (!Object.values(ATTRIBUTES).includes(attribute)) {
-        throw new Error(`Untracked changed attribute: ${attribute}`);
-      }
-      if (this.container && newValue !== oldValue) {
-        this.render();
-      }
     }
 
     get config() {
@@ -80,7 +64,8 @@ configNames.forEach(({ name, Component, className }) => {
     }
 
     set config(value) {
-      this.setAttribute('config', JSON.stringify(value));
+      this.config = value;
+      this.render();
     }
 
     connectedCallback() {
@@ -92,10 +77,9 @@ configNames.forEach(({ name, Component, className }) => {
 
     render() {
       const locale = this.getAttribute('locale') || 'en';
-      const config = this.getAttribute(JSON.parse(ATTRIBUTES.config)) || {};
 
       i18next.changeLanguage(locale);
-      ReactDOM.render(<Component ref={this.reactRootRef} config={config} />, this.container);
+      ReactDOM.render(<Component ref={this.reactRootRef} config={this.config} />, this.container);
     }
   };
 
