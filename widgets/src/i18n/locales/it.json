@@ -6,14 +6,22 @@
     "yes": "Yes",
     "no": "No"
   },
-  "card": {
-    "monthly": "Mensile",
-    "annually": "Annuale",
-    "daily": "Giornaliero",
+  "summary": {
+    "frequency": {
+      "monthly": "Mensile",
+      "annually": "Annuale",
+      "daily": "Giornaliero"
+    },
     "labels": {
-      "REQUESTS": {
-        "TITLE": "Richieste",
-        "TOTAL_LABEL": "Richieste Totali"
+      "requests": {
+        "title": "Richieste",
+        "total_label": "Richieste Totali",
+        "value": "{{value, number}}"
+      },
+      "cases": {
+        "title": "Casi",
+        "total_label": "Casi Totali",
+        "value": "{{value, number}}"
       }
     }
   },
