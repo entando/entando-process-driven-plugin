@@ -78,11 +78,15 @@
     }
   },
   "messages": {
+    "notify": {
+      "submitting": "Invio..."
+    },
     "warnings": {
       "noData": "Non ci sono dati da visualizzare"
     },
     "errors": {
-      "dataLoading": "Impossibile caricare i dati del server"
+      "dataLoading": "Impossibile caricare i dati del server",
+      "dataSaving": "Impossibile salvare i dati."
     }
   }
 }

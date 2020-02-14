@@ -7,7 +7,7 @@ import theme from 'theme';
 import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
-import { getProcessForm } from 'api/pda/processes';
+import { getProcessForm, postProcessForm } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 
 class ProcessFormContainer extends React.Component {
@@ -17,10 +17,12 @@ class ProcessFormContainer extends React.Component {
     this.state = {
       config: null,
       loading: false,
+      submitting: false,
       formSchema: null,
     };
 
     this.fetchSchema = this.fetchSchema.bind(this);
+    this.submitProcessForm = this.submitProcessForm.bind(this);
   }
 
   componentDidMount() {
@@ -78,23 +80,54 @@ class ProcessFormContainer extends React.Component {
     return null;
   }
 
+  submitProcessForm(formValue) {
+    this.setState({ submitting: true }, async () => {
+      const { config } = this.state;
+      const { onSubmitForm } = this.props;
+
+      let response = { errors: ['messages.errors.dataSaving'] };
+
+      const connection = (config && config.knowledgeSource) || '';
+      const processContainerId = (config && config.process) || '';
+
+      try {
+        response = await postProcessForm(connection, processContainerId, formValue);
+        this.setState({ submitting: false });
+      } catch (error) {
+        this.handleError(error.message);
+      }
+
+      onSubmitForm({ ...formValue, response });
+    });
+  }
+
   handleError(err) {
     const { onError } = this.props;
     onError(err);
   }
 
   render() {
-    const { loading, formSchema, config } = this.state;
-    const { onSubmitForm, onError } = this.props;
+    const { loading, formSchema, config, submitting } = this.state;
+    const { onError } = this.props;
 
     const uiSchema = (config && config.settings && config.settings.uiSchema) || {};
 
     return (
-      <CustomEventContext.Provider value={{ onSubmitForm, onError }}>
+      <CustomEventContext.Provider
+        value={{
+          onSubmitForm: this.submitProcessForm,
+          onError,
+        }}
+      >
         <ThemeProvider theme={theme}>
           <Container disableGutters>
             <WidgetBox>
-              <JSONForm loading={loading} formSchema={formSchema} uiSchema={uiSchema} />
+              <JSONForm
+                loading={loading}
+                formSchema={formSchema}
+                uiSchema={uiSchema}
+                submitting={submitting}
+              />
             </WidgetBox>
           </Container>
         </ThemeProvider>

@@ -26,7 +26,7 @@ const styles = {
   },
 };
 
-const CompletionForm = ({ classes, loading, formSchema, formData, uiSchema }) => {
+const CompletionForm = ({ classes, loading, submitting, formSchema, formData, uiSchema }) => {
   if (loading) {
     return <JSONFormSkeleton />;
   }
@@ -57,8 +57,8 @@ const CompletionForm = ({ classes, loading, formSchema, formData, uiSchema }) =>
               onSubmit={e => onSubmitForm(e)}
             >
               <div className={classes.actionButtons}>
-                <Button type="submit" variant="contained" color="primary">
-                  {i18next.t('common.submit')}
+                <Button type="submit" variant="contained" color="primary" disabled={submitting}>
+                  {i18next.t(submitting ? 'messages.notify.submitting' : 'common.submit')}
                 </Button>
               </div>
             </ThemedForm>
@@ -76,6 +76,7 @@ CompletionForm.propTypes = {
     themedForm: PropTypes.string,
   }).isRequired,
   loading: PropTypes.bool,
+  submitting: PropTypes.bool,
   formSchema: PropTypes.shape({}),
   formData: PropTypes.shape({}),
   uiSchema: PropTypes.shape({}),
@@ -83,6 +84,7 @@ CompletionForm.propTypes = {
 
 CompletionForm.defaultProps = {
   loading: false,
+  submitting: false,
   formSchema: null,
   formData: {},
   uiSchema: {},
