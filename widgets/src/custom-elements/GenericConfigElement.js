@@ -48,7 +48,7 @@ configNames.forEach(({ name, Component, className }) => {
   elements[className] = class extends HTMLElement {
     constructor() {
       super();
-      this.config = {};
+      this.newConfig = {};
       this.container = null;
       this.reactRootRef = React.createRef();
     }
@@ -64,7 +64,7 @@ configNames.forEach(({ name, Component, className }) => {
     }
 
     set config(value) {
-      this.config = value;
+      this.newConfig = value;
       this.render();
     }
 
@@ -79,7 +79,10 @@ configNames.forEach(({ name, Component, className }) => {
       const locale = this.getAttribute('locale') || 'en';
 
       i18next.changeLanguage(locale);
-      ReactDOM.render(<Component ref={this.reactRootRef} config={this.config} />, this.container);
+      ReactDOM.render(
+        <Component ref={this.reactRootRef} config={this.config || this.newConfig} />,
+        this.container
+      );
     }
   };
 
