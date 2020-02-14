@@ -14,16 +14,12 @@ import {
 import {
   Home as HomeIcon,
   List as ListIcon,
-<<<<<<< HEAD
+  BarChart as BarChartIcon,
   Settings as SettingsIcon,
   Dashboard as DashboardIcon,
   Description as DescriptionIcon,
   DoneAll as DoneAllIcon,
   Comment as CommentsIcon,
-=======
-  BarChart as BarChartIcon,
-  Settings as SettingsIcon,
->>>>>>> PDA-71 Fix styles
 } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 
