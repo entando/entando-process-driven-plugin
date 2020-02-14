@@ -82,7 +82,7 @@ class TaskList extends React.Component {
       };
 
       if (!taskList.payload.length) {
-        this.handleDisableScreen('messages.warnings.emptyList');
+        this.handleDisableScreen('taskList.emptyList');
       } else {
         this.setState({
           ...states,

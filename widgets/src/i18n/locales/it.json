@@ -31,7 +31,8 @@
       "complete": "Completare",
       "claim": "Richiesta",
       "diagram": "Diagramma"
-    }
+    },
+    "emptyList": "Non hai attività attive, assegnate o complete"
   },
   "table": {
     "title": "Elenco attività",
@@ -79,8 +80,7 @@
   },
   "messages": {
     "warnings": {
-      "noData": "Non ci sono dati da visualizzare",
-      "emptyList": "L'elenco è vuoto"
+      "noData": "Non ci sono dati da visualizzare"
     },
     "errors": {
       "widgetConfig": "Nessuna configurazione trovata per questo widget",

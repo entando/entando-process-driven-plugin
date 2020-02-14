@@ -31,7 +31,8 @@
       "complete": "Complete",
       "claim": "Claim",
       "diagram": "Diagram"
-    }
+    },
+    "emptyList": "You don't have any active, assigned or complete tasks"
   },
   "table": {
     "title": "Task List",
@@ -79,8 +80,7 @@
   },
   "messages": {
     "warnings": {
-      "noData": "There is no data to be displayed",
-      "emptyList": "List is empty"
+      "noData": "There is no data to be displayed"
     },
     "errors": {
       "widgetConfig": "No configuration found for this widget",
