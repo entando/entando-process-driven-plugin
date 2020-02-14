@@ -80,7 +80,10 @@ configNames.forEach(({ name, Component, className }) => {
 
       i18next.changeLanguage(locale);
       ReactDOM.render(
-        <Component ref={this.reactRootRef} config={this.config || this.newConfig} />,
+        <Component
+          ref={this.reactRootRef}
+          config={Object.keys(this.newConfig) ? this.newConfig : this.config}
+        />,
         this.container
       );
     }
