@@ -49,6 +49,9 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  userAuth: {
+    marginLeft: '20px',
+  },
 }));
 
 function App() {
@@ -107,6 +110,13 @@ function App() {
               }
               label="Lazy Loading"
               labelPlacement="start"
+            />
+            <user-auth
+              kc-auth-url="http://test-keycloak.51.91.30.184.nip.io/auth"
+              kc-realm="entando"
+              kc-client-id="eti-dig-ex"
+              base-url=""
+              class={classes.userAuth}
             />
           </Toolbar>
         </AppBar>
