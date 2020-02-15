@@ -11,7 +11,7 @@ describe('<SummaryCardContainer />', () => {
   it('renders snapshot correctly', async () => {
     const configUrl = `${DOMAINS.APP_BUILDER}/api/pages//widgets/`;
     const connection = 'kieStaging';
-    const summaryUrl = `/connections/${connection}/summaries/request?frequency=monthly`;
+    const summaryUrl = `/connections/${connection}/summaries/summaryTypes/Card`;
 
     fetch.once(JSON.stringify(WIDGET_CONFIGS.SUMMARY_CARD)).once(JSON.stringify(mockSummary));
 

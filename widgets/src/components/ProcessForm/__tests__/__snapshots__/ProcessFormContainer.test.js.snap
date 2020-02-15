@@ -10,7 +10,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
     >
       <div>
         <form
-          class="rjsf"
+          class="CompletionForm-themedForm-40"
         >
           <div
             class="MuiFormControl-root MuiFormControl-fullWidth"

@@ -20,8 +20,9 @@ const styles = {
     marginBottom: '10px',
   },
   themedForm: {
-    display: 'grid',
-    gridTemplateColumns: '50% 50%',
+    '& .MuiInputBase-input.MuiInputBase-inputMultiline': {
+      resize: 'vertical',
+    },
   },
 };
 
@@ -52,6 +53,7 @@ const CompletionForm = ({ classes, loading, formSchema, formData, uiSchema }) =>
               uiSchema={uiSchema}
               fields={fields}
               formData={formData}
+              className={classes.themedForm}
               onSubmit={e => onSubmitForm(e)}
             >
               <div className={classes.actionButtons}>
@@ -71,6 +73,7 @@ CompletionForm.propTypes = {
   classes: PropTypes.shape({
     actionButtons: PropTypes.string,
     divider: PropTypes.string,
+    themedForm: PropTypes.string,
   }).isRequired,
   loading: PropTypes.bool,
   formSchema: PropTypes.shape({}),

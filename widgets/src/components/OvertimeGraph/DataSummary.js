@@ -74,15 +74,18 @@ const DataSummary = ({ value, label, percent, trend, loading }) => (
 );
 
 DataSummary.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   label: PropTypes.string.isRequired,
-  percent: PropTypes.number.isRequired,
-  trend: PropTypes.oneOf(['up', 'down', 'none']).isRequired,
+  percent: PropTypes.number,
+  trend: PropTypes.oneOf(['up', 'down', 'none']),
   loading: PropTypes.bool,
 };
 
 DataSummary.defaultProps = {
   loading: false,
+  trend: 'none',
+  percent: 0,
+  value: '',
 };
 
 export default DataSummary;

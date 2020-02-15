@@ -14,11 +14,11 @@ import {
 import {
   Home as HomeIcon,
   List as ListIcon,
+  BarChart as BarChartIcon,
   Settings as SettingsIcon,
   Dashboard as DashboardIcon,
   Description as DescriptionIcon,
   DoneAll as DoneAllIcon,
-  BarChart as BarChartIcon,
   Comment as CommentsIcon,
 } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
@@ -76,6 +76,12 @@ const menuItems = [
     linkText: 'Process form',
     Icon: <DescriptionIcon />,
     configLinkTo: '/ProcessFormConfig',
+  },
+  {
+    linkTo: '/OvertimeGraph',
+    linkText: 'Overtime graph',
+    Icon: <BarChartIcon />,
+    configLinkTo: '/OvertimeGraphConfig',
   },
 ];
 

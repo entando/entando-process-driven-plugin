@@ -51,6 +51,9 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  userAuth: {
+    marginLeft: '20px',
+  },
 }));
 
 function App() {
@@ -109,6 +112,13 @@ function App() {
               }
               label="Lazy Loading"
               labelPlacement="start"
+            />
+            <user-auth
+              kc-auth-url="http://test-keycloak.51.91.30.184.nip.io/auth"
+              kc-realm="entando"
+              kc-client-id="eti-dig-ex"
+              base-url=""
+              class={classes.userAuth}
             />
           </Toolbar>
         </AppBar>
@@ -209,6 +219,26 @@ function App() {
             )}
           />
           <Route path="/ProcessFormConfig" render={() => <ProcessFormConfig config={{}} />} />
+          <Route
+            path="/OvertimeGraph"
+            render={() => (
+              <OvertimeGraphContainer
+                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
+                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
+                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/OvertimeGraphConfig"
+            render={() => (
+              <OvertimeGraphConfig
+                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
+                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
+                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
+              />
+            )}
+          />
         </Container>
       </Router>
     </div>

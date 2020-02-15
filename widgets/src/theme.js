@@ -23,6 +23,11 @@ export default createMuiTheme({
       lineHeight: '15px',
     },
   },
+  palette: {
+    text: {
+      primary: '#676A6C',
+    },
+  },
   overrides: {
     MuiTableCell: {
       head: {

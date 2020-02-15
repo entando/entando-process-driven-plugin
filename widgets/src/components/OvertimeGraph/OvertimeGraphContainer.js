@@ -37,6 +37,9 @@ const ThickDivider = withStyles({
 })(Divider);
 
 const StyledTabs = withStyles({
+  root: {
+    minHeight: 'unset',
+  },
   indicator: {
     display: 'none',
   },
@@ -45,6 +48,7 @@ const StyledTabs = withStyles({
 const StyledTab = withStyles({
   root: {
     minWidth: 64,
+    minHeight: 'unset',
     border: '1px solid #E7EAEC',
     '&:first-child': {
       borderTopLeftRadius: 4,
@@ -232,7 +236,7 @@ class OvertimeGraph extends Component {
               <Grid container>
                 <Grid item xs={8} style={{ height: '300px' }}>
                   {loading || summaryFetching ? (
-                    <Skeleton variant="rect" height="100%" />
+                    <Skeleton variant="rect" height="100%" width="95%" />
                   ) : (
                     <BarAreaChart
                       data={graphData}
