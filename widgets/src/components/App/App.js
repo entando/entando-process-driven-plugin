@@ -189,26 +189,6 @@ function App() {
           />
           <Route path="/SummaryCardConfig/" render={() => <SummaryCardConfig config={{}} />} />
           <Route
-            path="/OvertimeGraph"
-            render={() => (
-              <OvertimeGraphContainer
-                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
-                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
-                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
-              />
-            )}
-          />
-          <Route
-            path="/OvertimeGraphConfig"
-            render={() => (
-              <OvertimeGraphConfig
-                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
-                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
-                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
-              />
-            )}
-          />
-          <Route
             path="/ProcessForm"
             render={() => (
               <ProcessFormContainer

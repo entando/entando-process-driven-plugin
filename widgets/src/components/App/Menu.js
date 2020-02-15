@@ -66,12 +66,6 @@ const menuItems = [
     configLinkTo: '/SummaryCardConfig',
   },
   {
-    linkTo: '/OvertimeGraph',
-    linkText: 'Overtime Graph',
-    Icon: <BarChartIcon />,
-    configLinkTo: '/OvertimeGraphConfig',
-  },
-  {
     linkTo: '/ProcessForm',
     linkText: 'Process form',
     Icon: <DescriptionIcon />,
