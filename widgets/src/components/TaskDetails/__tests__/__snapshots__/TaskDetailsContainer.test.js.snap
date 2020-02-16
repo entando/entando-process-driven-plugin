@@ -6,202 +6,238 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-10 TaskDetailsContainer-taskDetailWidgetBox-1 MuiPaper-outlined"
+      class="MuiBox-root MuiBox-root-10"
     >
-      <div>
+      <div
+        class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
+      >
         <div
-          class="MuiBox-root MuiBox-root-193"
-        >
-          <h2
-            class="MuiTypography-root MuiTypography-h2"
-          >
-            taskDetails.overview.title - 293
-          </h2>
-          <div
-            aria-label="outlined primary button group"
-            class="MuiButtonGroup-root"
-            role="group"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label"
-              >
-                <span
-                  class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    role="presentation"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                    />
-                  </svg>
-                </span>
-                taskDetails.overview.previous
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label"
-              >
-                taskDetails.overview.next
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    role="presentation"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8"
+          class="MuiBox-root MuiBox-root-40"
         >
           <div
-            class="MuiGrid-root MuiGrid-item"
+            class="MuiBox-root MuiBox-root-216"
           >
-            <label
-              class="MuiFormLabel-root"
+            <h2
+              class="MuiTypography-root MuiTypography-h2"
             >
-              task.fields.createdBy
-            </label>
+              taskDetails.overview.title - 293
+            </h2>
             <div
-              class="OverviewDetails-value-288"
+              aria-label="outlined primary button group"
+              class="MuiButtonGroup-root"
+              role="group"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
+                tabindex="0"
+                type="button"
               >
-                pamAdmin
-              </p>
+                <span
+                  class="MuiButton-label"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                      />
+                    </svg>
+                  </span>
+                  taskDetails.overview.previous
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  taskDetails.overview.next
+                  <span
+                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8"
           >
-            <label
-              class="MuiFormLabel-root"
-            >
-              task.fields.name
-            </label>
             <div
-              class="OverviewDetails-value-288"
+              class="MuiGrid-root MuiGrid-item"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+              <label
+                class="MuiFormLabel-root"
               >
-                PM Evaluation
-              </p>
-            </div>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item"
-          >
-            <label
-              class="MuiFormLabel-root"
-            >
-              task.fields.createdOn
-            </label>
-            <div
-              class="OverviewDetails-value-288"
-            >
-              <p
-                class="MuiTypography-root MuiTypography-body1"
-              >
-                1/1/2020, 12:00:00 AM
-              </p>
-            </div>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item"
-          >
-            <label
-              class="MuiFormLabel-root"
-            >
-              task.fields.status
-            </label>
-            <div
-              class="OverviewDetails-value-288"
-            >
+                task.fields.createdBy
+              </label>
               <div
-                class="MuiChip-root BadgeChip-root-297"
+                class="OverviewDetails-value-311"
               >
-                <span
-                  class="MuiChip-label"
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
                 >
-                  CREATED
-                </span>
+                  pamAdmin
+                </p>
               </div>
             </div>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item"
-          >
-            <label
-              class="MuiFormLabel-root"
-            >
-              task.fields.due
-            </label>
             <div
-              class="OverviewDetails-value-288"
+              class="MuiGrid-root MuiGrid-item"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+              <label
+                class="MuiFormLabel-root"
               >
-                -
-              </p>
+                task.fields.name
+              </label>
+              <div
+                class="OverviewDetails-value-311"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  PM Evaluation
+                </p>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.createdOn
+              </label>
+              <div
+                class="OverviewDetails-value-311"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  1/1/2020, 12:00:00 AM
+                </p>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.status
+              </label>
+              <div
+                class="OverviewDetails-value-311"
+              >
+                <div
+                  class="MuiChip-root BadgeChip-root-320"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    CREATED
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.due
+              </label>
+              <div
+                class="OverviewDetails-value-311"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  -
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-10 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
     >
-      <div>
+      <div
+        class="MuiBox-root MuiBox-root-351"
+      >
         <h3
           class="MuiTypography-root MuiTypography-h3"
         >
           taskDetails.generalInformation.title
         </h3>
-        <hr
-          class="MuiDivider-root GeneralInformation-divider-39"
-        />
+        <button
+          class="MuiButtonBase-root MuiIconButton-root"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <hr
+        class="MuiDivider-root"
+      />
+      <div
+        class="MuiBox-root MuiBox-root-101"
+      >
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-41"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-42"
             >
               task.inputData.Comment
               :
@@ -210,13 +246,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-41"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-42"
             >
               task.inputData.reason
               :
@@ -225,13 +261,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-41"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-42"
             >
               task.inputData.performance
               :
@@ -240,13 +276,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-41"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-42"
             >
               task.inputData.TaskName
               :
@@ -255,13 +291,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-41"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-42"
             >
               task.inputData.NodeName
               :
@@ -270,13 +306,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-41"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-42"
             >
               task.inputData.Skippable
               :
@@ -285,13 +321,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-41"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-42"
             >
               task.inputData.ActorId
               :
@@ -300,13 +336,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-41"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-42"
             >
               task.inputData.BusinessAdministratorId
               :
@@ -315,13 +351,13 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           </p>
         </div>
         <div
-          class="GeneralInformation-taskDatum-40"
+          class="GeneralInformation-taskDatum-41"
         >
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
             <span
-              class="GeneralInformation-label-41"
+              class="GeneralInformation-label-42"
             >
               task.inputData.GroupId
               :

@@ -4,7 +4,6 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import i18next from 'i18next';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Container from '@material-ui/core/Container';
-import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
 import { getTaskComments, postTaskComment, deleteTaskComment } from 'api/pda/comments';
@@ -17,9 +16,6 @@ import AddComment from 'components/TaskComments/AddComment';
 import TaskCommentsSkeleton from 'components/TaskComments/TaskCommentsSkeleton';
 
 const styles = {
-  divider: {
-    marginTop: '10px',
-  },
   noComments: {
     marginTop: '10px',
   },
@@ -153,37 +149,41 @@ class TaskCommentsContainer extends React.Component {
     const { classes, taskId } = this.props;
 
     const hasComments = comments.length > 0;
+
+    if (loading)
+      return (
+        <WidgetBox>
+          <TaskCommentsSkeleton />
+        </WidgetBox>
+      );
+
+    const renderedTitle = (
+      <Typography variant="h3">
+        {i18next.t('taskComments.title')} - {taskId}
+      </Typography>
+    );
+
     return (
       <ThemeProvider theme={theme}>
         <Container disableGutters>
-          <WidgetBox mb={10}>
-            {loading ? (
-              <TaskCommentsSkeleton />
-            ) : (
-              <>
-                <Typography variant="h3">
-                  {i18next.t('taskComments.title')} - {taskId}
-                </Typography>
-                <Divider className={classes.divider} />
-                {!hasComments && (
-                  <Typography className={classes.noComments} variant="body1">
-                    {i18next.t('taskComments.noComments')}
-                  </Typography>
-                )}
-                {hasComments && (
-                  <div className={classes.commentContainer}>
-                    {comments.map(comment => (
-                      <Comment
-                        key={comment.id}
-                        comment={comment}
-                        onClickRemoveComment={this.onClickRemoveComment}
-                      />
-                    ))}
-                  </div>
-                )}
-                <AddComment loading={addingComment} onClickAddComment={this.onClickAddComment} />
-              </>
+          <WidgetBox title={renderedTitle} collapsible hasDivider>
+            {!hasComments && (
+              <Typography className={classes.noComments} variant="body1">
+                {i18next.t('taskComments.noComments')}
+              </Typography>
             )}
+            {hasComments && (
+              <div className={classes.commentContainer}>
+                {comments.map(comment => (
+                  <Comment
+                    key={comment.id}
+                    comment={comment}
+                    onClickRemoveComment={this.onClickRemoveComment}
+                  />
+                ))}
+              </div>
+            )}
+            <AddComment loading={addingComment} onClickAddComment={this.onClickAddComment} />
           </WidgetBox>
         </Container>
         <ErrorNotification message={errorMessage} onClose={this.closeNotification} />

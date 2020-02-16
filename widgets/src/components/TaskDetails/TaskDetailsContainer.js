@@ -1,22 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from '@material-ui/core/styles';
-import withStyles from '@material-ui/core/styles/withStyles';
-import Container from '@material-ui/core/Container';
+import { Container, Box } from '@material-ui/core';
 
 import { getTask } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
 import CustomEventContext from 'components/TaskDetails/CustomEventContext';
-import WidgetBox from 'components/common/WidgetBox';
 import Overview from 'components/TaskDetails/Overview';
 import GeneralInformation from 'components/TaskDetails/GeneralInformation';
-
-const styles = {
-  taskDetailWidgetBox: {
-    marginBottom: '20px',
-  },
-};
 
 class TaskDetailsContainer extends React.Component {
   constructor(props) {
@@ -94,18 +86,16 @@ class TaskDetailsContainer extends React.Component {
 
   render() {
     const { loadingTask, task, taskInputData } = this.state;
-    const { classes, onPressPrevious, onPressNext, onError } = this.props;
+    const { onPressPrevious, onPressNext, onError } = this.props;
 
     return (
       <CustomEventContext.Provider value={{ onPressPrevious, onPressNext, onError }}>
         <ThemeProvider theme={theme}>
           <Container disableGutters>
-            <WidgetBox passedClassName={classes.taskDetailWidgetBox} mb={10}>
+            <Box mb="20px">
               <Overview task={task} loadingTask={loadingTask} />
-            </WidgetBox>
-            <WidgetBox>
-              <GeneralInformation taskInputData={taskInputData} loadingTask={loadingTask} />
-            </WidgetBox>
+            </Box>
+            <GeneralInformation taskInputData={taskInputData} loadingTask={loadingTask} />
           </Container>
         </ThemeProvider>
       </CustomEventContext.Provider>
@@ -114,9 +104,6 @@ class TaskDetailsContainer extends React.Component {
 }
 
 TaskDetailsContainer.propTypes = {
-  classes: PropTypes.shape({
-    taskDetailWidgetBox: PropTypes.string,
-  }).isRequired,
   taskId: PropTypes.string.isRequired,
   onError: PropTypes.func,
   onPressPrevious: PropTypes.func,
@@ -133,4 +120,4 @@ TaskDetailsContainer.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles)(TaskDetailsContainer);
+export default TaskDetailsContainer;
