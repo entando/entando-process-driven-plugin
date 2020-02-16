@@ -2,13 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import withStyles from '@material-ui/core/styles/withStyles';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import { TextareaAutosize, Button, CircularProgress, Typography } from '@material-ui/core';
+
+const MAX_CHARS = 200;
 
 const styles = {
   addNoteField: {
     width: '100%',
+    border: '1px solid #E5E6E7',
+  },
+  addNoteLabel: {
+    color: '#A1A1A1',
+    margin: '6px 2px',
+  },
+  addNoteLimit: {
+    fontSize: '10px',
+    margin: '2px',
   },
   actionButtons: {
     marginTop: '25px',
@@ -46,19 +55,27 @@ class AddComment extends React.Component {
   render() {
     const { comment } = this.state;
     const { classes, loading } = this.props;
+    const remainingChars = MAX_CHARS - comment.length;
 
     return (
       <div>
-        <TextField
+        <label htmlFor="comment-entry" className={classes.addNoteLabel}>
+          {i18next.t('taskComments.addNote')}
+        </label>
+        <TextareaAutosize
+          id="comment-entry"
           className={classes.addNoteField}
-          id="standard-textarea"
-          label={i18next.t('taskComments.addNote')}
+          rowsMin={2}
           value={comment}
           onChange={this.onChangeComment}
-          multiline
-          rows="2"
           disabled={loading}
         />
+        <Typography
+          color={remainingChars < 0 ? 'error' : 'initial'}
+          className={classes.addNoteLimit}
+        >
+          {i18next.t('taskComments.maxChars', { max: MAX_CHARS, rem: remainingChars })}
+        </Typography>
         <div className={classes.actionButtons}>
           {loading ? (
             <Button disabled variant="outlined" color="primary">
@@ -78,6 +95,8 @@ class AddComment extends React.Component {
 AddComment.propTypes = {
   classes: PropTypes.shape({
     addNoteField: PropTypes.string,
+    addNoteLabel: PropTypes.string,
+    addNoteLimit: PropTypes.string,
     actionButtons: PropTypes.string,
   }).isRequired,
   onClickAddComment: PropTypes.func,
