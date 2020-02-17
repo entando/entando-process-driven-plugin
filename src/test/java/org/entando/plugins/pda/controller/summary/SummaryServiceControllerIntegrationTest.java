@@ -1,5 +1,6 @@
 package org.entando.plugins.pda.controller.summary;
 
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -18,6 +19,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
+import org.assertj.core.util.diff.Delta.TYPE;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
@@ -44,6 +47,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.web.client.RestTemplate;
 
 @AutoConfigureMockMvc
@@ -91,9 +95,8 @@ public class SummaryServiceControllerIntegrationTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(3)))
-                .andExpect(jsonPath("payload[0]", is(CardSummaryProcessor.TYPE)))
-                .andExpect(jsonPath("payload[1]", is(MockSummaryProcessor.TYPE)))
-                .andExpect(jsonPath("payload[2]", is(TimeSeriesSummaryProcessor.TYPE)));
+                .andExpect(jsonPath("payload", containsInAnyOrder(
+                        MockSummaryProcessor.TYPE, CardSummaryProcessor.TYPE, TimeSeriesSummaryProcessor.TYPE)));
     }
 
     @Test
@@ -104,8 +107,7 @@ public class SummaryServiceControllerIntegrationTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
-                .andExpect(jsonPath("payload[0]", is(TYPE_1)))
-                .andExpect(jsonPath("payload[1]", is(TYPE_2)));
+                .andExpect(jsonPath("payload", containsInAnyOrder(TYPE_1, TYPE_2)));
     }
 
     @Test
