@@ -85,19 +85,17 @@ class ProcessFormContainer extends React.Component {
       const { config } = this.state;
       const { onSubmitForm } = this.props;
 
-      let response = { errors: ['messages.errors.dataSaving'] };
-
       const connection = (config && config.knowledgeSource) || '';
       const processContainerId = (config && config.process) || '';
 
       try {
-        response = await postProcessForm(connection, processContainerId, form.formData);
-        this.setState({ submitting: false });
+        const response = await postProcessForm(connection, processContainerId, form.formData);
+        onSubmitForm({ ...form, response });
       } catch (error) {
         this.handleError(error.message);
+      } finally {
+        this.setState({ submitting: false });
       }
-
-      onSubmitForm({ ...form, response });
     });
   }
 
