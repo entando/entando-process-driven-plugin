@@ -5,8 +5,6 @@ import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
 
-import { getPageWidget } from 'api/app-builder/pages';
-
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
 import 'patternfly/dist/css/patternfly-additions.css';
@@ -17,35 +15,38 @@ class OvertimeGraphConfig extends React.Component {
 
     this.state = {
       sourceList: [],
-      knowledgeSource: '',
+      config: {
+        knowledgeSource: '',
+      },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
+    this.fetchScreen = this.fetchScreen.bind(this);
   }
 
   async componentDidMount() {
-    const { frameId, pageCode } = this.props;
-
     // getting list of Kie server connections
     const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload });
-
-    // getting existing configs
-    const pageWidgetsConfigs = await getPageWidget(pageCode, frameId);
-
-    const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
-    if (configs && configs.knowledgeSource) {
-      this.onChangeKnowledgeSource(configs.knowledgeSource);
-    }
+    this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
   }
 
   onChangeKnowledgeSource(e) {
+    const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ knowledgeSource });
+    this.setState({ config: { ...config, knowledgeSource } });
+  }
+
+  fetchScreen() {
+    const { config } = this.props;
+
+    if (config && config.knowledgeSource) {
+      this.onChangeKnowledgeSource(config.knowledgeSource);
+    }
   }
 
   render() {
-    const { knowledgeSource, sourceList } = this.state;
+    const { config, sourceList } = this.state;
+    const { knowledgeSource } = config;
 
     return (
       <div>
@@ -77,8 +78,9 @@ class OvertimeGraphConfig extends React.Component {
 }
 
 OvertimeGraphConfig.propTypes = {
-  frameId: PropTypes.string.isRequired,
-  pageCode: PropTypes.string.isRequired,
+  config: PropTypes.shape({
+    knowledgeSource: PropTypes.string,
+  }).isRequired,
 };
 
 export default OvertimeGraphConfig;
