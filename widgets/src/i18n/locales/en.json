@@ -88,11 +88,15 @@
     }
   },
   "messages": {
+    "notify": {
+      "submitting": "Sending..."
+    },
     "warnings": {
       "noData": "There is no data to be displayed"
     },
     "errors": {
-      "dataLoading": "Unable to load server data."
+      "dataLoading": "Unable to load server data.",
+      "dataSaving": "Unable to save data."
     }
   }
 }
