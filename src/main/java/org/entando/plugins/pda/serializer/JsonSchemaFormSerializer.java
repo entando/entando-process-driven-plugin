@@ -251,14 +251,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
             jsonGenerator.writeStringField(DEFAULT, field.getDefaultValue());
         }
 
-        jsonGenerator.writeFieldName(ONE_OF);
-        jsonGenerator.writeStartArray();
-        for (FormFieldSelector.Option option : field.getOptions()) {
-            jsonGenerator.writeStartObject();
-            jsonGenerator.writeStringField(CONST, option.getValue());
-            writeTitle(jsonGenerator, option.getLabel());
-            jsonGenerator.writeEndObject();
-        }
+        writeFieldSelectorOptions(jsonGenerator, field.getOptions());
         jsonGenerator.writeEndArray();
     }
 
@@ -266,19 +259,23 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         jsonGenerator.writeFieldName(ITEMS);
         jsonGenerator.writeStartObject();
         writeFieldType(jsonGenerator, TYPE_STRING);
+        writeFieldSelectorOptions(jsonGenerator, field.getOptions());
+        jsonGenerator.writeEndObject();
+        jsonGenerator.writeBooleanField(UNIQUE_ITEMS, true);
+    }
+
+    private void writeFieldSelectorOptions(JsonGenerator jsonGenerator, List<FormFieldSelector.Option> options)
+            throws IOException {
 
         jsonGenerator.writeFieldName(ONE_OF);
         jsonGenerator.writeStartArray();
-        for (FormFieldSelector.Option option : field.getOptions()) {
+        for (FormFieldSelector.Option option : options) {
             jsonGenerator.writeStartObject();
             jsonGenerator.writeStringField(CONST, option.getValue());
             writeTitle(jsonGenerator, option.getLabel());
             jsonGenerator.writeEndObject();
         }
         jsonGenerator.writeEndArray();
-
-        jsonGenerator.writeEndObject();
-        jsonGenerator.writeBooleanField(UNIQUE_ITEMS, true);
     }
 
     private void writeFieldInputList(JsonGenerator jsonGenerator) throws IOException {
