@@ -22,6 +22,16 @@
         "title": "Cases",
         "total_label": "Total Cases",
         "value": "{{value, number}}"
+      },
+      "chart": {
+        "title": "Requests Volume",
+        "subtitle": "Requests",
+        "requests": "Number of Requests",
+        "cases": "Number of Cases",
+        "card": {
+          "requests": "Total requests",
+          "cases": "Total cases"
+        }
       }
     }
   },

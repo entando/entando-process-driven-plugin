@@ -22,6 +22,16 @@
         "title": "Casi",
         "total_label": "Casi Totali",
         "value": "{{value, number}}"
+      },
+      "chart": {
+        "title": "Volume delle richieste",
+        "subtitle": "Richieste",
+        "requests": "Numero di richieste",
+        "cases": "Numero di casi",
+        "card": {
+          "requests": "Richieste totali",
+          "cases": "Casi totali"
+        }
       }
     }
   },
