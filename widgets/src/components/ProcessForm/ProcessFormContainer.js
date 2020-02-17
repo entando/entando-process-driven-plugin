@@ -7,6 +7,7 @@ import theme from 'theme';
 import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
+import ErrorNotification from 'components/common/ErrorNotification';
 import { getProcessForm, postProcessForm } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 
@@ -19,8 +20,11 @@ class ProcessFormContainer extends React.Component {
       loading: false,
       submitting: false,
       formSchema: null,
+      errorMessage: '',
     };
 
+    this.closeNotification = this.closeNotification.bind(this);
+    this.handleError = this.handleError.bind(this);
     this.fetchSchema = this.fetchSchema.bind(this);
     this.submitProcessForm = this.submitProcessForm.bind(this);
   }
@@ -35,6 +39,10 @@ class ProcessFormContainer extends React.Component {
       });
     });
   }
+
+  closeNotification = () => {
+    this.setState({ errorMessage: '' });
+  };
 
   async fetchWidgetConfigs() {
     const { pageCode, frameId } = this.props;
@@ -99,13 +107,14 @@ class ProcessFormContainer extends React.Component {
     });
   }
 
-  handleError(err) {
+  handleError(errorMessage) {
+    this.setState({ errorMessage });
     const { onError } = this.props;
-    onError(err);
+    onError(errorMessage);
   }
 
   render() {
-    const { loading, formSchema, config, submitting } = this.state;
+    const { loading, formSchema, config, submitting, errorMessage } = this.state;
     const { onError } = this.props;
 
     const uiSchema = (config && config.settings && config.settings.uiSchema) || {};
@@ -128,6 +137,7 @@ class ProcessFormContainer extends React.Component {
               />
             </WidgetBox>
           </Container>
+          <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
         </ThemeProvider>
       </CustomEventContext.Provider>
     );

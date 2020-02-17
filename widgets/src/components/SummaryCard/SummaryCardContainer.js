@@ -13,6 +13,7 @@ import theme from 'theme';
 import { getPageWidget } from 'api/app-builder/pages';
 import { getSummaryByType } from 'api/pda/summary';
 import CustomEventContext from 'components/SummaryCard/CustomEventContext';
+import ErrorNotification from 'components/common/ErrorNotification';
 import Skeleton from '@material-ui/lab/Skeleton';
 import SummaryCardValues from 'components/SummaryCard/SummaryCardValues';
 
@@ -61,12 +62,14 @@ class SummaryCard extends React.Component {
       summary: null,
       dataType: '',
       frequency: FREQUENCIES[0],
+      errorMessage: '',
     };
 
+    this.closeNotification = this.closeNotification.bind(this);
+    this.handleError = this.handleError.bind(this);
     this.fetchSummary = this.fetchSummary.bind(this);
     this.fetchWidgetConfigs = this.fetchWidgetConfigs.bind(this);
     this.handleFrequencyChange = this.handleFrequencyChange.bind(this);
-    this.handleError = this.handleError.bind(this);
   }
 
   componentDidMount() {
@@ -81,6 +84,10 @@ class SummaryCard extends React.Component {
       this.setState({ config }, () => this.fetchSummary());
     });
   }
+
+  closeNotification = () => {
+    this.setState({ errorMessage: '' });
+  };
 
   async fetchWidgetConfigs() {
     const { pageCode, frameId } = this.props;
@@ -121,9 +128,10 @@ class SummaryCard extends React.Component {
     }
   }
 
-  handleError(err) {
+  handleError(errorMessage) {
+    this.setState({ errorMessage });
     const { onError } = this.props;
-    onError(err);
+    onError(errorMessage);
   }
 
   handleFrequencyChange(event) {
@@ -174,7 +182,7 @@ class SummaryCard extends React.Component {
   }
 
   render() {
-    const { loading, loadingValues, summary, dataType } = this.state;
+    const { loading, loadingValues, summary, dataType, errorMessage } = this.state;
     const { classes, onError } = this.props;
 
     return (
@@ -186,6 +194,7 @@ class SummaryCard extends React.Component {
             <Divider />
             <SummaryCardValues loading={loadingValues} dataType={dataType} values={summary} />
           </Paper>
+          <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
         </ThemeProvider>
       </CustomEventContext.Provider>
     );
