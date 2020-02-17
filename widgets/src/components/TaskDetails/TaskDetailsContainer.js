@@ -74,7 +74,9 @@ class TaskDetailsContainer extends React.Component {
     const [, containerId] = (config && config.process && config.process.split('@')) || '';
     const taskContainerId = `${taskId}@${containerId}`;
 
-    if (!loadingTask) this.setState({ loadingTask: true });
+    if (!loadingTask) {
+      this.setState({ loadingTask: true });
+    }
 
     try {
       const task = await getTask(connection, taskContainerId);

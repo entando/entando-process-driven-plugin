@@ -235,9 +235,7 @@ TaskList.defaultProps = {
   classes: {},
   lazyLoading: true,
   onError: () => {},
-  onSelectTask: row => {
-    console.log('test', row);
-  },
+  onSelectTask: () => {},
   serviceUrl: '',
   pageCode: '',
   frameId: '',
