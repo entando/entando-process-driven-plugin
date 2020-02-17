@@ -48,6 +48,8 @@ configNames.forEach(({ name, Component, className }) => {
   elements[className] = class extends HTMLElement {
     constructor() {
       super();
+      this.newConfig = {};
+      this.container = null;
       this.reactRootRef = React.createRef();
     }
 
@@ -62,17 +64,28 @@ configNames.forEach(({ name, Component, className }) => {
     }
 
     set config(value) {
-      return this.reactRootRef.current.setState({ config: value });
+      this.newConfig = value;
+      this.render();
     }
 
     connectedCallback() {
-      const mountPoint = document.createElement('div');
-      this.appendChild(mountPoint);
+      this.container = document.createElement('div');
+      this.appendChild(this.container);
 
+      this.render();
+    }
+
+    render() {
       const locale = this.getAttribute('locale') || 'en';
-      i18next.changeLanguage(locale);
 
-      ReactDOM.render(<Component ref={this.reactRootRef} config={this.config} />, mountPoint);
+      i18next.changeLanguage(locale);
+      ReactDOM.render(
+        <Component
+          ref={this.reactRootRef}
+          config={Object.keys(this.newConfig) ? this.newConfig : this.config}
+        />,
+        this.container
+      );
     }
   };
 

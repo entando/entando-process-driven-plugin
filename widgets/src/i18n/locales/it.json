@@ -40,7 +40,8 @@
     "actionButtons": {
       "complete": "Completare",
       "claim": "Richiesta",
-      "diagram": "Diagramma"
+      "diagram": "Diagramma",
+      "view": "Vedere"
     }
   },
   "table": {

@@ -12,7 +12,7 @@ export const getType = (column, firstRow) => {
   return sortFunction;
 };
 
-export const normalizeColumns = (columns, firstRow, options, openDiagram) => {
+export const normalizeColumns = (columns, firstRow, options, { openDiagram, selectTask }) => {
   const normalized = columns
     .filter(column => column.isVisible)
     .map(column => ({
@@ -34,7 +34,7 @@ export const normalizeColumns = (columns, firstRow, options, openDiagram) => {
   normalized.unshift({
     header: 'Action',
     accessor: 'action',
-    customCell: ActionCell(requiredFields, openDiagram),
+    customCell: ActionCell(requiredFields, { openDiagram, selectTask }),
     styles: {
       position: 'sticky',
       left: 0,

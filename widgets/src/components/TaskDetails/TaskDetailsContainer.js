@@ -67,23 +67,28 @@ class TaskDetailsContainer extends React.Component {
   }
 
   async fetchTask() {
-    const { config } = this.state;
+    const { config, loadingTask } = this.state;
     const { taskId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
     const [, containerId] = (config && config.process && config.process.split('@')) || '';
     const taskContainerId = `${taskId}@${containerId}`;
 
+    if (!loadingTask) {
+      this.setState({ loadingTask: true });
+    }
+
     try {
       const task = await getTask(connection, taskContainerId);
 
       this.setState({
-        loadingTask: false,
         task: (task && task.payload) || null,
         taskInputData: (task && task.payload && task.payload.inputData) || {},
       });
     } catch (error) {
       this.handleError(error.message);
+    } finally {
+      this.setState({ loadingTask: false });
     }
   }
 

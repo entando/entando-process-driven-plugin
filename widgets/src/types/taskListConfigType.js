@@ -1,9 +1,9 @@
-import { shape, string, array } from 'prop-types';
+import { shape, string } from 'prop-types';
 
 export default shape({
   knowledgeSource: string,
   process: string,
-  options: array,
-  groups: array,
-  columns: array,
+  options: string,
+  groups: string,
+  columns: string,
 });

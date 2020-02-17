@@ -40,7 +40,8 @@
     "actionButtons": {
       "complete": "Complete",
       "claim": "Claim",
-      "diagram": "Diagram"
+      "diagram": "Diagram",
+      "view": "View"
     }
   },
   "table": {
