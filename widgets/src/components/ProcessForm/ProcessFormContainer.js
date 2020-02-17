@@ -80,7 +80,7 @@ class ProcessFormContainer extends React.Component {
     return null;
   }
 
-  submitProcessForm(formValue) {
+  submitProcessForm(form) {
     this.setState({ submitting: true }, async () => {
       const { config } = this.state;
       const { onSubmitForm } = this.props;
@@ -91,13 +91,13 @@ class ProcessFormContainer extends React.Component {
       const processContainerId = (config && config.process) || '';
 
       try {
-        response = await postProcessForm(connection, processContainerId, formValue);
+        response = await postProcessForm(connection, processContainerId, form.formData);
         this.setState({ submitting: false });
       } catch (error) {
         this.handleError(error.message);
       }
 
-      onSubmitForm({ ...formValue, response });
+      onSubmitForm({ ...form, response });
     });
   }
 
