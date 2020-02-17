@@ -213,16 +213,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/OvertimeGraphConfig"
-            render={() => (
-              <OvertimeGraphConfig
-                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
-                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
-                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
-              />
-            )}
-          />
+          <Route path="/OvertimeGraphConfig" render={() => <OvertimeGraphConfig config={{}} />} />
         </Container>
       </Router>
     </div>
