@@ -91,8 +91,8 @@ public class SummaryServiceControllerIntegrationTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(3)))
-                .andExpect(jsonPath("payload[0]", is(MockSummaryProcessor.TYPE)))
-                .andExpect(jsonPath("payload[1]", is(CardSummaryProcessor.TYPE)))
+                .andExpect(jsonPath("payload[0]", is(CardSummaryProcessor.TYPE)))
+                .andExpect(jsonPath("payload[1]", is(MockSummaryProcessor.TYPE)))
                 .andExpect(jsonPath("payload[2]", is(TimeSeriesSummaryProcessor.TYPE)));
     }
 
