@@ -4,11 +4,11 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import theme from 'theme';
+import { getTask, getTaskForm } from 'api/pda/tasks';
+import { getPageWidget } from 'api/app-builder/pages';
 import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
-import { getTask, getTaskForm } from 'api/pda/tasks';
-import { getPageWidget } from 'api/app-builder/pages';
 
 class TaskCompletionFormContainer extends React.Component {
   constructor(props) {
@@ -93,8 +93,8 @@ class TaskCompletionFormContainer extends React.Component {
     const { taskId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const [, containerId] = (config && config.process && config.process.split('@')) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
+    const containerId = (config && config.process && config.process.split('@')[1]) || '';
+    const taskContainerId = `${taskId}${containerId ? `@${containerId}` : ''}`;
 
     try {
       const formSchema = await getTaskForm(connection, taskContainerId);

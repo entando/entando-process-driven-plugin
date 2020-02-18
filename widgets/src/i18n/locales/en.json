@@ -71,7 +71,8 @@
   },
   "messages": {
     "warnings": {
-      "noData": "There is no data to be displayed"
+      "noData": "There is no data to be displayed",
+      "noFormSchema": "Form schema was not provided"
     },
     "errors": {
       "dataLoading": "Unable to load server data."

@@ -71,7 +71,8 @@
   },
   "messages": {
     "warnings": {
-      "noData": "Non ci sono dati da visualizzare"
+      "noData": "Non ci sono dati da visualizzare",
+      "noFormSchema": "Form schema was not provided"
     },
     "errors": {
       "dataLoading": "Impossibile caricare i dati del server"

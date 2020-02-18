@@ -8,7 +8,9 @@ import Button from '@material-ui/core/Button';
 
 import CustomEventContext from 'components/common/CustomEventContext';
 import JSONFormSkeleton from 'components/common/form/JSONFormSkeleton';
-import JSONFormTitle from 'components/common/form/JSONFormTitle';
+import FieldTemplate from 'components/common/form/templates/FieldTemplate';
+import ObjectFieldTemplate from 'components/common/form/templates/ObjectFieldTemplate';
+import TextWidget from 'components/common/form/widgets/TextWidget';
 
 const styles = {
   actionButtons: {
@@ -25,20 +27,34 @@ const styles = {
   },
 };
 
-const CompletionForm = ({ classes, loading, formSchema, formData, uiSchema }) => {
+const CompletionForm = props => {
+  const {
+    classes,
+    loading,
+    formSchema,
+    formData,
+    uiSchema,
+    customization: { fields = {}, templates = {}, widgets = {} },
+  } = props;
   if (loading) {
     return <JSONFormSkeleton />;
   }
 
   if (!loading && !formSchema) {
-    return i18next.t('messages.warnings.noData');
+    return i18next.t('messages.warnings.noFormSchema');
   }
 
   const ThemedForm = withTheme(MuiRJSForm);
 
-  const fields = {
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    TitleField: props => <JSONFormTitle {...props} />,
+  const customTemplates = {
+    FieldTemplate,
+    ObjectFieldTemplate,
+    ...templates, // passed custom templates
+  };
+
+  const customWidgets = {
+    TextWidget,
+    ...widgets,
   };
 
   return (
@@ -51,6 +67,8 @@ const CompletionForm = ({ classes, loading, formSchema, formData, uiSchema }) =>
               schema={formSchema}
               uiSchema={uiSchema}
               fields={fields}
+              {...customTemplates} // eslint-disable-line react/jsx-props-no-spreading
+              widgets={customWidgets}
               formData={formData}
               onSubmit={e => onSubmitForm(e)}
             >
@@ -76,6 +94,39 @@ CompletionForm.propTypes = {
   formSchema: PropTypes.shape({}),
   formData: PropTypes.shape({}),
   uiSchema: PropTypes.shape({}),
+  customization: PropTypes.shape({
+    fields: PropTypes.shape({
+      SchemaField: PropTypes.elementType,
+      TitleField: PropTypes.elementType,
+      DescriptionField: PropTypes.elementType,
+    }),
+    templates: PropTypes.shape({
+      FieldTemplate: PropTypes.elementType,
+      ArrayFieldTemplate: PropTypes.elementType,
+      ObjectFieldTemplate: PropTypes.elementType,
+      ErrorList: PropTypes.elementType,
+    }),
+    widgets: PropTypes.shape({
+      AltDateTimeWidget: PropTypes.elementType,
+      AltDateWidget: PropTypes.elementType,
+      CheckboxesWidget: PropTypes.elementType,
+      CheckboxWidget: PropTypes.elementType,
+      ColorWidget: PropTypes.elementType,
+      DateTimeWidget: PropTypes.elementType,
+      DateWidget: PropTypes.elementType,
+      EmailWidget: PropTypes.elementType,
+      FileWidget: PropTypes.elementType,
+      HiddenWidget: PropTypes.elementType,
+      PasswordWidget: PropTypes.elementType,
+      RadioWidget: PropTypes.elementType,
+      RangeWidget: PropTypes.elementType,
+      SelectWidget: PropTypes.elementType,
+      TextareaWidget: PropTypes.elementType,
+      TextWidget: PropTypes.elementType,
+      UpDownWidget: PropTypes.elementType,
+      URLWidget: PropTypes.elementType,
+    }),
+  }),
 };
 
 CompletionForm.defaultProps = {
@@ -83,6 +134,7 @@ CompletionForm.defaultProps = {
   formSchema: null,
   formData: {},
   uiSchema: {},
+  customization: {},
 };
 
 export default withStyles(styles)(CompletionForm);
