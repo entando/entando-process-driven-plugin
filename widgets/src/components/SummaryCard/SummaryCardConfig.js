@@ -5,7 +5,7 @@ import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 import i18next from 'i18next';
 
 import { getConnections } from 'api/pda/connections';
-import { getSummaries } from 'api/pda/summary';
+import { getSummaryRepositories } from 'api/pda/summary';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -17,23 +17,56 @@ class SummaryCardConfig extends React.Component {
 
     this.state = {
       sourceList: [],
-      summaryList: [],
+      dataTypes: [],
       config: {
-        settings: { summaryId: '' },
+        settings: { type: '' },
         knowledgeSource: '',
       },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeSettings = this.onChangeSettings.bind(this);
+    this.fetchScreen = this.fetchScreen.bind(this);
   }
 
   async componentDidMount() {
-    const { config } = this.props;
-
     // getting list of Kie server connections
     const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload });
+    this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { config } = this.props;
+
+    // refetch state if config changes
+    if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
+      this.fetchScreen();
+    }
+  }
+
+  onChangeKnowledgeSource(e, cb = () => {}) {
+    const { config } = this.state;
+    const knowledgeSource = e.target ? e.target.value : e;
+    this.setState({ config: { ...config, knowledgeSource } });
+
+    getSummaryRepositories(knowledgeSource).then(data => {
+      this.setState({ dataTypes: data.payload });
+      cb();
+    });
+  }
+
+  onChangeSettings({ target: { value: type } }) {
+    const { config } = this.state;
+    this.setState({
+      config: {
+        ...config,
+        settings: { type },
+      },
+    });
+  }
+
+  fetchScreen() {
+    const { config } = this.props;
 
     if (config && config.knowledgeSource) {
       this.onChangeKnowledgeSource(config.knowledgeSource, () => {
@@ -49,30 +82,8 @@ class SummaryCardConfig extends React.Component {
     }
   }
 
-  onChangeKnowledgeSource(e, cb = () => {}) {
-    const { config } = this.state;
-    const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, knowledgeSource } });
-
-    getSummaries(knowledgeSource).then(data => {
-      this.setState({ summaryList: data.payload });
-      cb();
-    });
-  }
-
-  onChangeSettings({ target: { value: summaryId } }) {
-    const { config } = this.state;
-
-    this.setState({
-      config: {
-        ...config,
-        settings: { summaryId },
-      },
-    });
-  }
-
   render() {
-    const { sourceList, summaryList, config } = this.state;
+    const { sourceList, dataTypes, config } = this.state;
     const { knowledgeSource, settings } = config;
 
     return (
@@ -104,20 +115,20 @@ class SummaryCardConfig extends React.Component {
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group" controlId="textarea">
-                    <ControlLabel bsClass="control-label">Summary</ControlLabel>
+                    <ControlLabel bsClass="control-label">Data Type</ControlLabel>
                     <select
                       className="form-control"
-                      value={settings.summaryId}
+                      value={settings.type}
                       onChange={this.onChangeSettings}
                     >
                       <option value="">Select...</option>
-                      {summaryList.map(summary => (
-                        <option key={summary.id} value={summary.id}>
-                          {i18next.t(`card.labels.${summary.description}`)}
+                      {dataTypes.map(summary => (
+                        <option key={summary} value={summary}>
+                          {i18next.t(`summary.labels.${summary}.title`)}
                         </option>
                       ))}
                     </select>
-                    <HelpBlock>Choose a summary to display information on your card.</HelpBlock>
+                    <HelpBlock>Choose a data type to display information on your card.</HelpBlock>
                   </FormGroup>
                 </Col>
               </Row>

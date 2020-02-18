@@ -40,4 +40,10 @@ export default {
     widgetCode: 'process_form',
     configs: MOCKED_WIDGET_CONFIGS.PROCESS_FORM,
   },
+  OVERTIME_GRAPH: {
+    pageCode: 'phase_1_mgt_dashboard',
+    frameId: '5',
+    widgetCode: 'overtime_graph',
+    configs: MOCKED_WIDGET_CONFIGS.OVERTIME_GRAPH,
+  },
 };

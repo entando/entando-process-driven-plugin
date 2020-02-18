@@ -29,25 +29,25 @@ class TaskCommentsConfig extends React.Component {
     this.onChangeProcess = this.onChangeProcess.bind(this);
     this.closeNotification = this.closeNotification.bind(this);
     this.handleError = this.handleError.bind(this);
+    this.fetchScreen = this.fetchScreen.bind(this);
   }
 
   async componentDidMount() {
     try {
-      const { config } = this.props;
-
       // getting list of Kie server connections
       const sourceList = await getConnections();
-      this.setState({ sourceList: sourceList.payload });
-
-      if (config && config.knowledgeSource) {
-        this.onChangeKnowledgeSource(config.knowledgeSource, () => {
-          if (config.process) {
-            this.onChangeProcess(config.process);
-          }
-        });
-      }
+      this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
     } catch (error) {
       this.handleError(error.message);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { config } = this.props;
+
+    // refetch state if config changes
+    if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
+      this.fetchScreen();
     }
   }
 
@@ -77,6 +77,17 @@ class TaskCommentsConfig extends React.Component {
 
   handleError(errorMessage) {
     this.setState({ errorMessage });
+  }
+
+  fetchScreen() {
+    const { config } = this.props;
+    if (config && config.knowledgeSource) {
+      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
+        if (config.process) {
+          this.onChangeProcess(config.process);
+        }
+      });
+    }
   }
 
   render() {

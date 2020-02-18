@@ -22,8 +22,9 @@ const styles = {
     marginBottom: '10px',
   },
   themedForm: {
-    display: 'grid',
-    gridTemplateColumns: '50% 50%',
+    '& .MuiInputBase-input.MuiInputBase-inputMultiline': {
+      resize: 'vertical',
+    },
   },
 };
 
@@ -31,6 +32,7 @@ const CompletionForm = props => {
   const {
     classes,
     loading,
+    submitting,
     formSchema,
     formData,
     uiSchema,
@@ -70,11 +72,12 @@ const CompletionForm = props => {
               {...customTemplates} // eslint-disable-line react/jsx-props-no-spreading
               widgets={customWidgets}
               formData={formData}
+              className={classes.themedForm}
               onSubmit={e => onSubmitForm(e)}
             >
               <div className={classes.actionButtons}>
-                <Button type="submit" variant="contained" color="primary">
-                  {i18next.t('common.submit')}
+                <Button type="submit" variant="contained" color="primary" disabled={submitting}>
+                  {i18next.t(submitting ? 'messages.notify.submitting' : 'common.submit')}
                 </Button>
               </div>
             </ThemedForm>
@@ -89,8 +92,10 @@ CompletionForm.propTypes = {
   classes: PropTypes.shape({
     actionButtons: PropTypes.string,
     divider: PropTypes.string,
+    themedForm: PropTypes.string,
   }).isRequired,
   loading: PropTypes.bool,
+  submitting: PropTypes.bool,
   formSchema: PropTypes.shape({}),
   formData: PropTypes.shape({}),
   uiSchema: PropTypes.shape({}),
@@ -131,6 +136,7 @@ CompletionForm.propTypes = {
 
 CompletionForm.defaultProps = {
   loading: false,
+  submitting: false,
   formSchema: null,
   formData: {},
   uiSchema: {},

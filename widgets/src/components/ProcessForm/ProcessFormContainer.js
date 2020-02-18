@@ -7,7 +7,8 @@ import theme from 'theme';
 import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
-import { getProcessForm } from 'api/pda/processes';
+import ErrorNotification from 'components/common/ErrorNotification';
+import { getProcessForm, postProcessForm } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 
 class ProcessFormContainer extends React.Component {
@@ -17,10 +18,15 @@ class ProcessFormContainer extends React.Component {
     this.state = {
       config: null,
       loading: false,
+      submitting: false,
       formSchema: null,
+      errorMessage: '',
     };
 
+    this.closeNotification = this.closeNotification.bind(this);
+    this.handleError = this.handleError.bind(this);
     this.fetchSchema = this.fetchSchema.bind(this);
+    this.submitProcessForm = this.submitProcessForm.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +39,10 @@ class ProcessFormContainer extends React.Component {
       });
     });
   }
+
+  closeNotification = () => {
+    this.setState({ errorMessage: '' });
+  };
 
   async fetchWidgetConfigs() {
     const { pageCode, frameId } = this.props;
@@ -78,25 +88,56 @@ class ProcessFormContainer extends React.Component {
     return null;
   }
 
-  handleError(err) {
+  submitProcessForm(form) {
+    this.setState({ submitting: true }, async () => {
+      const { config } = this.state;
+      const { onSubmitForm } = this.props;
+
+      const connection = (config && config.knowledgeSource) || '';
+      const processContainerId = (config && config.process) || '';
+
+      try {
+        const response = await postProcessForm(connection, processContainerId, form.formData);
+        onSubmitForm({ ...form, response });
+      } catch (error) {
+        this.handleError(error.message);
+      } finally {
+        this.setState({ submitting: false });
+      }
+    });
+  }
+
+  handleError(errorMessage) {
+    this.setState({ errorMessage });
     const { onError } = this.props;
-    onError(err);
+    onError(errorMessage);
   }
 
   render() {
-    const { loading, formSchema, config } = this.state;
-    const { onSubmitForm, onError } = this.props;
+    const { loading, formSchema, config, submitting, errorMessage } = this.state;
+    const { onError } = this.props;
 
     const uiSchema = (config && config.settings && config.settings.uiSchema) || {};
 
     return (
-      <CustomEventContext.Provider value={{ onSubmitForm, onError }}>
+      <CustomEventContext.Provider
+        value={{
+          onSubmitForm: this.submitProcessForm,
+          onError,
+        }}
+      >
         <ThemeProvider theme={theme}>
           <Container disableGutters>
             <WidgetBox>
-              <JSONForm loading={loading} formSchema={formSchema} uiSchema={uiSchema} />
+              <JSONForm
+                loading={loading}
+                formSchema={formSchema}
+                uiSchema={uiSchema}
+                submitting={submitting}
+              />
             </WidgetBox>
           </Container>
+          <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
         </ThemeProvider>
       </CustomEventContext.Provider>
     );

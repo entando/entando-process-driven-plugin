@@ -6,14 +6,32 @@
     "yes": "Yes",
     "no": "No"
   },
-  "card": {
-    "monthly": "Mensile",
-    "annually": "Annuale",
-    "daily": "Giornaliero",
+  "summary": {
+    "frequency": {
+      "monthly": "Mensile",
+      "annually": "Annuale",
+      "daily": "Giornaliero"
+    },
     "labels": {
-      "REQUESTS": {
-        "TITLE": "Richieste",
-        "TOTAL_LABEL": "Richieste Totali"
+      "requests": {
+        "title": "Richieste",
+        "total_label": "Richieste Totali",
+        "value": "{{value, number}}"
+      },
+      "cases": {
+        "title": "Casi",
+        "total_label": "Casi Totali",
+        "value": "{{value, number}}"
+      },
+      "chart": {
+        "title": "Volume delle richieste",
+        "subtitle": "Richieste",
+        "requests": "Numero di richieste",
+        "cases": "Numero di casi",
+        "card": {
+          "requests": "Richieste totali",
+          "cases": "Casi totali"
+        }
       }
     }
   },
@@ -22,7 +40,8 @@
     "actionButtons": {
       "complete": "Completare",
       "claim": "Richiesta",
-      "diagram": "Diagramma"
+      "diagram": "Diagramma",
+      "view": "Vedere"
     }
   },
   "table": {
@@ -47,7 +66,8 @@
     "addNote": "Add note",
     "title": "Task notes",
     "noComments": "No notes on this task",
-    "remove": "Remove"
+    "remove": "Remove",
+    "maxChars": "Massimo {{max}} caratteri (rimanenti: {{rem}})"
   },
   "task": {
     "fields": {
@@ -70,12 +90,16 @@
     }
   },
   "messages": {
+    "notify": {
+      "submitting": "Invio..."
+    },
     "warnings": {
       "noData": "Non ci sono dati da visualizzare",
       "noFormSchema": "Form schema was not provided"
     },
     "errors": {
-      "dataLoading": "Impossibile caricare i dati del server"
+      "dataLoading": "Impossibile caricare i dati del server",
+      "dataSaving": "Impossibile salvare i dati."
     }
   }
 }

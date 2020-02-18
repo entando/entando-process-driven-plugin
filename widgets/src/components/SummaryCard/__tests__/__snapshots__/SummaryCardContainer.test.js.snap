@@ -4,113 +4,9 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
 <div>
   <div
     class="MuiPaper-root SummaryCard-root-1 MuiPaper-elevation0"
-    style="width: 256px; display: inline-block;"
   >
     <div
       class="SummaryCard-header-2"
-    >
-      <h3
-        class="MuiTypography-root SummaryCard-headline-3 MuiTypography-subtitle2"
-      >
-        card.labels.REQUESTS.TITLE
-      </h3>
-      <div
-        class="MuiInputBase-root MuiOutlinedInput-root"
-      >
-        <div
-          aria-haspopup="listbox"
-          aria-labelledby=" "
-          class="MuiSelect-root SummaryCard-periodSelectRoot-4 MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
-          role="button"
-          tabindex="0"
-        >
-          card.monthly
-        </div>
-        <input
-          type="hidden"
-          value="monthly"
-        />
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined SummaryCard-periodSelectIcon-5"
-          focusable="false"
-          role="presentation"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7 10l5 5 5-5z"
-          />
-        </svg>
-        <fieldset
-          aria-hidden="true"
-          class="PrivateNotchedOutline-root-139 MuiOutlinedInput-notchedOutline"
-          style="padding-left: 8px;"
-        >
-          <legend
-            class="PrivateNotchedOutline-legend-140"
-            style="width: 0.01px;"
-          >
-            <span>
-              ​
-            </span>
-          </legend>
-        </fieldset>
-      </div>
-    </div>
-    <hr
-      class="MuiDivider-root"
-    />
-    <div
-      class="SummaryCardValues-root-41 upTrend"
-    >
-      <div>
-        <h4
-          class="MuiTypography-root MuiTypography-h4"
-        >
-          2123
-        </h4>
-        <span
-          class="MuiTypography-root MuiTypography-caption"
-        >
-          card.labels.REQUESTS.TOTAL_LABEL
-        </span>
-      </div>
-      <div>
-        <span
-          class="MuiTypography-root SummaryCardValues-trendValue-43 MuiTypography-body2"
-        >
-          1%
-           
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root SummaryCardValues-valueIcon-44"
-            fill="none"
-            focusable="false"
-            height="11"
-            role="presentation"
-            viewBox="0 0 8 11"
-            width="8"
-          >
-            <path
-              d="M7.38618 4.23054C7.46599 4.07092 7.43697 3.87502 7.32088 3.73716L4.99909 0.951021C4.82496 0.740609 4.46218 0.740609 4.28805 0.951021L1.96626 3.73716C1.85017 3.87502 1.82841 4.07092 1.90096 4.23054C1.98077 4.39742 2.1404 4.499 2.32179 4.499H3.71486V9.14257H1.39307C1.32777 9.14257 1.25522 9.17159 1.21168 9.22238L0.0507891 10.6155C-0.00725558 10.688 -0.0145112 10.7823 0.0217667 10.8694C0.0580446 10.9492 0.145112 11 0.232179 11H5.34011C5.47071 11 5.57229 10.8984 5.57229 10.7678V4.499H6.96536C7.14675 4.499 7.30637 4.39742 7.38618 4.23054Z"
-              fill="currentcolor"
-            />
-          </svg>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] = `
-<div>
-  <div
-    class="MuiPaper-root SummaryCard-root-141 MuiPaper-elevation0"
-    style="width: 256px; display: inline-block;"
-  >
-    <div
-      class="SummaryCard-header-142"
     >
       <div
         class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
@@ -125,7 +21,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
       class="MuiDivider-root"
     />
     <div
-      class="SummaryCardValues-root-181 upTrend"
+      class="SummaryCardValues-root-41 upTrend"
     >
       <div>
         <div
@@ -133,7 +29,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
           style="width: 110px; height: 37px;"
         />
         <div
-          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-182 MuiSkeleton-animate"
+          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-42 MuiSkeleton-animate"
           style="width: 90px; height: 14px;"
         />
       </div>
@@ -142,6 +38,170 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
           class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
           style="width: 50px; height: 16px;"
         />
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
+  >
+    <div
+      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-48 MuiPaper-elevation6"
+      direction="up"
+      role="alert"
+      style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    >
+      <div
+        class="MuiSnackbarContent-message"
+      >
+        <span
+          class="ErrorNotification-message-45"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root ErrorNotification-icon-46 ErrorNotification-iconVariant-47"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            />
+          </svg>
+          invalid json response body at undefined reason: Unexpected end of JSON input
+        </span>
+      </div>
+      <div
+        class="MuiSnackbarContent-action"
+      >
+        <button
+          aria-label="close"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root ErrorNotification-icon-46"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] = `
+<div>
+  <div
+    class="MuiPaper-root SummaryCard-root-96 MuiPaper-elevation0"
+  >
+    <div
+      class="SummaryCard-header-97"
+    >
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+        style="width: 100px; height: 27px;"
+      />
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+        style="width: 60px; height: 27px;"
+      />
+    </div>
+    <hr
+      class="MuiDivider-root"
+    />
+    <div
+      class="SummaryCardValues-root-136 upTrend"
+    >
+      <div>
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+          style="width: 110px; height: 37px;"
+        />
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-137 MuiSkeleton-animate"
+          style="width: 90px; height: 14px;"
+        />
+      </div>
+      <div>
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+          style="width: 50px; height: 16px;"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
+  >
+    <div
+      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-143 MuiPaper-elevation6"
+      direction="up"
+      role="alert"
+      style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    >
+      <div
+        class="MuiSnackbarContent-message"
+      >
+        <span
+          class="ErrorNotification-message-140"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root ErrorNotification-icon-141 ErrorNotification-iconVariant-142"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            />
+          </svg>
+          invalid json response body at undefined reason: Unexpected end of JSON input
+        </span>
+      </div>
+      <div
+        class="MuiSnackbarContent-action"
+      >
+        <button
+          aria-label="close"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root ErrorNotification-icon-141"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
       </div>
     </div>
   </div>

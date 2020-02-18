@@ -105,8 +105,6 @@ class TaskListConfig extends React.Component {
   };
 
   componentDidMount = async () => {
-    const { config } = this.props;
-
     try {
       // get list of connections
       const sourceList = await getConnections();
@@ -114,11 +112,27 @@ class TaskListConfig extends React.Component {
         throw sourceList.errors[0];
       }
 
-      this.setState({ sourceList: sourceList.payload });
+      // fetch screen if a default config prop is passed
+      this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
+    } catch (error) {
+      this.handleError(error.message);
+    }
+  };
 
-      // fetch state if config exist
-      if (config && config.knowledgeSource) {
-        this.onChangeSource(config.knowledgeSource, () => {
+  componentDidUpdate = async prevProps => {
+    const { config } = this.props;
+
+    // refetch state if config changes
+    if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
+      this.fetchScreen();
+    }
+  };
+
+  fetchScreen = () => {
+    const { config } = this.props;
+    if (config && config.knowledgeSource) {
+      this.onChangeSource(config.knowledgeSource, () => {
+        if (config.process) {
           this.onChangeProcess(config.process, () => {
             this.setState({
               config: {
@@ -129,10 +143,8 @@ class TaskListConfig extends React.Component {
               },
             });
           });
-        });
-      }
-    } catch (error) {
-      this.handleError(error.message);
+        }
+      });
     }
   };
 
