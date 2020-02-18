@@ -40,7 +40,8 @@
     "actionButtons": {
       "complete": "Complete",
       "claim": "Claim",
-      "diagram": "Diagram"
+      "diagram": "Diagram",
+      "view": "View"
     }
   },
   "table": {
@@ -65,7 +66,8 @@
     "addNote": "Add note",
     "title": "Task notes",
     "noComments": "No notes on this task",
-    "remove": "Remove"
+    "remove": "Remove",
+    "maxChars": "Maximum {{max}} characters (remaining: {{rem}})"
   },
   "task": {
     "fields": {
@@ -88,11 +90,15 @@
     }
   },
   "messages": {
+    "notify": {
+      "submitting": "Sending..."
+    },
     "warnings": {
       "noData": "There is no data to be displayed"
     },
     "errors": {
-      "dataLoading": "Unable to load server data."
+      "dataLoading": "Unable to load server data.",
+      "dataSaving": "Unable to save data."
     }
   }
 }

@@ -101,7 +101,7 @@
 								}
 							]
 						},
-						"method": "PUT",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -112,7 +112,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"kieDev\",\n    \"host\": \"localhost\",\n    \"port\": \"8080\",\n    \"schema\": \"http\",\n    \"username\": \"krisv\",\n    \"password\": \"krisv\",\n    \"engine\": \"pam\",\n    \"app\": \"/kie-server/services/rest\"\n}",
+							"raw": "{\n    \"name\": \"kieDev\",\n    \"host\": \"localhost\",\n    \"port\": \"8080\",\n    \"schema\": \"http\",\n    \"username\": \"pamAdmin\",\n    \"password\": \"redhatpam1!\",\n    \"engine\": \"pam\",\n    \"app\": \"/kie-server/services/rest/server\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -580,7 +580,7 @@
 			"name": "Process Form",
 			"item": [
 				{
-					"name": "GET Process Form",
+					"name": "GET Process Form (MortgageProcess)",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -602,7 +602,7 @@
 					"response": []
 				},
 				{
-					"name": "SUBMIT Process Form",
+					"name": "SUBMIT Process Form (Mortgage Process)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -633,6 +633,66 @@
 								"processes",
 								"definitions",
 								"Mortgage_Process.MortgageApprovalProcess@mortgage-process_1.0.0-SNAPSHOT",
+								"form"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Process Form (ProcessSample)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/connections/{{connId}}/processes/definitions/forms-sample.ProcessSample@forms-sample_1.0.1-SNAPSHOT/form",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"{{connId}}",
+								"processes",
+								"definitions",
+								"forms-sample.ProcessSample@forms-sample_1.0.1-SNAPSHOT",
+								"form"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SUBMIT Process Form (ProcessSample)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"MyObject\": {\n        \"myDateTime\": \"2020-02-13T03:00:00.000Z\",\n        \"myBoolean\": true,\n        \"myString\": \"myStringValue\",\n        \"__unbound_field_field_5437\": 10\n    },\n    \"__unbound_field_field_9814\": \"myValue\",\n    \"__unbound_field_field_9324\": 50.0,\n    \"__unbound_field_field_2802\": 0.5,\n    \"__unbound_field_field_6196\": \"This is a very big text from a text area field\",\n    \"__unbound_field_field_4073\": [\"first\", \"third\"],\n    \"__unbound_field_field_653\": \"twoValue\",\n    \"__unbound_field_field_68448\": \"what?\",\n    \"processList\": [\"process1\", \"process2\"],\n    \"__unbound_field_field_030592\": \"thirdValue\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/connections/{{connId}}/processes/definitions/forms-sample.ProcessSample@forms-sample_1.0.1-SNAPSHOT/form",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"connections",
+								"{{connId}}",
+								"processes",
+								"definitions",
+								"forms-sample.ProcessSample@forms-sample_1.0.1-SNAPSHOT",
 								"form"
 							]
 						}
@@ -748,7 +808,7 @@
 					"response": []
 				},
 				{
-					"name": "CREATE Summary Chart",
+					"name": "CREATE Summary TimeSeries",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -769,7 +829,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/connections/{{connId}}/summaries/summaryTypes/Chart",
+							"raw": "{{url}}/connections/{{connId}}/summaries/summaryTypes/TimeSeries",
 							"host": [
 								"{{url}}"
 							],
@@ -778,7 +838,7 @@
 								"{{connId}}",
 								"summaries",
 								"summaryTypes",
-								"Chart"
+								"TimeSeries"
 							]
 						}
 					},

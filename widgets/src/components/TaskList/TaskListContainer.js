@@ -46,7 +46,7 @@ class TaskList extends React.Component {
   timer = { ref: null };
 
   componentDidMount = async () => {
-    const { lazyLoading, serviceUrl, pageCode, frameId } = this.props;
+    const { lazyLoading, serviceUrl, pageCode, frameId, onSelectTask } = this.props;
 
     if (!LOCAL) {
       // set the PDA domain to the URL passed via props
@@ -70,16 +70,18 @@ class TaskList extends React.Component {
         : await getTasks(config.knowledgeSource);
 
       const options = JSON.parse(config.options);
+      const rows = normalizeRows(taskList.payload);
+
+      // dispatch onSelectTask event for the first item on list
+      onSelectTask(rows[0]);
 
       this.setState({
         loading: false,
-        columns: normalizeColumns(
-          JSON.parse(config.columns),
-          taskList.payload[0],
-          options,
-          this.openDiagram
-        ),
-        rows: normalizeRows(taskList.payload),
+        columns: normalizeColumns(JSON.parse(config.columns), rows[0], options, {
+          openDiagram: this.openDiagram,
+          selectTask: onSelectTask,
+        }),
+        rows,
         lastPage: taskList.metadata.lastPage === 1,
         size: taskList.metadata.size,
         connection: config.knowledgeSource,
@@ -223,6 +225,7 @@ TaskList.propTypes = {
   }),
   lazyLoading: PropTypes.bool,
   onError: PropTypes.func,
+  onSelectTask: PropTypes.func,
   serviceUrl: PropTypes.string,
   pageCode: PropTypes.string,
   frameId: PropTypes.string,
@@ -230,8 +233,9 @@ TaskList.propTypes = {
 
 TaskList.defaultProps = {
   classes: {},
-  lazyLoading: false,
+  lazyLoading: true,
   onError: () => {},
+  onSelectTask: () => {},
   serviceUrl: '',
   pageCode: '',
   frameId: '',

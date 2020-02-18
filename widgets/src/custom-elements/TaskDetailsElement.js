@@ -3,33 +3,62 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import TaskDetails from 'components/TaskDetails/TaskDetailsContainer';
-import { createWidgetEvent } from 'custom-elements/customEventsUtils';
+import {
+  addCustomEventListener,
+  createWidgetEvent,
+  TD_ON_PRESS_PREVIOUS,
+  TD_ON_PRESS_NEXT,
+  TD_ON_ERROR,
+  TL_ON_SELECT_TASK,
+} from 'custom-elements/customEventsUtils';
 
-const CUSTOM_EVENT_PREFIX = 'task.details';
-const ON_PRESS_PREVIOUS = `${CUSTOM_EVENT_PREFIX}.onPressPrevious`;
-const ON_PRESS_NEXT = `${CUSTOM_EVENT_PREFIX}.onPressNext`;
-const ON_ERROR = `${CUSTOM_EVENT_PREFIX}.onError`;
+const ATTRIBUTES = {
+  id: 'id',
+  locale: 'locale',
+  pageCode: 'page-code',
+  frameId: 'frame-id',
+  serviceUrl: 'service-url',
+};
 
 class TaskDetailsElement extends HTMLElement {
   constructor(props) {
     super(props);
 
-    this.onPressPrevious = createWidgetEvent(ON_PRESS_PREVIOUS);
-    this.onPressNext = createWidgetEvent(ON_PRESS_NEXT);
-    this.onError = createWidgetEvent(ON_ERROR);
+    this.container = null;
+    this.unsubscribeFromTaskListEvents = null;
+    this.onPressPrevious = createWidgetEvent(TD_ON_PRESS_PREVIOUS);
+    this.onPressNext = createWidgetEvent(TD_ON_PRESS_NEXT);
+    this.onError = createWidgetEvent(TD_ON_ERROR);
+
+    this.updateTaskId = this.updateTaskId.bind(this);
   }
 
-  connectedCallback() {
-    const mountPoint = document.createElement('div');
-    this.appendChild(mountPoint);
+  static get observedAttributes() {
+    return Object.values(ATTRIBUTES);
+  }
 
-    const locale = this.getAttribute('locale') || 'en';
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (!Object.values(ATTRIBUTES).includes(name)) {
+      throw new Error(`Untracked changed attribute: ${name}`);
+    }
+    if (this.container && newValue !== oldValue) {
+      this.render();
+    }
+  }
+
+  updateTaskId(e) {
+    const { detail } = e;
+    this.setAttribute('id', detail.id.split('@')[0]);
+  }
+
+  render() {
+    const locale = this.getAttribute(ATTRIBUTES.locale) || 'en';
     i18next.changeLanguage(locale);
 
-    const pageCode = this.getAttribute('page-code');
-    const frameId = this.getAttribute('frame-id');
-    const serviceUrl = this.getAttribute('service-url');
-    const taskId = this.getAttribute('id');
+    const pageCode = this.getAttribute(ATTRIBUTES.pageCode);
+    const frameId = this.getAttribute(ATTRIBUTES.frameId);
+    const serviceUrl = this.getAttribute(ATTRIBUTES.serviceUrl);
+    const taskId = this.getAttribute(ATTRIBUTES.id);
 
     const reactRoot = React.createElement(
       TaskDetails,
@@ -44,7 +73,25 @@ class TaskDetailsElement extends HTMLElement {
       },
       null
     );
-    ReactDOM.render(reactRoot, mountPoint);
+    ReactDOM.render(reactRoot, this.container);
+  }
+
+  connectedCallback() {
+    this.container = document.createElement('div');
+    this.appendChild(this.container);
+
+    this.unsubscribeFromTaskListEvents = addCustomEventListener(
+      TL_ON_SELECT_TASK,
+      this.updateTaskId
+    );
+
+    this.render();
+  }
+
+  disconnectedCallback() {
+    if (this.unsubscribeFromTaskListEvents) {
+      this.unsubscribeFromTaskListEvents();
+    }
   }
 }
 

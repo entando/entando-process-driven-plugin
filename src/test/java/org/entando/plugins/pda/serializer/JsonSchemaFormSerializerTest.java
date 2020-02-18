@@ -1,6 +1,5 @@
 package org.entando.plugins.pda.serializer;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 
