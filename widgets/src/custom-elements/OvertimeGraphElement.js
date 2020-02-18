@@ -39,6 +39,6 @@ class OvertimeGraphElement extends HTMLElement {
   }
 }
 
-customElements.define('summary-card', OvertimeGraphElement);
+customElements.define('overtime-graph', OvertimeGraphElement);
 
 export default OvertimeGraphElement;
