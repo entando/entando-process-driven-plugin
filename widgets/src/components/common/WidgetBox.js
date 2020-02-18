@@ -13,11 +13,11 @@ const styles = {
 
 const WidgetBox = ({
   title,
-  actions,
+  topRightComp,
   collapsible,
   hasDivider,
   classes,
-  passedClassName,
+  className,
   children,
 }) => {
   const [expanded, setExpanded] = useState(true);
@@ -32,7 +32,7 @@ const WidgetBox = ({
   }
 
   return (
-    <Paper variant="outlined" square className={classNames(classes.widgetBox, passedClassName)}>
+    <Paper variant="outlined" square className={classNames(classes.widgetBox, className)}>
       {title && (
         <Box
           display="flex"
@@ -41,12 +41,14 @@ const WidgetBox = ({
           p={`${collapsible ? 8 : 20}px 25px`}
         >
           {renderedTitle}
-          {actions}
-          {collapsible && (
-            <IconButton onClick={handleExpandClick}>
-              {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </IconButton>
-          )}
+          <div>
+            {topRightComp}
+            {collapsible && (
+              <IconButton onClick={handleExpandClick}>
+                {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              </IconButton>
+            )}
+          </div>
         </Box>
       )}
       {hasDivider && <Divider />}
@@ -57,12 +59,12 @@ const WidgetBox = ({
 
 WidgetBox.propTypes = {
   title: PropTypes.node,
-  actions: PropTypes.node,
+  topRightComp: PropTypes.node,
   collapsible: PropTypes.bool,
   hasDivider: PropTypes.bool,
 
   /** additional styling from parent component on root element */
-  passedClassName: PropTypes.string,
+  className: PropTypes.string,
   /** any node to render inside component */
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 
@@ -73,10 +75,10 @@ WidgetBox.propTypes = {
 
 WidgetBox.defaultProps = {
   title: null,
-  actions: null,
+  topRightComp: null,
   collapsible: false,
   hasDivider: false,
-  passedClassName: '',
+  className: '',
 };
 
 export default withStyles(styles)(WidgetBox);

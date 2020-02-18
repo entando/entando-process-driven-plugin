@@ -18,30 +18,32 @@ exports[`<TaskCommentsContainer /> renders snapshot correctly 1`] = `
            - 
           32
         </h3>
-        <button
-          class="MuiButtonBase-root MuiIconButton-root"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiIconButton-label"
+        <div>
+          <button
+            class="MuiButtonBase-root MuiIconButton-root"
+            tabindex="0"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              role="presentation"
-              viewBox="0 0 24 24"
+            <span
+              class="MuiIconButton-label"
             >
-              <path
-                d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
       <hr
         class="MuiDivider-root"
