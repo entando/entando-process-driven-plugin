@@ -8,6 +8,7 @@ import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompleti
 import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
+import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
 
 const configNames = [
   {
@@ -39,6 +40,11 @@ const configNames = [
     name: 'summary-card-config',
     Component: SummaryCardConfig,
     className: 'SummaryCardConfigElement',
+  },
+  {
+    name: 'overtime-graph-config',
+    Component: OvertimeGraphConfig,
+    className: 'OvertimeGraphConfigElement',
   },
 ];
 
