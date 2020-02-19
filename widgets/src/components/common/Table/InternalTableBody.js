@@ -11,6 +11,7 @@ import InternalTableCell from './InternalTableCell';
 const StyledTableRowHover = withStyles(
   {
     root: {
+      color: '#e7eaec',
       '&:hover > *': {
         backgroundColor: '#f9f8f8',
         fontWeight: 'bold',

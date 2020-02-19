@@ -13,6 +13,7 @@ const StyledHeaderCell = withStyles(
       color: '#323233',
       fontWeight: 'bold',
       borderBottom: '1px solid #e7eaec',
+      padding: '9px 16px 10px',
     },
   },
   { name: 'StyledHeaderCell' }
