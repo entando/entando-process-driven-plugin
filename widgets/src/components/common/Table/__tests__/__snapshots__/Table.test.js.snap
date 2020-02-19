@@ -16,20 +16,20 @@ exports[`<Table /> renders snapshot correctly 1`] = `
           class="MuiTableRow-root MuiTableRow-head"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
-            style="white-space: nowrap; position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center;"
+            style="white-space: nowrap; position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
           >
             Action
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -48,13 +48,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -73,13 +73,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -98,13 +98,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -123,13 +123,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -148,13 +148,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -173,13 +173,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -198,13 +198,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -223,13 +223,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -248,13 +248,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -273,13 +273,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -298,13 +298,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -323,13 +323,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -348,13 +348,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -373,13 +373,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -398,13 +398,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -423,13 +423,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -448,13 +448,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -473,13 +473,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -498,13 +498,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -523,13 +523,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -548,13 +548,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -573,13 +573,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -598,13 +598,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -623,13 +623,13 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-14"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-28"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-29"
               role="button"
               tabindex="0"
             >
@@ -653,12 +653,12 @@ exports[`<Table /> renders snapshot correctly 1`] = `
         class="MuiTableBody-root"
       >
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-48 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -812,12 +812,12 @@ exports[`<Table /> renders snapshot correctly 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-48 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -973,12 +973,12 @@ exports[`<Table /> renders snapshot correctly 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-48 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -1136,12 +1136,12 @@ exports[`<Table /> renders snapshot correctly 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-48 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -1299,12 +1299,12 @@ exports[`<Table /> renders snapshot correctly 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-48 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -1479,7 +1479,7 @@ exports[`<Table /> renders snapshot correctly 1`] = `
             class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar MuiToolbar-gutters"
           >
             <div
-              class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-61"
+              class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-63"
             />
             <p
               class="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
@@ -1504,7 +1504,7 @@ exports[`<Table /> renders snapshot correctly 1`] = `
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-62"
+                class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-64"
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -1520,7 +1520,7 @@ exports[`<Table /> renders snapshot correctly 1`] = `
               table.showing
             </p>
             <div
-              class="InternalTablePaginationActions-root-137"
+              class="InternalTablePaginationActions-root-139"
             >
               <button
                 class="MuiButtonBase-root MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
@@ -1555,7 +1555,7 @@ exports[`<Table /> renders snapshot correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-138"
+                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-140"
                     focusable="false"
                     role="presentation"
                     viewBox="0 0 24 24"
@@ -1567,7 +1567,7 @@ exports[`<Table /> renders snapshot correctly 1`] = `
                 </span>
               </button>
               <div
-                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-139"
+                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-141"
                 style="width: 45px;"
               >
                 <div
@@ -1647,7 +1647,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
 <div>
   
   <div
-    class="Table-tableWrapper-173"
+    class="Table-tableWrapper-175"
   >
     <table
       class="MuiTable-root"
@@ -1661,14 +1661,14 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
       </thead>
       <tbody>
         <tr
-          class="EmptyRow-root-182"
+          class="EmptyRow-root-184"
         >
           <td
             colspan="0"
             style="height: 275px;"
           >
             <p
-              class="MuiTypography-root EmptyRow-text-183 MuiTypography-body1"
+              class="MuiTypography-root EmptyRow-text-185 MuiTypography-body1"
             >
               No data to display
             </p>
@@ -1694,7 +1694,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
             class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar MuiToolbar-gutters"
           >
             <div
-              class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-215"
+              class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-217"
             />
             <p
               class="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
@@ -1719,7 +1719,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-216"
+                class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-218"
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -1735,7 +1735,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
               table.showing
             </p>
             <div
-              class="InternalTablePaginationActions-root-286"
+              class="InternalTablePaginationActions-root-288"
             >
               <button
                 class="MuiButtonBase-root MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
@@ -1770,7 +1770,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-287"
+                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-289"
                     focusable="false"
                     role="presentation"
                     viewBox="0 0 24 24"
@@ -1782,7 +1782,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
                 </span>
               </button>
               <div
-                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-288"
+                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-290"
                 style="width: 35px;"
               >
                 <div
@@ -1858,10 +1858,10 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
 <div>
   
   <div
-    class="Table-tableWrapper-324"
+    class="Table-tableWrapper-326"
   >
     <table
-      class="MuiTable-root Table-hideShadows-323"
+      class="MuiTable-root Table-hideShadows-325"
     >
       <thead
         class="MuiTableHead-root"
@@ -1870,20 +1870,20 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           class="MuiTableRow-root MuiTableRow-head"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
-            style="white-space: nowrap; position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center;"
+            style="white-space: nowrap; position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
           >
             Action
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -1902,13 +1902,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -1927,13 +1927,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -1952,13 +1952,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -1977,13 +1977,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2002,13 +2002,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2027,13 +2027,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2052,13 +2052,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2077,13 +2077,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2102,13 +2102,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2127,13 +2127,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2152,13 +2152,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2177,13 +2177,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2202,13 +2202,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2227,13 +2227,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2252,13 +2252,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2277,13 +2277,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2302,13 +2302,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2327,13 +2327,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2352,13 +2352,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2377,13 +2377,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2402,13 +2402,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2427,13 +2427,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2452,13 +2452,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2477,13 +2477,13 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-335"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-350"
               role="button"
               tabindex="0"
             >
@@ -2507,12 +2507,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
         class="MuiTableBody-root"
       >
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -2666,12 +2666,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -2827,12 +2827,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -2990,12 +2990,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -3153,12 +3153,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -3314,12 +3314,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -3477,12 +3477,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -3636,12 +3636,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -3795,12 +3795,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -3954,12 +3954,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -4113,12 +4113,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -4272,12 +4272,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -4431,12 +4431,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -4590,12 +4590,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -4751,12 +4751,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -4910,12 +4910,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -5073,12 +5073,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -5234,12 +5234,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -5393,12 +5393,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -5552,12 +5552,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -5711,12 +5711,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -5870,12 +5870,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -6029,12 +6029,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -6188,12 +6188,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -6347,12 +6347,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -6506,12 +6506,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -6665,12 +6665,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -6824,12 +6824,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -6983,12 +6983,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -7142,12 +7142,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -7301,12 +7301,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -7460,12 +7460,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -7619,12 +7619,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -7778,12 +7778,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -7937,12 +7937,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -8096,12 +8096,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -8255,12 +8255,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -8414,12 +8414,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -8573,12 +8573,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -8732,12 +8732,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -8891,12 +8891,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -9050,12 +9050,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -9209,12 +9209,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -9368,12 +9368,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -9527,12 +9527,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -9686,12 +9686,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -9845,12 +9845,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -10004,12 +10004,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -10163,12 +10163,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -10322,12 +10322,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -10481,12 +10481,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -10640,12 +10640,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -10799,12 +10799,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -10958,12 +10958,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -11117,12 +11117,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -11276,12 +11276,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -11435,12 +11435,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -11596,12 +11596,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -11755,12 +11755,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -11914,12 +11914,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -12073,12 +12073,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -12232,12 +12232,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -12391,12 +12391,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -12550,12 +12550,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -12709,12 +12709,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -12868,12 +12868,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -13027,12 +13027,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -13186,12 +13186,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -13345,12 +13345,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -13504,12 +13504,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -13663,12 +13663,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -13822,12 +13822,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -13981,12 +13981,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -14140,12 +14140,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -14299,12 +14299,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -14458,12 +14458,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -14617,12 +14617,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -14776,12 +14776,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -14935,12 +14935,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -15094,12 +15094,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -15253,12 +15253,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -15412,12 +15412,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -15571,12 +15571,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -15730,12 +15730,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -15889,12 +15889,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -16048,12 +16048,12 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-369 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -16219,7 +16219,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
 <div>
   
   <div
-    class="Table-tableWrapper-393"
+    class="Table-tableWrapper-397"
   >
     <table
       class="MuiTable-root"
@@ -16231,20 +16231,20 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           class="MuiTableRow-root MuiTableRow-head"
         >
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
-            style="white-space: nowrap; position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center;"
+            style="white-space: nowrap; position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
           >
             Action
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16263,13 +16263,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16288,13 +16288,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16313,13 +16313,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16338,13 +16338,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16363,13 +16363,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16388,13 +16388,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16413,13 +16413,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16438,13 +16438,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16463,13 +16463,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16488,13 +16488,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16513,13 +16513,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16538,13 +16538,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16563,13 +16563,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16588,13 +16588,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16613,13 +16613,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16638,13 +16638,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16663,13 +16663,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16688,13 +16688,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16713,13 +16713,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16738,13 +16738,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16763,13 +16763,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16788,13 +16788,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16813,13 +16813,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16838,13 +16838,13 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             </span>
           </th>
           <th
-            class="MuiTableCell-root MuiTableCell-head"
+            class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-406"
             scope="col"
             style="white-space: nowrap;"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-421"
               role="button"
               tabindex="0"
             >
@@ -16868,12 +16868,12 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
         class="MuiTableBody-root"
       >
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-440 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -17027,12 +17027,12 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-440 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -17188,12 +17188,12 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-440 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -17351,12 +17351,12 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-440 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -17514,12 +17514,12 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           />
         </tr>
         <tr
-          class="MuiTableRow-root MuiTableRow-hover"
+          class="MuiTableRow-root StyledTableRowHover-root-440 MuiTableRow-hover"
           style="height: 55px; cursor: initial;"
         >
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-            style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+            style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
           >
             <button
               aria-haspopup="true"
@@ -17694,7 +17694,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar MuiToolbar-gutters"
           >
             <div
-              class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-449"
+              class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-455"
             />
             <p
               class="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
@@ -17719,7 +17719,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-450"
+                class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-456"
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -17735,7 +17735,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
               table.showing
             </p>
             <div
-              class="InternalTablePaginationActions-root-525"
+              class="InternalTablePaginationActions-root-531"
             >
               <button
                 class="MuiButtonBase-root MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
@@ -17770,7 +17770,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-526"
+                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-532"
                     focusable="false"
                     role="presentation"
                     viewBox="0 0 24 24"
@@ -17782,7 +17782,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
                 </span>
               </button>
               <div
-                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-527"
+                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-533"
                 style="width: 45px;"
               >
                 <div

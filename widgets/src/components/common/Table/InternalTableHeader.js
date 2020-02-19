@@ -4,6 +4,19 @@ import TableCell from '@material-ui/core/TableCell';
 
 import columnType from 'types/columnType';
 import TableSortLabel from 'components/common/Table/TableSortLabel';
+import withStyles from '@material-ui/core/styles/withStyles';
+
+const StyledHeaderCell = withStyles(
+  {
+    head: {
+      backgroundColor: '#e5e6e7',
+      color: '#323233',
+      fontWeight: 'bold',
+      borderBottom: '1px solid #e7eaec',
+    },
+  },
+  { name: 'StyledHeaderCell' }
+)(TableCell);
 
 function InternalTableHeader({ column, createSortHandler, sortedColumn, sortOrder }) {
   const label = column.header || column.accessor;
@@ -21,14 +34,14 @@ function InternalTableHeader({ column, createSortHandler, sortedColumn, sortOrde
   );
 
   return (
-    <TableCell
+    <StyledHeaderCell
       variant="head"
       key={column.accessor}
       align={column.align}
       style={{ whiteSpace: 'nowrap', ...column.styles }}
     >
       {header}
-    </TableCell>
+    </StyledHeaderCell>
   );
 }
 

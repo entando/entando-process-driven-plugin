@@ -7,12 +7,12 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
       class="MuiTableBody-root"
     >
       <tr
-        class="MuiTableRow-root MuiTableRow-hover"
+        class="MuiTableRow-root StyledTableRowHover-root-2 MuiTableRow-hover"
         style="height: 55px; cursor: initial;"
       >
         <td
           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+          style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
         >
           <button
             aria-haspopup="true"
@@ -166,12 +166,12 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
         />
       </tr>
       <tr
-        class="MuiTableRow-root MuiTableRow-hover"
+        class="MuiTableRow-root StyledTableRowHover-root-2 MuiTableRow-hover"
         style="height: 55px; cursor: initial;"
       >
         <td
           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+          style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
         >
           <button
             aria-haspopup="true"
@@ -338,12 +338,12 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
       class="MuiTableBody-root"
     >
       <tr
-        class="MuiTableRow-root MuiTableRow-hover"
+        class="MuiTableRow-root StyledTableRowHover-root-56 MuiTableRow-hover"
         style="height: 55px; cursor: initial;"
       >
         <td
           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+          style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
         >
           <button
             aria-haspopup="true"
@@ -497,12 +497,12 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
         />
       </tr>
       <tr
-        class="MuiTableRow-root MuiTableRow-hover"
+        class="MuiTableRow-root StyledTableRowHover-root-56 MuiTableRow-hover"
         style="height: 55px; cursor: initial;"
       >
         <td
           class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeSmall"
-          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+          style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center; white-space: nowrap;"
         >
           <button
             aria-haspopup="true"

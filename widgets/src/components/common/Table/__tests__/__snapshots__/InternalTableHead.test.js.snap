@@ -10,20 +10,20 @@ exports[`<InternalTableHead /> renders snapshot correctly 1`] = `
         class="MuiTableRow-root MuiTableRow-head"
       >
         <th
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-7"
           scope="col"
-          style="white-space: nowrap; position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center;"
+          style="white-space: nowrap; position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
         >
           Action
         </th>
         <th
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-7"
           scope="col"
           style="white-space: nowrap;"
         >
           <span
             aria-disabled="false"
-            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-21"
+            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-22"
             role="button"
             tabindex="0"
           >

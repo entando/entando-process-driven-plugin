@@ -5,13 +5,26 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
 import columnType from 'types/columnType';
+import withStyles from '@material-ui/core/styles/withStyles';
 import InternalTableCell from './InternalTableCell';
+
+const StyledTableRowHover = withStyles(
+  {
+    root: {
+      '&:hover > *': {
+        backgroundColor: '#f9f8f8',
+        fontWeight: 'bold',
+      },
+    },
+  },
+  { name: 'StyledTableRowHover' }
+)(TableRow);
 
 const InternalTableBody = ({ columns, rows, emptyRows, rowHeight }) => {
   return (
     <TableBody>
       {rows.map(row => (
-        <TableRow
+        <StyledTableRowHover
           key={JSON.stringify(row)}
           style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
           hover
@@ -19,7 +32,7 @@ const InternalTableBody = ({ columns, rows, emptyRows, rowHeight }) => {
           {columns.map(column => (
             <InternalTableCell key={JSON.stringify(column)} column={column} row={row} />
           ))}
-        </TableRow>
+        </StyledTableRowHover>
       ))}
       {emptyRows > 0 && (
         <TableRow style={{ height: rowHeight * emptyRows }}>
