@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { createWidgetEvent } from 'custom-elements/customEventsUtils';
 import OvertimeGraph from 'components/OvertimeGraph/OvertimeGraphContainer';
 
-const CUSTOM_EVENT_PREFIX = 'summarycard';
+const CUSTOM_EVENT_PREFIX = 'overtimegraph';
 const ON_ERROR = `${CUSTOM_EVENT_PREFIX}.onError`;
 
 class OvertimeGraphElement extends HTMLElement {
