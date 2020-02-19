@@ -3,30 +3,32 @@
 exports[`<AddComment /> renders snapshot correctly 1`] = `
 <div>
   <div>
-    <div
-      class="MuiFormControl-root MuiTextField-root AddComment-addNoteField-1"
+    <label
+      class="AddComment-addNoteLabel-2"
+      for="comment-entry"
     >
-      <label
-        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
-        data-shrink="false"
-        for="standard-textarea"
-        id="standard-textarea-label"
-      >
-        taskComments.addNote
-      </label>
-      <div
-        class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-multiline MuiInput-multiline"
-      >
-        <textarea
-          aria-invalid="false"
-          class="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline"
-          id="standard-textarea"
-          rows="2"
-        />
-      </div>
-    </div>
+      taskComments.addNote
+    </label>
+    <textarea
+      class="AddComment-addNoteField-1"
+      id="comment-entry"
+      rows="2"
+      style="height: -4px; overflow: hidden;"
+    />
+    <textarea
+      aria-hidden="true"
+      class="AddComment-addNoteField-1"
+      readonly=""
+      style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); width: 100%;"
+      tabindex="-1"
+    />
+    <p
+      class="MuiTypography-root AddComment-addNoteLimit-3 MuiTypography-body1"
+    >
+      taskComments.maxChars
+    </p>
     <div
-      class="AddComment-actionButtons-2"
+      class="AddComment-actionButtons-4"
     >
       <button
         class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"

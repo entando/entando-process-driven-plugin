@@ -22,6 +22,16 @@
         "title": "Casi",
         "total_label": "Casi Totali",
         "value": "{{value, number}}"
+      },
+      "chart": {
+        "title": "Volume delle richieste",
+        "subtitle": "Richieste",
+        "requests": "Numero di richieste",
+        "cases": "Numero di casi",
+        "card": {
+          "requests": "Richieste totali",
+          "cases": "Casi totali"
+        }
       }
     }
   },
@@ -30,7 +40,8 @@
     "actionButtons": {
       "complete": "Completare",
       "claim": "Richiesta",
-      "diagram": "Diagramma"
+      "diagram": "Diagramma",
+      "view": "Vedere"
     },
     "emptyList": "Non hai attività attive, assegnate o complete"
   },
@@ -56,7 +67,8 @@
     "addNote": "Add note",
     "title": "Task notes",
     "noComments": "No notes on this task",
-    "remove": "Remove"
+    "remove": "Remove",
+    "maxChars": "Massimo {{max}} caratteri (rimanenti: {{rem}})"
   },
   "task": {
     "fields": {
@@ -79,13 +91,17 @@
     }
   },
   "messages": {
+    "notify": {
+      "submitting": "Invio..."
+    },
     "warnings": {
       "noData": "Non ci sono dati da visualizzare"
     },
     "errors": {
       "widgetConfig": "Nessuna configurazione trovata per questo widget",
       "errorResponse": "Sembra esserci un errore",
-      "dataLoading": "Impossibile caricare i dati del server"
+      "dataLoading": "Impossibile caricare i dati del server",
+      "dataSaving": "Impossibile salvare i dati."
     }
   }
 }

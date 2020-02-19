@@ -81,7 +81,7 @@ export const getMockSummaryOf = type => {
   switch (type) {
     case 'Card':
       return MOCK_SUMMARY_CARD;
-    case 'TimeSeries':
+    case 'Chart':
       return MOCK_SUMMARY_CHART;
     default:
       return {};

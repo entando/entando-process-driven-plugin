@@ -29,30 +29,21 @@ class CompletionFormConfig extends React.Component {
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeProcess = this.onChangeProcess.bind(this);
     this.onChangeUiSchema = this.onChangeUiSchema.bind(this);
+    this.fetchScreen = this.fetchScreen.bind(this);
   }
 
   async componentDidMount() {
-    const { config } = this.props;
-
     // getting list of Kie server connections
     const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload });
+    this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
+  }
 
-    if (config && config.knowledgeSource) {
-      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
-        if (config.process) {
-          this.onChangeProcess(config.process, () => {
-            if (config.settings) {
-              this.setState({
-                config: {
-                  ...config,
-                  settings: JSON.parse(config.settings),
-                },
-              });
-            }
-          });
-        }
-      });
+  componentDidUpdate(prevProps) {
+    const { config } = this.props;
+
+    // refetch state if config changes
+    if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
+      this.fetchScreen();
     }
   }
 
@@ -84,6 +75,27 @@ class CompletionFormConfig extends React.Component {
         settings: { ...config.settings, uiSchema },
       },
     });
+  }
+
+  fetchScreen() {
+    const { config } = this.props;
+
+    if (config && config.knowledgeSource) {
+      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
+        if (config.process) {
+          this.onChangeProcess(config.process, () => {
+            if (config.settings) {
+              this.setState({
+                config: {
+                  ...config,
+                  settings: JSON.parse(config.settings),
+                },
+              });
+            }
+          });
+        }
+      });
+    }
   }
 
   render() {

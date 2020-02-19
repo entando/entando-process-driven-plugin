@@ -8,224 +8,228 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
     <div
       class="MuiPaper-root WidgetBox-widgetBox-9 MuiPaper-outlined"
     >
-      <div>
-        <form
-          class="rjsf"
-        >
-          <div
-            class="MuiFormControl-root MuiFormControl-fullWidth"
+      <div
+        class="MuiBox-root MuiBox-root-39"
+      >
+        <div>
+          <form
+            class="CompletionForm-themedForm-42"
           >
             <div
-              class="MuiGrid-root makeStyles-root-62 MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiFormControl-root MuiFormControl-fullWidth"
             >
               <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
-                style="margin-bottom: 10px;"
+                class="MuiGrid-root makeStyles-root-68 MuiGrid-container MuiGrid-spacing-xs-2"
               >
                 <div
-                  class="MuiFormControl-root MuiFormControl-fullWidth"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+                  style="margin-bottom: 10px;"
                 >
-                  <div>
-                    <h3
-                      class="MuiTypography-root MuiTypography-h3"
-                    >
-                      evaluation-taskform.frm
-                    </h3>
-                    <hr
-                      class="MuiDivider-root JSONFormTitle-divider-167"
-                    />
-                  </div>
                   <div
-                    class="MuiGrid-root makeStyles-root-62 MuiGrid-container MuiGrid-spacing-xs-2"
+                    class="MuiFormControl-root MuiFormControl-fullWidth"
                   >
+                    <div>
+                      <h3
+                        class="MuiTypography-root MuiTypography-h3"
+                      >
+                        evaluation-taskform.frm
+                      </h3>
+                      <hr
+                        class="MuiDivider-root JSONFormTitle-divider-173"
+                      />
+                    </div>
                     <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
-                      style="margin-bottom: 10px;"
+                      class="MuiGrid-root makeStyles-root-68 MuiGrid-container MuiGrid-spacing-xs-2"
                     >
                       <div
-                        class="MuiFormControl-root MuiFormControl-fullWidth"
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+                        style="margin-bottom: 10px;"
                       >
                         <div
                           class="MuiFormControl-root MuiFormControl-fullWidth"
                         >
                           <div
-                            class="MuiFormControl-root MuiTextField-root"
+                            class="MuiFormControl-root MuiFormControl-fullWidth"
                           >
-                            <label
-                              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-focused Mui-focused Mui-required Mui-required"
-                              data-shrink="true"
-                              for="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee"
-                              id="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee-label"
-                            >
-                              Employee
-                              <span
-                                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
-                              >
-                                 
-                                *
-                              </span>
-                            </label>
                             <div
-                              class="MuiInputBase-root MuiInput-root MuiInput-underline Mui-focused Mui-focused MuiInputBase-formControl MuiInput-formControl"
+                              class="MuiFormControl-root MuiTextField-root"
                             >
-                              <input
-                                aria-invalid="false"
-                                class="MuiInputBase-input MuiInput-input"
-                                id="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee"
-                                required=""
-                                type="string"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <span
-                          class="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary"
-                        >
-                          Employee
-                        </span>
-                      </div>
-                    </div>
-                    <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
-                      style="margin-bottom: 10px;"
-                    >
-                      <div
-                        class="MuiFormControl-root MuiFormControl-fullWidth"
-                      >
-                        <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth"
-                        >
-                          <div
-                            class="MuiFormControl-root MuiTextField-root"
-                          >
-                            <label
-                              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
-                              data-shrink="false"
-                              for="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason"
-                              id="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason-label"
-                            >
-                              Reason
-                              <span
-                                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                              <label
+                                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink Mui-focused Mui-focused Mui-required Mui-required"
+                                data-shrink="true"
+                                for="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee"
+                                id="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee-label"
                               >
-                                 
-                                *
-                              </span>
-                            </label>
-                            <div
-                              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-multiline MuiInput-multiline"
-                            >
-                              <textarea
-                                aria-invalid="false"
-                                class="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline"
-                                id="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason"
-                                placeholder=""
-                                required=""
-                                rows="5"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <span
-                          class="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary"
-                        >
-                          Reason
-                        </span>
-                      </div>
-                    </div>
-                    <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
-                      style="margin-bottom: 10px;"
-                    >
-                      <div
-                        class="MuiFormControl-root MuiFormControl-fullWidth"
-                      >
-                        <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth"
-                        >
-                          <div
-                            class="MuiFormControl-root MuiTextField-root"
-                          >
-                            <label
-                              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
-                              data-shrink="false"
-                              for="root_d1e6dd47-b24c-4f93-ba25-337832926124_list"
-                              id="root_d1e6dd47-b24c-4f93-ba25-337832926124_list-label"
-                            >
-                              List
-                              <span
-                                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
-                              >
-                                 
-                                *
-                              </span>
-                            </label>
-                            <div
-                              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-                            >
-                              <input
-                                aria-invalid="false"
-                                class="MuiInputBase-input MuiInput-input"
-                                id="root_d1e6dd47-b24c-4f93-ba25-337832926124_list"
-                                required=""
-                                type="string"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
-                      style="margin-bottom: 10px;"
-                    >
-                      <div
-                        class="MuiFormControl-root MuiFormControl-fullWidth"
-                      >
-                        <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth"
-                        >
-                          <label
-                            class="MuiFormControlLabel-root"
-                          >
-                            <span
-                              aria-disabled="false"
-                              class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-265 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary"
-                            >
-                              <span
-                                class="MuiIconButton-label"
+                                Employee
+                                <span
+                                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                >
+                                   
+                                  *
+                                </span>
+                              </label>
+                              <div
+                                class="MuiInputBase-root MuiInput-root MuiInput-underline Mui-focused Mui-focused MuiInputBase-formControl MuiInput-formControl"
                               >
                                 <input
-                                  class="PrivateSwitchBase-input-268"
-                                  data-indeterminate="false"
-                                  id="root_d1e6dd47-b24c-4f93-ba25-337832926124_checkBox"
-                                  type="checkbox"
+                                  aria-invalid="false"
+                                  class="MuiInputBase-input MuiInput-input"
+                                  id="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee"
+                                  required=""
+                                  type="string"
                                   value=""
                                 />
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root"
-                                  focusable="false"
-                                  role="presentation"
-                                  viewBox="0 0 24 24"
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            class="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary"
+                          >
+                            Employee
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+                        style="margin-bottom: 10px;"
+                      >
+                        <div
+                          class="MuiFormControl-root MuiFormControl-fullWidth"
+                        >
+                          <div
+                            class="MuiFormControl-root MuiFormControl-fullWidth"
+                          >
+                            <div
+                              class="MuiFormControl-root MuiTextField-root"
+                            >
+                              <label
+                                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
+                                data-shrink="false"
+                                for="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason"
+                                id="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason-label"
+                              >
+                                Reason
+                                <span
+                                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
                                 >
-                                  <path
-                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                   
+                                  *
+                                </span>
+                              </label>
+                              <div
+                                class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl MuiInputBase-multiline MuiInput-multiline"
+                              >
+                                <textarea
+                                  aria-invalid="false"
+                                  class="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline"
+                                  id="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason"
+                                  placeholder=""
+                                  required=""
+                                  rows="5"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            class="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary"
+                          >
+                            Reason
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+                        style="margin-bottom: 10px;"
+                      >
+                        <div
+                          class="MuiFormControl-root MuiFormControl-fullWidth"
+                        >
+                          <div
+                            class="MuiFormControl-root MuiFormControl-fullWidth"
+                          >
+                            <div
+                              class="MuiFormControl-root MuiTextField-root"
+                            >
+                              <label
+                                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated Mui-required Mui-required"
+                                data-shrink="false"
+                                for="root_d1e6dd47-b24c-4f93-ba25-337832926124_list"
+                                id="root_d1e6dd47-b24c-4f93-ba25-337832926124_list-label"
+                              >
+                                List
+                                <span
+                                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                >
+                                   
+                                  *
+                                </span>
+                              </label>
+                              <div
+                                class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  class="MuiInputBase-input MuiInput-input"
+                                  id="root_d1e6dd47-b24c-4f93-ba25-337832926124_list"
+                                  required=""
+                                  type="string"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+                        style="margin-bottom: 10px;"
+                      >
+                        <div
+                          class="MuiFormControl-root MuiFormControl-fullWidth"
+                        >
+                          <div
+                            class="MuiFormControl-root MuiFormControl-fullWidth"
+                          >
+                            <label
+                              class="MuiFormControlLabel-root"
+                            >
+                              <span
+                                aria-disabled="false"
+                                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-271 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <input
+                                    class="PrivateSwitchBase-input-274"
+                                    data-indeterminate="false"
+                                    id="root_d1e6dd47-b24c-4f93-ba25-337832926124_checkBox"
+                                    type="checkbox"
+                                    value=""
                                   />
-                                </svg>
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root"
+                                    focusable="false"
+                                    role="presentation"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
                               </span>
                               <span
-                                class="MuiTouchRipple-root"
-                              />
-                            </span>
-                            <span
-                              class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                            >
-                              Agree
-                            </span>
-                          </label>
+                                class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                              >
+                                Agree
+                              </span>
+                            </label>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -233,29 +237,30 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="CompletionForm-actionButtons-38"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
-              tabindex="0"
-              type="submit"
+            <div
+              class="CompletionForm-actionButtons-40"
             >
-              <span
-                class="MuiButton-label"
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                tabindex="0"
+                type="submit"
               >
-                common.submit
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </form>
+                <span
+                  class="MuiButton-label"
+                >
+                  common.submit
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
+  
 </div>
 `;
 
@@ -265,9 +270,73 @@ exports[`<ProcessFormContainer /> renders snapshot correctly on error state 1`] 
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-337 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-343 MuiPaper-outlined"
     >
-      messages.warnings.noData
+      <div
+        class="MuiBox-root MuiBox-root-373"
+      >
+        messages.warnings.noData
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
+  >
+    <div
+      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-380 MuiPaper-elevation6"
+      direction="up"
+      role="alert"
+      style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    >
+      <div
+        class="MuiSnackbarContent-message"
+      >
+        <span
+          class="ErrorNotification-message-377"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root ErrorNotification-icon-378 ErrorNotification-iconVariant-379"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            />
+          </svg>
+          invalid json response body at undefined reason: Unexpected end of JSON input
+        </span>
+      </div>
+      <div
+        class="MuiSnackbarContent-action"
+      >
+        <button
+          aria-label="close"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root ErrorNotification-icon-378"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </div>

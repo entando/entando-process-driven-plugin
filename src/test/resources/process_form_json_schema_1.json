@@ -3,6 +3,7 @@
   "$id": "http://entando.org/schemas/pda-form.json",
   "title": "Process 1",
   "type": "object",
+  "required": [],
   "properties": {
     "age": {
       "type": "integer",
