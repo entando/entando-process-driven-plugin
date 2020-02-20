@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 @SuppressWarnings({"PMD.TooManyMethods", "PMD.GodClass"})
 @Component
 public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
+
     private static final String SCHEMA_VERSION = "$schema";
     private static final String SCHEMA_ID = "$id";
 
@@ -35,6 +36,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     private static final String ITEMS = "items";
     private static final String DEFAULT = "default";
     private static final String UNIQUE_ITEMS = "uniqueItems";
+    private static final String FORMAT = "format";
 
     private static final String TYPE_OBJECT = "object";
     private static final String TYPE_BOOLEAN = "boolean";
@@ -50,8 +52,9 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
     private static final String TYPE_DATE_FORMAT = "format";
     private static final String TYPE_NUMBER_MULTIPLE = "multipleOf";
 
-    private static final String DATE_FORMAT = "date";
-    private static final String DATE_TIME_FORMAT = "date-time";
+    private static final String FORMAT_DATE = "date";
+    private static final String FORMAT_DATE_TIME = "date-time";
+    private static final String FORMAT_DATA_URL = "data-url";
 
     private static final ObjectMapper MAPPER;
 
@@ -164,6 +167,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
                 break;
             case INPUT_LIST:
             case MULTIPLE:
+            case DOCUMENT_LIST:
                 type = TYPE_ARRAY;
                 break;
             default:
@@ -197,6 +201,10 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
             writeFieldMultipleSelector(jsonGenerator, (FormFieldSelector) field);
         } else if (field.getType() == FormFieldType.INPUT_LIST) {
             writeFieldInputList(jsonGenerator);
+        } else if (field.getType() == FormFieldType.DOCUMENT) {
+            writeFieldDocument(jsonGenerator, field);
+        } else if (field.getType() == FormFieldType.DOCUMENT_LIST) {
+            writeFieldDocumentList(jsonGenerator, field);
         }
     }
 
@@ -240,9 +248,9 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
 
     private void writeFieldDateFormat(JsonGenerator jsonGenerator, FormFieldDate field) throws IOException {
         if (field.isWithTime()) {
-            jsonGenerator.writeStringField(TYPE_DATE_FORMAT, DATE_TIME_FORMAT);
+            jsonGenerator.writeStringField(TYPE_DATE_FORMAT, FORMAT_DATE_TIME);
         } else {
-            jsonGenerator.writeStringField(TYPE_DATE_FORMAT, DATE_FORMAT);
+            jsonGenerator.writeStringField(TYPE_DATE_FORMAT, FORMAT_DATE);
         }
     }
 
@@ -252,7 +260,6 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         }
 
         writeFieldSelectorOptions(jsonGenerator, field.getOptions());
-        jsonGenerator.writeEndArray();
     }
 
     private void writeFieldMultipleSelector(JsonGenerator jsonGenerator, FormFieldSelector field) throws IOException {
@@ -276,6 +283,18 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
             jsonGenerator.writeEndObject();
         }
         jsonGenerator.writeEndArray();
+    }
+
+    private void writeFieldDocument(JsonGenerator jsonGenerator, FormField field) throws IOException {
+        jsonGenerator.writeStringField(FORMAT, FORMAT_DATA_URL);
+    }
+
+    private void writeFieldDocumentList(JsonGenerator jsonGenerator, FormField field) throws IOException {
+        jsonGenerator.writeFieldName(ITEMS);
+        jsonGenerator.writeStartObject();
+        writeFieldType(jsonGenerator, TYPE_STRING);
+        jsonGenerator.writeStringField(FORMAT, FORMAT_DATA_URL);
+        jsonGenerator.writeEndObject();
     }
 
     private void writeFieldInputList(JsonGenerator jsonGenerator) throws IOException {
