@@ -141,7 +141,7 @@ class OvertimeGraph extends Component {
     };
 
     try {
-      const { payload } = await getSummaryByType(connection, 'Chart', bodyPayload);
+      const { payload } = await getSummaryByType(connection, 'TimeSeries', bodyPayload);
 
       if (payload) {
         const series1 = (payload.series && payload.series[0]) || { values: [] };

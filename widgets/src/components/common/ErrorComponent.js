@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CloudOff from '@material-ui/icons/CloudOff';
+import i18next from 'i18next';
+import CloudOffIcon from '@material-ui/icons/CloudOff';
+import GridOffIcon from '@material-ui/icons/GridOff';
+import ReportIcon from '@material-ui/icons/Report';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -18,24 +21,34 @@ const styles = {
   },
 };
 
-const ErrorComponent = ({ classes, message }) => (
-  <div className={classes.root}>
-    <CloudOff className={classes.icon} />
-    <Typography>{message}</Typography>
-  </div>
-);
+const ErrorComponent = ({ classes, message }) => {
+  const getIconDisplay = msg => {
+    switch (msg) {
+      case 'taskList.emptyList':
+        return GridOffIcon;
+      case 'messages.errors.errorResponse':
+        return ReportIcon;
+      default:
+        return CloudOffIcon;
+    }
+  };
+
+  const Represent = getIconDisplay(message);
+
+  return (
+    <div className={classes.root}>
+      <Represent className={classes.icon} />
+      <Typography>{i18next.t(message)}</Typography>
+    </div>
+  );
+};
 
 ErrorComponent.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string,
     icon: PropTypes.string,
-  }),
-  message: PropTypes.string,
-};
-
-ErrorComponent.defaultProps = {
-  classes: {},
-  message: '',
+  }).isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(ErrorComponent);
