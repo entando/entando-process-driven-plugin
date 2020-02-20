@@ -33,7 +33,7 @@ class TaskList extends React.Component {
     rows: [],
     size: 0,
     connection: {},
-    error: null,
+    blocker: '',
     errorAlert: null,
     lastPage: false,
     diagramModal: {
@@ -60,7 +60,7 @@ class TaskList extends React.Component {
         throw widgetConfigs.errors[0];
       }
       if (!widgetConfigs.payload) {
-        throw new Error('No configuration found for this widget');
+        throw new Error('messages.errors.widgetConfig');
       }
 
       const { config } = widgetConfigs.payload;
@@ -69,25 +69,33 @@ class TaskList extends React.Component {
         ? await getTasks(config.knowledgeSource, 0, 10)
         : await getTasks(config.knowledgeSource);
 
-      const options = JSON.parse(config.options);
-      const rows = normalizeRows(taskList.payload);
+      if (!taskList.payload) {
+        throw new Error('messages.errors.errorResponse');
+      }
 
-      // dispatch onSelectTask event for the first item on list
-      onSelectTask(rows[0]);
+      if (!taskList.payload.length) {
+        this.setState({ blocker: 'taskList.emptyList' });
+      } else {
+        const options = JSON.parse(config.options);
+        const rows = normalizeRows(taskList.payload);
 
-      this.setState({
-        loading: false,
-        columns: normalizeColumns(JSON.parse(config.columns), rows[0], options, {
-          openDiagram: this.openDiagram,
-          selectTask: onSelectTask,
-        }),
-        rows,
-        lastPage: taskList.metadata.lastPage === 1,
-        size: taskList.metadata.size,
-        connection: config.knowledgeSource,
-      });
+        // dispatch onSelectTask event for the first item on list
+        onSelectTask(rows[0]);
+
+        this.setState({
+          loading: false,
+          columns: normalizeColumns(JSON.parse(config.columns), rows[0], options, {
+            openDiagram: this.openDiagram,
+            selectTask: onSelectTask,
+          }),
+          rows,
+          lastPage: taskList.metadata.lastPage === 1,
+          size: taskList.metadata.size,
+          connection: config.knowledgeSource,
+        });
+      }
     } catch (error) {
-      this.handleError(error.message, true);
+      this.handleError(error.message, 'messages.errors.dataLoading');
     }
   };
 
@@ -129,7 +137,7 @@ class TaskList extends React.Component {
       });
       callback();
     } catch (error) {
-      this.handleError(error, true);
+      this.handleError(error, 'messages.errors.dataLoading');
       this.setState({ loading: false });
     }
   };
@@ -150,7 +158,7 @@ class TaskList extends React.Component {
           },
         });
       } catch (error) {
-        this.handleError(error, false);
+        this.handleError(error);
       } finally {
         this.setState({ loading: false });
       }
@@ -166,17 +174,26 @@ class TaskList extends React.Component {
     this.setState({ errorAlert: null });
   };
 
-  handleError(err, disableScreen) {
+  handleError(err, blocker = '') {
     const { onError } = this.props;
     onError(err);
     this.setState({
-      error: disableScreen,
       errorAlert: err.toString(),
+      blocker,
     });
   }
 
   render() {
-    const { loading, columns, rows, size, error, errorAlert, lastPage, diagramModal } = this.state;
+    const {
+      loading,
+      columns,
+      rows,
+      size,
+      blocker,
+      errorAlert,
+      lastPage,
+      diagramModal,
+    } = this.state;
     const { classes, lazyLoading } = this.props;
 
     let lazyLoadingProps;
@@ -191,8 +208,8 @@ class TaskList extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Paper className={classes.paper}>
-          {error ? (
-            <ErrorComponent message={i18next.t('messages.errors.dataLoading')} />
+          {blocker ? (
+            <ErrorComponent message={blocker} />
           ) : (
             <Table
               loading={loading}
