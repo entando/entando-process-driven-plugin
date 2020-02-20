@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import ProcessForm from 'components/ProcessForm/ProcessFormContainer';
 import { createWidgetEvent } from 'custom-elements/customEventsUtils';
 
-const CUSTOM_EVENT_PREFIX = 'processform.';
+const CUSTOM_EVENT_PREFIX = 'processform';
 const ON_SUBMIT_FORM = `${CUSTOM_EVENT_PREFIX}.onSubmitForm`;
 const ON_ERROR = `${CUSTOM_EVENT_PREFIX}.onError`;
 

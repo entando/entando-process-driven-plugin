@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { authenticate } from 'api/app-builder/pages';
 import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
+import SETTINGS from 'mocks/app-builder/pages';
 import Menu from 'components/App/Menu';
 
 import 'components/App/App.css';
@@ -23,6 +24,8 @@ import Home from 'components/App/Home';
 
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
+import OvertimeGraphContainer from 'components/OvertimeGraph/OvertimeGraphContainer';
+import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
 
 import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
@@ -48,6 +51,9 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+  },
+  userAuth: {
+    marginLeft: '20px',
   },
 }));
 
@@ -108,6 +114,13 @@ function App() {
               label="Lazy Loading"
               labelPlacement="start"
             />
+            <user-auth
+              kc-auth-url="http://test-keycloak.51.91.30.184.nip.io/auth"
+              kc-realm="entando"
+              kc-client-id="eti-dig-ex"
+              base-url=""
+              class={classes.userAuth}
+            />
           </Toolbar>
         </AppBar>
 
@@ -125,7 +138,10 @@ function App() {
               />
             )}
           />
-          <Route path="/TaskListConfig" render={() => <TaskListConfig config={{}} />} />
+          <Route
+            path="/TaskListConfig"
+            render={() => <TaskListConfig config={SETTINGS.TASK_LIST.payload.config} />}
+          />
           <Route
             path="/TaskDetails/"
             render={() => (
@@ -187,6 +203,17 @@ function App() {
             )}
           />
           <Route path="/ProcessFormConfig" render={() => <ProcessFormConfig config={{}} />} />
+          <Route
+            path="/OvertimeGraph"
+            render={() => (
+              <OvertimeGraphContainer
+                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
+                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
+                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
+              />
+            )}
+          />
+          <Route path="/OvertimeGraphConfig" render={() => <OvertimeGraphConfig config={{}} />} />
         </Container>
       </Router>
     </div>

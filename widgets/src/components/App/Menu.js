@@ -14,6 +14,7 @@ import {
 import {
   Home as HomeIcon,
   List as ListIcon,
+  BarChart as BarChartIcon,
   Settings as SettingsIcon,
   Dashboard as DashboardIcon,
   Description as DescriptionIcon,
@@ -69,6 +70,12 @@ const menuItems = [
     linkText: 'Process form',
     Icon: <DescriptionIcon />,
     configLinkTo: '/ProcessFormConfig',
+  },
+  {
+    linkTo: '/OvertimeGraph',
+    linkText: 'Overtime graph',
+    Icon: <BarChartIcon />,
+    configLinkTo: '/OvertimeGraphConfig',
   },
 ];
 

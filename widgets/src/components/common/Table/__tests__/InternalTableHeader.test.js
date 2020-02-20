@@ -9,7 +9,11 @@ import jsonRows from 'mocks/pda/tasks.json';
 const columns = normalizeColumns(
   JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.columns),
   jsonRows.payload[0],
-  JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.options)
+  JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.options),
+  {
+    openDiagram: jest.fn(),
+    selectTask: jest.fn(),
+  }
 );
 
 describe('<InternalTableHeader />', () => {
