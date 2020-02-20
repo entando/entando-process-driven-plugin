@@ -5,23 +5,22 @@ import { withStyles } from '@material-ui/core';
 
 import columnType from 'types/columnType';
 
+const StyledTableCell = withStyles(
+  {
+    root: {
+      background: 'white',
+      whiteSpace: 'nowrap',
+      padding: '9px 16px 10px',
+    },
+  },
+  { name: 'StyledTableCell' }
+)(TableCell);
+
 const InternalTableCell = ({ column, row }) => {
   const CustomCell = column.customCell;
 
-  const StyledTableCell = withStyles(
-    {
-      root: {
-        ...column.styles,
-        background: 'white',
-        whiteSpace: 'nowrap',
-        padding: '9px 16px 10px',
-      },
-    },
-    { name: 'StyledTableCell' }
-  )(TableCell);
-
   return (
-    <StyledTableCell size="small" key={column.accessor} align={column.align}>
+    <StyledTableCell size="small" key={column.accessor} align={column.align} style={column.styles}>
       {CustomCell ? <CustomCell row={row} /> : row[column.accessor]}
     </StyledTableCell>
   );

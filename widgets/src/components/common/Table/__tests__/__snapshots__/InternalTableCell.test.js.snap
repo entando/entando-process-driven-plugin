@@ -7,6 +7,7 @@ exports[`<InternalTableCell /> renders snapshot correctly for a custom cell 1`] 
       <tr>
         <td
           class="MuiTableCell-root StyledTableCell-root-14 MuiTableCell-sizeSmall"
+          style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
         >
           <button
             aria-haspopup="true"
