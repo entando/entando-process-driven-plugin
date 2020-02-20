@@ -33,8 +33,7 @@ class TaskList extends React.Component {
     rows: [],
     size: 0,
     connection: {},
-    blocker: false,
-    blockerMessage: '',
+    blocker: '',
     errorAlert: null,
     lastPage: false,
     diagramModal: {
@@ -80,36 +79,23 @@ class TaskList extends React.Component {
         throw new Error('messages.errors.errorResponse');
       }
 
-      const states = {
-        loading: false,
-        columns: normalizeColumns(JSON.parse(config.columns), rows[0], options, {
-          openDiagram: this.openDiagram,
-          selectTask: onSelectTask,
-        }),
-        rows,
-        lastPage: taskList.metadata.lastPage === 1,
-        size: taskList.metadata.size,
-        connection: config.knowledgeSource,
-      };
-
       if (!taskList.payload.length) {
-        this.handleDisableScreen('taskList.emptyList');
+        this.setState({ blocker: 'taskList.emptyList' });
       } else {
         this.setState({
-          ...states,
-          columns: normalizeColumns(
-            JSON.parse(config.columns),
-            taskList.payload[0],
-            options,
-            this.openDiagram
-          ),
-          rows: normalizeRows(taskList.payload),
+          loading: false,
+          columns: normalizeColumns(JSON.parse(config.columns), rows[0], options, {
+            openDiagram: this.openDiagram,
+            selectTask: onSelectTask,
+          }),
+          rows,
           lastPage: taskList.metadata.lastPage === 1,
           size: taskList.metadata.size,
+          connection: config.knowledgeSource,
         });
       }
     } catch (error) {
-      this.handleError(error.message, true);
+      this.handleError(error.message, 'messages.errors.dataLoading');
     }
   };
 
@@ -151,7 +137,7 @@ class TaskList extends React.Component {
       });
       callback();
     } catch (error) {
-      this.handleError(error, true);
+      this.handleError(error, 'messages.errors.dataLoading');
       this.setState({ loading: false });
     }
   };
@@ -172,7 +158,7 @@ class TaskList extends React.Component {
           },
         });
       } catch (error) {
-        this.handleError(error, false);
+        this.handleError(error);
       } finally {
         this.setState({ loading: false });
       }
@@ -188,20 +174,12 @@ class TaskList extends React.Component {
     this.setState({ errorAlert: null });
   };
 
-  handleDisableScreen = message => {
-    this.setState({
-      blocker: true,
-      blockerMessage: message,
-    });
-  };
-
-  handleError(err, blocker, blockerMessage = '') {
+  handleError(err, blocker = '') {
     const { onError } = this.props;
     onError(err);
     this.setState({
       errorAlert: err.toString(),
       blocker,
-      blockerMessage,
     });
   }
 
@@ -212,7 +190,6 @@ class TaskList extends React.Component {
       rows,
       size,
       blocker,
-      blockerMessage,
       errorAlert,
       lastPage,
       diagramModal,
@@ -231,9 +208,8 @@ class TaskList extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Paper className={classes.paper}>
-          {blocker ? (
-            <ErrorComponent message={blockerMessage} />
-          ) : (
+          {blocker && <ErrorComponent message={blocker} />}
+          {!blocker && (
             <Table
               loading={loading}
               title={i18next.t('table.title')}

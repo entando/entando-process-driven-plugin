@@ -24,7 +24,7 @@ const styles = {
 const ErrorComponent = ({ classes, message }) => {
   const getIconDisplay = msg => {
     switch (msg) {
-      case 'messages.warnings.emptyList':
+      case 'taskList.emptyList':
         return GridOffIcon;
       case 'messages.errors.errorResponse':
         return ReportIcon;
@@ -47,13 +47,8 @@ ErrorComponent.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string,
     icon: PropTypes.string,
-  }),
-  message: PropTypes.string,
-};
-
-ErrorComponent.defaultProps = {
-  classes: {},
-  message: 'messages.errors.dataLoading',
+  }).isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(ErrorComponent);

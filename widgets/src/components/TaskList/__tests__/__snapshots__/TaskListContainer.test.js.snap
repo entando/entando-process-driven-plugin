@@ -5,6 +5,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
   <div
     class="MuiPaper-root TaskList-paper-1 MuiPaper-elevation1 MuiPaper-rounded"
   >
+    
     <div
       class="MuiToolbar-root MuiToolbar-regular Table-toolbar-30 MuiToolbar-gutters"
     >
@@ -14556,7 +14557,9 @@ exports[`<TaskListContainer /> renders snapshot correctly on error state 1`] = `
       </svg>
       <p
         class="MuiTypography-root MuiTypography-body1"
-      />
+      >
+        messages.errors.dataLoading
+      </p>
     </div>
   </div>
   <div
