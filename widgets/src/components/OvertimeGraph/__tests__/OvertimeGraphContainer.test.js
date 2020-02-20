@@ -10,7 +10,7 @@ describe('<OvertimeGraphContainer />', () => {
   it('renders snapshot correctly', async () => {
     const configUrl = `${DOMAINS.APP_BUILDER}/api/pages//widgets/`;
     const connection = 'kieStaging';
-    const summaryUrl = `/connections/${connection}/summaries/summaryTypes/Chart`;
+    const summaryUrl = `/connections/${connection}/summaries/summaryTypes/TimeSeries`;
 
     fetch
       .once(JSON.stringify(WIDGET_CONFIGS.OVERTIME_GRAPH))
