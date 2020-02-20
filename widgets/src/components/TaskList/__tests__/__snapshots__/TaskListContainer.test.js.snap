@@ -5,7 +5,6 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
   <div
     class="MuiPaper-root TaskList-paper-1 MuiPaper-elevation1 MuiPaper-rounded"
   >
-    
     <div
       class="MuiToolbar-root MuiToolbar-regular Table-toolbar-30 MuiToolbar-gutters"
     >

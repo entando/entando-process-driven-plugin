@@ -69,12 +69,6 @@ class TaskList extends React.Component {
         ? await getTasks(config.knowledgeSource, 0, 10)
         : await getTasks(config.knowledgeSource);
 
-      const options = JSON.parse(config.options);
-      const rows = normalizeRows(taskList.payload);
-
-      // dispatch onSelectTask event for the first item on list
-      onSelectTask(rows[0]);
-
       if (!taskList.payload) {
         throw new Error('messages.errors.errorResponse');
       }
@@ -82,6 +76,12 @@ class TaskList extends React.Component {
       if (!taskList.payload.length) {
         this.setState({ blocker: 'taskList.emptyList' });
       } else {
+        const options = JSON.parse(config.options);
+        const rows = normalizeRows(taskList.payload);
+
+        // dispatch onSelectTask event for the first item on list
+        onSelectTask(rows[0]);
+
         this.setState({
           loading: false,
           columns: normalizeColumns(JSON.parse(config.columns), rows[0], options, {
@@ -208,8 +208,9 @@ class TaskList extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Paper className={classes.paper}>
-          {blocker && <ErrorComponent message={blocker} />}
-          {!blocker && (
+          {blocker ? (
+            <ErrorComponent message={blocker} />
+          ) : (
             <Table
               loading={loading}
               title={i18next.t('table.title')}
