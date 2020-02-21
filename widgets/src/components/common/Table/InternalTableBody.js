@@ -14,7 +14,6 @@ const StyledTableRowHover = withStyles(
       color: '#e7eaec',
       '&:hover > *': {
         backgroundColor: '#f9f8f8',
-        fontWeight: 'bold',
       },
     },
   },
