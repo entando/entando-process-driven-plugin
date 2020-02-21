@@ -1,5 +1,25 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+
+import { createWidgetEvent, PDA_CONFIG_ON_UPDATE } from 'custom-elements/customEventsUtils';
+
+setTimeout(() => {
+  localStorage.setItem(
+    'badgeStyles',
+    JSON.stringify({
+      success: {
+        bgColor: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+      },
+      fail: {
+        bgColor: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+      },
+      pending: {
+        bgColor: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+      },
+    })
+  );
+  createWidgetEvent(PDA_CONFIG_ON_UPDATE)();
+}, 5000);
 
 const Home = () => (
   <div className="app-home">

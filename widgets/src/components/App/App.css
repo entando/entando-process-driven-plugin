@@ -11,3 +11,8 @@
 .app-container {
   padding: 20px;
 }
+
+div.badge-chip-custom {
+  color: #abcdef;
+  background-color: #000000;
+}

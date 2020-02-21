@@ -6,8 +6,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import FormLabel from '@material-ui/core/FormLabel';
 
-import BadgeChip from 'components/common/BadgeChip';
-
 const parseDate = value => (value ? new Date(value).toLocaleString(i18next.language || 'en') : '-');
 
 const displayedDetails = [
@@ -27,7 +25,7 @@ const displayedDetails = [
   {
     label: 'task.fields.status',
     value: 'status',
-    render: value => <BadgeChip label={value} />,
+    render: value => <badge-chip badge-label={value} badge-value={value} />,
   },
   {
     label: 'task.fields.due',
