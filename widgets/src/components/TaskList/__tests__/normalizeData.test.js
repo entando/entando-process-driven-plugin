@@ -62,10 +62,8 @@ describe('normalizeData', () => {
       styles: {
         position: 'sticky',
         left: 0,
-        background: 'white',
         width: 20,
         zIndex: 100,
-        borderRight: '1px solid #eee',
         paddingRight: 16,
         textAlign: 'center',
       },
