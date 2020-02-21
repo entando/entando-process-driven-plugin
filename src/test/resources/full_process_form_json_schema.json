@@ -21,7 +21,7 @@
         "format": "data-url"
       }
     },
-    "MyObject": {
+    "myObject": {
       "title": "com_myspace_forms_sample_MyObject",
       "type": "object",
       "required": [
@@ -50,7 +50,7 @@
           "description": "My Double",
           "readOnly": true
         },
-        "__unbound_field_field_5437": {
+        "myInteger": {
           "type": "integer",
           "title": "My Integer",
           "description": "My Integer"

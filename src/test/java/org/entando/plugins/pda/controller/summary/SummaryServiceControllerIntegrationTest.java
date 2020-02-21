@@ -19,8 +19,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
-import org.assertj.core.util.diff.Delta.TYPE;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
@@ -47,7 +45,6 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.web.client.ExpectedCount;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.web.client.RestTemplate;
 
 @AutoConfigureMockMvc

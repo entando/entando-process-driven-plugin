@@ -202,9 +202,9 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         } else if (field.getType() == FormFieldType.INPUT_LIST) {
             writeFieldInputList(jsonGenerator);
         } else if (field.getType() == FormFieldType.DOCUMENT) {
-            writeFieldDocument(jsonGenerator, field);
+            writeFieldDocument(jsonGenerator);
         } else if (field.getType() == FormFieldType.DOCUMENT_LIST) {
-            writeFieldDocumentList(jsonGenerator, field);
+            writeFieldDocumentList(jsonGenerator);
         }
     }
 
@@ -285,11 +285,11 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         jsonGenerator.writeEndArray();
     }
 
-    private void writeFieldDocument(JsonGenerator jsonGenerator, FormField field) throws IOException {
+    private void writeFieldDocument(JsonGenerator jsonGenerator) throws IOException {
         jsonGenerator.writeStringField(FORMAT, FORMAT_DATA_URL);
     }
 
-    private void writeFieldDocumentList(JsonGenerator jsonGenerator, FormField field) throws IOException {
+    private void writeFieldDocumentList(JsonGenerator jsonGenerator) throws IOException {
         jsonGenerator.writeFieldName(ITEMS);
         jsonGenerator.writeStartObject();
         writeFieldType(jsonGenerator, TYPE_STRING);

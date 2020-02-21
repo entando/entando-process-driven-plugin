@@ -7,7 +7,6 @@ import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_FORM_PROP_KEY
 import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_FORM_PROP_KEY_2;
 import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_ID_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_ID_2;
-import static org.entando.plugins.pda.core.utils.TestUtils.minifyJsonString;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import static org.hamcrest.Matchers.containsString;
 import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
