@@ -42,7 +42,8 @@
       "claim": "Claim",
       "diagram": "Diagram",
       "view": "View"
-    }
+    },
+    "emptyList": "You don't have any active, assigned or complete tasks"
   },
   "table": {
     "title": "Task List",
@@ -98,6 +99,8 @@
       "noFormSchema": "Form schema was not provided"
     },
     "errors": {
+      "widgetConfig": "No configuration found for this widget",
+      "errorResponse": "There seems to be an error",
       "dataLoading": "Unable to load server data.",
       "dataSaving": "Unable to save data."
     }

@@ -42,7 +42,8 @@
       "claim": "Richiesta",
       "diagram": "Diagramma",
       "view": "Vedere"
-    }
+    },
+    "emptyList": "Non hai attività attive, assegnate o complete"
   },
   "table": {
     "title": "Elenco attività",
@@ -98,6 +99,8 @@
       "noFormSchema": "Form schema was not provided"
     },
     "errors": {
+      "widgetConfig": "Nessuna configurazione trovata per questo widget",
+      "errorResponse": "Sembra esserci un errore",
       "dataLoading": "Impossibile caricare i dati del server",
       "dataSaving": "Impossibile salvare i dati."
     }
