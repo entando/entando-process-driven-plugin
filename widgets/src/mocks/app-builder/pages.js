@@ -92,7 +92,8 @@ const overtimeGraphConfigs = {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
-      settings: '{"dataType1": "requests", "dataType2": "cases"}',
+      settings:
+        '{"dataType1": "requests", "dataType2": "cases", "dailyFreqPeriods": 30, "monthlyFreqPeriods": 12, "annualFreqPeriods": 10}',
     },
   },
   metaData: { status: 'draft' },

@@ -66,12 +66,6 @@ const StyledTab = withStyles({
   // eslint-disable-next-line react/jsx-props-no-spreading
 })(props => <Tab disableRipple {...props} />);
 
-const PERIODS = {
-  DAILY: 30,
-  MONTHLY: 12,
-  ANNUALLY: 10,
-};
-
 class OvertimeGraph extends Component {
   constructor() {
     super();
@@ -132,8 +126,14 @@ class OvertimeGraph extends Component {
 
     const { config, selectedTab } = this.state;
     const connection = (config && config.knowledgeSource) || '';
-    const periods = (config && config.periods) || PERIODS[selectedTab];
-    const series = (config && config.series) || ['requests', 'cases'];
+    const settings = (config && config.settings && JSON.parse(config.settings)) || {};
+    const periods =
+      selectedTab === 'DAILY'
+        ? settings.dailyFreqPeriods
+        : selectedTab === 'MONTHLY'
+        ? settings.monthlyFreqPeriods
+        : settings.annualFreqPeriods;
+    const series = [settings.dataType1, settings.dataType2];
     const bodyPayload = {
       frequency: selectedTab,
       periods,
