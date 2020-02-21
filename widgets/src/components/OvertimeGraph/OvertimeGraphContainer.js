@@ -146,6 +146,8 @@ class OvertimeGraph extends Component {
       if (payload) {
         const series1 = (payload.series && payload.series[0]) || { values: [] };
         const series2 = (payload.series && payload.series[1]) || { values: [] };
+        const dataType1 = series1.dataType;
+        const dataType2 = series2.dataType;
         const graphData = series1.values.reverse().map(({ date, value }, i) => ({
           x: formatDate(date, selectedTab),
           bar: value,
@@ -161,6 +163,8 @@ class OvertimeGraph extends Component {
         const trend2 = cardPercent2 !== 100 ? (cardPercent2 < 100 ? 'down' : 'up') : 'none';
         const summary = {
           graphData,
+          dataType1,
+          dataType2,
           card1: {
             value: cardValue1,
             percent: cardPercent1,
@@ -192,7 +196,7 @@ class OvertimeGraph extends Component {
   render() {
     const { onError } = this.props;
     const { loading, selectedTab, summary, summaryFetching } = this.state;
-    const { graphData, card1, card2 } = summary;
+    const { graphData, dataType1, dataType2, card1, card2 } = summary;
 
     return (
       <CustomEventContext.Provider value={{ onError }}>
@@ -241,8 +245,8 @@ class OvertimeGraph extends Component {
                     <BarAreaChart
                       data={graphData}
                       legends={{
-                        bar: i18next.t(`summary.labels.chart.requests`),
-                        area: i18next.t(`summary.labels.chart.cases`),
+                        bar: i18next.t(`summary.labels.chart.${dataType1}`),
+                        area: i18next.t(`summary.labels.chart.${dataType2}`),
                       }}
                     />
                   )}
@@ -251,7 +255,7 @@ class OvertimeGraph extends Component {
                   <Box mb={1}>
                     <DataSummary
                       value={card1.value}
-                      label={i18next.t(`summary.labels.chart.card.requests`)}
+                      label={i18next.t(`summary.labels.chart.card.${dataType1}`)}
                       percent={card1.percent}
                       trend={card1.trend}
                       loading={loading || summaryFetching}
@@ -260,7 +264,7 @@ class OvertimeGraph extends Component {
                   <Box mb={1}>
                     <DataSummary
                       value={card2.value}
-                      label={i18next.t(`summary.labels.chart.card.cases`)}
+                      label={i18next.t(`summary.labels.chart.card.${dataType2}`)}
                       percent={card2.percent}
                       trend={card2.trend}
                       loading={loading || summaryFetching}
