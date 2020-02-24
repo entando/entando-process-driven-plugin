@@ -38,7 +38,6 @@ export const normalizeColumns = (columns, firstRow, options, { openDiagram, sele
     styles: {
       position: 'sticky',
       right: 0,
-      background: 'white',
       width: 20,
       zIndex: 100,
       borderLeft: '1px solid #eee',

@@ -6,8 +6,7 @@ exports[`<InternalTableCell /> renders snapshot correctly for a custom cell 1`] 
     <tbody>
       <tr>
         <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall"
-          style="white-space: nowrap;"
+          class="MuiTableCell-root StyledTableCell-root-14 MuiTableCell-sizeSmall"
         >
           294@mortgage-process_1.0.0-SNAPSHOT
         </td>
@@ -23,8 +22,7 @@ exports[`<InternalTableCell /> renders snapshot correctly for a data cell 1`] = 
     <tbody>
       <tr>
         <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall"
-          style="white-space: nowrap;"
+          class="MuiTableCell-root StyledTableCell-root-1 MuiTableCell-sizeSmall"
         >
           pamAdmin
         </td>

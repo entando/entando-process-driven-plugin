@@ -10,13 +10,13 @@ exports[`<InternalTableHead /> renders snapshot correctly 1`] = `
         class="MuiTableRow-root MuiTableRow-head"
       >
         <th
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-7"
           scope="col"
           style="white-space: nowrap;"
         >
           <span
             aria-disabled="false"
-            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-21"
+            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-22"
             role="button"
             tabindex="0"
           >
@@ -35,13 +35,13 @@ exports[`<InternalTableHead /> renders snapshot correctly 1`] = `
           </span>
         </th>
         <th
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-7"
           scope="col"
           style="white-space: nowrap;"
         >
           <span
             aria-disabled="false"
-            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-21"
+            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-22"
             role="button"
             tabindex="0"
           >

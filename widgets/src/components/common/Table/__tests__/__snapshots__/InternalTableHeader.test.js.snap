@@ -6,12 +6,12 @@ exports[`<InternalTableHeader /> renders snapshot correctly 1`] = `
     <thead>
       <tr>
         <td
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-1"
           style="white-space: nowrap;"
         >
           <span
             aria-disabled="false"
-            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-15"
+            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-16"
             role="button"
             tabindex="0"
           >
@@ -41,12 +41,12 @@ exports[`<InternalTableHeader /> renders snapshot correctly without sort functio
     <thead>
       <tr>
         <td
-          class="MuiTableCell-root MuiTableCell-head"
+          class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-34"
           style="white-space: nowrap;"
         >
           <span
             aria-disabled="false"
-            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-47"
+            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-49"
             role="button"
             tabindex="0"
           >
