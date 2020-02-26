@@ -5,6 +5,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
 import columnType from 'types/columnType';
+import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
 import withStyles from '@material-ui/core/styles/withStyles';
 import InternalTableCell from './InternalTableCell';
 
@@ -20,19 +21,24 @@ const StyledTableRowHover = withStyles(
   { name: 'StyledTableRowHover' }
 )(TableRow);
 
-const InternalTableBody = ({ columns, rows, emptyRows, rowHeight }) => {
+const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, rowAccessor }) => {
   return (
     <TableBody>
       {rows.map(row => (
-        <StyledTableRowHover
-          key={JSON.stringify(row)}
-          style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
-          hover
-        >
-          {columns.map(column => (
-            <InternalTableCell key={JSON.stringify(column)} column={column} row={row} />
-          ))}
-        </StyledTableRowHover>
+        <TableBulkSelectContext.Consumer key={JSON.stringify(row)}>
+          {({ selectedRows }) => (
+            <StyledTableRowHover
+              style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
+              hover
+              role="checkbox"
+              selected={selectedRows.has(row[rowAccessor])}
+            >
+              {columns.map(column => (
+                <InternalTableCell key={JSON.stringify(column)} column={column} row={row} />
+              ))}
+            </StyledTableRowHover>
+          )}
+        </TableBulkSelectContext.Consumer>
       ))}
       {emptyRows > 0 && (
         <TableRow style={{ height: rowHeight * emptyRows }}>
@@ -48,6 +54,7 @@ InternalTableBody.propTypes = {
   rows: PropTypes.arrayOf(PropTypes.shape({})),
   emptyRows: PropTypes.number,
   rowHeight: PropTypes.number,
+  rowAccessor: PropTypes.string,
 };
 
 InternalTableBody.defaultProps = {
@@ -55,6 +62,7 @@ InternalTableBody.defaultProps = {
   rows: [],
   emptyRows: 0,
   rowHeight: 55,
+  rowAccessor: 'id',
 };
 
 export default InternalTableBody;

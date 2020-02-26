@@ -12,7 +12,11 @@ import { getDiagram } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
 
-import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
+import {
+  normalizeColumns,
+  insertRowControls,
+  normalizeRows,
+} from 'components/TaskList/normalizeData';
 import ErrorNotification from 'components/common/ErrorNotification';
 import ErrorComponent from 'components/common/ErrorComponent';
 import Table from 'components/common/Table/Table';
@@ -82,9 +86,11 @@ class TaskList extends React.Component {
         // dispatch onSelectTask event for the first item on list
         onSelectTask(rows[0]);
 
+        const columns = normalizeColumns(JSON.parse(config.columns), rows[0]);
+
         this.setState({
           loading: false,
-          columns: normalizeColumns(JSON.parse(config.columns), rows[0], options, {
+          columns: insertRowControls(columns, options, {
             openDiagram: this.openDiagram,
             selectTask: onSelectTask,
           }),

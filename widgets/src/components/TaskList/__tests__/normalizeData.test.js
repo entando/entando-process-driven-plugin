@@ -1,6 +1,12 @@
-import { getType, normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
+import {
+  getType,
+  normalizeColumns,
+  insertRowControls,
+  normalizeRows,
+} from 'components/TaskList/normalizeData';
 import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
 import ActionCell from 'components/common/Table/custom/ActionCell';
+import CheckboxCell from 'components/common/Table/custom/CheckboxCell';
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
 import tasks from 'mocks/pda/tasks.json';
 
@@ -34,7 +40,9 @@ describe('normalizeData', () => {
     const options = JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.options);
     const openDiagram = jest.fn();
 
-    const normalized = normalizeColumns(columns, tasks.payload[0], options, openDiagram);
+    const normalize1 = normalizeColumns(columns, tasks.payload[0]);
+
+    const normalized = insertRowControls(normalize1, options, { openDiagram });
 
     const expected = columns
       .filter(column => column.isVisible)
@@ -53,6 +61,20 @@ describe('normalizeData', () => {
       obj[option.key] = option.checked;
       return obj;
     }, {});
+
+    expected.unshift({
+      header: '_checkbox',
+      customCell: CheckboxCell(),
+      styles: {
+        position: 'sticky',
+        left: 0,
+        width: 20,
+        zIndex: 100,
+        borderRight: '1px solid #eee',
+        paddingRight: 16,
+        textAlign: 'center',
+      },
+    });
 
     // add action field
     expected.push({

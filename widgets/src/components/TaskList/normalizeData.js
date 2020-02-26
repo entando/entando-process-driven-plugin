@@ -1,4 +1,5 @@
 import ActionCell from 'components/common/Table/custom/ActionCell';
+import CheckboxCell from 'components/common/Table/custom/CheckboxCell';
 import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
 
 export const getType = (column, firstRow) => {
@@ -12,7 +13,7 @@ export const getType = (column, firstRow) => {
   return sortFunction;
 };
 
-export const normalizeColumns = (columns, firstRow, options, { openDiagram, selectTask }) => {
+export const normalizeColumns = (columns, firstRow) => {
   const normalized = columns
     .filter(column => column.isVisible)
     .map(column => ({
@@ -24,14 +25,31 @@ export const normalizeColumns = (columns, firstRow, options, { openDiagram, sele
   // order columns
   normalized.sort((a, b) => (a.position > b.position ? 1 : a.position < b.position ? -1 : 0));
 
+  return normalized;
+};
+
+export const insertRowControls = (columns, options, { openDiagram, selectTask }) => {
   // find required fields according to options
   const requiredFields = options.reduce((obj, option) => {
     obj[option.key] = option.checked;
     return obj;
   }, {});
 
-  // add action field
-  normalized.push({
+  const checkboxPanel = {
+    header: '_checkbox',
+    customCell: CheckboxCell(),
+    styles: {
+      position: 'sticky',
+      left: 0,
+      width: 20,
+      zIndex: 100,
+      borderRight: '1px solid #eee',
+      paddingRight: 16,
+      textAlign: 'center',
+    },
+  };
+
+  const actionsPanel = {
     header: 'Actions',
     accessor: 'action',
     customCell: ActionCell(requiredFields, { openDiagram, selectTask }),
@@ -44,9 +62,10 @@ export const normalizeColumns = (columns, firstRow, options, { openDiagram, sele
       paddingLeft: 16,
       textAlign: 'center',
     },
-  });
+  };
 
-  return normalized;
+  // add action field
+  return [checkboxPanel, ...columns, actionsPanel];
 };
 
 export const normalizeRows = rows =>
