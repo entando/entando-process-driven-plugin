@@ -227,7 +227,6 @@ class TaskList extends React.Component {
             <Table
               loading={loading}
               title={i18next.t('table.title')}
-              subtitle={i18next.t('table.subtitle')}
               columns={columns}
               rows={rows}
               rowsPerPageOptions={[10, 25, 50, 100]}

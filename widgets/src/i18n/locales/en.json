@@ -46,7 +46,7 @@
     "emptyList": "You don't have any active, assigned or complete tasks"
   },
   "table": {
-    "title": "Task List",
+    "title": "Smart Inbox",
     "subtitle": "List of tasks",
     "searchPlaceholder": "Search...",
     "rowsPerPage": "Rows per page:",
