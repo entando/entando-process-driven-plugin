@@ -15,7 +15,7 @@ exports[`<InternalTableHeader /> renders snapshot correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            name
+            createdBy
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
@@ -42,9 +42,27 @@ exports[`<InternalTableHeader /> renders snapshot correctly without sort functio
       <tr>
         <td
           class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-34"
-          style="white-space: nowrap; position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+          style="white-space: nowrap;"
         >
-          Action
+          <span
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-49"
+            role="button"
+            tabindex="0"
+          >
+            id
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+              />
+            </svg>
+          </span>
         </td>
       </tr>
     </thead>

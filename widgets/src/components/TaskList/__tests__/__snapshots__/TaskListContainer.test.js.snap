@@ -65,13 +65,6 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <th
               class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-136"
               scope="col"
-              style="white-space: nowrap; position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
-            >
-              Action
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-136"
-              scope="col"
               style="white-space: nowrap;"
             >
               <span
@@ -694,6 +687,13 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 </svg>
               </span>
             </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head StyledHeaderCell-head-136"
+              scope="col"
+              style="white-space: nowrap; position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
+            >
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody
@@ -703,36 +703,6 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
             style="height: 55px; cursor: initial;"
           >
-            <td
-              class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
-            >
-              <button
-                aria-haspopup="true"
-                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiIconButton-label"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
-                    focusable="false"
-                    role="presentation"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
-            </td>
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -832,14 +802,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -867,6 +832,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -968,14 +938,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -1003,6 +968,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -1106,14 +1076,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -1141,6 +1106,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -1244,14 +1214,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -1279,6 +1244,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -1380,14 +1350,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -1415,6 +1380,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -1518,14 +1488,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -1553,6 +1518,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -1652,14 +1622,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -1687,6 +1652,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -1786,14 +1756,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -1821,6 +1786,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -1920,14 +1890,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -1955,6 +1920,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -2054,14 +2024,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -2089,6 +2054,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -2188,14 +2158,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -2223,6 +2188,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -2322,14 +2292,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -2357,6 +2322,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -2456,14 +2426,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -2491,6 +2456,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -2592,14 +2562,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -2627,6 +2592,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -2726,14 +2696,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -2761,6 +2726,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -2864,14 +2834,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -2899,6 +2864,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -3000,14 +2970,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -3035,6 +3000,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -3134,14 +3104,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -3169,6 +3134,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -3268,14 +3238,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -3303,6 +3268,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -3402,14 +3372,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -3437,6 +3402,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -3536,14 +3506,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -3571,6 +3536,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -3670,14 +3640,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -3705,6 +3670,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -3804,14 +3774,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -3839,6 +3804,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -3938,14 +3908,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -3973,6 +3938,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -4072,14 +4042,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -4107,6 +4072,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -4206,14 +4176,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -4241,6 +4206,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -4340,14 +4310,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -4375,6 +4340,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -4474,14 +4444,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -4509,6 +4474,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -4608,14 +4578,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -4643,6 +4608,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -4742,14 +4712,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -4777,6 +4742,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -4876,14 +4846,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -4911,6 +4876,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -5010,14 +4980,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -5045,6 +5010,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -5144,14 +5114,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -5179,6 +5144,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -5278,14 +5248,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -5313,6 +5278,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -5412,14 +5382,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -5447,6 +5412,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -5546,14 +5516,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -5581,6 +5546,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -5680,14 +5650,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -5715,6 +5680,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -5814,14 +5784,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -5849,6 +5814,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -5948,14 +5918,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -5983,6 +5948,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -6082,14 +6052,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -6117,6 +6082,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -6216,14 +6186,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -6251,6 +6216,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -6350,14 +6320,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -6385,6 +6350,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -6484,14 +6454,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -6519,6 +6484,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -6618,14 +6588,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -6653,6 +6618,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -6752,14 +6722,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -6787,6 +6752,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -6886,14 +6856,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -6921,6 +6886,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -7020,14 +6990,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -7055,6 +7020,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -7154,14 +7124,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -7189,6 +7154,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -7288,14 +7258,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -7323,6 +7288,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -7422,14 +7392,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -7457,6 +7422,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -7556,14 +7526,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -7591,6 +7556,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -7690,14 +7660,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -7725,6 +7690,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -7824,14 +7794,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -7859,6 +7824,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -7958,14 +7928,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -7993,6 +7958,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -8092,14 +8062,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -8127,6 +8092,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -8226,14 +8196,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -8261,6 +8226,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -8362,14 +8332,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -8397,6 +8362,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -8496,14 +8466,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -8531,6 +8496,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -8630,14 +8600,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -8665,6 +8630,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -8764,14 +8734,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -8799,6 +8764,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -8898,14 +8868,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -8933,6 +8898,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -9032,14 +9002,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -9067,6 +9032,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -9166,14 +9136,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -9201,6 +9166,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -9300,14 +9270,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -9335,6 +9300,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -9434,14 +9404,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -9469,6 +9434,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -9568,14 +9538,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -9603,6 +9568,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -9702,14 +9672,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -9737,6 +9702,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -9836,14 +9806,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -9871,6 +9836,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -9970,14 +9940,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -10005,6 +9970,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -10104,14 +10074,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -10139,6 +10104,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -10238,14 +10208,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -10273,6 +10238,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -10372,14 +10342,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -10407,6 +10372,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -10506,14 +10476,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -10541,6 +10506,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -10640,14 +10610,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -10675,6 +10640,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -10774,14 +10744,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -10809,6 +10774,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -10908,14 +10878,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -10943,6 +10908,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -11042,14 +11012,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -11077,6 +11042,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -11176,14 +11146,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -11211,6 +11176,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -11310,14 +11280,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -11345,6 +11310,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -11444,14 +11414,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -11479,6 +11444,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -11578,14 +11548,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -11613,6 +11578,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -11712,14 +11682,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -11747,6 +11712,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -11846,14 +11816,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -11881,6 +11846,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -11980,14 +11950,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -12015,6 +11980,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -12114,14 +12084,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
-          </tr>
-          <tr
-            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
-            style="height: 55px; cursor: initial;"
-          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
-              style="position: sticky; left: 0px; width: 20px; z-index: 100; padding-right: 16px; text-align: center;"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
             >
               <button
                 aria-haspopup="true"
@@ -12149,6 +12114,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </button>
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root StyledTableRowHover-root-161 MuiTableRow-hover"
+            style="height: 55px; cursor: initial;"
+          >
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             >
@@ -12248,6 +12218,36 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <td
               class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
             />
+            <td
+              class="MuiTableCell-root StyledTableCell-root-162 MuiTableCell-body MuiTableCell-sizeSmall"
+              style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
+            >
+              <button
+                aria-haspopup="true"
+                class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                    focusable="false"
+                    role="presentation"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

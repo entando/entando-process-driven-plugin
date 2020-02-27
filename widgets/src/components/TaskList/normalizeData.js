@@ -31,16 +31,17 @@ export const normalizeColumns = (columns, firstRow, options, { openDiagram, sele
   }, {});
 
   // add action field
-  normalized.unshift({
-    header: 'Action',
+  normalized.push({
+    header: 'Actions',
     accessor: 'action',
     customCell: ActionCell(requiredFields, { openDiagram, selectTask }),
     styles: {
       position: 'sticky',
-      left: 0,
+      right: 0,
       width: 20,
       zIndex: 100,
-      paddingRight: 16,
+      borderLeft: '1px solid #eee',
+      paddingLeft: 16,
       textAlign: 'center',
     },
   });

@@ -55,16 +55,17 @@ describe('normalizeData', () => {
     }, {});
 
     // add action field
-    expected.unshift({
-      header: 'Action',
+    expected.push({
+      header: 'Actions',
       accessor: 'action',
       customCell: ActionCell(requiredFields, openDiagram),
       styles: {
         position: 'sticky',
-        left: 0,
+        right: 0,
         width: 20,
         zIndex: 100,
-        paddingRight: 16,
+        borderLeft: '1px solid #eee',
+        paddingLeft: 16,
         textAlign: 'center',
       },
     });
