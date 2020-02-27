@@ -1,0 +1,187 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://entando.org/schemas/pda-form.json",
+  "title": "forms-sample.ProcessSample-taskform.frm",
+  "type": "object",
+  "required": [
+    "__unbound_field_field_6196",
+    "__unbound_field_field_030592"
+  ],
+  "properties": {
+    "processDocument": {
+      "type": "string",
+      "title": "Upload a document for the ProcessDocument process variable",
+      "format": "data-url"
+    },
+    "processDocumentList": {
+      "type": "array",
+      "title": "Upload a list of documents to the ProcessDocumentList process variable",
+      "items": {
+        "type": "string",
+        "format": "data-url"
+      }
+    },
+    "myObject": {
+      "title": "com_myspace_forms_sample_MyObject",
+      "type": "object",
+      "required": [
+        "myString"
+      ],
+      "properties": {
+        "myDateTime": {
+          "type": "string",
+          "title": "My Date Time ",
+          "description": "My Date Time ",
+          "format": "date-time"
+        },
+        "myBoolean": {
+          "type": "boolean",
+          "title": "My Boolean"
+        },
+        "myString": {
+          "type": "string",
+          "title": "My String ",
+          "description": "My String",
+          "maxLength": 100
+        },
+        "myDouble": {
+          "type": "number",
+          "title": "My Double - Read Only",
+          "description": "My Double",
+          "readOnly": true
+        },
+        "myInteger": {
+          "type": "integer",
+          "title": "My Integer",
+          "description": "My Integer"
+        }
+      }
+    },
+    "__unbound_field_field_9814": {
+      "type": "string",
+      "title": "My Radio Group",
+      "oneOf": [
+        {
+          "const": "myValue",
+          "title": "myText"
+        },
+        {
+          "const": "anotherValue",
+          "title": "anotherText"
+        },
+        {
+          "const": "what?",
+          "title": "yup!"
+        }
+      ]
+    },
+    "__unbound_field_field_9324": {
+      "type": "number",
+      "title": "Slider",
+      "minimum": 0.0,
+      "maximum": 200.0,
+      "multipleOf": 5.0
+    },
+    "__unbound_field_field_2802": {
+      "type": "number",
+      "title": "Slider 0to1",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "multipleOf": 0.1
+    },
+    "__unbound_field_field_6196": {
+      "type": "string",
+      "title": "This is a big text",
+      "description": "Write here!"
+    },
+    "__unbound_field_field_4073": {
+      "type": "array",
+      "title": "My Multiple Selector",
+      "items": {
+        "type": "string",
+        "oneOf": [
+          {
+            "const": "first",
+            "title": "first"
+          },
+          {
+            "const": "second",
+            "title": "second"
+          },
+          {
+            "const": "third",
+            "title": "third"
+          },
+          {
+            "const": "last",
+            "title": "last"
+          }
+        ]
+      },
+      "uniqueItems": true
+    },
+    "__unbound_field_field_653": {
+      "type": "string",
+      "title": "Combo without default",
+      "oneOf": [
+        {
+          "const": "oneValue",
+          "title": "one"
+        },
+        {
+          "const": "twoValue",
+          "title": "two"
+        },
+        {
+          "const": "threeValue",
+          "title": "three"
+        }
+      ]
+    },
+    "__unbound_field_field_68448": {
+      "type": "string",
+      "title": "Combo",
+      "default": "myValue",
+      "oneOf": [
+        {
+          "const": "myValue",
+          "title": "myText"
+        },
+        {
+          "const": "anotherValue",
+          "title": "anotherText"
+        },
+        {
+          "const": "what?",
+          "title": "yup!"
+        }
+      ]
+    },
+    "processList": {
+      "type": "array",
+      "title": "ProcessList",
+      "items": {
+        "type": "string"
+      }
+    },
+    "__unbound_field_field_030592": {
+      "type": "string",
+      "title": "My Radio Group with default value",
+      "default": "thirdValue",
+      "oneOf": [
+        {
+          "const": "firstValue",
+          "title": "first"
+        },
+        {
+          "const": "secondValue",
+          "title": "second"
+        },
+        {
+          "const": "thirdValue",
+          "title": "third"
+        }
+      ]
+    }
+  }
+}
