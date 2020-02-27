@@ -13,7 +13,7 @@ describe('TaskList API', () => {
     const url = `${DOMAINS.PDA}/connections/${connection}/tasks?page=1&pageSize=30`;
 
     fetch.mockResponseOnce(JSON.stringify(mockTasks));
-    const result = await getTasks(connection);
+    const result = await getTasks({ connection });
 
     expect(fetch.mock.calls.length).toBe(1);
     expect(fetch.mock.calls[0][0]).toEqual(url);
