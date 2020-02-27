@@ -10,7 +10,7 @@ export const getPageWidget = (pageCode, frameId, widgetType) =>
     method: METHODS.GET,
     mockResponse: WIDGET_CONFIG_MOCKUPS[widgetType],
     useAuthentication: true,
-    // forceMock: true,
+    forceMock: true,
   });
 
 export const putPageWidget = (pageCode, frameId, configs) =>
