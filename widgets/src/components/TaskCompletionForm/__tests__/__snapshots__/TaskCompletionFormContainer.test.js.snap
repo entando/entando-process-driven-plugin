@@ -19,7 +19,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
               class="MuiFormControl-root MuiFormControl-fullWidth"
             >
               <div
-                class="MuiGrid-root makeStyles-root-64 MuiGrid-container MuiGrid-spacing-xs-2"
+                class="MuiGrid-root makeStyles-root-67 MuiGrid-container MuiGrid-spacing-xs-2"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
@@ -35,11 +35,11 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                         PerformanceEvaluation-taskform.frm
                       </h3>
                       <hr
-                        class="MuiDivider-root JSONFormTitle-divider-169"
+                        class="MuiDivider-root JSONFormTitle-divider-172"
                       />
                     </div>
                     <div
-                      class="MuiGrid-root makeStyles-root-64 MuiGrid-container MuiGrid-spacing-xs-2"
+                      class="MuiGrid-root makeStyles-root-67 MuiGrid-container MuiGrid-spacing-xs-2"
                     >
                       <div
                         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
@@ -167,10 +167,10 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly on error sta
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-305 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-306 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-335"
+        class="MuiBox-root MuiBox-root-336"
       >
         messages.warnings.noData
       </div>

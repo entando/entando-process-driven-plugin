@@ -24,10 +24,10 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
       </div>
       <div>
         <div
-          class="SearchInput-root-97"
+          class="SearchInput-root-99"
         >
           <div
-            class="MuiInputBase-root SearchInput-input-98"
+            class="MuiInputBase-root SearchInput-input-100"
           >
             <input
               class="MuiInputBase-input"
@@ -14541,11 +14541,11 @@ exports[`<TaskListContainer /> renders snapshot correctly on error state 1`] = `
     class="MuiPaper-root TaskList-paper-212 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="ErrorComponent-root-274"
+      class="ErrorComponent-root-276"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root ErrorComponent-icon-275"
+        class="MuiSvgIcon-root ErrorComponent-icon-277"
         focusable="false"
         role="presentation"
         viewBox="0 0 24 24"
@@ -14565,7 +14565,7 @@ exports[`<TaskListContainer /> renders snapshot correctly on error state 1`] = `
     class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
   >
     <div
-      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-273 MuiPaper-elevation6"
+      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-275 MuiPaper-elevation6"
       direction="up"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -14574,11 +14574,11 @@ exports[`<TaskListContainer /> renders snapshot correctly on error state 1`] = `
         class="MuiSnackbarContent-message"
       >
         <span
-          class="ErrorNotification-message-270"
+          class="ErrorNotification-message-272"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root ErrorNotification-icon-271 ErrorNotification-iconVariant-272"
+            class="MuiSvgIcon-root ErrorNotification-icon-273 ErrorNotification-iconVariant-274"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -14604,7 +14604,7 @@ exports[`<TaskListContainer /> renders snapshot correctly on error state 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root ErrorNotification-icon-271"
+              class="MuiSvgIcon-root ErrorNotification-icon-273"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"

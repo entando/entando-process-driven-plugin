@@ -1520,7 +1520,7 @@ exports[`<Table /> renders snapshot correctly 1`] = `
               table.showing
             </p>
             <div
-              class="InternalTablePaginationActions-root-137"
+              class="InternalTablePaginationActions-root-135"
             >
               <button
                 class="MuiButtonBase-root MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
@@ -1555,7 +1555,7 @@ exports[`<Table /> renders snapshot correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-138"
+                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-136"
                     focusable="false"
                     role="presentation"
                     viewBox="0 0 24 24"
@@ -1567,7 +1567,7 @@ exports[`<Table /> renders snapshot correctly 1`] = `
                 </span>
               </button>
               <div
-                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-139"
+                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-137"
                 style="width: 45px;"
               >
                 <div
@@ -1647,7 +1647,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
 <div>
   
   <div
-    class="Table-tableWrapper-173"
+    class="Table-tableWrapper-171"
   >
     <table
       class="MuiTable-root"
@@ -1661,14 +1661,14 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
       </thead>
       <tbody>
         <tr
-          class="EmptyRow-root-182"
+          class="EmptyRow-root-180"
         >
           <td
             colspan="0"
             style="height: 275px;"
           >
             <p
-              class="MuiTypography-root EmptyRow-text-183 MuiTypography-body1"
+              class="MuiTypography-root EmptyRow-text-181 MuiTypography-body1"
             >
               No data to display
             </p>
@@ -1694,7 +1694,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
             class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar MuiToolbar-gutters"
           >
             <div
-              class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-215"
+              class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-213"
             />
             <p
               class="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
@@ -1719,7 +1719,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-216"
+                class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-214"
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -1735,7 +1735,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
               table.showing
             </p>
             <div
-              class="InternalTablePaginationActions-root-286"
+              class="InternalTablePaginationActions-root-282"
             >
               <button
                 class="MuiButtonBase-root MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
@@ -1770,7 +1770,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-287"
+                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-283"
                     focusable="false"
                     role="presentation"
                     viewBox="0 0 24 24"
@@ -1782,7 +1782,7 @@ exports[`<Table /> renders snapshot correctly when empty 1`] = `
                 </span>
               </button>
               <div
-                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-288"
+                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-284"
                 style="width: 35px;"
               >
                 <div
@@ -1858,10 +1858,10 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
 <div>
   
   <div
-    class="Table-tableWrapper-324"
+    class="Table-tableWrapper-320"
   >
     <table
-      class="MuiTable-root Table-hideShadows-323"
+      class="MuiTable-root Table-hideShadows-319"
     >
       <thead
         class="MuiTableHead-root"
@@ -1883,7 +1883,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -1908,7 +1908,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -1933,7 +1933,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -1958,7 +1958,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -1983,7 +1983,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2008,7 +2008,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2033,7 +2033,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2058,7 +2058,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2083,7 +2083,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2108,7 +2108,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2133,7 +2133,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2158,7 +2158,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2183,7 +2183,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2208,7 +2208,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2233,7 +2233,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2258,7 +2258,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2283,7 +2283,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2308,7 +2308,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2333,7 +2333,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2358,7 +2358,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2383,7 +2383,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2408,7 +2408,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2433,7 +2433,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2458,7 +2458,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -2483,7 +2483,7 @@ exports[`<Table /> renders snapshot correctly with no footer 1`] = `
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-347"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-343"
               role="button"
               tabindex="0"
             >
@@ -16219,7 +16219,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
 <div>
   
   <div
-    class="Table-tableWrapper-393"
+    class="Table-tableWrapper-389"
   >
     <table
       class="MuiTable-root"
@@ -16244,7 +16244,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16269,7 +16269,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16294,7 +16294,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16319,7 +16319,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16344,7 +16344,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16369,7 +16369,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16394,7 +16394,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16419,7 +16419,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16444,7 +16444,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16469,7 +16469,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16494,7 +16494,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16519,7 +16519,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16544,7 +16544,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16569,7 +16569,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16594,7 +16594,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16619,7 +16619,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16644,7 +16644,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16669,7 +16669,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16694,7 +16694,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16719,7 +16719,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16744,7 +16744,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16769,7 +16769,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16794,7 +16794,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16819,7 +16819,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -16844,7 +16844,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-416"
+              class="MuiButtonBase-root MuiTableSortLabel-root TableSortLabel-notActive-412"
               role="button"
               tabindex="0"
             >
@@ -17694,7 +17694,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
             class="MuiToolbar-root MuiToolbar-regular MuiTablePagination-toolbar MuiToolbar-gutters"
           >
             <div
-              class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-449"
+              class="MuiTablePagination-spacer WithStyles(ForwardRef(TablePagination))-spacer-445"
             />
             <p
               class="MuiTypography-root MuiTablePagination-caption MuiTypography-body2 MuiTypography-colorInherit"
@@ -17719,7 +17719,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
               />
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-450"
+                class="MuiSvgIcon-root MuiSelect-icon MuiTablePagination-selectIcon WithStyles(ForwardRef(TablePagination))-selectIcon-446"
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -17735,7 +17735,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
               table.showing
             </p>
             <div
-              class="InternalTablePaginationActions-root-525"
+              class="InternalTablePaginationActions-root-519"
             >
               <button
                 class="MuiButtonBase-root MuiIconButton-root Mui-disabled MuiIconButton-sizeSmall Mui-disabled"
@@ -17770,7 +17770,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-526"
+                    class="MuiSvgIcon-root InternalTablePaginationActions-previousIcon-520"
                     focusable="false"
                     role="presentation"
                     viewBox="0 0 24 24"
@@ -17782,7 +17782,7 @@ exports[`<Table /> when clicking on next button it should change the page 1`] = 
                 </span>
               </button>
               <div
-                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-527"
+                class="MuiFormControl-root MuiTextField-root InternalTablePaginationActions-pageNumberInput-521"
                 style="width: 45px;"
               >
                 <div

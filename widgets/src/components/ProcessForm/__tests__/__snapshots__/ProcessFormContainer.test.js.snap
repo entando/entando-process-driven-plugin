@@ -19,7 +19,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
               class="MuiFormControl-root MuiFormControl-fullWidth"
             >
               <div
-                class="MuiGrid-root makeStyles-root-68 MuiGrid-container MuiGrid-spacing-xs-2"
+                class="MuiGrid-root makeStyles-root-71 MuiGrid-container MuiGrid-spacing-xs-2"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
@@ -35,11 +35,11 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                         evaluation-taskform.frm
                       </h3>
                       <hr
-                        class="MuiDivider-root JSONFormTitle-divider-173"
+                        class="MuiDivider-root JSONFormTitle-divider-176"
                       />
                     </div>
                     <div
-                      class="MuiGrid-root makeStyles-root-68 MuiGrid-container MuiGrid-spacing-xs-2"
+                      class="MuiGrid-root makeStyles-root-71 MuiGrid-container MuiGrid-spacing-xs-2"
                     >
                       <div
                         class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
@@ -195,13 +195,13 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                             >
                               <span
                                 aria-disabled="false"
-                                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-271 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary"
+                                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-272 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary"
                               >
                                 <span
                                   class="MuiIconButton-label"
                                 >
                                   <input
-                                    class="PrivateSwitchBase-input-274"
+                                    class="PrivateSwitchBase-input-275"
                                     data-indeterminate="false"
                                     id="root_d1e6dd47-b24c-4f93-ba25-337832926124_checkBox"
                                     type="checkbox"
@@ -270,10 +270,10 @@ exports[`<ProcessFormContainer /> renders snapshot correctly on error state 1`] 
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-343 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-344 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-373"
+        class="MuiBox-root MuiBox-root-374"
       >
         messages.warnings.noData
       </div>
@@ -283,7 +283,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly on error state 1`] 
     class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
   >
     <div
-      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-380 MuiPaper-elevation6"
+      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-381 MuiPaper-elevation6"
       direction="up"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -292,11 +292,11 @@ exports[`<ProcessFormContainer /> renders snapshot correctly on error state 1`] 
         class="MuiSnackbarContent-message"
       >
         <span
-          class="ErrorNotification-message-377"
+          class="ErrorNotification-message-378"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root ErrorNotification-icon-378 ErrorNotification-iconVariant-379"
+            class="MuiSvgIcon-root ErrorNotification-icon-379 ErrorNotification-iconVariant-380"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -322,7 +322,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly on error state 1`] 
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root ErrorNotification-icon-378"
+              class="MuiSvgIcon-root ErrorNotification-icon-379"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"
