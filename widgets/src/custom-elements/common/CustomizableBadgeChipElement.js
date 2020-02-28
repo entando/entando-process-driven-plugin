@@ -2,7 +2,13 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { subscribeToWidgetEvents } from 'custom-elements/customEventsUtils';
 import BadgeChip from 'components/common/BadgeChip';
+
+const PDA_CONFIG_PREFIX = 'pda.config';
+const PDA_CONFIG_ON_UPDATE = `${PDA_CONFIG_PREFIX}.onUpdate`;
+
+const BADGE_CHIP_INPUT_EVENTS = [PDA_CONFIG_ON_UPDATE];
 
 const ATTRIBUTES = {
   locale: 'locale',
@@ -13,7 +19,11 @@ const ATTRIBUTES = {
   bgColor: 'badge-bg-color',
 };
 
-class BadgeChipElement extends HTMLElement {
+/**
+ * This Badge Chip element can be used to provide application wide styles via localStorage as
+ * well as provide update event in case styles are fetched
+ */
+class CustomizableBadgeChipElement extends HTMLElement {
   constructor(props) {
     super(props);
 
@@ -38,6 +48,14 @@ class BadgeChipElement extends HTMLElement {
     this.mountPoint = document.createElement('div');
     this.appendChild(this.mountPoint);
 
+    this.unsubscribeFromWidgetEvents = subscribeToWidgetEvents(BADGE_CHIP_INPUT_EVENTS, event => {
+      const storageStyles = localStorage.getItem('badgeStyles') || '{}';
+
+      if (event.type === PDA_CONFIG_ON_UPDATE) {
+        this.setAttribute(ATTRIBUTES.styles, storageStyles);
+      }
+    });
+
     this.render();
   }
 
@@ -49,7 +67,7 @@ class BadgeChipElement extends HTMLElement {
     const value = this.getAttribute(ATTRIBUTES.value);
     const color = this.getAttribute(ATTRIBUTES.color);
     const bgColor = this.getAttribute(ATTRIBUTES.bgColor);
-    const styles = this.getAttribute(ATTRIBUTES.styles);
+    const styles = this.getAttribute(ATTRIBUTES.styles) || localStorage.getItem('badgeStyles');
 
     ReactDOM.render(
       React.createElement(
@@ -62,6 +80,6 @@ class BadgeChipElement extends HTMLElement {
   }
 }
 
-customElements.define('badge-chip', BadgeChipElement);
+customElements.define('custom-badge-chip', CustomizableBadgeChipElement);
 
-export default BadgeChipElement;
+export default CustomizableBadgeChipElement;

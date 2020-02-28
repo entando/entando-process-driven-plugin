@@ -25,8 +25,3 @@ export const TD_ON_ERROR = `${TASK_DETAILS_PREFIX}.onError`;
 
 const TASK_LIST_PREFIX = 'task.list';
 export const TL_ON_SELECT_TASK = `${TASK_LIST_PREFIX}.onSelectTask`;
-
-const PDA_CONFIG_PREFIX = 'pda.config';
-export const PDA_CONFIG_ON_UPDATE = `${PDA_CONFIG_PREFIX}.onUpdate`;
-
-export const BADGE_CHIP_INPUT_EVENTS = [PDA_CONFIG_ON_UPDATE];
