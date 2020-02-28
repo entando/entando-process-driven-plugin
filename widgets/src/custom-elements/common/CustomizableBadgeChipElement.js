@@ -21,7 +21,7 @@ const ATTRIBUTES = {
 
 /**
  * This Badge Chip element can be used to provide application wide styles via localStorage as
- * well as provide update event in case styles are fetched
+ * well as provide update event in case styles are fetched, otherwise use BadgeChip component
  */
 class CustomizableBadgeChipElement extends HTMLElement {
   constructor(props) {

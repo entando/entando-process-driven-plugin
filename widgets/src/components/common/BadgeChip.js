@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import Chip from '@material-ui/core/Chip';
 
+// Update this list with all status values from API you need covered
 const defaultValues = {
   success: {
     bgColor: '#1AB394',
   },
-  fail: {
+  error: {
     bgColor: '#e14c38',
   },
   pending: {
