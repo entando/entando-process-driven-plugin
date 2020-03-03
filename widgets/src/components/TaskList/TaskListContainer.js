@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import SVG from 'react-inlinesvg';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 import { DOMAINS, LOCAL } from 'api/constants';
 import { getTasks } from 'api/pda/tasks';
@@ -13,6 +17,7 @@ import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
 
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
+import SearchInput from 'components/common/SearchInput';
 import ErrorNotification from 'components/common/ErrorNotification';
 import ErrorComponent from 'components/common/ErrorComponent';
 import Table from 'components/common/Table/Table';
@@ -20,6 +25,18 @@ import SimpleDialog from 'components/common/SimpleDialog';
 import theme from 'theme';
 
 const styles = {
+  toolbar: {
+    justifyContent: 'space-between',
+    padding: '16px 16px 8px 16px',
+    minHeight: 'unset',
+    borderBottom: 'solid 2px #E7EAEC',
+  },
+  noSubtitleToolbar: {
+    padding: '8px 16px',
+  },
+  title: {
+    textAlign: 'left',
+  },
   paper: {
     minHeight: 459,
     position: 'relative',
@@ -33,9 +50,11 @@ class TaskList extends React.Component {
     rows: [],
     size: 0,
     connection: {},
+    filter: '',
     blocker: '',
     errorAlert: null,
     lastPage: false,
+    activeTab: 1,
     diagramModal: {
       open: false,
       title: '',
@@ -187,6 +206,21 @@ class TaskList extends React.Component {
     this.setState({ errorAlert: null });
   };
 
+  handleChangeFilter = event => {
+    const { lazyLoading } = this.props;
+    const { rowsPerPage, sortedColumn, sortOrder } = this.state;
+    const filter = event.target.value;
+
+    this.setState({ filter });
+    if (lazyLoading) {
+      this.updateRows(0, rowsPerPage, sortedColumn, sortOrder, filter, undefined, true);
+    }
+  };
+
+  handleChangeTab = (_, activeTab) => {
+    this.setState({ activeTab });
+  };
+
   handleError(err, blocker = '') {
     const { onError } = this.props;
     onError(err);
@@ -206,8 +240,10 @@ class TaskList extends React.Component {
       errorAlert,
       lastPage,
       diagramModal,
+      filter,
+      activeTab,
     } = this.state;
-    const { classes, lazyLoading } = this.props;
+    const { classes, lazyLoading, onSelectTask } = this.props;
 
     let lazyLoadingProps;
     if (lazyLoading) {
@@ -224,14 +260,34 @@ class TaskList extends React.Component {
           {blocker ? (
             <ErrorComponent message={blocker} />
           ) : (
-            <Table
-              loading={loading}
-              title={i18next.t('table.title')}
-              columns={columns}
-              rows={rows}
-              rowsPerPageOptions={[10, 25, 50, 100]}
-              lazyLoadingProps={lazyLoadingProps}
-            />
+            <>
+              <Toolbar className={classes.toolbar}>
+                <div className={classes.title}>
+                  <Typography variant="h5">{i18next.t('table.title')}</Typography>
+                </div>
+                <div>
+                  <SearchInput value={filter} onChange={this.handleChangeFilter} />
+                </div>
+              </Toolbar>
+              <Tabs
+                indicatorColor="primary"
+                textColor="primary"
+                onChange={this.handleChangeTab}
+                value={activeTab}
+              >
+                <Tab label="MY WORK" disabled />
+                <Tab label="MY TASKS" />
+                <Tab label="MY CASES" disabled />
+              </Tabs>
+              <Table
+                loading={loading}
+                columns={columns}
+                rows={rows}
+                rowsPerPageOptions={[10, 25, 50, 100]}
+                lazyLoadingProps={lazyLoadingProps}
+                onRowClick={onSelectTask}
+              />
+            </>
           )}
         </Paper>
         <SimpleDialog
@@ -251,6 +307,8 @@ class TaskList extends React.Component {
 TaskList.propTypes = {
   classes: PropTypes.shape({
     paper: PropTypes.string,
+    toolbar: PropTypes.string,
+    title: PropTypes.string,
   }),
   lazyLoading: PropTypes.bool,
   onError: PropTypes.func,

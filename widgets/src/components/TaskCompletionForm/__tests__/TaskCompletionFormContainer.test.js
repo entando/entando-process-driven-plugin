@@ -18,7 +18,7 @@ describe('<TaskCompletionFormContainer />', () => {
     }`;
 
     fetch
-      .once(JSON.stringify(WIDGET_CONFIGS.TASK_DETAILS))
+      .once(JSON.stringify(WIDGET_CONFIGS.COMPLETION_FORM))
       .once(JSON.stringify(MOCKED_GET_TASK_RESPONSE))
       .once(JSON.stringify(MOCKED_GET_TASK_FORM_RESPONSE.DEFAULT));
 

@@ -54,7 +54,8 @@
   },
   "taskDetails": {
     "overview": {
-      "title": "Task details",
+      "title": "Task overview",
+      "detailsTitle": "Task details",
       "previous": "Previous",
       "next": "Next"
     },

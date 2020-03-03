@@ -4,14 +4,11 @@ import React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import MuiTable from '@material-ui/core/Table';
 import i18next from 'i18next';
 
 import columnType from 'types/columnType';
 
-import SearchInput from 'components/common/SearchInput';
 import TablePagination from 'components/common/Table/TablePagination';
 import EmptyRow from 'components/common/Table/EmptyRow';
 import InternalTableBody from 'components/common/Table/InternalTableBody';
@@ -30,17 +27,6 @@ export const labelDisplayedRows = ({ from, to, count }) =>
 export const swapOrder = order => (order === 'asc' ? 'desc' : 'asc');
 
 const styles = {
-  toolbar: {
-    justifyContent: 'space-between',
-    padding: '16px 16px 8px 16px',
-    minHeight: 'unset',
-  },
-  noSubtitleToolbar: {
-    padding: '8px 16px',
-  },
-  title: {
-    textAlign: 'left',
-  },
   hideShadows: {
     boxShadow: 'none',
   },
@@ -59,9 +45,7 @@ class Table extends React.Component {
       sortedColumn: props.initialSortedColumn,
       sortFunction:
         props.initialSortedColumn &&
-        props.columns.find(column => {
-          return column.accessor === props.initialSortedColumn;
-        }).sortFunction,
+        props.columns.find(column => column.accessor === props.initialSortedColumn).sortFunction,
       sortOrder: props.initialSortOrder,
       filter: '',
     };
@@ -118,41 +102,20 @@ class Table extends React.Component {
     }
   };
 
-  handleChangeFilter = event => {
-    const { lazyLoadingProps } = this.props;
-    const { rowsPerPage, sortedColumn, sortOrder } = this.state;
-    const filter = event.target.value;
-
-    this.setState({ filter });
-    if (lazyLoadingProps && lazyLoadingProps.onChange) {
-      lazyLoadingProps.onChange(
-        0,
-        rowsPerPage,
-        sortedColumn,
-        sortOrder,
-        filter,
-        () => this.setState({ page: 0, filter }),
-        true
-      );
-    }
-  };
-
   render() {
     const {
       columns,
       rows = [],
       rowsPerPageOptions,
-      title,
-      subtitle,
       hidePagination,
       classes,
       lazyLoadingProps,
       loading,
+      onRowClick,
     } = this.props;
     const { rowsPerPage, page, sortedColumn, sortOrder, sortFunction, filter } = this.state;
 
     const isLazy = lazyLoadingProps !== undefined;
-    const hasHeader = title || subtitle;
 
     let displayRows = rows;
     let rowsSize = rows.length;
@@ -194,19 +157,8 @@ class Table extends React.Component {
       <TaskListSkeleton rows={rowsPerPage} />
     ) : (
       <>
-        {hasHeader && (
-          <Toolbar className={classNames(classes.toolbar, !subtitle && classes.noSubtitleToolbar)}>
-            <div className={classes.title}>
-              <Typography variant="h5">{title}</Typography>
-              <Typography variant="subtitle2">{subtitle}</Typography>
-            </div>
-            <div>
-              <SearchInput value={filter} onChange={this.handleChangeFilter} />
-            </div>
-          </Toolbar>
-        )}
         <div className={classes.tableWrapper}>
-          <MuiTable className={classNames(!hasHeader && hidePagination && classes.hideShadows)}>
+          <MuiTable className={classNames(hidePagination && classes.hideShadows)}>
             <InternalTableHead
               columns={columns}
               createSortHandler={this.createSortHandler}
@@ -218,6 +170,7 @@ class Table extends React.Component {
                 columns={columns}
                 rows={displayRows}
                 emptyRows={rowsPerPage - displayRows.length}
+                onRowClick={onRowClick}
               />
             ) : (
               <EmptyRow colspan={columns.length} height={rowsPerPage * 55} />
@@ -281,8 +234,7 @@ Table.propTypes = {
   initialSortOrder: PropTypes.string,
   rows: PropTypes.arrayOf(PropTypes.shape({})),
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
+  onRowClick: PropTypes.func,
 };
 
 Table.defaultProps = {
@@ -290,13 +242,12 @@ Table.defaultProps = {
   loading: false,
   lazyLoadingProps: undefined,
   rowsPerPageOptions: [5, 10, 15],
-  title: '',
-  subtitle: '',
   hidePagination: false,
   initialSortedColumn: '',
   initialSortOrder: 'asc',
   rows: [],
   columns: [],
+  onRowClick: () => {},
 };
 
 export default withStyles(styles)(Table);

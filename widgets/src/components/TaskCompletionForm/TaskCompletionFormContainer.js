@@ -30,7 +30,7 @@ class TaskCompletionFormContainer extends React.Component {
   componentDidMount() {
     this.setState({ loading: true }, async () => {
       const config = await this.fetchWidgetConfigs();
-
+      console.log(config);
       this.setState({ config }, async () => {
         const formDataPromise = this.fetchTaskFormData();
         const formSchemaPromise = this.fetchSchema();
