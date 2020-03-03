@@ -1,31 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
   container: {
-    padding: '0px 5px',
+    padding: '0px 15px',
   },
   label: {
+    marginTop: '5px',
     fontWeight: 'bold',
     fontSize: '13px',
     lineHeight: '15px',
     color: '#676A6C',
   },
+  disabled: {
+    cursor: 'not-allowed',
+  },
+  disabledLabel: {
+    color: '#BBBBBB',
+    cursor: 'not-allowed',
+  },
 });
 
-const FieldTemplate = ({ id, label, required, displayLabel, children }) => {
+const FieldTemplate = props => {
   const classes = useStyles();
 
+  const { id, label, required, displayLabel, children, disabled, uiSchema } = props;
+
+  const options = (uiSchema && uiSchema['ui:options']) || {};
+
   return (
-    <div className={classes.container}>
+    <div className={classNames(classes.container, disabled && classes.disabled)}>
       {displayLabel && (
-        <label htmlFor={id} className={classes.label}>
+        <label
+          htmlFor={id}
+          className={classNames(classes.label, disabled && classes.disabledLabel)}
+        >
           {label}
-          {required ? '*' : null}
+          {required ? ' *' : null}
         </label>
       )}
-      <div>{children}</div>
+      {options.innerSize ? (
+        <Grid container spacing={3} className={classes.gridContainer}>
+          <Grid item xs={options.innerSize}>
+            {children}
+          </Grid>
+        </Grid>
+      ) : (
+        <div className={classes.field}>{children}</div>
+      )}
     </div>
   );
 };
@@ -37,12 +62,16 @@ FieldTemplate.propTypes = {
   label: PropTypes.string.isRequired,
   required: PropTypes.bool,
   displayLabel: PropTypes.bool,
+  disabled: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  uiSchema: PropTypes.shape(),
 };
 
 FieldTemplate.defaultProps = {
   displayLabel: true,
+  disabled: false,
   required: false,
+  uiSchema: {},
 };
 
 export default FieldTemplate;

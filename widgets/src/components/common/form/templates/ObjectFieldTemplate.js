@@ -8,54 +8,73 @@ const useStyles = makeStyles({
   gridContainer: {
     padding: '0px',
   },
-  gridItem: {
-    padding: '0px 5px',
-  },
   divider: {
     marginBottom: '5px',
   },
+  description: {
+    fontSize: '12px',
+    marginBottom: '20px',
+  },
 });
 
-const ObjectFieldTemplate = props => {
-  const classes = useStyles();
+const generateColumnedOFT = columnSize => {
+  const ObjectFieldTemplate = props => {
+    const classes = useStyles();
 
-  const { title, description, properties } = props;
+    const { title, description, properties, uiSchema } = props;
 
-  return (
-    <div>
-      {title}
-      <Divider className={classes.divider} />
-      {description}
-      <Grid container spacing={0} className={classes.gridContainer}>
-        {properties.map(element => {
-          const options =
-            (element.content.props &&
-              element.content.props.uiSchema &&
-              element.content.props.uiSchema['ui:options']) ||
-            {};
-          const gridItemSize = options.size || 12;
+    const objectFieldOptions = (uiSchema && uiSchema['ui:options']) || {};
 
-          return (
-            <Grid item xs={gridItemSize} key={element.content.key}>
-              <div className={classes.property}>{element.content}</div>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </div>
-  );
+    return (
+      <div>
+        {!objectFieldOptions.hideHeader && (
+          <>
+            {title}
+            {!objectFieldOptions.hideDivider && <Divider className={classes.divider} />}
+            {description && <div className={classes.description}>{description}</div>}
+          </>
+        )}
+        <Grid
+          container
+          spacing={3}
+          direction={objectFieldOptions.direction || 'row'}
+          className={classes.gridContainer}
+        >
+          {properties.map(element => {
+            const options =
+              (element.content.props &&
+                element.content.props.uiSchema &&
+                element.content.props.uiSchema['ui:options']) ||
+              {};
+
+            const gridItemSize = options.size || columnSize || 12;
+
+            return (
+              <Grid item xs={gridItemSize} key={element.content.key}>
+                {element.content}
+              </Grid>
+            );
+          })}
+        </Grid>
+      </div>
+    );
+  };
+
+  // All available props
+  // https://react-jsonschema-form.readthedocs.io/en/latest/advanced-customization/#field-template
+  ObjectFieldTemplate.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    properties: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    uiSchema: PropTypes.shape(),
+  };
+
+  ObjectFieldTemplate.defaultProps = {
+    description: '',
+    uiSchema: {},
+  };
+
+  return ObjectFieldTemplate;
 };
 
-// All available props
-// https://react-jsonschema-form.readthedocs.io/en/latest/advanced-customization/#field-template
-ObjectFieldTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  properties: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-};
-
-ObjectFieldTemplate.defaultProps = {
-  description: '',
-};
-
-export default ObjectFieldTemplate;
+export default generateColumnedOFT;

@@ -10,6 +10,9 @@ import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
 
+// TODO: Will be removed with following PRs
+// import uiSchemas from 'mocks/taskCompletionForm/exampleUiSchema'; // uiSchemas.MORTGAGE_APPLICATION_FORM
+
 class TaskCompletionFormContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +37,7 @@ class TaskCompletionFormContainer extends React.Component {
         const formSchemaPromise = this.fetchSchema();
 
         const formData = await formDataPromise;
+
         const formSchema = await formSchemaPromise;
 
         this.setState({ formData, formSchema, loading: false });

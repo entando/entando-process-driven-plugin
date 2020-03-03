@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import CustomEventContext from 'components/common/CustomEventContext';
 import JSONFormSkeleton from 'components/common/form/JSONFormSkeleton';
 import FieldTemplate from 'components/common/form/templates/FieldTemplate';
-import ObjectFieldTemplate from 'components/common/form/templates/ObjectFieldTemplate';
+import generateColumnedOFT from 'components/common/form/templates/ObjectFieldTemplate';
 import TextWidget from 'components/common/form/widgets/TextWidget';
 
 const styles = {
@@ -28,7 +28,7 @@ const styles = {
   },
 };
 
-const CompletionForm = props => {
+const JSONForm = props => {
   const {
     classes,
     loading,
@@ -36,8 +36,9 @@ const CompletionForm = props => {
     formSchema,
     formData,
     uiSchema,
-    customization: { fields = {}, templates = {}, widgets = {} },
+    customization: { fields = {}, templates = {}, widgets = {}, columnSize = 12 },
   } = props;
+
   if (loading) {
     return <JSONFormSkeleton />;
   }
@@ -47,6 +48,7 @@ const CompletionForm = props => {
   }
 
   const ThemedForm = withTheme(MuiRJSForm);
+  const ObjectFieldTemplate = generateColumnedOFT(columnSize);
 
   const customTemplates = {
     FieldTemplate,
@@ -88,7 +90,7 @@ const CompletionForm = props => {
   );
 };
 
-CompletionForm.propTypes = {
+JSONForm.propTypes = {
   classes: PropTypes.shape({
     actionButtons: PropTypes.string,
     divider: PropTypes.string,
@@ -131,10 +133,11 @@ CompletionForm.propTypes = {
       UpDownWidget: PropTypes.elementType,
       URLWidget: PropTypes.elementType,
     }),
+    columnSize: PropTypes.number,
   }),
 };
 
-CompletionForm.defaultProps = {
+JSONForm.defaultProps = {
   loading: false,
   submitting: false,
   formSchema: null,
@@ -143,4 +146,4 @@ CompletionForm.defaultProps = {
   customization: {},
 };
 
-export default withStyles(styles)(CompletionForm);
+export default withStyles(styles)(JSONForm);
