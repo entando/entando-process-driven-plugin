@@ -8,7 +8,7 @@ import MOCKED_GET_TASK_RESPONSE from 'mocks/taskDetails/getTask';
 import MOCKED_GET_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/getFormSchema';
 
 export const getTasks = async (
-  connection,
+  { connection, groups },
   page = 0,
   pageSize = 30,
   sortedColumn,
@@ -24,6 +24,7 @@ export const getTasks = async (
       sort: sortedColumn,
       direction: sortOrder,
       filter,
+      groups,
     },
     method: METHODS.GET,
     mockResponse: getMockedTasks(page, pageSize, sortedColumn, sortOrder, filter),
