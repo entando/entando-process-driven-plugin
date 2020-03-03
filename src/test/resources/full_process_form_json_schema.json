@@ -3,10 +3,7 @@
   "$id": "http://entando.org/schemas/pda-form.json",
   "title": "forms-sample.ProcessSample-taskform.frm",
   "type": "object",
-  "required": [
-    "__unbound_field_field_6196",
-    "__unbound_field_field_030592"
-  ],
+  "required": ["__unbound_field_field_6196", "__unbound_field_field_030592"],
   "properties": {
     "processDocument": {
       "type": "string",
@@ -24,9 +21,7 @@
     "myObject": {
       "title": "com_myspace_forms_sample_MyObject",
       "type": "object",
-      "required": [
-        "myString"
-      ],
+      "required": ["myString"],
       "properties": {
         "myDateTime": {
           "type": "string",
