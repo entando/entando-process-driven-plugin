@@ -11,6 +11,7 @@ import JSONFormSkeleton from 'components/common/form/JSONFormSkeleton';
 import FieldTemplate from 'components/common/form/templates/FieldTemplate';
 import generateColumnedOFT from 'components/common/form/templates/ObjectFieldTemplate';
 import TextWidget from 'components/common/form/widgets/TextWidget';
+import mortgageApplicationForm from 'components/common/form/uiSchemas/mortgageApplicationForm';
 
 const styles = {
   actionButtons: {
@@ -28,6 +29,10 @@ const styles = {
   },
 };
 
+const PREDEFINED_SCHEMAS = {
+  'http://entando.org/schemas/MortgageApplicationForm.json': mortgageApplicationForm,
+};
+
 const JSONForm = props => {
   const {
     classes,
@@ -35,7 +40,7 @@ const JSONForm = props => {
     submitting,
     formSchema,
     formData,
-    uiSchema,
+    uiSchema: userUiSchema,
     customization: { fields = {}, templates = {}, widgets = {}, columnSize = 12 },
   } = props;
 
@@ -59,6 +64,13 @@ const JSONForm = props => {
   const customWidgets = {
     TextWidget,
     ...widgets,
+  };
+
+  const schemaId = formSchema.$id;
+
+  const uiSchema = {
+    ...(PREDEFINED_SCHEMAS[schemaId] ? PREDEFINED_SCHEMAS[schemaId] : {}),
+    ...userUiSchema,
   };
 
   return (
@@ -98,7 +110,9 @@ JSONForm.propTypes = {
   }).isRequired,
   loading: PropTypes.bool,
   submitting: PropTypes.bool,
-  formSchema: PropTypes.shape({}),
+  formSchema: PropTypes.shape({
+    $id: PropTypes.string,
+  }),
   formData: PropTypes.shape({}),
   uiSchema: PropTypes.shape({}),
   customization: PropTypes.shape({
