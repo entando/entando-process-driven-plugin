@@ -12,6 +12,12 @@ export const addCustomEventListener = (eventType, eventHandler) => {
   };
 };
 
+export const subscribeToWidgetEvents = (widgetEvents, eventHandler) => {
+  return widgetEvents.map(eventType => {
+    return addCustomEventListener(eventType, eventHandler);
+  });
+};
+
 const TASK_DETAILS_PREFIX = 'task.details';
 export const TD_ON_PRESS_PREVIOUS = `${TASK_DETAILS_PREFIX}.onPressPrevious`;
 export const TD_ON_PRESS_NEXT = `${TASK_DETAILS_PREFIX}.onPressNext`;
