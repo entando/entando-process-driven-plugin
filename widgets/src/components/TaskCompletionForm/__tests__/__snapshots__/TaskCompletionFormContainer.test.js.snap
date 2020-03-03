@@ -13,121 +13,129 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
       >
         <div>
           <form
-            class="CompletionForm-themedForm-42"
+            class="JSONForm-themedForm-42"
           >
             <div
-              class="MuiFormControl-root MuiFormControl-fullWidth"
+              class="makeStyles-container-63"
             >
-              <div
-                class="MuiGrid-root makeStyles-root-64 MuiGrid-container MuiGrid-spacing-xs-2"
-              >
-                <div
-                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
-                  style="margin-bottom: 10px;"
-                >
+              <div>
+                <div>
+                  
+                  <hr
+                    class="MuiDivider-root makeStyles-divider-68"
+                  />
+                  
                   <div
-                    class="MuiFormControl-root MuiFormControl-fullWidth"
+                    class="MuiGrid-root makeStyles-gridContainer-67 MuiGrid-container MuiGrid-spacing-xs-3"
                   >
-                    <div>
-                      <h3
-                        class="MuiTypography-root MuiTypography-h3"
-                      >
-                        PerformanceEvaluation-taskform.frm
-                      </h3>
-                      <hr
-                        class="MuiDivider-root JSONFormTitle-divider-169"
-                      />
-                    </div>
                     <div
-                      class="MuiGrid-root makeStyles-root-64 MuiGrid-container MuiGrid-spacing-xs-2"
+                      class="MuiGrid-root makeStyles-gridItem-70 makeStyles-gridItem-71 MuiGrid-item MuiGrid-grid-xs-12"
                     >
                       <div
-                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
-                        style="margin-bottom: 10px;"
+                        class="makeStyles-container-63"
                       >
-                        <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth"
-                        >
-                          <div
-                            class="MuiFormControl-root MuiFormControl-fullWidth"
-                          >
+                        <div>
+                          <div>
+                            PerformanceEvaluation-taskform.frm
+                            <hr
+                              class="MuiDivider-root makeStyles-divider-68"
+                            />
+                            
                             <div
-                              class="MuiFormControl-root MuiTextField-root"
+                              class="MuiGrid-root makeStyles-gridContainer-67 MuiGrid-container MuiGrid-spacing-xs-3"
                             >
-                              <label
-                                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-                                data-shrink="true"
-                                for="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_reason"
-                                id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_reason-label"
-                              >
-                                Reason
-                              </label>
                               <div
-                                class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+                                class="MuiGrid-root makeStyles-gridItem-70 makeStyles-gridItem-175 MuiGrid-item MuiGrid-grid-xs-12"
                               >
-                                <input
-                                  aria-invalid="false"
-                                  class="MuiInputBase-input MuiInput-input"
-                                  id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_reason"
-                                  type="string"
-                                  value="Showed great results!"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <span
-                            class="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary"
-                          >
-                            Please provide reasons
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
-                        style="margin-bottom: 10px;"
-                      >
-                        <div
-                          class="MuiFormControl-root MuiFormControl-fullWidth"
-                        >
-                          <div
-                            class="MuiFormControl-root MuiFormControl-fullWidth"
-                          >
-                            <div
-                              class="MuiFormControl-root MuiTextField-root"
-                            >
-                              <label
-                                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled Mui-required Mui-required"
-                                data-shrink="true"
-                                for="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance"
-                                id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance-label"
-                              >
-                                Performance
-                                <span
-                                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                                <div
+                                  class="makeStyles-container-63"
                                 >
-                                   
-                                  *
-                                </span>
-                              </label>
+                                  <label
+                                    class="makeStyles-label-64"
+                                    for="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_reason"
+                                  >
+                                    Reason
+                                  </label>
+                                  <div>
+                                    <div
+                                      class="MuiFormControl-root makeStyles-formControl-176"
+                                    >
+                                      <div
+                                        class="MuiInputBase-root MuiOutlinedInput-root makeStyles-root-177 MuiInputBase-formControl"
+                                      >
+                                        <input
+                                          aria-invalid="false"
+                                          class="MuiInputBase-input MuiOutlinedInput-input makeStyles-input-178"
+                                          type="text"
+                                          value=""
+                                        />
+                                        <fieldset
+                                          aria-hidden="true"
+                                          class="PrivateNotchedOutline-root-217 MuiOutlinedInput-notchedOutline makeStyles-notchedOutline-179"
+                                          style="padding-left: 8px;"
+                                        >
+                                          <legend
+                                            class="PrivateNotchedOutline-legend-218"
+                                            style="width: 0.01px;"
+                                          >
+                                            <span>
+                                              ​
+                                            </span>
+                                          </legend>
+                                        </fieldset>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                               <div
-                                class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+                                class="MuiGrid-root makeStyles-gridItem-70 makeStyles-gridItem-175 MuiGrid-item MuiGrid-grid-xs-12"
                               >
-                                <input
-                                  aria-invalid="false"
-                                  class="MuiInputBase-input MuiInput-input"
-                                  id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance"
-                                  required=""
-                                  type="integer"
-                                  value="100"
-                                />
+                                <div
+                                  class="makeStyles-container-63"
+                                >
+                                  <label
+                                    class="makeStyles-label-64"
+                                    for="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance"
+                                  >
+                                    Performance
+                                     *
+                                  </label>
+                                  <div>
+                                    <div
+                                      class="MuiFormControl-root makeStyles-formControl-176"
+                                    >
+                                      <div
+                                        class="MuiInputBase-root MuiOutlinedInput-root makeStyles-root-177 MuiInputBase-formControl"
+                                      >
+                                        <input
+                                          aria-invalid="false"
+                                          class="MuiInputBase-input MuiOutlinedInput-input makeStyles-input-178"
+                                          required=""
+                                          type="text"
+                                          value=""
+                                        />
+                                        <fieldset
+                                          aria-hidden="true"
+                                          class="PrivateNotchedOutline-root-217 MuiOutlinedInput-notchedOutline makeStyles-notchedOutline-179"
+                                          style="padding-left: 8px;"
+                                        >
+                                          <legend
+                                            class="PrivateNotchedOutline-legend-218"
+                                            style="width: 0.01px;"
+                                          >
+                                            <span>
+                                              ​
+                                            </span>
+                                          </legend>
+                                        </fieldset>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
-                          <span
-                            class="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary"
-                          >
-                            Please evaluate performance
-                          </span>
                         </div>
                       </div>
                     </div>
@@ -136,7 +144,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
               </div>
             </div>
             <div
-              class="CompletionForm-actionButtons-40"
+              class="JSONForm-actionButtons-40"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
@@ -167,12 +175,12 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly on error sta
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-305 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-271 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-335"
+        class="MuiBox-root MuiBox-root-301"
       >
-        messages.warnings.noData
+        messages.warnings.noFormSchema
       </div>
     </div>
   </div>

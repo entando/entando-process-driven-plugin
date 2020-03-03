@@ -70,7 +70,7 @@ TextWidget.propTypes = {
   readonly: PropTypes.bool.isRequired,
   disabled: PropTypes.bool.isRequired,
   label: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func.isRequired,
   onBlur: PropTypes.func.isRequired,
   onFocus: PropTypes.func.isRequired,

@@ -59,7 +59,7 @@ const FieldTemplate = props => {
 // https://react-jsonschema-form.readthedocs.io/en/latest/advanced-customization/#field-template
 FieldTemplate.propTypes = {
   id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   required: PropTypes.bool,
   displayLabel: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -71,6 +71,7 @@ FieldTemplate.defaultProps = {
   displayLabel: true,
   disabled: false,
   required: false,
+  label: '',
   uiSchema: {},
 };
 

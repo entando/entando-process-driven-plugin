@@ -15,7 +15,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           class="MuiBox-root MuiBox-root-40"
         >
           <div
-            class="MuiBox-root MuiBox-root-216"
+            class="MuiBox-root MuiBox-root-219"
           >
             <h2
               class="MuiTypography-root MuiTypography-h2"
@@ -99,7 +99,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 task.fields.createdBy
               </label>
               <div
-                class="OverviewDetails-value-311"
+                class="OverviewDetails-value-314"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1"
@@ -117,7 +117,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 task.fields.name
               </label>
               <div
-                class="OverviewDetails-value-311"
+                class="OverviewDetails-value-314"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1"
@@ -135,7 +135,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 task.fields.createdOn
               </label>
               <div
-                class="OverviewDetails-value-311"
+                class="OverviewDetails-value-314"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1"
@@ -153,10 +153,10 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 task.fields.status
               </label>
               <div
-                class="OverviewDetails-value-311"
+                class="OverviewDetails-value-314"
               >
                 <div
-                  class="MuiChip-root BadgeChip-root-320"
+                  class="MuiChip-root BadgeChip-root-323"
                 >
                   <span
                     class="MuiChip-label"
@@ -175,7 +175,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 task.fields.due
               </label>
               <div
-                class="OverviewDetails-value-311"
+                class="OverviewDetails-value-314"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1"
@@ -192,7 +192,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
       class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-351"
+        class="MuiBox-root MuiBox-root-354"
       >
         <h3
           class="MuiTypography-root MuiTypography-h3"
@@ -230,7 +230,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
         class="MuiDivider-root"
       />
       <div
-        class="MuiBox-root MuiBox-root-101"
+        class="MuiBox-root MuiBox-root-102"
       >
         <div
           class="GeneralInformation-taskDatum-41"

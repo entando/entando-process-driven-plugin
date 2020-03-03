@@ -71,7 +71,7 @@ const generateColumnedOFT = columnSize => {
   // All available props
   // https://react-jsonschema-form.readthedocs.io/en/latest/advanced-customization/#field-template
   ObjectFieldTemplate.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     description: PropTypes.string,
     properties: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     uiSchema: PropTypes.shape(),
@@ -79,6 +79,7 @@ const generateColumnedOFT = columnSize => {
 
   ObjectFieldTemplate.defaultProps = {
     description: '',
+    title: '',
     uiSchema: {},
   };
 
