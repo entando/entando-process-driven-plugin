@@ -15,19 +15,27 @@ const useStyles = makeStyles({
     fontSize: '12px',
     marginBottom: '20px',
   },
+  gridItem: {
+    marginLeft: ({ uiSchema }) =>
+      uiSchema && uiSchema['ui:options'] && uiSchema['ui:options'].group ? '-12px' : 'initial',
+    marginRight: ({ uiSchema }) =>
+      uiSchema && uiSchema['ui:options'] && uiSchema['ui:options'].group ? '-12px' : 'initial',
+  },
 });
 
 const generateColumnedOFT = columnSize => {
   const ObjectFieldTemplate = props => {
-    const classes = useStyles();
+    const classes = useStyles(props);
 
     const { title, description, properties, uiSchema } = props;
 
     const objectFieldOptions = (uiSchema && uiSchema['ui:options']) || {};
 
+    const showHeader = !objectFieldOptions.hideHeader && !objectFieldOptions.group;
+
     return (
       <div>
-        {!objectFieldOptions.hideHeader && (
+        {showHeader && (
           <>
             {title}
             {!objectFieldOptions.hideDivider && <Divider className={classes.divider} />}
@@ -50,7 +58,7 @@ const generateColumnedOFT = columnSize => {
             const gridItemSize = options.size || columnSize || 12;
 
             return (
-              <Grid item xs={gridItemSize} key={element.content.key}>
+              <Grid item xs={gridItemSize} className={classes.gridItem} key={element.content.key}>
                 {element.content}
               </Grid>
             );

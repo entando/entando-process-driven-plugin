@@ -62,7 +62,7 @@ export default {
     },
     rooms: {
       'ui:options': {
-        hideHeader: true,
+        group: true,
         size: 6,
         direction: 'column',
       },
