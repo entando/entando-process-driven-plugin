@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TaskCommentsSkeleton /> renders snapshot correctly 1`] = `
+<div>
+  <div>
+    <span
+      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+      style="width: 190px; height: 20px;"
+    />
+    <hr
+      class="MuiDivider-root GeneralInformationSkeleton-divider-1"
+    />
+  </div>
+  <div>
+    <div
+      class="GeneralInformationSkeleton-comment-2"
+    >
+      <span
+        class="MuiSkeleton-root MuiSkeleton-circle GeneralInformationSkeleton-avatar-3 MuiSkeleton-pulse"
+        style="width: 40px; height: 40px;"
+      />
+      <div>
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentText-4 MuiSkeleton-pulse"
+          style="width: 90px; height: 15px;"
+        />
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentInfo-5 MuiSkeleton-pulse"
+          style="width: 190px; height: 12px;"
+        />
+      </div>
+    </div>
+    <div
+      class="GeneralInformationSkeleton-comment-2"
+    >
+      <span
+        class="MuiSkeleton-root MuiSkeleton-circle GeneralInformationSkeleton-avatar-3 MuiSkeleton-pulse"
+        style="width: 40px; height: 40px;"
+      />
+      <div>
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentText-4 MuiSkeleton-pulse"
+          style="width: 220px; height: 15px;"
+        />
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentInfo-5 MuiSkeleton-pulse"
+          style="width: 190px; height: 12px;"
+        />
+      </div>
+    </div>
+    <div
+      class="GeneralInformationSkeleton-comment-2"
+    >
+      <span
+        class="MuiSkeleton-root MuiSkeleton-circle GeneralInformationSkeleton-avatar-3 MuiSkeleton-pulse"
+        style="width: 40px; height: 40px;"
+      />
+      <div>
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentText-4 MuiSkeleton-pulse"
+          style="width: 320px; height: 15px;"
+        />
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentInfo-5 MuiSkeleton-pulse"
+          style="width: 190px; height: 12px;"
+        />
+      </div>
+    </div>
+    <div
+      class="GeneralInformationSkeleton-addComment-6"
+    >
+      <span
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+        style="width: 50px;"
+      />
+      <hr
+        class="MuiDivider-root GeneralInformationSkeleton-textField-7"
+      />
+    </div>
+    <div
+      class="GeneralInformationSkeleton-controls-8"
+    >
+      <span
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+        style="width: 70px; height: 30px;"
+      />
+    </div>
+  </div>
+</div>
+`;

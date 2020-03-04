@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddComment /> renders snapshot correctly 1`] = `
+<div>
+  <div>
+    <label
+      class="AddComment-addNoteLabel-2"
+      for="comment-entry"
+    >
+      taskComments.addNote
+    </label>
+    <textarea
+      class="AddComment-addNoteField-1"
+      id="comment-entry"
+      rows="2"
+      style="height: -4px; overflow: hidden;"
+    />
+    <textarea
+      aria-hidden="true"
+      class="AddComment-addNoteField-1"
+      readonly=""
+      style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); width: 100%;"
+      tabindex="-1"
+    />
+    <p
+      class="MuiTypography-root AddComment-addNoteLimit-3 MuiTypography-body1"
+    >
+      taskComments.maxChars
+    </p>
+    <div
+      class="AddComment-actionButtons-4"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          common.add
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

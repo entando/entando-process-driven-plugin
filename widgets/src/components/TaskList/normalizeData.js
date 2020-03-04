@@ -12,7 +12,7 @@ export const getType = (column, firstRow) => {
   return sortFunction;
 };
 
-export const normalizeColumns = (columns, firstRow, options, openDiagram) => {
+export const normalizeColumns = (columns, firstRow, options, { openDiagram, selectTask }) => {
   const normalized = columns
     .filter(column => column.isVisible)
     .map(column => ({
@@ -31,18 +31,17 @@ export const normalizeColumns = (columns, firstRow, options, openDiagram) => {
   }, {});
 
   // add action field
-  normalized.unshift({
-    header: 'Action',
+  normalized.push({
+    header: 'Actions',
     accessor: 'action',
-    customCell: ActionCell(requiredFields, openDiagram),
+    customCell: ActionCell(requiredFields, { openDiagram, selectTask }),
     styles: {
       position: 'sticky',
-      left: 0,
-      background: 'white',
+      right: 0,
       width: 20,
       zIndex: 100,
-      borderRight: '1px solid #eee',
-      paddingRight: 16,
+      borderLeft: '1px solid #eee',
+      paddingLeft: 16,
       textAlign: 'center',
     },
   });

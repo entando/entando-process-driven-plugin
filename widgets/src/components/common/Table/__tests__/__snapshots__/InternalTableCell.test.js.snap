@@ -6,34 +6,9 @@ exports[`<InternalTableCell /> renders snapshot correctly for a custom cell 1`] 
     <tbody>
       <tr>
         <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall"
-          style="position: sticky; left: 0px; background: white; width: 20px; z-index: 100; border-right: 1px solid #eee; padding-right: 16px; text-align: center; white-space: nowrap;"
+          class="MuiTableCell-root StyledTableCell-root-14 MuiTableCell-sizeSmall"
         >
-          <button
-            aria-haspopup="true"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
-                focusable="false"
-                role="presentation"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
+          294@mortgage-process_1.0.0-SNAPSHOT
         </td>
       </tr>
     </tbody>
@@ -47,10 +22,9 @@ exports[`<InternalTableCell /> renders snapshot correctly for a data cell 1`] = 
     <tbody>
       <tr>
         <td
-          class="MuiTableCell-root MuiTableCell-sizeSmall"
-          style="white-space: nowrap;"
+          class="MuiTableCell-root StyledTableCell-root-1 MuiTableCell-sizeSmall"
         >
-          Correct Data
+          pamAdmin
         </td>
       </tr>
     </tbody>

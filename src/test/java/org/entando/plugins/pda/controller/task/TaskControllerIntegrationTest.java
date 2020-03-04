@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.UUID;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
-import org.entando.plugins.pda.controller.TestConnectionConfigConfiguration;
+import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -79,6 +79,18 @@ public class TaskControllerIntegrationTest {
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload[0].name", is(TASK_NAME_1)))
                 .andExpect(jsonPath("payload[1].name", is(TASK_NAME_2)));
+    }
+
+    @Test
+    public void testSearchListTasks() throws Exception {
+        String filter = "* 1";
+
+        mockMvc.perform(get("/connections/fakeProduction/tasks?filter=" + filter))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("errors", hasSize(0)))
+                .andExpect(jsonPath("payload.size()", is(1)))
+                .andExpect(jsonPath("payload[0].name", is(TASK_NAME_1)));
     }
 
     @Test

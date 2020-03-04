@@ -15,7 +15,7 @@ import org.entando.keycloak.security.AuthenticatedUser;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.model.Comment;
-import org.entando.plugins.pda.core.request.CreateCommentRequest;
+import org.entando.plugins.pda.core.service.task.request.CreateCommentRequest;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.response.SimpleRestResponse;

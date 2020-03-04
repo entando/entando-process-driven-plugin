@@ -11,7 +11,7 @@ describe('<TaskListContainer />', () => {
   it('renders snapshot correctly', async () => {
     const configUrl = `${DOMAINS.APP_BUILDER}/api/pages//widgets/`;
     const connection = 'kieStaging';
-    const taskListUrl = `/connections/${connection}/tasks?page=1&pageSize=30`;
+    const taskListUrl = `/connections/${connection}/tasks?page=1&pageSize=10&groups=Administrators%2Cbroker%2Crest-all%2Ckie-server%2Cmanager%2Csupplier%2CIT%2CPM%2Capprover`;
 
     fetch.once(JSON.stringify(WIDGET_CONFIGS.TASK_LIST)).once(JSON.stringify(mockTasks));
 

@@ -6,9 +6,15 @@ import 'i18n';
 import 'index.css';
 
 // insert the custom elements to the scope
+import 'custom-elements/GenericConfigElement';
 import 'custom-elements/TaskListElement';
 import 'custom-elements/TaskDetailsElement';
 import 'custom-elements/TaskCompletionFormElement';
+import 'custom-elements/TaskCommentsElement';
+import 'custom-elements/SummaryCardElement';
+import 'custom-elements/ProcessFormElement';
+import 'custom-elements/UserAuthElement';
+import 'custom-elements/OvertimeGraphElement';
 
 // We only want to show the App demo in DEV mode.
 if (process.env.REACT_APP_LOCAL === 'true') {

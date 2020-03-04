@@ -11,7 +11,10 @@ const columns = normalizeColumns(
   JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.columns),
   jsonRows.payload[0],
   JSON.parse(WIDGET_CONFIGS.TASK_LIST.payload.config.options),
-  jest.fn()
+  {
+    openDiagram: jest.fn(),
+    selectTask: jest.fn(),
+  }
 );
 const rows = normalizeRows(jsonRows.payload);
 

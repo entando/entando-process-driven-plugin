@@ -27,7 +27,7 @@ const displayedDetails = [
   {
     label: 'task.fields.status',
     value: 'status',
-    render: value => <BadgeChip label={value} />,
+    render: value => <BadgeChip label={value} value={value} />,
   },
   {
     label: 'task.fields.due',

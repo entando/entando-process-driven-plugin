@@ -2,16 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import withStyles from '@material-ui/core/styles/withStyles';
-import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
 import GeneralInformationSkeleton from 'components/TaskDetails/GeneralInformation/GeneralInformationSkeleton';
+import WidgetBox from 'components/common/WidgetBox';
 
 const styles = {
-  divider: {
-    marginTop: '20px',
-    marginBottom: '10px',
-  },
   taskDatum: {
     padding: '5px 0px',
   },
@@ -24,16 +20,23 @@ const styles = {
   },
 };
 
-const GeneralInformation = ({ classes, taskInputData, loadingTask }) => {
+const GeneralInformation = ({ classes, taskInputData, loadingTask, noHeadline }) => {
   const inputDataNotAvailable = !taskInputData || Object.keys(taskInputData).length === 0;
 
   if (loadingTask) {
-    return <GeneralInformationSkeleton />;
+    return (
+      <WidgetBox>
+        <GeneralInformationSkeleton />
+      </WidgetBox>
+    );
   }
+
+  const renderedTitle = !noHeadline ? (
+    <Typography variant="h3">{i18next.t('taskDetails.generalInformation.title')}</Typography>
+  ) : null;
+
   return (
-    <div>
-      <Typography variant="h3">{i18next.t('taskDetails.generalInformation.title')}</Typography>
-      <Divider className={classes.divider} />
+    <WidgetBox title={renderedTitle} collapsible hasDivider>
       {inputDataNotAvailable && i18next.t('taskDetails.generalInformation.noInformation')}
       {!inputDataNotAvailable &&
         Object.keys(taskInputData).map(key => {
@@ -46,7 +49,7 @@ const GeneralInformation = ({ classes, taskInputData, loadingTask }) => {
             </div>
           );
         })}
-    </div>
+    </WidgetBox>
   );
 };
 
@@ -58,11 +61,13 @@ GeneralInformation.propTypes = {
   }).isRequired,
   taskInputData: PropTypes.shape(),
   loadingTask: PropTypes.bool,
+  noHeadline: PropTypes.bool,
 };
 
 GeneralInformation.defaultProps = {
   taskInputData: null,
   loadingTask: false,
+  noHeadline: false,
 };
 
 export default withStyles(styles)(GeneralInformation);
