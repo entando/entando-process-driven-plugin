@@ -10,7 +10,7 @@ import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 import Overview from 'components/TaskDetails/Overview';
 import GeneralInformation from 'components/TaskDetails/GeneralInformation';
 
-const createLink = (pageCode, taskId, locale = 'en') =>
+const createLink = (pageCode = 'pda_task_details', taskId, locale = 'en') =>
   `/entando-de-app/${locale}/${pageCode}.page?taskId=${taskId}`;
 
 class TaskDetailsContainer extends React.Component {
@@ -94,7 +94,7 @@ class TaskDetailsContainer extends React.Component {
     const { loadingTask, task, taskInputData, config } = this.state;
     const { onPressPrevious, onPressNext, onError, taskId } = this.props;
     const configs = config && config.settings;
-    const destinationPageCode = configs ? configs.destinationPageCode : 'pda_task_details';
+    console.log(configs);
 
     return (
       <CustomEventContext.Provider value={{ onPressPrevious, onPressNext, onError }}>
@@ -105,7 +105,7 @@ class TaskDetailsContainer extends React.Component {
                 task={task}
                 loadingTask={loadingTask}
                 headerLabel={configs && configs.header}
-                taskLink={createLink(destinationPageCode, taskId)}
+                taskLink={createLink(configs && configs.destinationPageCode, taskId)}
               />
             </Box>
             {configs && configs.hasGeneralInformation && (
