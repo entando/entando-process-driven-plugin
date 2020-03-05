@@ -92,7 +92,7 @@ class TaskDetailsContainer extends React.Component {
 
   render() {
     const { loadingTask, task, taskInputData, config } = this.state;
-    const { onPressPrevious, onPressNext, onError, pageCode, taskId } = this.props;
+    const { onPressPrevious, onPressNext, onError, taskId } = this.props;
     const configs = config && config.settings;
 
     return (
@@ -104,7 +104,7 @@ class TaskDetailsContainer extends React.Component {
                 task={task}
                 loadingTask={loadingTask}
                 headerLabel={configs && configs.header}
-                taskLink={createLink(pageCode, taskId)}
+                taskLink={createLink(configs.destinationPageCode, taskId)}
               />
             </Box>
             {configs && configs.hasGeneralInformation && (

@@ -24,14 +24,13 @@ class TaskDetailsConfig extends React.Component {
         settings: {
           header: '',
           hasGeneralInformation: true,
+          destinationPageCode: '',
         },
       },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.fetchScreen = this.fetchScreen.bind(this);
-    this.onChangeGeneralInformation = this.onChangeGeneralInformation.bind(this);
-    this.onChangeHeader = this.onChangeHeader.bind(this);
   }
 
   async componentDidMount() {
@@ -55,34 +54,20 @@ class TaskDetailsConfig extends React.Component {
     this.setState({ config: { ...config, knowledgeSource } }, cb);
   }
 
-  onChangeHeader({ target: { value } }) {
+  onChangeSettings = prop => e => {
     const { config } = this.state;
     const { settings } = config;
+    const value = e.state ? e.state.value : e.target.value;
     this.setState({
       config: {
         ...config,
         settings: {
           ...settings,
-          header: value,
+          [prop]: value,
         },
       },
     });
-  }
-
-  onChangeGeneralInformation(e) {
-    const { config } = this.state;
-    const { settings } = config;
-    const { value } = e.state;
-    this.setState({
-      config: {
-        ...config,
-        settings: {
-          ...settings,
-          hasGeneralInformation: value,
-        },
-      },
-    });
-  }
+  };
 
   fetchScreen() {
     const { config } = this.props;
@@ -138,7 +123,7 @@ class TaskDetailsConfig extends React.Component {
                     <select
                       className="form-control"
                       value={settings.header}
-                      onChange={this.onChangeHeader}
+                      onChange={this.onChangeSettings('header')}
                     >
                       <option value="">Select...</option>
                       {headerLabels.map(label => (
@@ -153,12 +138,27 @@ class TaskDetailsConfig extends React.Component {
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group">
+                    <ControlLabel bsClass="control-label">
+                      Page code for the Task Details destination link
+                    </ControlLabel>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={settings.destinationPageCode}
+                      onChange={this.onChangeSettings('destinationPageCode')}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12}>
+                  <FormGroup bsClass="form-group">
                     <ControlLabel bsClass="control-label">Show General Information</ControlLabel>
                     <RenderSwitch
                       id="showGeneralInformation"
                       label=""
                       checked={settings.hasGeneralInformation}
-                      onChange={this.onChangeGeneralInformation}
+                      onChange={this.onChangeSettings('hasGeneralInformation')}
                     />
                   </FormGroup>
                 </Col>
