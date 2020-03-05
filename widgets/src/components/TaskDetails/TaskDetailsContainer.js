@@ -94,7 +94,6 @@ class TaskDetailsContainer extends React.Component {
     const { loadingTask, task, taskInputData, config } = this.state;
     const { onPressPrevious, onPressNext, onError, taskId } = this.props;
     const configs = config && config.settings;
-    console.log(configs);
 
     return (
       <CustomEventContext.Provider value={{ onPressPrevious, onPressNext, onError }}>

@@ -19,7 +19,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           >
             <a
               class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-h2 MuiTypography-colorPrimary"
-              href="/entando-de-app/en/phase_1_widgets.page?taskId=294@mortgage-process_1.0.0-SNAPSHOT"
+              href="/entando-de-app/en/pda_task_details.page?taskId=294@mortgage-process_1.0.0-SNAPSHOT"
             >
               taskDetails.overview.title - 293
             </a>
