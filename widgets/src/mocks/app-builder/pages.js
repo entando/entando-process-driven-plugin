@@ -25,6 +25,7 @@ const taskDetailsConfigs = {
       settings: {
         hasGeneralInformation: true,
         header: 'taskDetails.overview.title',
+        destinationPageCode: 'pda_task_details',
       },
     },
   },

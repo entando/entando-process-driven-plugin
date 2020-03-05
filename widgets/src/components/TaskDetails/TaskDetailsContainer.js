@@ -94,6 +94,7 @@ class TaskDetailsContainer extends React.Component {
     const { loadingTask, task, taskInputData, config } = this.state;
     const { onPressPrevious, onPressNext, onError, taskId } = this.props;
     const configs = config && config.settings;
+    const destinationPageCode = configs ? configs.destinationPageCode : 'pda_task_details';
 
     return (
       <CustomEventContext.Provider value={{ onPressPrevious, onPressNext, onError }}>
@@ -104,7 +105,7 @@ class TaskDetailsContainer extends React.Component {
                 task={task}
                 loadingTask={loadingTask}
                 headerLabel={configs && configs.header}
-                taskLink={createLink(configs && configs.destinationPageCode, taskId)}
+                taskLink={createLink(destinationPageCode, taskId)}
               />
             </Box>
             {configs && configs.hasGeneralInformation && (
