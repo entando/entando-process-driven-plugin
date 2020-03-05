@@ -104,7 +104,7 @@ class TaskDetailsContainer extends React.Component {
                 task={task}
                 loadingTask={loadingTask}
                 headerLabel={configs && configs.header}
-                taskLink={createLink(configs.destinationPageCode, taskId)}
+                taskLink={createLink(configs && configs.destinationPageCode, taskId)}
               />
             </Box>
             {configs && configs.hasGeneralInformation && (
