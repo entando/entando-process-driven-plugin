@@ -156,7 +156,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 class="OverviewDetails-value-314"
               >
                 <div
-                  class="MuiChip-root BadgeChip-root-323"
+                  class="MuiChip-root makeStyles-root-323 makeStyles-root-324"
                 >
                   <span
                     class="MuiChip-label"
@@ -192,7 +192,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
       class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-354"
+        class="MuiBox-root MuiBox-root-355"
       >
         <h3
           class="MuiTypography-root MuiTypography-h3"
