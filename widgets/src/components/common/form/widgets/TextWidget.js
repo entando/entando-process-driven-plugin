@@ -79,7 +79,6 @@ TextWidget.propTypes = {
     emptyValue: PropTypes.string,
     muiProps: PropTypes.shape({
       color: PropTypes.oneOf(['primary', 'secondary']),
-      fullWidth: PropTypes.bool,
       margin: PropTypes.oneOf(['none', 'dense', 'normal']),
       multiline: PropTypes.bool,
       rows: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

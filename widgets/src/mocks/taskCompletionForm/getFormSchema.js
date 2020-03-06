@@ -19,6 +19,28 @@ export default {
             type: 'string',
             title: 'Last name',
           },
+          fieldOfEmployment: {
+            type: 'array',
+            title: 'Field of employment',
+            items: {
+              type: 'string',
+              oneOf: [
+                {
+                  const: 'IT',
+                  title: 'IT',
+                },
+                {
+                  const: 'LAW',
+                  title: 'Law',
+                },
+                {
+                  const: 'TRANSPORT',
+                  title: 'Transportation',
+                },
+              ],
+            },
+            uniqueItems: true,
+          },
           streetName: {
             type: 'string',
             title: 'Street name',
@@ -28,53 +50,16 @@ export default {
             title: 'City',
           },
           state: {
-            type: 'array',
+            type: 'string',
             title: 'State',
-            items: {
-              type: 'string',
-              oneOf: [
-                {
-                  const: 'FIRST_STATE',
-                  title: '1st state',
-                },
-                {
-                  const: 'SECOND_STATE',
-                  title: '2nd state',
-                },
-                {
-                  const: 'THIRD_STATE',
-                  title: '3rd state',
-                },
-              ],
-            },
-            uniqueItems: true,
+            enum: ['FIRST_STATE', 'SECOND_STATE', 'THIRD_STATE'],
+            enumNames: ['1st state', '2nd state', '3rd state'],
           },
           country: {
-            type: 'array',
+            type: 'string',
             title: 'Country',
-            description: 'Please choose Other if your country is not on the list yet',
-            items: {
-              type: 'string',
-              oneOf: [
-                {
-                  const: 'LT',
-                  title: 'Lithuania',
-                },
-                {
-                  const: 'IT',
-                  title: 'Italy',
-                },
-                {
-                  const: 'US',
-                  title: 'United States of America',
-                },
-                {
-                  const: 'OTHER',
-                  title: 'Other',
-                },
-              ],
-            },
-            uniqueItems: true,
+            enum: ['LT', 'IT', 'US'],
+            enumNames: ['Lithuania', 'Italy', 'United States of America'],
           },
           ssn: {
             type: 'string',
@@ -84,6 +69,11 @@ export default {
             type: 'string',
             title: 'Date of Birth',
             format: 'date',
+          },
+          agreement: {
+            type: 'boolean',
+            title:
+              'Check here to indicate that you have read and agree to the terms and conditions',
           },
         },
       },
@@ -116,56 +106,16 @@ export default {
             required: [],
             properties: {
               bedrooms: {
-                type: 'array',
+                type: 'string',
                 title: 'Bedrooms',
-                items: {
-                  type: 'string',
-                  oneOf: [
-                    {
-                      const: '1',
-                      title: '1 bedroom',
-                    },
-                    {
-                      const: '2',
-                      title: '2 bedrooms',
-                    },
-                    {
-                      const: '3',
-                      title: '3 bedrooms',
-                    },
-                    {
-                      const: '4',
-                      title: '4 bedrooms',
-                    },
-                    {
-                      const: '5+',
-                      title: '5 and more bedrooms',
-                    },
-                  ],
-                },
-                uniqueItems: true,
+                enum: [1, 2, 3, 4, 5],
+                enumNames: ['1 bedroom', '2 bedrooms', '3 bedrooms', '4 bedrooms', '5+ bedrooms'],
               },
               bathrooms: {
-                type: 'array',
+                type: 'string',
                 title: 'Bathrooms',
-                items: {
-                  type: 'string',
-                  oneOf: [
-                    {
-                      const: '1',
-                      title: '1 bathroom',
-                    },
-                    {
-                      const: '2',
-                      title: '2 bathrooms',
-                    },
-                    {
-                      const: '2.5',
-                      title: '2.5 bathrooms',
-                    },
-                  ],
-                },
-                uniqueItems: true,
+                enum: [1, 2, 3],
+                enumNames: ['1 bathroom', '2 bathrooms', '3 bathrooms'],
               },
             },
           },
@@ -178,53 +128,16 @@ export default {
             title: 'City',
           },
           state: {
-            type: 'array',
+            type: 'string',
             title: 'State',
-            items: {
-              type: 'string',
-              oneOf: [
-                {
-                  const: 'FIRST_STATE',
-                  title: '1st state',
-                },
-                {
-                  const: 'SECOND_STATE',
-                  title: '2nd state',
-                },
-                {
-                  const: 'THIRD_STATE',
-                  title: '3rd state',
-                },
-              ],
-            },
-            uniqueItems: true,
+            enum: ['FIRST_STATE', 'SECOND_STATE', 'THIRD_STATE'],
+            enumNames: ['1st state', '2nd state', '3rd state'],
           },
           country: {
-            type: 'array',
+            type: 'string',
             title: 'Country',
-            description: 'Please choose Other if your country is not on the list yet',
-            items: {
-              type: 'string',
-              oneOf: [
-                {
-                  const: 'LT',
-                  title: 'Lithuania',
-                },
-                {
-                  const: 'IT',
-                  title: 'Italy',
-                },
-                {
-                  const: 'US',
-                  title: 'United States of America',
-                },
-                {
-                  const: 'OTHER',
-                  title: 'Other',
-                },
-              ],
-            },
-            uniqueItems: true,
+            enum: ['LT', 'IT', 'US'],
+            enumNames: ['Lithuania', 'Italy', 'United States of America'],
           },
         },
       },

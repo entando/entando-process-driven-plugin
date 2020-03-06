@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
+import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
 import { withTheme } from 'react-jsonschema-form';
 import { Theme as MuiRJSForm } from 'rjsf-material-ui';
-import { withStyles } from '@material-ui/core/styles';
+
 import Button from '@material-ui/core/Button';
 
 import CustomEventContext from 'components/common/CustomEventContext';
 import JSONFormSkeleton from 'components/common/form/JSONFormSkeleton';
 import FieldTemplate from 'components/common/form/templates/FieldTemplate';
 import generateColumnedOFT from 'components/common/form/templates/ObjectFieldTemplate';
-import TextWidget from 'components/common/form/widgets/TextWidget';
+import DateWidget from 'components/common/form/widgets/DateWidget';
 import mortgageApplicationForm from 'components/common/form/uiSchemas/mortgageApplicationForm';
 
 const styles = {
@@ -52,7 +53,59 @@ const JSONForm = props => {
     return i18next.t('messages.warnings.noFormSchema');
   }
 
+  const formTheme = createMuiTheme({
+    overrides: {
+      MuiOutlinedInput: {
+        root: {
+          height: '32px',
+          borderRadius: '0px',
+        },
+      },
+      MuiFormLabel: {
+        root: {
+          display: 'none',
+        },
+      },
+      MuiInputLabel: {
+        root: {
+          display: 'none',
+        },
+      },
+      MuiSelect: {
+        select: {
+          height: '32px',
+          paddingTop: '8px', // limiting :focus highlight
+          paddingBottom: '4px', // limiting :focus highlight
+        },
+      },
+    },
+
+    props: {
+      MuiFormControl: {
+        hiddenLabel: true,
+      },
+      MuiTextField: {
+        variant: 'outlined',
+
+        // InputProps are applied to the Input element (FilledInput, OutlinedInput or Input depending variant prop value)
+        InputProps: {
+          notched: false,
+        },
+
+        // InputLabelProps are applied to the InputLabel element
+        InputLabelProps: {
+          shrink: true,
+        },
+      },
+      MuiSelect: {
+        size: 'small',
+        variant: 'outlined',
+      },
+    },
+  });
+
   const ThemedForm = withTheme(MuiRJSForm);
+
   const ObjectFieldTemplate = generateColumnedOFT(columnSize);
 
   const customTemplates = {
@@ -62,7 +115,7 @@ const JSONForm = props => {
   };
 
   const customWidgets = {
-    TextWidget,
+    DateWidget,
     ...widgets,
   };
 
@@ -79,22 +132,24 @@ const JSONForm = props => {
         <div>
           {loading && <JSONFormSkeleton />}
           {!loading && (
-            <ThemedForm
-              schema={formSchema}
-              uiSchema={uiSchema}
-              fields={fields}
-              {...customTemplates} // eslint-disable-line react/jsx-props-no-spreading
-              widgets={customWidgets}
-              formData={formData}
-              className={classes.themedForm}
-              onSubmit={e => onSubmitForm(e)}
-            >
-              <div className={classes.actionButtons}>
-                <Button type="submit" variant="contained" color="primary" disabled={submitting}>
-                  {i18next.t(submitting ? 'messages.notify.submitting' : 'common.submit')}
-                </Button>
-              </div>
-            </ThemedForm>
+            <ThemeProvider theme={formTheme}>
+              <ThemedForm
+                schema={formSchema}
+                uiSchema={uiSchema}
+                {...customTemplates} // eslint-disable-line react/jsx-props-no-spreading
+                widgets={customWidgets}
+                fields={fields}
+                formData={formData}
+                className={classes.themedForm}
+                onSubmit={e => onSubmitForm(e)}
+              >
+                <div className={classes.actionButtons}>
+                  <Button type="submit" variant="contained" color="primary" disabled={submitting}>
+                    {i18next.t(submitting ? 'messages.notify.submitting' : 'common.submit')}
+                  </Button>
+                </div>
+              </ThemedForm>
+            </ThemeProvider>
           )}
         </div>
       )}

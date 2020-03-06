@@ -16,6 +16,12 @@ export default {
         size: 6,
       },
     },
+    fieldOfEmployment: {
+      'ui:options': {
+        size: 12,
+        innerSize: 5,
+      },
+    },
     streetName: {
       'ui:options': {
         size: 6,
@@ -29,24 +35,31 @@ export default {
     state: {
       'ui:options': {
         size: 6,
-        innerSize: 6,
+        innerSize: 8,
       },
     },
     country: {
       'ui:options': {
         size: 6,
-        innerSize: 6,
+        innerSize: 8,
       },
     },
     ssn: {
       'ui:options': {
         size: 6,
+        innerSize: 6,
       },
     },
     dob: {
+      // 'ui:disabled': true,
       'ui:options': {
         size: 6,
         innerSize: 6,
+      },
+    },
+    agreement: {
+      'ui:options': {
+        size: 12,
       },
     },
   },

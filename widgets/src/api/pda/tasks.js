@@ -6,6 +6,7 @@ import makeRequest from 'api/makeRequest';
 import COLUMNS from 'mocks/pda/columns';
 import MOCKED_GET_TASK_RESPONSE from 'mocks/taskDetails/getTask';
 import MOCKED_GET_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/getFormSchema';
+import MOCKED_POST_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/postFormData';
 
 export const getTasks = async (
   { connection, groups },
@@ -47,6 +48,7 @@ export const getTask = async (connection, taskId) => {
     method: METHODS.GET,
     mockResponse: MOCKED_GET_TASK_RESPONSE,
     useAuthentication: true,
+    // forceMock: true,
   });
 };
 
@@ -60,3 +62,13 @@ export const getTaskForm = async (connection, taskId) => {
     // forceMock: true,
   });
 };
+
+export const postTaskForm = async (connection, taskId, body) =>
+  makeRequest({
+    domain: DOMAINS.PDA,
+    uri: `/connections/${connection}/tasks/${taskId}/form`,
+    method: METHODS.POST,
+    body: JSON.stringify(body),
+    mockResponse: MOCKED_POST_TASK_FORM_RESPONSE,
+    useAuthentication: true,
+  });

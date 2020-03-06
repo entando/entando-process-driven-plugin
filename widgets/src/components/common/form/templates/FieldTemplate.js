@@ -22,12 +22,26 @@ const useStyles = makeStyles({
     color: '#BBBBBB',
     cursor: 'not-allowed',
   },
+  error: {
+    color: '#f44336',
+  },
 });
 
 const FieldTemplate = props => {
   const classes = useStyles();
 
-  const { id, label, required, displayLabel, children, disabled, uiSchema } = props;
+  const {
+    id,
+    label,
+    required,
+    displayLabel,
+    children,
+    disabled,
+    uiSchema,
+    errors: {
+      props: { errors },
+    },
+  } = props;
 
   const options = (uiSchema && uiSchema['ui:options']) || {};
 
@@ -36,7 +50,11 @@ const FieldTemplate = props => {
       {displayLabel && (
         <label
           htmlFor={id}
-          className={classNames(classes.label, disabled && classes.disabledLabel)}
+          className={classNames(
+            classes.label,
+            disabled && classes.disabledLabel,
+            errors && classes.error
+          )}
         >
           {label}
           {required ? ' *' : null}
@@ -64,7 +82,8 @@ FieldTemplate.propTypes = {
   displayLabel: PropTypes.bool,
   disabled: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  uiSchema: PropTypes.shape(),
+  uiSchema: PropTypes.shape().isRequired,
+  errors: PropTypes.shape().isRequired,
 };
 
 FieldTemplate.defaultProps = {
@@ -72,7 +91,6 @@ FieldTemplate.defaultProps = {
   disabled: false,
   required: false,
   label: '',
-  uiSchema: {},
 };
 
 export default FieldTemplate;
