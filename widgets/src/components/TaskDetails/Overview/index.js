@@ -5,10 +5,11 @@ import i18next from 'i18next';
 import OverviewHeader from 'components/TaskDetails/Overview/OverviewHeader';
 import OverviewDetails from 'components/TaskDetails/Overview/OverviewDetails';
 import OverviewSkeleton from 'components/TaskDetails/Overview/OverviewSkeleton';
+import WidgetBox from 'components/common/WidgetBox';
 
 const Overview = ({ task, loadingTask }) => {
   return (
-    <div>
+    <WidgetBox>
       {loadingTask && <OverviewSkeleton />}
       {!loadingTask && task && (
         <>
@@ -18,7 +19,7 @@ const Overview = ({ task, loadingTask }) => {
           <OverviewDetails task={task} />
         </>
       )}
-    </div>
+    </WidgetBox>
   );
 };
 

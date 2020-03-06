@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SummaryCardValues /> renders snapshot correctly 1`] = `
+<div>
+  <div
+    class="SummaryCardValues-root-1 upTrend"
+  >
+    <div>
+      <h4
+        class="MuiTypography-root MuiTypography-h4"
+      >
+        summary.labels.requests.value
+      </h4>
+      <span
+        class="MuiTypography-root MuiTypography-caption"
+      >
+        summary.labels.requests.total_label
+      </span>
+    </div>
+    <div>
+      <span
+        class="MuiTypography-root SummaryCardValues-trendValue-3 MuiTypography-body2"
+      >
+        92%
+         
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root SummaryCardValues-valueIcon-4"
+          fill="none"
+          focusable="false"
+          height="11"
+          role="presentation"
+          viewBox="0 0 8 11"
+          width="8"
+        >
+          <path
+            d="M7.38618 4.23054C7.46599 4.07092 7.43697 3.87502 7.32088 3.73716L4.99909 0.951021C4.82496 0.740609 4.46218 0.740609 4.28805 0.951021L1.96626 3.73716C1.85017 3.87502 1.82841 4.07092 1.90096 4.23054C1.98077 4.39742 2.1404 4.499 2.32179 4.499H3.71486V9.14257H1.39307C1.32777 9.14257 1.25522 9.17159 1.21168 9.22238L0.0507891 10.6155C-0.00725558 10.688 -0.0145112 10.7823 0.0217667 10.8694C0.0580446 10.9492 0.145112 11 0.232179 11H5.34011C5.47071 11 5.57229 10.8984 5.57229 10.7678V4.499H6.96536C7.14675 4.499 7.30637 4.39742 7.38618 4.23054Z"
+            fill="currentcolor"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+`;

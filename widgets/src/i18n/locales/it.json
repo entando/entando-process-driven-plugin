@@ -1,15 +1,49 @@
 {
   "common": {
     "of": "di",
-    "submit": "Submit"
+    "submit": "Submit",
+    "add": "Add",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "summary": {
+    "frequency": {
+      "monthly": "Mensile",
+      "annually": "Annuale",
+      "daily": "Giornaliero"
+    },
+    "labels": {
+      "requests": {
+        "title": "Richieste",
+        "total_label": "Richieste Totali",
+        "value": "{{value, number}}"
+      },
+      "cases": {
+        "title": "Casi",
+        "total_label": "Casi Totali",
+        "value": "{{value, number}}"
+      },
+      "chart": {
+        "title": "Volume delle richieste",
+        "subtitle": "Richieste",
+        "requests": "Numero di richieste",
+        "cases": "Numero di casi",
+        "card": {
+          "requests": "Richieste totali",
+          "cases": "Casi totali"
+        }
+      }
+    }
   },
   "taskList": {
     "diagramModalTitle": "Processi",
     "actionButtons": {
       "complete": "Completare",
       "claim": "Richiesta",
-      "diagram": "Diagramma"
-    }
+      "diagram": "Diagramma",
+      "view": "Vedere"
+    },
+    "emptyList": "Non hai attività attive, assegnate o complete"
   },
   "table": {
     "title": "Elenco attività",
@@ -28,6 +62,13 @@
       "title": "General Information",
       "noInformation": "No information available"
     }
+  },
+  "taskComments": {
+    "addNote": "Add note",
+    "title": "Task notes",
+    "noComments": "No notes on this task",
+    "remove": "Remove",
+    "maxChars": "Massimo {{max}} caratteri (rimanenti: {{rem}})"
   },
   "task": {
     "fields": {
@@ -50,11 +91,17 @@
     }
   },
   "messages": {
+    "notify": {
+      "submitting": "Invio..."
+    },
     "warnings": {
       "noData": "Non ci sono dati da visualizzare"
     },
     "errors": {
-      "dataLoading": "Impossibile caricare i dati del server"
+      "widgetConfig": "Nessuna configurazione trovata per questo widget",
+      "errorResponse": "Sembra esserci un errore",
+      "dataLoading": "Impossibile caricare i dati del server",
+      "dataSaving": "Impossibile salvare i dati."
     }
   }
 }

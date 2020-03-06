@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import theme from 'theme';
 import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
-import CompletionForm from 'components/TaskCompletionForm/CompletionForm';
+import JSONForm from 'components/common/form/JSONForm';
 import { getTask, getTaskForm } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 
@@ -75,7 +75,7 @@ class TaskCompletionFormContainer extends React.Component {
     const { taskId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const containerId = (config && config.containerId) || '';
+    const [, containerId] = (config && config.process && config.process.split('@')) || '';
     const taskContainerId = `${taskId}@${containerId}`;
 
     try {
@@ -93,7 +93,7 @@ class TaskCompletionFormContainer extends React.Component {
     const { taskId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const containerId = (config && config.containerId) || '';
+    const [, containerId] = (config && config.process && config.process.split('@')) || '';
     const taskContainerId = `${taskId}@${containerId}`;
 
     try {
@@ -121,7 +121,7 @@ class TaskCompletionFormContainer extends React.Component {
         <ThemeProvider theme={theme}>
           <Container disableGutters>
             <WidgetBox>
-              <CompletionForm
+              <JSONForm
                 loading={loading}
                 formSchema={formSchema}
                 formData={formData}

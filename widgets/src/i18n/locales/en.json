@@ -1,15 +1,49 @@
 {
   "common": {
     "of": "of",
-    "submit": "Submit"
+    "submit": "Submit",
+    "add": "Add",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "summary": {
+    "frequency": {
+      "monthly": "Monthly",
+      "annually": "Annual",
+      "daily": "Daily"
+    },
+    "labels": {
+      "requests": {
+        "title": "Requests",
+        "total_label": "Total Requests",
+        "value": "{{value, number}}"
+      },
+      "cases": {
+        "title": "Cases",
+        "total_label": "Total Cases",
+        "value": "{{value, number}}"
+      },
+      "chart": {
+        "title": "Requests Volume",
+        "subtitle": "Requests",
+        "requests": "Number of Requests",
+        "cases": "Number of Cases",
+        "card": {
+          "requests": "Total requests",
+          "cases": "Total cases"
+        }
+      }
+    }
   },
   "taskList": {
     "diagramModalTitle": "Process",
     "actionButtons": {
       "complete": "Complete",
       "claim": "Claim",
-      "diagram": "Diagram"
-    }
+      "diagram": "Diagram",
+      "view": "View"
+    },
+    "emptyList": "You don't have any active, assigned or complete tasks"
   },
   "table": {
     "title": "Task List",
@@ -28,6 +62,13 @@
       "title": "General Information",
       "noInformation": "No information available"
     }
+  },
+  "taskComments": {
+    "addNote": "Add note",
+    "title": "Task notes",
+    "noComments": "No notes on this task",
+    "remove": "Remove",
+    "maxChars": "Maximum {{max}} characters (remaining: {{rem}})"
   },
   "task": {
     "fields": {
@@ -50,11 +91,17 @@
     }
   },
   "messages": {
+    "notify": {
+      "submitting": "Sending..."
+    },
     "warnings": {
       "noData": "There is no data to be displayed"
     },
     "errors": {
-      "dataLoading": "Unable to load server data."
+      "widgetConfig": "No configuration found for this widget",
+      "errorResponse": "There seems to be an error",
+      "dataLoading": "Unable to load server data.",
+      "dataSaving": "Unable to save data."
     }
   }
 }

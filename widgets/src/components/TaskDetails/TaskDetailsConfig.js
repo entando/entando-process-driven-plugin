@@ -1,11 +1,10 @@
 /* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, ControlLabel, Button, HelpBlock, Row, Col } from 'patternfly-react';
+import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
-import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -18,38 +17,36 @@ class TaskDetailsConfig extends React.Component {
     this.state = {
       sourceList: [],
       processList: [],
-      knowledgeSource: '',
-      selectedProcess: '',
+      config: {
+        knowledgeSource: '',
+        process: '',
+      },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeProcess = this.onChangeProcess.bind(this);
-    this.handleSave = this.handleSave.bind(this);
+    this.fetchScreen = this.fetchScreen.bind(this);
   }
 
   async componentDidMount() {
-    const { frameId, pageCode } = this.props;
-
     // getting list of Kie server connections
     const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload });
+    this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
+  }
 
-    // getting existing configs
-    const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'TASK_DETAILS');
+  componentDidUpdate(prevProps) {
+    const { config } = this.props;
 
-    const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
-    if (configs && configs.knowledgeSource) {
-      this.onChangeKnowledgeSource(configs.knowledgeSource, () => {
-        if (configs.process) {
-          this.onChangeProcess(configs.process);
-        }
-      });
+    // refetch state if config changes
+    if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
+      this.fetchScreen();
     }
   }
 
   onChangeKnowledgeSource(e, cb = () => {}) {
+    const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ knowledgeSource });
+    this.setState({ config: { ...config, knowledgeSource } });
 
     getProcesses(knowledgeSource).then(data => {
       this.setState({ processList: data.payload });
@@ -59,36 +56,28 @@ class TaskDetailsConfig extends React.Component {
   }
 
   onChangeProcess(e, cb = () => {}) {
-    const selectedProcess = e.target ? e.target.value : e;
-    this.setState({ selectedProcess });
+    const { config } = this.state;
+    const process = e.target ? e.target.value : e;
+    this.setState({ config: { ...config, process } });
 
     cb();
   }
 
-  async handleSave() {
-    const { frameId, pageCode, widgetCode } = this.props;
-    const { knowledgeSource, selectedProcess } = this.state;
-    const [, containerId] = selectedProcess.split('@');
+  fetchScreen() {
+    const { config } = this.props;
 
-    const body = JSON.stringify({
-      code: widgetCode,
-      config: {
-        knowledgeSource,
-        process: selectedProcess,
-        containerId,
-      },
-    });
-
-    try {
-      const response = await putPageWidget(pageCode, frameId, body);
-      console.log('Configs got saved', response);
-    } catch (error) {
-      console.log('Error while saving configs', error);
+    if (config && config.knowledgeSource) {
+      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
+        if (config.process) {
+          this.onChangeProcess(config.process);
+        }
+      });
     }
   }
 
   render() {
-    const { knowledgeSource, sourceList, processList = [], selectedProcess = '' } = this.state;
+    const { sourceList, processList = [], config } = this.state;
+    const { knowledgeSource, process: selectedProcess = '' } = config;
 
     return (
       <div>
@@ -132,17 +121,6 @@ class TaskDetailsConfig extends React.Component {
               </FormGroup>
             </Col>
           </Row>
-          {selectedProcess && (
-            <section>
-              <Row>
-                <Col xs={12} className="text-right">
-                  <Button bsClass="btn" bsStyle="primary" onClick={this.handleSave}>
-                    Save
-                  </Button>
-                </Col>
-              </Row>
-            </section>
-          )}
         </form>
       </div>
     );
@@ -150,9 +128,10 @@ class TaskDetailsConfig extends React.Component {
 }
 
 TaskDetailsConfig.propTypes = {
-  frameId: PropTypes.string.isRequired,
-  widgetCode: PropTypes.string.isRequired,
-  pageCode: PropTypes.string.isRequired,
+  config: PropTypes.shape({
+    knowledgeSource: PropTypes.string,
+    process: PropTypes.string,
+  }).isRequired,
 };
 
 export default TaskDetailsConfig;

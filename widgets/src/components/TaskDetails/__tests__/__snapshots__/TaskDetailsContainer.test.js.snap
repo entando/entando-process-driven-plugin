@@ -1,0 +1,374 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
+<div>
+  <div
+    class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
+  >
+    <div
+      class="MuiBox-root MuiBox-root-10"
+    >
+      <div
+        class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-40"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-219"
+          >
+            <h2
+              class="MuiTypography-root MuiTypography-h2"
+            >
+              taskDetails.overview.title - 293
+            </h2>
+            <div
+              aria-label="outlined primary button group"
+              class="MuiButtonGroup-root"
+              role="group"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                      />
+                    </svg>
+                  </span>
+                  taskDetails.overview.previous
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  taskDetails.overview.next
+                  <span
+                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-8"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.createdBy
+              </label>
+              <div
+                class="OverviewDetails-value-314"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  pamAdmin
+                </p>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.name
+              </label>
+              <div
+                class="OverviewDetails-value-314"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  PM Evaluation
+                </p>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.createdOn
+              </label>
+              <div
+                class="OverviewDetails-value-314"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  1/1/2020, 12:00:00 AM
+                </p>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.status
+              </label>
+              <div
+                class="OverviewDetails-value-314"
+              >
+                <div
+                  class="MuiChip-root makeStyles-root-323 makeStyles-root-324"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    CREATED
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.due
+              </label>
+              <div
+                class="OverviewDetails-value-314"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  -
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-355"
+      >
+        <h3
+          class="MuiTypography-root MuiTypography-h3"
+        >
+          taskDetails.generalInformation.title
+        </h3>
+        <div>
+          <button
+            class="MuiButtonBase-root MuiIconButton-root"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <hr
+        class="MuiDivider-root"
+      />
+      <div
+        class="MuiBox-root MuiBox-root-102"
+      >
+        <div
+          class="GeneralInformation-taskDatum-41"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            <span
+              class="GeneralInformation-label-42"
+            >
+              task.inputData.Comment
+              :
+            </span>
+            You need to evaluate Alessio.
+          </p>
+        </div>
+        <div
+          class="GeneralInformation-taskDatum-41"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            <span
+              class="GeneralInformation-label-42"
+            >
+              task.inputData.reason
+              :
+            </span>
+            asasd
+          </p>
+        </div>
+        <div
+          class="GeneralInformation-taskDatum-41"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            <span
+              class="GeneralInformation-label-42"
+            >
+              task.inputData.performance
+              :
+            </span>
+            12
+          </p>
+        </div>
+        <div
+          class="GeneralInformation-taskDatum-41"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            <span
+              class="GeneralInformation-label-42"
+            >
+              task.inputData.TaskName
+              :
+            </span>
+            PerformanceEvaluation
+          </p>
+        </div>
+        <div
+          class="GeneralInformation-taskDatum-41"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            <span
+              class="GeneralInformation-label-42"
+            >
+              task.inputData.NodeName
+              :
+            </span>
+            PM Evaluation
+          </p>
+        </div>
+        <div
+          class="GeneralInformation-taskDatum-41"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            <span
+              class="GeneralInformation-label-42"
+            >
+              task.inputData.Skippable
+              :
+            </span>
+            false
+          </p>
+        </div>
+        <div
+          class="GeneralInformation-taskDatum-41"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            <span
+              class="GeneralInformation-label-42"
+            >
+              task.inputData.ActorId
+              :
+            </span>
+            pamAdmin
+          </p>
+        </div>
+        <div
+          class="GeneralInformation-taskDatum-41"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            <span
+              class="GeneralInformation-label-42"
+            >
+              task.inputData.BusinessAdministratorId
+              :
+            </span>
+            pamAdmin
+          </p>
+        </div>
+        <div
+          class="GeneralInformation-taskDatum-41"
+        >
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            <span
+              class="GeneralInformation-label-42"
+            >
+              task.inputData.GroupId
+              :
+            </span>
+            PM
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -6,6 +6,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.keycloak.security.AuthenticatedUser;
@@ -21,6 +22,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -38,12 +40,14 @@ public class TaskController {
     @ApiOperation(notes = "Lists all tasks", nickname = "listTask", value = "LIST Task")
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public PagedRestResponse<Task> list(@PathVariable final String connId, final AuthenticatedUser user,
-            final PagedListRequest restListRequest) {
+            final PagedListRequest restListRequest,
+            @RequestParam(value = "filter", required = false) final String filter,
+            @RequestParam(value = "groups", required = false) List<String> groups) {
         log.debug("Listing tasks {}", restListRequest);
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return engine.getTaskService()
-                .list(connection, user, restListRequest);
+                .list(connection, user, restListRequest, filter, groups);
     }
 
     @Secured(TASK_GET)
