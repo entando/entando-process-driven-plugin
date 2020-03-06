@@ -108,7 +108,7 @@ export default {
               bedrooms: {
                 type: 'string',
                 title: 'Bedrooms',
-                enum: [1, 2, 3, 4, 5],
+                enum: ['1', '2', '3', '4', '5'],
                 enumNames: ['1 bedroom', '2 bedrooms', '3 bedrooms', '4 bedrooms', '5+ bedrooms'],
               },
               bathrooms: {

@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import theme from 'theme';
 import { getTask, getTaskForm, postTaskForm } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
-import CustomEventContext from 'components/TaskDetails/CustomEventContext';
+import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
 
