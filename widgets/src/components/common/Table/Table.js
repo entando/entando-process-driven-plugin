@@ -197,7 +197,7 @@ class Table extends React.Component {
         {hasHeader && (
           <Toolbar className={classNames(classes.toolbar, !subtitle && classes.noSubtitleToolbar)}>
             <div className={classes.title}>
-              <Typography variant="h5">{title}</Typography>
+              <Typography variant="h2">{title}</Typography>
               <Typography variant="subtitle2">{subtitle}</Typography>
             </div>
             <div>

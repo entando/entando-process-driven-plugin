@@ -93,7 +93,7 @@ function App() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h2" className={classes.title}>
               Entando - PAM Plugin
             </Typography>
             <FormControlLabel

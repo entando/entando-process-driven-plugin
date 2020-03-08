@@ -206,7 +206,7 @@ class OvertimeGraph extends Component {
               {loading ? (
                 <Skeleton width={250} />
               ) : (
-                <Typography variant="h5">{i18next.t(`summary.labels.chart.title`)}</Typography>
+                <Typography variant="h2">{i18next.t(`summary.labels.chart.title`)}</Typography>
               )}
             </Box>
             <Divider />
