@@ -1,35 +1,45 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import entandoUiTheme from '@entando/ui';
 
 export default createMuiTheme({
+  ...entandoUiTheme,
   typography: {
+    ...entandoUiTheme.typography,
     h2: {
-      color: '#676A6C',
-      fontSize: '22px',
+      ...entandoUiTheme.typography.h2,
       lineHeight: '33px',
+      marginTop: 0,
+      marginBottom: 0,
     },
     h3: {
-      color: '#676A6C',
-      fontSize: '18px',
+      ...entandoUiTheme.typography.h3,
       lineHeight: '25px',
+      marginTop: 0,
+      marginBottom: 0,
     },
     body1: {
+      ...entandoUiTheme.typography.body1,
       color: '#696C6E',
-      fontSize: '13px',
       lineHeight: '15px',
     },
   },
   palette: {
+    ...entandoUiTheme.palette,
     text: {
+      ...entandoUiTheme.palette.text,
       primary: '#676A6C',
     },
   },
   overrides: {
+    ...entandoUiTheme.overrides,
     MuiTableCell: {
+      ...entandoUiTheme.overrides.MuiTableCell,
       head: {
         borderBottom: 'solid 3px #eee',
       },
     },
     MuiFormLabel: {
+      ...entandoUiTheme.overrides.MuiFormLabel,
       root: {
         color: '#676A6C',
         fontSize: '13px',
@@ -38,6 +48,7 @@ export default createMuiTheme({
       },
     },
     MuiButton: {
+      ...entandoUiTheme.overrides.MuiButton,
       root: {
         height: '31px',
         borderRadius: '5px',
