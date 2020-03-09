@@ -38,8 +38,6 @@ const SelectWidget = props => {
     options,
   } = props;
 
-  console.log('SelectWidget', props, options);
-
   const { enumDisabled, enumOptions } = options;
   const emptyValue = multiple ? [] : '';
 
