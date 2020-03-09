@@ -5,6 +5,11 @@ export default createMuiTheme({
   ...entandoUiTheme,
   typography: {
     ...entandoUiTheme.typography,
+    h1: {
+      ...entandoUiTheme.typography.h1,
+      marginTop: 0,
+      marginBottom: 0,
+    },
     h2: {
       ...entandoUiTheme.typography.h2,
       lineHeight: '33px',
@@ -14,6 +19,16 @@ export default createMuiTheme({
     h3: {
       ...entandoUiTheme.typography.h3,
       lineHeight: '25px',
+      marginTop: 0,
+      marginBottom: 0,
+    },
+    h4: {
+      ...entandoUiTheme.typography.h4,
+      marginTop: 0,
+      marginBottom: 0,
+    },
+    h5: {
+      ...entandoUiTheme.typography.h5,
       marginTop: 0,
       marginBottom: 0,
     },
