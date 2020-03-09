@@ -19,28 +19,6 @@ export default {
             type: 'string',
             title: 'Last name',
           },
-          fieldOfEmployment: {
-            type: 'array',
-            title: 'Field of employment',
-            items: {
-              type: 'string',
-              oneOf: [
-                {
-                  const: 'IT',
-                  title: 'IT',
-                },
-                {
-                  const: 'LAW',
-                  title: 'Law',
-                },
-                {
-                  const: 'TRANSPORT',
-                  title: 'Transportation',
-                },
-              ],
-            },
-            uniqueItems: true,
-          },
           streetName: {
             type: 'string',
             title: 'Street name',
@@ -69,11 +47,6 @@ export default {
             type: 'string',
             title: 'Date of Birth',
             format: 'date',
-          },
-          agreement: {
-            type: 'boolean',
-            title:
-              'Check here to indicate that you have read and agree to the terms and conditions',
           },
         },
       },
