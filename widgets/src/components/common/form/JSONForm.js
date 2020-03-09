@@ -42,7 +42,8 @@ const JSONForm = props => {
     formSchema,
     formData,
     uiSchema: userUiSchema,
-    customization: { fields = {}, templates = {}, widgets = {}, columnSize = 12 },
+    defaultColumnSize,
+    customization: { fields = {}, templates = {}, widgets = {} },
   } = props;
 
   if (loading) {
@@ -106,7 +107,7 @@ const JSONForm = props => {
 
   const ThemedForm = withTheme(MuiRJSForm);
 
-  const ObjectFieldTemplate = generateColumnedOFT(columnSize);
+  const ObjectFieldTemplate = generateColumnedOFT(defaultColumnSize);
 
   const customTemplates = {
     FieldTemplate,
@@ -202,8 +203,8 @@ JSONForm.propTypes = {
       UpDownWidget: PropTypes.elementType,
       URLWidget: PropTypes.elementType,
     }),
-    columnSize: PropTypes.number,
   }),
+  defaultColumnSize: PropTypes.number,
 };
 
 JSONForm.defaultProps = {
@@ -212,6 +213,7 @@ JSONForm.defaultProps = {
   formSchema: null,
   formData: {},
   uiSchema: {},
+  defaultColumnSize: 12,
   customization: {},
 };
 

@@ -137,6 +137,8 @@ class TaskCompletionFormContainer extends React.Component {
     const { onError } = this.props;
 
     const uiSchema = (config && config.settings && config.settings.uiSchema) || {};
+    const defaultColumnSize =
+      (config && config.settings && config.settings.defaultColumnSize) || 12;
 
     return (
       <CustomEventContext.Provider value={{ onSubmitForm: this.submitProcessForm, onError }}>
@@ -149,6 +151,7 @@ class TaskCompletionFormContainer extends React.Component {
                 formData={formData}
                 uiSchema={uiSchema}
                 submitting={submitting}
+                defaultColumnSize={defaultColumnSize}
               />
             </WidgetBox>
           </Container>
