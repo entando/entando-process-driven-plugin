@@ -19,6 +19,7 @@ class CompletionFormConfig extends React.Component {
         knowledgeSource: '',
         settings: {
           uiSchema: '{}',
+          defaultColumnSize: 12,
         },
       },
     };
@@ -55,6 +56,20 @@ class CompletionFormConfig extends React.Component {
       config: {
         ...config,
         settings: { ...config.settings, uiSchema },
+      },
+    });
+  }
+
+  onChangeNumericValue(setting, value) {
+    const parsedValue = parseInt(value, 10) || 12;
+    const { config } = this.state;
+    this.setState({
+      config: {
+        ...config,
+        settings: {
+          ...config.settings,
+          [setting]: parsedValue,
+        },
       },
     });
   }
@@ -114,6 +129,23 @@ class CompletionFormConfig extends React.Component {
                     componentClass="textarea"
                     value={settings.uiSchema}
                     onChange={this.onChangeUiSchema}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12}>
+                <FormGroup bsClass="form-group">
+                  <ControlLabel bsClass="control-label">Default column size</ControlLabel>
+                  <input
+                    className="form-control"
+                    type="number"
+                    value={settings.defaultColumnSize}
+                    min={1}
+                    max={12}
+                    onChange={({ target: { value } }) => {
+                      this.onChangeNumericValue('defaultColumnSize', value);
+                    }}
                   />
                 </FormGroup>
               </Col>
