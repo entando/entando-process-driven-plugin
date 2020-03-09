@@ -37,6 +37,11 @@
   },
   "taskList": {
     "diagramModalTitle": "Processi",
+    "tabs": {
+      "myWork": "IL MIO LAVORO",
+      "myTasks": "I MIEI COMPITI",
+      "myCases": "I MIEI CASI"
+    },
     "actionButtons": {
       "complete": "Completare",
       "claim": "Richiesta",
@@ -46,7 +51,7 @@
     "emptyList": "Non hai attività attive, assegnate o complete"
   },
   "table": {
-    "title": "Elenco attività",
+    "title": "Posta in arrivo intelligente",
     "subtitle": "Elenco delle attività",
     "searchPlaceholder": "Cerca...",
     "rowsPerPage": "Righe per pagina:",
@@ -54,7 +59,8 @@
   },
   "taskDetails": {
     "overview": {
-      "title": "Task details",
+      "title": "Task overview",
+      "detailsTitle": "Task details",
       "previous": "Previous",
       "next": "Next"
     },

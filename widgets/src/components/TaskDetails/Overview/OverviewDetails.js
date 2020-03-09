@@ -37,6 +37,9 @@ const displayedDetails = [
 ];
 
 const styles = {
+  root: {
+    marginTop: -18,
+  },
   value: {
     marginTop: '20px',
   },
@@ -44,7 +47,7 @@ const styles = {
 
 const OverviewDetails = ({ task, classes }) => {
   return (
-    <Grid container spacing={8}>
+    <Grid container spacing={8} className={classes.root}>
       {displayedDetails.map(detail => {
         const value =
           typeof detail.parse === 'function'
@@ -69,6 +72,7 @@ const OverviewDetails = ({ task, classes }) => {
 
 OverviewDetails.propTypes = {
   classes: PropTypes.shape({
+    root: PropTypes.string,
     value: PropTypes.string,
   }).isRequired,
   task: PropTypes.shape({}).isRequired,

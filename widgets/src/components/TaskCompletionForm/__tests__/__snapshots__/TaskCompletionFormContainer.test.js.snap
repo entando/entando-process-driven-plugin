@@ -72,15 +72,17 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                                           Reason
                                         </label>
                                         <div
-                                          class="MuiInputBase-root-224 MuiOutlinedInput-root-209 MuiInputBase-formControl-225"
+                                          class="MuiInputBase-root-224 MuiOutlinedInput-root-209 MuiInputBase-formControl-225 MuiInputBase-multiline-232 MuiOutlinedInput-multiline-217"
                                         >
-                                          <input
+                                          <textarea
                                             aria-invalid="false"
-                                            class="MuiInputBase-input-235 MuiOutlinedInput-input-219 MuiInputBase-inputHiddenLabel-241"
+                                            class="MuiInputBase-input-235 MuiOutlinedInput-input-219 MuiInputBase-inputMultiline-237 MuiOutlinedInput-inputMultiline-221 MuiInputBase-inputHiddenLabel-241"
                                             id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_reason"
-                                            type="string"
-                                            value="Showed great results!"
-                                          />
+                                            placeholder=""
+                                            rows="5"
+                                          >
+                                            Showed great results!
+                                          </textarea>
                                           <fieldset
                                             aria-hidden="true"
                                             class="PrivateNotchedOutline-root-242 MuiOutlinedInput-notchedOutline-218"
@@ -116,48 +118,31 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                                     <div
                                       class="MuiFormControl-root-184 MuiFormControl-fullWidth-187"
                                     >
-                                      <div
-                                        class="MuiFormControl-root-184 MuiTextField-root-188"
+                                      <label
+                                        class="MuiFormLabel-root-201 MuiInputLabel-root-189 MuiInputLabel-formControl-195 MuiInputLabel-animated-198 MuiInputLabel-shrink-197 MuiFormLabel-filled-206 Mui-required Mui-required"
+                                        data-shrink="true"
                                       >
-                                        <label
-                                          class="MuiFormLabel-root-201 MuiInputLabel-root-189 MuiInputLabel-formControl-195 MuiInputLabel-animated-198 MuiInputLabel-shrink-197 MuiInputLabel-outlined-200 MuiFormLabel-filled-206 Mui-required Mui-required"
-                                          data-shrink="true"
-                                          for="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance"
-                                          id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance-label"
+                                        Performance
+                                        <span
+                                          class="MuiFormLabel-asterisk-208 MuiInputLabel-asterisk-194"
                                         >
-                                          Performance
-                                          <span
-                                            class="MuiFormLabel-asterisk-208 MuiInputLabel-asterisk-194"
-                                          >
-                                             
-                                            *
-                                          </span>
-                                        </label>
-                                        <div
-                                          class="MuiInputBase-root-224 MuiOutlinedInput-root-209 MuiInputBase-formControl-225"
-                                        >
-                                          <input
-                                            aria-invalid="false"
-                                            class="MuiInputBase-input-235 MuiOutlinedInput-input-219 MuiInputBase-inputHiddenLabel-241"
-                                            id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance"
-                                            required=""
-                                            type="integer"
-                                            value="100"
-                                          />
-                                          <fieldset
-                                            aria-hidden="true"
-                                            class="PrivateNotchedOutline-root-242 MuiOutlinedInput-notchedOutline-218"
-                                          >
-                                            <legend
-                                              class="PrivateNotchedOutline-legendLabelled-244"
-                                            >
-                                              <span>
-                                                Performance
-                                                 *
-                                              </span>
-                                            </legend>
-                                          </fieldset>
-                                        </div>
+                                           
+                                          *
+                                        </span>
+                                      </label>
+                                      <div
+                                        class="MuiInputBase-root-224 MuiInput-root-246 MuiInput-underline-251 MuiInputBase-formControl-225 MuiInput-formControl-247"
+                                        required=""
+                                      >
+                                        <input
+                                          aria-invalid="false"
+                                          class="MuiInputBase-input-235 MuiInput-input-256 MuiInputBase-inputHiddenLabel-241"
+                                          id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance"
+                                          name="nodejs"
+                                          required=""
+                                          type="number"
+                                          value="100"
+                                        />
                                       </div>
                                     </div>
                                   </div>
@@ -176,17 +161,17 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
               class="JSONForm-actionButtons-40"
             >
               <button
-                class="MuiButtonBase-root-275 MuiButton-root-246 MuiButton-contained-254 MuiButton-containedPrimary-255"
+                class="MuiButtonBase-root-289 MuiButton-root-260 MuiButton-contained-268 MuiButton-containedPrimary-269"
                 tabindex="0"
                 type="submit"
               >
                 <span
-                  class="MuiButton-label-247"
+                  class="MuiButton-label-261"
                 >
                   common.submit
                 </span>
                 <span
-                  class="MuiTouchRipple-root-278"
+                  class="MuiTouchRipple-root-292"
                 />
               </button>
             </div>
@@ -204,10 +189,10 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly on error sta
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-296 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-310 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-326"
+        class="MuiBox-root MuiBox-root-340"
       >
         messages.warnings.noFormSchema
       </div>
