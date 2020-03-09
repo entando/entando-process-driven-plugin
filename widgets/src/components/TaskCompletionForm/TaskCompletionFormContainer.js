@@ -30,7 +30,6 @@ class TaskCompletionFormContainer extends React.Component {
   componentDidMount() {
     this.setState({ loading: true }, async () => {
       const config = await this.fetchWidgetConfigs();
-
       this.setState({ config }, async () => {
         const formDataPromise = this.fetchTaskFormData();
         const formSchemaPromise = this.fetchSchema();
@@ -76,13 +75,10 @@ class TaskCompletionFormContainer extends React.Component {
   async fetchTaskFormData() {
     const { config } = this.state;
     const { taskId } = this.props;
-
     const connection = (config && config.knowledgeSource) || '';
-    const [, containerId] = (config && config.process && config.process.split('@')) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
 
     try {
-      const task = await getTask(connection, taskContainerId);
+      const task = await getTask(connection, taskId);
 
       return (task && task.payload && task.payload.outputData) || {};
     } catch (error) {
@@ -94,13 +90,10 @@ class TaskCompletionFormContainer extends React.Component {
   async fetchSchema() {
     const { config } = this.state;
     const { taskId } = this.props;
-
     const connection = (config && config.knowledgeSource) || '';
-    const containerId = (config && config.process && config.process.split('@')[1]) || '';
-    const taskContainerId = `${taskId}${containerId ? `@${containerId}` : ''}`;
 
     try {
-      const formSchema = await getTaskForm(connection, taskContainerId);
+      const formSchema = await getTaskForm(connection, taskId);
       return formSchema;
     } catch (error) {
       this.handleError(error.message);

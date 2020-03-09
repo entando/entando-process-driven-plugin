@@ -13,12 +13,10 @@ describe('<TaskCompletionFormContainer />', () => {
     const configUrl = `${DOMAINS.APP_BUILDER}/api/pages//widgets/`;
     const connection = 'kieStaging';
     const taskId = 'test';
-    const taskListUrl = `${DOMAINS.PDA}/connections/${connection}/tasks/${taskId}@${
-      MOCKED_GET_TASK_RESPONSE.payload.id.split('@')[1]
-    }`;
+    const taskListUrl = `${DOMAINS.PDA}/connections/${connection}/tasks/${taskId}`;
 
     fetch
-      .once(JSON.stringify(WIDGET_CONFIGS.TASK_DETAILS))
+      .once(JSON.stringify(WIDGET_CONFIGS.COMPLETION_FORM))
       .once(JSON.stringify(MOCKED_GET_TASK_RESPONSE))
       .once(JSON.stringify(MOCKED_GET_TASK_FORM_RESPONSE.DEFAULT));
 

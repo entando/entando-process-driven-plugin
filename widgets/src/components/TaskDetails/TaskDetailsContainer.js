@@ -10,6 +10,9 @@ import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 import Overview from 'components/TaskDetails/Overview';
 import GeneralInformation from 'components/TaskDetails/GeneralInformation';
 
+const createLink = (pageCode = 'pda_task_details', taskId, locale = 'en') =>
+  `/entando-de-app/${locale}/${pageCode}.page?taskId=${taskId}`;
+
 class TaskDetailsContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -63,15 +66,13 @@ class TaskDetailsContainer extends React.Component {
     const { taskId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const [, containerId] = (config && config.process && config.process.split('@')) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
 
     if (!loadingTask) {
       this.setState({ loadingTask: true });
     }
 
     try {
-      const task = await getTask(connection, taskContainerId);
+      const task = await getTask(connection, taskId);
 
       this.setState({
         task: (task && task.payload) || null,
@@ -90,17 +91,25 @@ class TaskDetailsContainer extends React.Component {
   }
 
   render() {
-    const { loadingTask, task, taskInputData } = this.state;
-    const { onPressPrevious, onPressNext, onError } = this.props;
+    const { loadingTask, task, taskInputData, config } = this.state;
+    const { onPressPrevious, onPressNext, onError, taskId } = this.props;
+    const configs = config && config.settings;
 
     return (
       <CustomEventContext.Provider value={{ onPressPrevious, onPressNext, onError }}>
         <ThemeProvider theme={theme}>
           <Container disableGutters>
             <Box mb="20px">
-              <Overview task={task} loadingTask={loadingTask} />
+              <Overview
+                task={task}
+                loadingTask={loadingTask}
+                headerLabel={configs && configs.header}
+                taskLink={createLink(configs && configs.destinationPageCode, taskId)}
+              />
             </Box>
-            <GeneralInformation taskInputData={taskInputData} loadingTask={loadingTask} />
+            {configs && configs.hasGeneralInformation && (
+              <GeneralInformation taskInputData={taskInputData} loadingTask={loadingTask} />
+            )}
           </Container>
         </ThemeProvider>
       </CustomEventContext.Provider>

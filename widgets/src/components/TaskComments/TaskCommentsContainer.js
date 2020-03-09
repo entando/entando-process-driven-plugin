@@ -52,13 +52,10 @@ class TaskCommentsContainer extends React.Component {
       this.setState({ config: fetchedConfig }, async () => {
         const { config } = this.state;
         const { taskId } = this.props;
-
         const connection = (config && config.knowledgeSource) || '';
-        const [, containerId] = (config && config.process && config.process.split('@')) || '';
-        const taskContainerId = `${taskId}@${containerId}`;
 
         try {
-          const commentsResponse = await getTaskComments(connection, taskContainerId);
+          const commentsResponse = await getTaskComments(connection, taskId);
           this.setState({ comments: commentsResponse.payload || [], loading: false });
         } catch (error) {
           this.handleError(error.message);
@@ -71,13 +68,10 @@ class TaskCommentsContainer extends React.Component {
     this.setState({ addingComment: true }, async () => {
       const { config, comments } = this.state;
       const { taskId, onClickAddComment } = this.props;
-
       const connection = (config && config.knowledgeSource) || '';
-      const [, containerId] = (config && config.process && config.process.split('@')) || '';
-      const taskContainerId = `${taskId}@${containerId}`;
 
       try {
-        const postResponse = await postTaskComment(connection, taskContainerId, comment);
+        const postResponse = await postTaskComment(connection, taskId, comment);
         this.setState({ comments: [...comments, postResponse.payload], addingComment: false });
       } catch (error) {
         this.handleError(error.message);
@@ -90,13 +84,10 @@ class TaskCommentsContainer extends React.Component {
   async onClickRemoveComment(id) {
     const { config, comments } = this.state;
     const { taskId, onClickRemoveComment } = this.props;
-
     const connection = (config && config.knowledgeSource) || '';
-    const [, containerId] = (config && config.process && config.process.split('@')) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
 
     try {
-      await deleteTaskComment(connection, taskContainerId, id);
+      await deleteTaskComment(connection, taskId, id);
       this.setState({ comments: comments.filter(comment => comment.id !== id) });
     } catch (error) {
       this.handleError(error.message);
