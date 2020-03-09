@@ -26,10 +26,19 @@ public class JsonSchemaFormSerializerTest {
     }
 
     @Test
-    public void shouldSerializeProcessFormIntoJsonSchemaV7() throws Exception {
+    public void shouldSerializeSimpleProcessFormIntoJsonSchemaV7() throws Exception {
         String result = mapper.writeValueAsString(
                 new V7JsonSchemaForm(FakeProcessFormService.PROCESS_FORM_1));
-        String expected = readFromFile("process_form_json_schema_1.json");
+        String expected = readFromFile("simple_process_form_json_schema.json");
+
+        assertEquals(expected, result, JSONCompareMode.STRICT);
+    }
+
+    @Test
+    public void shouldSerializeFullProcessFormIntoJsonSchemaV7() throws Exception {
+        String result = mapper.writeValueAsString(
+                new V7JsonSchemaForm(FakeProcessFormService.PROCESS_FORM_2));
+        String expected = readFromFile("full_process_form_json_schema.json");
 
         assertEquals(expected, result, JSONCompareMode.STRICT);
     }

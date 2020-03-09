@@ -6,7 +6,7 @@ import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_FORM_PROP_2;
 import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_FORM_PROP_KEY_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_FORM_PROP_KEY_2;
 import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_ID_1;
-import static org.entando.plugins.pda.core.utils.TestUtils.minifyJsonString;
+import static org.entando.plugins.pda.core.utils.TestUtils.PROCESS_ID_2;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import static org.hamcrest.Matchers.containsString;
 import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
@@ -78,7 +78,7 @@ public class ProcessFormControllerIntegrationTest {
     }
 
     @Test
-    public void testGetProcessFormJsonSchema() throws Exception {
+    public void testGetSimpleProcessFormJsonSchema() throws Exception {
         MvcResult result = mockMvc.perform(get("/connections/fakeProduction/processes/definitions/{id}/form"
                 .replace("{id}", PROCESS_ID_1)))
                 .andDo(print())
@@ -86,7 +86,20 @@ public class ProcessFormControllerIntegrationTest {
                 .andReturn();
 
         String json = result.getResponse().getContentAsString();
-        String expected = minifyJsonString(readFromFile("process_form_json_schema_1.json"));
+        String expected = readFromFile("simple_process_form_json_schema.json");
+        assertEquals(expected, json, JSONCompareMode.STRICT);
+    }
+
+    @Test
+    public void testGetFullProcessFormJsonSchema() throws Exception {
+        MvcResult result = mockMvc.perform(get("/connections/fakeProduction/processes/definitions/{id}/form"
+                .replace("{id}", PROCESS_ID_2)))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String json = result.getResponse().getContentAsString();
+        String expected = readFromFile("full_process_form_json_schema.json");
         assertEquals(expected, json, JSONCompareMode.STRICT);
     }
 
@@ -101,12 +114,14 @@ public class ProcessFormControllerIntegrationTest {
 
     @Test
     public void testSubmitProcessForm() throws Exception {
-        Map<String, Object> variables = new ConcurrentHashMap<>();
-        variables.put(PROCESS_FORM_PROP_KEY_1, PROCESS_FORM_PROP_1);
-        variables.put(PROCESS_FORM_PROP_KEY_2, PROCESS_FORM_PROP_2);
+        Map<String, Object> variables = new ConcurrentHashMap<String, Object>() {{
+            put(PROCESS_FORM_PROP_KEY_1, PROCESS_FORM_PROP_1);
+            put(PROCESS_FORM_PROP_KEY_2, PROCESS_FORM_PROP_2);
+        }};
 
-        Map<String, Object> request = new ConcurrentHashMap<>();
-        request.put(PROCESS_FORM_ID_1, variables);
+        Map<String, Object> request = new ConcurrentHashMap<String, Object>() {{
+            put(PROCESS_FORM_ID_1, variables);
+        }};
 
         mockMvc.perform(post("/connections/fakeProduction/processes/definitions/{id}/form"
                 .replace("{id}", PROCESS_ID_1))

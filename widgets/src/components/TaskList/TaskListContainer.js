@@ -45,6 +45,7 @@ class TaskList extends React.Component {
       title: '',
       body: '',
     },
+    groups: [],
   };
 
   timer = { ref: null };
@@ -68,10 +69,14 @@ class TaskList extends React.Component {
       }
 
       const { config } = widgetConfigs.payload;
+      const connection = config.knowledgeSource;
+      const groups = JSON.parse(config.groups)
+        .filter(group => group.checked)
+        .map(group => group.key);
 
       const taskList = lazyLoading
-        ? await getTasks(config.knowledgeSource, 0, 10)
-        : await getTasks(config.knowledgeSource);
+        ? await getTasks({ connection, groups }, 0, 10)
+        : await getTasks({ connection, groups });
 
       if (!taskList.payload) {
         throw new Error('messages.errors.errorResponse');
@@ -98,6 +103,7 @@ class TaskList extends React.Component {
           lastPage: taskList.metadata.lastPage === 1,
           size: taskList.metadata.size,
           connection: config.knowledgeSource,
+          groups,
         });
       }
     } catch (error) {
@@ -121,7 +127,7 @@ class TaskList extends React.Component {
     callback = () => {},
     withDelay
   ) => {
-    const { connection } = this.state;
+    const { connection, groups } = this.state;
 
     if (withDelay) {
       clearTimeout(this.timer.ref);
@@ -130,7 +136,14 @@ class TaskList extends React.Component {
 
     this.setState({ loading: true });
     try {
-      const res = await getTasks(connection, page, rowsPerPage, sortedColumn, sortedOrder, filter);
+      const res = await getTasks(
+        { connection, groups },
+        page,
+        rowsPerPage,
+        sortedColumn,
+        sortedOrder,
+        filter
+      );
       if (!res.payload) {
         throw res.message;
       }

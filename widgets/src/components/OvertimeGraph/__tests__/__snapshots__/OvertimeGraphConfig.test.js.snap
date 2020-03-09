@@ -51,6 +51,7 @@ exports[`<OvertimeGraphConfig /> renders snapshot correctly 1`] = `
           </div>
         </div>
       </div>
+      
     </form>
   </div>
 </div>
