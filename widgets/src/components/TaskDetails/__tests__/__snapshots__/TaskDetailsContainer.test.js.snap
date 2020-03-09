@@ -175,155 +175,137 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
-            <div>
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-154"
               >
-                <span
-                  class="GeneralInformation-label-154"
-                >
-                  task.inputData.Comment
-                  :
-                </span>
-                You need to evaluate Alessio.
-              </p>
-            </div>
+                task.inputData.Comment
+                :
+              </span>
+              You need to evaluate Alessio.
+            </p>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
-            <div>
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-154"
               >
-                <span
-                  class="GeneralInformation-label-154"
-                >
-                  task.inputData.reason
-                  :
-                </span>
-                asasd
-              </p>
-            </div>
+                task.inputData.reason
+                :
+              </span>
+              asasd
+            </p>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
-            <div>
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-154"
               >
-                <span
-                  class="GeneralInformation-label-154"
-                >
-                  task.inputData.performance
-                  :
-                </span>
-                12
-              </p>
-            </div>
+                task.inputData.performance
+                :
+              </span>
+              12
+            </p>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
-            <div>
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-154"
               >
-                <span
-                  class="GeneralInformation-label-154"
-                >
-                  task.inputData.TaskName
-                  :
-                </span>
-                PerformanceEvaluation
-              </p>
-            </div>
+                task.inputData.TaskName
+                :
+              </span>
+              PerformanceEvaluation
+            </p>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
-            <div>
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-154"
               >
-                <span
-                  class="GeneralInformation-label-154"
-                >
-                  task.inputData.NodeName
-                  :
-                </span>
-                PM Evaluation
-              </p>
-            </div>
+                task.inputData.NodeName
+                :
+              </span>
+              PM Evaluation
+            </p>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
-            <div>
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-154"
               >
-                <span
-                  class="GeneralInformation-label-154"
-                >
-                  task.inputData.Skippable
-                  :
-                </span>
-                false
-              </p>
-            </div>
+                task.inputData.Skippable
+                :
+              </span>
+              false
+            </p>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
-            <div>
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-154"
               >
-                <span
-                  class="GeneralInformation-label-154"
-                >
-                  task.inputData.ActorId
-                  :
-                </span>
-                pamAdmin
-              </p>
-            </div>
+                task.inputData.ActorId
+                :
+              </span>
+              pamAdmin
+            </p>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
-            <div>
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-154"
               >
-                <span
-                  class="GeneralInformation-label-154"
-                >
-                  task.inputData.BusinessAdministratorId
-                  :
-                </span>
-                pamAdmin
-              </p>
-            </div>
+                task.inputData.BusinessAdministratorId
+                :
+              </span>
+              pamAdmin
+            </p>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
-            <div>
-              <p
-                class="MuiTypography-root MuiTypography-body1"
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-154"
               >
-                <span
-                  class="GeneralInformation-label-154"
-                >
-                  task.inputData.GroupId
-                  :
-                </span>
-                PM
-              </p>
-            </div>
+                task.inputData.GroupId
+                :
+              </span>
+              PM
+            </p>
           </div>
         </div>
       </div>

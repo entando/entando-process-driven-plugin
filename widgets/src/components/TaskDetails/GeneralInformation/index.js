@@ -34,18 +34,17 @@ const GeneralInformation = ({ classes, taskInputData, loadingTask, noHeadline })
 
   return (
     <WidgetBox title={renderedTitle} collapsible hasDivider>
-      {inputDataNotAvailable && i18next.t('taskDetails.generalInformation.noInformation')}
-      {!inputDataNotAvailable && (
+      {inputDataNotAvailable ? (
+        i18next.t('taskDetails.generalInformation.noInformation')
+      ) : (
         <Grid container spacing={1}>
           {Object.keys(taskInputData).map(key => {
             return (
-              <Grid item xs={12} md={6}>
-                <div key={key}>
-                  <Typography variant="body1">
-                    <span className={classes.label}>{i18next.t(`task.inputData.${key}`)}:</span>
-                    {taskInputData[key]}
-                  </Typography>
-                </div>
+              <Grid item xs={12} md={6} key={key}>
+                <Typography variant="body1">
+                  <span className={classes.label}>{i18next.t(`task.inputData.${key}`)}:</span>
+                  {taskInputData[key]}
+                </Typography>
               </Grid>
             );
           })}
