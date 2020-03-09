@@ -15,7 +15,7 @@ export default {
     configs: MOCKED_WIDGET_CONFIGS.TASK_DETAILS,
   },
   COMPLETION_FORM: {
-    taskId: '290',
+    taskId: '32',
     pageCode: 'phase_1_widgets',
     frameId: '2',
     widgetCode: 'phase_1_widgets_completion_form',

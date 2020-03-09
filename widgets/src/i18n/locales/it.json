@@ -95,7 +95,8 @@
       "submitting": "Invio..."
     },
     "warnings": {
-      "noData": "Non ci sono dati da visualizzare"
+      "noData": "Non ci sono dati da visualizzare",
+      "noFormSchema": "Form schema was not provided"
     },
     "errors": {
       "widgetConfig": "Nessuna configurazione trovata per questo widget",

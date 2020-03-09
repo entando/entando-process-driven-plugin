@@ -95,7 +95,8 @@
       "submitting": "Sending..."
     },
     "warnings": {
-      "noData": "There is no data to be displayed"
+      "noData": "There is no data to be displayed",
+      "noFormSchema": "Form schema was not provided"
     },
     "errors": {
       "widgetConfig": "No configuration found for this widget",

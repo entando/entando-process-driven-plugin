@@ -4,11 +4,11 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import theme from 'theme';
-import CustomEventContext from 'components/TaskDetails/CustomEventContext';
+import { getTask, getTaskForm, postTaskForm } from 'api/pda/tasks';
+import { getPageWidget } from 'api/app-builder/pages';
+import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
-import { getTask, getTaskForm } from 'api/pda/tasks';
-import { getPageWidget } from 'api/app-builder/pages';
 
 class TaskCompletionFormContainer extends React.Component {
   constructor(props) {
@@ -17,12 +17,14 @@ class TaskCompletionFormContainer extends React.Component {
     this.state = {
       config: null,
       loading: false,
+      submitting: false,
       formSchema: null,
       formData: {},
     };
 
     this.fetchTaskFormData = this.fetchTaskFormData.bind(this);
     this.fetchSchema = this.fetchSchema.bind(this);
+    this.submitProcessForm = this.submitProcessForm.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +36,7 @@ class TaskCompletionFormContainer extends React.Component {
         const formSchemaPromise = this.fetchSchema();
 
         const formData = await formDataPromise;
+
         const formSchema = await formSchemaPromise;
 
         this.setState({ formData, formSchema, loading: false });
@@ -93,8 +96,8 @@ class TaskCompletionFormContainer extends React.Component {
     const { taskId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const [, containerId] = (config && config.process && config.process.split('@')) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
+    const containerId = (config && config.process && config.process.split('@')[1]) || '';
+    const taskContainerId = `${taskId}${containerId ? `@${containerId}` : ''}`;
 
     try {
       const formSchema = await getTaskForm(connection, taskContainerId);
@@ -105,19 +108,38 @@ class TaskCompletionFormContainer extends React.Component {
     return null;
   }
 
+  submitProcessForm(form) {
+    this.setState({ submitting: true }, async () => {
+      const { config } = this.state;
+      const { onSubmitForm } = this.props;
+
+      const connection = (config && config.knowledgeSource) || '';
+      const processContainerId = (config && config.process) || '';
+
+      try {
+        const response = await postTaskForm(connection, processContainerId, form.formData);
+        onSubmitForm({ ...form, response });
+      } catch (error) {
+        this.handleError(error.message);
+      } finally {
+        this.setState({ submitting: false });
+      }
+    });
+  }
+
   handleError(err) {
     const { onError } = this.props;
     onError(err);
   }
 
   render() {
-    const { loading, formData, formSchema, config } = this.state;
-    const { onSubmitForm, onError } = this.props;
+    const { loading, submitting, formData, formSchema, config } = this.state;
+    const { onError } = this.props;
 
     const uiSchema = (config && config.settings && config.settings.uiSchema) || {};
 
     return (
-      <CustomEventContext.Provider value={{ onSubmitForm, onError }}>
+      <CustomEventContext.Provider value={{ onSubmitForm: this.submitProcessForm, onError }}>
         <ThemeProvider theme={theme}>
           <Container disableGutters>
             <WidgetBox>
@@ -126,6 +148,7 @@ class TaskCompletionFormContainer extends React.Component {
                 formSchema={formSchema}
                 formData={formData}
                 uiSchema={uiSchema}
+                submitting={submitting}
               />
             </WidgetBox>
           </Container>
