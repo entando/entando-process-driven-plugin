@@ -275,9 +275,9 @@ class TaskList extends React.Component {
                 onChange={this.handleChangeTab}
                 value={activeTab}
               >
-                <Tab label="MY WORK" disabled />
-                <Tab label="MY TASKS" />
-                <Tab label="MY CASES" disabled />
+                <Tab label={i18next.t('taskList.tabs.myWork')} disabled />
+                <Tab label={i18next.t('taskList.tabs.myTasks')} />
+                <Tab label={i18next.t('taskList.tabs.myCases')} disabled />
               </Tabs>
               <Table
                 loading={loading}

@@ -67,7 +67,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <span
               class="MuiTab-wrapper"
             >
-              MY WORK
+              taskList.tabs.myWork
             </span>
           </button>
           <button
@@ -80,7 +80,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <span
               class="MuiTab-wrapper"
             >
-              MY TASKS
+              taskList.tabs.myTasks
             </span>
             <span
               class="MuiTouchRipple-root"
@@ -97,7 +97,7 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <span
               class="MuiTab-wrapper"
             >
-              MY CASES
+              taskList.tabs.myCases
             </span>
           </button>
         </div>

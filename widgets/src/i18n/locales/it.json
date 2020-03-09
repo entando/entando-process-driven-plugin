@@ -37,6 +37,11 @@
   },
   "taskList": {
     "diagramModalTitle": "Processi",
+    "tabs": {
+      "myWork": "IL MIO LAVORO",
+      "myTasks": "I MIEI COMPITI",
+      "myCases": "I MIEI CASI"
+    },
     "actionButtons": {
       "complete": "Completare",
       "claim": "Richiesta",
