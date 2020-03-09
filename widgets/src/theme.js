@@ -80,5 +80,13 @@ export default createMuiTheme({
         color: '#FFFEFE',
       },
     },
+    MuiInputBase: {
+      ...entandoUiTheme.overrides.MuiInputBase,
+      input: {
+        ...entandoUiTheme.overrides.MuiInputBase.input,
+        maxWidth: '35em',
+        width: '100%',
+      },
+    },
   },
 });
