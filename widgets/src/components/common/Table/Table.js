@@ -6,6 +6,10 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
 import MuiTable from '@material-ui/core/Table';
 import i18next from 'i18next';
 
@@ -35,6 +39,10 @@ const styles = {
     justifyContent: 'space-between',
     padding: '16px 16px 8px 16px',
     minHeight: 'unset',
+  },
+  bulkDropdown: {
+    width: 200,
+    top: -5,
   },
   noSubtitleToolbar: {
     padding: '8px 16px',
@@ -66,6 +74,7 @@ class Table extends React.Component {
       sortOrder: props.initialSortOrder,
       selected: [],
       filter: '',
+      bulkAction: '',
     };
     this.handleRowSelectAll = this.handleRowSelectAll.bind(this);
     this.handleRowSelectNone = this.handleRowSelectNone.bind(this);
@@ -169,6 +178,10 @@ class Table extends React.Component {
     if (onRowSelect) onRowSelect(selected);
   };
 
+  setBulkAction = bulkAction => {
+    this.setState({ bulkAction });
+  };
+
   render() {
     const {
       columns,
@@ -190,6 +203,7 @@ class Table extends React.Component {
       sortFunction,
       filter,
       selected,
+      bulkAction,
     } = this.state;
 
     const isLazy = lazyLoadingProps !== undefined;
@@ -251,7 +265,19 @@ class Table extends React.Component {
               <Typography variant="subtitle2">{subtitle}</Typography>
             </div>
             <div>
-              <SearchInput value={filter} onChange={this.handleChangeFilter} />
+              {selected && selected.length ? (
+                <FormControl className={classes.bulkDropdown}>
+                  <InputLabel id="bulk-select">With Selected:</InputLabel>
+                  <Select labelId="bulk-select" value={bulkAction} onChange={this.setBulkAction}>
+                    <MenuItem value="claim">Claim</MenuItem>
+                    <MenuItem value="unclaim">Unclaim</MenuItem>
+                    <MenuItem value="start">Start</MenuItem>
+                    <MenuItem value="pause">Pause</MenuItem>
+                  </Select>
+                </FormControl>
+              ) : (
+                <SearchInput value={filter} onChange={this.handleChangeFilter} />
+              )}
             </div>
           </Toolbar>
         )}
@@ -318,6 +344,7 @@ Table.propTypes = {
     title: PropTypes.string,
     hideShadows: PropTypes.string,
     tableWrapper: PropTypes.string,
+    bulkDropdown: PropTypes.string,
   }),
   lazyLoadingProps: PropTypes.shape({
     onChange: PropTypes.func,

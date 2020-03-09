@@ -45,6 +45,7 @@ class TaskList extends React.Component {
       title: '',
       body: '',
     },
+    selectedRows: [],
     groups: [],
   };
 
@@ -202,6 +203,10 @@ class TaskList extends React.Component {
     });
   }
 
+  handleRowSelect = async selectedRows => {
+    this.setState({ selectedRows });
+  };
+
   render() {
     const {
       loading,
@@ -238,6 +243,7 @@ class TaskList extends React.Component {
               rows={rows}
               rowsPerPageOptions={[10, 25, 50, 100]}
               lazyLoadingProps={lazyLoadingProps}
+              onRowSelect={this.handleRowSelect}
             />
           )}
         </Paper>
