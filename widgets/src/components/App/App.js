@@ -51,6 +51,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    fontSize: '1.5rem',
   },
   userAuth: {
     marginLeft: '20px',
