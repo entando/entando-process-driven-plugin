@@ -40,6 +40,12 @@ export default createMuiTheme({
   },
   palette: {
     ...entandoUiTheme.palette,
+    primary: {
+      light: '#62b3f9',
+      main: '#1c84c6',
+      dark: '#005895',
+      contrastText: '#fff',
+    },
     text: {
       ...entandoUiTheme.palette.text,
       primary: '#676A6C',
