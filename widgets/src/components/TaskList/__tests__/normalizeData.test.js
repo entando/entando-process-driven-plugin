@@ -56,7 +56,7 @@ describe('normalizeData', () => {
 
     // add action field
     expected.push({
-      header: 'Actions',
+      header: ' ',
       accessor: 'action',
       customCell: ActionCell(requiredFields, openDiagram),
       styles: {

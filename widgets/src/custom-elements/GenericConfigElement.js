@@ -61,7 +61,6 @@ configNames.forEach(({ name, Component, className }) => {
 
     get config() {
       const config = this.reactRootRef.current ? this.reactRootRef.current.state.config : {};
-      console.log('config:', config);
 
       Object.keys(config).forEach(key => {
         config[key] = typeof config[key] === 'string' ? config[key] : JSON.stringify(config[key]);

@@ -48,7 +48,7 @@ class TaskDetailsElement extends HTMLElement {
 
   updateTaskId(e) {
     const { detail } = e;
-    this.setAttribute('id', detail.id.split('@')[0]);
+    this.setAttribute('id', detail.id);
   }
 
   render() {

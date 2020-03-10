@@ -14,19 +14,23 @@ const StyledTableRowHover = withStyles(
       color: '#e7eaec',
       '&:hover > *': {
         backgroundColor: '#f9f8f8',
+        cursor: 'pointer',
       },
     },
   },
   { name: 'StyledTableRowHover' }
 )(TableRow);
 
-const InternalTableBody = ({ columns, rows, emptyRows, rowHeight }) => {
+const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, onRowClick }) => {
   return (
     <TableBody>
       {rows.map(row => (
         <StyledTableRowHover
           key={JSON.stringify(row)}
           style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
+          onClick={() => {
+            onRowClick(row);
+          }}
           hover
         >
           {columns.map(column => (
@@ -48,6 +52,7 @@ InternalTableBody.propTypes = {
   rows: PropTypes.arrayOf(PropTypes.shape({})),
   emptyRows: PropTypes.number,
   rowHeight: PropTypes.number,
+  onRowClick: PropTypes.func,
 };
 
 InternalTableBody.defaultProps = {
@@ -55,6 +60,7 @@ InternalTableBody.defaultProps = {
   rows: [],
   emptyRows: 0,
   rowHeight: 55,
+  onRowClick: () => {},
 };
 
 export default InternalTableBody;

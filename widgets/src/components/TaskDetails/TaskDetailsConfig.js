@@ -2,13 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
+import i18next from 'i18next';
 
 import { getConnections } from 'api/pda/connections';
-import { getProcesses } from 'api/pda/processes';
+import RenderSwitch from 'components/common/RenderSwitch';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
 import 'patternfly/dist/css/patternfly-additions.css';
+
+const headerLabels = ['taskDetails.overview.title', 'taskDetails.overview.detailsTitle'];
 
 class TaskDetailsConfig extends React.Component {
   constructor(props) {
@@ -16,15 +19,17 @@ class TaskDetailsConfig extends React.Component {
 
     this.state = {
       sourceList: [],
-      processList: [],
       config: {
         knowledgeSource: '',
-        process: '',
+        settings: {
+          header: '',
+          hasGeneralInformation: true,
+          destinationPageCode: '',
+        },
       },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
-    this.onChangeProcess = this.onChangeProcess.bind(this);
     this.fetchScreen = this.fetchScreen.bind(this);
   }
 
@@ -46,38 +51,44 @@ class TaskDetailsConfig extends React.Component {
   onChangeKnowledgeSource(e, cb = () => {}) {
     const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, knowledgeSource } });
-
-    getProcesses(knowledgeSource).then(data => {
-      this.setState({ processList: data.payload });
-
-      cb();
-    });
+    this.setState({ config: { ...config, knowledgeSource } }, cb);
   }
 
-  onChangeProcess(e, cb = () => {}) {
+  onChangeSettings = prop => e => {
     const { config } = this.state;
-    const process = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, process } });
-
-    cb();
-  }
+    const { settings } = config;
+    const value = e.state ? e.state.value : e.target.value;
+    this.setState({
+      config: {
+        ...config,
+        settings: {
+          ...settings,
+          [prop]: value,
+        },
+      },
+    });
+  };
 
   fetchScreen() {
     const { config } = this.props;
 
     if (config && config.knowledgeSource) {
       this.onChangeKnowledgeSource(config.knowledgeSource, () => {
-        if (config.process) {
-          this.onChangeProcess(config.process);
+        if (config.settings) {
+          this.setState({
+            config: {
+              ...config,
+              settings: JSON.parse(config.settings),
+            },
+          });
         }
       });
     }
   }
 
   render() {
-    const { sourceList, processList = [], config } = this.state;
-    const { knowledgeSource, process: selectedProcess = '' } = config;
+    const { sourceList, config } = this.state;
+    const { knowledgeSource, settings } = config;
 
     return (
       <div>
@@ -100,27 +111,60 @@ class TaskDetailsConfig extends React.Component {
                 </select>
                 <HelpBlock>Select one of the Kie server connections.</HelpBlock>
               </FormGroup>
-              <FormGroup controlId="connection">
-                <ControlLabel>Process</ControlLabel>
-                <select
-                  className="form-control"
-                  value={selectedProcess}
-                  onChange={this.onChangeProcess}
-                >
-                  <option value="">Select...</option>
-                  {processList.map(process => (
-                    <option
-                      key={`${process['process-id']}@${process['container-id']}`}
-                      value={`${process['process-id']}@${process['container-id']}`}
-                    >
-                      {`${process['process-name']} @ ${process['container-id']}`}
-                    </option>
-                  ))}
-                </select>
-                <HelpBlock>Select one BPM Process.</HelpBlock>
-              </FormGroup>
             </Col>
           </Row>
+          {knowledgeSource && (
+            <section>
+              <legend>Settings</legend>
+              <Row>
+                <Col xs={12}>
+                  <FormGroup bsClass="form-group">
+                    <ControlLabel bsClass="control-label">Header label</ControlLabel>
+                    <select
+                      className="form-control"
+                      value={settings.header}
+                      onChange={this.onChangeSettings('header')}
+                    >
+                      <option value="">Select...</option>
+                      {headerLabels.map(label => (
+                        <option key={label} value={label}>
+                          {i18next.t(label)}
+                        </option>
+                      ))}
+                    </select>
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12}>
+                  <FormGroup bsClass="form-group">
+                    <ControlLabel bsClass="control-label">
+                      Page code for the Task Details destination link
+                    </ControlLabel>
+                    <input
+                      className="form-control"
+                      type="text"
+                      value={settings.destinationPageCode}
+                      onChange={this.onChangeSettings('destinationPageCode')}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12}>
+                  <FormGroup bsClass="form-group">
+                    <ControlLabel bsClass="control-label">Show General Information</ControlLabel>
+                    <RenderSwitch
+                      id="showGeneralInformation"
+                      label=""
+                      checked={settings.hasGeneralInformation}
+                      onChange={this.onChangeSettings('hasGeneralInformation')}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+            </section>
+          )}
         </form>
       </div>
     );
@@ -130,7 +174,7 @@ class TaskDetailsConfig extends React.Component {
 TaskDetailsConfig.propTypes = {
   config: PropTypes.shape({
     knowledgeSource: PropTypes.string,
-    process: PropTypes.string,
+    settings: PropTypes.string,
   }).isRequired,
 };
 

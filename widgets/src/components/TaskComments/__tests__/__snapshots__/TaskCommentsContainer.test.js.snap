@@ -6,17 +6,17 @@ exports[`<TaskCommentsContainer /> renders snapshot correctly 1`] = `
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-196 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-200 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-226"
+        class="MuiBox-root MuiBox-root-230"
       >
         <h3
           class="MuiTypography-root MuiTypography-h3"
         >
           taskComments.title
            - 
-          32
+          294@mortgage-process_1.0.0-SNAPSHOT
         </h3>
         <div>
           <button
@@ -49,16 +49,16 @@ exports[`<TaskCommentsContainer /> renders snapshot correctly 1`] = `
         class="MuiDivider-root"
       />
       <div
-        class="MuiBox-root MuiBox-root-284"
+        class="MuiBox-root MuiBox-root-289"
       >
         <div
           class="TaskCommentsContainer-commentContainer-2"
         >
           <div
-            class="Comment-comment-285"
+            class="Comment-comment-290"
           >
             <div
-              class="Comment-avatar-286"
+              class="Comment-avatar-291"
             >
               <div
                 class="MuiAvatar-root MuiAvatar-circle"
@@ -71,7 +71,7 @@ exports[`<TaskCommentsContainer /> renders snapshot correctly 1`] = `
               </div>
             </div>
             <div
-              class="Comment-commentText-287"
+              class="Comment-commentText-292"
             >
               <div>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis volutpat est ipsum, quis congue est pharetra ut. Morbi mollis sem eu tellus elementum, et bibendum dolor viverra. Donec maximus quam ligula, et commodo risus ultricies vel. Morbi mollis dui odio, id accumsan turpis pulvinar vitae. Mauris fringilla in mauris nec ullamcorper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu sagittis metus, vitae posuere neque. Etiam ultrices, leo a convallis pharetra, magna ante mollis est, ut tristique neque mauris quis lacus.
@@ -79,7 +79,7 @@ exports[`<TaskCommentsContainer /> renders snapshot correctly 1`] = `
 In pulvinar, leo quis congue molestie, metus dolor sagittis magna, nec efficitur leo tortor at orci. Sed fringilla urna non urna dapibus, ac imperdiet libero condimentum. Phasellus vulputate vel est eu facilisis. Pellentesque eu purus egestas, condimentum ante finibus, consectetur purus. Sed commodo ante aliquam, vestibulum est at, laoreet lorem. Etiam blandit mi sed lectus fermentum, sit amet lacinia ligula egestas. Curabitur id elit mattis, ultricies mauris sagittis, viverra nulla. Nunc id ligula a dolor placerat porttitor ut in neque. Curabitur imperdiet felis a magna fringilla, nec tempus justo scelerisque.
               </div>
               <div
-                class="Comment-created-288"
+                class="Comment-created-293"
               >
                 pamAdmin - 1/1/2020, 12:00:00 AM - 
                 <span
@@ -92,10 +92,10 @@ In pulvinar, leo quis congue molestie, metus dolor sagittis magna, nec efficitur
             </div>
           </div>
           <div
-            class="Comment-comment-285"
+            class="Comment-comment-290"
           >
             <div
-              class="Comment-avatar-286"
+              class="Comment-avatar-291"
             >
               <div
                 class="MuiAvatar-root MuiAvatar-circle"
@@ -108,13 +108,13 @@ In pulvinar, leo quis congue molestie, metus dolor sagittis magna, nec efficitur
               </div>
             </div>
             <div
-              class="Comment-commentText-287"
+              class="Comment-commentText-292"
             >
               <div>
                 Aenean felis nisi, elementum eu pretium sit amet, condimentum vitae ligula. Quisque facilisis lorem sit amet diam gravida luctus non sit amet eros. Donec id pulvinar lectus. Nunc at sollicitudin nunc. In lorem urna, molestie at ex auctor, tincidunt congue mi. Quisque nunc eros, efficitur eu ex dictum, tincidunt convallis velit. Phasellus et dui metus. Pellentesque ut varius augue, nec maximus elit. Mauris aliquam turpis vel enim egestas rhoncus. Aliquam facilisis magna id nibh cursus auctor. Mauris tellus mauris, auctor eu elementum id, maximus in lorem. Aenean in justo lacinia, malesuada nibh vitae, eleifend nisi. Nulla dapibus odio et dui ullamcorper congue. Sed porttitor sit amet leo et suscipit. Ut ac mattis metus, id venenatis ipsum. In quam metus, semper a magna ac, laoreet eleifend ex.
               </div>
               <div
-                class="Comment-created-288"
+                class="Comment-created-293"
               >
                 pamAdmin - 1/1/2020, 12:00:00 AM - 
                 <span
@@ -127,10 +127,10 @@ In pulvinar, leo quis congue molestie, metus dolor sagittis magna, nec efficitur
             </div>
           </div>
           <div
-            class="Comment-comment-285"
+            class="Comment-comment-290"
           >
             <div
-              class="Comment-avatar-286"
+              class="Comment-avatar-291"
             >
               <div
                 class="MuiAvatar-root MuiAvatar-circle"
@@ -143,13 +143,13 @@ In pulvinar, leo quis congue molestie, metus dolor sagittis magna, nec efficitur
               </div>
             </div>
             <div
-              class="Comment-commentText-287"
+              class="Comment-commentText-292"
             >
               <div>
                 Pellentesque pretium bibendum eros eget hendrerit. Aliquam mollis augue nibh, id lobortis.
               </div>
               <div
-                class="Comment-created-288"
+                class="Comment-created-293"
               >
                 pamAdmin - 1/1/2020, 12:00:00 AM - 
                 <span
@@ -164,31 +164,31 @@ In pulvinar, leo quis congue molestie, metus dolor sagittis magna, nec efficitur
         </div>
         <div>
           <label
-            class="AddComment-addNoteLabel-298"
+            class="AddComment-addNoteLabel-303"
             for="comment-entry"
           >
             taskComments.addNote
           </label>
           <textarea
-            class="AddComment-addNoteField-297"
+            class="AddComment-addNoteField-302"
             id="comment-entry"
             rows="2"
             style="height: -4px; overflow: hidden;"
           />
           <textarea
             aria-hidden="true"
-            class="AddComment-addNoteField-297"
+            class="AddComment-addNoteField-302"
             readonly=""
             style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0);"
             tabindex="-1"
           />
           <p
-            class="MuiTypography-root AddComment-addNoteLimit-299 MuiTypography-body1"
+            class="MuiTypography-root AddComment-addNoteLimit-304 MuiTypography-body1"
           >
             taskComments.maxChars
           </p>
           <div
-            class="AddComment-actionButtons-300"
+            class="AddComment-actionButtons-305"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
