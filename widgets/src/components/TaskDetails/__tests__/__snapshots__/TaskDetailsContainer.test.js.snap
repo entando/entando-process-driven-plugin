@@ -15,7 +15,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
           class="MuiBox-root MuiBox-root-40"
         >
           <div
-            class="MuiBox-root MuiBox-root-166"
+            class="MuiBox-root MuiBox-root-163"
           >
             <a
               class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-h2 MuiTypography-colorPrimary"
@@ -25,7 +25,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
             </a>
           </div>
           <div
-            class="MuiGrid-root OverviewDetails-root-203 MuiGrid-container MuiGrid-spacing-xs-8"
+            class="MuiGrid-root OverviewDetails-root-200 MuiGrid-container MuiGrid-spacing-xs-8"
           >
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -36,7 +36,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 task.fields.createdBy
               </label>
               <div
-                class="OverviewDetails-value-204"
+                class="OverviewDetails-value-201"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1"
@@ -54,7 +54,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 task.fields.name
               </label>
               <div
-                class="OverviewDetails-value-204"
+                class="OverviewDetails-value-201"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1"
@@ -72,7 +72,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 task.fields.createdOn
               </label>
               <div
-                class="OverviewDetails-value-204"
+                class="OverviewDetails-value-201"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1"
@@ -90,10 +90,10 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 task.fields.status
               </label>
               <div
-                class="OverviewDetails-value-204"
+                class="OverviewDetails-value-201"
               >
                 <div
-                  class="MuiChip-root makeStyles-root-213 makeStyles-root-214"
+                  class="MuiChip-root makeStyles-root-210 makeStyles-root-211"
                 >
                   <span
                     class="MuiChip-label"
@@ -112,7 +112,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
                 task.fields.due
               </label>
               <div
-                class="OverviewDetails-value-204"
+                class="OverviewDetails-value-201"
               >
                 <p
                   class="MuiTypography-root MuiTypography-body1"
@@ -129,7 +129,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
       class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-245"
+        class="MuiBox-root MuiBox-root-242"
       >
         <h3
           class="MuiTypography-root MuiTypography-h3"
@@ -167,7 +167,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
         class="MuiDivider-root"
       />
       <div
-        class="MuiBox-root MuiBox-root-155"
+        class="MuiBox-root MuiBox-root-153"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
@@ -179,7 +179,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1"
             >
               <span
-                class="GeneralInformation-label-154"
+                class="GeneralInformation-label-152"
               >
                 task.inputData.Comment
                 :
@@ -194,7 +194,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1"
             >
               <span
-                class="GeneralInformation-label-154"
+                class="GeneralInformation-label-152"
               >
                 task.inputData.reason
                 :
@@ -209,7 +209,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1"
             >
               <span
-                class="GeneralInformation-label-154"
+                class="GeneralInformation-label-152"
               >
                 task.inputData.performance
                 :
@@ -224,7 +224,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1"
             >
               <span
-                class="GeneralInformation-label-154"
+                class="GeneralInformation-label-152"
               >
                 task.inputData.TaskName
                 :
@@ -239,7 +239,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1"
             >
               <span
-                class="GeneralInformation-label-154"
+                class="GeneralInformation-label-152"
               >
                 task.inputData.NodeName
                 :
@@ -254,7 +254,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1"
             >
               <span
-                class="GeneralInformation-label-154"
+                class="GeneralInformation-label-152"
               >
                 task.inputData.Skippable
                 :
@@ -269,7 +269,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1"
             >
               <span
-                class="GeneralInformation-label-154"
+                class="GeneralInformation-label-152"
               >
                 task.inputData.ActorId
                 :
@@ -284,7 +284,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1"
             >
               <span
-                class="GeneralInformation-label-154"
+                class="GeneralInformation-label-152"
               >
                 task.inputData.BusinessAdministratorId
                 :
@@ -299,7 +299,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1"
             >
               <span
-                class="GeneralInformation-label-154"
+                class="GeneralInformation-label-152"
               >
                 task.inputData.GroupId
                 :

@@ -50,30 +50,6 @@ exports[`<TaskListConfig /> renders snapshot correctly 1`] = `
               Select one of the Kie server connections.
             </span>
           </div>
-          <div
-            class="form-group"
-          >
-            <label
-              class="control-label"
-              for="connection"
-            >
-              Process
-            </label>
-            <select
-              class="form-control"
-            >
-              <option
-                value=""
-              >
-                Select...
-              </option>
-            </select>
-            <span
-              class="help-block"
-            >
-              Select one BPM Process.
-            </span>
-          </div>
         </div>
       </div>
       

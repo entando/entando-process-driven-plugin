@@ -79,6 +79,30 @@ exports[`<TaskCompletionFormConfig /> renders snapshot correctly 1`] = `
             </div>
           </div>
         </div>
+        <div
+          class="row"
+        >
+          <div
+            class="col-xs-12"
+          >
+            <div
+              class="form-group"
+            >
+              <label
+                class="control-label"
+              >
+                Default column size
+              </label>
+              <input
+                class="form-control"
+                max="12"
+                min="1"
+                type="number"
+                value="12"
+              />
+            </div>
+          </div>
+        </div>
       </section>
     </form>
   </div>
