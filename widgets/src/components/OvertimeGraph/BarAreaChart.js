@@ -33,7 +33,7 @@ const BarAreaChart = ({ data, legends, classes }) => {
   const CustomLegend = ({ payload }) => (
     <ul className={classes.legend}>
       {payload.map(entry => (
-        <li key={JSON.stringify(entry)}>
+        <li key={entry.value}>
           <i style={{ backgroundColor: entry.color }} />
           {legends[entry.value]}
         </li>
@@ -68,8 +68,6 @@ const BarAreaChart = ({ data, legends, classes }) => {
     </ResponsiveContainer>
   );
 };
-
-// formatter={value => <span style={{ verticalAlign: 'middle' }}>{legends[value]}</span>}
 
 BarAreaChart.propTypes = {
   classes: PropTypes.shape({
