@@ -8,12 +8,12 @@ public class AuthPermissions {
     public static final String TASK_LIST = "task-list";
     public static final String TASK_GET = "task-get";
 
-    public static final String TASK_CLAIM = "task-list";
-    public static final String TASK_UNCLAIM = "task-list";
-    public static final String TASK_ASSIGN = "task-list";
-    public static final String TASK_START = "task-list";
-    public static final String TASK_PAUSE = "task-list";
-    public static final String TASK_COMPLETE = "task-list";
+    public static final String TASK_CLAIM = "task-claim";
+    public static final String TASK_UNCLAIM = "task-unclaim";
+    public static final String TASK_ASSIGN = "task-assign";
+    public static final String TASK_START = "task-start";
+    public static final String TASK_PAUSE = "task-pause";
+    public static final String TASK_COMPLETE = "task-complete";
 
     public static final String TASK_DEFINITION_COLUMNS_LIST = "task-definition-columns-list";
 
