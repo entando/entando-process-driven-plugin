@@ -53,10 +53,23 @@ export default createMuiTheme({
   },
   overrides: {
     ...entandoUiTheme.overrides,
+    MuiTable: {
+      ...entandoUiTheme.overrides.MuiTable,
+      root: {
+        borderCollapse: 'collapse',
+      },
+    },
     MuiTableCell: {
       ...entandoUiTheme.overrides.MuiTableCell,
+      root: {
+        border: 0,
+        padding: '.5rem',
+      },
       head: {
         borderBottom: 'solid 3px #eee',
+      },
+      footer: {
+        backgroundColor: '#fff',
       },
     },
     MuiFormLabel: {
