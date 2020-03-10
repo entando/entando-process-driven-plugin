@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
-import { getProcesses } from 'api/pda/processes';
 import ErrorNotification from 'components/common/ErrorNotification';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
@@ -17,16 +16,13 @@ class TaskCommentsConfig extends React.Component {
 
     this.state = {
       sourceList: [],
-      processList: [],
       errorMessage: '',
       config: {
         knowledgeSource: '',
-        process: '',
       },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
-    this.onChangeProcess = this.onChangeProcess.bind(this);
     this.closeNotification = this.closeNotification.bind(this);
     this.handleError = this.handleError.bind(this);
     this.fetchScreen = this.fetchScreen.bind(this);
@@ -51,24 +47,10 @@ class TaskCommentsConfig extends React.Component {
     }
   }
 
-  onChangeKnowledgeSource(e, cb = () => {}) {
+  onChangeKnowledgeSource(e) {
     const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState({ config: { ...config, knowledgeSource } });
-
-    getProcesses(knowledgeSource).then(data => {
-      this.setState({ processList: data.payload });
-
-      cb();
-    });
-  }
-
-  onChangeProcess(e, cb = () => {}) {
-    const { config } = this.state;
-    const process = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, process } });
-
-    cb();
   }
 
   closeNotification = () => {
@@ -82,17 +64,13 @@ class TaskCommentsConfig extends React.Component {
   fetchScreen() {
     const { config } = this.props;
     if (config && config.knowledgeSource) {
-      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
-        if (config.process) {
-          this.onChangeProcess(config.process);
-        }
-      });
+      this.onChangeKnowledgeSource(config.knowledgeSource);
     }
   }
 
   render() {
-    const { sourceList, processList = [], errorMessage, config } = this.state;
-    const { knowledgeSource, process: selectedProcess = '' } = config;
+    const { sourceList, errorMessage, config } = this.state;
+    const { knowledgeSource } = config;
 
     return (
       <div>
@@ -116,25 +94,6 @@ class TaskCommentsConfig extends React.Component {
                 </select>
                 <HelpBlock>Select one of the Kie server connections.</HelpBlock>
               </FormGroup>
-              <FormGroup controlId="connection">
-                <ControlLabel>Process</ControlLabel>
-                <select
-                  className="form-control"
-                  value={selectedProcess}
-                  onChange={this.onChangeProcess}
-                >
-                  <option value="">Select...</option>
-                  {processList.map(process => (
-                    <option
-                      key={`${process['process-id']}@${process['container-id']}`}
-                      value={`${process['process-id']}@${process['container-id']}`}
-                    >
-                      {`${process['process-name']} @ ${process['container-id']}`}
-                    </option>
-                  ))}
-                </select>
-                <HelpBlock>Select one BPM Process.</HelpBlock>
-              </FormGroup>
             </Col>
           </Row>
         </form>
@@ -146,7 +105,6 @@ class TaskCommentsConfig extends React.Component {
 TaskCommentsConfig.propTypes = {
   config: PropTypes.shape({
     knowledgeSource: PropTypes.string,
-    process: PropTypes.string,
   }).isRequired,
 };
 

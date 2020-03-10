@@ -1,5 +1,9 @@
-import ActionCell from 'components/common/Table/custom/ActionCell';
+import React from 'react';
+import moment from 'moment';
+
 import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
+import ActionCell from 'components/common/Table/custom/ActionCell';
+import BadgeChip from 'components/common/BadgeChip';
 
 export const getType = (column, firstRow) => {
   let sortFunction = compareStrings;
@@ -12,7 +16,22 @@ export const getType = (column, firstRow) => {
   return sortFunction;
 };
 
-export const normalizeColumns = (columns, firstRow, options, { openDiagram, selectTask }) => {
+const STATUS = 'status';
+const CREATED_AT = 'createdAt';
+
+const getColorByDate = date => {
+  const today = moment();
+  const momentDate = moment(date);
+  if (today.diff(momentDate, 'hours') <= 24) {
+    return 'success';
+  }
+  if (today.diff(momentDate, 'days') <= 7) {
+    return 'warning';
+  }
+  return 'error';
+};
+
+export const normalizeColumns = (columns, firstRow, options, { openDiagram }) => {
   const normalized = columns
     .filter(column => column.isVisible)
     .map(column => ({
@@ -30,11 +49,25 @@ export const normalizeColumns = (columns, firstRow, options, { openDiagram, sele
     return obj;
   }, {});
 
+  // find status column to apply customCell
+  const withCustomCell = normalized.map(column => {
+    if (column.accessor === STATUS) {
+      return {
+        ...column,
+        // eslint-disable-next-line react/prop-types
+        customCell: ({ row }) => (
+          <BadgeChip label={row[STATUS]} value={getColorByDate(row[CREATED_AT])} />
+        ),
+      };
+    }
+    return column;
+  });
+
   // add action field
-  normalized.push({
-    header: 'Actions',
+  withCustomCell.push({
+    header: ' ',
     accessor: 'action',
-    customCell: ActionCell(requiredFields, { openDiagram, selectTask }),
+    customCell: ActionCell(requiredFields, { openDiagram }),
     styles: {
       position: 'sticky',
       right: 0,
@@ -46,7 +79,7 @@ export const normalizeColumns = (columns, firstRow, options, { openDiagram, sele
     },
   });
 
-  return normalized;
+  return withCustomCell;
 };
 
 export const normalizeRows = rows =>
