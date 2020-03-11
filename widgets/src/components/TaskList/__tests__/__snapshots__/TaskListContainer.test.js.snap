@@ -57,20 +57,6 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
           role="tablist"
         >
           <button
-            aria-selected="false"
-            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-disabled Mui-disabled"
-            disabled=""
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              class="MuiTab-wrapper"
-            >
-              taskList.tabs.myWork
-            </span>
-          </button>
-          <button
             aria-selected="true"
             class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
             role="tab"
@@ -85,20 +71,6 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             <span
               class="MuiTouchRipple-root"
             />
-          </button>
-          <button
-            aria-selected="false"
-            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-disabled Mui-disabled"
-            disabled=""
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              class="MuiTab-wrapper"
-            >
-              taskList.tabs.myCases
-            </span>
           </button>
         </div>
         <span
