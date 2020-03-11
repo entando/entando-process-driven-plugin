@@ -19,7 +19,6 @@ import org.entando.plugins.pda.core.service.task.TaskService;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
-import org.entando.plugins.pda.pam.exception.NoConnectionWithKieServerException;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.entando.web.response.PagedMetadata;
 import org.entando.web.response.PagedRestResponse;

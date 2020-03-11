@@ -10,7 +10,6 @@ import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
-import org.entando.plugins.pda.core.service.task.TaskService;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
