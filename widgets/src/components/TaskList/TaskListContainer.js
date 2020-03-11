@@ -29,7 +29,6 @@ const styles = {
     justifyContent: 'space-between',
     padding: '16px 16px 8px 16px',
     minHeight: 'unset',
-    borderBottom: 'solid 2px #E7EAEC',
   },
   noSubtitleToolbar: {
     padding: '8px 16px',
@@ -54,7 +53,7 @@ class TaskList extends React.Component {
     blocker: '',
     errorAlert: null,
     lastPage: false,
-    activeTab: 1,
+    activeTab: 0,
     diagramModal: {
       open: false,
       title: '',
