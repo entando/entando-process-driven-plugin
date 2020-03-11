@@ -102,13 +102,13 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
           </button>
         </div>
         <span
-          class="PrivateTabIndicator-root-120 PrivateTabIndicator-colorPrimary-121 MuiTabs-indicator"
+          class="PrivateTabIndicator-root-122 PrivateTabIndicator-colorPrimary-123 MuiTabs-indicator"
           style="left: 0px; width: 0px;"
         />
       </div>
     </div>
     <div
-      class="Table-tableWrapper-125"
+      class="Table-tableWrapper-127"
     >
       <table
         class="MuiTable-root"
