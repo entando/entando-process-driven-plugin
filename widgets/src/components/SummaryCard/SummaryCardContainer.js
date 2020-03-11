@@ -225,9 +225,10 @@ SummaryCard.defaultProps = {
 
 const StyledSummaryCard = withStyles(styles)(SummaryCard);
 
-const SummaryCardContainer = () => (
+const SummaryCardContainer = props => (
   <ThemeProvider theme={theme}>
-    <StyledSummaryCard />
+    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+    <StyledSummaryCard {...props} />
   </ThemeProvider>
 );
 
