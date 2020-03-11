@@ -9,18 +9,21 @@ export default createMuiTheme({
       ...entandoUiTheme.typography.h1,
       marginTop: 0,
       marginBottom: 0,
+      fontWeight: 'normal',
     },
     h2: {
       ...entandoUiTheme.typography.h2,
       lineHeight: '33px',
       marginTop: 0,
       marginBottom: 0,
+      fontWeight: 'normal',
     },
     h3: {
       ...entandoUiTheme.typography.h3,
       lineHeight: '25px',
       marginTop: 0,
       marginBottom: 0,
+      fontWeight: 'normal',
     },
     h4: {
       ...entandoUiTheme.typography.h4,
