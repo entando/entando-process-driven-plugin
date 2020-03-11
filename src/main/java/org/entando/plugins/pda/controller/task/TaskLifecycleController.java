@@ -4,6 +4,7 @@ import static org.entando.plugins.pda.controller.AuthPermissions.TASK_ASSIGN;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_CLAIM;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_COMPLETE;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_PAUSE;
+import static org.entando.plugins.pda.controller.AuthPermissions.TASK_RESUME;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_START;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_UNCLAIM;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -88,6 +89,17 @@ public class TaskLifecycleController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskLifecycleService().pause(connection, user, taskId));
+    }
+
+    @Secured(TASK_RESUME)
+    @ApiOperation(notes = "Resume task", nickname = "resumeTask", value = "Resume task")
+    @PutMapping(value = "/resume", produces = APPLICATION_JSON_VALUE)
+    public SimpleRestResponse<Task> resumeTask(@PathVariable final String connId,
+            @PathVariable final String taskId, AuthenticatedUser user) {
+        log.debug("Resume task {}", taskId);
+        Connection connection = connectionService.get(connId);
+        Engine engine = engineFactory.getEngine(connection.getEngine());
+        return new SimpleRestResponse<>(engine.getTaskLifecycleService().resume(connection, user, taskId));
     }
 
     @Secured(TASK_COMPLETE)

@@ -1,5 +1,6 @@
 package org.entando.plugins.pda.controller.task;
 
+import static org.apache.commons.lang.RandomStringUtils.randomNumeric;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
@@ -10,7 +11,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import org.apache.commons.lang.RandomStringUtils;
 import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
@@ -69,7 +69,7 @@ public class TaskLifecycleControllerIntegrationTest {
 
     @Test
     public void shouldClaimTask() throws Exception {
-        String taskId = RandomStringUtils.randomNumeric(5);
+        String taskId = randomNumeric(5);
         mockMvc.perform(MockMvcRequestBuilders.put("/connections/fakeProduction/tasks/" + taskId + "/claim"))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -80,7 +80,7 @@ public class TaskLifecycleControllerIntegrationTest {
 
     @Test
     public void shouldUnclaimTask() throws Exception {
-        String taskId = RandomStringUtils.randomNumeric(5);
+        String taskId = randomNumeric(5);
         mockMvc.perform(MockMvcRequestBuilders.put("/connections/fakeProduction/tasks/" + taskId + "/unclaim"))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -91,7 +91,7 @@ public class TaskLifecycleControllerIntegrationTest {
 
     @Test
     public void shouldAssignTask() throws Exception {
-        String taskId = RandomStringUtils.randomNumeric(5);
+        String taskId = randomNumeric(5);
         mockMvc.perform(MockMvcRequestBuilders.put("/connections/fakeProduction/tasks/" + taskId + "/assign/test"))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -102,7 +102,7 @@ public class TaskLifecycleControllerIntegrationTest {
 
     @Test
     public void shouldStartTask() throws Exception {
-        String taskId = RandomStringUtils.randomNumeric(5);
+        String taskId = randomNumeric(5);
         mockMvc.perform(MockMvcRequestBuilders.put("/connections/fakeProduction/tasks/" + taskId + "/start"))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -113,7 +113,7 @@ public class TaskLifecycleControllerIntegrationTest {
 
     @Test
     public void shouldPauseTask() throws Exception {
-        String taskId = RandomStringUtils.randomNumeric(5);
+        String taskId = randomNumeric(5);
         mockMvc.perform(MockMvcRequestBuilders.put("/connections/fakeProduction/tasks/" + taskId + "/pause"))
                 .andDo(print())
                 .andExpect(status().isOk());
@@ -123,8 +123,19 @@ public class TaskLifecycleControllerIntegrationTest {
     }
 
     @Test
+    public void shouldResumeTask() throws Exception {
+        String taskId = randomNumeric(5);
+        mockMvc.perform(MockMvcRequestBuilders.put("/connections/fakeProduction/tasks/" + taskId + "/resume"))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+        assertThat(taskLifecycleService.getRecordedActions().get(taskId))
+                .contains(FakeTaskLifecycleService.RESUME_ACTION);
+    }
+
+    @Test
     public void shouldCompleteTask() throws Exception {
-        String taskId = RandomStringUtils.randomNumeric(5);
+        String taskId = randomNumeric(5);
         mockMvc.perform(MockMvcRequestBuilders.put("/connections/fakeProduction/tasks/" + taskId + "/complete"))
                 .andDo(print())
                 .andExpect(status().isOk());

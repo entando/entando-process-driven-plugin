@@ -131,6 +131,19 @@ public class TaskLifecycleBulkControllerIntegrationTest {
     }
 
     @Test
+    public void shouldBulkResumeTasks() throws Exception {
+        String taskId1 = randomNumeric(5);
+        String taskId2 = randomNumeric(5);
+        String taskId3 = randomNumeric(5);
+        mockMvc.perform(MockMvcRequestBuilders.put("/connections/fakeProduction/bulk/tasks/resume")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(Arrays.asList(taskId1, taskId2, taskId3))))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("payload[*].id", contains(taskId1, taskId2, taskId3)));
+    }
+
+    @Test
     public void shouldBulkCompleteTasks() throws Exception {
         String taskId1 = randomNumeric(5);
         String taskId2 = randomNumeric(5);

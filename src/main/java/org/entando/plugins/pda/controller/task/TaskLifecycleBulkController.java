@@ -4,6 +4,7 @@ import static org.entando.plugins.pda.controller.AuthPermissions.TASK_ASSIGN;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_CLAIM;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_COMPLETE;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_PAUSE;
+import static org.entando.plugins.pda.controller.AuthPermissions.TASK_RESUME;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_START;
 import static org.entando.plugins.pda.controller.AuthPermissions.TASK_UNCLAIM;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -91,6 +92,17 @@ public class TaskLifecycleBulkController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskLifecycleBulkService().bulkPause(connection, user, ids));
+    }
+
+    @Secured(TASK_RESUME)
+    @ApiOperation(notes = "Bulk Resume tasks", nickname = "bulkResumeTasks", value = "Bulk resume tasks")
+    @PutMapping(value = "/resume", produces = APPLICATION_JSON_VALUE)
+    public SimpleRestResponse<List<TaskBulkActionResponse>> bulkResumeTask(@PathVariable final String connId,
+            @RequestBody final List<String> ids, AuthenticatedUser user) {
+        log.debug("Bulk Resume tasks {}", ids);
+        Connection connection = connectionService.get(connId);
+        Engine engine = engineFactory.getEngine(connection.getEngine());
+        return new SimpleRestResponse<>(engine.getTaskLifecycleBulkService().bulkResume(connection, user, ids));
     }
 
     @Secured(TASK_COMPLETE)

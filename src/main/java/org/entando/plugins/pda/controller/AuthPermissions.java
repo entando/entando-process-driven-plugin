@@ -13,6 +13,7 @@ public class AuthPermissions {
     public static final String TASK_ASSIGN = "task-assign";
     public static final String TASK_START = "task-start";
     public static final String TASK_PAUSE = "task-pause";
+    public static final String TASK_RESUME = "task-resume";
     public static final String TASK_COMPLETE = "task-complete";
 
     public static final String TASK_DEFINITION_COLUMNS_LIST = "task-definition-columns-list";
