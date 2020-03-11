@@ -8,8 +8,8 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
     <div
       class="MuiBox-root MuiBox-root-30"
     >
-      <h5
-        class="MuiTypography-root MuiTypography-h5"
+      <h2
+        class="MuiTypography-root MuiTypography-h2"
       />
     </div>
     <hr

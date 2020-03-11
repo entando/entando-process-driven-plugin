@@ -67,7 +67,7 @@ const SummaryCardValues = ({ dataType, values, classes, loading }) => {
       {!loading && values && (
         <>
           <div>
-            <Typography variant="h4">
+            <Typography variant="h1">
               {i18next.t(`summary.labels.${dataType}.value`, { value: values.value })}
             </Typography>
             <Typography variant="caption">

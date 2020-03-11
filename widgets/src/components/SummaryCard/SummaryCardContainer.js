@@ -17,37 +17,39 @@ import ErrorNotification from 'components/common/ErrorNotification';
 import Skeleton from '@material-ui/lab/Skeleton';
 import SummaryCardValues from 'components/SummaryCard/SummaryCardValues';
 
-const styles = ({ palette }) => ({
-  root: {
-    background: '#FFF',
-    borderTop: '4px solid #E7EAEC',
-    color: '#676A6C',
-  },
-  header: {
-    display: 'flex',
-    padding: '20px 25px',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  headline: {
-    fontWeight: 'bold',
-  },
-  frequencySelectRoot: {
-    border: `2px solid ${palette.primary.main}`,
-    padding: '4px 24px 4px 14px',
-    borderRadius: 4,
-    fontSize: 10,
-    fontWeight: 'bold',
-    color: palette.primary.main,
-  },
-  frequencySelectIcon: {
-    right: 3,
-    color: palette.primary.main,
-  },
-  frequencySelectItem: {
-    fontSize: 12,
-  },
-});
+const styles = ({ palette }) => {
+  return {
+    root: {
+      background: '#FFF',
+      borderTop: '4px solid #E7EAEC',
+      color: '#676A6C',
+    },
+    header: {
+      display: 'flex',
+      padding: '20px 25px',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    headline: {
+      fontWeight: 'bold',
+    },
+    frequencySelectRoot: {
+      border: `2px solid ${palette.primary.main}`,
+      padding: '4px 24px 4px 14px',
+      borderRadius: 4,
+      fontSize: 10,
+      fontWeight: 'bold',
+      color: palette.primary.main,
+    },
+    frequencySelectIcon: {
+      right: 3,
+      color: palette.primary.main,
+    },
+    frequencySelectItem: {
+      fontSize: 12,
+    },
+  };
+};
 
 const FREQUENCIES = ['monthly', 'annually', 'daily'];
 
@@ -187,15 +189,13 @@ class SummaryCard extends React.Component {
 
     return (
       <CustomEventContext.Provider value={{ onError }}>
-        <ThemeProvider theme={theme}>
-          <Paper square elevation={0} className={classes.root}>
-            {loading && this.renderSkeletonHeader()}
-            {!loading && summary && this.renderHeader()}
-            <Divider />
-            <SummaryCardValues loading={loadingValues} dataType={dataType} values={summary} />
-          </Paper>
-          <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
-        </ThemeProvider>
+        <Paper square elevation={0} className={classes.root}>
+          {loading && this.renderSkeletonHeader()}
+          {!loading && summary && this.renderHeader()}
+          <Divider />
+          <SummaryCardValues loading={loadingValues} dataType={dataType} values={summary} />
+        </Paper>
+        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
       </CustomEventContext.Provider>
     );
   }
@@ -223,4 +223,13 @@ SummaryCard.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles)(SummaryCard);
+const StyledSummaryCard = withStyles(styles)(SummaryCard);
+
+const SummaryCardContainer = props => (
+  <ThemeProvider theme={theme}>
+    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+    <StyledSummaryCard {...props} />
+  </ThemeProvider>
+);
+
+export default SummaryCardContainer;

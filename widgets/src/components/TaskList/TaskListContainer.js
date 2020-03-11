@@ -263,7 +263,7 @@ class TaskList extends React.Component {
             <>
               <Toolbar className={classes.toolbar}>
                 <div className={classes.title}>
-                  <Typography variant="h5">{i18next.t('table.title')}</Typography>
+                  <Typography variant="h2">{i18next.t('table.title')}</Typography>
                 </div>
                 <div>
                   <SearchInput value={filter} onChange={this.handleChangeFilter} />
