@@ -13,6 +13,7 @@ import FieldTemplate from 'components/common/form/templates/FieldTemplate';
 import generateColumnedOFT from 'components/common/form/templates/ObjectFieldTemplate';
 import DateWidget from 'components/common/form/widgets/DateWidget';
 import mortgageApplicationForm from 'components/common/form/uiSchemas/mortgageApplicationForm';
+import allFieldsForm from 'components/common/form/uiSchemas/allFieldsForm';
 
 const styles = {
   actionButtons: {
@@ -32,6 +33,7 @@ const styles = {
 
 const PREDEFINED_SCHEMAS = {
   'http://entando.org/schemas/MortgageApplicationForm.json': mortgageApplicationForm,
+  'http://entando.org/schemas/pda-all-fields-form.json': allFieldsForm,
 };
 
 const JSONForm = props => {
