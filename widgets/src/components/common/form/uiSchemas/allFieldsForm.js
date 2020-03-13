@@ -35,5 +35,9 @@ export default {
       'ui:widget': 'range',
       'ui:options': {},
     },
+    updownField: {
+      'ui:widget': 'updown',
+      'ui:options': {},
+    },
   },
 };

@@ -198,6 +198,11 @@ export default {
             minimum: 1,
             maximum: 50,
           },
+          updownField: {
+            type: 'integer',
+            title: 'UpDown field',
+            description: 'This is an example of integer field as UpDown widget',
+          },
         },
       },
       booleans: {
