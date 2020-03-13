@@ -248,6 +248,23 @@ export default {
           },
         },
       },
+      multichoice: {
+        title: 'Multi-choice fields',
+        description: 'Examples of multi-choice widgets',
+        type: 'object',
+        required: [],
+        properties: {
+          checkbox: {
+            type: 'array',
+            title: 'A multiple-choice list as Checkboxes widget',
+            items: {
+              type: 'string',
+              enum: ['Single', 'Double', 'Triple'],
+            },
+            uniqueItems: true,
+          },
+        },
+      },
       __unbound_field_field_9814: {
         type: 'string',
         title: 'My Radio Group',

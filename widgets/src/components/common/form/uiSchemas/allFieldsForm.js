@@ -40,4 +40,10 @@ export default {
       'ui:options': {},
     },
   },
+  multichoice: {
+    checkbox: {
+      'ui:widget': 'checkboxes',
+      'ui:options': {},
+    },
+  },
 };
