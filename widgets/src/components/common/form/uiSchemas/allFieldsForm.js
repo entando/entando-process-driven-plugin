@@ -16,7 +16,7 @@ export default {
     textAreaField: {
       'ui:widget': 'textarea',
       'ui:options': {
-        rows: 5,
+        rows: 3,
       },
     },
     passwordField: {
