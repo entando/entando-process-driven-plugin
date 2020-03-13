@@ -29,7 +29,6 @@ const styles = {
     justifyContent: 'space-between',
     padding: '16px 16px 8px 16px',
     minHeight: 'unset',
-    borderBottom: 'solid 2px #E7EAEC',
   },
   noSubtitleToolbar: {
     padding: '8px 16px',
@@ -54,7 +53,7 @@ class TaskList extends React.Component {
     blocker: '',
     errorAlert: null,
     lastPage: false,
-    activeTab: 1,
+    activeTab: 0,
     diagramModal: {
       open: false,
       title: '',
@@ -263,7 +262,7 @@ class TaskList extends React.Component {
             <>
               <Toolbar className={classes.toolbar}>
                 <div className={classes.title}>
-                  <Typography variant="h5">{i18next.t('table.title')}</Typography>
+                  <Typography variant="h2">{i18next.t('table.title')}</Typography>
                 </div>
                 <div>
                   <SearchInput value={filter} onChange={this.handleChangeFilter} />
@@ -275,9 +274,7 @@ class TaskList extends React.Component {
                 onChange={this.handleChangeTab}
                 value={activeTab}
               >
-                <Tab label={i18next.t('taskList.tabs.myWork')} disabled />
                 <Tab label={i18next.t('taskList.tabs.myTasks')} />
-                <Tab label={i18next.t('taskList.tabs.myCases')} disabled />
               </Tabs>
               <Table
                 loading={loading}

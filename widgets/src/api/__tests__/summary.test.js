@@ -36,7 +36,7 @@ describe('Summary API', () => {
 
   it('getSummaryByType to call fetch with correct parameters and returns expected data', async () => {
     const connection = 'kieStaging';
-    const type = 'Chart';
+    const type = 'TimeSeries';
     const payload = {
       frequency: 'ANNUALLY',
       periods: 5,

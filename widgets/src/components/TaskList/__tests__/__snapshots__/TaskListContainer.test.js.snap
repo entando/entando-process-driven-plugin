@@ -11,11 +11,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
       <div
         class="TaskList-title-3"
       >
-        <h5
-          class="MuiTypography-root MuiTypography-h5"
+        <h2
+          class="MuiTypography-root MuiTypography-h2"
         >
           table.title
-        </h5>
+        </h2>
       </div>
       <div>
         <div
@@ -57,20 +57,6 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
           role="tablist"
         >
           <button
-            aria-selected="false"
-            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-disabled Mui-disabled"
-            disabled=""
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              class="MuiTab-wrapper"
-            >
-              taskList.tabs.myWork
-            </span>
-          </button>
-          <button
             aria-selected="true"
             class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
             role="tab"
@@ -86,29 +72,15 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
               class="MuiTouchRipple-root"
             />
           </button>
-          <button
-            aria-selected="false"
-            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-disabled Mui-disabled"
-            disabled=""
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              class="MuiTab-wrapper"
-            >
-              taskList.tabs.myCases
-            </span>
-          </button>
         </div>
         <span
-          class="PrivateTabIndicator-root-120 PrivateTabIndicator-colorPrimary-121 MuiTabs-indicator"
+          class="PrivateTabIndicator-root-122 PrivateTabIndicator-colorPrimary-123 MuiTabs-indicator"
           style="left: 0px; width: 0px;"
         />
       </div>
     </div>
     <div
-      class="Table-tableWrapper-125"
+      class="Table-tableWrapper-127"
     >
       <table
         class="MuiTable-root"

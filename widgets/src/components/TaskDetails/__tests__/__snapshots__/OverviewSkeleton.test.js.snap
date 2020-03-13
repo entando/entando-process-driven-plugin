@@ -5,12 +5,12 @@ exports[`<OverviewSkeleton /> renders snapshot correctly 1`] = `
   <div
     class="TaskListSkeleton-header-1"
   >
-    <span
-      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
       style="width: 200px; height: 33px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
       style="width: 230px; height: 40px;"
     />
   </div>
@@ -21,15 +21,15 @@ exports[`<OverviewSkeleton /> renders snapshot correctly 1`] = `
       <div
         class="MuiGrid-root MuiGrid-item"
       >
-        <span
-          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
           style="width: 80px;"
         />
         <div
           class="TaskListSkeleton-value-2"
         >
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
             style="width: 60px;"
           />
         </div>
@@ -37,15 +37,15 @@ exports[`<OverviewSkeleton /> renders snapshot correctly 1`] = `
       <div
         class="MuiGrid-root MuiGrid-item"
       >
-        <span
-          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
           style="width: 80px;"
         />
         <div
           class="TaskListSkeleton-value-2"
         >
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
             style="width: 100px;"
           />
         </div>
@@ -53,15 +53,15 @@ exports[`<OverviewSkeleton /> renders snapshot correctly 1`] = `
       <div
         class="MuiGrid-root MuiGrid-item"
       >
-        <span
-          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
           style="width: 80px;"
         />
         <div
           class="TaskListSkeleton-value-2"
         >
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
             style="width: 120px;"
           />
         </div>
@@ -69,15 +69,15 @@ exports[`<OverviewSkeleton /> renders snapshot correctly 1`] = `
       <div
         class="MuiGrid-root MuiGrid-item"
       >
-        <span
-          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
           style="width: 80px;"
         />
         <div
           class="TaskListSkeleton-value-2"
         >
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
             style="width: 100px; height: 32px;"
           />
         </div>
@@ -85,15 +85,15 @@ exports[`<OverviewSkeleton /> renders snapshot correctly 1`] = `
       <div
         class="MuiGrid-root MuiGrid-item"
       >
-        <span
-          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+        <div
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
           style="width: 80px;"
         />
         <div
           class="TaskListSkeleton-value-2"
         >
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
             style="width: 100px;"
           />
         </div>

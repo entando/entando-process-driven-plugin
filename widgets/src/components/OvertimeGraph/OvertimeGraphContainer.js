@@ -30,11 +30,14 @@ const formatDate = (dateStr, frequency) => {
   }
 };
 
-const ThickDivider = withStyles({
-  root: {
-    height: 4,
+const ThickDivider = withStyles(
+  {
+    root: {
+      height: 4,
+    },
   },
-})(Divider);
+  { name: 'ThickDivider' }
+)(Divider);
 
 const StyledTabs = withStyles({
   root: {
@@ -65,6 +68,14 @@ const StyledTab = withStyles({
 
   // eslint-disable-next-line react/jsx-props-no-spreading
 })(props => <Tab disableRipple {...props} />);
+
+const styles = {
+  summaries: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+};
 
 class OvertimeGraph extends Component {
   constructor() {
@@ -104,7 +115,7 @@ class OvertimeGraph extends Component {
   async fetchWidgetConfigs() {
     const { pageCode, frameId } = this.props;
     try {
-      const widgetConfigs = await getPageWidget(pageCode, frameId);
+      const widgetConfigs = await getPageWidget(pageCode, frameId, 'OVERTIME_GRAPH');
       if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }
@@ -146,8 +157,8 @@ class OvertimeGraph extends Component {
       if (payload) {
         const series1 = (payload.series && payload.series[0]) || { values: [] };
         const series2 = (payload.series && payload.series[1]) || { values: [] };
-        const dataType1 = series1.dataType;
-        const dataType2 = series2.dataType;
+        const dataType1 = series1.id;
+        const dataType2 = series2.id;
         const graphData = series1.values.reverse().map(({ date, value }, i) => ({
           x: formatDate(date, selectedTab),
           bar: value,
@@ -194,7 +205,7 @@ class OvertimeGraph extends Component {
   }
 
   render() {
-    const { onError } = this.props;
+    const { classes, onError } = this.props;
     const { loading, selectedTab, summary, summaryFetching } = this.state;
     const { graphData, dataType1, dataType2, card1, card2 } = summary;
 
@@ -206,7 +217,7 @@ class OvertimeGraph extends Component {
               {loading ? (
                 <Skeleton width={250} />
               ) : (
-                <Typography variant="h5">{i18next.t(`summary.labels.chart.title`)}</Typography>
+                <Typography variant="h2">{i18next.t(`summary.labels.chart.title`)}</Typography>
               )}
             </Box>
             <Divider />
@@ -251,7 +262,7 @@ class OvertimeGraph extends Component {
                     />
                   )}
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={3} className={classes.summaries}>
                   <Box mb={1}>
                     <DataSummary
                       value={card1.value}
@@ -281,6 +292,9 @@ class OvertimeGraph extends Component {
 }
 
 OvertimeGraph.propTypes = {
+  classes: PropTypes.shape({
+    summaries: PropTypes.string,
+  }).isRequired,
   pageCode: PropTypes.string,
   frameId: PropTypes.string,
   serviceUrl: PropTypes.string,
@@ -294,4 +308,4 @@ OvertimeGraph.defaultProps = {
   onError: () => {},
 };
 
-export default OvertimeGraph;
+export default withStyles(styles)(OvertimeGraph);

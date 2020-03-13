@@ -51,6 +51,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    fontSize: '1.5rem',
   },
   userAuth: {
     marginLeft: '20px',
@@ -93,7 +94,7 @@ function App() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h2" className={classes.title}>
               Entando - PAM Plugin
             </Typography>
             <FormControlLabel

@@ -6,11 +6,11 @@ exports[`<SummaryCardValues /> renders snapshot correctly 1`] = `
     class="SummaryCardValues-root-1 upTrend"
   >
     <div>
-      <h4
-        class="MuiTypography-root MuiTypography-h4"
+      <h1
+        class="MuiTypography-root MuiTypography-h1"
       >
         summary.labels.requests.value
-      </h4>
+      </h1>
       <span
         class="MuiTypography-root MuiTypography-caption"
       >
