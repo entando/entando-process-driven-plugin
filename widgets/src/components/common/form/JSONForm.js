@@ -19,6 +19,7 @@ const styles = {
   actionButtons: {
     display: 'flex',
     justifyContent: 'flex-end',
+    marginTop: '10px',
   },
   divider: {
     marginTop: '20px',
@@ -60,8 +61,19 @@ const JSONForm = props => {
     overrides: {
       MuiOutlinedInput: {
         root: {
-          height: '32px',
           borderRadius: '0px',
+        },
+        multiline: {
+          paddingTop: '0px',
+          paddingBottom: '0px',
+        },
+        input: {
+          paddingTop: '8px',
+          paddingBottom: '8px',
+        },
+        inputMultiline: {
+          paddingTop: '8px',
+          paddingBottom: '8px',
         },
       },
       MuiFormLabel: {
@@ -72,13 +84,6 @@ const JSONForm = props => {
       MuiInputLabel: {
         root: {
           display: 'none',
-        },
-      },
-      MuiSelect: {
-        select: {
-          height: '32px',
-          paddingTop: '8px', // limiting :focus highlight
-          paddingBottom: '4px', // limiting :focus highlight
         },
       },
     },
