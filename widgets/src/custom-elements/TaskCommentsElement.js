@@ -49,18 +49,10 @@ class TaskCommentsElement extends HTMLElement {
 
   updateTaskId(e) {
     const { detail } = e;
-    this.setAttribute('id', detail.id);
+    this.setAttribute(ATTRIBUTES.id, detail.id);
   }
 
-  connectedCallback() {
-    this.mountPoint = document.createElement('div');
-    this.appendChild(this.mountPoint);
-
-    this.unsubscribeFromTaskListSelect = addCustomEventListener(
-      TL_ON_SELECT_TASK,
-      this.updateTaskId
-    );
-
+  render() {
     const locale = this.getAttribute(ATTRIBUTES.locale) || 'en';
     i18next.changeLanguage(locale);
 
@@ -83,6 +75,18 @@ class TaskCommentsElement extends HTMLElement {
       null
     );
     ReactDOM.render(reactRoot, this.mountPoint);
+  }
+
+  connectedCallback() {
+    this.mountPoint = document.createElement('div');
+    this.appendChild(this.mountPoint);
+
+    this.unsubscribeFromTaskListSelect = addCustomEventListener(
+      TL_ON_SELECT_TASK,
+      this.updateTaskId
+    );
+
+    this.render();
   }
 
   disconnectedCallback() {
