@@ -24,4 +24,16 @@ export default {
       'ui:options': {},
     },
   },
+  numbers: {
+    doubleField: {},
+    integerField: {},
+    rangeField: {
+      'ui:widget': 'range',
+      'ui:options': {},
+    },
+    limitedRangeField: {
+      'ui:widget': 'range',
+      'ui:options': {},
+    },
+  },
 };

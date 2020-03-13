@@ -176,16 +176,27 @@ export default {
         type: 'object',
         required: [],
         properties: {
-          myDouble: {
+          doubleField: {
             type: 'number',
-            title: 'Double field (read-only)',
-            description: 'This is an example of Double field',
-            readOnly: true,
+            title: 'Double field',
+            description: 'This is an example of number field (double)',
           },
-          myInteger: {
+          integerField: {
             type: 'integer',
             title: 'Integer field',
             description: 'This is an example of Integer field',
+          },
+          rangeField: {
+            type: 'integer',
+            title: 'Range field',
+            description: 'This is an example of integer field as Range widget',
+          },
+          limitedRangeField: {
+            type: 'integer',
+            title: 'Range field with min/max values',
+            description: 'This is an example of integer field as Range widget with min/max values',
+            minimum: 1,
+            maximum: 50,
           },
         },
       },
