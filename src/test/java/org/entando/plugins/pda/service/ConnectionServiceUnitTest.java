@@ -14,10 +14,14 @@ import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
 import org.entando.connectionconfigconnector.service.impl.InMemoryConnectionConfigConnector;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
+import org.entando.plugins.pda.core.exception.NoConnectionWithBpmServerException;
+import org.entando.plugins.pda.core.service.task.TaskService;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
+import org.entando.web.response.PagedMetadata;
+import org.entando.web.response.PagedRestResponse;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -27,6 +31,7 @@ public class ConnectionServiceUnitTest {
 
     private ConnectionService connectionService;
     private EngineFactory engineFactory;
+    private TaskService taskService;
 
     private ConnectionConfigConnector connectionConfigConnector;
 
@@ -35,8 +40,13 @@ public class ConnectionServiceUnitTest {
 
     @Before()
     public void setup() {
+        Engine engine = mock(Engine.class);
+        taskService = mock(TaskService.class);
+
         engineFactory = mock(EngineFactory.class);
-        when(engineFactory.getEngine(any())).thenReturn(mock(Engine.class));
+        when(engineFactory.getEngine(any())).thenReturn(engine);
+
+        when(engine.getTaskService()).thenReturn(taskService);
 
         connectionConfigConnector = new InMemoryConnectionConfigConnector();
         connectionService = new ConnectionService(engineFactory, connectionConfigConnector);
@@ -123,6 +133,39 @@ public class ConnectionServiceUnitTest {
         connectionService.delete(config1.getName());
 
         assertThat(connectionConfigConnector.getConnectionConfigs().size()).isEqualTo(originalSize - 1);
+    }
+
+    @Test
+    public void shouldTestConnection() {
+        // Given
+        List<ConnectionConfig> connectionConfigs = ConnectionTestHelper
+                .generateConnectionConfigs(connectionConfigConnector);
+        ConnectionConfig config = connectionConfigs.get(0);
+
+        when(taskService.list(any(), any(), any(), any(), any()))
+                .thenReturn(new PagedRestResponse<>(new PagedMetadata<>()));
+
+        // When
+        String result = connectionService.test(config.getName());
+
+        // Then
+        assertThat(result).isEqualTo(ConnectionService.OK);
+    }
+
+    @Test
+    public void shouldThrowNoConnectionWhenTestConnectionFails() {
+        // Given
+        expectedException.expect(NoConnectionWithBpmServerException.class);
+
+        List<ConnectionConfig> connectionConfigs = ConnectionTestHelper
+                .generateConnectionConfigs(connectionConfigConnector);
+        ConnectionConfig config = connectionConfigs.get(0);
+
+        when(taskService.list(any(), any(), any(), any(), any()))
+                .thenThrow(NoConnectionWithBpmServerException.class);
+
+        // When
+        connectionService.test(config.getName());
     }
 
     @Test
