@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import withStyles from '@material-ui/core/styles/withStyles';
 
@@ -26,5 +27,12 @@ const Loader = ({ loading, classes }) =>
       <CircularProgress className={classes.loader} />
     </div>
   );
+
+Loader.propTypes = {
+  classes: PropTypes.shape({
+    root: PropTypes.string,
+    loader: PropTypes.string,
+  }),
+};
 
 export default withStyles(styles)(Loader);
