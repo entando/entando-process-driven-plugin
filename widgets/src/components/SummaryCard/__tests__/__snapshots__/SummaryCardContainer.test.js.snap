@@ -45,7 +45,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
     class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
   >
     <div
-      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-48 MuiPaper-elevation6"
+      class="MuiPaper-root MuiSnackbarContent-root Notification-error-48 MuiPaper-elevation6"
       direction="up"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -54,11 +54,11 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
         class="MuiSnackbarContent-message"
       >
         <span
-          class="ErrorNotification-message-45"
+          class="Notification-message-45"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root ErrorNotification-icon-46 ErrorNotification-iconVariant-47"
+            class="MuiSvgIcon-root Notification-icon-46 Notification-iconVariant-47"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -84,7 +84,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root ErrorNotification-icon-46"
+              class="MuiSvgIcon-root Notification-icon-46"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"
@@ -107,10 +107,10 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
 exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] = `
 <div>
   <div
-    class="MuiPaper-root SummaryCard-root-96 MuiPaper-elevation0"
+    class="MuiPaper-root SummaryCard-root-98 MuiPaper-elevation0"
   >
     <div
-      class="SummaryCard-header-97"
+      class="SummaryCard-header-99"
     >
       <div
         class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
@@ -125,7 +125,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
       class="MuiDivider-root"
     />
     <div
-      class="SummaryCardValues-root-136 upTrend"
+      class="SummaryCardValues-root-138 upTrend"
     >
       <div>
         <div
@@ -133,7 +133,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
           style="width: 110px; height: 37px;"
         />
         <div
-          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-137 MuiSkeleton-animate"
+          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-139 MuiSkeleton-animate"
           style="width: 90px; height: 14px;"
         />
       </div>
@@ -149,7 +149,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
     class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
   >
     <div
-      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-143 MuiPaper-elevation6"
+      class="MuiPaper-root MuiSnackbarContent-root Notification-error-145 MuiPaper-elevation6"
       direction="up"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -158,11 +158,11 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
         class="MuiSnackbarContent-message"
       >
         <span
-          class="ErrorNotification-message-140"
+          class="Notification-message-142"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root ErrorNotification-icon-141 ErrorNotification-iconVariant-142"
+            class="MuiSvgIcon-root Notification-icon-143 Notification-iconVariant-144"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -188,7 +188,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root ErrorNotification-icon-141"
+              class="MuiSvgIcon-root Notification-icon-143"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"

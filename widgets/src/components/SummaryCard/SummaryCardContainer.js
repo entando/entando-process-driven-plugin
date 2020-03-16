@@ -13,7 +13,7 @@ import theme from 'theme';
 import { getPageWidget } from 'api/app-builder/pages';
 import { getSummaryByType } from 'api/pda/summary';
 import CustomEventContext from 'components/SummaryCard/CustomEventContext';
-import ErrorNotification from 'components/common/ErrorNotification';
+import Notification from 'components/common/Notification';
 import Skeleton from '@material-ui/lab/Skeleton';
 import SummaryCardValues from 'components/SummaryCard/SummaryCardValues';
 
@@ -195,7 +195,7 @@ class SummaryCard extends React.Component {
           <Divider />
           <SummaryCardValues loading={loadingValues} dataType={dataType} values={summary} />
         </Paper>
-        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
+        <Notification type="error" message={errorMessage} onClose={this.closeNotification} />
       </CustomEventContext.Provider>
     );
   }

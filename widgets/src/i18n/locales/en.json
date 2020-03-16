@@ -4,7 +4,9 @@
     "submit": "Submit",
     "add": "Add",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "edit": "Edit",
+    "delete": "Delete"
   },
   "summary": {
     "frequency": {
