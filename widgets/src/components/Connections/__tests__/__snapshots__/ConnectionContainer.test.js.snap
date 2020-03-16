@@ -1,0 +1,477 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
+<div>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg"
+  >
+    <div
+      class="MuiPaper-root WidgetBox-widgetBox-10 MuiPaper-outlined"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-40"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2"
+        >
+          Connections
+        </h2>
+        <div>
+          <button
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <hr
+        class="MuiDivider-root"
+      />
+    </div>
+    <div
+      class="MuiGrid-root ConnectionsContainer-gridContainer-1 MuiGrid-container MuiGrid-spacing-xs-2"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
+      >
+        <div
+          class="MuiPaper-root MuiCard-root MuiPaper-outlined"
+        >
+          <div
+            class="MuiCardHeader-root"
+          >
+            <div
+              class="MuiCardHeader-avatar"
+            >
+              <div
+                class="MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault"
+              >
+                k
+              </div>
+            </div>
+            <div
+              class="MuiCardHeader-content"
+            >
+              <span
+                class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+              >
+                kieStaging
+              </span>
+              <span
+                class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+              >
+                pam
+              </span>
+            </div>
+          </div>
+          <div
+            class="MuiCardContent-root ConnectionItem-cardContent-237"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+              style="padding-bottom: 10px;"
+            >
+              http://rhpam7-install-kieserver-rhpam7-install-entando.apps.serv.run:80
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              <b>
+                App: 
+              </b>
+              /services/rest/
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              <b>
+                Username: 
+              </b>
+               
+              pamAdmin
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              <b>
+                Timeout: 
+              </b>
+               
+              60000
+            </p>
+          </div>
+          <div
+            class="MuiCardActions-root MuiCardActions-spacing"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Test connection
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+              style="margin-left: auto;"
+              tabindex="0"
+              title="common.delete"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+              tabindex="0"
+              title="common.edit"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
+      >
+        <div
+          class="MuiPaper-root MuiCard-root MuiPaper-outlined"
+        >
+          <div
+            class="MuiCardHeader-root"
+          >
+            <div
+              class="MuiCardHeader-avatar"
+            >
+              <div
+                class="MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault"
+              >
+                k
+              </div>
+            </div>
+            <div
+              class="MuiCardHeader-content"
+            >
+              <span
+                class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+              >
+                kie2Server
+              </span>
+              <span
+                class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+              >
+                pam
+              </span>
+            </div>
+          </div>
+          <div
+            class="MuiCardContent-root ConnectionItem-cardContent-237"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+              style="padding-bottom: 10px;"
+            >
+              http://rhpam7-install-kieserver-rhpam7-install-entando.apps.serv.run:80
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              <b>
+                App: 
+              </b>
+              /services/rest/
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              <b>
+                Username: 
+              </b>
+               
+              pamAdmin
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              <b>
+                Timeout: 
+              </b>
+               
+              60000
+            </p>
+          </div>
+          <div
+            class="MuiCardActions-root MuiCardActions-spacing"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Test connection
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+              style="margin-left: auto;"
+              tabindex="0"
+              title="common.delete"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+              tabindex="0"
+              title="common.edit"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
+      >
+        <div
+          class="MuiPaper-root MuiCard-root MuiPaper-outlined"
+        >
+          <div
+            class="MuiCardHeader-root"
+          >
+            <div
+              class="MuiCardHeader-avatar"
+            >
+              <div
+                class="MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault"
+              >
+                t
+              </div>
+            </div>
+            <div
+              class="MuiCardHeader-content"
+            >
+              <span
+                class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+              >
+                test
+              </span>
+              <span
+                class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+              >
+                pam
+              </span>
+            </div>
+          </div>
+          <div
+            class="MuiCardContent-root ConnectionItem-cardContent-237"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+              style="padding-bottom: 10px;"
+            >
+              http://rhpam7-install-kieserver-rhpam7-install-entando.apps.serv.run:80
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              <b>
+                App: 
+              </b>
+              /services/rest/
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              <b>
+                Username: 
+              </b>
+               
+              pamAdmin
+            </p>
+            <p
+              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+            >
+              <b>
+                Timeout: 
+              </b>
+               
+              60000
+            </p>
+          </div>
+          <div
+            class="MuiCardActions-root MuiCardActions-spacing"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Test connection
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+              style="margin-left: auto;"
+              tabindex="0"
+              title="common.delete"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+              tabindex="0"
+              title="common.edit"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;

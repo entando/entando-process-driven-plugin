@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ConnectionItem /> renders snapshot correctly 1`] = `
+<div>
+  <div
+    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
+  >
+    <div
+      class="MuiPaper-root MuiCard-root MuiPaper-outlined"
+    >
+      <div
+        class="MuiCardHeader-root"
+      >
+        <div
+          class="MuiCardHeader-avatar"
+        >
+          <div
+            class="MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault"
+          >
+            t
+          </div>
+        </div>
+        <div
+          class="MuiCardHeader-content"
+        >
+          <span
+            class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            test
+          </span>
+          <span
+            class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            pda
+          </span>
+        </div>
+      </div>
+      <div
+        class="MuiCardContent-root ConnectionItem-cardContent-3"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+          style="padding-bottom: 10px;"
+        >
+          http://entando.com:undefined
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+        >
+          <b>
+            App: 
+          </b>
+          /test
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+        >
+          <b>
+            Username: 
+          </b>
+           
+          test
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
+        >
+          <b>
+            Timeout: 
+          </b>
+           
+          1000
+        </p>
+      </div>
+      <div
+        class="MuiCardActions-root MuiCardActions-spacing"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Test connection
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+          style="margin-left: auto;"
+          tabindex="0"
+          title="common.delete"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+          tabindex="0"
+          title="common.edit"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
