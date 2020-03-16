@@ -6,6 +6,9 @@ import { Typography, Grid } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = {
+  title: {
+    paddingBottom: 20,
+  },
   footer: {
     paddingTop: 10,
     textAlign: 'right',
@@ -46,7 +49,9 @@ const fields = [
 const ConnectionForm = ({ classes, onChange, onCancel, onSave, form }) => {
   return (
     <div>
-      <Typography variant="h6">Create new connection</Typography>
+      <Typography className={classes.title} variant="h4">
+        Create new connection
+      </Typography>
       <div>
         <Grid container spacing={3}>
           {fields.map(field => (
@@ -59,6 +64,9 @@ const ConnectionForm = ({ classes, onChange, onCancel, onSave, form }) => {
                 type={field.key === 'password' ? field.key : 'text'}
                 disabled={field.key === 'name' && form.edit}
                 fullWidth
+                InputLabelProps={{
+                  shrink: true,
+                }}
               />
             </Grid>
           ))}
@@ -79,6 +87,7 @@ const ConnectionForm = ({ classes, onChange, onCancel, onSave, form }) => {
 ConnectionForm.propTypes = {
   classes: PropTypes.shape({
     footer: PropTypes.string,
+    title: PropTypes.string,
   }).isRequired,
   form: PropTypes.shape({
     name: PropTypes.string,

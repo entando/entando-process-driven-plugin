@@ -41,7 +41,12 @@ export default async ({
 
   const response = await fetch(url, configs);
   if (!response.ok) {
-    throw new Error(`Bad Response from server: ${response.status} ${response.statusText}`);
+    const payload = await response.json();
+    throw new Error(
+      payload.message
+        ? payload.message
+        : `Bad Response from server: ${response.status} ${response.statusText}`
+    );
   }
 
   const responseHeaders = response.headers.get('Content-Type');

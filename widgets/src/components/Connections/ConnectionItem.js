@@ -23,6 +23,9 @@ const styles = {
   offline: {
     backgroundColor: 'red',
   },
+  cardContent: {
+    minHeight: 170,
+  },
 };
 
 const ConnectionItem = ({ classes, connection, onEdit, onDelete, onTest }) => (
@@ -33,18 +36,18 @@ const ConnectionItem = ({ classes, connection, onEdit, onDelete, onTest }) => (
         title={connection.name}
         subheader={connection.engine}
       />
-      <CardContent>
+      <CardContent className={classes.cardContent}>
         <Typography color="textSecondary" gutterBottom style={{ paddingBottom: 10 }}>
           {`${connection.schema}://${connection.host}:${connection.port}`}
         </Typography>
-        <Typography gutterBottom>
+        <Typography variant="body2" gutterBottom>
           <b>App: </b>
           {connection.app}
         </Typography>
-        <Typography gutterBottom>
+        <Typography variant="body2" gutterBottom>
           <b>Username: </b> {connection.username}
         </Typography>
-        <Typography gutterBottom>
+        <Typography variant="body2" gutterBottom>
           <b>Timeout: </b> {connection.connectionTimeout}
         </Typography>
       </CardContent>
@@ -72,6 +75,7 @@ ConnectionItem.propTypes = {
   classes: PropTypes.shape({
     online: PropTypes.string,
     offline: PropTypes.string,
+    cardContent: PropTypes.string,
   }).isRequired,
   connection: PropTypes.shape({
     name: PropTypes.string,

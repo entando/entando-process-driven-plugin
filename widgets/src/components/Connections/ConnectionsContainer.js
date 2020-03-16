@@ -6,7 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import AddIcon from '@material-ui/icons/Add';
 import React from 'react';
 import PropTypes from 'prop-types';
-// import i18next from 'i18next';
+import i18next from 'i18next';
 
 import {
   getConnections,
@@ -15,11 +15,12 @@ import {
   saveConnection,
   createConnection,
 } from 'api/pda/connections';
+import theme from 'theme';
 import WidgetBox from 'components/common/WidgetBox';
 import ConnectionItem from 'components/Connections/ConnectionItem';
 import ConnectionItemSkeleton from 'components/Connections/ConnectionItemSkeleton';
 import ConnectionForm from 'components/Connections/ConnectionForm';
-import theme from 'theme';
+import Notification from 'components/common/Notification';
 import Loader from 'components/common/Loader';
 
 const styles = {
@@ -45,6 +46,10 @@ class ConnectionsContainer extends React.Component {
     formData: initialForm,
     listLoader: true,
     loader: false,
+    notification: {
+      message: '',
+      type: 'error',
+    },
   };
 
   componentDidMount = () => {
@@ -64,7 +69,6 @@ class ConnectionsContainer extends React.Component {
   handleFormChange = form => ({ target: { value } }) => {
     const { formData: old } = this.state;
     const formData = { ...old, [form]: value };
-    console.log(formData);
     this.setState({ formData });
   };
 
@@ -80,21 +84,34 @@ class ConnectionsContainer extends React.Component {
         : await createConnection(formData);
 
       if (response.payload) {
-        this.fetchConnections();
+        this.setState(
+          {
+            showForm: false,
+            notification: { message: i18next.t('messages.success.saved'), type: 'success' },
+          },
+          this.fetchConnections
+        );
       }
     } catch (error) {
-      console.log(error);
+      this.setState({ notification: { message: error.message, type: 'error' } });
     }
   };
 
   handleEdit = form => () => {
-    const formData = { ...form, edit: true };
+    const formData = { ...initialForm, ...form, edit: true };
     this.setState({ formData, showForm: true });
   };
 
-  handleDelete = con => () => {
-    deleteConnection(con);
-    this.fetchConnections();
+  handleDelete = con => async () => {
+    this.setState({ loader: true });
+    try {
+      await deleteConnection(con);
+      this.fetchConnections();
+    } catch (error) {
+      this.setState({ notification: { message: error.message, type: 'error' } });
+    } finally {
+      this.setState({ loader: false });
+    }
   };
 
   handleTestConnection = con => async () => {
@@ -116,9 +133,13 @@ class ConnectionsContainer extends React.Component {
     this.setState({ connectionsList, loader: false });
   };
 
+  handleCloseNotifications = () => {
+    this.setState({ notification: { message: '' } });
+  };
+
   render() {
     const { classes } = this.props;
-    const { connectionsList, showForm, formData, listLoader, loader } = this.state;
+    const { connectionsList, showForm, formData, listLoader, loader, notification } = this.state;
 
     return (
       <ThemeProvider theme={theme}>
@@ -162,6 +183,11 @@ class ConnectionsContainer extends React.Component {
             )}
           </Grid>
           <Loader loading={loader} />
+          <Notification
+            message={notification.message}
+            type={notification.type}
+            onClose={this.handleCloseNotifications}
+          />
         </Container>
       </ThemeProvider>
     );

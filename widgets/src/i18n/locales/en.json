@@ -99,6 +99,9 @@
     }
   },
   "messages": {
+    "success": {
+      "saved": "Saved successfully."
+    },
     "notify": {
       "submitting": "Sending..."
     },
