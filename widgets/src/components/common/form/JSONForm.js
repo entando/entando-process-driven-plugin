@@ -12,6 +12,8 @@ import JSONFormSkeleton from 'components/common/form/JSONFormSkeleton';
 import FieldTemplate from 'components/common/form/templates/FieldTemplate';
 import generateColumnedOFT from 'components/common/form/templates/ObjectFieldTemplate';
 import DateWidget from 'components/common/form/widgets/DateWidget';
+import DateTimeWidget from 'components/common/form/widgets/DateTimeWidget';
+import EmailWidget from 'components/common/form/widgets/EmailWidget';
 import mortgageApplicationForm from 'components/common/form/uiSchemas/mortgageApplicationForm';
 import allFieldsForm from 'components/common/form/uiSchemas/allFieldsForm';
 
@@ -105,6 +107,20 @@ const JSONForm = props => {
           shrink: true,
         },
       },
+      // MuiInputBase: {
+      //   InputProps: {
+      //     notched: false,
+      //   },
+      //   MuiNotchedOutline: {
+      //     notched: false,
+      //   },
+      // },
+      // MuiNotchedOutline: {
+      //   notched: false,
+      // },
+      MuiOutlinedInput: {
+        notched: false,
+      },
       MuiSelect: {
         size: 'small',
         variant: 'outlined',
@@ -124,6 +140,8 @@ const JSONForm = props => {
 
   const customWidgets = {
     DateWidget,
+    DateTimeWidget,
+    EmailWidget,
     ...widgets,
   };
 

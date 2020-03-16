@@ -168,6 +168,16 @@ export default {
             title: 'String field as Password widget',
             description: 'This is an example of string as Password widget',
           },
+          emailField: {
+            type: 'string',
+            title: 'String field as Email widget',
+            description: 'This is an example of string as Email widget',
+          },
+          hiddenField: {
+            type: 'string',
+            title: 'String field as Hidden widget',
+            description: 'This is an invisible example of string as Hidden widget',
+          },
         },
       },
       numbers: {
@@ -240,10 +250,16 @@ export default {
         type: 'object',
         required: [],
         properties: {
+          date: {
+            type: 'string',
+            title: 'Date field as Date widget',
+            description: 'This is an example of date field as Date widget',
+            format: 'date',
+          },
           datetime: {
             type: 'string',
-            title: 'Date time field as DateTime widget',
-            description: 'This is an example of datetime field as DateTime widget',
+            title: 'Date-time field as DateTime widget',
+            description: 'This is an example of date-time field as DateTime widget',
             format: 'date-time',
           },
         },

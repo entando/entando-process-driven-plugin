@@ -23,6 +23,14 @@ export default {
       'ui:widget': 'password',
       'ui:options': {},
     },
+    emailField: {
+      'ui:widget': 'email',
+      'ui:options': {},
+    },
+    hiddenField: {
+      'ui:widget': 'hidden',
+      'ui:options': {},
+    },
   },
   numbers: {
     doubleField: {},
@@ -39,6 +47,10 @@ export default {
       'ui:widget': 'updown',
       'ui:options': {},
     },
+  },
+  datetimes: {
+    date: {},
+    datetime: {},
   },
   multichoice: {
     checkbox: {
