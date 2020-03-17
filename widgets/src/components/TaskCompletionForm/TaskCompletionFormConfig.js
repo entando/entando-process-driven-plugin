@@ -31,14 +31,14 @@ class CompletionFormConfig extends React.Component {
   }
 
   async componentDidMount() {
+    console.log('initial componentDidMount props');
+    console.log(this.props);
+    console.log('initial componentDidMount state');
+    console.log(this.state);
+
     // getting list of Kie server connections
     const sourceList = await getConnections();
     this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
-
-    console.log('componentDidMount props');
-    console.log(this.props);
-    console.log('componentDidMount state');
-    console.log(this.state);
   }
 
   componentDidUpdate(prevProps) {
@@ -52,17 +52,24 @@ class CompletionFormConfig extends React.Component {
 
     // refetch state if config changes
     if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
+      console.log('this.fetchScreen() in componentDidUpdate()');
       this.fetchScreen();
     }
   }
 
   onChangeKnowledgeSource(e) {
+    console.log('onChangeKnowledgeSource()', e);
     const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState({ config: { ...config, knowledgeSource } });
   }
 
-  onChangeUiSchema({ target: { value: uiSchema } }) {
+  onChangeUiSchema(e) {
+    console.log('onChangeUiSchema()', e);
+    const {
+      target: { value: uiSchema },
+    } = e;
+
     const { config } = this.state;
     this.setState({
       config: {
@@ -73,6 +80,7 @@ class CompletionFormConfig extends React.Component {
   }
 
   onChangeSettingValue(setting, e) {
+    console.log('onChangeSettingValue()', setting, e);
     const value = e.state ? e.state.value : e.target.value;
     const { config } = this.state;
     this.setState({
@@ -87,14 +95,13 @@ class CompletionFormConfig extends React.Component {
   }
 
   fetchScreen() {
+    console.log('fetchScreen()');
     const { config } = this.props;
 
     if (config && config.knowledgeSource) {
-      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
-        console.log('fetchScreen');
-        console.log(config);
-        console.log(config.settings);
+      console.log(config);
 
+      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
         if (config.settings) {
           const parsedSettings = JSON.parse(config.settings);
           this.setState(
@@ -121,6 +128,9 @@ class CompletionFormConfig extends React.Component {
   }
 
   render() {
+    console.log('render() state', this.state);
+    console.log('render() props', this.props);
+
     const { sourceList, config } = this.state;
     const { knowledgeSource, settings } = config;
 
