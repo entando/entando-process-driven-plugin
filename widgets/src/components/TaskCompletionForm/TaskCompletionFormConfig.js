@@ -19,13 +19,14 @@ class CompletionFormConfig extends React.Component {
         knowledgeSource: '',
         settings: {
           uiSchema: '{}',
-          defaultColumnSize: 12,
+          defaultColumnSize: '',
         },
       },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeUiSchema = this.onChangeUiSchema.bind(this);
+    this.onChangeSettingValue = this.onChangeSettingValue.bind(this);
     this.fetchScreen = this.fetchScreen.bind(this);
   }
 
@@ -60,15 +61,15 @@ class CompletionFormConfig extends React.Component {
     });
   }
 
-  onChangeNumericValue(setting, value) {
-    const parsedValue = parseInt(value, 10) || 12;
+  onChangeSettingValue(setting, e) {
+    const value = e.state ? e.state.value : e.target.value;
     const { config } = this.state;
     this.setState({
       config: {
         ...config,
         settings: {
           ...config.settings,
-          [setting]: parsedValue,
+          [setting]: value,
         },
       },
     });
@@ -83,7 +84,7 @@ class CompletionFormConfig extends React.Component {
           this.setState({
             config: {
               ...config,
-              settings: JSON.parse(config.settings),
+              settings: config.settings,
             },
           });
         }
@@ -141,10 +142,8 @@ class CompletionFormConfig extends React.Component {
                     className="form-control"
                     type="number"
                     value={settings.defaultColumnSize}
-                    min={1}
-                    max={12}
-                    onChange={({ target: { value } }) => {
-                      this.onChangeNumericValue('defaultColumnSize', value);
+                    onChange={event => {
+                      this.onChangeSettingValue('defaultColumnSize', event);
                     }}
                   />
                 </FormGroup>
