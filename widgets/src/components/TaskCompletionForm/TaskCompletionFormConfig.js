@@ -31,11 +31,6 @@ class CompletionFormConfig extends React.Component {
   }
 
   async componentDidMount() {
-    console.log('initial componentDidMount props');
-    console.log(this.props);
-    console.log('initial componentDidMount state');
-    console.log(this.state);
-
     // getting list of Kie server connections
     const sourceList = await getConnections();
     this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
@@ -44,28 +39,19 @@ class CompletionFormConfig extends React.Component {
   componentDidUpdate(prevProps) {
     const { config } = this.props;
 
-    console.log('componentDidUpdate props');
-    console.log(this.props);
-
-    console.log('componentDidUpdate prevProps');
-    console.log(prevProps);
-
     // refetch state if config changes
     if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
-      console.log('this.fetchScreen() in componentDidUpdate()');
       this.fetchScreen();
     }
   }
 
   onChangeKnowledgeSource(e, afterKnowledgeSourceChange = () => {}) {
-    console.log('onChangeKnowledgeSource()', e);
     const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState({ config: { ...config, knowledgeSource } }, afterKnowledgeSourceChange);
   }
 
   onChangeUiSchema(e) {
-    console.log('onChangeUiSchema()', e);
     const {
       target: { value: uiSchema },
     } = e;
@@ -80,7 +66,6 @@ class CompletionFormConfig extends React.Component {
   }
 
   onChangeSettingValue(setting, e) {
-    console.log('onChangeSettingValue()', setting, e);
     const value = e.state ? e.state.value : e.target.value;
     const { config } = this.state;
     this.setState({
@@ -95,42 +80,30 @@ class CompletionFormConfig extends React.Component {
   }
 
   fetchScreen() {
-    console.log('fetchScreen()');
     const { config } = this.props;
 
     if (config && config.knowledgeSource) {
-      console.log(config);
-
       this.onChangeKnowledgeSource(config.knowledgeSource, () => {
         if (config.settings) {
           const parsedSettings = JSON.parse(config.settings);
-          this.setState(
-            {
-              config: {
-                ...config,
-                settings: {
-                  ...parsedSettings,
-                  uiSchema: JSON.stringify(JSON.parse(parsedSettings.uiSchema), null, 2).replace(
-                    '\\"',
-                    '"'
-                  ),
-                },
+          this.setState({
+            config: {
+              ...config,
+              settings: {
+                ...parsedSettings,
+                uiSchema: JSON.stringify(JSON.parse(parsedSettings.uiSchema), null, 2).replace(
+                  '\\"',
+                  '"'
+                ),
               },
             },
-            () => {
-              console.log('After state is saved:');
-              console.log(this.state);
-            }
-          );
+          });
         }
       });
     }
   }
 
   render() {
-    console.log('render() state', this.state);
-    console.log('render() props', this.props);
-
     const { sourceList, config } = this.state;
     const { knowledgeSource, settings } = config;
 
