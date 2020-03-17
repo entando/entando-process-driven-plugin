@@ -5,10 +5,15 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles({
+  header: {
+    fontSize: ({ idSchema }) =>
+      idSchema && idSchema.$id && idSchema.$id === 'root' ? '20px' : 'initial',
+  },
   gridContainer: {
     padding: '0px',
   },
   divider: {
+    marginTop: '5px',
     marginBottom: '5px',
   },
   description: {
@@ -36,11 +41,11 @@ const generateColumnedOFT = columnSize => {
     return (
       <div>
         {showHeader && (
-          <>
+          <div className={classes.header}>
             {title}
             {!objectFieldOptions.hideDivider && <Divider className={classes.divider} />}
             {description && <div className={classes.description}>{description}</div>}
-          </>
+          </div>
         )}
         <Grid
           container
