@@ -34,13 +34,20 @@ class CompletionFormConfig extends React.Component {
     // getting list of Kie server connections
     const sourceList = await getConnections();
     this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
+
+    console.log('componentDidMount props');
+    console.log(this.props);
+    console.log('componentDidMount state');
+    console.log(this.state);
   }
 
   componentDidUpdate(prevProps) {
     const { config } = this.props;
 
-    console.log('CompletionFormConfig');
+    console.log('componentDidUpdate props');
     console.log(this.props);
+
+    console.log('componentDidUpdate prevProps');
     console.log(prevProps);
 
     // refetch state if config changes
