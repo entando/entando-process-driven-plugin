@@ -5,8 +5,21 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import FormLabel from '@material-ui/core/FormLabel';
+import moment from 'moment';
 
 import BadgeChip from 'components/common/BadgeChip';
+
+const getColorByDate = date => {
+  const today = moment();
+  const momentDate = moment(date);
+  if (today.diff(momentDate, 'hours') <= 24) {
+    return 'success';
+  }
+  if (today.diff(momentDate, 'days') <= 7) {
+    return 'warning';
+  }
+  return 'error';
+};
 
 const parseDate = value => (value ? new Date(value).toLocaleString(i18next.language || 'en') : '-');
 
@@ -27,7 +40,7 @@ const displayedDetails = [
   {
     label: 'task.fields.status',
     value: 'status',
-    render: value => <BadgeChip label={value} />,
+    render: (label, value) => <BadgeChip label={label} value={value} />,
   },
   {
     label: 'task.fields.due',
@@ -37,14 +50,19 @@ const displayedDetails = [
 ];
 
 const styles = {
+  root: {
+    marginTop: -18,
+  },
   value: {
     marginTop: '20px',
   },
 };
 
 const OverviewDetails = ({ task, classes }) => {
+  const { createdAt } = task;
+
   return (
-    <Grid container spacing={8}>
+    <Grid container spacing={8} className={classes.root}>
       {displayedDetails.map(detail => {
         const value =
           typeof detail.parse === 'function'
@@ -57,7 +75,7 @@ const OverviewDetails = ({ task, classes }) => {
           <Grid item key={detail.label}>
             <FormLabel>{i18next.t(detail.label)}</FormLabel>
             <div className={classes.value}>
-              {hasCustomRender && detail.render(value)}
+              {hasCustomRender && detail.render(value, getColorByDate(createdAt))}
               {!hasCustomRender && <Typography variant="body1">{value}</Typography>}
             </div>
           </Grid>
@@ -69,9 +87,16 @@ const OverviewDetails = ({ task, classes }) => {
 
 OverviewDetails.propTypes = {
   classes: PropTypes.shape({
+    root: PropTypes.string,
     value: PropTypes.string,
   }).isRequired,
-  task: PropTypes.shape({}).isRequired,
+  task: PropTypes.shape({
+    createdAt: PropTypes.string,
+    createdBy: PropTypes.string,
+    name: PropTypes.string,
+    status: PropTypes.string,
+    expirationTime: PropTypes.string,
+  }).isRequired,
 };
 
 export default withStyles(styles)(OverviewDetails);

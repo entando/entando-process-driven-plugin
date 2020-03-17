@@ -1,4 +1,4 @@
-package org.entando.plugins.pda.controller;
+package org.entando.plugins.pda.controller.group;
 
 import static org.entando.plugins.pda.controller.AuthPermissions.GROUP_LIST;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;

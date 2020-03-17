@@ -4,7 +4,6 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import i18next from 'i18next';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Container from '@material-ui/core/Container';
-import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
 import { getTaskComments, postTaskComment, deleteTaskComment } from 'api/pda/comments';
@@ -17,9 +16,6 @@ import AddComment from 'components/TaskComments/AddComment';
 import TaskCommentsSkeleton from 'components/TaskComments/TaskCommentsSkeleton';
 
 const styles = {
-  divider: {
-    marginTop: '10px',
-  },
   noComments: {
     marginTop: '10px',
   },
@@ -45,6 +41,7 @@ class TaskCommentsContainer extends React.Component {
     this.closeNotification = this.closeNotification.bind(this);
     this.handleError = this.handleError.bind(this);
     this.fetchWidgetConfigs = this.fetchWidgetConfigs.bind(this);
+    this.fetchComments = this.fetchComments.bind(this);
     this.onClickAddComment = this.onClickAddComment.bind(this);
     this.onClickRemoveComment = this.onClickRemoveComment.bind(this);
   }
@@ -53,35 +50,25 @@ class TaskCommentsContainer extends React.Component {
     this.setState({ loading: true }, async () => {
       const fetchedConfig = await this.fetchWidgetConfigs();
 
-      this.setState({ config: fetchedConfig }, async () => {
-        const { config } = this.state;
-        const { taskId } = this.props;
-
-        const connection = (config && config.knowledgeSource) || '';
-        const containerId = (config && config.containerId) || '';
-        const taskContainerId = `${taskId}@${containerId}`;
-
-        try {
-          const commentsResponse = await getTaskComments(connection, taskContainerId);
-          this.setState({ comments: commentsResponse.payload || [], loading: false });
-        } catch (error) {
-          this.handleError(error.message);
-        }
-      });
+      this.setState({ config: fetchedConfig }, () => this.fetchComments());
     });
   }
+
+  componentDidUpdate = prevProps => {
+    const { taskId } = this.props;
+    if (prevProps.taskId !== taskId) {
+      this.fetchComments();
+    }
+  };
 
   onClickAddComment(comment) {
     this.setState({ addingComment: true }, async () => {
       const { config, comments } = this.state;
       const { taskId, onClickAddComment } = this.props;
-
       const connection = (config && config.knowledgeSource) || '';
-      const containerId = (config && config.containerId) || '';
-      const taskContainerId = `${taskId}@${containerId}`;
 
       try {
-        const postResponse = await postTaskComment(connection, taskContainerId, comment);
+        const postResponse = await postTaskComment(connection, taskId, comment);
         this.setState({ comments: [...comments, postResponse.payload], addingComment: false });
       } catch (error) {
         this.handleError(error.message);
@@ -94,13 +81,10 @@ class TaskCommentsContainer extends React.Component {
   async onClickRemoveComment(id) {
     const { config, comments } = this.state;
     const { taskId, onClickRemoveComment } = this.props;
-
     const connection = (config && config.knowledgeSource) || '';
-    const containerId = (config && config.containerId) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
 
     try {
-      await deleteTaskComment(connection, taskContainerId, id);
+      await deleteTaskComment(connection, taskId, id);
       this.setState({ comments: comments.filter(comment => comment.id !== id) });
     } catch (error) {
       this.handleError(error.message);
@@ -112,6 +96,19 @@ class TaskCommentsContainer extends React.Component {
   closeNotification = () => {
     this.setState({ errorMessage: '' });
   };
+
+  async fetchComments() {
+    const { config } = this.state;
+    const { taskId } = this.props;
+    const connection = (config && config.knowledgeSource) || '';
+
+    try {
+      const commentsResponse = await getTaskComments(connection, taskId);
+      this.setState({ comments: commentsResponse.payload || [], loading: false });
+    } catch (error) {
+      this.handleError(error.message);
+    }
+  }
 
   handleError(errorMessage) {
     this.setState({ errorMessage });
@@ -153,37 +150,41 @@ class TaskCommentsContainer extends React.Component {
     const { classes, taskId } = this.props;
 
     const hasComments = comments.length > 0;
+
+    if (loading)
+      return (
+        <WidgetBox>
+          <TaskCommentsSkeleton />
+        </WidgetBox>
+      );
+
+    const renderedTitle = (
+      <Typography variant="h3">
+        {i18next.t('taskComments.title')} - {taskId}
+      </Typography>
+    );
+
     return (
       <ThemeProvider theme={theme}>
         <Container disableGutters>
-          <WidgetBox mb={10}>
-            {loading ? (
-              <TaskCommentsSkeleton />
-            ) : (
-              <>
-                <Typography variant="h3">
-                  {i18next.t('taskComments.title')} - {taskId}
-                </Typography>
-                <Divider className={classes.divider} />
-                {!hasComments && (
-                  <Typography className={classes.noComments} variant="body1">
-                    {i18next.t('taskComments.noComments')}
-                  </Typography>
-                )}
-                {hasComments && (
-                  <div className={classes.commentContainer}>
-                    {comments.map(comment => (
-                      <Comment
-                        key={comment.id}
-                        comment={comment}
-                        onClickRemoveComment={this.onClickRemoveComment}
-                      />
-                    ))}
-                  </div>
-                )}
-                <AddComment loading={addingComment} onClickAddComment={this.onClickAddComment} />
-              </>
+          <WidgetBox title={renderedTitle} collapsible hasDivider>
+            {!hasComments && (
+              <Typography className={classes.noComments} variant="body1">
+                {i18next.t('taskComments.noComments')}
+              </Typography>
             )}
+            {hasComments && (
+              <div className={classes.commentContainer}>
+                {comments.map(comment => (
+                  <Comment
+                    key={comment.id}
+                    comment={comment}
+                    onClickRemoveComment={this.onClickRemoveComment}
+                  />
+                ))}
+              </div>
+            )}
+            <AddComment loading={addingComment} onClickAddComment={this.onClickAddComment} />
           </WidgetBox>
         </Container>
         <ErrorNotification message={errorMessage} onClose={this.closeNotification} />

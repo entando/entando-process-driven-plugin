@@ -6,7 +6,7 @@ import i18next from 'i18next';
 
 import IconMenuButton from 'components/common/IconMenuButton';
 
-const ActionCell = (options, openDiagram) => data => {
+const ActionCell = (options, { openDiagram }) => data => {
   const menuItems = [];
 
   if (options.showComplete) {

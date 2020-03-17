@@ -3,6 +3,7 @@
   "$id": "http://entando.org/schemas/pda-form.json",
   "title": "Task 1",
   "type": "object",
+  "required": [],
   "properties": {
     "reason": {
       "type": "integer",

@@ -1,10 +1,11 @@
-package org.entando.plugins.pda.controller;
+package org.entando.plugins.pda.controller.connection;
 
 import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_CREATE;
 import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_DELETE;
 import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_EDIT;
 import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_GET;
 import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_LIST;
+import static org.entando.plugins.pda.controller.AuthPermissions.CONNECTION_TEST;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
@@ -80,5 +81,13 @@ public class ConnectionsController {
         log.debug("Creating connection {}", request);
         return new SimpleRestResponse<>(
                 ConnectionDto.fromModel(connectionService.create(request)));
+    }
+
+    @Secured(CONNECTION_TEST)
+    @ApiOperation(notes = "Tests a connection", nickname = "testConnection", value = "TEST Connection")
+    @GetMapping(path = "/{connId}/test", produces = APPLICATION_JSON_VALUE)
+    public SimpleRestResponse<String> test(@PathVariable String connId) {
+        log.debug("Testing connection {}", connId);
+        return new SimpleRestResponse<>(connectionService.test(connId));
     }
 }

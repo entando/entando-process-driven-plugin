@@ -16,10 +16,12 @@ class IconMenuButton extends React.Component {
   };
 
   handleClick = e => {
+    e.stopPropagation();
     this.setState({ open: true, anchorEl: e.currentTarget });
   };
 
-  handleClose = () => {
+  handleClose = e => {
+    e.stopPropagation();
     this.setState({ open: false });
   };
 
@@ -52,9 +54,9 @@ class IconMenuButton extends React.Component {
         >
           {menuItems.map(({ onClick, text, icon }) => (
             <MenuItem
-              onClick={() => {
+              onClick={e => {
                 if (onClick) onClick();
-                this.handleClose();
+                this.handleClose(e);
               }}
               key={text}
               dense

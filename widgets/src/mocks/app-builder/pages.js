@@ -22,6 +22,11 @@ const taskDetailsConfigs = {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
+      settings: {
+        hasGeneralInformation: true,
+        header: 'taskDetails.overview.title',
+        destinationPageCode: 'pda_task_details',
+      },
     },
   },
   metaData: { status: 'draft' },
@@ -63,7 +68,7 @@ const summaryCardConfigs = {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
-      settings: '{"summaryId": "request"}',
+      settings: '{"type": "requests"}',
     },
   },
   metaData: { status: 'draft' },
@@ -85,6 +90,21 @@ const processFormConfigs = {
   errors: [],
 };
 
+const overtimeGraphConfigs = {
+  payload: {
+    code: 'phase_1_mgt_dashboard',
+    config: {
+      containerId: 'evaluation_1.0.0-SNAPSHOT',
+      knowledgeSource: 'kieStaging',
+      process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
+      settings:
+        '{"dataType1": "requests", "dataType2": "cases", "dailyFreqPeriods": 30, "monthlyFreqPeriods": 12, "annualFreqPeriods": 10}',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
 export default {
   TASK_LIST: taskListConfigs,
   TASK_DETAILS: taskDetailsConfigs,
@@ -92,4 +112,5 @@ export default {
   TASK_COMMENTS: taskCommentsConfigs,
   SUMMARY_CARD: summaryCardConfigs,
   PROCESS_FORM: processFormConfigs,
+  OVERTIME_GRAPH: overtimeGraphConfigs,
 };

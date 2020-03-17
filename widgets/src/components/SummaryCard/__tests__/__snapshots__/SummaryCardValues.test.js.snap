@@ -6,22 +6,22 @@ exports[`<SummaryCardValues /> renders snapshot correctly 1`] = `
     class="SummaryCardValues-root-1 upTrend"
   >
     <div>
-      <h4
-        class="MuiTypography-root MuiTypography-h4"
+      <h1
+        class="MuiTypography-root MuiTypography-h1"
       >
-        2123
-      </h4>
+        summary.labels.requests.value
+      </h1>
       <span
         class="MuiTypography-root MuiTypography-caption"
       >
-        card.labels.REQUESTS.TOTAL_LABEL
+        summary.labels.requests.total_label
       </span>
     </div>
     <div>
       <span
         class="MuiTypography-root SummaryCardValues-trendValue-3 MuiTypography-body2"
       >
-        1%
+        92%
          
         <svg
           aria-hidden="true"

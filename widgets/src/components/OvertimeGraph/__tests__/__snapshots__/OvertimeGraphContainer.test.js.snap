@@ -1,0 +1,448 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <div
+      class="MuiBox-root MuiBox-root-30"
+    >
+      <h2
+        class="MuiTypography-root MuiTypography-h2"
+      />
+    </div>
+    <hr
+      class="MuiDivider-root"
+    />
+    <hr
+      class="MuiDivider-root WithStyles(ForwardRef(Divider))-root-43 MuiDivider-middle"
+    />
+    <div
+      class="MuiBox-root MuiBox-root-44"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+        >
+          <h6
+            class="MuiTypography-root MuiTypography-subtitle1"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-183"
+            />
+          </h6>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+        >
+          <div
+            class="MuiTabs-root WithStyles(ForwardRef(Tabs))-root-184"
+          >
+            <div
+              class="MuiTabs-scroller MuiTabs-fixed"
+              style="overflow: hidden;"
+            >
+              <div
+                class="MuiTabs-flexContainer MuiTabs-centered"
+                role="tablist"
+              >
+                <button
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root Component-root-197 MuiTab-textColorInherit Mui-selected Component-selected-198"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  />
+                </button>
+                <button
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root Component-root-197 MuiTab-textColorInherit"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  />
+                </button>
+                <button
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root Component-root-197 MuiTab-textColorInherit"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  />
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-212 PrivateTabIndicator-colorSecondary-214 MuiTabs-indicator WithStyles(ForwardRef(Tabs))-indicator-185"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-178"
+      >
+        <hr
+          class="MuiDivider-root"
+        />
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+          style="height: 300px;"
+        >
+          <div
+            class="recharts-responsive-container"
+            id="undefined"
+            style="width: 100%; height: 100%;"
+          >
+            <div />
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-179"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
+                >
+                  18
+                </h6>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-caption"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-subtitle1"
+                >
+                  16.22
+                  %
+                </h6>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <span
+                  class="Component-root-216 downTrend"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root Component-icon-217"
+                    fill="none"
+                    focusable="false"
+                    height="11"
+                    role="presentation"
+                    viewBox="0 0 9 11"
+                    width="9"
+                  >
+                    <path
+                      d="M0.997315 0.366849C0.910248 0.366849 0.823181 0.424893 0.786903 0.504704C0.750626 0.584516 0.757881 0.686094 0.815926 0.751394L1.97682 2.14447C2.02761 2.19525 2.09291 2.22428 2.15821 2.22428H4.47999V6.86785H3.08692C2.90553 6.86785 2.74591 6.97668 2.6661 7.13631C2.59354 7.30318 2.61531 7.49908 2.7314 7.63694L5.05318 10.4231C5.22732 10.6335 5.5901 10.6335 5.76423 10.4231L8.08602 7.63694C8.20211 7.49908 8.23113 7.30318 8.15132 7.13631C8.07151 6.97668 7.91188 6.86785 7.73049 6.86785H6.33742V0.606283C6.33742 0.475682 6.23584 0.366849 6.10524 0.366849H0.997315Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-180"
+                >
+                  <div
+                    style="height: 6px; border-radius: 4px; background-color: rgb(245, 245, 245); overflow: hidden;"
+                  >
+                    <div
+                      style="height: 100%; width: 16.22%; background-color: rgb(237, 85, 101);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root MuiBox-root-181"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
+                >
+                  18
+                </h6>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+              >
+                <span
+                  class="MuiTypography-root MuiTypography-caption"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-subtitle1"
+                >
+                  16.22
+                  %
+                </h6>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <span
+                  class="Component-root-216 downTrend"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root Component-icon-217"
+                    fill="none"
+                    focusable="false"
+                    height="11"
+                    role="presentation"
+                    viewBox="0 0 9 11"
+                    width="9"
+                  >
+                    <path
+                      d="M0.997315 0.366849C0.910248 0.366849 0.823181 0.424893 0.786903 0.504704C0.750626 0.584516 0.757881 0.686094 0.815926 0.751394L1.97682 2.14447C2.02761 2.19525 2.09291 2.22428 2.15821 2.22428H4.47999V6.86785H3.08692C2.90553 6.86785 2.74591 6.97668 2.6661 7.13631C2.59354 7.30318 2.61531 7.49908 2.7314 7.63694L5.05318 10.4231C5.22732 10.6335 5.5901 10.6335 5.76423 10.4231L8.08602 7.63694C8.20211 7.49908 8.23113 7.30318 8.15132 7.13631C8.07151 6.97668 7.91188 6.86785 7.73049 6.86785H6.33742V0.606283C6.33742 0.475682 6.23584 0.366849 6.10524 0.366849H0.997315Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-182"
+                >
+                  <div
+                    style="height: 6px; border-radius: 4px; background-color: rgb(245, 245, 245); overflow: hidden;"
+                  >
+                    <div
+                      style="height: 100%; width: 16.22%; background-color: rgb(237, 85, 101);"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <div
+      class="MuiBox-root MuiBox-root-256"
+    >
+      <div
+        class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+        style="width: 250px;"
+      />
+    </div>
+    <hr
+      class="MuiDivider-root"
+    />
+    <hr
+      class="MuiDivider-root WithStyles(ForwardRef(Divider))-root-269 MuiDivider-middle"
+    />
+    <div
+      class="MuiBox-root MuiBox-root-270"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+        >
+          <h6
+            class="MuiTypography-root MuiTypography-subtitle1"
+          >
+            <div
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+              style="width: 100px;"
+            />
+          </h6>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+        />
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-404"
+      >
+        <hr
+          class="MuiDivider-root"
+        />
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-container"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+          style="height: 300px;"
+        >
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+            style="width: 95%; height: 100%;"
+          />
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-405"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 100px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 150px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 50px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 40px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-406"
+                >
+                  <div
+                    class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root MuiBox-root-407"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 100px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 150px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 50px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
+                style="text-align: right;"
+              >
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  style="width: 40px;"
+                />
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-408"
+                >
+                  <div
+                    class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,22 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from '@material-ui/core/styles';
-import withStyles from '@material-ui/core/styles/withStyles';
-import Container from '@material-ui/core/Container';
+import { Container, Box } from '@material-ui/core';
 
 import { getTask } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
 import CustomEventContext from 'components/TaskDetails/CustomEventContext';
-import WidgetBox from 'components/common/WidgetBox';
 import Overview from 'components/TaskDetails/Overview';
 import GeneralInformation from 'components/TaskDetails/GeneralInformation';
 
-const styles = {
-  taskDetailWidgetBox: {
-    marginBottom: '20px',
-  },
-};
+const createLink = (pageCode = 'pda_task_details', taskId, locale = 'en') =>
+  `/entando-de-app/${locale}/${pageCode}.page?taskId=${taskId}`;
 
 class TaskDetailsContainer extends React.Component {
   constructor(props) {
@@ -67,23 +62,26 @@ class TaskDetailsContainer extends React.Component {
   }
 
   async fetchTask() {
-    const { config } = this.state;
+    const { config, loadingTask } = this.state;
     const { taskId } = this.props;
 
     const connection = (config && config.knowledgeSource) || '';
-    const containerId = (config && config.containerId) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
+
+    if (!loadingTask) {
+      this.setState({ loadingTask: true });
+    }
 
     try {
-      const task = await getTask(connection, taskContainerId);
+      const task = await getTask(connection, taskId);
 
       this.setState({
-        loadingTask: false,
         task: (task && task.payload) || null,
         taskInputData: (task && task.payload && task.payload.inputData) || {},
       });
     } catch (error) {
       this.handleError(error.message);
+    } finally {
+      this.setState({ loadingTask: false });
     }
   }
 
@@ -93,19 +91,25 @@ class TaskDetailsContainer extends React.Component {
   }
 
   render() {
-    const { loadingTask, task, taskInputData } = this.state;
-    const { classes, onPressPrevious, onPressNext, onError } = this.props;
+    const { loadingTask, task, taskInputData, config } = this.state;
+    const { onPressPrevious, onPressNext, onError, taskId } = this.props;
+    const configs = config && config.settings;
 
     return (
       <CustomEventContext.Provider value={{ onPressPrevious, onPressNext, onError }}>
         <ThemeProvider theme={theme}>
           <Container disableGutters>
-            <WidgetBox passedClassName={classes.taskDetailWidgetBox} mb={10}>
-              <Overview task={task} loadingTask={loadingTask} />
-            </WidgetBox>
-            <WidgetBox>
+            <Box mb="20px">
+              <Overview
+                task={task}
+                loadingTask={loadingTask}
+                headerLabel={configs && configs.header}
+                taskLink={createLink(configs && configs.destinationPageCode, taskId)}
+              />
+            </Box>
+            {configs && configs.hasGeneralInformation && (
               <GeneralInformation taskInputData={taskInputData} loadingTask={loadingTask} />
-            </WidgetBox>
+            )}
           </Container>
         </ThemeProvider>
       </CustomEventContext.Provider>
@@ -114,9 +118,6 @@ class TaskDetailsContainer extends React.Component {
 }
 
 TaskDetailsContainer.propTypes = {
-  classes: PropTypes.shape({
-    taskDetailWidgetBox: PropTypes.string,
-  }).isRequired,
   taskId: PropTypes.string.isRequired,
   onError: PropTypes.func,
   onPressPrevious: PropTypes.func,
@@ -133,4 +134,4 @@ TaskDetailsContainer.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles)(TaskDetailsContainer);
+export default TaskDetailsContainer;

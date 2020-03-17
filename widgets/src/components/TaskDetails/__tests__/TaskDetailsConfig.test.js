@@ -1,4 +1,4 @@
-import { render, fireEvent, wait } from '@testing-library/react';
+import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
@@ -28,36 +28,8 @@ describe('<TaskDetailsConfig />', () => {
     getProcesses.mockImplementation(() => Promise.resolve(PROCESSES));
     getPageWidget.mockImplementation(() => Promise.resolve(WIDGET_CONFIGS.TASK_DETAILS.configs));
 
-    const { container } = render(
-      <TaskDetailsConfig
-        pageCode={WIDGET_CONFIGS.TASK_DETAILS.pageCode}
-        frameId={WIDGET_CONFIGS.TASK_DETAILS.frameId}
-        widgetCode={WIDGET_CONFIGS.TASK_DETAILS.widgetCode}
-      />
-    );
+    const { container } = render(<TaskDetailsConfig config={{}} />);
 
     await wait(() => expect(container).toMatchSnapshot());
-  });
-
-  it('calls putPageWidget after Save button is pressed', async () => {
-    getConnections.mockImplementation(() => Promise.resolve(CONNECTIONS));
-    getProcesses.mockImplementation(() => Promise.resolve(PROCESSES));
-    getPageWidget.mockImplementation(() => Promise.resolve(WIDGET_CONFIGS.TASK_DETAILS.configs));
-    putPageWidget.mockImplementation(() => {});
-
-    const { findByText } = render(
-      <TaskDetailsConfig
-        pageCode={WIDGET_CONFIGS.TASK_DETAILS.pageCode}
-        frameId={WIDGET_CONFIGS.TASK_DETAILS.frameId}
-        widgetCode={WIDGET_CONFIGS.TASK_DETAILS.widgetCode}
-      />
-    );
-
-    const saveButton = await findByText('Save');
-    fireEvent.click(saveButton);
-
-    await wait(() => {
-      expect(putPageWidget).toHaveBeenCalledTimes(1);
-    });
   });
 });

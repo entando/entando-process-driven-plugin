@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import SVG from 'react-inlinesvg';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 import { DOMAINS, LOCAL } from 'api/constants';
 import { getTasks } from 'api/pda/tasks';
@@ -13,6 +17,7 @@ import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
 
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
+import SearchInput from 'components/common/SearchInput';
 import ErrorNotification from 'components/common/ErrorNotification';
 import ErrorComponent from 'components/common/ErrorComponent';
 import Table from 'components/common/Table/Table';
@@ -20,6 +25,17 @@ import SimpleDialog from 'components/common/SimpleDialog';
 import theme from 'theme';
 
 const styles = {
+  toolbar: {
+    justifyContent: 'space-between',
+    padding: '16px 16px 8px 16px',
+    minHeight: 'unset',
+  },
+  noSubtitleToolbar: {
+    padding: '8px 16px',
+  },
+  title: {
+    textAlign: 'left',
+  },
   paper: {
     minHeight: 459,
     position: 'relative',
@@ -33,20 +49,23 @@ class TaskList extends React.Component {
     rows: [],
     size: 0,
     connection: {},
-    error: null,
+    filter: '',
+    blocker: '',
     errorAlert: null,
     lastPage: false,
+    activeTab: 0,
     diagramModal: {
       open: false,
       title: '',
       body: '',
     },
+    groups: [],
   };
 
   timer = { ref: null };
 
   componentDidMount = async () => {
-    const { lazyLoading, serviceUrl, pageCode, frameId } = this.props;
+    const { lazyLoading, serviceUrl, pageCode, frameId, onSelectTask } = this.props;
 
     if (!LOCAL) {
       // set the PDA domain to the URL passed via props
@@ -60,32 +79,47 @@ class TaskList extends React.Component {
         throw widgetConfigs.errors[0];
       }
       if (!widgetConfigs.payload) {
-        throw new Error('No configuration found for this widget');
+        throw new Error('messages.errors.widgetConfig');
       }
 
       const { config } = widgetConfigs.payload;
+      const connection = config.knowledgeSource;
+      const groups = JSON.parse(config.groups)
+        .filter(group => group.checked)
+        .map(group => group.key);
 
       const taskList = lazyLoading
-        ? await getTasks(config.knowledgeSource, 0, 10)
-        : await getTasks(config.knowledgeSource);
+        ? await getTasks({ connection, groups }, 0, 10)
+        : await getTasks({ connection, groups });
 
-      const options = JSON.parse(config.options);
+      if (!taskList.payload) {
+        throw new Error('messages.errors.errorResponse');
+      }
 
-      this.setState({
-        loading: false,
-        columns: normalizeColumns(
-          JSON.parse(config.columns),
-          taskList.payload[0],
-          options,
-          this.openDiagram
-        ),
-        rows: normalizeRows(taskList.payload),
-        lastPage: taskList.metadata.lastPage === 1,
-        size: taskList.metadata.size,
-        connection: config.knowledgeSource,
-      });
+      if (!taskList.payload.length) {
+        this.setState({ blocker: 'taskList.emptyList' });
+      } else {
+        const options = JSON.parse(config.options);
+        const rows = normalizeRows(taskList.payload);
+
+        // dispatch onSelectTask event for the first item on list
+        onSelectTask(rows[0]);
+
+        this.setState({
+          loading: false,
+          columns: normalizeColumns(JSON.parse(config.columns), rows[0], options, {
+            openDiagram: this.openDiagram,
+            selectTask: onSelectTask,
+          }),
+          rows,
+          lastPage: taskList.metadata.lastPage === 1,
+          size: taskList.metadata.size,
+          connection: config.knowledgeSource,
+          groups,
+        });
+      }
     } catch (error) {
-      this.handleError(error.message, true);
+      this.handleError(error.message, 'messages.errors.dataLoading');
     }
   };
 
@@ -105,7 +139,7 @@ class TaskList extends React.Component {
     callback = () => {},
     withDelay
   ) => {
-    const { connection } = this.state;
+    const { connection, groups } = this.state;
 
     if (withDelay) {
       clearTimeout(this.timer.ref);
@@ -114,7 +148,14 @@ class TaskList extends React.Component {
 
     this.setState({ loading: true });
     try {
-      const res = await getTasks(connection, page, rowsPerPage, sortedColumn, sortedOrder, filter);
+      const res = await getTasks(
+        { connection, groups },
+        page,
+        rowsPerPage,
+        sortedColumn,
+        sortedOrder,
+        filter
+      );
       if (!res.payload) {
         throw res.message;
       }
@@ -127,7 +168,7 @@ class TaskList extends React.Component {
       });
       callback();
     } catch (error) {
-      this.handleError(error, true);
+      this.handleError(error, 'messages.errors.dataLoading');
       this.setState({ loading: false });
     }
   };
@@ -148,7 +189,7 @@ class TaskList extends React.Component {
           },
         });
       } catch (error) {
-        this.handleError(error, false);
+        this.handleError(error);
       } finally {
         this.setState({ loading: false });
       }
@@ -164,18 +205,44 @@ class TaskList extends React.Component {
     this.setState({ errorAlert: null });
   };
 
-  handleError(err, disableScreen) {
+  handleChangeFilter = event => {
+    const { lazyLoading } = this.props;
+    const { rowsPerPage, sortedColumn, sortOrder } = this.state;
+    const filter = event.target.value;
+
+    this.setState({ filter });
+    if (lazyLoading) {
+      this.updateRows(0, rowsPerPage, sortedColumn, sortOrder, filter, undefined, true);
+    }
+  };
+
+  handleChangeTab = (_, activeTab) => {
+    this.setState({ activeTab });
+  };
+
+  handleError(err, blocker = '') {
     const { onError } = this.props;
     onError(err);
     this.setState({
-      error: disableScreen,
       errorAlert: err.toString(),
+      blocker,
     });
   }
 
   render() {
-    const { loading, columns, rows, size, error, errorAlert, lastPage, diagramModal } = this.state;
-    const { classes, lazyLoading } = this.props;
+    const {
+      loading,
+      columns,
+      rows,
+      size,
+      blocker,
+      errorAlert,
+      lastPage,
+      diagramModal,
+      filter,
+      activeTab,
+    } = this.state;
+    const { classes, lazyLoading, onSelectTask } = this.props;
 
     let lazyLoadingProps;
     if (lazyLoading) {
@@ -189,18 +256,35 @@ class TaskList extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Paper className={classes.paper}>
-          {error ? (
-            <ErrorComponent message={i18next.t('messages.errors.dataLoading')} />
+          {blocker ? (
+            <ErrorComponent message={blocker} />
           ) : (
-            <Table
-              loading={loading}
-              title={i18next.t('table.title')}
-              subtitle={i18next.t('table.subtitle')}
-              columns={columns}
-              rows={rows}
-              rowsPerPageOptions={[10, 25, 50, 100]}
-              lazyLoadingProps={lazyLoadingProps}
-            />
+            <>
+              <Toolbar className={classes.toolbar}>
+                <div className={classes.title}>
+                  <Typography variant="h2">{i18next.t('table.title')}</Typography>
+                </div>
+                <div>
+                  <SearchInput value={filter} onChange={this.handleChangeFilter} />
+                </div>
+              </Toolbar>
+              <Tabs
+                indicatorColor="primary"
+                textColor="primary"
+                onChange={this.handleChangeTab}
+                value={activeTab}
+              >
+                <Tab label={i18next.t('taskList.tabs.myTasks')} />
+              </Tabs>
+              <Table
+                loading={loading}
+                columns={columns}
+                rows={rows}
+                rowsPerPageOptions={[10, 25, 50, 100]}
+                lazyLoadingProps={lazyLoadingProps}
+                onRowClick={onSelectTask}
+              />
+            </>
           )}
         </Paper>
         <SimpleDialog
@@ -220,9 +304,12 @@ class TaskList extends React.Component {
 TaskList.propTypes = {
   classes: PropTypes.shape({
     paper: PropTypes.string,
+    toolbar: PropTypes.string,
+    title: PropTypes.string,
   }),
   lazyLoading: PropTypes.bool,
   onError: PropTypes.func,
+  onSelectTask: PropTypes.func,
   serviceUrl: PropTypes.string,
   pageCode: PropTypes.string,
   frameId: PropTypes.string,
@@ -230,8 +317,9 @@ TaskList.propTypes = {
 
 TaskList.defaultProps = {
   classes: {},
-  lazyLoading: false,
+  lazyLoading: true,
   onError: () => {},
+  onSelectTask: () => {},
   serviceUrl: '',
   pageCode: '',
   frameId: '',

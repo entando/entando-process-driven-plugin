@@ -1,19 +1,10 @@
 /* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  FormGroup,
-  ControlLabel,
-  Button,
-  HelpBlock,
-  Row,
-  Col,
-  FormControl,
-} from 'patternfly-react';
+import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
-import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -26,48 +17,40 @@ class ProcessFormConfig extends React.Component {
     this.state = {
       sourceList: [],
       processList: [],
-      settings: {
-        uiSchema: '{}',
+      config: {
+        settings: {
+          uiSchema: '{}',
+        },
+        knowledgeSource: '',
+        process: '',
       },
-      knowledgeSource: '',
-      selectedProcess: '',
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeProcess = this.onChangeProcess.bind(this);
     this.onChangeUiSchema = this.onChangeUiSchema.bind(this);
-    this.handleSave = this.handleSave.bind(this);
+    this.fetchScreen = this.fetchScreen.bind(this);
   }
 
   async componentDidMount() {
-    const { frameId, pageCode } = this.props;
-
     // getting list of Kie server connections
     const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload });
+    this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
+  }
 
-    // getting existing configs
-    const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'PROCESS_FORM');
+  componentDidUpdate(prevProps) {
+    const { config } = this.props;
 
-    const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
-    if (configs && configs.knowledgeSource) {
-      this.onChangeKnowledgeSource(configs.knowledgeSource, () => {
-        if (configs.process) {
-          this.onChangeProcess(configs.process, () => {
-            if (configs.settings) {
-              this.setState({
-                settings: JSON.parse(configs.settings),
-              });
-            }
-          });
-        }
-      });
+    // refetch state if config changes
+    if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
+      this.fetchScreen();
     }
   }
 
   onChangeKnowledgeSource(e, cb = () => {}) {
+    const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ knowledgeSource });
+    this.setState({ config: { ...config, knowledgeSource } });
 
     getProcesses(knowledgeSource).then(data => {
       this.setState({ processList: data.payload });
@@ -77,48 +60,47 @@ class ProcessFormConfig extends React.Component {
   }
 
   onChangeProcess(e, cb = () => {}) {
-    const selectedProcess = e.target ? e.target.value : e;
-    this.setState({ selectedProcess });
+    const { config } = this.state;
+    const process = e.target ? e.target.value : e;
+    this.setState({ config: { ...config, process } });
 
     cb();
   }
 
   onChangeUiSchema({ target: { value: uiSchema } }) {
-    const { settings } = this.state;
-    this.setState({ settings: { ...settings, uiSchema } });
-  }
-
-  async handleSave() {
-    const { frameId, pageCode, widgetCode } = this.props;
-    const { knowledgeSource, selectedProcess, settings } = this.state;
-    const [, containerId] = selectedProcess.split('@');
-
-    const body = JSON.stringify({
-      code: widgetCode,
+    const { config } = this.state;
+    const { settings } = config;
+    this.setState({
       config: {
-        knowledgeSource,
-        process: selectedProcess,
-        containerId,
-        settings: JSON.stringify(settings),
+        ...config,
+        settings: { ...settings, uiSchema },
       },
     });
+  }
 
-    try {
-      const response = await putPageWidget(pageCode, frameId, body);
-      console.log('Configs got saved', response);
-    } catch (error) {
-      console.log('Error while saving configs', error);
+  fetchScreen() {
+    const { config } = this.props;
+
+    if (config && config.knowledgeSource) {
+      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
+        if (config.process) {
+          this.onChangeProcess(config.process, () => {
+            if (config.settings) {
+              this.setState({
+                config: {
+                  settings: JSON.parse(config.settings),
+                },
+              });
+            }
+          });
+        }
+      });
     }
   }
 
   render() {
-    const {
-      knowledgeSource,
-      sourceList,
-      settings,
-      processList = [],
-      selectedProcess = '',
-    } = this.state;
+    const { config, sourceList, processList = [] } = this.state;
+    const { knowledgeSource, process: selectedProcess = '', settings } = config;
 
     return (
       <div>
@@ -178,13 +160,6 @@ class ProcessFormConfig extends React.Component {
                   </FormGroup>
                 </Col>
               </Row>
-              <Row>
-                <Col xs={12} className="text-right">
-                  <Button bsClass="btn" bsStyle="primary" onClick={this.handleSave}>
-                    Save
-                  </Button>
-                </Col>
-              </Row>
             </section>
           )}
         </form>
@@ -194,9 +169,11 @@ class ProcessFormConfig extends React.Component {
 }
 
 ProcessFormConfig.propTypes = {
-  frameId: PropTypes.string.isRequired,
-  widgetCode: PropTypes.string.isRequired,
-  pageCode: PropTypes.string.isRequired,
+  config: PropTypes.shape({
+    knowledgeSource: PropTypes.string,
+    process: PropTypes.string,
+    settings: PropTypes.string,
+  }).isRequired,
 };
 
 export default ProcessFormConfig;

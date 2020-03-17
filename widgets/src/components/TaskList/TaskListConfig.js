@@ -1,22 +1,19 @@
 /* eslint-disable no-console */
 import React from 'react';
-import { FormGroup, ControlLabel, Checkbox, Button, HelpBlock, Row, Col } from 'patternfly-react';
+import { FormGroup, ControlLabel, Checkbox, HelpBlock, Row, Col } from 'patternfly-react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
-import PropTypes from 'prop-types';
 import arrayMove from 'array-move';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import { getConnections } from 'api/pda/connections';
-import { getProcesses } from 'api/pda/processes';
 import { getGroups } from 'api/pda/groups';
 import { getColumns } from 'api/pda/tasks';
-import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 import { normalizeConfigColumns, normalizeConfigGroups } from 'components/TaskList/normalizeData';
+import taskListConfigType from 'types/taskListConfigType';
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
 import 'patternfly/dist/css/patternfly-additions.css';
 import RenderSwitch from 'components/common/RenderSwitch';
-
 import ErrorNotification from 'components/common/ErrorNotification';
 
 const generalOptions = [
@@ -94,19 +91,17 @@ const styles = {
 
 class TaskListConfig extends React.Component {
   state = {
+    config: {
+      knowledgeSource: '',
+      options: generalOptions,
+      groups: [],
+      columns: [],
+    },
     sourceList: [],
-    processList: [],
-    groups: [],
-    columns: [],
-    options: generalOptions,
-    knowledgeSource: '',
-    selectedProcess: '',
     errorAlert: null,
   };
 
   componentDidMount = async () => {
-    const { frameId, pageCode } = this.props;
-
     try {
       // get list of connections
       const sourceList = await getConnections();
@@ -114,61 +109,68 @@ class TaskListConfig extends React.Component {
         throw sourceList.errors[0];
       }
 
-      this.setState({ sourceList: sourceList.payload });
-
-      // get existing configs
-      const pageWidgetsConfigs = await getPageWidget(pageCode, frameId, 'TASK_LIST');
-      if (pageWidgetsConfigs.errors && pageWidgetsConfigs.errors.length) {
-        throw pageWidgetsConfigs.errors[0];
-      }
-
-      const configs = pageWidgetsConfigs.payload && pageWidgetsConfigs.payload.config;
-      if (configs && configs.knowledgeSource) {
-        this.onChangeSource(configs.knowledgeSource, () => {
-          this.onChangeProcess(configs.process, () => {
-            this.setState({
-              groups: JSON.parse(configs.groups),
-              options: JSON.parse(configs.options),
-              columns: JSON.parse(configs.columns),
-            });
-          });
-        });
-      }
+      // fetch screen if a default config prop is passed
+      this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
     } catch (error) {
       this.handleError(error.message);
     }
   };
 
-  onChangeSource = (e, cb = () => {}) => {
-    const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ knowledgeSource });
+  componentDidUpdate = async prevProps => {
+    const { config } = this.props;
 
-    getProcesses(knowledgeSource).then(data => {
-      this.setState({ processList: data.payload });
-      cb();
-    });
+    // refetch state if config changes
+    if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
+      this.fetchScreen();
+    }
   };
 
-  onChangeProcess = async (e, cb) => {
-    const { knowledgeSource } = this.state;
-    const selectedProcess = e.target ? e.target.value : e;
-    this.setState({ selectedProcess });
-
-    if (cb) {
-      cb();
-    } else {
-      try {
-        const { payload: groups } = await getGroups(knowledgeSource, selectedProcess);
-        const { payload: columns } = await getColumns(knowledgeSource, selectedProcess);
-
+  fetchScreen = () => {
+    const { config } = this.props;
+    if (config && config.knowledgeSource) {
+      this.onChangeSource(config.knowledgeSource, () => {
         this.setState({
-          groups: normalizeConfigGroups(groups),
-          columns: normalizeConfigColumns(columns),
+          config: {
+            ...config,
+            groups: JSON.parse(config.groups),
+            options: JSON.parse(config.options),
+            columns: JSON.parse(config.columns),
+          },
         });
-      } catch (error) {
-        console.log('Error while trying to fetch groups and columns from PDA server', error);
-      }
+      });
     }
+  };
+
+  onChangeSource = e => {
+    const { config } = this.state;
+    const knowledgeSource = e.target ? e.target.value : e;
+    this.setState(
+      {
+        config: {
+          ...config,
+          options: [...generalOptions],
+          groups: [],
+          columns: [],
+          knowledgeSource,
+        },
+      },
+      async () => {
+        try {
+          const { payload: groups } = await getGroups(knowledgeSource);
+          const { payload: columns } = await getColumns(knowledgeSource);
+
+          this.setState(state => ({
+            config: {
+              ...state.config,
+              groups: normalizeConfigGroups(groups),
+              columns: normalizeConfigColumns(columns),
+            },
+          }));
+        } catch (error) {
+          console.log('Error while trying to fetch groups and columns from PDA server', error);
+        }
+      }
+    );
   };
 
   handleSortStart = ({ node }) => {
@@ -179,64 +181,45 @@ class TaskListConfig extends React.Component {
   };
 
   handleSortEnd = ({ oldIndex, newIndex }) => {
-    this.setState(({ columns }) => ({
-      columns: arrayMove(columns, oldIndex, newIndex).map((column, i) => ({
-        ...column,
-        position: i,
-      })),
+    this.setState(({ config }) => ({
+      config: {
+        ...config,
+        columns: arrayMove(config.columns, oldIndex, newIndex).map((column, i) => ({
+          ...column,
+          position: i,
+        })),
+      },
     }));
   };
 
   handleColumnChange = index => e => {
-    const { columns } = this.state;
-    const { value, checked } = e.target;
-    const newColumns = [...columns];
-    if (e.target.type === 'checkbox') {
+    const { config } = this.state;
+    const { value, checked, type } = e.target;
+    const newColumns = [...config.columns];
+    if (type === 'checkbox') {
       newColumns[index].isVisible = checked;
     } else {
       newColumns[index].header = value;
     }
-    this.setState({ columns: newColumns });
+    this.setState({ config: { ...config, columns: newColumns } });
   };
 
   handleOptions = index => e => {
-    const { options } = this.state;
+    const { config } = this.state;
     const { value } = e.state;
-    const newOptions = [...options];
+    const newOptions = [...config.options];
 
     newOptions[index].checked = value;
-    this.setState({ options: newOptions });
+    this.setState({ config: { ...config, options: newOptions } });
   };
 
   handleGroups = index => e => {
-    const { groups } = this.state;
+    const { config } = this.state;
     const { value } = e.state;
-    const newGroups = [...groups];
+    const newGroups = [...config.groups];
 
     newGroups[index].checked = value;
-    this.setState({ groups: newGroups });
-  };
-
-  handleSave = async () => {
-    const { frameId, pageCode, widgetCode } = this.props;
-    const { knowledgeSource, selectedProcess, options, groups, columns } = this.state;
-    const body = {
-      code: widgetCode,
-      config: {
-        knowledgeSource,
-        process: selectedProcess,
-        options: JSON.stringify(options),
-        groups: JSON.stringify(groups),
-        columns: JSON.stringify(columns),
-      },
-    };
-
-    try {
-      const response = await putPageWidget(pageCode, frameId, body);
-      console.log('Configs got saved', response);
-    } catch (error) {
-      console.log('Error while saving configs', error);
-    }
+    this.setState({ config: { ...config, groups: newGroups } });
   };
 
   closeNotification = () => {
@@ -250,16 +233,8 @@ class TaskListConfig extends React.Component {
   }
 
   render() {
-    const {
-      knowledgeSource,
-      sourceList,
-      processList,
-      selectedProcess,
-      groups,
-      columns,
-      options,
-      errorAlert,
-    } = this.state;
+    const { sourceList, config, errorAlert } = this.state;
+    const { knowledgeSource, groups, columns, options } = config;
 
     return (
       <div>
@@ -283,28 +258,9 @@ class TaskListConfig extends React.Component {
                 </select>
                 <HelpBlock>Select one of the Kie server connections.</HelpBlock>
               </FormGroup>
-              <FormGroup controlId="connection">
-                <ControlLabel>Process</ControlLabel>
-                <select
-                  className="form-control"
-                  value={selectedProcess}
-                  onChange={this.onChangeProcess}
-                >
-                  <option value="">Select...</option>
-                  {processList.map(process => (
-                    <option
-                      key={`${process['process-id']}@${process['container-id']}`}
-                      value={`${process['process-id']}@${process['container-id']}`}
-                    >
-                      {`${process['process-name']} @ ${process['container-id']}`}
-                    </option>
-                  ))}
-                </select>
-                <HelpBlock>Select one BPM Process.</HelpBlock>
-              </FormGroup>
             </Col>
           </Row>
-          {selectedProcess && (
+          {knowledgeSource && (
             <section>
               <legend>General options</legend>
               <Row>
@@ -356,13 +312,6 @@ class TaskListConfig extends React.Component {
                   </table>
                 </Col>
               </Row>
-              <Row>
-                <Col xs={12} className="text-right">
-                  <Button bsClass="btn" bsStyle="primary" onClick={this.handleSave}>
-                    Save
-                  </Button>
-                </Col>
-              </Row>
             </section>
           )}
         </form>
@@ -372,11 +321,7 @@ class TaskListConfig extends React.Component {
 }
 
 TaskListConfig.propTypes = {
-  frameId: PropTypes.string.isRequired,
-  widgetCode: PropTypes.string.isRequired,
-  pageCode: PropTypes.string.isRequired,
+  config: taskListConfigType.isRequired,
 };
-
-TaskListConfig.defaultProps = {};
 
 export default withStyles(styles)(TaskListConfig);

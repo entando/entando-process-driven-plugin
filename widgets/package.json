@@ -4,6 +4,7 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
+    "@entando/ui": "^0.5.4",
     "@material-ui/core": "^4.8.1",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/lab": "^4.0.0-alpha.37",
@@ -12,6 +13,7 @@
     "date-fns": "^2.8.1",
     "formik": "^2.0.8",
     "i18next": "^17.3.1",
+    "keycloak-js": "^8.0.2",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -21,6 +23,7 @@
     "react-jsonschema-form": "^1.8.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
+    "recharts": "^2.0.0-beta.1",
     "rjsf-material-ui": "^0.3.9"
   },
   "scripts": {
@@ -101,7 +104,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/runtime": "^7.8.3",
+    "@babel/runtime": "^7.0.0-beta.55",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "array-move": "^2.2.1",

@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { authenticate } from 'api/app-builder/pages';
 import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
+import SETTINGS from 'mocks/app-builder/pages';
 import Menu from 'components/App/Menu';
 
 import 'components/App/App.css';
@@ -23,6 +24,8 @@ import Home from 'components/App/Home';
 
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
+import OvertimeGraphContainer from 'components/OvertimeGraph/OvertimeGraphContainer';
+import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
 
 import SummaryCardContainer from 'components/SummaryCard/SummaryCardContainer';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
@@ -48,6 +51,10 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    fontSize: '1.5rem',
+  },
+  userAuth: {
+    marginLeft: '20px',
   },
 }));
 
@@ -87,7 +94,7 @@ function App() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h2" className={classes.title}>
               Entando - PAM Plugin
             </Typography>
             <FormControlLabel
@@ -108,6 +115,13 @@ function App() {
               label="Lazy Loading"
               labelPlacement="start"
             />
+            <user-auth
+              kc-auth-url="http://test-keycloak.51.91.30.184.nip.io/auth"
+              kc-realm="entando"
+              kc-client-id="eti-dig-ex"
+              base-url=""
+              class={classes.userAuth}
+            />
           </Toolbar>
         </AppBar>
 
@@ -127,13 +141,7 @@ function App() {
           />
           <Route
             path="/TaskListConfig"
-            render={() => (
-              <TaskListConfig
-                pageCode={WIDGETS_CONFIG.TASK_LIST.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_LIST.frameId}
-                widgetCode={WIDGETS_CONFIG.TASK_LIST.widgetCode}
-              />
-            )}
+            render={() => <TaskListConfig config={SETTINGS.TASK_LIST.payload.config} />}
           />
           <Route
             path="/TaskDetails/"
@@ -146,16 +154,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/TaskDetailsConfig"
-            render={() => (
-              <TaskDetailsConfig
-                pageCode={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_DETAILS.frameId}
-                widgetCode={WIDGETS_CONFIG.TASK_DETAILS.widgetCode}
-              />
-            )}
-          />
+          <Route path="/TaskDetailsConfig" render={() => <TaskDetailsConfig config={{}} />} />
           <Route
             path="/TaskCompletionForm/"
             render={() => (
@@ -169,13 +168,7 @@ function App() {
           />
           <Route
             path="/TaskCompletionFormConfig"
-            render={() => (
-              <TaskCompletionFormConfig
-                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
-              />
-            )}
+            render={() => <TaskCompletionFormConfig config={{}} />}
           />
           <Route
             path="/TaskComments/"
@@ -188,16 +181,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/TaskCommentsConfig"
-            render={() => (
-              <TaskCommentsConfig
-                pageCode={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_COMMENTS.frameId}
-                widgetCode={WIDGETS_CONFIG.TASK_COMMENTS.widgetCode}
-              />
-            )}
-          />
+          <Route path="/TaskCommentsConfig" render={() => <TaskCommentsConfig config={{}} />} />
           <Route
             path="/SummaryCard/"
             render={() => (
@@ -208,16 +192,7 @@ function App() {
               />
             )}
           />
-          <Route
-            path="/SummaryCardConfig/"
-            render={() => (
-              <SummaryCardConfig
-                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
-                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
-                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
-              />
-            )}
-          />
+          <Route path="/SummaryCardConfig/" render={() => <SummaryCardConfig config={{}} />} />
           <Route
             path="/ProcessForm"
             render={() => (
@@ -228,16 +203,18 @@ function App() {
               />
             )}
           />
+          <Route path="/ProcessFormConfig" render={() => <ProcessFormConfig config={{}} />} />
           <Route
-            path="/ProcessFormConfig"
+            path="/OvertimeGraph"
             render={() => (
-              <ProcessFormConfig
-                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
+              <OvertimeGraphContainer
+                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
+                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
+                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
               />
             )}
           />
+          <Route path="/OvertimeGraphConfig" render={() => <OvertimeGraphConfig config={{}} />} />
         </Container>
       </Router>
     </div>

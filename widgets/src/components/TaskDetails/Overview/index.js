@@ -5,20 +5,22 @@ import i18next from 'i18next';
 import OverviewHeader from 'components/TaskDetails/Overview/OverviewHeader';
 import OverviewDetails from 'components/TaskDetails/Overview/OverviewDetails';
 import OverviewSkeleton from 'components/TaskDetails/Overview/OverviewSkeleton';
+import WidgetBox from 'components/common/WidgetBox';
 
-const Overview = ({ task, loadingTask }) => {
+const Overview = ({ task, loadingTask, headerLabel, taskLink }) => {
   return (
-    <div>
+    <WidgetBox>
       {loadingTask && <OverviewSkeleton />}
       {!loadingTask && task && (
         <>
           <OverviewHeader
-            title={`${i18next.t('taskDetails.overview.title')} - ${task.workItemId || ''}`}
+            title={`${i18next.t(headerLabel)} - ${task.workItemId || ''}`}
+            taskLink={taskLink}
           />
           <OverviewDetails task={task} />
         </>
       )}
-    </div>
+    </WidgetBox>
   );
 };
 
@@ -27,11 +29,15 @@ Overview.propTypes = {
     workItemId: PropTypes.number,
   }),
   loadingTask: PropTypes.bool,
+  headerLabel: PropTypes.string,
+  taskLink: PropTypes.string,
 };
 
 Overview.defaultProps = {
   task: null,
   loadingTask: false,
+  headerLabel: 'taskDetails.overview.title',
+  taskLink: null,
 };
 
 export default Overview;

@@ -15,7 +15,7 @@ import org.entando.keycloak.security.AuthenticatedUser;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.model.Comment;
-import org.entando.plugins.pda.core.request.CreateCommentRequest;
+import org.entando.plugins.pda.core.service.task.request.CreateCommentRequest;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.response.SimpleRestResponse;
@@ -48,7 +48,7 @@ public class TaskCommentController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskCommentService()
-                .listComments(connection, user, taskId));
+                .list(connection, user, taskId));
     }
 
     @Secured(TASK_COMMENTS_CREATE)
@@ -61,7 +61,7 @@ public class TaskCommentController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskCommentService()
-                .createComment(connection, user, taskId, request));
+                .create(connection, user, taskId, request));
     }
 
     @Secured(TASK_COMMENTS_GET)
@@ -73,7 +73,7 @@ public class TaskCommentController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskCommentService()
-                .getComment(connection, user, taskId, commentId));
+                .get(connection, user, taskId, commentId));
     }
 
     @Secured(TASK_COMMENTS_DELETE)
@@ -85,6 +85,6 @@ public class TaskCommentController {
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getTaskCommentService()
-                .deleteComment(connection, user, taskId, commentId));
+                .delete(connection, user, taskId, commentId));
     }
 }
