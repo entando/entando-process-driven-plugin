@@ -89,12 +89,25 @@ class CompletionFormConfig extends React.Component {
         console.log(config.settings);
 
         if (config.settings) {
-          this.setState({
-            config: {
-              ...config,
-              settings: config.settings,
+          const parsedSettings = JSON.parse(config.settings);
+          this.setState(
+            {
+              config: {
+                ...config,
+                settings: {
+                  ...parsedSettings,
+                  uiSchema: JSON.stringify(JSON.parse(parsedSettings.uiSchema), null, 2).replace(
+                    '\\"',
+                    '"'
+                  ),
+                },
+              },
             },
-          });
+            () => {
+              console.log('After state is saved:');
+              console.log(this.state);
+            }
+          );
         }
       });
     }
