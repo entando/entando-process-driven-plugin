@@ -57,11 +57,11 @@ class CompletionFormConfig extends React.Component {
     }
   }
 
-  onChangeKnowledgeSource(e) {
+  onChangeKnowledgeSource(e, afterKnowledgeSourceChange = () => {}) {
     console.log('onChangeKnowledgeSource()', e);
     const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, knowledgeSource } });
+    this.setState({ config: { ...config, knowledgeSource } }, afterKnowledgeSourceChange);
   }
 
   onChangeUiSchema(e) {
