@@ -107,17 +107,6 @@ const JSONForm = props => {
           shrink: true,
         },
       },
-      // MuiInputBase: {
-      //   InputProps: {
-      //     notched: false,
-      //   },
-      //   MuiNotchedOutline: {
-      //     notched: false,
-      //   },
-      // },
-      // MuiNotchedOutline: {
-      //   notched: false,
-      // },
       MuiOutlinedInput: {
         notched: false,
       },
