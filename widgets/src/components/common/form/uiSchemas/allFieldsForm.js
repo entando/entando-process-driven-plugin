@@ -27,6 +27,9 @@ export default {
       'ui:widget': 'email',
       'ui:options': {},
     },
+    urlField: {
+      'ui:options': {},
+    },
     hiddenField: {
       'ui:widget': 'hidden',
       'ui:options': {},

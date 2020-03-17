@@ -173,6 +173,12 @@ export default {
             title: 'String field as Email widget',
             description: 'This is an example of string as Email widget',
           },
+          urlField: {
+            type: 'string',
+            format: 'url',
+            title: 'String field as URL widget',
+            description: 'This is an example of string as URL widget',
+          },
           hiddenField: {
             type: 'string',
             title: 'String field as Hidden widget',
