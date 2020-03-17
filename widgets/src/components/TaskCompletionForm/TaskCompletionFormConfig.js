@@ -39,6 +39,10 @@ class CompletionFormConfig extends React.Component {
   componentDidUpdate(prevProps) {
     const { config } = this.props;
 
+    console.log('CompletionFormConfig');
+    console.log(this.props);
+    console.log(prevProps);
+
     // refetch state if config changes
     if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
       this.fetchScreen();
@@ -80,6 +84,10 @@ class CompletionFormConfig extends React.Component {
 
     if (config && config.knowledgeSource) {
       this.onChangeKnowledgeSource(config.knowledgeSource, () => {
+        console.log('fetchScreen');
+        console.log(config);
+        console.log(config.settings);
+
         if (config.settings) {
           this.setState({
             config: {
