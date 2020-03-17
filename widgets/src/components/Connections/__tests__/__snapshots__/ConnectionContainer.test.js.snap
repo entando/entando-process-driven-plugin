@@ -84,7 +84,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardContent-root ConnectionItem-cardContent-237"
+            class="MuiCardContent-root ConnectionItem-cardContent-240"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
@@ -224,7 +224,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardContent-root ConnectionItem-cardContent-237"
+            class="MuiCardContent-root ConnectionItem-cardContent-240"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
@@ -364,7 +364,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardContent-root ConnectionItem-cardContent-237"
+            class="MuiCardContent-root ConnectionItem-cardContent-240"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"

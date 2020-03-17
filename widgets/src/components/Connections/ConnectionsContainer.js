@@ -8,6 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 
+import { DOMAINS, LOCAL } from 'api/constants';
 import {
   getConnections,
   deleteConnection,
@@ -53,6 +54,13 @@ class ConnectionsContainer extends React.Component {
   };
 
   componentDidMount = () => {
+    const { serviceUrl } = this.props;
+
+    if (!LOCAL) {
+      // set the PDA domain to the URL passed via props
+      DOMAINS.PDA = serviceUrl;
+    }
+
     this.fetchConnections();
   };
 
@@ -198,6 +206,11 @@ ConnectionsContainer.propTypes = {
   classes: PropTypes.shape({
     gridContainer: PropTypes.string,
   }).isRequired,
+  serviceUrl: PropTypes.string,
+};
+
+ConnectionsContainer.defaultProps = {
+  serviceUrl: '',
 };
 
 export default withStyles(styles)(ConnectionsContainer);

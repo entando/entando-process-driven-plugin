@@ -8,12 +8,12 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
     <div
       class="SummaryCard-header-2"
     >
-      <div
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+      <span
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
         style="width: 100px; height: 27px;"
       />
-      <div
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+      <span
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
         style="width: 60px; height: 27px;"
       />
     </div>
@@ -21,21 +21,21 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
       class="MuiDivider-root"
     />
     <div
-      class="SummaryCardValues-root-41 upTrend"
+      class="SummaryCardValues-root-42 upTrend"
     >
       <div>
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
           style="width: 110px; height: 37px;"
         />
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-42 MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-43 MuiSkeleton-pulse"
           style="width: 90px; height: 14px;"
         />
       </div>
       <div>
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
           style="width: 50px; height: 16px;"
         />
       </div>
@@ -45,7 +45,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
     class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
   >
     <div
-      class="MuiPaper-root MuiSnackbarContent-root Notification-error-48 MuiPaper-elevation6"
+      class="MuiPaper-root MuiSnackbarContent-root Notification-error-49 MuiPaper-elevation6"
       direction="up"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -54,11 +54,11 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
         class="MuiSnackbarContent-message"
       >
         <span
-          class="Notification-message-45"
+          class="Notification-message-46"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root Notification-icon-46 Notification-iconVariant-47"
+            class="MuiSvgIcon-root Notification-icon-47 Notification-iconVariant-48"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -84,7 +84,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root Notification-icon-46"
+              class="MuiSvgIcon-root Notification-icon-47"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"
@@ -107,17 +107,17 @@ exports[`<SummaryCardContainer /> renders snapshot correctly 1`] = `
 exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] = `
 <div>
   <div
-    class="MuiPaper-root SummaryCard-root-98 MuiPaper-elevation0"
+    class="MuiPaper-root SummaryCard-root-101 MuiPaper-elevation0"
   >
     <div
-      class="SummaryCard-header-99"
+      class="SummaryCard-header-102"
     >
-      <div
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+      <span
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
         style="width: 100px; height: 27px;"
       />
-      <div
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+      <span
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
         style="width: 60px; height: 27px;"
       />
     </div>
@@ -125,21 +125,21 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
       class="MuiDivider-root"
     />
     <div
-      class="SummaryCardValues-root-138 upTrend"
+      class="SummaryCardValues-root-142 upTrend"
     >
       <div>
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
           style="width: 110px; height: 37px;"
         />
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-139 MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect SummaryCardValues-totalLabel-143 MuiSkeleton-pulse"
           style="width: 90px; height: 14px;"
         />
       </div>
       <div>
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
           style="width: 50px; height: 16px;"
         />
       </div>
@@ -149,7 +149,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
     class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
   >
     <div
-      class="MuiPaper-root MuiSnackbarContent-root Notification-error-145 MuiPaper-elevation6"
+      class="MuiPaper-root MuiSnackbarContent-root Notification-error-149 MuiPaper-elevation6"
       direction="up"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -158,11 +158,11 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
         class="MuiSnackbarContent-message"
       >
         <span
-          class="Notification-message-142"
+          class="Notification-message-146"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root Notification-icon-143 Notification-iconVariant-144"
+            class="MuiSvgIcon-root Notification-icon-147 Notification-iconVariant-148"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -188,7 +188,7 @@ exports[`<SummaryCardContainer /> renders snapshot correctly on error state 1`] 
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root Notification-icon-143"
+              class="MuiSvgIcon-root Notification-icon-147"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"

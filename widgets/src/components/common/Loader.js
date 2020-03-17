@@ -32,7 +32,12 @@ Loader.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string,
     loader: PropTypes.string,
-  }),
+  }).isRequired,
+  loading: PropTypes.bool,
+};
+
+Loader.defaultProps = {
+  loading: false,
 };
 
 export default withStyles(styles)(Loader);
