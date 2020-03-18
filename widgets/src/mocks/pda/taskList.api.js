@@ -49,7 +49,7 @@ export default function(page, rowsPerPage, sortedColumn, sortOrder = 'asc', filt
     payload: displayRows,
     metadata: {
       size,
-      lastPage: page === Math.floor(tasks.payload.length / rowsPerPage) ? 1 : 0,
+      lastPage: page === Math.floor((tasks.payload.length - 1) / rowsPerPage) ? 1 : 0,
     },
   };
 }
