@@ -1,7 +1,4 @@
 export default {
-  'ui:options': {
-    hideDivider: true,
-  },
   personalInformation: {
     'ui:options': {
       size: 12,
