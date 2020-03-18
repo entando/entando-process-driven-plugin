@@ -28,7 +28,7 @@ const WidgetBox = ({
 
   let renderedTitle = title;
   if (typeof title === 'string') {
-    renderedTitle = <Typography variant="h5">{title}</Typography>;
+    renderedTitle = <Typography variant="h2">{title}</Typography>;
   }
 
   return (

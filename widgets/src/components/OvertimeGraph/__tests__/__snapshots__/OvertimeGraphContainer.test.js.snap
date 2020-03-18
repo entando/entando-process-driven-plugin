@@ -8,18 +8,18 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
     <div
       class="MuiBox-root MuiBox-root-30"
     >
-      <h5
-        class="MuiTypography-root MuiTypography-h5"
+      <h2
+        class="MuiTypography-root MuiTypography-h2"
       />
     </div>
     <hr
       class="MuiDivider-root"
     />
     <hr
-      class="MuiDivider-root WithStyles(ForwardRef(Divider))-root-46 MuiDivider-middle"
+      class="MuiDivider-root WithStyles(ForwardRef(Divider))-root-43 MuiDivider-middle"
     />
     <div
-      class="MuiBox-root MuiBox-root-47"
+      class="MuiBox-root MuiBox-root-44"
     >
       <div
         class="MuiGrid-root MuiGrid-container"
@@ -31,7 +31,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
             class="MuiTypography-root MuiTypography-subtitle1"
           >
             <div
-              class="MuiBox-root MuiBox-root-186"
+              class="MuiBox-root MuiBox-root-183"
             />
           </h6>
         </div>
@@ -39,7 +39,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
         >
           <div
-            class="MuiTabs-root WithStyles(ForwardRef(Tabs))-root-187"
+            class="MuiTabs-root WithStyles(ForwardRef(Tabs))-root-184"
           >
             <div
               class="MuiTabs-scroller MuiTabs-fixed"
@@ -51,7 +51,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
               >
                 <button
                   aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root Component-root-200 MuiTab-textColorInherit Mui-selected Component-selected-201"
+                  class="MuiButtonBase-root MuiTab-root Component-root-197 MuiTab-textColorInherit Mui-selected Component-selected-198"
                   role="tab"
                   tabindex="0"
                   type="button"
@@ -62,7 +62,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 </button>
                 <button
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root Component-root-200 MuiTab-textColorInherit"
+                  class="MuiButtonBase-root MuiTab-root Component-root-197 MuiTab-textColorInherit"
                   role="tab"
                   tabindex="0"
                   type="button"
@@ -73,7 +73,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 </button>
                 <button
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root Component-root-200 MuiTab-textColorInherit"
+                  class="MuiButtonBase-root MuiTab-root Component-root-197 MuiTab-textColorInherit"
                   role="tab"
                   tabindex="0"
                   type="button"
@@ -84,7 +84,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-215 PrivateTabIndicator-colorSecondary-217 MuiTabs-indicator WithStyles(ForwardRef(Tabs))-indicator-188"
+                class="PrivateTabIndicator-root-212 PrivateTabIndicator-colorSecondary-214 MuiTabs-indicator WithStyles(ForwardRef(Tabs))-indicator-185"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -92,7 +92,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiBox-root MuiBox-root-181"
+        class="MuiBox-root MuiBox-root-178"
       >
         <hr
           class="MuiDivider-root"
@@ -117,7 +117,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
         >
           <div
-            class="MuiBox-root MuiBox-root-182"
+            class="MuiBox-root MuiBox-root-179"
           >
             <div
               class="MuiGrid-root MuiGrid-container"
@@ -154,11 +154,11 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 style="text-align: right;"
               >
                 <span
-                  class="Component-root-219 downTrend"
+                  class="Component-root-216 downTrend"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root Component-icon-220"
+                    class="MuiSvgIcon-root Component-icon-217"
                     fill="none"
                     focusable="false"
                     height="11"
@@ -177,7 +177,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-183"
+                  class="MuiBox-root MuiBox-root-180"
                 >
                   <div
                     style="height: 6px; border-radius: 4px; background-color: rgb(245, 245, 245); overflow: hidden;"
@@ -191,7 +191,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-184"
+            class="MuiBox-root MuiBox-root-181"
           >
             <div
               class="MuiGrid-root MuiGrid-container"
@@ -228,11 +228,11 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 style="text-align: right;"
               >
                 <span
-                  class="Component-root-219 downTrend"
+                  class="Component-root-216 downTrend"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root Component-icon-220"
+                    class="MuiSvgIcon-root Component-icon-217"
                     fill="none"
                     focusable="false"
                     height="11"
@@ -251,7 +251,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly 1`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-185"
+                  class="MuiBox-root MuiBox-root-182"
                 >
                   <div
                     style="height: 6px; border-radius: 4px; background-color: rgb(245, 245, 245); overflow: hidden;"
@@ -277,10 +277,10 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
     class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="MuiBox-root MuiBox-root-259"
+      class="MuiBox-root MuiBox-root-256"
     >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
         style="width: 250px;"
       />
     </div>
@@ -288,10 +288,10 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
       class="MuiDivider-root"
     />
     <hr
-      class="MuiDivider-root WithStyles(ForwardRef(Divider))-root-275 MuiDivider-middle"
+      class="MuiDivider-root WithStyles(ForwardRef(Divider))-root-269 MuiDivider-middle"
     />
     <div
-      class="MuiBox-root MuiBox-root-276"
+      class="MuiBox-root MuiBox-root-270"
     >
       <div
         class="MuiGrid-root MuiGrid-container"
@@ -302,8 +302,8 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
           <h6
             class="MuiTypography-root MuiTypography-subtitle1"
           >
-            <span
-              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+            <div
+              class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
               style="width: 100px;"
             />
           </h6>
@@ -313,7 +313,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
         />
       </div>
       <div
-        class="MuiBox-root MuiBox-root-410"
+        class="MuiBox-root MuiBox-root-404"
       >
         <hr
           class="MuiDivider-root"
@@ -326,8 +326,8 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
           style="height: 300px;"
         >
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+          <div
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
             style="width: 95%; height: 100%;"
           />
         </div>
@@ -335,7 +335,7 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
           class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
         >
           <div
-            class="MuiBox-root MuiBox-root-411"
+            class="MuiBox-root MuiBox-root-405"
           >
             <div
               class="MuiGrid-root MuiGrid-container"
@@ -343,16 +343,16 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
               >
-                <span
-                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
                   style="width: 100px;"
                 />
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
               >
-                <span
-                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
                   style="width: 150px;"
                 />
               </div>
@@ -360,8 +360,8 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
                 style="text-align: right;"
               >
-                <span
-                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
                   style="width: 50px;"
                 />
               </div>
@@ -369,8 +369,8 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
                 style="text-align: right;"
               >
-                <span
-                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
                   style="width: 40px;"
                 />
               </div>
@@ -378,17 +378,17 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-412"
+                  class="MuiBox-root MuiBox-root-406"
                 >
-                  <span
-                    class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                  <div
+                    class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
                   />
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-413"
+            class="MuiBox-root MuiBox-root-407"
           >
             <div
               class="MuiGrid-root MuiGrid-container"
@@ -396,16 +396,16 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
               >
-                <span
-                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
                   style="width: 100px;"
                 />
               </div>
               <div
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-8"
               >
-                <span
-                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
                   style="width: 150px;"
                 />
               </div>
@@ -413,8 +413,8 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
                 style="text-align: right;"
               >
-                <span
-                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
                   style="width: 50px;"
                 />
               </div>
@@ -422,8 +422,8 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2"
                 style="text-align: right;"
               >
-                <span
-                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                <div
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
                   style="width: 40px;"
                 />
               </div>
@@ -431,10 +431,10 @@ exports[`<OvertimeGraphContainer /> renders snapshot correctly on error state 1`
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-414"
+                  class="MuiBox-root MuiBox-root-408"
                 >
-                  <span
-                    class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                  <div
+                    class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
                   />
                 </div>
               </div>

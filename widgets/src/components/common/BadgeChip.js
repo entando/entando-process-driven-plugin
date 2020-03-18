@@ -7,9 +7,11 @@ import Chip from '@material-ui/core/Chip';
 const defaultValues = {
   success: {
     bgColor: '#1AB394',
+    color: '#FFFFFF',
   },
   error: {
     bgColor: '#e14c38',
+    color: '#FFFFFF',
   },
   pending: {
     bgColor: '#faf0cb',

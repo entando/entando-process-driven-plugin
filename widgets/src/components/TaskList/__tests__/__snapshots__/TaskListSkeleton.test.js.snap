@@ -2,77 +2,55 @@
 
 exports[`<TaskListSkeleton /> renders snapshot correctly 1`] = `
 <div>
-  <div
-    class="TaskListSkeleton-header-1"
-  >
-    <div>
-      <span
-        class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
-        style="width: 40%;"
-      />
-      <span
-        class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
-        style="width: 20%;"
-      />
-    </div>
-    <div
-      class="TaskListSkeleton-search-2"
-    >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
-        style="width: 100%; height: 40px;"
-      />
-    </div>
-  </div>
   <div>
-    <span
-      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
       style="width: 100%; height: 40px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-3 MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-1 MuiSkeleton-animate"
       style="width: 98%; height: 10px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-3 MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-1 MuiSkeleton-animate"
       style="width: 98%; height: 10px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-3 MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-1 MuiSkeleton-animate"
       style="width: 98%; height: 10px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-3 MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-1 MuiSkeleton-animate"
       style="width: 98%; height: 10px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-3 MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-1 MuiSkeleton-animate"
       style="width: 98%; height: 10px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-3 MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-1 MuiSkeleton-animate"
       style="width: 98%; height: 10px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-3 MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-1 MuiSkeleton-animate"
       style="width: 98%; height: 10px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-3 MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-1 MuiSkeleton-animate"
       style="width: 98%; height: 10px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-3 MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-1 MuiSkeleton-animate"
       style="width: 98%; height: 10px;"
     />
-    <span
-      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-3 MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-text TaskListSkeleton-tableRows-1 MuiSkeleton-animate"
       style="width: 98%; height: 10px;"
     />
   </div>
   <div>
-    <span
-      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
       style="width: 100%; height: 50px;"
     />
   </div>

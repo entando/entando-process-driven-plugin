@@ -41,6 +41,7 @@ class TaskCommentsContainer extends React.Component {
     this.closeNotification = this.closeNotification.bind(this);
     this.handleError = this.handleError.bind(this);
     this.fetchWidgetConfigs = this.fetchWidgetConfigs.bind(this);
+    this.fetchComments = this.fetchComments.bind(this);
     this.onClickAddComment = this.onClickAddComment.bind(this);
     this.onClickRemoveComment = this.onClickRemoveComment.bind(this);
   }
@@ -49,35 +50,25 @@ class TaskCommentsContainer extends React.Component {
     this.setState({ loading: true }, async () => {
       const fetchedConfig = await this.fetchWidgetConfigs();
 
-      this.setState({ config: fetchedConfig }, async () => {
-        const { config } = this.state;
-        const { taskId } = this.props;
-
-        const connection = (config && config.knowledgeSource) || '';
-        const [, containerId] = (config && config.process && config.process.split('@')) || '';
-        const taskContainerId = `${taskId}@${containerId}`;
-
-        try {
-          const commentsResponse = await getTaskComments(connection, taskContainerId);
-          this.setState({ comments: commentsResponse.payload || [], loading: false });
-        } catch (error) {
-          this.handleError(error.message);
-        }
-      });
+      this.setState({ config: fetchedConfig }, () => this.fetchComments());
     });
   }
+
+  componentDidUpdate = prevProps => {
+    const { taskId } = this.props;
+    if (prevProps.taskId !== taskId) {
+      this.fetchComments();
+    }
+  };
 
   onClickAddComment(comment) {
     this.setState({ addingComment: true }, async () => {
       const { config, comments } = this.state;
       const { taskId, onClickAddComment } = this.props;
-
       const connection = (config && config.knowledgeSource) || '';
-      const [, containerId] = (config && config.process && config.process.split('@')) || '';
-      const taskContainerId = `${taskId}@${containerId}`;
 
       try {
-        const postResponse = await postTaskComment(connection, taskContainerId, comment);
+        const postResponse = await postTaskComment(connection, taskId, comment);
         this.setState({ comments: [...comments, postResponse.payload], addingComment: false });
       } catch (error) {
         this.handleError(error.message);
@@ -90,13 +81,10 @@ class TaskCommentsContainer extends React.Component {
   async onClickRemoveComment(id) {
     const { config, comments } = this.state;
     const { taskId, onClickRemoveComment } = this.props;
-
     const connection = (config && config.knowledgeSource) || '';
-    const [, containerId] = (config && config.process && config.process.split('@')) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
 
     try {
-      await deleteTaskComment(connection, taskContainerId, id);
+      await deleteTaskComment(connection, taskId, id);
       this.setState({ comments: comments.filter(comment => comment.id !== id) });
     } catch (error) {
       this.handleError(error.message);
@@ -108,6 +96,19 @@ class TaskCommentsContainer extends React.Component {
   closeNotification = () => {
     this.setState({ errorMessage: '' });
   };
+
+  async fetchComments() {
+    const { config } = this.state;
+    const { taskId } = this.props;
+    const connection = (config && config.knowledgeSource) || '';
+
+    try {
+      const commentsResponse = await getTaskComments(connection, taskId);
+      this.setState({ comments: commentsResponse.payload || [], loading: false });
+    } catch (error) {
+      this.handleError(error.message);
+    }
+  }
 
   handleError(errorMessage) {
     this.setState({ errorMessage });

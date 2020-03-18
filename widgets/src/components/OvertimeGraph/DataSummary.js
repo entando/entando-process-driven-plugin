@@ -44,18 +44,40 @@ PercentBar.propTypes = {
   barColor: PropTypes.string.isRequired,
 };
 
-const DataSummary = ({ value, label, percent, trend, loading }) => (
+const styles = {
+  value: {
+    fontSize: 24,
+  },
+  percent: {
+    fontSize: 13,
+    fontWeight: 'bold',
+  },
+};
+
+const DataSummary = ({ classes, value, label, percent, trend, loading }) => (
   <Grid container>
     <Grid item xs={12}>
-      {loading ? <Skeleton width={100} /> : <Typography variant="h6">{value}</Typography>}
+      {loading ? (
+        <Skeleton width={100} />
+      ) : (
+        <Typography variant="h6" className={classes.value}>
+          {value}
+        </Typography>
+      )}
     </Grid>
-    <Grid item xs={8}>
+    <Grid item xs={9}>
       {loading ? <Skeleton width={150} /> : <Typography variant="caption">{label}</Typography>}
     </Grid>
     <Grid item xs={2} style={{ textAlign: 'right' }}>
-      {loading ? <Skeleton width={50} /> : <Typography variant="subtitle1">{percent}%</Typography>}
+      {loading ? (
+        <Skeleton width={50} />
+      ) : (
+        <Typography variant="subtitle1" className={classes.percent}>
+          {percent}%
+        </Typography>
+      )}
     </Grid>
-    <Grid item xs={2} style={{ textAlign: 'right' }}>
+    <Grid item xs={1} style={{ textAlign: 'right' }}>
       {loading ? <Skeleton width={40} /> : <TrendIconWrapper trend={trend} />}
     </Grid>
     <Grid item xs={12}>
@@ -74,6 +96,10 @@ const DataSummary = ({ value, label, percent, trend, loading }) => (
 );
 
 DataSummary.propTypes = {
+  classes: PropTypes.shape({
+    value: PropTypes.string,
+    percent: PropTypes.string,
+  }).isRequired,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   label: PropTypes.string.isRequired,
   percent: PropTypes.number,
@@ -88,4 +114,4 @@ DataSummary.defaultProps = {
   value: '',
 };
 
-export default DataSummary;
+export default withStyles(styles)(DataSummary);

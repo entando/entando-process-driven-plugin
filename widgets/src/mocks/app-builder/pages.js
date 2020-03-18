@@ -22,6 +22,11 @@ const taskDetailsConfigs = {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
+      settings: {
+        hasGeneralInformation: true,
+        header: 'taskDetails.overview.title',
+        destinationPageCode: 'pda_task_details',
+      },
     },
   },
   metaData: { status: 'draft' },

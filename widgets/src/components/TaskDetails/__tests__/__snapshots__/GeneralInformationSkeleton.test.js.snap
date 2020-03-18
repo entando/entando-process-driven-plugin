@@ -3,8 +3,8 @@
 exports[`<GeneralInformationSkeleton /> renders snapshot correctly 1`] = `
 <div>
   <div>
-    <span
-      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+    <div
+      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
       style="width: 190px; height: 25px;"
     />
     <hr
@@ -15,108 +15,108 @@ exports[`<GeneralInformationSkeleton /> renders snapshot correctly 1`] = `
     <div
       class="GeneralInformationSkeleton-dataRow-2"
     >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
         style="width: 100px; height: 15px;"
       />
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-animate"
         style="width: 100px; height: 15px;"
       />
     </div>
     <div
       class="GeneralInformationSkeleton-dataRow-2"
     >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
         style="width: 150px; height: 15px;"
       />
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-animate"
         style="width: 190px; height: 15px;"
       />
     </div>
     <div
       class="GeneralInformationSkeleton-dataRow-2"
     >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
         style="width: 80px; height: 15px;"
       />
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-animate"
         style="width: 190px; height: 15px;"
       />
     </div>
     <div
       class="GeneralInformationSkeleton-dataRow-2"
     >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
         style="width: 100px; height: 15px;"
       />
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-animate"
         style="width: 100px; height: 15px;"
       />
     </div>
     <div
       class="GeneralInformationSkeleton-dataRow-2"
     >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
         style="width: 150px; height: 15px;"
       />
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-animate"
         style="width: 190px; height: 15px;"
       />
     </div>
     <div
       class="GeneralInformationSkeleton-dataRow-2"
     >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
         style="width: 80px; height: 15px;"
       />
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-animate"
         style="width: 190px; height: 15px;"
       />
     </div>
     <div
       class="GeneralInformationSkeleton-dataRow-2"
     >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
         style="width: 100px; height: 15px;"
       />
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-animate"
         style="width: 100px; height: 15px;"
       />
     </div>
     <div
       class="GeneralInformationSkeleton-dataRow-2"
     >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
         style="width: 150px; height: 15px;"
       />
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-animate"
         style="width: 190px; height: 15px;"
       />
     </div>
     <div
       class="GeneralInformationSkeleton-dataRow-2"
     >
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
         style="width: 80px; height: 15px;"
       />
-      <span
-        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-pulse"
+      <div
+        class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-value-3 MuiSkeleton-animate"
         style="width: 190px; height: 15px;"
       />
     </div>

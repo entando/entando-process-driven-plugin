@@ -49,33 +49,61 @@ exports[`<TaskCompletionFormConfig /> renders snapshot correctly 1`] = `
               Select one of the Kie server connections.
             </span>
           </div>
-          <div
-            class="form-group"
-          >
-            <label
-              class="control-label"
-              for="connection"
-            >
-              Process
-            </label>
-            <select
-              class="form-control"
-            >
-              <option
-                value=""
-              >
-                Select...
-              </option>
-            </select>
-            <span
-              class="help-block"
-            >
-              Select one BPM Process.
-            </span>
-          </div>
         </div>
       </div>
-      
+      <section>
+        <legend>
+          Settings
+        </legend>
+        <div
+          class="row"
+        >
+          <div
+            class="col-xs-12"
+          >
+            <div
+              class="form-group"
+            >
+              <label
+                class="control-label"
+                for="textarea"
+              >
+                UI Schema
+              </label>
+              <textarea
+                class="form-control"
+                id="textarea"
+              >
+                {}
+              </textarea>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+        >
+          <div
+            class="col-xs-12"
+          >
+            <div
+              class="form-group"
+            >
+              <label
+                class="control-label"
+              >
+                Default column size
+              </label>
+              <input
+                class="form-control"
+                max="12"
+                min="1"
+                type="number"
+                value="12"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </form>
   </div>
 </div>
