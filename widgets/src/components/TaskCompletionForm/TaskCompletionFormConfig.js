@@ -19,13 +19,14 @@ class CompletionFormConfig extends React.Component {
         knowledgeSource: '',
         settings: {
           uiSchema: '{}',
-          defaultColumnSize: 12,
+          defaultColumnSize: '',
         },
       },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeUiSchema = this.onChangeUiSchema.bind(this);
+    this.onChangeSettingValue = this.onChangeSettingValue.bind(this);
     this.fetchScreen = this.fetchScreen.bind(this);
   }
 
@@ -44,13 +45,17 @@ class CompletionFormConfig extends React.Component {
     }
   }
 
-  onChangeKnowledgeSource(e) {
+  onChangeKnowledgeSource(e, afterKnowledgeSourceChange = () => {}) {
     const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, knowledgeSource } });
+    this.setState({ config: { ...config, knowledgeSource } }, afterKnowledgeSourceChange);
   }
 
-  onChangeUiSchema({ target: { value: uiSchema } }) {
+  onChangeUiSchema(e) {
+    const {
+      target: { value: uiSchema },
+    } = e;
+
     const { config } = this.state;
     this.setState({
       config: {
@@ -60,15 +65,15 @@ class CompletionFormConfig extends React.Component {
     });
   }
 
-  onChangeNumericValue(setting, value) {
-    const parsedValue = parseInt(value, 10) || 12;
+  onChangeSettingValue(setting, e) {
+    const value = e.state ? e.state.value : e.target.value;
     const { config } = this.state;
     this.setState({
       config: {
         ...config,
         settings: {
           ...config.settings,
-          [setting]: parsedValue,
+          [setting]: value,
         },
       },
     });
@@ -80,10 +85,17 @@ class CompletionFormConfig extends React.Component {
     if (config && config.knowledgeSource) {
       this.onChangeKnowledgeSource(config.knowledgeSource, () => {
         if (config.settings) {
+          const parsedSettings = JSON.parse(config.settings);
           this.setState({
             config: {
               ...config,
-              settings: JSON.parse(config.settings),
+              settings: {
+                ...parsedSettings,
+                uiSchema: JSON.stringify(JSON.parse(parsedSettings.uiSchema), null, 2).replace(
+                  '\\"',
+                  '"'
+                ),
+              },
             },
           });
         }
@@ -141,10 +153,8 @@ class CompletionFormConfig extends React.Component {
                     className="form-control"
                     type="number"
                     value={settings.defaultColumnSize}
-                    min={1}
-                    max={12}
-                    onChange={({ target: { value } }) => {
-                      this.onChangeNumericValue('defaultColumnSize', value);
+                    onChange={event => {
+                      this.onChangeSettingValue('defaultColumnSize', event);
                     }}
                   />
                 </FormGroup>
