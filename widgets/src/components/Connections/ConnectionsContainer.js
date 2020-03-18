@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable react/jsx-wrap-multilines */
 import { Container, IconButton, Grid, Typography } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -155,6 +154,7 @@ class ConnectionsContainer extends React.Component {
           <WidgetBox
             title="Connections"
             topRightComp={
+              /* eslint-disable react/jsx-wrap-multilines */
               <IconButton color="primary" onClick={this.handleAddButton}>
                 <AddIcon />
               </IconButton>
@@ -171,11 +171,14 @@ class ConnectionsContainer extends React.Component {
           </WidgetBox>
 
           <Grid className={classes.gridContainer} container spacing={2}>
-            {listLoader &&
-              Array(4)
-                .fill('')
-                // eslint-disable-next-line react/no-array-index-key
-                .map((_, i) => <ConnectionItemSkeleton key={i} />)}
+            {listLoader && (
+              <>
+                <ConnectionItemSkeleton />
+                <ConnectionItemSkeleton />
+                <ConnectionItemSkeleton />
+                <ConnectionItemSkeleton />
+              </>
+            )}
             {connectionsList ? (
               connectionsList.map(connection => (
                 <ConnectionItem

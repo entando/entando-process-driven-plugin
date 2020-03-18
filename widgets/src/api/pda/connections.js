@@ -7,7 +7,6 @@ import MOCK_CONNECTIONS, {
 } from 'mocks/pda/connections';
 import makeRequest from 'api/makeRequest';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getConnections = async () =>
   makeRequest({
     domain: DOMAINS.PDA,
