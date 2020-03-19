@@ -18,24 +18,14 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
         </h2>
         <div>
           <button
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiIconButton-label"
+              class="MuiButton-label"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                role="presentation"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-                />
-              </svg>
+              Create new connection
             </span>
             <span
               class="MuiTouchRipple-root"
@@ -84,7 +74,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardContent-root ConnectionItem-cardContent-240"
+            class="MuiCardContent-root ConnectionItem-cardContent-251"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
@@ -216,7 +206,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardContent-root ConnectionItem-cardContent-240"
+            class="MuiCardContent-root ConnectionItem-cardContent-251"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
@@ -348,7 +338,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardContent-root ConnectionItem-cardContent-240"
+            class="MuiCardContent-root ConnectionItem-cardContent-251"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
