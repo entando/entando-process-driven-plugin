@@ -67,18 +67,18 @@ exports[`<ConnectionForm /> renders snapshot correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
         >
           <div
             class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
               data-shrink="true"
-              for="schema"
-              id="schema-label"
+              for="url"
+              id="url-label"
             >
-              Schema
+              Connection URL
             </label>
             <div
               class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
@@ -86,63 +86,9 @@ exports[`<ConnectionForm /> renders snapshot correctly 1`] = `
               <input
                 aria-invalid="false"
                 class="MuiInputBase-input MuiInput-input"
-                id="schema"
+                id="url"
                 type="text"
-                value="http"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
-        >
-          <div
-            class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
-          >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-              data-shrink="true"
-              for="host"
-              id="host-label"
-            >
-              Host
-            </label>
-            <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiInput-input"
-                id="host"
-                type="text"
-                value="entando.com"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
-        >
-          <div
-            class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
-          >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-              data-shrink="true"
-              for="app"
-              id="app-label"
-            >
-              App
-            </label>
-            <div
-              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiInput-input"
-                id="app"
-                type="text"
-                value="/test"
+                value=""
               />
             </div>
           </div>
@@ -197,6 +143,33 @@ exports[`<ConnectionForm /> renders snapshot correctly 1`] = `
                 id="password"
                 type="password"
                 value="123"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
+              data-shrink="true"
+              for="connectionTimeout"
+              id="connectionTimeout-label"
+            >
+              Timeout
+            </label>
+            <div
+              class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiInput-input"
+                id="connectionTimeout"
+                type="text"
+                value=""
               />
             </div>
           </div>

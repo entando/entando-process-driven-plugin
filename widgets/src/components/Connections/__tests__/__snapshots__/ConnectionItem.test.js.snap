@@ -41,17 +41,7 @@ exports[`<ConnectionItem /> renders snapshot correctly 1`] = `
         <p
           class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           style="padding-bottom: 10px;"
-        >
-          http://entando.com:undefined
-        </p>
-        <p
-          class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
-        >
-          <b>
-            App: 
-          </b>
-          /test
-        </p>
+        />
         <p
           class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
         >

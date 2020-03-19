@@ -19,30 +19,32 @@ const fields = [
   {
     key: 'name',
     label: 'Name',
+    size: 3,
   },
   {
     key: 'engine',
     label: 'Engine',
+    size: 3,
   },
   {
-    key: 'schema',
-    label: 'Schema',
-  },
-  {
-    key: 'host',
-    label: 'Host',
-  },
-  {
-    key: 'app',
-    label: 'App',
+    key: 'url',
+    label: 'Connection URL',
+    size: 6,
   },
   {
     key: 'username',
     label: 'Username',
+    size: 3,
   },
   {
     key: 'password',
     label: 'Password',
+    size: 3,
+  },
+  {
+    key: 'connectionTimeout',
+    label: 'Timeout',
+    size: 3,
   },
 ];
 
@@ -55,7 +57,7 @@ const ConnectionForm = ({ classes, onChange, onCancel, onSave, form }) => {
       <div>
         <Grid container spacing={3}>
           {fields.map(field => (
-            <Grid key={field.key} item xs={3}>
+            <Grid key={field.key} item xs={field.size}>
               <TextField
                 id={field.key}
                 label={field.label}
@@ -92,11 +94,10 @@ ConnectionForm.propTypes = {
   form: PropTypes.shape({
     name: PropTypes.string,
     engine: PropTypes.string,
-    schema: PropTypes.string,
-    host: PropTypes.string,
-    app: PropTypes.string,
+    url: PropTypes.string,
     username: PropTypes.string,
     password: PropTypes.string,
+    connectionTimeout: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     edit: PropTypes.bool,
   }).isRequired,
   onChange: PropTypes.func.isRequired,

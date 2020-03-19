@@ -1,8 +1,7 @@
 /* eslint-disable no-console */
-import { Container, IconButton, Grid, Typography } from '@material-ui/core';
+import { Container, Button, Grid, Typography } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 import withStyles from '@material-ui/core/styles/withStyles';
-import AddIcon from '@material-ui/icons/Add';
 import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
@@ -32,9 +31,8 @@ const styles = {
 const initialForm = {
   name: '',
   engine: '',
-  schema: '',
-  host: '',
-  app: '',
+  url: '',
+  connectionTimeout: '',
   username: '',
   password: '',
 };
@@ -155,9 +153,14 @@ class ConnectionsContainer extends React.Component {
             title="Connections"
             topRightComp={
               /* eslint-disable react/jsx-wrap-multilines */
-              <IconButton color="primary" onClick={this.handleAddButton}>
-                <AddIcon />
-              </IconButton>
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={this.handleAddButton}
+                disableElevation
+              >
+                Create new connection
+              </Button>
             }
             open={showForm}
             hasDivider

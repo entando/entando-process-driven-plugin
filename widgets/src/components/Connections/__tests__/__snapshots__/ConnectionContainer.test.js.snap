@@ -90,15 +90,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
               style="padding-bottom: 10px;"
             >
-              http://rhpam7-install-kieserver-rhpam7-install-entando.apps.serv.run:80
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
-            >
-              <b>
-                App: 
-              </b>
-              /services/rest/
+              http://rhpam7-install-kieserver-rhpam7-install-entando.apps.serv.run:80/services/rest/
             </p>
             <p
               class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
@@ -230,15 +222,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
               style="padding-bottom: 10px;"
             >
-              http://rhpam7-install-kieserver-rhpam7-install-entando.apps.serv.run:80
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
-            >
-              <b>
-                App: 
-              </b>
-              /services/rest/
+              http://rhpam7-install-kieserver-rhpam7-install-entando.apps.serv.run:80/services/rest/
             </p>
             <p
               class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
@@ -370,15 +354,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
               style="padding-bottom: 10px;"
             >
-              http://rhpam7-install-kieserver-rhpam7-install-entando.apps.serv.run:80
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"
-            >
-              <b>
-                App: 
-              </b>
-              /services/rest/
+              http://rhpam7-install-kieserver-rhpam7-install-entando.apps.serv.run:80/services/rest/
             </p>
             <p
               class="MuiTypography-root MuiTypography-body2 MuiTypography-gutterBottom"

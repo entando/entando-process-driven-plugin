@@ -38,11 +38,7 @@ const ConnectionItem = ({ classes, connection, onEdit, onDelete, onTest }) => (
       />
       <CardContent className={classes.cardContent}>
         <Typography color="textSecondary" gutterBottom style={{ paddingBottom: 10 }}>
-          {`${connection.schema}://${connection.host}:${connection.port}`}
-        </Typography>
-        <Typography variant="body2" gutterBottom>
-          <b>App: </b>
-          {connection.app}
+          {connection.url}
         </Typography>
         <Typography variant="body2" gutterBottom>
           <b>Username: </b> {connection.username}
@@ -79,12 +75,9 @@ ConnectionItem.propTypes = {
   }).isRequired,
   connection: PropTypes.shape({
     name: PropTypes.string,
-    host: PropTypes.string,
-    port: PropTypes.string,
-    schema: PropTypes.string,
-    app: PropTypes.string,
+    url: PropTypes.string,
     username: PropTypes.string,
-    connectionTimeout: PropTypes.number,
+    connectionTimeout: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     engine: PropTypes.string,
     online: PropTypes.string,
   }).isRequired,
