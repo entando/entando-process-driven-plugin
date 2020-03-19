@@ -197,14 +197,11 @@ public class ConnectionServiceUnitTest {
 
     private void assertThatIsEqual(Connection connection, ConnectionConfig config1) {
         assertThat(connection.getName()).isEqualTo(config1.getName());
-        assertThat(connection.getEngine()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.ENGINE_KEY));
-        assertThat(connection.getApp()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.APP_KEY));
+        assertThat(connection.getEngine()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.ENGINE));
+        assertThat(connection.getUrl()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.URL));
         assertThat(connection.getConnectionTimeout())
                 .isEqualTo(Integer.valueOf(config1.getProperties().get(ConnectionConfigMapper.CONNECTION_TIMEOUT)));
-        assertThat(connection.getHost()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.HOST));
-        assertThat(connection.getPassword()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.PASSWORD));
-        assertThat(connection.getPort()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.PORT));
-        assertThat(connection.getSchema()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.SCHEMA));
         assertThat(connection.getUsername()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.USERNAME));
+        assertThat(connection.getPassword()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.PASSWORD));
     }
 }
