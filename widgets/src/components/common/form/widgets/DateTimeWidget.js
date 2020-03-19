@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { DateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
 import FormControl from '@material-ui/core/FormControl';
 
@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-const DateWidget = props => {
+const DateTimeWidget = props => {
   const classes = useStyles();
 
   const { id, required, disabled, readonly, value, onChange, options, label, schema } = props;
@@ -23,11 +23,12 @@ const DateWidget = props => {
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
       <FormControl required={required} className={classes.formControl}>
-        <DatePicker
+        <DateTimePicker
           id={id}
           label={label || schema.title}
           inputVariant="outlined"
-          format={options.format || 'YYYY-MM-DD'}
+          ampm={options.ampm || false}
+          format={options.format || 'YYYY-MM-DD HH:mm'}
           InputProps={{ notched: false }}
           value={value}
           onChange={handleOnChange}
@@ -39,7 +40,7 @@ const DateWidget = props => {
   );
 };
 
-DateWidget.propTypes = {
+DateTimeWidget.propTypes = {
   id: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -50,13 +51,14 @@ DateWidget.propTypes = {
   options: PropTypes.shape({
     emptyValue: PropTypes.string,
     format: PropTypes.string,
+    ampm: PropTypes.bool,
   }),
   schema: PropTypes.shape({
     title: PropTypes.string,
   }),
 };
 
-DateWidget.defaultProps = {
+DateTimeWidget.defaultProps = {
   id: '',
   required: false,
   value: '',
@@ -72,4 +74,4 @@ DateWidget.defaultProps = {
   },
 };
 
-export default DateWidget;
+export default DateTimeWidget;

@@ -34,6 +34,10 @@ export default {
         ssn: '12345',
         dob: '1995-01-16',
       },
+      datetimes: {
+        date: '1995-01-16',
+        datetime: '1995-01-16 13:59',
+      },
     },
     priority: 0,
     subject: 'You need to evaluate Alessio.',

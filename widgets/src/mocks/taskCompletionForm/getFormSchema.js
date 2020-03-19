@@ -118,55 +118,172 @@ export default {
   },
   ALL_FIELDS: {
     $schema: 'http://json-schema.org/draft-07/schema#',
-    $id: 'http://entando.org/schemas/pda-form.json',
-    title: 'forms-sample.ProcessSample-taskform.frm',
+    $id: 'http://entando.org/schemas/pda-all-fields-form.json',
+    title: 'All supported fields',
     type: 'object',
-    required: ['__unbound_field_field_6196', '__unbound_field_field_030592'],
+    required: [],
     properties: {
-      processDocument: {
-        type: 'string',
-        title: 'Upload a document for the ProcessDocument process variable',
-        format: 'data-url',
-      },
-      processDocumentList: {
-        type: 'array',
-        title: 'Upload a list of documents to the ProcessDocumentList process variable',
-        items: {
-          type: 'string',
-          format: 'data-url',
+      attachments: {
+        title: 'Attachments',
+        description: 'Examples of attachment widgets (string fields with data-url format)',
+        type: 'object',
+        required: [],
+        properties: {
+          processDocument: {
+            type: 'string',
+            title: 'Upload a document for the ProcessDocument process variable',
+            description: 'This is an example of single file upload',
+            format: 'data-url',
+          },
+          processDocumentList: {
+            type: 'array',
+            title: 'Upload a list of documents to the ProcessDocumentList process variable',
+            description: 'This is an example of multiple file upload',
+            items: {
+              type: 'string',
+              format: 'data-url',
+            },
+          },
         },
       },
-      MyObject: {
-        title: 'com_myspace_forms_sample_MyObject',
+      strings: {
+        title: 'String fields',
+        description: 'Examples of string widgets',
         type: 'object',
-        required: ['myString'],
+        required: [],
         properties: {
-          myDateTime: {
+          regularTextField: {
             type: 'string',
-            title: 'My Date Time ',
-            description: 'My Date Time ',
-            format: 'date-time',
-          },
-          myBoolean: {
-            type: 'boolean',
-            title: 'My Boolean',
-          },
-          myString: {
-            type: 'string',
-            title: 'My String ',
-            description: 'My String',
+            title: 'Regular text field',
+            description: 'This is an example of string text field (max length 100)',
             maxLength: 100,
           },
-          myDouble: {
-            type: 'number',
-            title: 'My Double - Read Only',
-            description: 'My Double',
-            readOnly: true,
+          textAreaField: {
+            type: 'string',
+            title: 'String field as Textarea widget',
+            description: 'This is an example of string as Textarea widget',
           },
-          myInteger: {
+          passwordField: {
+            type: 'string',
+            title: 'String field as Password widget',
+            description: 'This is an example of string as Password widget',
+          },
+          emailField: {
+            type: 'string',
+            title: 'String field as Email widget',
+            description: 'This is an example of string as Email widget',
+          },
+          urlField: {
+            type: 'string',
+            format: 'url',
+            title: 'String field as URL widget',
+            description: 'This is an example of string as URL widget',
+          },
+          hiddenField: {
+            type: 'string',
+            title: 'String field as Hidden widget',
+            description: 'This is an invisible example of string as Hidden widget',
+          },
+        },
+      },
+      numbers: {
+        title: 'Number fields',
+        description: 'Examples of number widgets',
+        type: 'object',
+        required: [],
+        properties: {
+          doubleField: {
+            type: 'number',
+            title: 'Double field',
+            description: 'This is an example of number field (double)',
+          },
+          integerField: {
             type: 'integer',
-            title: 'My Integer',
-            description: 'My Integer',
+            title: 'Integer field',
+            description: 'This is an example of Integer field',
+          },
+          rangeField: {
+            type: 'integer',
+            title: 'Range field',
+            description: 'This is an example of integer field as Range widget',
+          },
+          limitedRangeField: {
+            type: 'integer',
+            title: 'Range field with min/max values',
+            description: 'This is an example of integer field as Range widget with min/max values',
+            minimum: 1,
+            maximum: 50,
+          },
+          updownField: {
+            type: 'integer',
+            title: 'UpDown field',
+            description: 'This is an example of integer field as UpDown widget',
+          },
+        },
+      },
+      booleans: {
+        title: 'Boolean fields',
+        description: 'Examples of boolean widgets',
+        type: 'object',
+        required: [],
+        properties: {
+          regularBoolean: {
+            type: 'boolean',
+            title: 'Boolean (as default checkbox widget)',
+            description: 'This is an example of boolean field as Checkbox widget',
+          },
+          radioBoolean: {
+            type: 'boolean',
+            title: 'Boolean field as Radio widget',
+            description: 'This is an example of boolean field as Radio widget',
+          },
+          namedRadioBoolean: {
+            type: 'boolean',
+            title: 'Boolean field as relabeled Radio widget',
+            description: 'This is an example of boolean field as Radio widget with provided labels',
+            enumNames: ['Pass', 'Fail'],
+          },
+          selectBoolean: {
+            type: 'boolean',
+            title: 'Boolean field as Select widget',
+            description: 'This is an example of boolean field as Select widget',
+          },
+        },
+      },
+      datetimes: {
+        title: 'Date-related fields',
+        description: 'Examples of date and date-time widgets',
+        type: 'object',
+        required: [],
+        properties: {
+          date: {
+            type: 'string',
+            title: 'Date field as Date widget',
+            description: 'This is an example of date field as Date widget',
+            format: 'date',
+          },
+          datetime: {
+            type: 'string',
+            title: 'Date-time field as DateTime widget',
+            description: 'This is an example of date-time field as DateTime widget',
+            format: 'date-time',
+          },
+        },
+      },
+      multichoice: {
+        title: 'Multi-choice fields',
+        description: 'Examples of multi-choice widgets',
+        type: 'object',
+        required: [],
+        properties: {
+          checkbox: {
+            type: 'array',
+            title: 'A multiple-choice list as Checkboxes widget',
+            items: {
+              type: 'string',
+              enum: ['Single', 'Double', 'Triple'],
+            },
+            uniqueItems: true,
           },
         },
       },
