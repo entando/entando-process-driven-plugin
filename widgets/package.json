@@ -139,7 +139,10 @@
       "!<rootDir>/node_modules/",
       "!<rootDir>/path/to/dir/",
       "!src/**/custom-elements/*.*",
-      "!src/**/index.js"
+      "!src/**/custom-elements/common/*.*",
+      "!src/**/index.js",
+      "!src/theme.js",
+      "!src/utils.js"
     ],
     "coverageThreshold": {
       "global": {
