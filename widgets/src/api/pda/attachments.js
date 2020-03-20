@@ -13,19 +13,21 @@ export const getAttachments = async (connection, taskId) =>
   });
 
 export const saveAttachment = async (connection, taskId, file) => {
-  const body = new FormData();
-  body.append('file', file);
+  const formData = new FormData();
+  formData.append('file', file);
 
-  const headers = {
-    'Content-Type': 'upload',
-  };
+  // const headers = {
+  //   'Content-Type': 'upload',
+  // };
+
+  const body = JSON.stringify(formData);
 
   return makeRequest({
     domain: DOMAINS.PDA,
     uri: `/connections/${connection}/tasks/${taskId}/attachments`,
     method: METHODS.POST,
-    body,
-    headers,
+    body: JSON.stringify(body),
+    // headers,
     mockResponse: {},
     useAuthentication: true,
   });
