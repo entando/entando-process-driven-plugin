@@ -18,7 +18,7 @@ import utils from 'utils';
 
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
 import SearchInput from 'components/common/SearchInput';
-import ErrorNotification from 'components/common/ErrorNotification';
+import Notification from 'components/common/Notification';
 import ErrorComponent from 'components/common/ErrorComponent';
 import Table from 'components/common/Table/Table';
 import SimpleDialog from 'components/common/SimpleDialog';
@@ -295,7 +295,7 @@ class TaskList extends React.Component {
           maxWidth="xl"
           fullWidth
         />
-        <ErrorNotification message={errorAlert} onClose={this.closeNotification} />
+        <Notification type="error" message={errorAlert} onClose={this.closeNotification} />
       </ThemeProvider>
     );
   }

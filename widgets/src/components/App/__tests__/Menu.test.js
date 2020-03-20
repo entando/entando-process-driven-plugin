@@ -1,11 +1,13 @@
-import React from 'react';
 import { render } from '@testing-library/react';
-import Loader from 'components/common/Loader';
+import React from 'react';
+
 import 'mocks/i18nMock';
 
-describe('<Loader />', () => {
+import Menu from 'components/App/Menu';
+
+describe('<Menu />', () => {
   it('renders snapshot correctly', () => {
-    const { container } = render(<Loader loading />);
+    const { container } = render(<Menu />);
 
     expect(container).toMatchSnapshot();
   });

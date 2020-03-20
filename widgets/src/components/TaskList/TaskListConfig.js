@@ -14,7 +14,7 @@ import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
 import 'patternfly/dist/css/patternfly-additions.css';
 import RenderSwitch from 'components/common/RenderSwitch';
-import ErrorNotification from 'components/common/ErrorNotification';
+import Notification from 'components/common/Notification';
 
 const generalOptions = [
   {
@@ -238,7 +238,7 @@ class TaskListConfig extends React.Component {
 
     return (
       <div>
-        <ErrorNotification message={errorAlert} onClose={this.closeNotification} />
+        <Notification type="error" message={errorAlert} onClose={this.closeNotification} />
         <form>
           <Row>
             <Col xs={12}>
