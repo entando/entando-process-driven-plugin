@@ -21,6 +21,6 @@ class ConnectionsElement extends HTMLElement {
   }
 }
 
-customElements.define('connections', ConnectionsElement);
+customElements.define('pda-connections', ConnectionsElement);
 
 export default ConnectionsElement;
