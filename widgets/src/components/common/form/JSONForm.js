@@ -118,6 +118,9 @@ const JSONForm = props => {
         marks: true,
         valueLabelDisplay: 'auto',
       },
+      MuiCheckbox: {
+        color: 'primary',
+      },
     },
   });
 
