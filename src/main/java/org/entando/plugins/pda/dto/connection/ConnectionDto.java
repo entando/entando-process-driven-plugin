@@ -15,15 +15,7 @@ import org.entando.plugins.pda.core.engine.Connection;
 public class ConnectionDto {
     private String name;
 
-    private String host;
-
-    @Builder.Default
-    private String port = "80";
-
-    private String schema;
-
-    @Builder.Default
-    private String app = "/";
+    private String url;
 
     private String username;
 
@@ -40,10 +32,7 @@ public class ConnectionDto {
     public static ConnectionDto fromModel(Connection model) {
         return ConnectionDto.builder()
                 .name(model.getName())
-                .host(model.getHost())
-                .port(model.getPort())
-                .schema(model.getSchema())
-                .app(model.getApp())
+                .url(model.getUrl())
                 .username(model.getUsername())
                 .password(model.getPassword())
                 .connectionTimeout(model.getConnectionTimeout())

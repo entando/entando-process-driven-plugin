@@ -5,10 +5,15 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles({
+  header: {
+    fontSize: ({ idSchema }) =>
+      idSchema && idSchema.$id && idSchema.$id === 'root' ? '20px' : 'initial',
+  },
   gridContainer: {
     padding: '0px',
   },
   divider: {
+    marginTop: '5px',
     marginBottom: '5px',
   },
   description: {
@@ -27,20 +32,22 @@ const generateColumnedOFT = columnSize => {
   const ObjectFieldTemplate = props => {
     const classes = useStyles(props);
 
-    const { title, description, properties, uiSchema } = props;
+    const { title, description, properties, uiSchema, idSchema } = props;
 
     const objectFieldOptions = (uiSchema && uiSchema['ui:options']) || {};
 
     const showHeader = !objectFieldOptions.hideHeader && !objectFieldOptions.group;
+    const hideDivider =
+      objectFieldOptions.hideDivider || (idSchema && idSchema.$id && idSchema.$id === 'root');
 
     return (
       <div>
         {showHeader && (
-          <>
+          <div className={classes.header}>
             {title}
-            {!objectFieldOptions.hideDivider && <Divider className={classes.divider} />}
+            {!hideDivider && <Divider className={classes.divider} />}
             {description && <div className={classes.description}>{description}</div>}
-          </>
+          </div>
         )}
         <Grid
           container
@@ -75,12 +82,16 @@ const generateColumnedOFT = columnSize => {
     description: PropTypes.string,
     properties: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     uiSchema: PropTypes.shape(),
+    idSchema: PropTypes.shape({
+      $id: PropTypes.string,
+    }),
   };
 
   ObjectFieldTemplate.defaultProps = {
     description: '',
     title: '',
     uiSchema: {},
+    idSchema: {},
   };
 
   return ObjectFieldTemplate;

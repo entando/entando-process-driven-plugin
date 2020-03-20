@@ -131,11 +131,9 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(connectionDto.getName())))
-                .andExpect(jsonPath("payload.host", is(connectionDto.getHost())))
-                .andExpect(jsonPath("payload.port", is(connectionDto.getPort())))
+                .andExpect(jsonPath("payload.url", is(connectionDto.getUrl())))
                 .andExpect(jsonPath("payload.username", is(connectionDto.getUsername())))
                 .andExpect(jsonPath("payload.password").doesNotExist())
-                .andExpect(jsonPath("payload.schema", is(connectionDto.getSchema())))
                 .andExpect(jsonPath("payload.engine", is(connectionDto.getEngine())))
                 .andExpect(jsonPath("payload.connectionTimeout", is(connectionDto.getConnectionTimeout())));
 
@@ -161,11 +159,9 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(connectionDto.getName())))
-                .andExpect(jsonPath("payload.host", is(connectionDto.getHost())))
-                .andExpect(jsonPath("payload.port", is(connectionDto.getPort())))
+                .andExpect(jsonPath("payload.url", is(connectionDto.getUrl())))
                 .andExpect(jsonPath("payload.username", is(connectionDto.getUsername())))
                 .andExpect(jsonPath("payload.password").doesNotExist())
-                .andExpect(jsonPath("payload.schema", is(connectionDto.getSchema())))
                 .andExpect(jsonPath("payload.engine", is(connectionDto.getEngine())))
                 .andExpect(jsonPath("payload.connectionTimeout", is(connectionDto.getConnectionTimeout())))
                 .andExpect(jsonPath("payload.properties").doesNotExist());
