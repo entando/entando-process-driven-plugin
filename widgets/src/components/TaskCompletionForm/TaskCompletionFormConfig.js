@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
+import withAuth from 'components/common/auth/withAuth';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -165,4 +166,4 @@ CompletionFormConfig.propTypes = {
   }).isRequired,
 };
 
-export default CompletionFormConfig;
+export default withAuth(CompletionFormConfig, ['connection-list']);

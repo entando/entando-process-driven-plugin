@@ -15,6 +15,7 @@ import 'patternfly/dist/css/patternfly.css';
 import 'patternfly/dist/css/patternfly-additions.css';
 import RenderSwitch from 'components/common/RenderSwitch';
 import ErrorNotification from 'components/common/ErrorNotification';
+import withAuth from 'components/common/auth/withAuth';
 
 const generalOptions = [
   {
@@ -324,4 +325,10 @@ TaskListConfig.propTypes = {
   config: taskListConfigType.isRequired,
 };
 
-export default withStyles(styles)(TaskListConfig);
+const TaskListConfigContainer = withStyles(styles)(TaskListConfig);
+
+export default withAuth(TaskListConfigContainer, [
+  'connection-list',
+  'group-list',
+  'task-definition-columns-list',
+]);

@@ -9,6 +9,7 @@ import theme from 'theme';
 import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 import Overview from 'components/TaskDetails/Overview';
 import GeneralInformation from 'components/TaskDetails/GeneralInformation';
+import withAuth from 'components/common/auth/withAuth';
 
 const createLink = (pageCode = 'pda_task_details', taskId, locale = 'en') =>
   `/entando-de-app/${locale}/${pageCode}.page?taskId=${taskId}`;
@@ -134,4 +135,4 @@ TaskDetailsContainer.defaultProps = {
   frameId: '',
 };
 
-export default TaskDetailsContainer;
+export default withAuth(TaskDetailsContainer, ['task-get']);

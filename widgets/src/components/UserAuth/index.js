@@ -19,13 +19,17 @@ class UserAuth extends React.Component {
   constructor(props) {
     super(props);
 
-    const { keycloakAuthUrl, keycloakRealm, keycloakClientId } = props;
+    const { keycloakAuthUrl: url, keycloakRealm: realm, keycloakClientId: clientId } = props;
 
-    const keycloak = Keycloak({
-      url: keycloakAuthUrl,
-      realm: keycloakRealm,
-      clientId: keycloakClientId,
-    });
+    const keycloak = Keycloak(
+      url
+        ? {
+            url,
+            realm,
+            clientId,
+          }
+        : `${process.env.REACT_APP_APP_BUILDER_DOMAIN}/keycloak.json`
+    );
 
     keycloak.onReady = () => {
       UserAuth.createKcDispatcher({ eventType: 'onReady' })();
@@ -132,13 +136,16 @@ class UserAuth extends React.Component {
 }
 
 UserAuth.propTypes = {
-  keycloakAuthUrl: PropTypes.string.isRequired,
-  keycloakRealm: PropTypes.string.isRequired,
-  keycloakClientId: PropTypes.string.isRequired,
+  keycloakAuthUrl: PropTypes.string,
+  keycloakRealm: PropTypes.string,
+  keycloakClientId: PropTypes.string,
   onError: PropTypes.func,
 };
 
 UserAuth.defaultProps = {
+  keycloakAuthUrl: '',
+  keycloakRealm: '',
+  keycloakClientId: '',
   onError: () => {},
 };
 

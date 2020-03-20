@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
+import withAuth from 'components/common/auth/withAuth';
 import ErrorNotification from 'components/common/ErrorNotification';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
@@ -108,4 +109,4 @@ TaskCommentsConfig.propTypes = {
   }).isRequired,
 };
 
-export default TaskCommentsConfig;
+export default withAuth(TaskCommentsConfig, ['connection-list']);

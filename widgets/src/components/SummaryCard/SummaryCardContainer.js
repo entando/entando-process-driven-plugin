@@ -16,6 +16,7 @@ import CustomEventContext from 'components/SummaryCard/CustomEventContext';
 import ErrorNotification from 'components/common/ErrorNotification';
 import Skeleton from '@material-ui/lab/Skeleton';
 import SummaryCardValues from 'components/SummaryCard/SummaryCardValues';
+import withAuth from 'components/common/auth/withAuth';
 
 const styles = ({ palette }) => {
   return {
@@ -232,4 +233,4 @@ const SummaryCardContainer = props => (
   </ThemeProvider>
 );
 
-export default SummaryCardContainer;
+export default withAuth(SummaryCardContainer, ['summary-get']);

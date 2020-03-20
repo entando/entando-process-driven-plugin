@@ -13,6 +13,7 @@ import CustomEventContext from 'components/OvertimeGraph/CustomEventContext';
 import { getPageWidget } from 'api/app-builder/pages';
 import { getSummaryByType } from 'api/pda/summary';
 import { DOMAINS, LOCAL } from 'api/constants';
+import withAuth from 'components/common/auth/withAuth';
 
 const roundTo2Dec = num => Math.round((num + Number.EPSILON) * 100) / 100;
 
@@ -308,4 +309,6 @@ OvertimeGraph.defaultProps = {
   onError: () => {},
 };
 
-export default withStyles(styles)(OvertimeGraph);
+const OvertimeGraphContainer = withStyles(styles)(OvertimeGraph);
+
+export default withAuth(OvertimeGraphContainer, ['summary-get']);

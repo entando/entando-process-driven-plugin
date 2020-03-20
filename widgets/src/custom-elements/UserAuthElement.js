@@ -22,20 +22,15 @@ class UserAuthElement extends HTMLElement {
     const locale = this.getAttribute('locale') || 'en';
     i18next.changeLanguage(locale);
 
-    const keycloakAuthUrl = this.getAttribute('kc-auth-url');
-    const keycloakRealm = this.getAttribute('kc-realm');
-    const keycloakClientId = this.getAttribute('kc-client-id');
+    const props = { onError: this.onError };
 
-    const reactRoot = React.createElement(
-      UserAuth,
-      {
-        keycloakAuthUrl,
-        keycloakRealm,
-        keycloakClientId,
-        onError: this.onError,
-      },
-      null
-    );
+    if (this.getAttribute('kc-auth-url')) {
+      props.keycloakAuthUrl = this.getAttribute('kc-auth-url');
+      props.keycloakRealm = this.getAttribute('kc-realm');
+      props.keycloakClientId = this.getAttribute('kc-client-id');
+    }
+
+    const reactRoot = React.createElement(UserAuth, props, null);
     ReactDOM.render(reactRoot, mountPoint);
   }
 }

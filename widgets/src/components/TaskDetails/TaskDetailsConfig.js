@@ -6,6 +6,7 @@ import i18next from 'i18next';
 
 import { getConnections } from 'api/pda/connections';
 import RenderSwitch from 'components/common/RenderSwitch';
+import withAuth from 'components/common/auth/withAuth';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -178,4 +179,4 @@ TaskDetailsConfig.propTypes = {
   }).isRequired,
 };
 
-export default TaskDetailsConfig;
+export default withAuth(TaskDetailsConfig, ['connection-list']);
