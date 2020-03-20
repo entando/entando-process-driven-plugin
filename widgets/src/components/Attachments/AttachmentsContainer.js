@@ -117,11 +117,12 @@ class AttachmentsContainer extends React.Component {
     console.log('end upload of files:');
   };
 
-  handleDelete = item => () => {
+  handleDelete = item => async () => {
     const { connection } = this.state;
     const { taskId } = this.props;
     try {
-      deleteAttachment(connection, taskId, item.id);
+      await deleteAttachment(connection, taskId, item.id);
+      this.fetchAttachments();
     } catch (error) {
       this.handleError(error);
     }
