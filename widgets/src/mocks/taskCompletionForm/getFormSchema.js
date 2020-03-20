@@ -173,12 +173,6 @@ export default {
             title: 'String field as Email widget',
             description: 'This is an example of string as Email widget',
           },
-          urlField: {
-            type: 'string',
-            format: 'url',
-            title: 'String field as URL widget',
-            description: 'This is an example of string as URL widget',
-          },
           hiddenField: {
             type: 'string',
             title: 'String field as Hidden widget',
@@ -285,133 +279,24 @@ export default {
             },
             uniqueItems: true,
           },
+          select: {
+            type: 'array',
+            title: 'A multiple-choice list as Select widget',
+            items: {
+              type: 'string',
+              enum: ['Single', 'Double', 'Triple'],
+            },
+            uniqueItems: true,
+          },
         },
-      },
-      __unbound_field_field_9814: {
-        type: 'string',
-        title: 'My Radio Group',
-        oneOf: [
-          {
-            const: 'myValue',
-            title: 'myText',
-          },
-          {
-            const: 'anotherValue',
-            title: 'anotherText',
-          },
-          {
-            const: 'what?',
-            title: 'yup!',
-          },
-        ],
-      },
-      __unbound_field_field_9324: {
-        type: 'number',
-        title: 'Slider',
-        minimum: 0.0,
-        maximum: 200.0,
-        multipleOf: 5.0,
-      },
-      __unbound_field_field_2802: {
-        type: 'number',
-        title: 'Slider 0to1',
-        minimum: 0.0,
-        maximum: 1.0,
-        multipleOf: 0.1,
-      },
-      __unbound_field_field_6196: {
-        type: 'string',
-        title: 'This is a big text',
-        description: 'Write here!',
-      },
-      __unbound_field_field_4073: {
-        type: 'array',
-        title: 'My Multiple Selector',
-        items: {
-          type: 'string',
-          oneOf: [
-            {
-              const: 'first',
-              title: 'first',
-            },
-            {
-              const: 'second',
-              title: 'second',
-            },
-            {
-              const: 'third',
-              title: 'third',
-            },
-            {
-              const: 'last',
-              title: 'last',
-            },
-          ],
-        },
-        uniqueItems: true,
-      },
-      __unbound_field_field_653: {
-        type: 'string',
-        title: 'Combo without default',
-        oneOf: [
-          {
-            const: 'oneValue',
-            title: 'one',
-          },
-          {
-            const: 'twoValue',
-            title: 'two',
-          },
-          {
-            const: 'threeValue',
-            title: 'three',
-          },
-        ],
-      },
-      __unbound_field_field_68448: {
-        type: 'string',
-        title: 'Combo',
-        default: 'myValue',
-        oneOf: [
-          {
-            const: 'myValue',
-            title: 'myText',
-          },
-          {
-            const: 'anotherValue',
-            title: 'anotherText',
-          },
-          {
-            const: 'what?',
-            title: 'yup!',
-          },
-        ],
       },
       processList: {
         type: 'array',
         title: 'ProcessList',
         items: {
           type: 'string',
+          title: 'Item',
         },
-      },
-      __unbound_field_field_030592: {
-        type: 'string',
-        title: 'My Radio Group with default value',
-        default: 'thirdValue',
-        oneOf: [
-          {
-            const: 'firstValue',
-            title: 'first',
-          },
-          {
-            const: 'secondValue',
-            title: 'second',
-          },
-          {
-            const: 'thirdValue',
-            title: 'third',
-          },
-        ],
       },
     },
   },

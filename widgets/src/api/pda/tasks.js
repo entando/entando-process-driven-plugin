@@ -49,6 +49,7 @@ export const getTask = async (connection, taskId) => {
     method: METHODS.GET,
     mockResponse: MOCKED_GET_TASK_RESPONSE,
     useAuthentication: true,
+    forceMock: true,
   });
 };
 
@@ -58,7 +59,8 @@ export const getTaskForm = async (connection, taskId) => {
     uri: `/connections/${connection}/tasks/${taskId}/form`,
     method: METHODS.GET,
     useAuthentication: true,
-    mockResponse: MOCKED_GET_TASK_FORM_RESPONSE.MORTGAGE_APPLICATION_FORM,
+    mockResponse: MOCKED_GET_TASK_FORM_RESPONSE.ALL_FIELDS,
+    forceMock: true,
   });
 };
 

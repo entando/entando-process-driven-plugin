@@ -114,6 +114,10 @@ const JSONForm = props => {
         size: 'small',
         variant: 'outlined',
       },
+      MuiSlider: {
+        marks: true,
+        valueLabelDisplay: 'auto',
+      },
     },
   });
 
