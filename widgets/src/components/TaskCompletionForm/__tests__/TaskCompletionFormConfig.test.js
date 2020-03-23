@@ -14,9 +14,6 @@ jest.mock('api/pda/connections');
 
 beforeEach(() => {
   getConnections.mockClear();
-  getProcesses.mockClear();
-  getPageWidget.mockClear();
-  putPageWidget.mockClear();
 });
 
 describe('<TaskCompletionFormConfig />', () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Keycloak from 'keycloak-js';
 
-import ErrorNotification from 'components/common/ErrorNotification';
+import Notification from 'components/common/Notification';
 import LoggedIn from 'components/UserAuth/LoggedIn';
 import LoggedOut from 'components/UserAuth/LoggedOut';
 
@@ -129,7 +129,7 @@ class UserAuth extends React.Component {
         ) : (
           <LoggedOut onClickLogin={this.onClickLogin} />
         )}
-        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
+        <Notification type="error" message={errorMessage} onClose={this.closeNotification} />
       </>
     );
   }

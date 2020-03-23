@@ -3,8 +3,6 @@ import React from 'react';
 import 'mocks/i18nMock';
 import mockKeycloak from 'mocks/auth/keycloak';
 
-import PAGE_CONFIG from 'mocks/app-builder/pages';
-import { MOCK_SUMMARY_TYPES } from 'mocks/summary/summary';
 import CONNECTIONS from 'mocks/pda/connections';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 
@@ -12,14 +10,11 @@ mockKeycloak();
 
 describe('<SummaryCardConfig />', () => {
   it('renders snapshot correctly', async () => {
-    fetch
-      .once(JSON.stringify(CONNECTIONS))
-      .once(JSON.stringify(PAGE_CONFIG.SUMMARY_CARD))
-      .once(JSON.stringify(MOCK_SUMMARY_TYPES));
+    fetch.once(JSON.stringify(CONNECTIONS));
 
     const { container } = render(<SummaryCardConfig config={{}} />);
 
-    await wait(() => expect(fetch.mock.calls.length).toBe(3));
+    await wait(() => expect(fetch.mock.calls.length).toBe(1));
 
     expect(container).toMatchSnapshot();
   });

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { IS_MOCKED_API, LOCAL } from 'api/constants';
-import utils from 'utils';
 import Loader from 'components/common/auth/Loader';
 import MissingPermissions from 'components/common/auth/MissingPermissions';
 
@@ -29,7 +28,6 @@ const withAuth = (WrappedComponent, permissions = []) => props => {
 
   useEffect(() => {
     const beginCheck = async () => {
-      // await utils.timeout(100); // to give time in case keycloak is initializing
       const keycloak = detectKeycloak();
       if (LOCAL || IS_MOCKED_API || (!keycloak && localStorage.getItem('token'))) {
         loadPermissions();
@@ -52,7 +50,8 @@ const withAuth = (WrappedComponent, permissions = []) => props => {
   if (missingPermissions.length > 0) {
     return <MissingPermissions missingPermissions={missingPermissions} />;
   }
-  
+
+  // eslint-disable-next-line react/jsx-props-no-spreading
   return <WrappedComponent {...props} userRoles={userRoles} />;
 };
 

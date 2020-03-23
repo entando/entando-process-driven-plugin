@@ -21,6 +21,7 @@ import 'components/App/App.css';
 
 // widgets
 import Home from 'components/App/Home';
+import ConnectionsContainer from 'components/Connections/ConnectionsContainer';
 
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
@@ -129,6 +130,7 @@ function App() {
 
         <Container className="app-container">
           <Route path="/" exact component={Home} />
+          <Route path="/Connections" exact component={ConnectionsContainer} />
           <Route
             path="/TaskList/"
             render={() => (

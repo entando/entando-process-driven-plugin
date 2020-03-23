@@ -7,7 +7,7 @@ import theme from 'theme';
 import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
-import ErrorNotification from 'components/common/ErrorNotification';
+import Notification from 'components/common/Notification';
 import { getProcessForm, postProcessForm } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 import withAuth from 'components/common/auth/withAuth';
@@ -138,7 +138,7 @@ class ProcessFormContainer extends React.Component {
               />
             </WidgetBox>
           </Container>
-          <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
+          <Notification message={errorMessage} type="error" onClose={this.closeNotification} />
         </ThemeProvider>
       </CustomEventContext.Provider>
     );

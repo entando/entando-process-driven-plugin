@@ -10,7 +10,7 @@ import withAuth from 'components/common/auth/withAuth';
 import { getTaskComments, postTaskComment, deleteTaskComment } from 'api/pda/comments';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
-import ErrorNotification from 'components/common/ErrorNotification';
+import Notification from 'components/common/Notification';
 import WidgetBox from 'components/common/WidgetBox';
 import Comment from 'components/TaskComments/Comment';
 import AddComment from 'components/TaskComments/AddComment';
@@ -188,7 +188,7 @@ class TaskComments extends React.Component {
             <AddComment loading={addingComment} onClickAddComment={this.onClickAddComment} />
           </WidgetBox>
         </Container>
-        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
+        <Notification type="error" message={errorMessage} onClose={this.closeNotification} />
       </ThemeProvider>
     );
   }
