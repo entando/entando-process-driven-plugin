@@ -1,6 +1,7 @@
 import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
+import mockKeycloak from 'mocks/auth/keycloak';
 
 import WIDGET_CONFIGS from 'mocks/app-builder/widgets';
 import MOCKED_GET_TASK_RESPONSE from 'mocks/taskDetails/getTask';
@@ -8,6 +9,8 @@ import { getTask } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 
 import TaskDetailsContainer from 'components/TaskDetails/TaskDetailsContainer';
+
+mockKeycloak();
 
 jest.mock('api/app-builder/pages');
 jest.mock('api/pda/tasks');
@@ -31,8 +34,8 @@ describe('<TaskDetailsContainer />', () => {
       />
     );
 
-    await wait(() => {
-      expect(container).toMatchSnapshot();
-    });
+    await wait(() => expect(getTask).toHaveBeenCalled());
+
+    expect(container).toMatchSnapshot();
   });
 });

@@ -1,11 +1,14 @@
 import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
+import mockKeycloak from 'mocks/auth/keycloak';
 
 import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
 import PAGE_CONFIG from 'mocks/app-builder/pages';
 import CONNECTIONS from 'mocks/pda/connections';
 import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
+
+mockKeycloak();
 
 describe('<OvertimeGraphConfig />', () => {
   it('renders snapshot correctly', async () => {
@@ -19,6 +22,8 @@ describe('<OvertimeGraphConfig />', () => {
       />
     );
 
-    await wait(() => expect(container).toMatchSnapshot());
+    await wait(() => expect(fetch.mock.calls.length).toBe(1));
+
+    expect(container).toMatchSnapshot();
   });
 });

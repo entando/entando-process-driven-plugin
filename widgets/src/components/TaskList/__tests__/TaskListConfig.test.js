@@ -2,20 +2,17 @@ import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
-import WIDGET_CONFIGS from 'mocks/app-builder/pages';
 import CONNECTIONS from 'mocks/pda/connections';
-import PROCESSES from 'mocks/pda/processes';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
 
 describe('<TaskListConfig />', () => {
   it('renders snapshot correctly', async () => {
-    fetch
-      .once(JSON.stringify(CONNECTIONS))
-      .once(JSON.stringify(WIDGET_CONFIGS.TASK_LIST))
-      .once(JSON.stringify(PROCESSES));
+    fetch.once(JSON.stringify(CONNECTIONS));
 
     const { container } = render(<TaskListConfig config={{}} />);
 
-    await wait(() => expect(container).toMatchSnapshot());
+    await wait(() => expect(getConnections).toHaveBeenCalled());
+
+    expect(container).toMatchSnapshot();
   });
 });

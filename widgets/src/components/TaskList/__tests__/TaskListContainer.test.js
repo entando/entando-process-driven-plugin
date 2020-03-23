@@ -1,11 +1,14 @@
 import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
+import mockKeycloak from 'mocks/auth/keycloak';
 
 import { DOMAINS } from 'api/constants';
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import mockTasks from 'mocks/pda/tasks.json';
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
+
+mockKeycloak();
 
 describe('<TaskListContainer />', () => {
   it('renders snapshot correctly', async () => {
@@ -17,9 +20,9 @@ describe('<TaskListContainer />', () => {
 
     const { container } = render(<TaskListContainer />);
 
-    await wait(() => expect(container).toMatchSnapshot());
+    await wait(() => expect(fetch.mock.calls.length).toBe(2));
 
-    expect(fetch.mock.calls.length).toBe(2);
+    expect(container).toMatchSnapshot();
     expect(fetch.mock.calls[0][0]).toEqual(configUrl);
     expect(fetch.mock.calls[1][0]).toEqual(taskListUrl);
   });

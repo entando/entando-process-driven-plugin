@@ -1,10 +1,14 @@
 import React from 'react';
 import { render, wait } from '@testing-library/react';
 
+import mockKeycloak from 'mocks/auth/keycloak';
+
 import { DOMAINS } from 'api/constants';
 import MOCK_CHART_SUMMARY from 'mocks/summary/chart';
 import OvertimeGraphContainer from 'components/OvertimeGraph/OvertimeGraphContainer';
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
+
+mockKeycloak();
 
 describe('<OvertimeGraphContainer />', () => {
   it('renders snapshot correctly', async () => {
@@ -18,9 +22,9 @@ describe('<OvertimeGraphContainer />', () => {
 
     const { container } = render(<OvertimeGraphContainer />);
 
-    await wait(() => expect(container).toMatchSnapshot());
+    await wait(() => expect(fetch.mock.calls.length).toBe(2));
 
-    expect(fetch.mock.calls.length).toBe(2);
+    expect(container).toMatchSnapshot();
     expect(fetch.mock.calls[0][0]).toEqual(configUrl);
     expect(fetch.mock.calls[1][0]).toEqual(summaryUrl);
   });

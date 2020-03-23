@@ -10,26 +10,6 @@ const withAuth = (WrappedComponent, permissions = []) => props => {
   const [authLoaded, setAuthLoaded] = useState(false);
   const [missingPermissions, setMissingPermissions] = useState([]);
   const [userRoles, setUserRoles] = useState([]);
-  useEffect(() => {
-    const beginCheck = async () => {
-      await utils.timeout(100);
-      const keycloak = detectKeycloak();
-      if (LOCAL || IS_MOCKED_API || (!keycloak && localStorage.getItem('token'))) {
-        loadPermissions();
-      } else {
-        if (keycloak.authenticated) {
-          loadPermissions(keycloak);
-        } else {
-          window.addEventListener('keycloak', ({ detail: { eventType } }) => {
-            if (eventType === 'onInit' && keycloak.authenticated) {
-              loadPermissions(keycloak);
-            }
-          });
-        }
-      }
-    };
-    beginCheck();
-  }, []);
 
   const loadPermissions = keycloak => {
     if (keycloak) {
@@ -47,12 +27,32 @@ const withAuth = (WrappedComponent, permissions = []) => props => {
     setAuthLoaded(true);
   };
 
+  useEffect(() => {
+    const beginCheck = async () => {
+      // await utils.timeout(100); // to give time in case keycloak is initializing
+      const keycloak = detectKeycloak();
+      if (LOCAL || IS_MOCKED_API || (!keycloak && localStorage.getItem('token'))) {
+        loadPermissions();
+      } else if (keycloak.authenticated) {
+        loadPermissions(keycloak);
+      } else {
+        window.addEventListener('keycloak', ({ detail: { eventType } }) => {
+          if (eventType === 'onInit' && keycloak.authenticated) {
+            loadPermissions(keycloak);
+          }
+        });
+      }
+    };
+    beginCheck();
+  }, []);
+
   if (!authLoaded) {
     return <Loader />;
   }
   if (missingPermissions.length > 0) {
     return <MissingPermissions missingPermissions={missingPermissions} />;
   }
+  
   return <WrappedComponent {...props} userRoles={userRoles} />;
 };
 

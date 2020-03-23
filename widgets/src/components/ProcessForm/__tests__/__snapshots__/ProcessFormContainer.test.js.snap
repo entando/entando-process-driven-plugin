@@ -6,52 +6,57 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-9 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-31 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-39"
+        class="MuiBox-root MuiBox-root-61"
       >
         <div>
           <form
-            class="JSONForm-themedForm-42"
+            class="JSONForm-themedForm-64"
           >
             <div
-              class="makeStyles-container-64"
+              class="makeStyles-container-89 makeStyles-container-94"
             >
               <div>
                 <div>
-                  
-                  <hr
-                    class="MuiDivider-root-74 makeStyles-divider-70"
-                  />
-                  
                   <div
-                    class="MuiGrid-root-80 makeStyles-gridContainer-69 MuiGrid-container-81 MuiGrid-spacing-xs-3-105"
+                    class="makeStyles-header-95 makeStyles-header-100"
+                  >
+                    
+                    
+                  </div>
+                  <div
+                    class="MuiGrid-root-102 makeStyles-gridContainer-96 MuiGrid-container-103 MuiGrid-spacing-xs-3-127"
                   >
                     <div
-                      class="MuiGrid-root-80 makeStyles-gridItem-72 makeStyles-gridItem-73 MuiGrid-item-82 MuiGrid-grid-xs-12-126"
+                      class="MuiGrid-root-102 makeStyles-gridItem-99 makeStyles-gridItem-101 MuiGrid-item-104 MuiGrid-grid-xs-12-148"
                     >
                       <div
-                        class="makeStyles-container-64"
+                        class="makeStyles-container-89 makeStyles-container-205"
                       >
                         <div>
                           <div>
-                            evaluation-taskform.frm
-                            <hr
-                              class="MuiDivider-root-74 makeStyles-divider-70"
-                            />
-                            
                             <div
-                              class="MuiGrid-root-80 makeStyles-gridContainer-69 MuiGrid-container-81 MuiGrid-spacing-xs-3-105"
+                              class="makeStyles-header-95 makeStyles-header-206"
+                            >
+                              evaluation-taskform.frm
+                              <hr
+                                class="MuiDivider-root-208 makeStyles-divider-97"
+                              />
+                              
+                            </div>
+                            <div
+                              class="MuiGrid-root-102 makeStyles-gridContainer-96 MuiGrid-container-103 MuiGrid-spacing-xs-3-127"
                             >
                               <div
-                                class="MuiGrid-root-80 makeStyles-gridItem-72 makeStyles-gridItem-183 MuiGrid-item-82 MuiGrid-grid-xs-12-126"
+                                class="MuiGrid-root-102 makeStyles-gridItem-99 makeStyles-gridItem-207 MuiGrid-item-104 MuiGrid-grid-xs-12-148"
                               >
                                 <div
-                                  class="makeStyles-container-64"
+                                  class="makeStyles-container-89 makeStyles-container-215"
                                 >
                                   <label
-                                    class="makeStyles-label-65"
+                                    class="makeStyles-label-90"
                                     for="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee"
                                   >
                                     Employee
@@ -59,31 +64,31 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                   </label>
                                   <div>
                                     <div
-                                      class="MuiFormControl-root-184 MuiFormControl-fullWidth-187"
+                                      class="MuiFormControl-root-216 MuiFormControl-fullWidth-219"
                                     >
                                       <div
-                                        class="MuiFormControl-root-184 MuiTextField-root-188"
+                                        class="MuiFormControl-root-216 MuiTextField-root-220"
                                       >
                                         <label
-                                          class="MuiFormLabel-root-201 MuiInputLabel-root-189 MuiInputLabel-formControl-195 MuiInputLabel-animated-198 MuiInputLabel-shrink-197 MuiInputLabel-outlined-200 Mui-focused Mui-focused Mui-required Mui-required"
+                                          class="MuiFormLabel-root-233 MuiInputLabel-root-221 MuiInputLabel-formControl-227 MuiInputLabel-animated-230 MuiInputLabel-shrink-229 MuiInputLabel-outlined-232 Mui-focused Mui-focused Mui-required Mui-required"
                                           data-shrink="true"
                                           for="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee"
                                           id="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee-label"
                                         >
                                           Employee
                                           <span
-                                            class="MuiFormLabel-asterisk-208 MuiInputLabel-asterisk-194"
+                                            class="MuiFormLabel-asterisk-240 MuiInputLabel-asterisk-226"
                                           >
                                              
                                             *
                                           </span>
                                         </label>
                                         <div
-                                          class="MuiInputBase-root-224 MuiOutlinedInput-root-209 Mui-focused Mui-focused MuiInputBase-formControl-225"
+                                          class="MuiInputBase-root-256 MuiOutlinedInput-root-241 Mui-focused Mui-focused MuiInputBase-formControl-257"
                                         >
                                           <input
                                             aria-invalid="false"
-                                            class="MuiInputBase-input-235 MuiOutlinedInput-input-219 MuiInputBase-inputHiddenLabel-243"
+                                            class="MuiInputBase-input-267 MuiOutlinedInput-input-251 MuiInputBase-inputHiddenLabel-273"
                                             id="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee"
                                             required=""
                                             type="string"
@@ -91,15 +96,14 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                           />
                                           <fieldset
                                             aria-hidden="true"
-                                            class="PrivateNotchedOutline-root-244 MuiOutlinedInput-notchedOutline-218"
-                                            style="padding-left: 8px;"
+                                            class="PrivateNotchedOutline-root-274 MuiOutlinedInput-notchedOutline-250"
                                           >
                                             <legend
-                                              class="PrivateNotchedOutline-legend-245"
-                                              style="width: 0.01px;"
+                                              class="PrivateNotchedOutline-legendLabelled-276"
                                             >
                                               <span>
-                                                ​
+                                                Employee
+                                                 *
                                               </span>
                                             </legend>
                                           </fieldset>
@@ -110,13 +114,13 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                 </div>
                               </div>
                               <div
-                                class="MuiGrid-root-80 makeStyles-gridItem-72 makeStyles-gridItem-183 MuiGrid-item-82 MuiGrid-grid-xs-12-126"
+                                class="MuiGrid-root-102 makeStyles-gridItem-99 makeStyles-gridItem-207 MuiGrid-item-104 MuiGrid-grid-xs-12-148"
                               >
                                 <div
-                                  class="makeStyles-container-64"
+                                  class="makeStyles-container-89 makeStyles-container-278"
                                 >
                                   <label
-                                    class="makeStyles-label-65"
+                                    class="makeStyles-label-90"
                                     for="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason"
                                   >
                                     Reason
@@ -124,31 +128,31 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                   </label>
                                   <div>
                                     <div
-                                      class="MuiFormControl-root-184 MuiFormControl-fullWidth-187"
+                                      class="MuiFormControl-root-216 MuiFormControl-fullWidth-219"
                                     >
                                       <div
-                                        class="MuiFormControl-root-184 MuiTextField-root-188"
+                                        class="MuiFormControl-root-216 MuiTextField-root-220"
                                       >
                                         <label
-                                          class="MuiFormLabel-root-201 MuiInputLabel-root-189 MuiInputLabel-formControl-195 MuiInputLabel-animated-198 MuiInputLabel-shrink-197 MuiInputLabel-outlined-200 Mui-required Mui-required"
+                                          class="MuiFormLabel-root-233 MuiInputLabel-root-221 MuiInputLabel-formControl-227 MuiInputLabel-animated-230 MuiInputLabel-shrink-229 MuiInputLabel-outlined-232 Mui-required Mui-required"
                                           data-shrink="true"
                                           for="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason"
                                           id="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason-label"
                                         >
                                           Reason
                                           <span
-                                            class="MuiFormLabel-asterisk-208 MuiInputLabel-asterisk-194"
+                                            class="MuiFormLabel-asterisk-240 MuiInputLabel-asterisk-226"
                                           >
                                              
                                             *
                                           </span>
                                         </label>
                                         <div
-                                          class="MuiInputBase-root-224 MuiOutlinedInput-root-209 MuiInputBase-formControl-225 MuiInputBase-multiline-232 MuiOutlinedInput-multiline-217"
+                                          class="MuiInputBase-root-256 MuiOutlinedInput-root-241 MuiInputBase-formControl-257 MuiInputBase-multiline-264 MuiOutlinedInput-multiline-249"
                                         >
                                           <textarea
                                             aria-invalid="false"
-                                            class="MuiInputBase-input-235 MuiOutlinedInput-input-219 MuiInputBase-inputMultiline-239 MuiOutlinedInput-inputMultiline-221 MuiInputBase-inputHiddenLabel-243"
+                                            class="MuiInputBase-input-267 MuiOutlinedInput-input-251 MuiInputBase-inputMultiline-269 MuiOutlinedInput-inputMultiline-253 MuiInputBase-inputHiddenLabel-273"
                                             id="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason"
                                             placeholder=""
                                             required=""
@@ -156,15 +160,14 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                           />
                                           <fieldset
                                             aria-hidden="true"
-                                            class="PrivateNotchedOutline-root-244 MuiOutlinedInput-notchedOutline-218"
-                                            style="padding-left: 8px;"
+                                            class="PrivateNotchedOutline-root-274 MuiOutlinedInput-notchedOutline-250"
                                           >
                                             <legend
-                                              class="PrivateNotchedOutline-legend-245"
-                                              style="width: 0.01px;"
+                                              class="PrivateNotchedOutline-legendLabelled-276"
                                             >
                                               <span>
-                                                ​
+                                                Reason
+                                                 *
                                               </span>
                                             </legend>
                                           </fieldset>
@@ -175,13 +178,13 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                 </div>
                               </div>
                               <div
-                                class="MuiGrid-root-80 makeStyles-gridItem-72 makeStyles-gridItem-183 MuiGrid-item-82 MuiGrid-grid-xs-12-126"
+                                class="MuiGrid-root-102 makeStyles-gridItem-99 makeStyles-gridItem-207 MuiGrid-item-104 MuiGrid-grid-xs-12-148"
                               >
                                 <div
-                                  class="makeStyles-container-64"
+                                  class="makeStyles-container-89 makeStyles-container-279"
                                 >
                                   <label
-                                    class="makeStyles-label-65"
+                                    class="makeStyles-label-90"
                                     for="root_d1e6dd47-b24c-4f93-ba25-337832926124_list"
                                   >
                                     List
@@ -189,31 +192,31 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                   </label>
                                   <div>
                                     <div
-                                      class="MuiFormControl-root-184 MuiFormControl-fullWidth-187"
+                                      class="MuiFormControl-root-216 MuiFormControl-fullWidth-219"
                                     >
                                       <div
-                                        class="MuiFormControl-root-184 MuiTextField-root-188"
+                                        class="MuiFormControl-root-216 MuiTextField-root-220"
                                       >
                                         <label
-                                          class="MuiFormLabel-root-201 MuiInputLabel-root-189 MuiInputLabel-formControl-195 MuiInputLabel-animated-198 MuiInputLabel-shrink-197 MuiInputLabel-outlined-200 Mui-required Mui-required"
+                                          class="MuiFormLabel-root-233 MuiInputLabel-root-221 MuiInputLabel-formControl-227 MuiInputLabel-animated-230 MuiInputLabel-shrink-229 MuiInputLabel-outlined-232 Mui-required Mui-required"
                                           data-shrink="true"
                                           for="root_d1e6dd47-b24c-4f93-ba25-337832926124_list"
                                           id="root_d1e6dd47-b24c-4f93-ba25-337832926124_list-label"
                                         >
                                           List
                                           <span
-                                            class="MuiFormLabel-asterisk-208 MuiInputLabel-asterisk-194"
+                                            class="MuiFormLabel-asterisk-240 MuiInputLabel-asterisk-226"
                                           >
                                              
                                             *
                                           </span>
                                         </label>
                                         <div
-                                          class="MuiInputBase-root-224 MuiOutlinedInput-root-209 MuiInputBase-formControl-225"
+                                          class="MuiInputBase-root-256 MuiOutlinedInput-root-241 MuiInputBase-formControl-257"
                                         >
                                           <input
                                             aria-invalid="false"
-                                            class="MuiInputBase-input-235 MuiOutlinedInput-input-219 MuiInputBase-inputHiddenLabel-243"
+                                            class="MuiInputBase-input-267 MuiOutlinedInput-input-251 MuiInputBase-inputHiddenLabel-273"
                                             id="root_d1e6dd47-b24c-4f93-ba25-337832926124_list"
                                             required=""
                                             type="string"
@@ -221,15 +224,14 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                           />
                                           <fieldset
                                             aria-hidden="true"
-                                            class="PrivateNotchedOutline-root-244 MuiOutlinedInput-notchedOutline-218"
-                                            style="padding-left: 8px;"
+                                            class="PrivateNotchedOutline-root-274 MuiOutlinedInput-notchedOutline-250"
                                           >
                                             <legend
-                                              class="PrivateNotchedOutline-legend-245"
-                                              style="width: 0.01px;"
+                                              class="PrivateNotchedOutline-legendLabelled-276"
                                             >
                                               <span>
-                                                ​
+                                                List
+                                                 *
                                               </span>
                                             </legend>
                                           </fieldset>
@@ -240,27 +242,27 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                 </div>
                               </div>
                               <div
-                                class="MuiGrid-root-80 makeStyles-gridItem-72 makeStyles-gridItem-183 MuiGrid-item-82 MuiGrid-grid-xs-12-126"
+                                class="MuiGrid-root-102 makeStyles-gridItem-99 makeStyles-gridItem-207 MuiGrid-item-104 MuiGrid-grid-xs-12-148"
                               >
                                 <div
-                                  class="makeStyles-container-64"
+                                  class="makeStyles-container-89 makeStyles-container-280"
                                 >
                                   <div>
                                     <div
-                                      class="MuiFormControl-root-184 MuiFormControl-fullWidth-187"
+                                      class="MuiFormControl-root-216 MuiFormControl-fullWidth-219"
                                     >
                                       <label
-                                        class="MuiFormControlLabel-root-246"
+                                        class="MuiFormControlLabel-root-281"
                                       >
                                         <span
                                           aria-disabled="false"
-                                          class="MuiButtonBase-root-271 MuiIconButton-root-262 PrivateSwitchBase-root-258 MuiCheckbox-root-252 MuiCheckbox-colorSecondary-257 MuiIconButton-colorSecondary-267"
+                                          class="MuiButtonBase-root-306 MuiIconButton-root-297 PrivateSwitchBase-root-293 MuiCheckbox-root-287 MuiCheckbox-colorSecondary-292 MuiIconButton-colorSecondary-302"
                                         >
                                           <span
-                                            class="MuiIconButton-label-270"
+                                            class="MuiIconButton-label-305"
                                           >
                                             <input
-                                              class="PrivateSwitchBase-input-261"
+                                              class="PrivateSwitchBase-input-296"
                                               data-indeterminate="false"
                                               id="root_d1e6dd47-b24c-4f93-ba25-337832926124_checkBox"
                                               type="checkbox"
@@ -268,7 +270,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                             />
                                             <svg
                                               aria-hidden="true"
-                                              class="MuiSvgIcon-root-274"
+                                              class="MuiSvgIcon-root-309"
                                               focusable="false"
                                               role="presentation"
                                               viewBox="0 0 24 24"
@@ -279,11 +281,11 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                             </svg>
                                           </span>
                                           <span
-                                            class="MuiTouchRipple-root-342"
+                                            class="MuiTouchRipple-root-377"
                                           />
                                         </span>
                                         <span
-                                          class="MuiTypography-root-283 MuiFormControlLabel-label-251 MuiTypography-body1-285"
+                                          class="MuiTypography-root-318 MuiFormControlLabel-label-286 MuiTypography-body1-320"
                                         >
                                           Agree
                                         </span>
@@ -302,20 +304,20 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
               </div>
             </div>
             <div
-              class="JSONForm-actionButtons-40"
+              class="JSONForm-actionButtons-62"
             >
               <button
-                class="MuiButtonBase-root-271 MuiButton-root-313 MuiButton-contained-321 MuiButton-containedPrimary-322"
+                class="MuiButtonBase-root-306 MuiButton-root-348 MuiButton-contained-356 MuiButton-containedPrimary-357"
                 tabindex="0"
                 type="submit"
               >
                 <span
-                  class="MuiButton-label-314"
+                  class="MuiButton-label-349"
                 >
                   common.submit
                 </span>
                 <span
-                  class="MuiTouchRipple-root-342"
+                  class="MuiTouchRipple-root-377"
                 />
               </button>
             </div>
@@ -331,76 +333,26 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
 exports[`<ProcessFormContainer /> renders snapshot correctly on error state 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
+    class="MuiContainer-root Loader-wrapper-387 MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-360 MuiPaper-outlined"
+      class="MuiCircularProgress-root WithStyles(ForwardRef(CircularProgress))-root-396 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+      role="progressbar"
+      style="width: 40px; height: 40px;"
     >
-      <div
-        class="MuiBox-root MuiBox-root-390"
+      <svg
+        class="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
       >
-        messages.warnings.noFormSchema
-      </div>
-    </div>
-  </div>
-  <div
-    class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
-  >
-    <div
-      class="MuiPaper-root MuiSnackbarContent-root ErrorNotification-error-397 MuiPaper-elevation6"
-      direction="up"
-      role="alert"
-      style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-    >
-      <div
-        class="MuiSnackbarContent-message"
-      >
-        <span
-          class="ErrorNotification-message-394"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root ErrorNotification-icon-395 ErrorNotification-iconVariant-396"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
-            />
-          </svg>
-          invalid json response body at undefined reason: Unexpected end of JSON input
-        </span>
-      </div>
-      <div
-        class="MuiSnackbarContent-action"
-      >
-        <button
-          aria-label="close"
-          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiIconButton-label"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root ErrorNotification-icon-395"
-              focusable="false"
-              role="presentation"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.2"
+          stroke-width="3.6"
+        />
+      </svg>
     </div>
   </div>
 </div>
