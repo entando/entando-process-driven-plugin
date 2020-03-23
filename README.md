@@ -48,3 +48,10 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 
 ## API Docs
 Swagger Docs are available at http://localhost:8080/swagger-ui.html
+
+## Docker Hub
+Latest version deployed on Docker Hub: 
+* https://hub.docker.com/r/entando/entando-process-driven-plugin
+
+##Sonar Cloud Report:
+* https://sonarcloud.io/dashboard?id=entando_entando-process-driven-plugin
