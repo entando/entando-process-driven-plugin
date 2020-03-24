@@ -5,7 +5,6 @@ import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
 import { getSummaryRepositories } from 'api/pda/summary';
-import withAuth from 'components/common/auth/withAuth';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -233,4 +232,4 @@ OvertimeGraphConfig.propTypes = {
   }).isRequired,
 };
 
-export default withAuth(OvertimeGraphConfig, ['connection-list', 'summary-data-repository-list']);
+export default OvertimeGraphConfig;

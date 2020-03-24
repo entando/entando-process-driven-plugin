@@ -27,21 +27,18 @@ const withAuth = (WrappedComponent, permissions = []) => props => {
   };
 
   useEffect(() => {
-    const beginCheck = async () => {
-      const keycloak = detectKeycloak();
-      if (LOCAL || IS_MOCKED_API || (!keycloak && localStorage.getItem('token'))) {
-        loadPermissions();
-      } else if (keycloak.authenticated) {
-        loadPermissions(keycloak);
-      } else {
-        window.addEventListener('keycloak', ({ detail: { eventType } }) => {
-          if (eventType === 'onInit' && keycloak.authenticated) {
-            loadPermissions(keycloak);
-          }
-        });
-      }
-    };
-    beginCheck();
+    const keycloak = detectKeycloak();
+    if (LOCAL || IS_MOCKED_API || (!keycloak && localStorage.getItem('token'))) {
+      loadPermissions();
+    } else if (keycloak.authenticated) {
+      loadPermissions(keycloak);
+    } else {
+      window.addEventListener('keycloak', ({ detail: { eventType } }) => {
+        if (eventType === 'onInit' && keycloak.authenticated) {
+          loadPermissions(keycloak);
+        }
+      });
+    }
   }, []);
 
   if (!authLoaded) {

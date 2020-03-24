@@ -5,7 +5,6 @@ import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patte
 
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
-import withAuth from 'components/common/auth/withAuth';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -177,4 +176,4 @@ ProcessFormConfig.propTypes = {
   }).isRequired,
 };
 
-export default withAuth(ProcessFormConfig, ['connection-list', 'process-definition-list']);
+export default ProcessFormConfig;

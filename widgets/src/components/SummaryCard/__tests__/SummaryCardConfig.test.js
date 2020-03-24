@@ -1,12 +1,9 @@
 import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
-import mockKeycloak from 'mocks/auth/keycloak';
 
 import CONNECTIONS from 'mocks/pda/connections';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
-
-mockKeycloak();
 
 describe('<SummaryCardConfig />', () => {
   it('renders snapshot correctly', async () => {
