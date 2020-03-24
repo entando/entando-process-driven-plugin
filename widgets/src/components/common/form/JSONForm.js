@@ -12,12 +12,16 @@ import JSONFormSkeleton from 'components/common/form/JSONFormSkeleton';
 import FieldTemplate from 'components/common/form/templates/FieldTemplate';
 import generateColumnedOFT from 'components/common/form/templates/ObjectFieldTemplate';
 import DateWidget from 'components/common/form/widgets/DateWidget';
+import DateTimeWidget from 'components/common/form/widgets/DateTimeWidget';
+import EmailWidget from 'components/common/form/widgets/EmailWidget';
 import mortgageApplicationForm from 'components/common/form/uiSchemas/mortgageApplicationForm';
+import allFieldsForm from 'components/common/form/uiSchemas/allFieldsForm';
 
 const styles = {
   actionButtons: {
     display: 'flex',
     justifyContent: 'flex-end',
+    marginTop: '10px',
   },
   divider: {
     marginTop: '20px',
@@ -32,6 +36,7 @@ const styles = {
 
 const PREDEFINED_SCHEMAS = {
   'http://entando.org/schemas/MortgageApplicationForm.json': mortgageApplicationForm,
+  'http://entando.org/schemas/pda-all-fields-form.json': allFieldsForm,
 };
 
 const JSONForm = props => {
@@ -58,8 +63,19 @@ const JSONForm = props => {
     overrides: {
       MuiOutlinedInput: {
         root: {
-          height: '32px',
           borderRadius: '0px',
+        },
+        multiline: {
+          paddingTop: '0px',
+          paddingBottom: '0px',
+        },
+        input: {
+          paddingTop: '8px',
+          paddingBottom: '8px',
+        },
+        inputMultiline: {
+          paddingTop: '8px',
+          paddingBottom: '8px',
         },
       },
       MuiFormLabel: {
@@ -70,13 +86,6 @@ const JSONForm = props => {
       MuiInputLabel: {
         root: {
           display: 'none',
-        },
-      },
-      MuiSelect: {
-        select: {
-          height: '32px',
-          paddingTop: '8px', // limiting :focus highlight
-          paddingBottom: '4px', // limiting :focus highlight
         },
       },
     },
@@ -98,6 +107,9 @@ const JSONForm = props => {
           shrink: true,
         },
       },
+      MuiOutlinedInput: {
+        notched: false,
+      },
       MuiSelect: {
         size: 'small',
         variant: 'outlined',
@@ -117,6 +129,8 @@ const JSONForm = props => {
 
   const customWidgets = {
     DateWidget,
+    DateTimeWidget,
+    EmailWidget,
     ...widgets,
   };
 

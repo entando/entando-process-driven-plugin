@@ -4,7 +4,9 @@
     "submit": "Submit",
     "add": "Add",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "edit": "Modificare",
+    "delete": "Elimina"
   },
   "summary": {
     "frequency": {
@@ -97,6 +99,9 @@
     }
   },
   "messages": {
+    "success": {
+      "saved": "Salvato con successo."
+    },
     "notify": {
       "submitting": "Invio..."
     },

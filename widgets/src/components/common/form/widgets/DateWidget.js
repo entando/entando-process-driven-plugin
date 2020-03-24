@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import MomentUtils from '@date-io/moment';
 import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles({
   formControl: {
@@ -13,33 +14,28 @@ const useStyles = makeStyles({
 const DateWidget = props => {
   const classes = useStyles();
 
-  const {
-    id,
-    required,
-    disabled,
-    readonly,
-    value,
-    onChange,
-    options,
-    label,
-    schema,
-    error,
-  } = props;
+  const { id, required, disabled, readonly, value, onChange, options, label, schema } = props;
 
-  const handleOnChange = event => onChange(value === '' ? options.emptyValue : event.target.value);
+  const handleOnChange = dateTime => {
+    onChange(dateTime ? dateTime.toString() : options.emptyValue || null);
+  };
 
   return (
-    <FormControl required={required} className={classes.formControl}>
-      <TextField
-        id={id}
-        label={label || schema.title}
-        type="date"
-        error={error}
-        value={value}
-        onChange={handleOnChange}
-        disabled={disabled || readonly}
-      />
-    </FormControl>
+    <MuiPickersUtilsProvider utils={MomentUtils}>
+      <FormControl required={required} className={classes.formControl}>
+        <DatePicker
+          id={id}
+          label={label || schema.title}
+          inputVariant="outlined"
+          format={options.format || 'YYYY-MM-DD'}
+          InputProps={{ notched: false }}
+          value={value}
+          onChange={handleOnChange}
+          disabled={disabled || readonly}
+          clearable
+        />
+      </FormControl>
+    </MuiPickersUtilsProvider>
   );
 };
 
@@ -48,12 +44,12 @@ DateWidget.propTypes = {
   required: PropTypes.bool,
   disabled: PropTypes.bool,
   value: PropTypes.string,
-  error: PropTypes.bool,
   onChange: PropTypes.func,
   readonly: PropTypes.bool,
   label: PropTypes.string,
   options: PropTypes.shape({
     emptyValue: PropTypes.string,
+    format: PropTypes.string,
   }),
   schema: PropTypes.shape({
     title: PropTypes.string,
@@ -63,9 +59,8 @@ DateWidget.propTypes = {
 DateWidget.defaultProps = {
   id: '',
   required: false,
-  error: false,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
+  value: '',
+  onChange: () => {},
   disabled: false,
   readonly: false,
   label: '',

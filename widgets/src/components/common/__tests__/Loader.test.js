@@ -5,7 +5,7 @@ import 'mocks/i18nMock';
 
 describe('<Loader />', () => {
   it('renders snapshot correctly', () => {
-    const { container } = render(<Loader />);
+    const { container } = render(<Loader loading />);
 
     expect(container).toMatchSnapshot();
   });

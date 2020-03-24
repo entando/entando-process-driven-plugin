@@ -19,8 +19,9 @@ const WidgetBox = ({
   classes,
   className,
   children,
+  open,
 }) => {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(collapsible);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -52,7 +53,7 @@ const WidgetBox = ({
         </Box>
       )}
       {hasDivider && <Divider />}
-      {expanded && <Box p="20px 25px">{children}</Box>}
+      {children && (expanded || open) && <Box p="20px 25px">{children}</Box>}
     </Paper>
   );
 };
@@ -62,6 +63,7 @@ WidgetBox.propTypes = {
   topRightComp: PropTypes.node,
   collapsible: PropTypes.bool,
   hasDivider: PropTypes.bool,
+  open: PropTypes.bool,
 
   /** additional styling from parent component on root element */
   className: PropTypes.string,
@@ -79,6 +81,7 @@ WidgetBox.defaultProps = {
   collapsible: false,
   hasDivider: false,
   className: '',
+  open: true,
 };
 
 export default withStyles(styles)(WidgetBox);

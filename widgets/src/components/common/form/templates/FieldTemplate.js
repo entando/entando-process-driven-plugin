@@ -5,9 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
-  container: {
-    padding: '0px 15px',
-  },
+  container: props => ({
+    padding: props.hidden ? '0px 0px' : '0px 15px',
+  }),
   label: {
     marginTop: '5px',
     fontWeight: 'bold',
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 });
 
 const FieldTemplate = props => {
-  const classes = useStyles();
+  const classes = useStyles(props);
 
   const {
     id,
@@ -41,13 +41,16 @@ const FieldTemplate = props => {
     errors: {
       props: { errors },
     },
+    hidden,
   } = props;
 
   const options = (uiSchema && uiSchema['ui:options']) || {};
 
+  const showLabel = displayLabel && !hidden;
+
   return (
     <div className={classNames(classes.container, disabled && classes.disabled)}>
-      {displayLabel && (
+      {showLabel && (
         <label
           htmlFor={id}
           className={classNames(
@@ -81,6 +84,7 @@ FieldTemplate.propTypes = {
   required: PropTypes.bool,
   displayLabel: PropTypes.bool,
   disabled: PropTypes.bool,
+  hidden: PropTypes.bool,
   children: PropTypes.node.isRequired,
   uiSchema: PropTypes.shape().isRequired,
   errors: PropTypes.shape().isRequired,
@@ -89,6 +93,7 @@ FieldTemplate.propTypes = {
 FieldTemplate.defaultProps = {
   displayLabel: true,
   disabled: false,
+  hidden: false,
   required: false,
   label: '',
 };

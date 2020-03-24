@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
-import ErrorNotification from 'components/common/ErrorNotification';
+import Notification from 'components/common/Notification';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -74,7 +74,7 @@ class TaskCommentsConfig extends React.Component {
 
     return (
       <div>
-        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
+        <Notification type="error" message={errorMessage} onClose={this.closeNotification} />
         <form>
           <Row>
             <Col xs={12}>

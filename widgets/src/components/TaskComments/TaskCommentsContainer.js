@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { getTaskComments, postTaskComment, deleteTaskComment } from 'api/pda/comments';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
-import ErrorNotification from 'components/common/ErrorNotification';
+import Notification from 'components/common/Notification';
 import WidgetBox from 'components/common/WidgetBox';
 import Comment from 'components/TaskComments/Comment';
 import AddComment from 'components/TaskComments/AddComment';
@@ -102,11 +102,13 @@ class TaskCommentsContainer extends React.Component {
     const { taskId } = this.props;
     const connection = (config && config.knowledgeSource) || '';
 
-    try {
-      const commentsResponse = await getTaskComments(connection, taskId);
-      this.setState({ comments: commentsResponse.payload || [], loading: false });
-    } catch (error) {
-      this.handleError(error.message);
+    if (taskId && taskId.length) {
+      try {
+        const commentsResponse = await getTaskComments(connection, taskId);
+        this.setState({ comments: commentsResponse.payload || [], loading: false });
+      } catch (error) {
+        this.handleError(error.message);
+      }
     }
   }
 
@@ -187,7 +189,7 @@ class TaskCommentsContainer extends React.Component {
             <AddComment loading={addingComment} onClickAddComment={this.onClickAddComment} />
           </WidgetBox>
         </Container>
-        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
+        <Notification type="error" message={errorMessage} onClose={this.closeNotification} />
       </ThemeProvider>
     );
   }
