@@ -104,15 +104,16 @@ class AttachmentsContainer extends React.Component {
     const { connection } = this.state;
     const { taskId } = this.props;
     console.log('begin upload of files:');
-    try {
-      const responses = [];
-      await files.forEach(async file => {
-        responses.push(await saveAttachment(connection, taskId, file));
-      });
-      console.log('Uploaded!');
-    } catch (error) {
-      this.handleError(error);
-    }
+
+    const responses = [];
+    await files.forEach(async file => {
+      try {
+        const response = await saveAttachment(connection, taskId, file);
+        responses.push(response);
+      } catch (error) {
+        this.handleError(error);
+      }
+    });
 
     console.log('end upload of files:');
   };

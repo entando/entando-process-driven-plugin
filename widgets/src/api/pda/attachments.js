@@ -1,5 +1,5 @@
 import { METHODS, DOMAINS } from 'api/constants';
-
+import utils from 'utils';
 import MOCK_ATTACHMENTS from 'mocks/pda/attachments';
 import makeRequest from 'api/makeRequest';
 
@@ -13,14 +13,8 @@ export const getAttachments = async (connection, taskId) =>
   });
 
 export const saveAttachment = async (connection, taskId, file) => {
-  const formData = new FormData();
-  formData.append('file', file);
-
-  // const headers = {
-  //   'Content-Type': 'upload',
-  // };
-
-  const body = JSON.stringify(formData);
+  const convertedFile = await utils.toBase64(file);
+  const body = { file: convertedFile };
 
   return makeRequest({
     domain: DOMAINS.PDA,

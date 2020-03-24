@@ -47,7 +47,7 @@ class Attachment extends React.Component {
             <FileCopyIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText className={classes.truncate}>
-            <Link href={`${downloadLink}/${item.id}/file`} download>
+            <Link href={`${downloadLink}/${item.id}/download`} download>
               {item.name}
             </Link>
           </ListItemText>
