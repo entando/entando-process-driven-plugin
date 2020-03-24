@@ -81,7 +81,7 @@ WidgetBox.defaultProps = {
   collapsible: false,
   hasDivider: false,
   className: '',
-  open: false,
+  open: true,
 };
 
 export default withStyles(styles)(WidgetBox);
