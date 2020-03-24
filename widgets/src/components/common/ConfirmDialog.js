@@ -11,7 +11,7 @@ const ConfirmDialog = ({ title, message, open, onClose, onConfirm }) => (
   <Dialog open={open} onClose={onClose}>
     <DialogTitle>{title}</DialogTitle>
     <DialogContent>
-      <DialogContentText>{message}</DialogContentText>
+      {typeof message === 'string' ? <DialogContentText>{message}</DialogContentText> : message}
     </DialogContent>
     <DialogActions>
       <Button variant="outlined" color="default" autoFocus onClick={onClose}>
@@ -27,7 +27,7 @@ const ConfirmDialog = ({ title, message, open, onClose, onConfirm }) => (
 ConfirmDialog.propTypes = {
   title: PropTypes.string.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
-  message: PropTypes.string.isRequired,
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   onConfirm: PropTypes.func.isRequired,

@@ -11,6 +11,7 @@ import { getAttachments, saveAttachment, deleteAttachment } from 'api/pda/attach
 import { Typography } from '@material-ui/core';
 import { getPageWidget } from 'api/app-builder/pages';
 import SimpleDialog from 'components/common/SimpleDialog';
+import Notification from 'components/common/Notification';
 import theme from 'theme';
 import AttachmentsSkeleton from './AttachmentsSkeleton';
 import AddAttachmentModal from './AddAttachmentModal';
@@ -38,6 +39,7 @@ class AttachmentsContainer extends React.Component {
     loading: true,
     dialogOpen: false,
     connection: '',
+    notification: {},
   };
 
   componentDidMount = async () => {
@@ -139,11 +141,15 @@ class AttachmentsContainer extends React.Component {
   };
 
   handleError = error => {
-    console.log(error);
+    this.setState({ notification: { message: error, type: 'error' } });
+  };
+
+  handleCloseNotifications = () => {
+    this.setState({ notification: {} });
   };
 
   render() {
-    const { attachments, loading, dialogOpen, connection } = this.state;
+    const { attachments, loading, dialogOpen, connection, notification } = this.state;
     const { classes, taskId } = this.props;
 
     return (
@@ -180,6 +186,11 @@ class AttachmentsContainer extends React.Component {
           body={<AddAttachmentModal onUpload={this.handleUpload} onClose={this.toggleDialog} />}
           onClose={this.toggleDialog}
           maxWidth="md"
+        />
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={this.handleCloseNotifications}
         />
       </ThemeProvider>
     );

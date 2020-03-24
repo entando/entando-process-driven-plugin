@@ -79,6 +79,7 @@
         }
       ],
       "react/state-in-constructor": 0,
+      "react/jsx-wrap-multilines": 0,
       "no-nested-ternary": 0,
       "no-param-reassign": [
         "error",

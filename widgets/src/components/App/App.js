@@ -102,7 +102,6 @@ function App() {
             </Typography>
             <FormControlLabel
               control={
-                // eslint-disable-next-line react/jsx-wrap-multilines
                 <Checkbox
                   checked={skeletonLoading}
                   onChange={() => setSkeletonLoading(!skeletonLoading)}

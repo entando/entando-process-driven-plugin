@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Typography from '@material-ui/core/Typography';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -59,7 +60,12 @@ class Attachment extends React.Component {
         </ListItem>
         <ConfirmDialog
           title="Attachment exclusion"
-          message={`Do you wish to delete this file permanently?\n${item.name}`}
+          message={
+            <>
+              <Typography gutterBottom>Do you wish to delete this file permanently?</Typography>
+              <Typography variant="body2">{item.name}</Typography>
+            </>
+          }
           open={dialogOpen}
           onClose={this.handleDeleteDialog}
           onConfirm={onDelete(item)}
