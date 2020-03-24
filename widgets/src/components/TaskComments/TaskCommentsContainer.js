@@ -102,11 +102,13 @@ class TaskCommentsContainer extends React.Component {
     const { taskId } = this.props;
     const connection = (config && config.knowledgeSource) || '';
 
-    try {
-      const commentsResponse = await getTaskComments(connection, taskId);
-      this.setState({ comments: commentsResponse.payload || [], loading: false });
-    } catch (error) {
-      this.handleError(error.message);
+    if (taskId && taskId.length) {
+      try {
+        const commentsResponse = await getTaskComments(connection, taskId);
+        this.setState({ comments: commentsResponse.payload || [], loading: false });
+      } catch (error) {
+        this.handleError(error.message);
+      }
     }
   }
 
