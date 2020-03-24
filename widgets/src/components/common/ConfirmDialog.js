@@ -14,10 +14,10 @@ const ConfirmDialog = ({ title, message, open, onClose, onConfirm }) => (
       <DialogContentText>{message}</DialogContentText>
     </DialogContent>
     <DialogActions>
-      <Button autoFocus onClick={onClose} color="primary">
+      <Button variant="outlined" color="default" autoFocus onClick={onClose}>
         Cancel
       </Button>
-      <Button onClick={onConfirm} color="primary">
+      <Button variant="contained" color="primary" onClick={onConfirm}>
         Confirm
       </Button>
     </DialogActions>
