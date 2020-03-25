@@ -153,6 +153,8 @@ function App() {
                 pageCode={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
                 frameId={WIDGETS_CONFIG.TASK_DETAILS.frameId}
                 widgetCode={WIDGETS_CONFIG.TASK_DETAILS.widgetCode}
+                taskPos="0"
+                groups={SETTINGS.TASK_LIST.payload.config.groups}
               />
             )}
           />

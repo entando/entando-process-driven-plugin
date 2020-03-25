@@ -10,13 +10,17 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
     >
       <div
         class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
-      />
+      >
+        <div
+          class="MuiBox-root MuiBox-root-40"
+        />
+      </div>
     </div>
     <div
       class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-41"
+        class="MuiBox-root MuiBox-root-163"
       >
         <h3
           class="MuiTypography-root MuiTypography-h3"
@@ -53,6 +57,11 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
       <hr
         class="MuiDivider-root"
       />
+      <div
+        class="MuiBox-root MuiBox-root-153"
+      >
+        taskDetails.generalInformation.noInformation
+      </div>
     </div>
   </div>
 </div>

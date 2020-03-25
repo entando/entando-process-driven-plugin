@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { Container, Box } from '@material-ui/core';
 
-import { getTask } from 'api/pda/tasks';
+import { getTasks, getTask } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
+import { DOMAINS } from 'api/constants';
 import theme from 'theme';
 import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 import Overview from 'components/TaskDetails/Overview';
 import GeneralInformation from 'components/TaskDetails/GeneralInformation';
 
-const createLink = (pageCode = 'pda_task_details', taskId, locale = 'en') =>
-  `/entando-de-app/${locale}/${pageCode}.page?taskId=${taskId}`;
+const createLink = (pageCode = 'pda_task_details', taskId, taskPos, groups, locale = 'en') =>
+  `${DOMAINS.APP_BUILDER}/${locale}/${pageCode}.page?taskId=${taskId}&taskPos=${taskPos}&groups=${groups}`;
 
 class TaskDetailsContainer extends React.Component {
   constructor(props) {
@@ -43,6 +44,20 @@ class TaskDetailsContainer extends React.Component {
     }
   };
 
+  handlePressPrevious = () => {
+    const { onPressPrevious } = this.props;
+    const { taskPos } = this.state;
+    this.fetchTask(+taskPos - 1);
+    onPressPrevious();
+  };
+
+  handlePressNext = () => {
+    const { onPressNext } = this.props;
+    const { taskPos } = this.state;
+    this.fetchTask(+taskPos + 1);
+    onPressNext();
+  };
+
   async fetchWidgetConfigs() {
     const { pageCode, frameId } = this.props;
     try {
@@ -61,22 +76,45 @@ class TaskDetailsContainer extends React.Component {
     return null;
   }
 
-  async fetchTask() {
+  async fetchTask(pos) {
     const { config, loadingTask } = this.state;
-    const { taskId } = this.props;
+    const { taskPos: propTaskPos, groups: propGroups } = this.props;
+
+    let groups = propGroups;
+
+    if (groups && groups[0] === '[') {
+      groups = JSON.parse(groups);
+      if (groups[0] instanceof Object) {
+        groups = groups.filter(group => group.checked).map(group => group.key);
+      }
+    }
 
     const connection = (config && config.knowledgeSource) || '';
+
+    const taskPos = +(pos === undefined ? propTaskPos : pos);
 
     if (!loadingTask) {
       this.setState({ loadingTask: true });
     }
 
     try {
-      const task = await getTask(connection, taskId);
+      const {
+        payload: tasks,
+        metadata: { lastPage },
+      } = await getTasks({ connection, groups }, taskPos, 1);
+
+      if (!tasks) {
+        throw new Error('messages.errors.errorResponse');
+      }
+
+      const { payload: task } = await getTask(connection, tasks[0].id);
 
       this.setState({
-        task: (task && task.payload) || null,
-        taskInputData: (task && task.payload && task.payload.inputData) || {},
+        task: task || null,
+        taskInputData: (task && task.inputData) || {},
+        taskPos,
+        isLast: lastPage === 1,
+        groups,
       });
     } catch (error) {
       this.handleError(error.message);
@@ -91,12 +129,21 @@ class TaskDetailsContainer extends React.Component {
   }
 
   render() {
-    const { loadingTask, task, taskInputData, config } = this.state;
-    const { onPressPrevious, onPressNext, onError, taskId } = this.props;
+    const { loadingTask, task, taskInputData, taskPos, isLast, config, groups } = this.state;
+    const { onError } = this.props;
+    const isFirst = taskPos === 0;
     const configs = config && config.settings;
 
     return (
-      <CustomEventContext.Provider value={{ onPressPrevious, onPressNext, onError }}>
+      <CustomEventContext.Provider
+        value={{
+          onPressPrevious: this.handlePressPrevious,
+          onPressNext: this.handlePressNext,
+          onError,
+          isFirst,
+          isLast,
+        }}
+      >
         <ThemeProvider theme={theme}>
           <Container disableGutters>
             <Box mb="20px">
@@ -104,7 +151,12 @@ class TaskDetailsContainer extends React.Component {
                 task={task}
                 loadingTask={loadingTask}
                 headerLabel={configs && configs.header}
-                taskLink={createLink(configs && configs.destinationPageCode, taskId)}
+                taskLink={createLink(
+                  configs && configs.destinationPageCode,
+                  task && task.id,
+                  taskPos,
+                  groups
+                )}
               />
             </Box>
             {configs && configs.hasGeneralInformation && (
@@ -119,6 +171,8 @@ class TaskDetailsContainer extends React.Component {
 
 TaskDetailsContainer.propTypes = {
   taskId: PropTypes.string.isRequired,
+  taskPos: PropTypes.string.isRequired,
+  groups: PropTypes.string.isRequired,
   onError: PropTypes.func,
   onPressPrevious: PropTypes.func,
   onPressNext: PropTypes.func,
