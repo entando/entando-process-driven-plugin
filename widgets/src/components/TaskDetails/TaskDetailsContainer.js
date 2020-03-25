@@ -5,13 +5,14 @@ import { Container, Box } from '@material-ui/core';
 
 import { getTasks, getTask } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
+import { DOMAINS } from 'api/constants';
 import theme from 'theme';
 import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 import Overview from 'components/TaskDetails/Overview';
 import GeneralInformation from 'components/TaskDetails/GeneralInformation';
 
 const createLink = (pageCode = 'pda_task_details', taskId, taskPos, groups, locale = 'en') =>
-  `/entando-de-app/${locale}/${pageCode}.page?taskId=${taskId}&taskPos=${taskPos}&groups=${groups}`;
+  `${DOMAINS.APP_BUILDER}/${locale}/${pageCode}.page?taskId=${taskId}&taskPos=${taskPos}&groups=${groups}`;
 
 class TaskDetailsContainer extends React.Component {
   constructor(props) {
