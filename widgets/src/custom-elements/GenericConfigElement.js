@@ -9,6 +9,7 @@ import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
 import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
+import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
 
 const configNames = [
   {
@@ -45,6 +46,11 @@ const configNames = [
     name: 'overtime-graph-config',
     Component: OvertimeGraphConfig,
     className: 'OvertimeGraphConfigElement',
+  },
+  {
+    name: 'task-attachments-config',
+    Component: AttachmentsConfig,
+    className: 'AttachmentsConfigElement',
   },
 ];
 

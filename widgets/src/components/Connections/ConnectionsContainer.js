@@ -152,7 +152,6 @@ class ConnectionsContainer extends React.Component {
           <WidgetBox
             title="Connections"
             topRightComp={
-              /* eslint-disable react/jsx-wrap-multilines */
               <Button
                 color="primary"
                 variant="contained"

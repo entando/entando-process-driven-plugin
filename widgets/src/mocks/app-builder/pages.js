@@ -105,6 +105,18 @@ const overtimeGraphConfigs = {
   errors: [],
 };
 
+const attachments = {
+  payload: {
+    code: 'phase_1_widgets_attachments',
+    config: {
+      knowledgeSource: 'kieStaging',
+      process: 'Mortgage_Process.MortgageApprovalProcess@mortgage-process_1.0.1-SNAPSHOT',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
 export default {
   TASK_LIST: taskListConfigs,
   TASK_DETAILS: taskDetailsConfigs,
@@ -113,4 +125,5 @@ export default {
   SUMMARY_CARD: summaryCardConfigs,
   PROCESS_FORM: processFormConfigs,
   OVERTIME_GRAPH: overtimeGraphConfigs,
+  ATTACHMENTS: attachments,
 };

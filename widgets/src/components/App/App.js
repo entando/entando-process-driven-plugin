@@ -43,6 +43,9 @@ import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
 import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
 import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 
+import AttachmentsContainer from 'components/Attachments/AttachmentsContainer';
+import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -100,7 +103,6 @@ function App() {
             </Typography>
             <FormControlLabel
               control={
-                // eslint-disable-next-line react/jsx-wrap-multilines
                 <Checkbox
                   checked={skeletonLoading}
                   onChange={() => setSkeletonLoading(!skeletonLoading)}
@@ -219,6 +221,18 @@ function App() {
             )}
           />
           <Route path="/OvertimeGraphConfig" render={() => <OvertimeGraphConfig config={{}} />} />
+          <Route
+            path="/Attachments"
+            render={() => (
+              <AttachmentsContainer
+                taskId={WIDGETS_CONFIG.ATTACHMENTS.taskId}
+                pageCode={WIDGETS_CONFIG.ATTACHMENTS.pageCode}
+                frameId={WIDGETS_CONFIG.ATTACHMENTS.frameId}
+                widgetCode={WIDGETS_CONFIG.ATTACHMENTS.widgetCode}
+              />
+            )}
+          />
+          <Route path="/AttachmentsConfig" render={() => <AttachmentsConfig config={{}} />} />
         </Container>
       </Router>
     </div>

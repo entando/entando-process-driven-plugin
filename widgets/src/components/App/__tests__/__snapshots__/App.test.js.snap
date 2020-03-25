@@ -6,7 +6,7 @@ exports[`<App /> renders snapshot correctly 1`] = `
     class="App"
   >
     <header
-      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary makeStyles-appBar-1 MuiPaper-elevation4"
+      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic makeStyles-appBar-1 MuiAppBar-colorPrimary MuiPaper-elevation4"
     >
       <div
         class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -46,13 +46,13 @@ exports[`<App /> renders snapshot correctly 1`] = `
         >
           <span
             aria-disabled="false"
-            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-111 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary"
+            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-109 MuiCheckbox-root MuiCheckbox-colorSecondary MuiIconButton-colorSecondary"
           >
             <span
               class="MuiIconButton-label"
             >
               <input
-                class="PrivateSwitchBase-input-114"
+                class="PrivateSwitchBase-input-112"
                 data-indeterminate="false"
                 type="checkbox"
                 value=""
@@ -84,14 +84,14 @@ exports[`<App /> renders snapshot correctly 1`] = `
         >
           <span
             aria-disabled="false"
-            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-111 MuiCheckbox-root MuiCheckbox-colorSecondary PrivateSwitchBase-checked-112 Mui-checked MuiIconButton-colorSecondary"
+            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-109 MuiCheckbox-root MuiCheckbox-colorSecondary PrivateSwitchBase-checked-110 Mui-checked MuiIconButton-colorSecondary"
           >
             <span
               class="MuiIconButton-label"
             >
               <input
                 checked=""
-                class="PrivateSwitchBase-input-114"
+                class="PrivateSwitchBase-input-112"
                 data-indeterminate="false"
                 type="checkbox"
                 value=""

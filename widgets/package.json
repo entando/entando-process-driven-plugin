@@ -16,6 +16,7 @@
     "formik": "^2.0.8",
     "i18next": "^17.3.1",
     "keycloak-js": "^8.0.2",
+    "material-ui-dropzone": "^2.4.7",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -24,7 +25,7 @@
     "react-inlinesvg": "^1.2.0",
     "react-jsonschema-form": "^1.8.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.3.0",
+    "react-scripts": "^3.4.0",
     "recharts": "^2.0.0-beta.1",
     "rjsf-material-ui": "^0.3.9"
   },
@@ -78,6 +79,7 @@
         }
       ],
       "react/state-in-constructor": 0,
+      "react/jsx-wrap-multilines": 0,
       "no-nested-ternary": 0,
       "no-param-reassign": [
         "error",
@@ -128,7 +130,8 @@
     "patternfly-react": "^1.19.1",
     "prettier": "^1.19.1",
     "pretty-quick": "^1.11.1",
-    "react-sortable-hoc": "^1.10.1"
+    "react-sortable-hoc": "^1.10.1",
+    "regenerator-runtime": "0.13.5"
   },
   "jest": {
     "collectCoverageFrom": [

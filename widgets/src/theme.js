@@ -110,5 +110,10 @@ export default createMuiTheme({
         width: '100%',
       },
     },
+    MuiListItemIcon: {
+      root: {
+        minWidth: 30,
+      },
+    },
   },
 });
