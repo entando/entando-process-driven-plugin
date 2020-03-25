@@ -81,7 +81,7 @@ class TaskDetailsContainer extends React.Component {
 
     let groups = propGroups;
 
-    if (groups[0] === '[') {
+    if (groups && groups[0] === '[') {
       groups = JSON.parse(groups);
       if (groups[0] instanceof Object) {
         groups = groups.filter(group => group.checked).map(group => group.key);
