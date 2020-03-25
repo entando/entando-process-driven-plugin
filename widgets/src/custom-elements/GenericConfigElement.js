@@ -48,7 +48,7 @@ const configNames = [
     className: 'OvertimeGraphConfigElement',
   },
   {
-    name: 'attachments-config',
+    name: 'task-attachments-config',
     Component: AttachmentsConfig,
     className: 'AttachmentsConfigElement',
   },
