@@ -141,7 +141,7 @@ class TaskListConfig extends React.Component {
     }
   };
 
-  onChangeSource = e => {
+  onChangeSource = (e, cb) => {
     const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
     this.setState(
@@ -155,19 +155,23 @@ class TaskListConfig extends React.Component {
         },
       },
       async () => {
-        try {
-          const { payload: groups } = await getGroups(knowledgeSource);
-          const { payload: columns } = await getColumns(knowledgeSource);
+        if (cb) {
+          cb();
+        } else {
+          try {
+            const { payload: groups } = await getGroups(knowledgeSource);
+            const { payload: columns } = await getColumns(knowledgeSource);
 
-          this.setState(state => ({
-            config: {
-              ...state.config,
-              groups: normalizeConfigGroups(groups),
-              columns: normalizeConfigColumns(columns),
-            },
-          }));
-        } catch (error) {
-          console.log('Error while trying to fetch groups and columns from PDA server', error);
+            this.setState(state => ({
+              config: {
+                ...state.config,
+                groups: normalizeConfigGroups(groups),
+                columns: normalizeConfigColumns(columns),
+              },
+            }));
+          } catch (error) {
+            console.log('Error while trying to fetch groups and columns from PDA server', error);
+          }
         }
       }
     );
@@ -235,7 +239,6 @@ class TaskListConfig extends React.Component {
   render() {
     const { sourceList, config, errorAlert } = this.state;
     const { knowledgeSource, groups, columns, options } = config;
-
     return (
       <div>
         <Notification type="error" message={errorAlert} onClose={this.closeNotification} />
