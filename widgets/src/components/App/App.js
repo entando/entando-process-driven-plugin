@@ -44,6 +44,7 @@ import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
 import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 
 import AttachmentsContainer from 'components/Attachments/AttachmentsContainer';
+import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -231,6 +232,7 @@ function App() {
               />
             )}
           />
+          <Route path="/AttachmentsConfig" render={() => <AttachmentsConfig config={{}} />} />
         </Container>
       </Router>
     </div>

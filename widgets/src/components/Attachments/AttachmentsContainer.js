@@ -141,7 +141,9 @@ class AttachmentsContainer extends React.Component {
   };
 
   handleError = error => {
-    this.setState({ notification: { message: error, type: 'error' } });
+    this.setState({
+      notification: { message: typeof error === 'object' ? error.message : error, type: 'error' },
+    });
   };
 
   handleCloseNotifications = () => {
