@@ -12,6 +12,8 @@ describe('<OvertimeGraphConfig />', () => {
 
     const { container } = render(<OvertimeGraphConfig config={{}} />);
 
-    await wait(() => expect(container).toMatchSnapshot());
+    await wait(() => expect(fetch.mock.calls.length).toBe(1));
+
+    expect(container).toMatchSnapshot();
   });
 });

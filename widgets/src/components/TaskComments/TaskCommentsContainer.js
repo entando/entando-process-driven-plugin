@@ -6,6 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
+import withAuth from 'components/common/auth/withAuth';
 import { getTaskComments, postTaskComment, deleteTaskComment } from 'api/pda/comments';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
@@ -26,7 +27,7 @@ const styles = {
   },
 };
 
-class TaskCommentsContainer extends React.Component {
+class TaskComments extends React.Component {
   constructor(props) {
     super(props);
 
@@ -195,7 +196,7 @@ class TaskCommentsContainer extends React.Component {
   }
 }
 
-TaskCommentsContainer.propTypes = {
+TaskComments.propTypes = {
   classes: PropTypes.shape({
     divider: PropTypes.string,
     noComments: PropTypes.string,
@@ -209,7 +210,7 @@ TaskCommentsContainer.propTypes = {
   frameId: PropTypes.string,
 };
 
-TaskCommentsContainer.defaultProps = {
+TaskComments.defaultProps = {
   onClickAddComment: () => {},
   onClickRemoveComment: () => {},
   onError: () => {},
@@ -217,4 +218,11 @@ TaskCommentsContainer.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles)(TaskCommentsContainer);
+const TaskCommentsContainer = withStyles(styles)(TaskComments);
+
+export default withAuth(TaskCommentsContainer, [
+  'task-comments-list',
+  'task-comments-get',
+  'task-comments-create',
+  'task-comments-delete',
+]);

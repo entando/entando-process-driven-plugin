@@ -14,44 +14,53 @@ Jenkins X:
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=entando_entando-process-driven-plugin&metric=sqale_index)](https://sonarcloud.io/dashboard?id=entando_entando-process-driven-plugin)
 
 ## Scope
-The scope of this service is to provide a clean and simple API to allow Micro Frontend Widgets to integrate with BPM Providers: 
+
+The scope of this service is to provide a clean and simple API to allow Micro Frontend Widgets to integrate with BPM Providers:
 
 ####Supported BPM Engines:
-* Red Hat PAM 7.6: https://github.com/entando/pda-redhatpam-engine
+
+- Red Hat PAM 7.6: https://github.com/entando/pda-redhatpam-engine
 
 ## Environment Configuration
 
-You'll need these environment variables set in order to run the project. Some variables are **required** and *MUST* be set in order to run the server:
+You'll need these environment variables set in order to run the project. Some variables are **required** and _MUST_ be set in order to run the server:
 
 ### Required Environment Variables:
->- `PORT`: TCP Port where the server will run. Default: `8081`
->- `KEYCLOAK_AUTH_URL`: The keycloak authentication URL. Default: `http://localhost:8081/auth`
->- `KEYCLOAK_REALM`: The keycloak realm. Default: `entando-development`
->- `KEYCLOAK_CLIENT_ID`: The keycloak resource/clientId. Default: `entando-pda`
->- `KEYCLOAK_CLIENT_SECRET`: The keycloak client secret.
+
+> - `PORT`: TCP Port where the server will run. Default: `8081`
+> - `KEYCLOAK_AUTH_URL`: The keycloak authentication URL. Default: `http://localhost:8081/auth`
+> - `KEYCLOAK_REALM`: The keycloak realm. Default: `entando-development`
+> - `KEYCLOAK_CLIENT_ID`: The keycloak resource/clientId. Default: `entando-pda`
+> - `KEYCLOAK_CLIENT_SECRET`: The keycloak client secret.
 
 ### Optional Environment Variables:
->- `LOG_LEVEL`: Log level. Default: `INFO`
+
+> - `LOG_LEVEL`: Log level. Default: `INFO`
 
 ## Development
+
 Entando PDA Plugin uses Entando `web-commons` and `keycloak-connector`.
 
 In order to make it work on dev environment, you have to clone and install the dependencies
 or just add to your IntelliJ workspace.
 
-* Web Commons: https://github.com/entando/web-commons
-* Keycloak Connector: https://github.com/entando/keycloak-commons
+- Web Commons: https://github.com/entando/web-commons
+- Keycloak Connector: https://github.com/entando/keycloak-commons
 
 ```
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
 ## API Docs
+
 Swagger Docs are available at http://localhost:8080/swagger-ui.html
 
 ## Docker Hub
-Latest version deployed on Docker Hub: 
-* https://hub.docker.com/r/entando/entando-process-driven-plugin
+
+Latest version deployed on Docker Hub:
+
+- https://hub.docker.com/r/entando/entando-process-driven-plugin
 
 ##Sonar Cloud Report:
-* https://sonarcloud.io/dashboard?id=entando_entando-process-driven-plugin
+
+- https://sonarcloud.io/dashboard?id=entando_entando-process-driven-plugin

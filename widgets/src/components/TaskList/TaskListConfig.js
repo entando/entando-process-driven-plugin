@@ -327,4 +327,6 @@ TaskListConfig.propTypes = {
   config: taskListConfigType.isRequired,
 };
 
-export default withStyles(styles)(TaskListConfig);
+const TaskListConfigContainer = withStyles(styles)(TaskListConfig);
+
+export default TaskListConfigContainer;

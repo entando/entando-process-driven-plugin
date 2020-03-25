@@ -4,6 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import theme from 'theme';
+import withAuth from 'components/common/auth/withAuth';
 import { getTask, getTaskForm, postTaskForm } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 import CustomEventContext from 'components/common/CustomEventContext';
@@ -169,4 +170,8 @@ TaskCompletionFormContainer.defaultProps = {
   frameId: '',
 };
 
-export default TaskCompletionFormContainer;
+export default withAuth(TaskCompletionFormContainer, [
+  'task-get',
+  'task-form-get',
+  'task-form-submit',
+]);

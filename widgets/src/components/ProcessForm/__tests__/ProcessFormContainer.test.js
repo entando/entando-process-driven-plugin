@@ -2,10 +2,14 @@ import { render, wait } from '@testing-library/react';
 import React from 'react';
 import 'mocks/i18nMock';
 
+import mockKeycloak from 'mocks/auth/keycloak';
+
 import { DOMAINS } from 'api/constants';
 import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
 import WIDGET_CONFIGS from 'mocks/app-builder/pages';
 import MOCKED_PROCESS_FORM from 'mocks/process-form/formSchema';
+
+mockKeycloak();
 
 describe('<ProcessFormContainer />', () => {
   it('renders snapshot correctly', async () => {
@@ -20,9 +24,9 @@ describe('<ProcessFormContainer />', () => {
 
     const { container } = render(<ProcessFormContainer />);
 
-    await wait(() => expect(container).toMatchSnapshot());
+    await wait(() => expect(fetch.mock.calls.length).toBe(2));
 
-    expect(fetch.mock.calls.length).toBe(2);
+    expect(container).toMatchSnapshot();
     expect(fetch.mock.calls[0][0]).toEqual(configUrl);
     expect(fetch.mock.calls[1][0]).toEqual(processUrl);
   });

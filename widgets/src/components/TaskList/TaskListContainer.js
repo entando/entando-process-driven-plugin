@@ -15,6 +15,7 @@ import { getTasks } from 'api/pda/tasks';
 import { getDiagram } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
+import withAuth from 'components/common/auth/withAuth';
 
 import { normalizeColumns, normalizeRows } from 'components/TaskList/normalizeData';
 import SearchInput from 'components/common/SearchInput';
@@ -340,4 +341,6 @@ TaskList.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles)(TaskList);
+const TaskListContainer = withStyles(styles)(TaskList);
+
+export default withAuth(TaskListContainer, ['task-list', 'process-diagram']);

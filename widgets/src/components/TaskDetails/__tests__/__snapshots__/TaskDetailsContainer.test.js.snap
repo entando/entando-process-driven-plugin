@@ -6,21 +6,21 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiBox-root MuiBox-root-10"
+      class="MuiBox-root MuiBox-root-32"
     >
       <div
-        class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
+        class="MuiPaper-root WidgetBox-widgetBox-33 MuiPaper-outlined"
       >
         <div
-          class="MuiBox-root MuiBox-root-40"
+          class="MuiBox-root MuiBox-root-62"
         />
       </div>
     </div>
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-11 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-33 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-163"
+        class="MuiBox-root MuiBox-root-188"
       >
         <h3
           class="MuiTypography-root MuiTypography-h3"
@@ -58,7 +58,7 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
         class="MuiDivider-root"
       />
       <div
-        class="MuiBox-root MuiBox-root-153"
+        class="MuiBox-root MuiBox-root-177"
       >
         taskDetails.generalInformation.noInformation
       </div>
