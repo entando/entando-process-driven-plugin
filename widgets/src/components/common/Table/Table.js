@@ -79,7 +79,7 @@ class Table extends React.Component {
   };
 
   handleChangeRowsPerPage = event => {
-    const { lazyLoadingProps } = this.props;
+    const { lazyLoadingProps, onChangePage } = this.props;
     const { sortedColumn, sortOrder, filter } = this.state;
     const rowsPerPage = event.target.value;
 
@@ -90,13 +90,18 @@ class Table extends React.Component {
     } else {
       this.setState({ page: 0, rowsPerPage });
     }
+
+    onChangePage(0);
   };
 
   handleChangePage = page => {
-    const { lazyLoadingProps } = this.props;
+    const { lazyLoadingProps, onChangePage } = this.props;
     const { rowsPerPage, sortedColumn, sortOrder, filter } = this.state;
 
     this.setState({ page });
+
+    onChangePage(page);
+
     if (lazyLoadingProps && lazyLoadingProps.onChange) {
       lazyLoadingProps.onChange(page, rowsPerPage, sortedColumn, sortOrder, filter);
     }
@@ -235,6 +240,7 @@ Table.propTypes = {
   rows: PropTypes.arrayOf(PropTypes.shape({})),
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   onRowClick: PropTypes.func,
+  onChangePage: PropTypes.func,
 };
 
 Table.defaultProps = {
@@ -248,6 +254,7 @@ Table.defaultProps = {
   rows: [],
   columns: [],
   onRowClick: () => {},
+  onChangePage: () => {},
 };
 
 export default withStyles(styles)(Table);

@@ -5,6 +5,7 @@ import mockKeycloak from 'mocks/auth/keycloak';
 
 import WIDGET_CONFIGS from 'mocks/app-builder/widgets';
 import MOCKED_GET_TASK_RESPONSE from 'mocks/taskDetails/getTask';
+import SETTINGS from 'mocks/app-builder/pages';
 import { getTask } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 
@@ -31,11 +32,11 @@ describe('<TaskDetailsContainer />', () => {
         pageCode={WIDGET_CONFIGS.TASK_DETAILS.pageCode}
         frameId={WIDGET_CONFIGS.TASK_DETAILS.frameId}
         widgetCode={WIDGET_CONFIGS.TASK_DETAILS.widgetCode}
+        taskPos="0"
+        groups={SETTINGS.TASK_LIST.payload.config.groups}
       />
     );
 
-    await wait(() => expect(getTask).toHaveBeenCalled());
-
-    expect(container).toMatchSnapshot();
+    await wait(() => expect(container).toMatchSnapshot());
   });
 });

@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
-// import OverviewNavigation from 'components/TaskDetails/Overview/OverviewNavigation';
+import OverviewNavigation from 'components/TaskDetails/Overview/OverviewNavigation';
 
 const OverviewHeader = ({ title, taskLink }) => {
   return (
@@ -17,7 +17,7 @@ const OverviewHeader = ({ title, taskLink }) => {
         <Typography variant="h2">{title}</Typography>
       )}
 
-      {/* <OverviewNavigation /> */}
+      <OverviewNavigation />
     </Box>
   );
 };

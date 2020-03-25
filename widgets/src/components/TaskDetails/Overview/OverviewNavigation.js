@@ -10,12 +10,12 @@ import CustomEventContext from 'components/TaskDetails/CustomEventContext';
 const OverviewNavigation = () => {
   return (
     <CustomEventContext.Consumer>
-      {({ onPressPrevious, onPressNext }) => (
+      {({ onPressPrevious, onPressNext, isFirst, isLast }) => (
         <ButtonGroup color="primary" aria-label="outlined primary button group">
-          <Button startIcon={<ArrowBack />} onClick={onPressPrevious}>
+          <Button startIcon={<ArrowBack />} onClick={onPressPrevious} disabled={isFirst}>
             {i18next.t('taskDetails.overview.previous')}
           </Button>
-          <Button endIcon={<ArrowForward />} onClick={onPressNext}>
+          <Button endIcon={<ArrowForward />} onClick={onPressNext} disabled={isLast}>
             {i18next.t('taskDetails.overview.next')}
           </Button>
         </ButtonGroup>

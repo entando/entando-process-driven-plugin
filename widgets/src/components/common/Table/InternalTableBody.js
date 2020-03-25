@@ -24,12 +24,12 @@ const StyledTableRowHover = withStyles(
 const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, onRowClick }) => {
   return (
     <TableBody>
-      {rows.map(row => (
+      {rows.map((row, idx) => (
         <StyledTableRowHover
           key={JSON.stringify(row)}
           style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
           onClick={() => {
-            onRowClick(row);
+            onRowClick(row, idx);
           }}
           hover
         >

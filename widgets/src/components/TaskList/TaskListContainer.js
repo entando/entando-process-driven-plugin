@@ -61,6 +61,7 @@ class TaskList extends React.Component {
       body: '',
     },
     groups: [],
+    page: 0,
   };
 
   timer = { ref: null };
@@ -104,7 +105,7 @@ class TaskList extends React.Component {
         const rows = normalizeRows(taskList.payload);
 
         // dispatch onSelectTask event for the first item on list
-        onSelectTask(rows[0]);
+        onSelectTask({ ...rows[0], pos: 0, groups });
 
         this.setState({
           loading: false,
@@ -221,6 +222,19 @@ class TaskList extends React.Component {
     this.setState({ activeTab });
   };
 
+  handleChangePage = page => {
+    this.setState({
+      page,
+    });
+  };
+
+  handleRowSelect = (row, idx) => {
+    const { onSelectTask } = this.props;
+    const { page, rowsPerPage } = this.state;
+    const pos = page * (rowsPerPage || 10) + idx;
+    onSelectTask({ ...row, pos });
+  };
+
   handleError(err, blocker = '') {
     const { onError } = this.props;
     onError(err);
@@ -243,7 +257,7 @@ class TaskList extends React.Component {
       filter,
       activeTab,
     } = this.state;
-    const { classes, lazyLoading, onSelectTask } = this.props;
+    const { classes, lazyLoading } = this.props;
 
     let lazyLoadingProps;
     if (lazyLoading) {
@@ -283,7 +297,8 @@ class TaskList extends React.Component {
                 rows={rows}
                 rowsPerPageOptions={[10, 25, 50, 100]}
                 lazyLoadingProps={lazyLoadingProps}
-                onRowClick={onSelectTask}
+                onRowClick={this.handleRowSelect}
+                onChangePage={this.handleChangePage}
               />
             </>
           )}
