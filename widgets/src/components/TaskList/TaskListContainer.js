@@ -15,7 +15,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import { DOMAINS, LOCAL } from 'api/constants';
-import { getTasks } from 'api/pda/tasks';
+import { getTasks, TASK_BULK_ACTIONS, putTasksBulkAction } from 'api/pda/tasks';
 import { getDiagram } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
@@ -223,8 +223,18 @@ class TaskList extends React.Component {
     this.setState({ errorAlert: null });
   };
 
-  setBulkAction = bulkAction => {
-    this.setState({ bulkAction });
+  handleChangeBulkAction = ({ target: { value } }) => {
+    const { connection, selectedRows, page } = this.state;
+    const { lazyLoading } = this.props;
+    this.setState({ bulkAction: value }, async () => {
+      try {
+        await putTasksBulkAction(connection, value, selectedRows, 'pamAdmin');
+        this.updateRows(lazyLoading ? page : undefined);
+        this.setState({ bulkAction: '', selectedRows: [] });
+      } catch (error) {
+        this.handleError(error);
+      }
+    });
   };
 
   handleChangeFilter = event => {
@@ -312,12 +322,13 @@ class TaskList extends React.Component {
                       <Select
                         labelId="bulk-select"
                         value={bulkAction}
-                        onChange={this.setBulkAction}
+                        onChange={this.handleChangeBulkAction}
                       >
-                        <MenuItem value="claim">Claim</MenuItem>
-                        <MenuItem value="unclaim">Unclaim</MenuItem>
-                        <MenuItem value="start">Start</MenuItem>
-                        <MenuItem value="pause">Pause</MenuItem>
+                        {TASK_BULK_ACTIONS.map(action => (
+                          <MenuItem value={action} key={action}>
+                            {`${action.charAt(0).toUpperCase()}${action.slice(1)}`}
+                          </MenuItem>
+                        ))}
                       </Select>
                     </FormControl>
                   ) : (
