@@ -25,7 +25,7 @@ const StyledTableRowHover = withStyles(
 const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, rowAccessor, onRowClick }) => {
   return (
     <TableBody>
-      {rows.map(row => (
+      {rows.map((row, idx) => (
         <TableBulkSelectContext.Consumer key={JSON.stringify(row)}>
           {({ selectedRows }) => (
             <StyledTableRowHover
@@ -33,7 +33,7 @@ const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, rowAccessor, o
               hover
               selected={selectedRows.has(row[rowAccessor])}
               onClick={() => {
-                onRowClick(row);
+                onRowClick(row, idx);
               }}
             >
               {columns.map(column => (
