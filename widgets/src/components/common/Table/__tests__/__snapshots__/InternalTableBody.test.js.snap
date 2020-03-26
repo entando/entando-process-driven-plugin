@@ -471,7 +471,7 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
       </tr>
       <tr
         class="MuiTableRow-root"
-        style="height: 165px;"
+        style="height: 165px; background: white;"
       >
         <td
           class="MuiTableCell-root MuiTableCell-body"

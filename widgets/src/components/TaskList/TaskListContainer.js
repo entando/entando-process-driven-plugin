@@ -18,6 +18,7 @@ import { DOMAINS, LOCAL } from 'api/constants';
 import { getTasks, TASK_BULK_ACTIONS, putTasksBulkAction } from 'api/pda/tasks';
 import { getDiagram } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
+import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
 import utils from 'utils';
 import withAuth from 'components/common/auth/withAuth';
 
@@ -229,8 +230,9 @@ class TaskList extends React.Component {
     this.setState({ bulkAction: value }, async () => {
       try {
         await putTasksBulkAction(connection, value, selectedRows, 'pamAdmin');
-        this.updateRows(lazyLoading ? page : undefined);
-        this.setState({ bulkAction: '', selectedRows: [] });
+        this.setState({ bulkAction: '', selectedRows: [] }, () =>
+          this.updateRows(lazyLoading ? page : undefined)
+        );
       } catch (error) {
         this.handleError(error);
       }
@@ -265,8 +267,26 @@ class TaskList extends React.Component {
     onSelectTask({ ...row, pos });
   };
 
-  handleRowSelect = async selectedRows => {
+  handleRowSelectAll = () => {
+    const { rows } = this.state;
+    const { rowAccessor } = this.props;
+    const selectedRows = rows.map(row => row[rowAccessor]);
     this.setState({ selectedRows });
+  };
+
+  handleRowSelectNone = () => this.setState({ selectedRows: [] });
+
+  handleRowToggleItem = row => {
+    const { rowAccessor } = this.props;
+    const { selectedRows } = this.state;
+    const rowId = row[rowAccessor];
+    const nSet = new Set(selectedRows);
+    if (nSet.has(rowId)) {
+      nSet.delete(rowId);
+    } else {
+      nSet.add(rowId);
+    }
+    this.setState({ selectedRows: Array.from(nSet) });
   };
 
   handleError(err, blocker = '') {
@@ -293,7 +313,7 @@ class TaskList extends React.Component {
       selectedRows,
       bulkAction,
     } = this.state;
-    const { classes, lazyLoading } = this.props;
+    const { classes, lazyLoading, rowAccessor } = this.props;
 
     let lazyLoadingProps;
     if (lazyLoading) {
@@ -303,6 +323,8 @@ class TaskList extends React.Component {
         lastPage,
       };
     }
+
+    const selectedRowsSet = new Set(selectedRows);
 
     return (
       <ThemeProvider theme={theme}>
@@ -344,16 +366,25 @@ class TaskList extends React.Component {
               >
                 <Tab label={i18next.t('taskList.tabs.myTasks')} />
               </Tabs>
-              <Table
-                loading={loading}
-                columns={columns}
-                rows={rows}
-                rowsPerPageOptions={[10, 25, 50, 100]}
-                lazyLoadingProps={lazyLoadingProps}
-                onRowClick={this.handleRowClicked}
-                onRowSelect={this.handleRowSelect}
-                onChangePage={this.handleChangePage}
-              />
+              <TableBulkSelectContext.Provider
+                value={{
+                  selectedRows: selectedRowsSet,
+                  onSelectAll: this.handleRowSelectAll,
+                  onSelectNone: this.handleRowSelectNone,
+                  onToggleItem: this.handleRowToggleItem,
+                  rowAccessor,
+                }}
+              >
+                <Table
+                  loading={loading}
+                  columns={columns}
+                  rows={rows}
+                  rowsPerPageOptions={[10, 25, 50, 100]}
+                  lazyLoadingProps={lazyLoadingProps}
+                  onRowClick={this.handleRowClicked}
+                  onChangePage={this.handleChangePage}
+                />
+              </TableBulkSelectContext.Provider>
             </>
           )}
         </Paper>
@@ -384,6 +415,7 @@ TaskList.propTypes = {
   serviceUrl: PropTypes.string,
   pageCode: PropTypes.string,
   frameId: PropTypes.string,
+  rowAccessor: PropTypes.string,
 };
 
 TaskList.defaultProps = {
@@ -394,6 +426,7 @@ TaskList.defaultProps = {
   serviceUrl: '',
   pageCode: '',
   frameId: '',
+  rowAccessor: 'id',
 };
 
 const TaskListContainer = withStyles(styles)(TaskList);

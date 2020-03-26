@@ -22,12 +22,12 @@ const StyledTableRowHover = withStyles(
   { name: 'StyledTableRowHover' }
 )(TableRow);
 
-const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, rowAccessor, onRowClick }) => {
+const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, onRowClick }) => {
   return (
     <TableBody>
       {rows.map((row, idx) => (
         <TableBulkSelectContext.Consumer key={JSON.stringify(row)}>
-          {({ selectedRows }) => (
+          {({ selectedRows, rowAccessor }) => (
             <StyledTableRowHover
               style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
               hover
@@ -44,7 +44,7 @@ const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, rowAccessor, o
         </TableBulkSelectContext.Consumer>
       ))}
       {emptyRows > 0 && (
-        <TableRow style={{ height: rowHeight * emptyRows }}>
+        <TableRow style={{ height: rowHeight * emptyRows, background: 'white' }}>
           <TableCell />
         </TableRow>
       )}
@@ -57,7 +57,6 @@ InternalTableBody.propTypes = {
   rows: PropTypes.arrayOf(PropTypes.shape({})),
   emptyRows: PropTypes.number,
   rowHeight: PropTypes.number,
-  rowAccessor: PropTypes.string,
   onRowClick: PropTypes.func,
 };
 
@@ -66,7 +65,6 @@ InternalTableBody.defaultProps = {
   rows: [],
   emptyRows: 0,
   rowHeight: 55,
-  rowAccessor: 'id',
   onRowClick: () => {},
 };
 

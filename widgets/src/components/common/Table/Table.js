@@ -9,7 +9,6 @@ import i18next from 'i18next';
 
 import columnType from 'types/columnType';
 
-import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
 import TablePagination from 'components/common/Table/TablePagination';
 import EmptyRow from 'components/common/Table/EmptyRow';
 import InternalTableBody from 'components/common/Table/InternalTableBody';
@@ -48,12 +47,8 @@ class Table extends React.Component {
         props.initialSortedColumn &&
         props.columns.find(column => column.accessor === props.initialSortedColumn).sortFunction,
       sortOrder: props.initialSortOrder,
-      selected: [],
       filter: '',
     };
-    this.handleRowSelectAll = this.handleRowSelectAll.bind(this);
-    this.handleRowSelectNone = this.handleRowSelectNone.bind(this);
-    this.handleRowToggleItem = this.handleRowToggleItem.bind(this);
   }
 
   createSortHandler = property => () => {
@@ -112,38 +107,10 @@ class Table extends React.Component {
     }
   };
 
-  handleRowSelectAll = () => {
-    const { rows, rowAccessor } = this.props;
-    const selected = rows.map(row => row[rowAccessor]);
-    this.setSelected(selected);
-  };
-
-  handleRowSelectNone = () => this.setSelected([]);
-
-  handleRowToggleItem = row => {
-    const { rowAccessor } = this.props;
-    const { selected } = this.state;
-    const rowId = row[rowAccessor];
-    const nSet = new Set(selected);
-    if (nSet.has(rowId)) {
-      nSet.delete(rowId);
-    } else {
-      nSet.add(rowId);
-    }
-    this.setSelected(Array.from(nSet));
-  };
-
-  setSelected = selected => {
-    const { onRowSelect } = this.props;
-    this.setState({ selected });
-    if (onRowSelect) onRowSelect(selected);
-  };
-
   render() {
     const {
       columns,
       rows = [],
-      rowAccessor,
       rowsPerPageOptions,
       hidePagination,
       classes,
@@ -151,15 +118,7 @@ class Table extends React.Component {
       loading,
       onRowClick,
     } = this.props;
-    const {
-      rowsPerPage,
-      page,
-      sortedColumn,
-      sortOrder,
-      sortFunction,
-      filter,
-      selected,
-    } = this.state;
+    const { rowsPerPage, page, sortedColumn, sortOrder, sortFunction, filter } = this.state;
 
     const isLazy = lazyLoadingProps !== undefined;
 
@@ -199,19 +158,10 @@ class Table extends React.Component {
       displayRows = hidePagination ? displayRows : displayRows.slice(firstRow, lastRow);
     }
 
-    const selectedRows = new Set(selected);
-
     return loading ? (
       <TaskListSkeleton rows={rowsPerPage} />
     ) : (
-      <TableBulkSelectContext.Provider
-        value={{
-          selectedRows,
-          onSelectAll: this.handleRowSelectAll,
-          onSelectNone: this.handleRowSelectNone,
-          onToggleItem: this.handleRowToggleItem,
-        }}
-      >
+      <>
         <div className={classes.tableWrapper}>
           <MuiTable className={classNames(hidePagination && classes.hideShadows)}>
             <InternalTableHead
@@ -224,7 +174,6 @@ class Table extends React.Component {
               <InternalTableBody
                 columns={columns}
                 rows={displayRows}
-                rowAccessor={rowAccessor}
                 emptyRows={rowsPerPage - displayRows.length}
                 onRowClick={onRowClick}
               />
@@ -264,7 +213,7 @@ class Table extends React.Component {
             </TableFooter>
           )}
         </MuiTable>
-      </TableBulkSelectContext.Provider>
+      </>
     );
   }
 }
@@ -282,13 +231,11 @@ Table.propTypes = {
   loading: PropTypes.bool,
   columns: PropTypes.arrayOf(columnType),
   hidePagination: PropTypes.bool,
-  rowAccessor: PropTypes.string,
   /** Prop value is required for sortable tables. */
   initialSortedColumn: PropTypes.string,
   initialSortOrder: PropTypes.string,
   rows: PropTypes.arrayOf(PropTypes.shape({})),
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
-  onRowSelect: PropTypes.func,
   onRowClick: PropTypes.func,
   onChangePage: PropTypes.func,
 };
@@ -299,12 +246,10 @@ Table.defaultProps = {
   lazyLoadingProps: undefined,
   rowsPerPageOptions: [5, 10, 15],
   hidePagination: false,
-  rowAccessor: 'id',
   initialSortedColumn: '',
   initialSortOrder: 'asc',
   rows: [],
   columns: [],
-  onRowSelect: null,
   onRowClick: () => {},
   onChangePage: () => {},
 };
