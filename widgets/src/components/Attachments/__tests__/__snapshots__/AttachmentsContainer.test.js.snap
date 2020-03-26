@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AttachmentsContainer /> renders snapshot correctly 1`] = `
+<div>
+  <div>
+    <h3
+      class="MuiTypography-root MuiTypography-h3"
+    >
+      Attachments
+    </h3>
+    <ul
+      class="MuiList-root MuiList-padding"
+    >
+      <li
+        class="MuiListItem-container"
+      >
+        <div
+          class="MuiListItem-root Attachment-listItem-129 MuiListItem-gutters MuiListItem-secondaryAction"
+        >
+          <div
+            class="MuiListItemIcon-root"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4l6 6v10c0 1.1-.9 2-2 2H7.99C6.89 23 6 22.1 6 21l.01-14c0-1.1.89-2 1.99-2h7zm-1 7h5.5L14 6.5V12z"
+              />
+            </svg>
+          </div>
+          <div
+            class="MuiListItemText-root Attachment-truncate-130"
+          >
+            <span
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+                download=""
+                href="/connections/kieStaging/tasks/28@mortgage-process_1.0.0-SNAPSHOT/attachments/2/download"
+              >
+                55954396_2301387639927701_986123889866178560_o.jpg
+              </a>
+            </span>
+          </div>
+        </div>
+        <div
+          class="MuiListItemSecondaryAction-root"
+        >
+          <button
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </li>
+      <li
+        class="MuiListItem-container"
+      >
+        <div
+          class="MuiListItem-root Attachment-listItem-129 MuiListItem-gutters MuiListItem-secondaryAction"
+        >
+          <div
+            class="MuiListItemIcon-root"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm-1 4l6 6v10c0 1.1-.9 2-2 2H7.99C6.89 23 6 22.1 6 21l.01-14c0-1.1.89-2 1.99-2h7zm-1 7h5.5L14 6.5V12z"
+              />
+            </svg>
+          </div>
+          <div
+            class="MuiListItemText-root Attachment-truncate-130"
+          >
+            <span
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+                download=""
+                href="/connections/kieStaging/tasks/28@mortgage-process_1.0.0-SNAPSHOT/attachments/4/download"
+              >
+                55954396_2301387639927701_986123889866178560_o.jpg
+              </a>
+            </span>
+          </div>
+        </div>
+        <div
+          class="MuiListItemSecondaryAction-root"
+        >
+          <button
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </li>
+    </ul>
+    <div
+      class="AttachmentsContainer-footer-1"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Add
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+  
+</div>
+`;

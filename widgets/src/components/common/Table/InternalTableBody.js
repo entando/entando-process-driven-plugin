@@ -15,13 +15,14 @@ const StyledTableRowHover = withStyles(
       color: '#e7eaec',
       '&:hover > *': {
         backgroundColor: '#f9f8f8',
+        cursor: 'pointer',
       },
     },
   },
   { name: 'StyledTableRowHover' }
 )(TableRow);
 
-const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, rowAccessor }) => {
+const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, rowAccessor, onRowClick }) => {
   return (
     <TableBody>
       {rows.map(row => (
@@ -30,8 +31,10 @@ const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, rowAccessor })
             <StyledTableRowHover
               style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
               hover
-              role="checkbox"
               selected={selectedRows.has(row[rowAccessor])}
+              onClick={() => {
+                onRowClick(row);
+              }}
             >
               {columns.map(column => (
                 <InternalTableCell key={JSON.stringify(column)} column={column} row={row} />
@@ -55,6 +58,7 @@ InternalTableBody.propTypes = {
   emptyRows: PropTypes.number,
   rowHeight: PropTypes.number,
   rowAccessor: PropTypes.string,
+  onRowClick: PropTypes.func,
 };
 
 InternalTableBody.defaultProps = {
@@ -63,6 +67,7 @@ InternalTableBody.defaultProps = {
   emptyRows: 0,
   rowHeight: 55,
   rowAccessor: 'id',
+  onRowClick: () => {},
 };
 
 export default InternalTableBody;

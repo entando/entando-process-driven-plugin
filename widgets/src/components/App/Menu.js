@@ -12,6 +12,7 @@ import {
   IconButton,
 } from '@material-ui/core';
 import {
+  Attachment as AttachmentIcon,
   Home as HomeIcon,
   List as ListIcon,
   BarChart as BarChartIcon,
@@ -20,6 +21,7 @@ import {
   Description as DescriptionIcon,
   DoneAll as DoneAllIcon,
   Comment as CommentsIcon,
+  CloudQueue as CloudQueueIcon,
 } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -27,14 +29,23 @@ const styles = {
   item: {
     position: 'relative',
   },
+  listItem: {
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
   iconButton: {
     position: 'absolute',
     right: 5,
-    top: 11,
+    top: 12,
   },
 };
 
 const menuItems = [
+  {
+    linkTo: '/Connections',
+    linkText: 'Connections',
+    Icon: <CloudQueueIcon />,
+  },
   {
     linkTo: '/TaskList',
     linkText: 'Task list',
@@ -77,6 +88,12 @@ const menuItems = [
     Icon: <BarChartIcon />,
     configLinkTo: '/OvertimeGraphConfig',
   },
+  {
+    linkTo: '/Attachments',
+    linkText: 'Attachments',
+    Icon: <AttachmentIcon />,
+    configLinkTo: '/AttachmentsConfig',
+  },
 ];
 
 const Menu = ({ open, setOpen, classes }) => (
@@ -85,7 +102,7 @@ const Menu = ({ open, setOpen, classes }) => (
       <List>
         <ListItem button component={Link} to="/" onClick={() => setOpen(false)}>
           <ListItemIcon>
-            <HomeIcon />
+            <HomeIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
@@ -94,19 +111,27 @@ const Menu = ({ open, setOpen, classes }) => (
         <Divider />
         {menuItems.map(({ linkTo, Icon, linkText, configLinkTo }) => (
           <div className={classes.item} key={linkTo}>
-            <ListItem button component={Link} to={linkTo} onClick={() => setOpen(false)}>
-              {Icon}
-              <ListItemText primary={linkText} />
-            </ListItem>
-            <IconButton
-              className={classes.iconButton}
-              size="small"
+            <ListItem
+              className={classes.listItem}
+              button
               component={Link}
-              to={configLinkTo}
+              to={linkTo}
               onClick={() => setOpen(false)}
             >
-              <SettingsIcon fontSize="small" />
-            </IconButton>
+              {Icon}
+              <ListItemText style={{ marginLeft: 5 }} primary={linkText} />
+            </ListItem>
+            {configLinkTo && (
+              <IconButton
+                className={classes.iconButton}
+                size="small"
+                component={Link}
+                to={configLinkTo}
+                onClick={() => setOpen(false)}
+              >
+                <SettingsIcon fontSize="small" />
+              </IconButton>
+            )}
           </div>
         ))}
       </List>
@@ -117,6 +142,7 @@ const Menu = ({ open, setOpen, classes }) => (
 Menu.propTypes = {
   classes: PropTypes.shape({
     item: PropTypes.string,
+    listItem: PropTypes.string,
     iconButton: PropTypes.string,
   }),
   open: PropTypes.bool.isRequired,

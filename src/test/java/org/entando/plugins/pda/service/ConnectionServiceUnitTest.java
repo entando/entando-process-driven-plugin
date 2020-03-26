@@ -14,10 +14,14 @@ import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
 import org.entando.connectionconfigconnector.service.impl.InMemoryConnectionConfigConnector;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
+import org.entando.plugins.pda.core.exception.NoConnectionWithBpmServerException;
+import org.entando.plugins.pda.core.service.task.TaskService;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
+import org.entando.web.response.PagedMetadata;
+import org.entando.web.response.PagedRestResponse;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -27,6 +31,7 @@ public class ConnectionServiceUnitTest {
 
     private ConnectionService connectionService;
     private EngineFactory engineFactory;
+    private TaskService taskService;
 
     private ConnectionConfigConnector connectionConfigConnector;
 
@@ -35,8 +40,13 @@ public class ConnectionServiceUnitTest {
 
     @Before()
     public void setup() {
+        Engine engine = mock(Engine.class);
+        taskService = mock(TaskService.class);
+
         engineFactory = mock(EngineFactory.class);
-        when(engineFactory.getEngine(any())).thenReturn(mock(Engine.class));
+        when(engineFactory.getEngine(any())).thenReturn(engine);
+
+        when(engine.getTaskService()).thenReturn(taskService);
 
         connectionConfigConnector = new InMemoryConnectionConfigConnector();
         connectionService = new ConnectionService(engineFactory, connectionConfigConnector);
@@ -126,6 +136,39 @@ public class ConnectionServiceUnitTest {
     }
 
     @Test
+    public void shouldTestConnection() {
+        // Given
+        List<ConnectionConfig> connectionConfigs = ConnectionTestHelper
+                .generateConnectionConfigs(connectionConfigConnector);
+        ConnectionConfig config = connectionConfigs.get(0);
+
+        when(taskService.list(any(), any(), any(), any(), any()))
+                .thenReturn(new PagedRestResponse<>(new PagedMetadata<>()));
+
+        // When
+        String result = connectionService.test(config.getName());
+
+        // Then
+        assertThat(result).isEqualTo(ConnectionService.OK);
+    }
+
+    @Test
+    public void shouldThrowNoConnectionWhenTestConnectionFails() {
+        // Given
+        expectedException.expect(NoConnectionWithBpmServerException.class);
+
+        List<ConnectionConfig> connectionConfigs = ConnectionTestHelper
+                .generateConnectionConfigs(connectionConfigConnector);
+        ConnectionConfig config = connectionConfigs.get(0);
+
+        when(taskService.list(any(), any(), any(), any(), any()))
+                .thenThrow(NoConnectionWithBpmServerException.class);
+
+        // When
+        connectionService.test(config.getName());
+    }
+
+    @Test
     public void shouldThrowNotFoundExceptionWhenEditingInvalidConnection() {
         expectedException.expect(ConnectionNotFoundException.class);
         expectedException.expectMessage(ConnectionNotFoundException.MESSAGE_KEY);
@@ -154,14 +197,11 @@ public class ConnectionServiceUnitTest {
 
     private void assertThatIsEqual(Connection connection, ConnectionConfig config1) {
         assertThat(connection.getName()).isEqualTo(config1.getName());
-        assertThat(connection.getEngine()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.ENGINE_KEY));
-        assertThat(connection.getApp()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.APP_KEY));
+        assertThat(connection.getEngine()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.ENGINE));
+        assertThat(connection.getUrl()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.URL));
         assertThat(connection.getConnectionTimeout())
                 .isEqualTo(Integer.valueOf(config1.getProperties().get(ConnectionConfigMapper.CONNECTION_TIMEOUT)));
-        assertThat(connection.getHost()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.HOST));
-        assertThat(connection.getPassword()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.PASSWORD));
-        assertThat(connection.getPort()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.PORT));
-        assertThat(connection.getSchema()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.SCHEMA));
         assertThat(connection.getUsername()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.USERNAME));
+        assertThat(connection.getPassword()).isEqualTo(config1.getProperties().get(ConnectionConfigMapper.PASSWORD));
     }
 }

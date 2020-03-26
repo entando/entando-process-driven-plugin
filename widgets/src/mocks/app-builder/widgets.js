@@ -8,21 +8,21 @@ export default {
     configs: MOCKED_WIDGET_CONFIGS.TASK_LIST,
   },
   TASK_DETAILS: {
-    taskId: '290',
+    taskId: '294@mortgage-process_1.0.0-SNAPSHOT',
     pageCode: 'phase_1_widgets',
     frameId: '4',
     widgetCode: 'phase_1_widgets_task_details',
     configs: MOCKED_WIDGET_CONFIGS.TASK_DETAILS,
   },
   COMPLETION_FORM: {
-    taskId: '290',
+    taskId: '294@mortgage-process_1.0.0-SNAPSHOT',
     pageCode: 'phase_1_widgets',
     frameId: '2',
     widgetCode: 'phase_1_widgets_completion_form',
     configs: MOCKED_WIDGET_CONFIGS.COMPLETION_FORM,
   },
   TASK_COMMENTS: {
-    taskId: '32',
+    taskId: '294@mortgage-process_1.0.0-SNAPSHOT',
     pageCode: 'phase_1_widgets',
     frameId: '5',
     widgetCode: 'phase_1_widgets_comments',
@@ -45,5 +45,12 @@ export default {
     frameId: '5',
     widgetCode: 'overtime_graph',
     configs: MOCKED_WIDGET_CONFIGS.OVERTIME_GRAPH,
+  },
+  ATTACHMENTS: {
+    taskId: '28@mortgage-process_1.0.0-SNAPSHOT',
+    pageCode: 'phase_1_widgets',
+    frameId: '2',
+    widgetCode: 'phase_1_widgets_attachments',
+    configs: MOCKED_WIDGET_CONFIGS.ATTACHMENTS,
   },
 };

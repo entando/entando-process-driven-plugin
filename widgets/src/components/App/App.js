@@ -21,6 +21,7 @@ import 'components/App/App.css';
 
 // widgets
 import Home from 'components/App/Home';
+import ConnectionsContainer from 'components/Connections/ConnectionsContainer';
 
 import TaskListContainer from 'components/TaskList/TaskListContainer';
 import TaskListConfig from 'components/TaskList/TaskListConfig';
@@ -42,6 +43,9 @@ import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
 import ProcessFormContainer from 'components/ProcessForm/ProcessFormContainer';
 import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 
+import AttachmentsContainer from 'components/Attachments/AttachmentsContainer';
+import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -51,6 +55,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    fontSize: '1.5rem',
   },
   userAuth: {
     marginLeft: '20px',
@@ -93,12 +98,11 @@ function App() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h2" className={classes.title}>
               Entando - PAM Plugin
             </Typography>
             <FormControlLabel
               control={
-                // eslint-disable-next-line react/jsx-wrap-multilines
                 <Checkbox
                   checked={skeletonLoading}
                   onChange={() => setSkeletonLoading(!skeletonLoading)}
@@ -128,6 +132,7 @@ function App() {
 
         <Container className="app-container">
           <Route path="/" exact component={Home} />
+          <Route path="/Connections" exact component={ConnectionsContainer} />
           <Route
             path="/TaskList/"
             render={() => (
@@ -150,6 +155,8 @@ function App() {
                 pageCode={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
                 frameId={WIDGETS_CONFIG.TASK_DETAILS.frameId}
                 widgetCode={WIDGETS_CONFIG.TASK_DETAILS.widgetCode}
+                taskPos="0"
+                groups={SETTINGS.TASK_LIST.payload.config.groups}
               />
             )}
           />
@@ -214,6 +221,18 @@ function App() {
             )}
           />
           <Route path="/OvertimeGraphConfig" render={() => <OvertimeGraphConfig config={{}} />} />
+          <Route
+            path="/Attachments"
+            render={() => (
+              <AttachmentsContainer
+                taskId={WIDGETS_CONFIG.ATTACHMENTS.taskId}
+                pageCode={WIDGETS_CONFIG.ATTACHMENTS.pageCode}
+                frameId={WIDGETS_CONFIG.ATTACHMENTS.frameId}
+                widgetCode={WIDGETS_CONFIG.ATTACHMENTS.widgetCode}
+              />
+            )}
+          />
+          <Route path="/AttachmentsConfig" render={() => <AttachmentsConfig config={{}} />} />
         </Container>
       </Router>
     </div>

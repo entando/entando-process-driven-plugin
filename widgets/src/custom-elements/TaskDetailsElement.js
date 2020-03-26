@@ -14,6 +14,8 @@ import {
 
 const ATTRIBUTES = {
   id: 'id',
+  taskPos: 'task-pos',
+  groups: 'groups',
   locale: 'locale',
   pageCode: 'page-code',
   frameId: 'frame-id',
@@ -30,7 +32,7 @@ class TaskDetailsElement extends HTMLElement {
     this.onPressNext = createWidgetEvent(TD_ON_PRESS_NEXT);
     this.onError = createWidgetEvent(TD_ON_ERROR);
 
-    this.updateTaskId = this.updateTaskId.bind(this);
+    this.updateTask = this.updateTask.bind(this);
   }
 
   static get observedAttributes() {
@@ -46,9 +48,11 @@ class TaskDetailsElement extends HTMLElement {
     }
   }
 
-  updateTaskId(e) {
+  updateTask(e) {
     const { detail } = e;
-    this.setAttribute('id', detail.id.split('@')[0]);
+    this.setAttribute(ATTRIBUTES.id, detail.id);
+    this.setAttribute(ATTRIBUTES.taskPos, detail.pos);
+    if (detail.groups) this.setAttribute(ATTRIBUTES.groups, detail.groups);
   }
 
   render() {
@@ -59,6 +63,8 @@ class TaskDetailsElement extends HTMLElement {
     const frameId = this.getAttribute(ATTRIBUTES.frameId);
     const serviceUrl = this.getAttribute(ATTRIBUTES.serviceUrl);
     const taskId = this.getAttribute(ATTRIBUTES.id);
+    const taskPos = this.getAttribute(ATTRIBUTES.taskPos);
+    const groups = this.getAttribute(ATTRIBUTES.groups);
 
     const reactRoot = React.createElement(
       TaskDetails,
@@ -70,6 +76,8 @@ class TaskDetailsElement extends HTMLElement {
         frameId,
         serviceUrl,
         taskId,
+        taskPos,
+        groups,
       },
       null
     );
@@ -80,10 +88,7 @@ class TaskDetailsElement extends HTMLElement {
     this.container = document.createElement('div');
     this.appendChild(this.container);
 
-    this.unsubscribeFromTaskListEvents = addCustomEventListener(
-      TL_ON_SELECT_TASK,
-      this.updateTaskId
-    );
+    this.unsubscribeFromTaskListEvents = addCustomEventListener(TL_ON_SELECT_TASK, this.updateTask);
 
     this.render();
   }

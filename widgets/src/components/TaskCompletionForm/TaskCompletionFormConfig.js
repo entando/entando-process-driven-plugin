@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
-import { getProcesses } from 'api/pda/processes';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -16,19 +15,18 @@ class CompletionFormConfig extends React.Component {
 
     this.state = {
       sourceList: [],
-      processList: [],
       config: {
         knowledgeSource: '',
-        process: '',
         settings: {
           uiSchema: '{}',
+          defaultColumnSize: '',
         },
       },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
-    this.onChangeProcess = this.onChangeProcess.bind(this);
     this.onChangeUiSchema = this.onChangeUiSchema.bind(this);
+    this.onChangeSettingValue = this.onChangeSettingValue.bind(this);
     this.fetchScreen = this.fetchScreen.bind(this);
   }
 
@@ -47,27 +45,17 @@ class CompletionFormConfig extends React.Component {
     }
   }
 
-  onChangeKnowledgeSource(e, cb = () => {}) {
+  onChangeKnowledgeSource(e, afterKnowledgeSourceChange = () => {}) {
     const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, knowledgeSource } });
-
-    getProcesses(knowledgeSource).then(data => {
-      this.setState({ processList: data.payload });
-
-      cb();
-    });
+    this.setState({ config: { ...config, knowledgeSource } }, afterKnowledgeSourceChange);
   }
 
-  onChangeProcess(e, cb = () => {}) {
-    const { config } = this.state;
-    const process = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, process } });
+  onChangeUiSchema(e) {
+    const {
+      target: { value: uiSchema },
+    } = e;
 
-    cb();
-  }
-
-  onChangeUiSchema({ target: { value: uiSchema } }) {
     const { config } = this.state;
     this.setState({
       config: {
@@ -77,21 +65,38 @@ class CompletionFormConfig extends React.Component {
     });
   }
 
+  onChangeSettingValue(setting, e) {
+    const value = e.state ? e.state.value : e.target.value;
+    const { config } = this.state;
+    this.setState({
+      config: {
+        ...config,
+        settings: {
+          ...config.settings,
+          [setting]: value,
+        },
+      },
+    });
+  }
+
   fetchScreen() {
     const { config } = this.props;
 
     if (config && config.knowledgeSource) {
       this.onChangeKnowledgeSource(config.knowledgeSource, () => {
-        if (config.process) {
-          this.onChangeProcess(config.process, () => {
-            if (config.settings) {
-              this.setState({
-                config: {
-                  ...config,
-                  settings: JSON.parse(config.settings),
-                },
-              });
-            }
+        if (config.settings) {
+          const parsedSettings = JSON.parse(config.settings);
+          this.setState({
+            config: {
+              ...config,
+              settings: {
+                ...parsedSettings,
+                uiSchema: JSON.stringify(JSON.parse(parsedSettings.uiSchema), null, 2).replace(
+                  '\\"',
+                  '"'
+                ),
+              },
+            },
           });
         }
       });
@@ -99,8 +104,8 @@ class CompletionFormConfig extends React.Component {
   }
 
   render() {
-    const { sourceList, processList = [], config } = this.state;
-    const { knowledgeSource, settings, process: selectedProcess = '' } = config;
+    const { sourceList, config } = this.state;
+    const { knowledgeSource, settings } = config;
 
     return (
       <div>
@@ -123,45 +128,39 @@ class CompletionFormConfig extends React.Component {
                 </select>
                 <HelpBlock>Select one of the Kie server connections.</HelpBlock>
               </FormGroup>
-              <FormGroup controlId="connection">
-                <ControlLabel>Process</ControlLabel>
-                <select
-                  className="form-control"
-                  value={selectedProcess}
-                  onChange={this.onChangeProcess}
-                >
-                  <option value="">Select...</option>
-                  {processList.map(process => (
-                    <option
-                      key={`${process['process-id']}@${process['container-id']}`}
-                      value={`${process['process-id']}@${process['container-id']}`}
-                    >
-                      {`${process['process-name']} @ ${process['container-id']}`}
-                    </option>
-                  ))}
-                </select>
-                <HelpBlock>Select one BPM Process.</HelpBlock>
-              </FormGroup>
             </Col>
           </Row>
-          {selectedProcess && (
-            <section>
-              <legend>Settings</legend>
-              <Row>
-                <Col xs={12}>
-                  <FormGroup bsClass="form-group" controlId="textarea">
-                    <ControlLabel bsClass="control-label">UI Schema</ControlLabel>
-                    <FormControl
-                      bsClass="form-control"
-                      componentClass="textarea"
-                      value={settings.uiSchema}
-                      onChange={this.onChangeUiSchema}
-                    />
-                  </FormGroup>
-                </Col>
-              </Row>
-            </section>
-          )}
+          <section>
+            <legend>Settings</legend>
+            <Row>
+              <Col xs={12}>
+                <FormGroup bsClass="form-group" controlId="textarea">
+                  <ControlLabel bsClass="control-label">UI Schema</ControlLabel>
+                  <FormControl
+                    bsClass="form-control"
+                    componentClass="textarea"
+                    value={settings.uiSchema}
+                    onChange={this.onChangeUiSchema}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12}>
+                <FormGroup bsClass="form-group">
+                  <ControlLabel bsClass="control-label">Default column size</ControlLabel>
+                  <input
+                    className="form-control"
+                    type="number"
+                    value={settings.defaultColumnSize}
+                    onChange={event => {
+                      this.onChangeSettingValue('defaultColumnSize', event);
+                    }}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+          </section>
         </form>
       </div>
     );

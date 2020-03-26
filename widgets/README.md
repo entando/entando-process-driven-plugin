@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 Runs the app in the development mode.
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3333](http://localhost:3333) to view it in the browser.
 
 The page will reload if you make edits.
 
@@ -67,11 +67,18 @@ This project is extending the [Airbnb Style Guide](https://github.com/airbnb/jav
 
 ## Running locally
 
-The widgets consume APIs from two different sources, the PDA and APP-BUILDER. The APP-BUILDER APIs does not allow cross domain requests, so we won't be able to ping it without running it through the CORS policy with a [browser plugin](http://tiny.cc/0ysoiz).
+This project will be needing these instances:
+
+1. **PDA instance** located at the root of this project. (See https://github.com/entando/entando-process-driven-plugin).
+2. **An Entando App instance** - we recommend to use [entando-de-app](https://github.com/entando/entando-de-app) for instance with Keycloak-ready authentication or, otherwise, [entando-pam-app](https://github.com/entando/entando-pam-app) for Entando built-in authentication.
+3. **An Entando App Builder instance** *(optional)* - for setting up page models, widget instance within Entando app environment (optional because you can use Entando App's admin console).
+4. **Keycloak Docker instance** *(optional)* - should you decide to integrate your app with Keycloak (not recommended for widget component development phase).
+
+Basically, the current widgets consume APIs from two different sources, the PDA instance and Entando app instance.
 
 To set up for un-mocked local run:
 
-1. Create a widget using POSTMAN (note that authorization token is needed) - POST request to `http://localhost:8090/entando-pam-app/api/widgets` (where `http://localhost:8090/entando-pam-app` is your APP BUILDER host) with a widget details in body. E.g.:
+1. Create a widget in Entando admin console or App Builder with the following info:
 
 ```
 {
@@ -111,8 +118,6 @@ To set up for un-mocked local run:
 
 5. Update `/widgets/src/mocks/app-builder/widgets.js` with pageCodes, frameIds, and widgetCodes that you have just created.
 
-6. Don't forget to start the services and turn on the browser CORS extension. You should be ready to go!
-
 ### API
 
 1. Run `mvn clean install`
@@ -131,7 +136,7 @@ To set up for un-mocked local run:
 
 #### With real data
 
-You will need to have one instance of Entando running, we are using `entando-pam-app`:
+You will need to have one instance of Entando app running, we recommend to use `entando-de-app` or `entando-pam-app`. For this, we'll try `entando-pam-app`:
 
 1. Clone repository [entando-pam-app](https://github.com/entando/entando-pam-app)
 2. Run it on port 8090 with `mvn clean package jetty:run -DskipDocker -Pjetty-local -Pderby -Djetty.reload=manual -Djetty.port=8090 -Dspring.profiles.active=swagger`
@@ -144,6 +149,5 @@ To run the Widget FE project:
 
 ### General notes
 
-- The PDA API is only accepting requests from http://localhost:3333, so you can't change the port of this application if you want to run it with real data.
-- The APP-BUILDER API doesn't allow cross-domain requests from any port right now, so the only way to ping it is using the above quoted plugin available on Chrome and Firefox.
-- You can mock individually any API request on `makeRequest` by passing a `forceMock: true` prop to it. That way you can mock the required data from APP-BUILDER API that consumes a big amount of memory and work lighter only with PDA API.
+- The PDA API is only currently accepting requests from http://localhost:3333. However, you can change this (the CORS origins domain) in [\<PDA project\>/src/main/resources/application.properties](https://github.com/entando/entando-process-driven-plugin/blob/master/src/main/resources/application.properties) in variable `pda.allowed-origins-dev`. This has been set to `http://localhost:3333` since this "storyboard" project uses the said domain.
+- You can mock individually any API request on `makeRequest` by passing a `forceMock: true` prop to it. That way you can mock the required data from Entando admin console API that consumes a big amount of memory and work lighter only with PDA API.

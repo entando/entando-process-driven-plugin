@@ -4,7 +4,9 @@
     "submit": "Submit",
     "add": "Add",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "edit": "Edit",
+    "delete": "Delete"
   },
   "summary": {
     "frequency": {
@@ -37,6 +39,11 @@
   },
   "taskList": {
     "diagramModalTitle": "Process",
+    "tabs": {
+      "myWork": "MY WORK",
+      "myTasks": "MY TASKS",
+      "myCases": "MY CASES"
+    },
     "actionButtons": {
       "complete": "Complete",
       "claim": "Claim",
@@ -46,7 +53,7 @@
     "emptyList": "You don't have any active, assigned or complete tasks"
   },
   "table": {
-    "title": "Task List",
+    "title": "Smart Inbox",
     "subtitle": "List of tasks",
     "searchPlaceholder": "Search...",
     "rowsPerPage": "Rows per page:",
@@ -54,7 +61,8 @@
   },
   "taskDetails": {
     "overview": {
-      "title": "Task details",
+      "title": "Task Overview",
+      "detailsTitle": "Task details",
       "previous": "Previous",
       "next": "Next"
     },
@@ -91,11 +99,15 @@
     }
   },
   "messages": {
+    "success": {
+      "saved": "Saved successfully."
+    },
     "notify": {
       "submitting": "Sending..."
     },
     "warnings": {
-      "noData": "There is no data to be displayed"
+      "noData": "There is no data to be displayed",
+      "noFormSchema": "Form schema was not provided"
     },
     "errors": {
       "widgetConfig": "No configuration found for this widget",

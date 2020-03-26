@@ -10,7 +10,6 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     width: 200,
-    borderBottom: 'solid 1px #ccc',
   },
   input: {
     flex: 1,

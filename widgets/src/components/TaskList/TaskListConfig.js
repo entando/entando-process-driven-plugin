@@ -6,7 +6,6 @@ import arrayMove from 'array-move';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import { getConnections } from 'api/pda/connections';
-import { getProcesses } from 'api/pda/processes';
 import { getGroups } from 'api/pda/groups';
 import { getColumns } from 'api/pda/tasks';
 import { normalizeConfigColumns, normalizeConfigGroups } from 'components/TaskList/normalizeData';
@@ -15,7 +14,7 @@ import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
 import 'patternfly/dist/css/patternfly-additions.css';
 import RenderSwitch from 'components/common/RenderSwitch';
-import ErrorNotification from 'components/common/ErrorNotification';
+import Notification from 'components/common/Notification';
 
 const generalOptions = [
   {
@@ -94,13 +93,11 @@ class TaskListConfig extends React.Component {
   state = {
     config: {
       knowledgeSource: '',
-      process: '',
       options: generalOptions,
       groups: [],
       columns: [],
     },
     sourceList: [],
-    processList: [],
     errorAlert: null,
   };
 
@@ -132,65 +129,52 @@ class TaskListConfig extends React.Component {
     const { config } = this.props;
     if (config && config.knowledgeSource) {
       this.onChangeSource(config.knowledgeSource, () => {
-        if (config.process) {
-          this.onChangeProcess(config.process, () => {
-            this.setState({
-              config: {
-                ...config,
-                groups: JSON.parse(config.groups),
-                options: JSON.parse(config.options),
-                columns: JSON.parse(config.columns),
-              },
-            });
-          });
-        }
+        this.setState({
+          config: {
+            ...config,
+            groups: JSON.parse(config.groups),
+            options: JSON.parse(config.options),
+            columns: JSON.parse(config.columns),
+          },
+        });
       });
     }
   };
 
-  onChangeSource = (e, cb = () => {}) => {
+  onChangeSource = (e, cb) => {
     const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({
-      config: {
-        ...config,
-        process: '',
-        options: [...generalOptions],
-        groups: [],
-        columns: [],
-        knowledgeSource,
+    this.setState(
+      {
+        config: {
+          ...config,
+          options: [...generalOptions],
+          groups: [],
+          columns: [],
+          knowledgeSource,
+        },
       },
-    });
+      async () => {
+        if (cb) {
+          cb();
+        } else {
+          try {
+            const { payload: groups } = await getGroups(knowledgeSource);
+            const { payload: columns } = await getColumns(knowledgeSource);
 
-    getProcesses(knowledgeSource).then(data => {
-      this.setState({ processList: data.payload });
-      cb();
-    });
-  };
-
-  onChangeProcess = async (e, cb) => {
-    const { config } = this.state;
-    const process = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, process } });
-
-    if (cb) {
-      cb();
-    } else {
-      try {
-        const { payload: groups } = await getGroups(config.knowledgeSource, process);
-        const { payload: columns } = await getColumns(config.knowledgeSource, process);
-
-        this.setState(state => ({
-          config: {
-            ...state.config,
-            groups: normalizeConfigGroups(groups),
-            columns: normalizeConfigColumns(columns),
-          },
-        }));
-      } catch (error) {
-        console.log('Error while trying to fetch groups and columns from PDA server', error);
+            this.setState(state => ({
+              config: {
+                ...state.config,
+                groups: normalizeConfigGroups(groups),
+                columns: normalizeConfigColumns(columns),
+              },
+            }));
+          } catch (error) {
+            console.log('Error while trying to fetch groups and columns from PDA server', error);
+          }
+        }
       }
-    }
+    );
   };
 
   handleSortStart = ({ node }) => {
@@ -253,12 +237,11 @@ class TaskListConfig extends React.Component {
   }
 
   render() {
-    const { sourceList, processList, config, errorAlert } = this.state;
-    const { knowledgeSource, process: selectedProcess, groups, columns, options } = config;
-
+    const { sourceList, config, errorAlert } = this.state;
+    const { knowledgeSource, groups, columns, options } = config;
     return (
       <div>
-        <ErrorNotification message={errorAlert} onClose={this.closeNotification} />
+        <Notification type="error" message={errorAlert} onClose={this.closeNotification} />
         <form>
           <Row>
             <Col xs={12}>
@@ -278,28 +261,9 @@ class TaskListConfig extends React.Component {
                 </select>
                 <HelpBlock>Select one of the Kie server connections.</HelpBlock>
               </FormGroup>
-              <FormGroup controlId="connection">
-                <ControlLabel>Process</ControlLabel>
-                <select
-                  className="form-control"
-                  value={selectedProcess}
-                  onChange={this.onChangeProcess}
-                >
-                  <option value="">Select...</option>
-                  {processList.map(process => (
-                    <option
-                      key={`${process['process-id']}@${process['container-id']}`}
-                      value={`${process['process-id']}@${process['container-id']}`}
-                    >
-                      {`${process['process-name']} @ ${process['container-id']}`}
-                    </option>
-                  ))}
-                </select>
-                <HelpBlock>Select one BPM Process.</HelpBlock>
-              </FormGroup>
             </Col>
           </Row>
-          {selectedProcess && (
+          {knowledgeSource && (
             <section>
               <legend>General options</legend>
               <Row>
@@ -363,4 +327,6 @@ TaskListConfig.propTypes = {
   config: taskListConfigType.isRequired,
 };
 
-export default withStyles(styles)(TaskListConfig);
+const TaskListConfigContainer = withStyles(styles)(TaskListConfig);
+
+export default TaskListConfigContainer;

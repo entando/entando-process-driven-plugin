@@ -2,6 +2,6 @@
 
 exports[`<JSONForm /> renders snapshot correctly 1`] = `
 <div>
-  messages.warnings.noData
+  messages.warnings.noFormSchema
 </div>
 `;

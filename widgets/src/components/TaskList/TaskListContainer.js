@@ -5,25 +5,50 @@ import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import SVG from 'react-inlinesvg';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 import { DOMAINS, LOCAL } from 'api/constants';
 import { getTasks } from 'api/pda/tasks';
 import { getDiagram } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 import utils from 'utils';
+import withAuth from 'components/common/auth/withAuth';
 
 import {
   normalizeColumns,
   insertRowControls,
   normalizeRows,
 } from 'components/TaskList/normalizeData';
-import ErrorNotification from 'components/common/ErrorNotification';
+import SearchInput from 'components/common/SearchInput';
+import Notification from 'components/common/Notification';
 import ErrorComponent from 'components/common/ErrorComponent';
 import Table from 'components/common/Table/Table';
 import SimpleDialog from 'components/common/SimpleDialog';
 import theme from 'theme';
 
 const styles = {
+  toolbar: {
+    justifyContent: 'space-between',
+    padding: '16px 16px 8px 16px',
+    minHeight: 'unset',
+  },
+  noSubtitleToolbar: {
+    padding: '8px 16px',
+  },
+  bulkDropdown: {
+    width: 200,
+    top: -5,
+  },
+  title: {
+    textAlign: 'left',
+  },
   paper: {
     minHeight: 459,
     position: 'relative',
@@ -37,9 +62,11 @@ class TaskList extends React.Component {
     rows: [],
     size: 0,
     connection: {},
+    filter: '',
     blocker: '',
     errorAlert: null,
     lastPage: false,
+    activeTab: 0,
     diagramModal: {
       open: false,
       title: '',
@@ -47,6 +74,8 @@ class TaskList extends React.Component {
     },
     selectedRows: [],
     groups: [],
+    page: 0,
+    bulkAction: '',
   };
 
   timer = { ref: null };
@@ -90,7 +119,7 @@ class TaskList extends React.Component {
         const rows = normalizeRows(taskList.payload);
 
         // dispatch onSelectTask event for the first item on list
-        onSelectTask(rows[0]);
+        onSelectTask({ ...rows[0], pos: 0, groups });
 
         const columns = normalizeColumns(JSON.parse(config.columns), rows[0]);
 
@@ -194,6 +223,42 @@ class TaskList extends React.Component {
     this.setState({ errorAlert: null });
   };
 
+  setBulkAction = bulkAction => {
+    this.setState({ bulkAction });
+  };
+
+  handleChangeFilter = event => {
+    const { lazyLoading } = this.props;
+    const { rowsPerPage, sortedColumn, sortOrder } = this.state;
+    const filter = event.target.value;
+
+    this.setState({ filter });
+    if (lazyLoading) {
+      this.updateRows(0, rowsPerPage, sortedColumn, sortOrder, filter, undefined, true);
+    }
+  };
+
+  handleChangeTab = (_, activeTab) => {
+    this.setState({ activeTab });
+  };
+
+  handleChangePage = page => {
+    this.setState({
+      page,
+    });
+  };
+
+  handleRowClicked = (row, idx) => {
+    const { onSelectTask } = this.props;
+    const { page, rowsPerPage } = this.state;
+    const pos = page * (rowsPerPage || 10) + idx;
+    onSelectTask({ ...row, pos });
+  };
+
+  handleRowSelect = async selectedRows => {
+    this.setState({ selectedRows });
+  };
+
   handleError(err, blocker = '') {
     const { onError } = this.props;
     onError(err);
@@ -202,10 +267,6 @@ class TaskList extends React.Component {
       blocker,
     });
   }
-
-  handleRowSelect = async selectedRows => {
-    this.setState({ selectedRows });
-  };
 
   render() {
     const {
@@ -217,6 +278,10 @@ class TaskList extends React.Component {
       errorAlert,
       lastPage,
       diagramModal,
+      filter,
+      activeTab,
+      selectedRows,
+      bulkAction,
     } = this.state;
     const { classes, lazyLoading } = this.props;
 
@@ -235,16 +300,50 @@ class TaskList extends React.Component {
           {blocker ? (
             <ErrorComponent message={blocker} />
           ) : (
-            <Table
-              loading={loading}
-              title={i18next.t('table.title')}
-              subtitle={i18next.t('table.subtitle')}
-              columns={columns}
-              rows={rows}
-              rowsPerPageOptions={[10, 25, 50, 100]}
-              lazyLoadingProps={lazyLoadingProps}
-              onRowSelect={this.handleRowSelect}
-            />
+            <>
+              <Toolbar className={classes.toolbar}>
+                <div className={classes.title}>
+                  <Typography variant="h2">{i18next.t('table.title')}</Typography>
+                </div>
+                <div>
+                  {selectedRows && selectedRows.length ? (
+                    <FormControl className={classes.bulkDropdown}>
+                      <InputLabel id="bulk-select">With Selected:</InputLabel>
+                      <Select
+                        labelId="bulk-select"
+                        value={bulkAction}
+                        onChange={this.setBulkAction}
+                      >
+                        <MenuItem value="claim">Claim</MenuItem>
+                        <MenuItem value="unclaim">Unclaim</MenuItem>
+                        <MenuItem value="start">Start</MenuItem>
+                        <MenuItem value="pause">Pause</MenuItem>
+                      </Select>
+                    </FormControl>
+                  ) : (
+                    <SearchInput value={filter} onChange={this.handleChangeFilter} />
+                  )}
+                </div>
+              </Toolbar>
+              <Tabs
+                indicatorColor="primary"
+                textColor="primary"
+                onChange={this.handleChangeTab}
+                value={activeTab}
+              >
+                <Tab label={i18next.t('taskList.tabs.myTasks')} />
+              </Tabs>
+              <Table
+                loading={loading}
+                columns={columns}
+                rows={rows}
+                rowsPerPageOptions={[10, 25, 50, 100]}
+                lazyLoadingProps={lazyLoadingProps}
+                onRowClick={this.handleRowClicked}
+                onRowSelect={this.handleRowSelect}
+                onChangePage={this.handleChangePage}
+              />
+            </>
           )}
         </Paper>
         <SimpleDialog
@@ -255,7 +354,7 @@ class TaskList extends React.Component {
           maxWidth="xl"
           fullWidth
         />
-        <ErrorNotification message={errorAlert} onClose={this.closeNotification} />
+        <Notification type="error" message={errorAlert} onClose={this.closeNotification} />
       </ThemeProvider>
     );
   }
@@ -264,6 +363,9 @@ class TaskList extends React.Component {
 TaskList.propTypes = {
   classes: PropTypes.shape({
     paper: PropTypes.string,
+    toolbar: PropTypes.string,
+    title: PropTypes.string,
+    bulkDropdown: PropTypes.string,
   }),
   lazyLoading: PropTypes.bool,
   onError: PropTypes.func,
@@ -283,4 +385,6 @@ TaskList.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles)(TaskList);
+const TaskListContainer = withStyles(styles)(TaskList);
+
+export default withAuth(TaskListContainer, ['task-list', 'process-diagram']);

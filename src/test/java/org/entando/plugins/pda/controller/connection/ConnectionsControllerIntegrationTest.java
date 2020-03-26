@@ -24,6 +24,7 @@ import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
+import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -130,11 +131,9 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(connectionDto.getName())))
-                .andExpect(jsonPath("payload.host", is(connectionDto.getHost())))
-                .andExpect(jsonPath("payload.port", is(connectionDto.getPort())))
+                .andExpect(jsonPath("payload.url", is(connectionDto.getUrl())))
                 .andExpect(jsonPath("payload.username", is(connectionDto.getUsername())))
                 .andExpect(jsonPath("payload.password").doesNotExist())
-                .andExpect(jsonPath("payload.schema", is(connectionDto.getSchema())))
                 .andExpect(jsonPath("payload.engine", is(connectionDto.getEngine())))
                 .andExpect(jsonPath("payload.connectionTimeout", is(connectionDto.getConnectionTimeout())));
 
@@ -160,11 +159,9 @@ public class ConnectionsControllerIntegrationTest {
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(connectionDto.getName())))
-                .andExpect(jsonPath("payload.host", is(connectionDto.getHost())))
-                .andExpect(jsonPath("payload.port", is(connectionDto.getPort())))
+                .andExpect(jsonPath("payload.url", is(connectionDto.getUrl())))
                 .andExpect(jsonPath("payload.username", is(connectionDto.getUsername())))
                 .andExpect(jsonPath("payload.password").doesNotExist())
-                .andExpect(jsonPath("payload.schema", is(connectionDto.getSchema())))
                 .andExpect(jsonPath("payload.engine", is(connectionDto.getEngine())))
                 .andExpect(jsonPath("payload.connectionTimeout", is(connectionDto.getConnectionTimeout())))
                 .andExpect(jsonPath("payload.properties").doesNotExist());
@@ -211,5 +208,23 @@ public class ConnectionsControllerIntegrationTest {
                 .andDo(print()).andExpect(status().isConflict())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.message", containsString("already exists")));
+    }
+
+    @Test
+    public void shouldTestConnection() throws Exception {
+        ConnectionConfig connectionConfig = ConnectionTestHelper.generateConnectionConfig();
+
+        mockRestServiceServer.expect(ExpectedCount.once(),
+                requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config/" + connectionConfig.getName()))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
+
+        mockMvc.perform(get("/connections/{connId}/test".replace("{connId}", connectionConfig.getName())))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("errors", hasSize(0)))
+                .andExpect(jsonPath("payload", is(ConnectionService.OK)));
+
+        mockRestServiceServer.verify();
     }
 }

@@ -1,6 +1,10 @@
+import React from 'react';
+import moment from 'moment';
 import ActionCell from 'components/common/Table/custom/ActionCell';
 import CheckboxCell from 'components/common/Table/custom/CheckboxCell';
+
 import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
+import BadgeChip from 'components/common/BadgeChip';
 
 export const getType = (column, firstRow) => {
   let sortFunction = compareStrings;
@@ -11,6 +15,21 @@ export const getType = (column, firstRow) => {
   }
 
   return sortFunction;
+};
+
+const STATUS = 'status';
+const CREATED_AT = 'createdAt';
+
+const getColorByDate = date => {
+  const today = moment();
+  const momentDate = moment(date);
+  if (today.diff(momentDate, 'hours') <= 24) {
+    return 'success';
+  }
+  if (today.diff(momentDate, 'days') <= 7) {
+    return 'warning';
+  }
+  return 'error';
 };
 
 export const normalizeColumns = (columns, firstRow) => {
@@ -25,7 +44,20 @@ export const normalizeColumns = (columns, firstRow) => {
   // order columns
   normalized.sort((a, b) => (a.position > b.position ? 1 : a.position < b.position ? -1 : 0));
 
-  return normalized;
+  const withCustomCell = normalized.map(column => {
+    if (column.accessor === STATUS) {
+      return {
+        ...column,
+        // eslint-disable-next-line react/prop-types
+        customCell: ({ row }) => (
+          <BadgeChip label={row[STATUS]} value={getColorByDate(row[CREATED_AT])} />
+        ),
+      };
+    }
+    return column;
+  });
+
+  return withCustomCell;
 };
 
 export const insertRowControls = (columns, options, { openDiagram, selectTask }) => {

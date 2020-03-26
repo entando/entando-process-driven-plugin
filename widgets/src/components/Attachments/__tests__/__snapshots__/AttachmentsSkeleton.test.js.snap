@@ -1,0 +1,192 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
+<div>
+  <div>
+    <ul
+      class="MuiList-root MuiList-padding"
+    >
+      <li
+        class="MuiListItem-container"
+      >
+        <div
+          class="MuiListItem-root AttachmentsSkeleton-listItem-1 MuiListItem-gutters MuiListItem-secondaryAction"
+        >
+          <div
+            class="MuiListItemIcon-root"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
+              style="width: 20px; height: 20px;"
+            />
+          </div>
+          <div
+            class="MuiListItemText-root"
+          >
+            <span
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                style="width: 80%;"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="MuiListItemSecondaryAction-root"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
+            style="width: 20px; height: 20px;"
+          />
+        </div>
+      </li>
+      <li
+        class="MuiListItem-container"
+      >
+        <div
+          class="MuiListItem-root AttachmentsSkeleton-listItem-1 MuiListItem-gutters MuiListItem-secondaryAction"
+        >
+          <div
+            class="MuiListItemIcon-root"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
+              style="width: 20px; height: 20px;"
+            />
+          </div>
+          <div
+            class="MuiListItemText-root"
+          >
+            <span
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                style="width: 80%;"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="MuiListItemSecondaryAction-root"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
+            style="width: 20px; height: 20px;"
+          />
+        </div>
+      </li>
+      <li
+        class="MuiListItem-container"
+      >
+        <div
+          class="MuiListItem-root AttachmentsSkeleton-listItem-1 MuiListItem-gutters MuiListItem-secondaryAction"
+        >
+          <div
+            class="MuiListItemIcon-root"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
+              style="width: 20px; height: 20px;"
+            />
+          </div>
+          <div
+            class="MuiListItemText-root"
+          >
+            <span
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                style="width: 80%;"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="MuiListItemSecondaryAction-root"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
+            style="width: 20px; height: 20px;"
+          />
+        </div>
+      </li>
+      <li
+        class="MuiListItem-container"
+      >
+        <div
+          class="MuiListItem-root AttachmentsSkeleton-listItem-1 MuiListItem-gutters MuiListItem-secondaryAction"
+        >
+          <div
+            class="MuiListItemIcon-root"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
+              style="width: 20px; height: 20px;"
+            />
+          </div>
+          <div
+            class="MuiListItemText-root"
+          >
+            <span
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                style="width: 80%;"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="MuiListItemSecondaryAction-root"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
+            style="width: 20px; height: 20px;"
+          />
+        </div>
+      </li>
+      <li
+        class="MuiListItem-container"
+      >
+        <div
+          class="MuiListItem-root AttachmentsSkeleton-listItem-1 MuiListItem-gutters MuiListItem-secondaryAction"
+        >
+          <div
+            class="MuiListItemIcon-root"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
+              style="width: 20px; height: 20px;"
+            />
+          </div>
+          <div
+            class="MuiListItemText-root"
+          >
+            <span
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+            >
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
+                style="width: 80%;"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="MuiListItemSecondaryAction-root"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
+            style="width: 20px; height: 20px;"
+          />
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

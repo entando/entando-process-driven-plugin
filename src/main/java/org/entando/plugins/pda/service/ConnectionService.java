@@ -1,20 +1,26 @@
 package org.entando.plugins.pda.service;
 
+import static org.entando.web.request.PagedListRequest.DIRECTION_VALUE_DEFAULT;
+import static org.entando.web.request.PagedListRequest.SORT_VALUE_DEFAULT;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
 import org.entando.plugins.pda.core.engine.Connection;
+import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
+import org.entando.web.request.PagedListRequest;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
 public class ConnectionService {
 
+    public static final String OK = "OK";
     private final EngineFactory engineFactory;
     private final ConnectionConfigConnector connectionConfigConnector;
 
@@ -48,6 +54,18 @@ public class ConnectionService {
         Connection connection = fromConnectionDto(request);
         connectionConfigConnector.addConnectionConfig(ConnectionConfigMapper.fromConnection(connection));
         return connection;
+    }
+
+    public String test(String id) {
+        ConnectionConfig connectionConfig = connectionConfigConnector.getConnectionConfig(id);
+        Connection connection = ConnectionConfigMapper.fromConnectionConfig(connectionConfig);
+        Engine engine = engineFactory.getEngine(connection.getEngine());
+
+        PagedListRequest pageRequest = new PagedListRequest(1, 1,
+                SORT_VALUE_DEFAULT, DIRECTION_VALUE_DEFAULT);
+
+        engine.getTaskService().list(connection, null, pageRequest, null, null);
+        return OK;
     }
 
     private Connection fromConnectionDto(ConnectionDto request) {

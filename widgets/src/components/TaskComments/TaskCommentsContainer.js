@@ -6,10 +6,11 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
+import withAuth from 'components/common/auth/withAuth';
 import { getTaskComments, postTaskComment, deleteTaskComment } from 'api/pda/comments';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
-import ErrorNotification from 'components/common/ErrorNotification';
+import Notification from 'components/common/Notification';
 import WidgetBox from 'components/common/WidgetBox';
 import Comment from 'components/TaskComments/Comment';
 import AddComment from 'components/TaskComments/AddComment';
@@ -26,7 +27,7 @@ const styles = {
   },
 };
 
-class TaskCommentsContainer extends React.Component {
+class TaskComments extends React.Component {
   constructor(props) {
     super(props);
 
@@ -41,6 +42,7 @@ class TaskCommentsContainer extends React.Component {
     this.closeNotification = this.closeNotification.bind(this);
     this.handleError = this.handleError.bind(this);
     this.fetchWidgetConfigs = this.fetchWidgetConfigs.bind(this);
+    this.fetchComments = this.fetchComments.bind(this);
     this.onClickAddComment = this.onClickAddComment.bind(this);
     this.onClickRemoveComment = this.onClickRemoveComment.bind(this);
   }
@@ -49,35 +51,25 @@ class TaskCommentsContainer extends React.Component {
     this.setState({ loading: true }, async () => {
       const fetchedConfig = await this.fetchWidgetConfigs();
 
-      this.setState({ config: fetchedConfig }, async () => {
-        const { config } = this.state;
-        const { taskId } = this.props;
-
-        const connection = (config && config.knowledgeSource) || '';
-        const [, containerId] = (config && config.process && config.process.split('@')) || '';
-        const taskContainerId = `${taskId}@${containerId}`;
-
-        try {
-          const commentsResponse = await getTaskComments(connection, taskContainerId);
-          this.setState({ comments: commentsResponse.payload || [], loading: false });
-        } catch (error) {
-          this.handleError(error.message);
-        }
-      });
+      this.setState({ config: fetchedConfig }, () => this.fetchComments());
     });
   }
+
+  componentDidUpdate = prevProps => {
+    const { taskId } = this.props;
+    if (prevProps.taskId !== taskId) {
+      this.fetchComments();
+    }
+  };
 
   onClickAddComment(comment) {
     this.setState({ addingComment: true }, async () => {
       const { config, comments } = this.state;
       const { taskId, onClickAddComment } = this.props;
-
       const connection = (config && config.knowledgeSource) || '';
-      const [, containerId] = (config && config.process && config.process.split('@')) || '';
-      const taskContainerId = `${taskId}@${containerId}`;
 
       try {
-        const postResponse = await postTaskComment(connection, taskContainerId, comment);
+        const postResponse = await postTaskComment(connection, taskId, comment);
         this.setState({ comments: [...comments, postResponse.payload], addingComment: false });
       } catch (error) {
         this.handleError(error.message);
@@ -90,13 +82,10 @@ class TaskCommentsContainer extends React.Component {
   async onClickRemoveComment(id) {
     const { config, comments } = this.state;
     const { taskId, onClickRemoveComment } = this.props;
-
     const connection = (config && config.knowledgeSource) || '';
-    const [, containerId] = (config && config.process && config.process.split('@')) || '';
-    const taskContainerId = `${taskId}@${containerId}`;
 
     try {
-      await deleteTaskComment(connection, taskContainerId, id);
+      await deleteTaskComment(connection, taskId, id);
       this.setState({ comments: comments.filter(comment => comment.id !== id) });
     } catch (error) {
       this.handleError(error.message);
@@ -108,6 +97,21 @@ class TaskCommentsContainer extends React.Component {
   closeNotification = () => {
     this.setState({ errorMessage: '' });
   };
+
+  async fetchComments() {
+    const { config } = this.state;
+    const { taskId } = this.props;
+    const connection = (config && config.knowledgeSource) || '';
+
+    if (taskId && taskId.length) {
+      try {
+        const commentsResponse = await getTaskComments(connection, taskId);
+        this.setState({ comments: commentsResponse.payload || [], loading: false });
+      } catch (error) {
+        this.handleError(error.message);
+      }
+    }
+  }
 
   handleError(errorMessage) {
     this.setState({ errorMessage });
@@ -186,13 +190,13 @@ class TaskCommentsContainer extends React.Component {
             <AddComment loading={addingComment} onClickAddComment={this.onClickAddComment} />
           </WidgetBox>
         </Container>
-        <ErrorNotification message={errorMessage} onClose={this.closeNotification} />
+        <Notification type="error" message={errorMessage} onClose={this.closeNotification} />
       </ThemeProvider>
     );
   }
 }
 
-TaskCommentsContainer.propTypes = {
+TaskComments.propTypes = {
   classes: PropTypes.shape({
     divider: PropTypes.string,
     noComments: PropTypes.string,
@@ -206,7 +210,7 @@ TaskCommentsContainer.propTypes = {
   frameId: PropTypes.string,
 };
 
-TaskCommentsContainer.defaultProps = {
+TaskComments.defaultProps = {
   onClickAddComment: () => {},
   onClickRemoveComment: () => {},
   onError: () => {},
@@ -214,4 +218,11 @@ TaskCommentsContainer.defaultProps = {
   frameId: '',
 };
 
-export default withStyles(styles)(TaskCommentsContainer);
+const TaskCommentsContainer = withStyles(styles)(TaskComments);
+
+export default withAuth(TaskCommentsContainer, [
+  'task-comments-list',
+  'task-comments-get',
+  'task-comments-create',
+  'task-comments-delete',
+]);

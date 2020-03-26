@@ -3,8 +3,8 @@
 exports[`<TaskCommentsSkeleton /> renders snapshot correctly 1`] = `
 <div>
   <div>
-    <div
-      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+    <span
+      class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
       style="width: 190px; height: 20px;"
     />
     <hr
@@ -15,17 +15,17 @@ exports[`<TaskCommentsSkeleton /> renders snapshot correctly 1`] = `
     <div
       class="GeneralInformationSkeleton-comment-2"
     >
-      <div
-        class="MuiSkeleton-root MuiSkeleton-circle GeneralInformationSkeleton-avatar-3 MuiSkeleton-animate"
+      <span
+        class="MuiSkeleton-root MuiSkeleton-circle GeneralInformationSkeleton-avatar-3 MuiSkeleton-pulse"
         style="width: 40px; height: 40px;"
       />
       <div>
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentText-4 MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentText-4 MuiSkeleton-pulse"
           style="width: 90px; height: 15px;"
         />
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentInfo-5 MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentInfo-5 MuiSkeleton-pulse"
           style="width: 190px; height: 12px;"
         />
       </div>
@@ -33,17 +33,17 @@ exports[`<TaskCommentsSkeleton /> renders snapshot correctly 1`] = `
     <div
       class="GeneralInformationSkeleton-comment-2"
     >
-      <div
-        class="MuiSkeleton-root MuiSkeleton-circle GeneralInformationSkeleton-avatar-3 MuiSkeleton-animate"
+      <span
+        class="MuiSkeleton-root MuiSkeleton-circle GeneralInformationSkeleton-avatar-3 MuiSkeleton-pulse"
         style="width: 40px; height: 40px;"
       />
       <div>
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentText-4 MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentText-4 MuiSkeleton-pulse"
           style="width: 220px; height: 15px;"
         />
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentInfo-5 MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentInfo-5 MuiSkeleton-pulse"
           style="width: 190px; height: 12px;"
         />
       </div>
@@ -51,17 +51,17 @@ exports[`<TaskCommentsSkeleton /> renders snapshot correctly 1`] = `
     <div
       class="GeneralInformationSkeleton-comment-2"
     >
-      <div
-        class="MuiSkeleton-root MuiSkeleton-circle GeneralInformationSkeleton-avatar-3 MuiSkeleton-animate"
+      <span
+        class="MuiSkeleton-root MuiSkeleton-circle GeneralInformationSkeleton-avatar-3 MuiSkeleton-pulse"
         style="width: 40px; height: 40px;"
       />
       <div>
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentText-4 MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentText-4 MuiSkeleton-pulse"
           style="width: 320px; height: 15px;"
         />
-        <div
-          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentInfo-5 MuiSkeleton-animate"
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect GeneralInformationSkeleton-commentInfo-5 MuiSkeleton-pulse"
           style="width: 190px; height: 12px;"
         />
       </div>
@@ -69,8 +69,8 @@ exports[`<TaskCommentsSkeleton /> renders snapshot correctly 1`] = `
     <div
       class="GeneralInformationSkeleton-addComment-6"
     >
-      <div
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+      <span
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
         style="width: 50px;"
       />
       <hr
@@ -80,8 +80,8 @@ exports[`<TaskCommentsSkeleton /> renders snapshot correctly 1`] = `
     <div
       class="GeneralInformationSkeleton-controls-8"
     >
-      <div
-        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-animate"
+      <span
+        class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
         style="width: 70px; height: 30px;"
       />
     </div>

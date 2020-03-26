@@ -4,7 +4,9 @@
     "submit": "Submit",
     "add": "Add",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "edit": "Modificare",
+    "delete": "Elimina"
   },
   "summary": {
     "frequency": {
@@ -37,6 +39,11 @@
   },
   "taskList": {
     "diagramModalTitle": "Processi",
+    "tabs": {
+      "myWork": "IL MIO LAVORO",
+      "myTasks": "I MIEI COMPITI",
+      "myCases": "I MIEI CASI"
+    },
     "actionButtons": {
       "complete": "Completare",
       "claim": "Richiesta",
@@ -46,7 +53,7 @@
     "emptyList": "Non hai attività attive, assegnate o complete"
   },
   "table": {
-    "title": "Elenco attività",
+    "title": "Posta in arrivo intelligente",
     "subtitle": "Elenco delle attività",
     "searchPlaceholder": "Cerca...",
     "rowsPerPage": "Righe per pagina:",
@@ -54,7 +61,8 @@
   },
   "taskDetails": {
     "overview": {
-      "title": "Task details",
+      "title": "Task Overview",
+      "detailsTitle": "Task details",
       "previous": "Previous",
       "next": "Next"
     },
@@ -91,11 +99,15 @@
     }
   },
   "messages": {
+    "success": {
+      "saved": "Salvato con successo."
+    },
     "notify": {
       "submitting": "Invio..."
     },
     "warnings": {
-      "noData": "Non ci sono dati da visualizzare"
+      "noData": "Non ci sono dati da visualizzare",
+      "noFormSchema": "Form schema was not provided"
     },
     "errors": {
       "widgetConfig": "Nessuna configurazione trovata per questo widget",

@@ -4,18 +4,11 @@ import React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
 import MuiTable from '@material-ui/core/Table';
 import i18next from 'i18next';
 
 import columnType from 'types/columnType';
 
-import SearchInput from 'components/common/SearchInput';
 import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
 import TablePagination from 'components/common/Table/TablePagination';
 import EmptyRow from 'components/common/Table/EmptyRow';
@@ -35,21 +28,6 @@ export const labelDisplayedRows = ({ from, to, count }) =>
 export const swapOrder = order => (order === 'asc' ? 'desc' : 'asc');
 
 const styles = {
-  toolbar: {
-    justifyContent: 'space-between',
-    padding: '16px 16px 8px 16px',
-    minHeight: 'unset',
-  },
-  bulkDropdown: {
-    width: 200,
-    top: -5,
-  },
-  noSubtitleToolbar: {
-    padding: '8px 16px',
-  },
-  title: {
-    textAlign: 'left',
-  },
   hideShadows: {
     boxShadow: 'none',
   },
@@ -68,13 +46,10 @@ class Table extends React.Component {
       sortedColumn: props.initialSortedColumn,
       sortFunction:
         props.initialSortedColumn &&
-        props.columns.find(column => {
-          return column.accessor === props.initialSortedColumn;
-        }).sortFunction,
+        props.columns.find(column => column.accessor === props.initialSortedColumn).sortFunction,
       sortOrder: props.initialSortOrder,
       selected: [],
       filter: '',
-      bulkAction: '',
     };
     this.handleRowSelectAll = this.handleRowSelectAll.bind(this);
     this.handleRowSelectNone = this.handleRowSelectNone.bind(this);
@@ -109,7 +84,7 @@ class Table extends React.Component {
   };
 
   handleChangeRowsPerPage = event => {
-    const { lazyLoadingProps } = this.props;
+    const { lazyLoadingProps, onChangePage } = this.props;
     const { sortedColumn, sortOrder, filter } = this.state;
     const rowsPerPage = event.target.value;
 
@@ -120,34 +95,20 @@ class Table extends React.Component {
     } else {
       this.setState({ page: 0, rowsPerPage });
     }
+
+    onChangePage(0);
   };
 
   handleChangePage = page => {
-    const { lazyLoadingProps } = this.props;
+    const { lazyLoadingProps, onChangePage } = this.props;
     const { rowsPerPage, sortedColumn, sortOrder, filter } = this.state;
 
     this.setState({ page });
+
+    onChangePage(page);
+
     if (lazyLoadingProps && lazyLoadingProps.onChange) {
       lazyLoadingProps.onChange(page, rowsPerPage, sortedColumn, sortOrder, filter);
-    }
-  };
-
-  handleChangeFilter = event => {
-    const { lazyLoadingProps } = this.props;
-    const { rowsPerPage, sortedColumn, sortOrder } = this.state;
-    const filter = event.target.value;
-
-    this.setState({ filter });
-    if (lazyLoadingProps && lazyLoadingProps.onChange) {
-      lazyLoadingProps.onChange(
-        0,
-        rowsPerPage,
-        sortedColumn,
-        sortOrder,
-        filter,
-        () => this.setState({ page: 0, filter }),
-        true
-      );
     }
   };
 
@@ -178,22 +139,17 @@ class Table extends React.Component {
     if (onRowSelect) onRowSelect(selected);
   };
 
-  setBulkAction = bulkAction => {
-    this.setState({ bulkAction });
-  };
-
   render() {
     const {
       columns,
       rows = [],
       rowAccessor,
       rowsPerPageOptions,
-      title,
-      subtitle,
       hidePagination,
       classes,
       lazyLoadingProps,
       loading,
+      onRowClick,
     } = this.props;
     const {
       rowsPerPage,
@@ -203,11 +159,9 @@ class Table extends React.Component {
       sortFunction,
       filter,
       selected,
-      bulkAction,
     } = this.state;
 
     const isLazy = lazyLoadingProps !== undefined;
-    const hasHeader = title || subtitle;
 
     let displayRows = rows;
     let rowsSize = rows.length;
@@ -258,31 +212,8 @@ class Table extends React.Component {
           onToggleItem: this.handleRowToggleItem,
         }}
       >
-        {hasHeader && (
-          <Toolbar className={classNames(classes.toolbar, !subtitle && classes.noSubtitleToolbar)}>
-            <div className={classes.title}>
-              <Typography variant="h5">{title}</Typography>
-              <Typography variant="subtitle2">{subtitle}</Typography>
-            </div>
-            <div>
-              {selected && selected.length ? (
-                <FormControl className={classes.bulkDropdown}>
-                  <InputLabel id="bulk-select">With Selected:</InputLabel>
-                  <Select labelId="bulk-select" value={bulkAction} onChange={this.setBulkAction}>
-                    <MenuItem value="claim">Claim</MenuItem>
-                    <MenuItem value="unclaim">Unclaim</MenuItem>
-                    <MenuItem value="start">Start</MenuItem>
-                    <MenuItem value="pause">Pause</MenuItem>
-                  </Select>
-                </FormControl>
-              ) : (
-                <SearchInput value={filter} onChange={this.handleChangeFilter} />
-              )}
-            </div>
-          </Toolbar>
-        )}
         <div className={classes.tableWrapper}>
-          <MuiTable className={classNames(!hasHeader && hidePagination && classes.hideShadows)}>
+          <MuiTable className={classNames(hidePagination && classes.hideShadows)}>
             <InternalTableHead
               columns={columns}
               createSortHandler={this.createSortHandler}
@@ -295,6 +226,7 @@ class Table extends React.Component {
                 rows={displayRows}
                 rowAccessor={rowAccessor}
                 emptyRows={rowsPerPage - displayRows.length}
+                onRowClick={onRowClick}
               />
             ) : (
               <EmptyRow colspan={columns.length} height={rowsPerPage * 55} />
@@ -339,12 +271,8 @@ class Table extends React.Component {
 
 Table.propTypes = {
   classes: PropTypes.shape({
-    toolbar: PropTypes.string,
-    noSubtitleToolbar: PropTypes.string,
-    title: PropTypes.string,
     hideShadows: PropTypes.string,
     tableWrapper: PropTypes.string,
-    bulkDropdown: PropTypes.string,
   }),
   lazyLoadingProps: PropTypes.shape({
     onChange: PropTypes.func,
@@ -360,9 +288,9 @@ Table.propTypes = {
   initialSortOrder: PropTypes.string,
   rows: PropTypes.arrayOf(PropTypes.shape({})),
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
   onRowSelect: PropTypes.func,
+  onRowClick: PropTypes.func,
+  onChangePage: PropTypes.func,
 };
 
 Table.defaultProps = {
@@ -370,8 +298,6 @@ Table.defaultProps = {
   loading: false,
   lazyLoadingProps: undefined,
   rowsPerPageOptions: [5, 10, 15],
-  title: '',
-  subtitle: '',
   hidePagination: false,
   rowAccessor: 'id',
   initialSortedColumn: '',
@@ -379,6 +305,8 @@ Table.defaultProps = {
   rows: [],
   columns: [],
   onRowSelect: null,
+  onRowClick: () => {},
+  onChangePage: () => {},
 };
 
 export default withStyles(styles)(Table);

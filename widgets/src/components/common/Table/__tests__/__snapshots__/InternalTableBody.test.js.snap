@@ -8,7 +8,6 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
     >
       <tr
         class="MuiTableRow-root StyledTableRowHover-root-2 MuiTableRow-hover"
-        role="checkbox"
         style="height: 55px; cursor: initial;"
       >
         <td
@@ -37,7 +36,15 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
         <td
           class="MuiTableCell-root StyledTableCell-root-8 MuiTableCell-body MuiTableCell-sizeSmall"
         >
-          RESERVED
+          <div
+            class="MuiChip-root makeStyles-root-21 makeStyles-root-22"
+          >
+            <span
+              class="MuiChip-label"
+            >
+              RESERVED
+            </span>
+          </div>
         </td>
         <td
           class="MuiTableCell-root StyledTableCell-root-8 MuiTableCell-body MuiTableCell-sizeSmall"
@@ -113,7 +120,6 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
       </tr>
       <tr
         class="MuiTableRow-root StyledTableRowHover-root-2 MuiTableRow-hover"
-        role="checkbox"
         style="height: 55px; cursor: initial;"
       >
         <td
@@ -142,7 +148,15 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
         <td
           class="MuiTableCell-root StyledTableCell-root-8 MuiTableCell-body MuiTableCell-sizeSmall"
         >
-          CREATED
+          <div
+            class="MuiChip-root makeStyles-root-21 makeStyles-root-53"
+          >
+            <span
+              class="MuiChip-label"
+            >
+              CREATED
+            </span>
+          </div>
         </td>
         <td
           class="MuiTableCell-root StyledTableCell-root-8 MuiTableCell-body MuiTableCell-sizeSmall"
@@ -230,215 +244,229 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
       class="MuiTableBody-root"
     >
       <tr
-        class="MuiTableRow-root StyledTableRowHover-root-22 MuiTableRow-hover"
-        role="checkbox"
+        class="MuiTableRow-root StyledTableRowHover-root-55 MuiTableRow-hover"
         style="height: 55px; cursor: initial;"
       >
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           294@mortgage-process_1.0.0-SNAPSHOT
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           Correct Data
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           pamAdmin
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           2020-01-07T04:17:51Z
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
-          RESERVED
+          <div
+            class="MuiChip-root makeStyles-root-74 makeStyles-root-75"
+          >
+            <span
+              class="MuiChip-label"
+            >
+              RESERVED
+            </span>
+          </div>
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           pamAdmin
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           0
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           2020-01-07T04:17:51Z
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           false
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           160
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           Mortgage_Process.MortgageApprovalProcess
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           -1
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
       </tr>
       <tr
-        class="MuiTableRow-root StyledTableRowHover-root-22 MuiTableRow-hover"
-        role="checkbox"
+        class="MuiTableRow-root StyledTableRowHover-root-55 MuiTableRow-hover"
         style="height: 55px; cursor: initial;"
       >
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           293@evaluation_1.0.0-SNAPSHOT
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           PM Evaluation
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           pamAdmin
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           2019-11-14T09:26:30Z
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
-          CREATED
+          <div
+            class="MuiChip-root makeStyles-root-74 makeStyles-root-106"
+          >
+            <span
+              class="MuiChip-label"
+            >
+              CREATED
+            </span>
+          </div>
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           You need to evaluate Alessio.
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           0
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           You need to evaluate Alessio.
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           2019-11-14T09:26:30Z
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           false
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           159
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           evaluation
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           -1
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-28 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
       </tr>
       <tr
