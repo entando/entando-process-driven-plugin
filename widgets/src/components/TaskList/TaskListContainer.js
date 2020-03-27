@@ -13,6 +13,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import TextField from '@material-ui/core/TextField';
 
 import { DOMAINS, LOCAL } from 'api/constants';
 import { getTasks, TASK_BULK_ACTIONS, putTasksBulkAction } from 'api/pda/tasks';
@@ -32,6 +33,7 @@ import Notification from 'components/common/Notification';
 import ErrorComponent from 'components/common/ErrorComponent';
 import Table from 'components/common/Table/Table';
 import SimpleDialog from 'components/common/SimpleDialog';
+import ConfirmDialog from 'components/common/ConfirmDialog';
 import theme from 'theme';
 
 const styles = {
@@ -77,6 +79,10 @@ class TaskList extends React.Component {
     groups: [],
     page: 0,
     bulkAction: '',
+    userDialog: {
+      open: false,
+      value: '',
+    },
   };
 
   timer = { ref: null };
@@ -224,12 +230,12 @@ class TaskList extends React.Component {
     this.setState({ errorAlert: null });
   };
 
-  handleChangeBulkAction = ({ target: { value } }) => {
+  changeBulkAction = (value, user) => {
     const { connection, selectedRows, page } = this.state;
     const { lazyLoading } = this.props;
-    this.setState({ bulkAction: value }, async () => {
+    this.setState({ bulkAction: value, loading: true }, async () => {
       try {
-        await putTasksBulkAction(connection, value, selectedRows, 'pamAdmin');
+        await putTasksBulkAction(connection, value, selectedRows, user);
         this.setState({ bulkAction: '', selectedRows: [] }, () =>
           this.updateRows(lazyLoading ? page : undefined)
         );
@@ -237,6 +243,32 @@ class TaskList extends React.Component {
         this.handleError(error);
       }
     });
+  };
+
+  toggleUserDialog = () => {
+    this.setState(state => ({
+      userDialog: {
+        value: '',
+        open: !state.userDialog.open,
+      },
+    }));
+  };
+
+  handleChangeUser = ({ target: { value } }) => {
+    this.setState(state => ({
+      userDialog: {
+        ...state.userDialog,
+        value,
+      },
+    }));
+  };
+
+  handleChangeBulkAction = ({ target: { value } }) => {
+    if (value === TASK_BULK_ACTIONS[0]) {
+      this.toggleUserDialog();
+    } else {
+      this.changeBulkAction(value);
+    }
   };
 
   handleChangeFilter = event => {
@@ -295,6 +327,7 @@ class TaskList extends React.Component {
     this.setState({
       errorAlert: err.toString(),
       blocker,
+      loading: false,
     });
   }
 
@@ -312,6 +345,7 @@ class TaskList extends React.Component {
       activeTab,
       selectedRows,
       bulkAction,
+      userDialog,
     } = this.state;
     const { classes, lazyLoading, rowAccessor } = this.props;
 
@@ -340,7 +374,9 @@ class TaskList extends React.Component {
                 <div>
                   {selectedRows && selectedRows.length ? (
                     <FormControl className={classes.bulkDropdown}>
-                      <InputLabel id="bulk-select">With Selected:</InputLabel>
+                      <InputLabel id="bulk-select">
+                        {`${i18next.t('taskList.withSelected')}:`}
+                      </InputLabel>
                       <Select
                         labelId="bulk-select"
                         value={bulkAction}
@@ -395,6 +431,23 @@ class TaskList extends React.Component {
           onClose={this.onCloseDiagramModal}
           maxWidth="xl"
           fullWidth
+        />
+        <ConfirmDialog
+          open={userDialog.open}
+          title={i18next.t('taskList.selectAssign')}
+          message={
+            <TextField
+              type="text"
+              value={userDialog.value}
+              onChange={this.handleChangeUser}
+              fullWidth
+            />
+          }
+          onClose={this.toggleUserDialog}
+          onConfirm={() => {
+            this.changeBulkAction(TASK_BULK_ACTIONS[0], userDialog.value);
+            this.toggleUserDialog();
+          }}
         />
         <Notification type="error" message={errorAlert} onClose={this.closeNotification} />
       </ThemeProvider>
