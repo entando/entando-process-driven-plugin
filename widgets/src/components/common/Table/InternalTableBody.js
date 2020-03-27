@@ -32,8 +32,8 @@ const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, onRowClick }) 
               style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
               hover
               selected={selectedRows.has(row[rowAccessor])}
-              onClick={() => {
-                onRowClick(row, idx);
+              onClick={e => {
+                onRowClick(row, idx, e);
               }}
             >
               {columns.map(column => (

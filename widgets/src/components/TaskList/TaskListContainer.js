@@ -292,11 +292,13 @@ class TaskList extends React.Component {
     });
   };
 
-  handleRowClicked = (row, idx) => {
+  handleRowClicked = (row, idx, e) => {
     const { onSelectTask } = this.props;
     const { page, rowsPerPage } = this.state;
     const pos = page * (rowsPerPage || 10) + idx;
-    onSelectTask({ ...row, pos });
+    if (e.target.type !== 'checkbox') {
+      onSelectTask({ ...row, pos });
+    }
   };
 
   handleRowSelectAll = () => {
