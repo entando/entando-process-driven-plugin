@@ -11,12 +11,14 @@ import static org.springframework.http.MediaType.APPLICATION_OCTET_STREAM_VALUE;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;
+import javax.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.keycloak.security.AuthenticatedUser;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.model.Attachment;
+import org.entando.plugins.pda.core.model.File;
 import org.entando.plugins.pda.core.request.CreateAttachmentRequest;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
@@ -99,11 +101,15 @@ public class TaskAttachmentController {
             value = "DOWNLOAD Task Attachment")
     @GetMapping(value = "/{attachmentId}/download", produces = APPLICATION_OCTET_STREAM_VALUE)
     public @ResponseBody byte[] downloadTaskAttachment(@PathVariable final String connId,
-            @PathVariable final String taskId, @PathVariable final String attachmentId, AuthenticatedUser user) {
+            @PathVariable final String taskId, @PathVariable final String attachmentId, AuthenticatedUser user,
+            HttpServletResponse response) {
         log.debug("Returning attachment file {} from task {}", attachmentId, taskId);
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
-        return engine.getTaskAttachmentService()
+        File file = engine.getTaskAttachmentService()
                 .download(connection, user, taskId, attachmentId);
+
+        response.setHeader("Content-Disposition", "attachment; filename=" + file.getName());
+        return file.getData();
     }
 }

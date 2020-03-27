@@ -24,6 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -199,10 +200,12 @@ public class TaskAttachmentControllerIntegrationTest {
                 .replace("{attachmentId}", TASK_ATTACHMENT_ID_1_2)))
                 .andDo(print())
                 .andExpect(status().isOk())
+                .andExpect(header().string("Content-Disposition",
+                        String.format("attachment; filename=%s", expected.getName())))
                 .andReturn();
 
         byte[] file = result.getResponse().getContentAsByteArray();
 
-        assertThat(file).isEqualTo(expected.getData().getBytes());
+        assertThat(file).isEqualTo(expected.getData());
     }
 }
