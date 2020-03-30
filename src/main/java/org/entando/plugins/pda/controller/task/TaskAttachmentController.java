@@ -110,6 +110,6 @@ public class TaskAttachmentController {
                 .download(connection, user, taskId, attachmentId);
 
         response.setHeader("Content-Disposition", "attachment; filename=" + file.getName());
-        return file.getData();
+        return file.getDataAsByteArray();
     }
 }
