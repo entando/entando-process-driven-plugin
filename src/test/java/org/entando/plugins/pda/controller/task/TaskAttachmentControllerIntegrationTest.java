@@ -206,6 +206,6 @@ public class TaskAttachmentControllerIntegrationTest {
 
         byte[] file = result.getResponse().getContentAsByteArray();
 
-        assertThat(file).isEqualTo(expected.getData());
+        assertThat(file).isEqualTo(expected.getDataAsByteArray());
     }
 }

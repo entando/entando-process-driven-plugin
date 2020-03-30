@@ -38,6 +38,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "TaskAttachment")
 @RequestMapping(path = "/connections/{connId}/tasks/{taskId}/attachments")
 @RequiredArgsConstructor
+@SuppressWarnings("PMD.ExcessiveImports")
 public class TaskAttachmentController {
 
     private final ConnectionService connectionService;
