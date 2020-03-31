@@ -7,10 +7,6 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import SVG from 'react-inlinesvg';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import TextField from '@material-ui/core/TextField';
@@ -22,6 +18,7 @@ import { getPageWidget } from 'api/app-builder/pages';
 import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
 import utils from 'utils';
 import withAuth from 'components/common/auth/withAuth';
+import DropDownButton from 'components/common/DropDownButton';
 
 import {
   normalizeColumns,
@@ -56,6 +53,13 @@ const styles = {
     minHeight: 459,
     position: 'relative',
   },
+  tabs: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  dropdown: {
+    padding: 8,
+  },
 };
 
 class TaskList extends React.Component {
@@ -78,7 +82,6 @@ class TaskList extends React.Component {
     selectedRows: [],
     groups: [],
     page: 0,
-    bulkAction: '',
     userDialog: {
       open: false,
       value: '',
@@ -233,12 +236,10 @@ class TaskList extends React.Component {
   changeBulkAction = (value, user) => {
     const { connection, selectedRows, page } = this.state;
     const { lazyLoading } = this.props;
-    this.setState({ bulkAction: value, loading: true }, async () => {
+    this.setState({ loading: true }, async () => {
       try {
         await putTasksBulkAction(connection, value, selectedRows, user);
-        this.setState({ bulkAction: '', selectedRows: [] }, () =>
-          this.updateRows(lazyLoading ? page : undefined)
-        );
+        this.setState({ selectedRows: [] }, () => this.updateRows(lazyLoading ? page : undefined));
       } catch (error) {
         this.handleError(error);
       }
@@ -263,11 +264,12 @@ class TaskList extends React.Component {
     }));
   };
 
-  handleChangeBulkAction = ({ target: { value } }) => {
-    if (value === TASK_BULK_ACTIONS[0]) {
+  handleClickBulkAction = value => {
+    const val = value.toLowerCase();
+    if (val === TASK_BULK_ACTIONS[0]) {
       this.toggleUserDialog();
     } else {
-      this.changeBulkAction(value);
+      this.changeBulkAction(val);
     }
   };
 
@@ -346,7 +348,6 @@ class TaskList extends React.Component {
       filter,
       activeTab,
       selectedRows,
-      bulkAction,
       userDialog,
     } = this.state;
     const { classes, lazyLoading, rowAccessor } = this.props;
@@ -373,37 +374,26 @@ class TaskList extends React.Component {
                 <div className={classes.title}>
                   <Typography variant="h2">{i18next.t('table.title')}</Typography>
                 </div>
-                <div>
-                  {selectedRows && selectedRows.length ? (
-                    <FormControl className={classes.bulkDropdown}>
-                      <InputLabel id="bulk-select">
-                        {`${i18next.t('taskList.withSelected')}:`}
-                      </InputLabel>
-                      <Select
-                        labelId="bulk-select"
-                        value={bulkAction}
-                        onChange={this.handleChangeBulkAction}
-                      >
-                        {TASK_BULK_ACTIONS.map(action => (
-                          <MenuItem value={action} key={action}>
-                            {`${action.charAt(0).toUpperCase()}${action.slice(1)}`}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  ) : (
-                    <SearchInput value={filter} onChange={this.handleChangeFilter} />
-                  )}
-                </div>
+                <SearchInput value={filter} onChange={this.handleChangeFilter} />
               </Toolbar>
-              <Tabs
-                indicatorColor="primary"
-                textColor="primary"
-                onChange={this.handleChangeTab}
-                value={activeTab}
-              >
-                <Tab label={i18next.t('taskList.tabs.myTasks')} />
-              </Tabs>
+              <div className={classes.tabs}>
+                <Tabs
+                  indicatorColor="primary"
+                  textColor="primary"
+                  onChange={this.handleChangeTab}
+                  value={activeTab}
+                >
+                  <Tab label={i18next.t('taskList.tabs.myTasks')} />
+                </Tabs>
+                <div className={classes.dropdown}>
+                  <DropDownButton
+                    options={TASK_BULK_ACTIONS.map(
+                      action => `${action.charAt(0).toUpperCase()}${action.slice(1)}`
+                    )}
+                    onClick={this.handleClickBulkAction}
+                  />
+                </div>
+              </div>
               <TableBulkSelectContext.Provider
                 value={{
                   selectedRows: selectedRowsSet,
@@ -463,6 +453,8 @@ TaskList.propTypes = {
     toolbar: PropTypes.string,
     title: PropTypes.string,
     bulkDropdown: PropTypes.string,
+    tabs: PropTypes.string,
+    dropdown: PropTypes.string,
   }),
   lazyLoading: PropTypes.bool,
   onError: PropTypes.func,

@@ -73,8 +73,8 @@ export const insertRowControls = (columns, options, { openDiagram, selectTask })
     styles: {
       position: 'sticky',
       left: 0,
+      zIndex: 10,
       width: 20,
-      zIndex: 100,
       borderRight: '1px solid #eee',
       paddingRight: 16,
       textAlign: 'center',
@@ -89,7 +89,6 @@ export const insertRowControls = (columns, options, { openDiagram, selectTask })
       position: 'sticky',
       right: 0,
       width: 20,
-      zIndex: 100,
       borderLeft: '1px solid #eee',
       paddingLeft: 16,
       textAlign: 'center',
