@@ -167,7 +167,7 @@ class AttachmentsContainer extends React.Component {
                   key={item.id}
                   item={item}
                   onDelete={this.handleDelete}
-                  downloadLink={`/connections/${connection}/tasks/${taskId}/attachments`}
+                  downloadLink={`${DOMAINS.PDA}/connections/${connection}/tasks/${taskId}/attachments`}
                 />
               ))}
             </List>
