@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://entando.org/schemas/pda-form.json",
+  "title": "Qualify-taskform.frm",
+  "type": "object",
+  "required": [],
+  "properties": {
+    "application": {
+      "title": "ApplicationMortgage",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "mortgageamount": {
+          "type": "integer",
+          "title": "Mortgage amount",
+          "description": "Mortgage amount"
+        },
+        "downpayment": {
+          "type": "integer",
+          "title": "Down Payment",
+          "description": "Down Payment",
+          "readOnly": true
+        },
+        "amortization": {
+          "type": "integer",
+          "title": "Years of amortization",
+          "description": "Years of amortization",
+          "readOnly": true
+        },
+        "applicant": {
+          "title": "Applicant",
+          "type": "object",
+          "required": [],
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Name",
+              "description": "Name",
+              "maxLength": 100
+            },
+            "annualincome": {
+              "type": "integer",
+              "title": "Annual Income",
+              "description": "Annual Income"
+            },
+            "ssn": {
+              "type": "integer",
+              "title": "SSN",
+              "description": "SSN"
+            }
+          }
+        },
+        "property": {
+          "title": "Property",
+          "type": "object",
+          "required": [],
+          "properties": {
+            "age": {
+              "type": "integer",
+              "title": "Age of property",
+              "description": "Age of property"
+            },
+            "address": {
+              "type": "string",
+              "title": "Address of property",
+              "description": "Address of property",
+              "maxLength": 100
+            },
+            "locale": {
+              "type": "string",
+              "title": "Locale",
+              "description": "Locale",
+              "maxLength": 100
+            },
+            "saleprice": {
+              "type": "integer",
+              "title": "Sale Price",
+              "description": "Sale Price"
+            }
+          }
+        }
+      }
+    },
+    "inlimit": {
+      "type": "boolean",
+      "title": "Is mortgage application in limit?"
+    }
+  }
+}
