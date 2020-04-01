@@ -117,36 +117,6 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
         <td
           class="MuiTableCell-root StyledTableCell-root-8 MuiTableCell-body MuiTableCell-sizeSmall"
         />
-        <td
-          class="MuiTableCell-root StyledTableCell-root-8 MuiTableCell-body MuiTableCell-sizeSmall"
-          style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
-        >
-          <button
-            aria-haspopup="true"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
-                focusable="false"
-                role="presentation"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </td>
       </tr>
       <tr
         class="MuiTableRow-root StyledTableRowHover-root-2 MuiTableRow-hover"
@@ -179,7 +149,7 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
           class="MuiTableCell-root StyledTableCell-root-8 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           <div
-            class="MuiChip-root makeStyles-root-21 makeStyles-root-78"
+            class="MuiChip-root makeStyles-root-21 makeStyles-root-53"
           >
             <span
               class="MuiChip-label"
@@ -261,36 +231,6 @@ exports[`<InternalTableBody /> renders snapshot correctly 1`] = `
         <td
           class="MuiTableCell-root StyledTableCell-root-8 MuiTableCell-body MuiTableCell-sizeSmall"
         />
-        <td
-          class="MuiTableCell-root StyledTableCell-root-8 MuiTableCell-body MuiTableCell-sizeSmall"
-          style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
-        >
-          <button
-            aria-haspopup="true"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
-                focusable="false"
-                role="presentation"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </td>
       </tr>
     </tbody>
   </table>
@@ -304,37 +244,37 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
       class="MuiTableBody-root"
     >
       <tr
-        class="MuiTableRow-root StyledTableRowHover-root-90 MuiTableRow-hover"
+        class="MuiTableRow-root StyledTableRowHover-root-55 MuiTableRow-hover"
         style="height: 55px; cursor: initial;"
       >
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           294@mortgage-process_1.0.0-SNAPSHOT
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           Correct Data
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           pamAdmin
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           2020-01-07T04:17:51Z
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           <div
-            class="MuiChip-root makeStyles-root-109 makeStyles-root-110"
+            class="MuiChip-root makeStyles-root-74 makeStyles-root-75"
           >
             <span
               class="MuiChip-label"
@@ -344,139 +284,109 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
           </div>
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           pamAdmin
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           0
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           2020-01-07T04:17:51Z
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           false
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           160
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           Mortgage_Process.MortgageApprovalProcess
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           -1
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
-        <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
-          style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
-        >
-          <button
-            aria-haspopup="true"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
-                focusable="false"
-                role="presentation"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </td>
       </tr>
       <tr
-        class="MuiTableRow-root StyledTableRowHover-root-90 MuiTableRow-hover"
+        class="MuiTableRow-root StyledTableRowHover-root-55 MuiTableRow-hover"
         style="height: 55px; cursor: initial;"
       >
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           293@evaluation_1.0.0-SNAPSHOT
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           PM Evaluation
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           pamAdmin
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           2019-11-14T09:26:30Z
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           <div
-            class="MuiChip-root makeStyles-root-109 makeStyles-root-166"
+            class="MuiChip-root makeStyles-root-74 makeStyles-root-106"
           >
             <span
               class="MuiChip-label"
@@ -486,112 +396,82 @@ exports[`<InternalTableBody /> renders snapshot correctly with emptyRows 1`] = `
           </div>
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           You need to evaluate Alessio.
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           0
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           You need to evaluate Alessio.
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           2019-11-14T09:26:30Z
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           false
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           159
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           evaluation
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         >
           -1
         </td>
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
         <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
+          class="MuiTableCell-root StyledTableCell-root-61 MuiTableCell-body MuiTableCell-sizeSmall"
         />
-        <td
-          class="MuiTableCell-root StyledTableCell-root-96 MuiTableCell-body MuiTableCell-sizeSmall"
-          style="position: sticky; right: 0px; width: 20px; z-index: 100; border-left: 1px solid #eee; padding-left: 16px; text-align: center;"
-        >
-          <button
-            aria-haspopup="true"
-            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
-                focusable="false"
-                role="presentation"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </td>
       </tr>
       <tr
         class="MuiTableRow-root"
-        style="height: 165px;"
+        style="height: 165px; background: white;"
       >
         <td
           class="MuiTableCell-root MuiTableCell-body"

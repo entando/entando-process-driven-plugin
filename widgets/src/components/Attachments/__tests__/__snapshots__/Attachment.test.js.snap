@@ -27,7 +27,7 @@ exports[`<Attachment /> renders snapshot correctly 1`] = `
         class="MuiListItemText-root Attachment-truncate-2"
       >
         <span
-          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
         >
           <a
             class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"

@@ -50,7 +50,9 @@
       "diagram": "Diagram",
       "view": "View"
     },
-    "emptyList": "You don't have any active, assigned or complete tasks"
+    "emptyList": "You don't have any active, assigned or complete tasks",
+    "selectAssign": "Inform the user to assign the selected tasks",
+    "withSelected": "With Selected"
   },
   "table": {
     "title": "Smart Inbox",

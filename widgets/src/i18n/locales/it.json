@@ -50,7 +50,9 @@
       "diagram": "Diagramma",
       "view": "Vedere"
     },
-    "emptyList": "Non hai attività attive, assegnate o complete"
+    "emptyList": "Non hai attività attive, assegnate o complete",
+    "selectAssign": "Informa l'utente ad assegnare le attività selezionate",
+    "withSelected": "Con selezionato"
   },
   "table": {
     "title": "Posta in arrivo intelligente",
