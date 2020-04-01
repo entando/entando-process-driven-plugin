@@ -7,6 +7,7 @@ import COLUMNS from 'mocks/pda/columns';
 import MOCKED_GET_TASK_RESPONSE from 'mocks/taskDetails/getTask';
 import MOCKED_GET_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/getFormSchema';
 import MOCKED_POST_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/postFormData';
+import MOCKED_BULK_ACTION_RESPONSE from 'mocks/pda/bulkActions';
 
 export const getTasks = async (
   { connection, groups },
@@ -70,3 +71,26 @@ export const postTaskForm = async (connection, taskId, body) =>
     mockResponse: MOCKED_POST_TASK_FORM_RESPONSE,
     useAuthentication: true,
   });
+
+export const TASK_BULK_ACTIONS = [
+  'assign',
+  'claim',
+  'complete',
+  'pause',
+  'resume',
+  'start',
+  'unclaim',
+];
+
+export const putTasksBulkAction = async (connection, action, taskIds, assignee) => {
+  const subUri = action === 'assign' && assignee ? `/${assignee}` : '';
+  const uri = `/connections/${connection}/bulk/tasks/${action}${subUri}`;
+  return makeRequest({
+    domain: DOMAINS.PDA,
+    uri,
+    method: METHODS.PUT,
+    body: JSON.stringify(taskIds),
+    mockResponse: MOCKED_BULK_ACTION_RESPONSE,
+    useAuthentication: true,
+  });
+};

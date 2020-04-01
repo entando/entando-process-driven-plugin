@@ -5,6 +5,8 @@ import TableCell from '@material-ui/core/TableCell';
 import columnType from 'types/columnType';
 import TableSortLabel from 'components/common/Table/TableSortLabel';
 import withStyles from '@material-ui/core/styles/withStyles';
+import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
+import { StyledCheckbox } from 'components/common/Table/custom/CheckboxCell';
 
 const StyledHeaderCell = withStyles(
   {
@@ -20,7 +22,15 @@ const StyledHeaderCell = withStyles(
 )(TableCell);
 
 function InternalTableHeader({ column, createSortHandler, sortedColumn, sortOrder }) {
-  const label = column.header || column.accessor;
+  const check = column.header === '_checkbox' && (
+    <TableBulkSelectContext.Consumer>
+      {({ onSelectAll, onSelectNone }) => {
+        const handleChecked = ({ target }) => (target.checked ? onSelectAll() : onSelectNone());
+        return <StyledCheckbox onChange={handleChecked} />;
+      }}
+    </TableBulkSelectContext.Consumer>
+  );
+  const label = check || column.header || column.accessor;
   const header = column.sortFunction ? (
     <TableSortLabel
       key={column.accessor}

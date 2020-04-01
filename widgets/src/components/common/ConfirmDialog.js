@@ -9,7 +9,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 
 const ConfirmDialog = ({ title, message, open, onClose, onConfirm }) => (
   <Dialog open={open} onClose={onClose}>
-    <DialogTitle>{title}</DialogTitle>
+    <DialogTitle disableTypography>{title}</DialogTitle>
     <DialogContent>
       {typeof message === 'string' ? <DialogContentText>{message}</DialogContentText> : message}
     </DialogContent>

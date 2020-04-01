@@ -34,7 +34,6 @@ describe('Attachments API', () => {
     expect(fetch.mock.calls.length).toBe(1);
 
     expect(fetch.mock.calls[0][1].method).toEqual('POST');
-    console.log(fetch.mock.calls[0][1].body);
     expect(fetch.mock.calls[0][0]).toEqual(
       `${DOMAINS.PDA}/connections/${connection}/tasks/${taskId}/attachments`
     );

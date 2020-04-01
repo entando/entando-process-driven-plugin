@@ -220,9 +220,6 @@ class Table extends React.Component {
 
 Table.propTypes = {
   classes: PropTypes.shape({
-    toolbar: PropTypes.string,
-    noSubtitleToolbar: PropTypes.string,
-    title: PropTypes.string,
     hideShadows: PropTypes.string,
     tableWrapper: PropTypes.string,
   }),
