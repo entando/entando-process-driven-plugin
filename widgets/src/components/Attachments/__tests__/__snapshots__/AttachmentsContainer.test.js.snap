@@ -15,7 +15,7 @@ exports[`<AttachmentsContainer /> renders snapshot correctly 1`] = `
         class="MuiListItem-container"
       >
         <div
-          class="MuiListItem-root Attachment-listItem-127 MuiListItem-gutters MuiListItem-secondaryAction"
+          class="MuiListItem-root Attachment-listItem-129 MuiListItem-gutters MuiListItem-secondaryAction"
         >
           <div
             class="MuiListItemIcon-root"
@@ -33,10 +33,10 @@ exports[`<AttachmentsContainer /> renders snapshot correctly 1`] = `
             </svg>
           </div>
           <div
-            class="MuiListItemText-root Attachment-truncate-128"
+            class="MuiListItemText-root Attachment-truncate-130"
           >
             <span
-              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
             >
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
@@ -81,7 +81,7 @@ exports[`<AttachmentsContainer /> renders snapshot correctly 1`] = `
         class="MuiListItem-container"
       >
         <div
-          class="MuiListItem-root Attachment-listItem-127 MuiListItem-gutters MuiListItem-secondaryAction"
+          class="MuiListItem-root Attachment-listItem-129 MuiListItem-gutters MuiListItem-secondaryAction"
         >
           <div
             class="MuiListItemIcon-root"
@@ -99,10 +99,10 @@ exports[`<AttachmentsContainer /> renders snapshot correctly 1`] = `
             </svg>
           </div>
           <div
-            class="MuiListItemText-root Attachment-truncate-128"
+            class="MuiListItemText-root Attachment-truncate-130"
           >
             <span
-              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
             >
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"

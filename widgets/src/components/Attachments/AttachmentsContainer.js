@@ -107,7 +107,7 @@ class AttachmentsContainer extends React.Component {
     const { taskId } = this.props;
     console.log('begin upload of files:');
 
-    this.setState({ loading: true });
+    this.setState({ loading: true }, this.toggleDialog);
     try {
       const promises = files.map(async file => {
         await saveAttachment(connection, taskId, file);
@@ -122,7 +122,7 @@ class AttachmentsContainer extends React.Component {
       this.handleError(error);
     }
 
-    this.setState({ loading: false }, this.toggleDialog);
+    this.setState({ loading: false });
   };
 
   handleDelete = item => async () => {
@@ -167,7 +167,7 @@ class AttachmentsContainer extends React.Component {
                   key={item.id}
                   item={item}
                   onDelete={this.handleDelete}
-                  downloadLink={`/connections/${connection}/tasks/${taskId}/attachments`}
+                  downloadLink={`${DOMAINS.PDA}/connections/${connection}/tasks/${taskId}/attachments`}
                 />
               ))}
             </List>

@@ -15,8 +15,8 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
           <div
             class="MuiListItemIcon-root"
           >
-            <div
-              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-animate"
+            <span
+              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
               style="width: 20px; height: 20px;"
             />
           </div>
@@ -24,10 +24,10 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
             class="MuiListItemText-root"
           >
             <span
-              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
             >
-              <div
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
                 style="width: 80%;"
               />
             </span>
@@ -36,8 +36,8 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
         <div
           class="MuiListItemSecondaryAction-root"
         >
-          <div
-            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-animate"
+          <span
+            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
             style="width: 20px; height: 20px;"
           />
         </div>
@@ -51,8 +51,8 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
           <div
             class="MuiListItemIcon-root"
           >
-            <div
-              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-animate"
+            <span
+              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
               style="width: 20px; height: 20px;"
             />
           </div>
@@ -60,10 +60,10 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
             class="MuiListItemText-root"
           >
             <span
-              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
             >
-              <div
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
                 style="width: 80%;"
               />
             </span>
@@ -72,8 +72,8 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
         <div
           class="MuiListItemSecondaryAction-root"
         >
-          <div
-            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-animate"
+          <span
+            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
             style="width: 20px; height: 20px;"
           />
         </div>
@@ -87,8 +87,8 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
           <div
             class="MuiListItemIcon-root"
           >
-            <div
-              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-animate"
+            <span
+              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
               style="width: 20px; height: 20px;"
             />
           </div>
@@ -96,10 +96,10 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
             class="MuiListItemText-root"
           >
             <span
-              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
             >
-              <div
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
                 style="width: 80%;"
               />
             </span>
@@ -108,8 +108,8 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
         <div
           class="MuiListItemSecondaryAction-root"
         >
-          <div
-            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-animate"
+          <span
+            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
             style="width: 20px; height: 20px;"
           />
         </div>
@@ -123,8 +123,8 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
           <div
             class="MuiListItemIcon-root"
           >
-            <div
-              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-animate"
+            <span
+              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
               style="width: 20px; height: 20px;"
             />
           </div>
@@ -132,10 +132,10 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
             class="MuiListItemText-root"
           >
             <span
-              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
             >
-              <div
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
                 style="width: 80%;"
               />
             </span>
@@ -144,8 +144,8 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
         <div
           class="MuiListItemSecondaryAction-root"
         >
-          <div
-            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-animate"
+          <span
+            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
             style="width: 20px; height: 20px;"
           />
         </div>
@@ -159,8 +159,8 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
           <div
             class="MuiListItemIcon-root"
           >
-            <div
-              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-animate"
+            <span
+              class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
               style="width: 20px; height: 20px;"
             />
           </div>
@@ -168,10 +168,10 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
             class="MuiListItemText-root"
           >
             <span
-              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+              class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
             >
-              <div
-                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-animate"
+              <span
+                class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse"
                 style="width: 80%;"
               />
             </span>
@@ -180,8 +180,8 @@ exports[`<AttachmentsSkeleton /> renders snapshot correctly 1`] = `
         <div
           class="MuiListItemSecondaryAction-root"
         >
-          <div
-            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-animate"
+          <span
+            class="MuiSkeleton-root MuiSkeleton-circle MuiSkeleton-pulse"
             style="width: 20px; height: 20px;"
           />
         </div>

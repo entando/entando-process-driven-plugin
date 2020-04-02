@@ -5,6 +5,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
 import columnType from 'types/columnType';
+import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
 import withStyles from '@material-ui/core/styles/withStyles';
 import InternalTableCell from './InternalTableCell';
 
@@ -25,21 +26,25 @@ const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, onRowClick }) 
   return (
     <TableBody>
       {rows.map((row, idx) => (
-        <StyledTableRowHover
-          key={JSON.stringify(row)}
-          style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
-          onClick={() => {
-            onRowClick(row, idx);
-          }}
-          hover
-        >
-          {columns.map(column => (
-            <InternalTableCell key={JSON.stringify(column)} column={column} row={row} />
-          ))}
-        </StyledTableRowHover>
+        <TableBulkSelectContext.Consumer key={JSON.stringify(row)}>
+          {({ selectedRows, rowAccessor }) => (
+            <StyledTableRowHover
+              style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
+              hover
+              selected={selectedRows.has(row[rowAccessor])}
+              onClick={e => {
+                onRowClick(row, idx, e);
+              }}
+            >
+              {columns.map(column => (
+                <InternalTableCell key={JSON.stringify(column)} column={column} row={row} />
+              ))}
+            </StyledTableRowHover>
+          )}
+        </TableBulkSelectContext.Consumer>
       ))}
       {emptyRows > 0 && (
-        <TableRow style={{ height: rowHeight * emptyRows }}>
+        <TableRow style={{ height: rowHeight * emptyRows, background: 'white' }}>
           <TableCell />
         </TableRow>
       )}

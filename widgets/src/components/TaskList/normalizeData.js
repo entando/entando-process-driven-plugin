@@ -1,8 +1,9 @@
 import React from 'react';
 import moment from 'moment';
+import ActionCell from 'components/common/Table/custom/ActionCell';
+import CheckboxCell from 'components/common/Table/custom/CheckboxCell';
 
 import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
-import ActionCell from 'components/common/Table/custom/ActionCell';
 import BadgeChip from 'components/common/BadgeChip';
 
 export const getType = (column, firstRow) => {
@@ -31,7 +32,7 @@ const getColorByDate = date => {
   return 'error';
 };
 
-export const normalizeColumns = (columns, firstRow, options, { openDiagram }) => {
+export const normalizeColumns = (columns, firstRow) => {
   const normalized = columns
     .filter(column => column.isVisible)
     .map(column => ({
@@ -43,13 +44,6 @@ export const normalizeColumns = (columns, firstRow, options, { openDiagram }) =>
   // order columns
   normalized.sort((a, b) => (a.position > b.position ? 1 : a.position < b.position ? -1 : 0));
 
-  // find required fields according to options
-  const requiredFields = options.reduce((obj, option) => {
-    obj[option.key] = option.checked;
-    return obj;
-  }, {});
-
-  // find status column to apply customCell
   const withCustomCell = normalized.map(column => {
     if (column.accessor === STATUS) {
       return {
@@ -63,23 +57,46 @@ export const normalizeColumns = (columns, firstRow, options, { openDiagram }) =>
     return column;
   });
 
-  // add action field
-  withCustomCell.push({
-    header: ' ',
+  return withCustomCell;
+};
+
+export const insertRowControls = (columns, options, { openDiagram, selectTask }) => {
+  // find required fields according to options
+  const requiredFields = options.reduce((obj, option) => {
+    obj[option.key] = option.checked;
+    return obj;
+  }, {});
+
+  const checkboxPanel = {
+    header: '_checkbox',
+    customCell: CheckboxCell(),
+    styles: {
+      position: 'sticky',
+      left: 0,
+      zIndex: 10,
+      width: 20,
+      borderRight: '1px solid #eee',
+      paddingRight: 16,
+      textAlign: 'center',
+    },
+  };
+
+  const actionsPanel = {
+    header: 'Actions',
     accessor: 'action',
-    customCell: ActionCell(requiredFields, { openDiagram }),
+    customCell: ActionCell(requiredFields, { openDiagram, selectTask }),
     styles: {
       position: 'sticky',
       right: 0,
       width: 20,
-      zIndex: 100,
       borderLeft: '1px solid #eee',
       paddingLeft: 16,
       textAlign: 'center',
     },
-  });
+  };
 
-  return withCustomCell;
+  // add action field
+  return [checkboxPanel, ...columns, actionsPanel];
 };
 
 export const normalizeRows = rows =>
