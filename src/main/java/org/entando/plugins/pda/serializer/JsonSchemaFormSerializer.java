@@ -142,7 +142,7 @@ public class JsonSchemaFormSerializer extends StdSerializer<JsonSchemaForm> {
         for (FormField field : fields) {
             if (field.getType().equals(FormFieldType.SUBFORM)) {
                 FormFieldSubForm fieldSubForm = (FormFieldSubForm) field;
-                jsonGenerator.writeFieldName(fieldSubForm.getForm().getId());
+                jsonGenerator.writeFieldName(fieldSubForm.getName());
                 writeForm(jsonGenerator, fieldSubForm.getForm());
             } else {
                 writeField(jsonGenerator, field);

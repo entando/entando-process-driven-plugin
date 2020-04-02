@@ -1,0 +1,187 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://entando.org/schemas/pda-form.json",
+  "title": "Task-taskform.frm",
+  "type": "object",
+  "required": [
+    "_bigText",
+    "_radioWithDefault"
+  ],
+  "properties": {
+    "_processDocument": {
+      "type": "string",
+      "title": "Upload a document",
+      "format": "data-url"
+    },
+    "_comboWithDefault": {
+      "type": "string",
+      "title": "Combo with default",
+      "default": "myValue",
+      "oneOf": [
+        {
+          "const": "myValue",
+          "title": "myText"
+        },
+        {
+          "const": "anotherValue",
+          "title": "anotherText"
+        },
+        {
+          "const": "what?",
+          "title": "yup!"
+        }
+      ]
+    },
+    "_comboWithoutDefault": {
+      "type": "string",
+      "title": "Combo without default",
+      "oneOf": [
+        {
+          "const": "oneValue",
+          "title": "one"
+        },
+        {
+          "const": "twoValue",
+          "title": "two"
+        },
+        {
+          "const": "threeValue",
+          "title": "three"
+        }
+      ]
+    },
+    "_multipleSelector": {
+      "type": "array",
+      "title": "My Multiple Selector",
+      "items": {
+        "type": "string",
+        "oneOf": [
+          {
+            "const": "first",
+            "title": "first"
+          },
+          {
+            "const": "second",
+            "title": "second"
+          },
+          {
+            "const": "third",
+            "title": "third"
+          },
+          {
+            "const": "last",
+            "title": "last"
+          }
+        ]
+      },
+      "uniqueItems": true
+    },
+    "_bigText": {
+      "type": "string",
+      "title": "This is a big text",
+      "description": "Write here your big text!"
+    },
+    "__unbound_field_field_62054": {
+      "type": "number",
+      "title": "Slider 0to1",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "multipleOf": 0.1
+    },
+    "_processList": {
+      "type": "array",
+      "title": "Multiple Input",
+      "items": {
+        "type": "string"
+      }
+    },
+    "_processDocumentList": {
+      "type": "array",
+      "title": "Upload a list of documents",
+      "items": {
+        "type": "string",
+        "format": "data-url"
+      }
+    },
+    "_sliderInteger": {
+      "type": "number",
+      "title": "Slider",
+      "minimum": 0.0,
+      "maximum": 200.0,
+      "multipleOf": 5.0
+    },
+    "_radioWithDefault": {
+      "type": "string",
+      "title": "My Radio Group with default value",
+      "default": "thirdValue",
+      "oneOf": [
+        {
+          "const": "firstValue",
+          "title": "first"
+        },
+        {
+          "const": "secondValue",
+          "title": "second"
+        },
+        {
+          "const": "thirdValue",
+          "title": "third"
+        }
+      ]
+    },
+    "_customObject": {
+      "title": "com_myspace_forms_sample_MyObject",
+      "type": "object",
+      "required": [
+        "myString"
+      ],
+      "properties": {
+        "myDateTime": {
+          "type": "string",
+          "title": "My Date Time ",
+          "description": "My Date Time ",
+          "format": "date-time"
+        },
+        "myBoolean": {
+          "type": "boolean",
+          "title": "My Boolean"
+        },
+        "myString": {
+          "type": "string",
+          "title": "My String ",
+          "description": "My String",
+          "maxLength": 100
+        },
+        "myDouble": {
+          "type": "number",
+          "title": "My Double - Read Only",
+          "description": "My Double",
+          "readOnly": true
+        },
+        "myInteger": {
+          "type": "integer",
+          "title": "My Integer",
+          "description": "My Integer"
+        }
+      }
+    },
+    "_radioWithoutDefault": {
+      "type": "string",
+      "title": "My Radio Group without default value",
+      "oneOf": [
+        {
+          "const": "myValue",
+          "title": "myText"
+        },
+        {
+          "const": "anotherValue",
+          "title": "anotherText"
+        },
+        {
+          "const": "what?",
+          "title": "yup!"
+        }
+      ]
+    }
+  }
+}

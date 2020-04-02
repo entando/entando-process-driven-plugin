@@ -8,7 +8,7 @@ import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_KEY_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_KEY_2;
 import static org.entando.plugins.pda.core.utils.TestUtils.TASK_FORM_PROP_KEY_3;
 import static org.entando.plugins.pda.core.utils.TestUtils.TASK_ID_1;
-import static org.entando.plugins.pda.core.utils.TestUtils.minifyJsonString;
+import static org.entando.plugins.pda.core.utils.TestUtils.TASK_ID_2;
 import static org.entando.plugins.pda.core.utils.TestUtils.randomStringId;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
 import static org.hamcrest.Matchers.containsString;
@@ -81,7 +81,7 @@ public class TaskFormControllerIntegrationTest {
     }
 
     @Test
-    public void testGetTaskFormJsonSchema() throws Exception {
+    public void testGetSimpleTaskFormJsonSchema() throws Exception {
         MvcResult result = mockMvc.perform(get("/connections/fakeProduction/tasks/{id}/form"
                 .replace("{id}", TASK_ID_1)))
                 .andDo(print())
@@ -89,7 +89,20 @@ public class TaskFormControllerIntegrationTest {
                 .andReturn();
 
         String json = result.getResponse().getContentAsString();
-        String expected = minifyJsonString(readFromFile("task_form_json_schema_1.json"));
+        String expected = readFromFile("simple_task_form_json_schema.json");
+        assertEquals(expected, json, JSONCompareMode.STRICT);
+    }
+
+    @Test
+    public void testGetFullTaskFormJsonSchema() throws Exception {
+        MvcResult result = mockMvc.perform(get("/connections/fakeProduction/tasks/{id}/form"
+                .replace("{id}", TASK_ID_2)))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String json = result.getResponse().getContentAsString();
+        String expected = readFromFile("full_task_form_json_schema.json");
         assertEquals(expected, json, JSONCompareMode.STRICT);
     }
 
