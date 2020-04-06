@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -39,7 +41,7 @@ class Attachment extends React.Component {
 
   render() {
     const { dialogOpen } = this.state;
-    const { classes, item, onDelete, downloadLink } = this.props;
+    const { classes, item, onDelete, onDownload } = this.props;
 
     return (
       <>
@@ -48,9 +50,7 @@ class Attachment extends React.Component {
             <FileCopyIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText className={classes.truncate}>
-            <Link href={`${downloadLink}/${item.id}/download`} download>
-              {item.name}
-            </Link>
+            <Link onClick={onDownload(item)}>{item.name}</Link>
           </ListItemText>
           <ListItemSecondaryAction>
             <IconButton size="small" onClick={this.handleDeleteDialog}>
@@ -62,7 +62,9 @@ class Attachment extends React.Component {
           title="Attachment exclusion"
           message={
             <>
-              <Typography gutterBottom>Do you wish to delete this file permanently?</Typography>
+              <Typography gutterBottom>
+                {i18next.t('messages.warning.deleteFilePermanently')}
+              </Typography>
               <Typography variant="body2">{item.name}</Typography>
             </>
           }
@@ -86,7 +88,7 @@ Attachment.propTypes = {
     name: PropTypes.string,
   }),
   onDelete: PropTypes.func.isRequired,
-  downloadLink: PropTypes.string.isRequired,
+  onDownload: PropTypes.func.isRequired,
 };
 
 Attachment.defaultProps = {

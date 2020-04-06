@@ -51,5 +51,9 @@ export default async ({
 
   const responseHeaders = response.headers.get('Content-Type');
 
-  return responseHeaders && responseHeaders.includes('xml') ? response.text() : response.json();
+  return responseHeaders && responseHeaders.includes('xml')
+    ? response.text()
+    : responseHeaders.includes('json')
+    ? response.json()
+    : response;
 };
