@@ -165,8 +165,21 @@ class AttachmentsContainer extends React.Component {
       this.setState({ loading: true });
       const response = await downloadAttachments(connection, taskId, item.id);
 
+      // read stream
+      const reader = response.body.getReader();
+      const chunks = [];
+      // eslint-disable-next-line no-constant-condition
+      while (true) {
+        // eslint-disable-next-line no-await-in-loop
+        const { done, value } = await reader.read();
+
+        if (done) break;
+
+        chunks.push(value);
+      }
+
       // Create blob link to download
-      const url = window.URL.createObjectURL(new Blob([response.blob()]));
+      const url = window.URL.createObjectURL(new Blob(chunks));
       const link = document.createElement('a');
       link.href = url;
       link.setAttribute('download', item.name);
