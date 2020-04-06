@@ -91,7 +91,7 @@ class Table extends React.Component {
       this.setState({ page: 0, rowsPerPage });
     }
 
-    onChangePage(0);
+    onChangePage(0, rowsPerPage);
   };
 
   handleChangePage = page => {
