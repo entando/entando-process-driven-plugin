@@ -40,8 +40,6 @@ exports[`<AttachmentsContainer /> renders snapshot correctly 1`] = `
             >
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                download=""
-                href="/connections/kieStaging/tasks/28@mortgage-process_1.0.0-SNAPSHOT/attachments/2/download"
               >
                 55954396_2301387639927701_986123889866178560_o.jpg
               </a>
@@ -106,8 +104,6 @@ exports[`<AttachmentsContainer /> renders snapshot correctly 1`] = `
             >
               <a
                 class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                download=""
-                href="/connections/kieStaging/tasks/28@mortgage-process_1.0.0-SNAPSHOT/attachments/4/download"
               >
                 55954396_2301387639927701_986123889866178560_o.jpg
               </a>

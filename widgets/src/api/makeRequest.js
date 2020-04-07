@@ -53,7 +53,7 @@ export default async ({
 
   return responseHeaders && responseHeaders.includes('xml')
     ? response.text()
-    : responseHeaders.includes('json')
-    ? response.json()
-    : response;
+    : responseHeaders && responseHeaders.includes('octet')
+    ? response
+    : response.json();
 };
