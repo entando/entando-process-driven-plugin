@@ -109,7 +109,7 @@ const attachments = {
   payload: {
     code: 'phase_1_widgets_attachments',
     config: {
-      knowledgeSource: 'dev',
+      knowledgeSource: 'kieStaging',
       process: 'Mortgage_Process.MortgageApprovalProcess@mortgage-process_1.0.1-SNAPSHOT',
     },
   },
