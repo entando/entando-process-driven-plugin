@@ -105,13 +105,11 @@ class TaskCompletionFormContainer extends React.Component {
   submitProcessForm(form) {
     this.setState({ submitting: true }, async () => {
       const { config } = this.state;
-      const { onSubmitForm } = this.props;
-
+      const { taskId, onSubmitForm } = this.props;
       const connection = (config && config.knowledgeSource) || '';
-      const processContainerId = (config && config.process) || '';
 
       try {
-        const response = await postTaskForm(connection, processContainerId, form.formData);
+        const response = await postTaskForm(connection, taskId, form.formData);
         onSubmitForm({ ...form, response });
       } catch (error) {
         this.handleError(error.message);
