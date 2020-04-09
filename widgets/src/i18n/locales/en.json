@@ -109,7 +109,9 @@
     },
     "warnings": {
       "noData": "There is no data to be displayed",
-      "noFormSchema": "Form schema was not provided"
+      "noFormSchema": "Form schema was not provided",
+      "noAttachments": "There is no attachment available for this task",
+      "deleteFilePermanently": "Do you wish to delete this file permanently?"
     },
     "errors": {
       "widgetConfig": "No configuration found for this widget",

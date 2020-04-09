@@ -35,3 +35,12 @@ export const deleteAttachment = async (connection, taskId, attachmentId) =>
     mockResponse: {},
     useAuthentication: true,
   });
+
+export const downloadAttachments = async (connection, taskId, attachmentId) =>
+  makeRequest({
+    domain: DOMAINS.PDA,
+    uri: `/connections/${connection}/tasks/${taskId}/attachments/${attachmentId}/download`,
+    method: METHODS.GET,
+    mockResponse: MOCK_ATTACHMENTS,
+    useAuthentication: true,
+  });

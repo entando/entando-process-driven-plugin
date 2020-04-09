@@ -109,7 +109,9 @@
     },
     "warnings": {
       "noData": "Non ci sono dati da visualizzare",
-      "noFormSchema": "Form schema was not provided"
+      "noFormSchema": "Lo schema del modulo non è stato fornito",
+      "noAttachments": "Non è disponibile alcun allegato per questa attività",
+      "deleteFilePermanently": "Desideri eliminare definitivamente questo file?"
     },
     "errors": {
       "widgetConfig": "Nessuna configurazione trovata per questo widget",
