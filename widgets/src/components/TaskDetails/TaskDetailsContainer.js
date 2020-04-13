@@ -146,7 +146,7 @@ class TaskDetailsContainer extends React.Component {
         }}
       >
         <ThemeProvider theme={theme}>
-          <Container disableGutters>
+          <Container maxWidth={false} disableGutters>
             <Box mb="20px">
               <Overview
                 task={task}

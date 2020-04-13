@@ -130,7 +130,7 @@ function App() {
 
         <Menu open={open} setOpen={setOpen} />
 
-        <Container className="app-container">
+        <Container className="app-container" maxWidth={false}>
           <Route path="/" exact component={Home} />
           <Route path="/Connections" exact component={ConnectionsContainer} />
           <Route
