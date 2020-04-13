@@ -42,11 +42,17 @@ class DropDownButton extends React.Component {
 
   render() {
     const { selectedIndex, open } = this.state;
-    const { options } = this.props;
+    const { options, disabled } = this.props;
 
     return (
       <>
-        <ButtonGroup color="primary" ref={this.anchorRef} disableElevation variant="outlined">
+        <ButtonGroup
+          color="primary"
+          ref={this.anchorRef}
+          disableElevation
+          disabled={disabled}
+          variant="outlined"
+        >
           <Button onClick={this.handleClick}>{options[selectedIndex]}</Button>
           <Button size="small" onClick={this.handleToggle}>
             <ArrowDropDownIcon />
@@ -77,11 +83,13 @@ class DropDownButton extends React.Component {
 DropDownButton.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 DropDownButton.defaultProps = {
   options: [],
   onClick: () => {},
+  disabled: false,
 };
 
 export default DropDownButton;
