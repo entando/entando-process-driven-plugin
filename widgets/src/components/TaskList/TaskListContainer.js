@@ -288,9 +288,10 @@ class TaskList extends React.Component {
     this.setState({ activeTab });
   };
 
-  handleChangePage = page => {
+  handleChangePage = (page, rowsPerPage) => {
     this.setState({
       page,
+      rowsPerPage,
     });
   };
 
