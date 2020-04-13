@@ -9,7 +9,7 @@ import OverviewNavigation from 'components/TaskDetails/Overview/OverviewNavigati
 const OverviewHeader = ({ title, taskLink }) => {
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-      {taskLink ? (
+      {title === 'taskDetails.overview.title' ? (
         <Link href={taskLink} variant="h2">
           {title}
         </Link>
