@@ -487,4 +487,4 @@ TaskList.defaultProps = {
 
 const TaskListContainer = withStyles(styles)(TaskList);
 
-export default withAuth(TaskListContainer, []);
+export default withAuth(TaskListContainer, ['task-list', 'process-diagram']);
