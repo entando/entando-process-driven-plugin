@@ -21,7 +21,7 @@ const WidgetBox = ({
   children,
   open,
 }) => {
-  const [expanded, setExpanded] = useState(collapsible);
+  const [expanded, setExpanded] = useState(open);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -52,8 +52,8 @@ const WidgetBox = ({
           </div>
         </Box>
       )}
-      {hasDivider && <Divider />}
-      {children && (expanded || open) && <Box p="20px 25px">{children}</Box>}
+      {hasDivider && expanded && <Divider />}
+      {children && expanded && <Box p="20px 25px">{children}</Box>}
     </Paper>
   );
 };
