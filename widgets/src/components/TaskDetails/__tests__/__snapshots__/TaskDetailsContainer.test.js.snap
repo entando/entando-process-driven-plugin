@@ -3,7 +3,7 @@
 exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
+    class="MuiContainer-root MuiContainer-disableGutters"
   >
     <div
       class="MuiBox-root MuiBox-root-32"
