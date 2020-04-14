@@ -12,6 +12,24 @@ import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
 
 class TaskCompletionFormContainer extends React.Component {
+  static extractProperties(node, nodeName = '', path = '') {
+    // if node.type is object - it has own properties
+    if (node.type === 'object') {
+      const nodesProperties = Object.keys(node.properties);
+      const paths = nodesProperties.map(property =>
+        TaskCompletionFormContainer.extractProperties(
+          node.properties[property],
+          property,
+          path ? `${path}.${nodeName}` : nodeName
+        )
+      );
+      return paths.flat();
+    }
+
+    // if node.type is not an object - it a final property
+    return path ? `${path}.${nodeName}` : nodeName;
+  }
+
   constructor(props) {
     super(props);
 
@@ -35,9 +53,17 @@ class TaskCompletionFormContainer extends React.Component {
         const formDataPromise = this.fetchTaskFormData();
         const formSchemaPromise = this.fetchSchema();
 
-        const formData = await formDataPromise;
-
+        const taskData = await formDataPromise;
         const formSchema = await formSchemaPromise;
+
+        const properties = TaskCompletionFormContainer.extractProperties(formSchema);
+
+        const formData = Object.keys(taskData).reduce((acc, property) => {
+          if (properties.includes(property)) {
+            return { ...acc, [property]: taskData[property] };
+          }
+          return acc;
+        }, {});
 
         this.setState({ formData, formSchema, loading: false });
       });
@@ -81,7 +107,7 @@ class TaskCompletionFormContainer extends React.Component {
     try {
       const task = await getTask(connection, taskId);
 
-      return (task && task.payload && task.payload.outputData) || {};
+      return (task && task.payload && task.payload.inputData) || {};
     } catch (error) {
       this.handleError(error.message);
     }

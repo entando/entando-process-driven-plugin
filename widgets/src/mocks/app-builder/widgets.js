@@ -1,7 +1,7 @@
 import MOCKED_WIDGET_CONFIGS from 'mocks/app-builder/pages';
 
 const PAGE_CODE = 'phase_1_widgets';
-const TASK_ID = '30@mortgage-process_1.0.0-SNAPSHOT';
+const TASK_ID = '7@forms-sample_1.0.1-SNAPSHOT';
 
 export default {
   TASK_LIST: {
