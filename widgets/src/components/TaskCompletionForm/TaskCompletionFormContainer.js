@@ -107,7 +107,7 @@ class TaskCompletionFormContainer extends React.Component {
     try {
       const task = await getTask(connection, taskId);
 
-      return (task && task.payload && task.payload.inputData) || {};
+      return (task && task.payload && task.payload.outputData) || {};
     } catch (error) {
       this.handleError(error.message);
     }
