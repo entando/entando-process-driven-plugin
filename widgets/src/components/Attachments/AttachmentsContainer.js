@@ -63,6 +63,15 @@ class AttachmentsContainer extends React.Component {
     });
   };
 
+  componentDidUpdate = async prevProps => {
+    const { taskId } = this.props;
+    if (prevProps.taskId !== taskId) {
+      const attachments = await this.fetchAttachments();
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ attachments });
+    }
+  };
+
   fetchConfigs = async () => {
     const { pageCode, frameId } = this.props;
 
@@ -89,16 +98,18 @@ class AttachmentsContainer extends React.Component {
 
     let payload = [];
 
-    try {
-      const attachments = await getAttachments(connection, taskId);
-      if (attachments.errors.length) {
-        throw attachments.errors[0];
-      }
+    if (taskId) {
+      try {
+        const attachments = await getAttachments(connection, taskId);
+        if (attachments.errors.length) {
+          throw attachments.errors[0];
+        }
 
-      payload = attachments.payload;
-    } catch (error) {
-      if (!error.message.includes('404')) {
-        this.handleError(error);
+        payload = attachments.payload;
+      } catch (error) {
+        if (!error.message.includes('404')) {
+          this.handleError(error);
+        }
       }
     }
     return payload;

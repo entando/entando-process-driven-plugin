@@ -6,7 +6,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-10 MuiPaper-outlined"
+      class="MuiPaper-root ControlledWidgetBox-widgetBox-10 MuiPaper-outlined"
     >
       <div
         class="MuiBox-root MuiBox-root-40"

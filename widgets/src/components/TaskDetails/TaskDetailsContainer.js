@@ -133,7 +133,11 @@ class TaskDetailsContainer extends React.Component {
     const { loadingTask, task, taskInputData, taskPos, isLast, config, groups } = this.state;
     const { onError } = this.props;
     const isFirst = taskPos === 0;
-    const configs = config && config.settings;
+    let configs = config && config.settings;
+
+    if (typeof configs === 'string') {
+      configs = JSON.parse(config.settings);
+    }
 
     return (
       <CustomEventContext.Provider
