@@ -14,6 +14,10 @@ import JSONForm from 'components/common/form/JSONForm';
 class TaskCompletionFormContainer extends React.Component {
   static extractProperties(node, nodeName = '', path = '') {
     // if node.type is object - it has own properties
+    if (!node) {
+      return [];
+    }
+
     if (node.type === 'object') {
       const nodesProperties = Object.keys(node.properties);
       const paths = nodesProperties.map(property =>

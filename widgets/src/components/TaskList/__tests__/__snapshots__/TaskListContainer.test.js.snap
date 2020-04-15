@@ -88,8 +88,9 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
           role="group"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
-            tabindex="0"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary Mui-disabled MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
             type="button"
           >
             <span
@@ -97,13 +98,11 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
             >
               Assign
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
-            tabindex="0"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary Mui-disabled MuiButton-outlinedPrimary MuiButton-outlinedSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
             type="button"
           >
             <span
@@ -121,9 +120,6 @@ exports[`<TaskListContainer /> renders snapshot correctly 1`] = `
                 />
               </svg>
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
