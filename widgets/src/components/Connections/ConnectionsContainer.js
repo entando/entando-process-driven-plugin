@@ -15,7 +15,7 @@ import {
   createConnection,
 } from 'api/pda/connections';
 import theme from 'theme';
-import WidgetBox from 'components/common/WidgetBox';
+import ControlledWidgetBox from 'components/common/ControlledWidgetBox';
 import ConnectionItem from 'components/Connections/ConnectionItem';
 import ConnectionItemSkeleton from 'components/Connections/ConnectionItemSkeleton';
 import ConnectionForm from 'components/Connections/ConnectionForm';
@@ -149,7 +149,7 @@ class ConnectionsContainer extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Container>
-          <WidgetBox
+          <ControlledWidgetBox
             title="Connections"
             topRightComp={
               <Button
@@ -161,7 +161,7 @@ class ConnectionsContainer extends React.Component {
                 Create new connection
               </Button>
             }
-            open={showForm}
+            expanded={showForm}
             hasDivider
           >
             <ConnectionForm
@@ -170,7 +170,7 @@ class ConnectionsContainer extends React.Component {
               onCancel={this.handleCancelForm}
               onSave={this.handleSave}
             />
-          </WidgetBox>
+          </ControlledWidgetBox>
 
           <Grid className={classes.gridContainer} container spacing={2}>
             {listLoader && (
