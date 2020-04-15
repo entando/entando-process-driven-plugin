@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
-import { Paper, Box, Typography, IconButton, Divider } from '@material-ui/core';
-import { ExpandMore as ExpandMoreIcon, ExpandLess as ExpandLessIcon } from '@material-ui/icons';
+import { Paper, Box, Typography, Divider } from '@material-ui/core';
 
 const styles = {
   widgetBox: {
@@ -11,21 +10,15 @@ const styles = {
   },
 };
 
-const WidgetBox = ({
+const ControlledWidgetBox = ({
   title,
+  topRightComp,
   hasDivider,
   classes,
   className,
   children,
-  collapsible,
-  expanded, // initial state
+  expanded,
 }) => {
-  const [showContent, setShowContent] = useState(expanded);
-
-  const handleExpandClick = () => {
-    setShowContent(!showContent);
-  };
-
   let renderedTitle = title;
   if (typeof title === 'string') {
     renderedTitle = <Typography variant="h2">{title}</Typography>;
@@ -34,23 +27,12 @@ const WidgetBox = ({
   return (
     <Paper variant="outlined" square className={classNames(classes.widgetBox, className)}>
       {title && (
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-          p={`${collapsible ? 8 : 20}px 25px`}
-        >
+        <Box display="flex" justifyContent="space-between" alignItems="center" p="20px 25px">
           {renderedTitle}
-          <div>
-            {collapsible && (
-              <IconButton onClick={handleExpandClick}>
-                {showContent ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-              </IconButton>
-            )}
-          </div>
+          <div>{topRightComp}</div>
         </Box>
       )}
-      {showContent && (
+      {expanded && (
         <>
           {hasDivider && <Divider />}
           {children && <Box p="20px 25px">{children}</Box>}
@@ -60,10 +42,10 @@ const WidgetBox = ({
   );
 };
 
-WidgetBox.propTypes = {
+ControlledWidgetBox.propTypes = {
   title: PropTypes.node,
+  topRightComp: PropTypes.node,
   hasDivider: PropTypes.bool,
-  collapsible: PropTypes.bool,
   expanded: PropTypes.bool,
 
   /** additional styling from parent component on root element */
@@ -76,12 +58,12 @@ WidgetBox.propTypes = {
   }).isRequired,
 };
 
-WidgetBox.defaultProps = {
+ControlledWidgetBox.defaultProps = {
   title: null,
-  collapsible: false,
+  topRightComp: null,
   hasDivider: false,
   className: '',
-  expanded: true,
+  expanded: false,
 };
 
-export default withStyles(styles)(WidgetBox);
+export default withStyles(styles)(ControlledWidgetBox);
