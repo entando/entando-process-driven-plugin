@@ -62,9 +62,11 @@ class TaskCompletionFormContainer extends React.Component {
 
         const properties = TaskCompletionFormContainer.extractProperties(formSchema);
 
-        const formData = Object.keys(taskData).reduce((acc, property) => {
+        const mergedData = { ...taskData.inputData, ...taskData.outputData };
+
+        const formData = Object.keys(mergedData).reduce((acc, property) => {
           if (properties.includes(property)) {
-            return { ...acc, [property]: taskData[property] };
+            return { ...acc, [property]: mergedData[property] };
           }
           return acc;
         }, {});
@@ -111,7 +113,13 @@ class TaskCompletionFormContainer extends React.Component {
     try {
       const task = await getTask(connection, taskId);
 
-      return (task && task.payload && task.payload.outputData) || {};
+      return (
+        (task &&
+          task.payload && {
+            outputData: task.payload.outputData,
+            inputData: task.payload.inputData,
+          }) || { outputData: {}, inputData: {} }
+      );
     } catch (error) {
       this.handleError(error.message);
     }
