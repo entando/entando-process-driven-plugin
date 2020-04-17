@@ -1,13 +1,13 @@
 import MOCKED_WIDGET_CONFIGS from 'mocks/app-builder/pages';
 
 const PAGE_CODE = 'phase_1_widgets';
-const TASK_ID = '2@forms-sample_1.0.1-SNAPSHOT';
+const TASK_ID = '30@mortgage-process_1.0.0-SNAPSHOT';
 
 export default {
   TASK_LIST: {
-    pageCode: 'task_list',
+    pageCode: PAGE_CODE,
     frameId: '1',
-    widgetCode: 'pda_task_list',
+    widgetCode: 'phase_1_widgets_task_details',
     configs: MOCKED_WIDGET_CONFIGS.TASK_LIST,
   },
   TASK_DETAILS: {

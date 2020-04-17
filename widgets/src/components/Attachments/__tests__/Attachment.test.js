@@ -7,13 +7,13 @@ import 'mocks/i18nMock';
 describe('<Attachment />', () => {
   it('renders snapshot correctly', () => {
     const onDelete = () => jest.fn();
-    const downloadLink = '/test';
+    const onDownload = () => jest.fn();
     const item = {
       id: '1',
       name: 'test',
     };
     const { container } = render(
-      <Attachment item={item} onDelete={onDelete} downloadLink={downloadLink} />
+      <Attachment item={item} onDelete={onDelete} onDownload={onDownload} />
     );
 
     expect(container).toMatchSnapshot();
