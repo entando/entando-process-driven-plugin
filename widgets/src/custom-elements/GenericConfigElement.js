@@ -10,6 +10,7 @@ import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
 import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
+import ProcessDefinition from 'components/ProcessDefinition/ProcessDefinitionConfig';
 
 const configNames = [
   {
@@ -51,6 +52,11 @@ const configNames = [
     name: 'task-attachments-config',
     Component: AttachmentsConfig,
     className: 'AttachmentsConfigElement',
+  },
+  {
+    name: 'process-definition-config',
+    Component: ProcessDefinition,
+    className: 'ProcessDefinitionConfigElement',
   },
 ];
 
