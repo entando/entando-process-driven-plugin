@@ -100,6 +100,12 @@
       "NodeName": "Node name"
     }
   },
+  "processes": {
+    "definition": {
+      "selectAProcess": "Seleziona una definizione del processo",
+      "noProcesses": "Non ci sono processi da definire"
+    }
+  },
   "messages": {
     "success": {
       "saved": "Salvato con successo."
