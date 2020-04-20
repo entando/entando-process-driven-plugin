@@ -8,7 +8,7 @@ import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
 import 'patternfly/dist/css/patternfly-additions.css';
 
-class ProcessFormConfig extends React.Component {
+class ProcessDefinitionConfig extends React.Component {
   constructor(props) {
     super(props);
 
@@ -126,11 +126,11 @@ class ProcessFormConfig extends React.Component {
   }
 }
 
-ProcessFormConfig.propTypes = {
+ProcessDefinitionConfig.propTypes = {
   config: PropTypes.shape({
     knowledgeSource: PropTypes.string,
     settings: PropTypes.string,
   }).isRequired,
 };
 
-export default ProcessFormConfig;
+export default ProcessDefinitionConfig;

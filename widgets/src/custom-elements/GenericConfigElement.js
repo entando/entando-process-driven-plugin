@@ -10,7 +10,7 @@ import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
 import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
-import ProcessDefinition from 'components/ProcessDefinition/ProcessDefinitionConfig';
+import ProcessDefinitionConfig from 'components/ProcessDefinition/ProcessDefinitionConfig';
 
 const configNames = [
   {
@@ -55,7 +55,7 @@ const configNames = [
   },
   {
     name: 'process-definition-config',
-    Component: ProcessDefinition,
+    Component: ProcessDefinitionConfig,
     className: 'ProcessDefinitionConfigElement',
   },
 ];
