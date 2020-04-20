@@ -71,7 +71,26 @@ class TaskCompletionFormContainer extends React.Component {
           return acc;
         }, {});
 
-        this.setState({ formData, formSchema, loading: false });
+        // TEMP PAM BUG FIX, REMOVE THIS WHEN FIXED ON PAM, PASS formData to this.setState
+        const modifiedFormData = Object.keys(formData).reduce((acc, field) => {
+          const path = field.split('.');
+
+          let property = formSchema;
+          for (let i = 0; i < path.length; i += 1) {
+            property = property.properties[path[i]];
+          }
+
+          if (property.type === 'array') {
+            if (!Array.isArray(formData[field])) {
+              return { ...acc, [field]: [formData[field]] };
+            }
+          }
+
+          return { ...acc, [field]: formData[field] };
+        }, {});
+        // ^^^ TEMP PAM BUG FIX, REMOVE THIS WHEN FIXED ON PAM, PASS formData TO this.setState()
+
+        this.setState({ formData: modifiedFormData, formSchema, loading: false });
       });
     });
   }
