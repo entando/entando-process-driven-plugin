@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProcessDefinitionContainer /> renders snapshot correctly 1`] = `
+<div>
+  <div
+    class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
+  >
+    <div
+      class="MuiPaper-root WidgetBox-widgetBox-31 MuiPaper-outlined"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-61"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2"
+        >
+          Process Definition
+        </h2>
+        <div />
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-92"
+      >
+        <div>
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            Select a process definition
+          </p>
+          <div
+            class="MuiFormControl-root makeStyles-formControl-107"
+          >
+            <div
+              class="MuiInputBase-root MuiInputBase-formControl"
+            >
+              <div
+                aria-haspopup="listbox"
+                aria-labelledby=" "
+                class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input WithStyles(ForwardRef(InputBase))-input-122"
+                role="button"
+                tabindex="0"
+              >
+                <span>
+                  ​
+                </span>
+              </div>
+              <input
+                type="hidden"
+                value=""
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`<ProcessDefinitionContainer /> renders snapshot correctly on error state 1`] = `
+<div>
+  <div
+    class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
+  >
+    <div
+      class="MuiPaper-root WidgetBox-widgetBox-184 MuiPaper-outlined"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-214"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h2"
+        >
+          Process Definition
+        </h2>
+        <div />
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-245"
+      >
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+          style="height: 35px;"
+        />
+        
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
+  >
+    <div
+      class="MuiPaper-root MuiSnackbarContent-root Notification-error-249 MuiPaper-elevation6"
+      direction="up"
+      role="alert"
+      style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    >
+      <div
+        class="MuiSnackbarContent-message"
+      >
+        <span
+          class="Notification-message-246"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root Notification-icon-247 Notification-iconVariant-248"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            />
+          </svg>
+          invalid json response body at undefined reason: Unexpected end of JSON input
+        </span>
+      </div>
+      <div
+        class="MuiSnackbarContent-action"
+      >
+        <button
+          aria-label="close"
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root Notification-icon-247"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
