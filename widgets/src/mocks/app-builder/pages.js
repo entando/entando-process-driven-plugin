@@ -114,6 +114,18 @@ const attachments = {
   errors: [],
 };
 
+const processDefinition = {
+  payload: {
+    code: 'phase_1_widgets_process_definition',
+    config: {
+      knowledgeSource: 'kieStaging',
+      settings: '{"uiSchema":"{}"}',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
 export default {
   TASK_LIST: taskListConfigs,
   TASK_DETAILS: taskDetailsConfigs,
@@ -123,4 +135,5 @@ export default {
   PROCESS_FORM: processFormConfigs,
   OVERTIME_GRAPH: overtimeGraphConfigs,
   ATTACHMENTS: attachments,
+  PROCESS_DEFINITION: processDefinition,
 };

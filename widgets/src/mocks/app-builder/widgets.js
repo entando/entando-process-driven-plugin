@@ -56,4 +56,11 @@ export default {
     widgetCode: 'phase_1_widgets_attachments',
     configs: MOCKED_WIDGET_CONFIGS.ATTACHMENTS,
   },
+  PROCESS_DEFINITION: {
+    pageCode: PAGE_CODE,
+    taskId: TASK_ID,
+    frameId: '2',
+    widgetCode: 'phase_1_widgets_process_definition',
+    configs: MOCKED_WIDGET_CONFIGS.PROCESS_DEFINITION,
+  },
 };

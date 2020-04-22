@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProcessDefinitionConfig /> renders snapshot correctly 1`] = `
+<div>
+  <div>
+    <form>
+      <div
+        class="row"
+      >
+        <div
+          class="col-xs-12"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="control-label"
+              for="connection"
+            >
+              Knowledge Source
+            </label>
+            <select
+              class="form-control"
+            >
+              <option
+                value=""
+              >
+                Select...
+              </option>
+              <option
+                value="kieStaging"
+              >
+                kieStaging
+              </option>
+              <option
+                value="kie2Server"
+              >
+                kie2Server
+              </option>
+              <option
+                value="test"
+              >
+                test
+              </option>
+            </select>
+            <span
+              class="help-block"
+            >
+              Select one of the Kie server connections.
+            </span>
+          </div>
+        </div>
+      </div>
+      
+    </form>
+  </div>
+</div>
+`;
