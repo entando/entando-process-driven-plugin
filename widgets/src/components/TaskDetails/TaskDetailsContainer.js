@@ -133,11 +133,11 @@ class TaskDetailsContainer extends React.Component {
     const { loadingTask, task, taskInputData, taskPos, isLast, config, groups } = this.state;
     const { onError } = this.props;
     const isFirst = taskPos === 0;
-    let configs = config && config.settings;
+    const configSettings = config && config.settings;
+    const configs =
+      typeof configSettings === 'string' ? JSON.parse(config.settings) : configSettings;
 
-    if (typeof configs === 'string') {
-      configs = JSON.parse(config.settings);
-    }
+    const hasGeneralInformation = (configs && configs.hasGeneralInformation) || false;
 
     return (
       <CustomEventContext.Provider
@@ -151,7 +151,7 @@ class TaskDetailsContainer extends React.Component {
       >
         <ThemeProvider theme={theme}>
           <Container maxWidth={false} disableGutters>
-            <Box mb="20px">
+            <Box mb={hasGeneralInformation ? '20px' : '0px'}>
               <Overview
                 task={task}
                 loadingTask={loadingTask}
@@ -164,7 +164,7 @@ class TaskDetailsContainer extends React.Component {
                 )}
               />
             </Box>
-            {configs && configs.hasGeneralInformation && (
+            {hasGeneralInformation && (
               <GeneralInformation taskInputData={taskInputData} loadingTask={loadingTask} />
             )}
           </Container>
