@@ -116,9 +116,10 @@ const attachments = {
 
 const processDefinition = {
   payload: {
-    code: 'phase_1_widgets_attachments',
+    code: 'phase_1_widgets_process_definition',
     config: {
       knowledgeSource: 'kieStaging',
+      settings: '{"uiSchema":"{}"}',
     },
   },
   metaData: { status: 'draft' },
