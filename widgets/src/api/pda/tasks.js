@@ -9,11 +9,9 @@ import MOCKED_GET_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/getFormSchem
 import MOCKED_POST_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/postFormData';
 import MOCKED_BULK_ACTION_RESPONSE from 'mocks/pda/bulkActions';
 
-export const getTasks = async (
-  { connection, groups },
-  { page = 0, pageSize = 30, sortedColumn, sortOrder, filter }
-) =>
-  makeRequest({
+export const getTasks = async ({ connection, groups }, params = {}) => {
+  const { page = 0, pageSize = 30, sortedColumn, sortOrder, filter } = params;
+  return makeRequest({
     domain: DOMAINS.PDA,
     uri: `/connections/${connection}/tasks`,
     queryParams: {
@@ -28,6 +26,7 @@ export const getTasks = async (
     mockResponse: getMockedTasks(page, pageSize, sortedColumn, sortOrder, filter),
     useAuthentication: true,
   });
+};
 
 export const getColumns = async connection =>
   makeRequest({
