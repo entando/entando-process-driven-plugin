@@ -69,7 +69,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                                         class="MuiFormControl-root-212 MuiTextField-root-216"
                                       >
                                         <label
-                                          class="MuiFormLabel-root-229 MuiInputLabel-root-217 MuiInputLabel-formControl-223 MuiInputLabel-animated-226 MuiInputLabel-shrink-225 MuiInputLabel-outlined-228 MuiFormLabel-filled-234"
+                                          class="MuiFormLabel-root-229 MuiInputLabel-root-217 MuiInputLabel-formControl-223 MuiInputLabel-animated-226 MuiInputLabel-shrink-225 MuiInputLabel-outlined-228"
                                           data-shrink="true"
                                           for="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_reason"
                                           id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_reason-label"
@@ -85,9 +85,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                                             id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_reason"
                                             placeholder=""
                                             rows="5"
-                                          >
-                                            Showed great results!
-                                          </textarea>
+                                          />
                                           <fieldset
                                             aria-hidden="true"
                                             class="PrivateNotchedOutline-root-270 MuiOutlinedInput-notchedOutline-246"
