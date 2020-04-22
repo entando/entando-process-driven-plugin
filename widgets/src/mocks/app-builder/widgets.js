@@ -7,7 +7,7 @@ export default {
   TASK_LIST: {
     pageCode: PAGE_CODE,
     frameId: '1',
-    widgetCode: 'phase_1_widgets_task_details',
+    widgetCode: 'phase_1_widgets_task_list',
     configs: MOCKED_WIDGET_CONFIGS.TASK_LIST,
   },
   TASK_DETAILS: {

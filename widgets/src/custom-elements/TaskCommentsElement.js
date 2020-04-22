@@ -6,7 +6,7 @@ import TaskComments from 'components/TaskComments/TaskCommentsContainer';
 import {
   createWidgetEvent,
   addCustomEventListener,
-  TL_ON_SELECT_TASK,
+  GE_ON_SELECT_TASK,
 } from 'custom-elements/customEventsUtils';
 
 const CUSTOM_EVENT_PREFIX = 'task.comments';
@@ -81,17 +81,14 @@ class TaskCommentsElement extends HTMLElement {
     this.mountPoint = document.createElement('div');
     this.appendChild(this.mountPoint);
 
-    this.unsubscribeFromTaskListSelect = addCustomEventListener(
-      TL_ON_SELECT_TASK,
-      this.updateTaskId
-    );
+    this.unsubscribeFromOnSelectTask = addCustomEventListener(GE_ON_SELECT_TASK, this.updateTaskId);
 
     this.render();
   }
 
   disconnectedCallback() {
-    if (this.unsubscribeFromTaskListSelect) {
-      this.unsubscribeFromTaskListSelect();
+    if (this.unsubscribeFromOnSelectTask) {
+      this.unsubscribeFromOnSelectTask();
     }
   }
 }

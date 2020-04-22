@@ -9,7 +9,7 @@ import {
   TD_ON_PRESS_PREVIOUS,
   TD_ON_PRESS_NEXT,
   TD_ON_ERROR,
-  TL_ON_SELECT_TASK,
+  GE_ON_SELECT_TASK,
 } from 'custom-elements/customEventsUtils';
 
 const ATTRIBUTES = {
@@ -20,6 +20,7 @@ const ATTRIBUTES = {
   pageCode: 'page-code',
   frameId: 'frame-id',
   serviceUrl: 'service-url',
+  lastPage: 'last-page',
 };
 
 class TaskDetailsElement extends HTMLElement {
@@ -28,6 +29,7 @@ class TaskDetailsElement extends HTMLElement {
 
     this.container = null;
     this.unsubscribeFromTaskListEvents = null;
+    this.onSelectTask = createWidgetEvent(GE_ON_SELECT_TASK);
     this.onPressPrevious = createWidgetEvent(TD_ON_PRESS_PREVIOUS);
     this.onPressNext = createWidgetEvent(TD_ON_PRESS_NEXT);
     this.onError = createWidgetEvent(TD_ON_ERROR);
@@ -50,9 +52,15 @@ class TaskDetailsElement extends HTMLElement {
 
   updateTask(e) {
     const { detail } = e;
-    this.setAttribute(ATTRIBUTES.id, detail.id);
+
+    // order is important, all attributes' changes call this.render,
+    // but only taskId change is listened in taskDetails
+    if (detail.groups) {
+      this.setAttribute(ATTRIBUTES.groups, detail.groups);
+    }
     this.setAttribute(ATTRIBUTES.taskPos, detail.pos);
-    if (detail.groups) this.setAttribute(ATTRIBUTES.groups, detail.groups);
+    this.setAttribute(ATTRIBUTES.lastPage, detail.lastPage);
+    this.setAttribute(ATTRIBUTES.id, detail.id);
   }
 
   render() {
@@ -65,18 +73,21 @@ class TaskDetailsElement extends HTMLElement {
     const taskId = this.getAttribute(ATTRIBUTES.id);
     const taskPos = this.getAttribute(ATTRIBUTES.taskPos);
     const groups = this.getAttribute(ATTRIBUTES.groups);
+    const lastPage = this.getAttribute(ATTRIBUTES.lastPage);
 
     const reactRoot = React.createElement(
       TaskDetails,
       {
         onError: this.onError,
+        onSelectTask: this.onSelectTask,
         onPressPrevious: this.onPressPrevious,
         onPressNext: this.onPressNext,
         pageCode,
         frameId,
         serviceUrl,
         taskId,
-        taskPos,
+        taskPos: taskPos ? Number(taskPos) : 0,
+        lastPage: lastPage ? Number(lastPage) : 0,
         groups,
       },
       null
@@ -88,14 +99,17 @@ class TaskDetailsElement extends HTMLElement {
     this.container = document.createElement('div');
     this.appendChild(this.container);
 
-    this.unsubscribeFromTaskListEvents = addCustomEventListener(TL_ON_SELECT_TASK, this.updateTask);
+    this.unsubscribeFromOnSelectTaskEvent = addCustomEventListener(
+      GE_ON_SELECT_TASK,
+      this.updateTask
+    );
 
     this.render();
   }
 
   disconnectedCallback() {
-    if (this.unsubscribeFromTaskListEvents) {
-      this.unsubscribeFromTaskListEvents();
+    if (this.unsubscribeFromOnSelectTaskEvent) {
+      this.unsubscribeFromOnSelectTaskEvent();
     }
   }
 }

@@ -117,7 +117,8 @@
       "widgetConfig": "No configuration found for this widget",
       "errorResponse": "There seems to be an error",
       "dataLoading": "Unable to load server data.",
-      "dataSaving": "Unable to save data."
+      "dataSaving": "Unable to save data.",
+      "noConnection": "No connection set for widget"
     }
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
   AppBar,
   Checkbox,
@@ -18,6 +18,10 @@ import SETTINGS from 'mocks/app-builder/pages';
 import Menu from 'components/App/Menu';
 
 import 'components/App/App.css';
+
+// pages
+import TaskDetailsPage from 'pages/task-details/';
+import SmartInboxPage from 'pages/smart-inbox/';
 
 // widgets
 import Home from 'components/App/Home';
@@ -87,153 +91,166 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <AppBar position="static" className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={() => setOpen(true)}
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h2" className={classes.title}>
-              Entando - PAM Plugin
-            </Typography>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={skeletonLoading}
-                  onChange={() => setSkeletonLoading(!skeletonLoading)}
+        <Switch>
+          <Route path="/task-details-page/">
+            <TaskDetailsPage />
+          </Route>
+          <Route path="/smart-inbox-page/">
+            <SmartInboxPage />
+          </Route>
+          <Route path="/">
+            <AppBar position="static" className={classes.appBar}>
+              <Toolbar>
+                <IconButton
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={() => setOpen(true)}
+                  className={classes.menuButton}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Typography variant="h2" className={classes.title}>
+                  Entando - PAM Plugin
+                </Typography>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={skeletonLoading}
+                      onChange={() => setSkeletonLoading(!skeletonLoading)}
+                    />
+                  }
+                  label="Show skeleton"
+                  labelPlacement="start"
                 />
-              }
-              label="Show skeleton"
-              labelPlacement="start"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox checked={lazyLoading} onChange={() => setLazyLoading(!lazyLoading)} />
-              }
-              label="Lazy Loading"
-              labelPlacement="start"
-            />
-            <user-auth
-              kc-auth-url="http://test-keycloak.51.91.30.184.nip.io/auth"
-              kc-realm="entando"
-              kc-client-id="eti-dig-ex"
-              base-url=""
-              class={classes.userAuth}
-            />
-          </Toolbar>
-        </AppBar>
+                <FormControlLabel
+                  control={
+                    <Checkbox checked={lazyLoading} onChange={() => setLazyLoading(!lazyLoading)} />
+                  }
+                  label="Lazy Loading"
+                  labelPlacement="start"
+                />
+                <user-auth
+                  kc-auth-url="http://test-keycloak.51.91.30.184.nip.io/auth"
+                  kc-realm="entando"
+                  kc-client-id="eti-dig-ex"
+                  base-url=""
+                  class={classes.userAuth}
+                />
+              </Toolbar>
+            </AppBar>
 
-        <Menu open={open} setOpen={setOpen} />
+            <Menu open={open} setOpen={setOpen} />
 
-        <Container className="app-container" maxWidth={false}>
-          <Route path="/" exact component={Home} />
-          <Route path="/Connections" exact component={ConnectionsContainer} />
-          <Route
-            path="/TaskList/"
-            render={() => (
-              <TaskListContainer
-                lazyLoading={lazyLoading}
-                pageCode={WIDGETS_CONFIG.TASK_LIST.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_LIST.frameId}
+            <Container className="app-container" maxWidth={false}>
+              <Route path="/" exact component={Home} />
+              <Route path="/Connections" exact component={ConnectionsContainer} />
+              <Route
+                path="/TaskList/"
+                render={() => (
+                  <TaskListContainer
+                    lazyLoading={lazyLoading}
+                    pageCode={WIDGETS_CONFIG.TASK_LIST.pageCode}
+                    frameId={WIDGETS_CONFIG.TASK_LIST.frameId}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path="/TaskListConfig"
-            render={() => <TaskListConfig config={SETTINGS.TASK_LIST.payload.config} />}
-          />
-          <Route
-            path="/TaskDetails/"
-            render={() => (
-              <TaskDetailsContainer
-                taskId={WIDGETS_CONFIG.TASK_DETAILS.taskId}
-                pageCode={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_DETAILS.frameId}
-                widgetCode={WIDGETS_CONFIG.TASK_DETAILS.widgetCode}
-                taskPos="0"
-                groups={SETTINGS.TASK_LIST.payload.config.groups}
+              <Route
+                path="/TaskListConfig"
+                render={() => <TaskListConfig config={SETTINGS.TASK_LIST.payload.config} />}
               />
-            )}
-          />
-          <Route path="/TaskDetailsConfig" render={() => <TaskDetailsConfig config={{}} />} />
-          <Route
-            path="/TaskCompletionForm/"
-            render={() => (
-              <TaskCompletionFormContainer
-                taskId={WIDGETS_CONFIG.COMPLETION_FORM.taskId}
-                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+              <Route
+                path="/TaskDetails/"
+                render={() => (
+                  <TaskDetailsContainer
+                    taskId={WIDGETS_CONFIG.TASK_DETAILS.taskId}
+                    pageCode={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
+                    frameId={WIDGETS_CONFIG.TASK_DETAILS.frameId}
+                    widgetCode={WIDGETS_CONFIG.TASK_DETAILS.widgetCode}
+                    taskPos="0"
+                    groups={SETTINGS.TASK_LIST.payload.config.groups}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path="/TaskCompletionFormConfig"
-            render={() => <TaskCompletionFormConfig config={{}} />}
-          />
-          <Route
-            path="/TaskComments/"
-            render={() => (
-              <TaskCommentsContainer
-                taskId={WIDGETS_CONFIG.TASK_COMMENTS.taskId}
-                pageCode={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}
-                frameId={WIDGETS_CONFIG.TASK_COMMENTS.frameId}
-                widgetCode={WIDGETS_CONFIG.TASK_COMMENTS.widgetCode}
+              <Route path="/TaskDetailsConfig" render={() => <TaskDetailsConfig config={{}} />} />
+              <Route
+                path="/TaskCompletionForm/"
+                render={() => (
+                  <TaskCompletionFormContainer
+                    taskId={WIDGETS_CONFIG.COMPLETION_FORM.taskId}
+                    pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
+                    frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
+                    widgetCode={WIDGETS_CONFIG.COMPLETION_FORM.widgetCode}
+                  />
+                )}
               />
-            )}
-          />
-          <Route path="/TaskCommentsConfig" render={() => <TaskCommentsConfig config={{}} />} />
-          <Route
-            path="/SummaryCard/"
-            render={() => (
-              <SummaryCardContainer
-                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
-                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
-                widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
+              <Route
+                path="/TaskCompletionFormConfig"
+                render={() => <TaskCompletionFormConfig config={{}} />}
               />
-            )}
-          />
-          <Route path="/SummaryCardConfig/" render={() => <SummaryCardConfig config={{}} />} />
-          <Route
-            path="/ProcessForm"
-            render={() => (
-              <ProcessFormContainer
-                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
-                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
-                widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
+              <Route
+                path="/TaskComments/"
+                render={() => (
+                  <TaskCommentsContainer
+                    taskId={WIDGETS_CONFIG.TASK_COMMENTS.taskId}
+                    pageCode={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}
+                    frameId={WIDGETS_CONFIG.TASK_COMMENTS.frameId}
+                    widgetCode={WIDGETS_CONFIG.TASK_COMMENTS.widgetCode}
+                  />
+                )}
               />
-            )}
-          />
-          <Route path="/ProcessFormConfig" render={() => <ProcessFormConfig config={{}} />} />
-          <Route
-            path="/OvertimeGraph"
-            render={() => (
-              <OvertimeGraphContainer
-                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
-                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
-                widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
+              <Route path="/TaskCommentsConfig" render={() => <TaskCommentsConfig config={{}} />} />
+              <Route
+                path="/SummaryCard/"
+                render={() => (
+                  <SummaryCardContainer
+                    pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
+                    frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
+                    widgetCode={WIDGETS_CONFIG.SUMMARY_CARD.widgetCode}
+                  />
+                )}
               />
-            )}
-          />
-          <Route path="/OvertimeGraphConfig" render={() => <OvertimeGraphConfig config={{}} />} />
-          <Route
-            path="/Attachments"
-            render={() => (
-              <AttachmentsContainer
-                taskId={WIDGETS_CONFIG.ATTACHMENTS.taskId}
-                pageCode={WIDGETS_CONFIG.ATTACHMENTS.pageCode}
-                frameId={WIDGETS_CONFIG.ATTACHMENTS.frameId}
-                widgetCode={WIDGETS_CONFIG.ATTACHMENTS.widgetCode}
+              <Route path="/SummaryCardConfig/" render={() => <SummaryCardConfig config={{}} />} />
+              <Route
+                path="/ProcessForm"
+                render={() => (
+                  <ProcessFormContainer
+                    pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                    frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+                    widgetCode={WIDGETS_CONFIG.PROCESS_FORM.widgetCode}
+                  />
+                )}
               />
-            )}
-          />
-          <Route path="/AttachmentsConfig" render={() => <AttachmentsConfig config={{}} />} />
-        </Container>
+              <Route path="/ProcessFormConfig" render={() => <ProcessFormConfig config={{}} />} />
+              <Route
+                path="/OvertimeGraph"
+                render={() => (
+                  <OvertimeGraphContainer
+                    pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
+                    frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
+                    widgetCode={WIDGETS_CONFIG.OVERTIME_GRAPH.widgetCode}
+                  />
+                )}
+              />
+              <Route
+                path="/OvertimeGraphConfig"
+                render={() => <OvertimeGraphConfig config={{}} />}
+              />
+              <Route
+                path="/Attachments"
+                render={() => (
+                  <AttachmentsContainer
+                    taskId={WIDGETS_CONFIG.ATTACHMENTS.taskId}
+                    pageCode={WIDGETS_CONFIG.ATTACHMENTS.pageCode}
+                    frameId={WIDGETS_CONFIG.ATTACHMENTS.frameId}
+                    widgetCode={WIDGETS_CONFIG.ATTACHMENTS.widgetCode}
+                  />
+                )}
+              />
+              <Route path="/AttachmentsConfig" render={() => <AttachmentsConfig config={{}} />} />
+            </Container>
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

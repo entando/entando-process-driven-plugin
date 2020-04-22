@@ -13,16 +13,30 @@ const StyledTableRowHover = withStyles(
   {
     root: {
       color: '#e7eaec',
+      '& > *': {
+        backgroundColor: '#ffffff',
+      },
+      '&.activeTask > *': {
+        backgroundColor: '#e8f3f9',
+      },
       '&:hover > *': {
         backgroundColor: '#f9f8f8',
         cursor: 'pointer',
+      },
+    },
+    selected: {
+      '& > *': {
+        backgroundColor: '#f4f6f7',
+      },
+      '&.activeTask > *': {
+        backgroundColor: '#dce7ed',
       },
     },
   },
   { name: 'StyledTableRowHover' }
 )(TableRow);
 
-const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, onRowClick }) => {
+const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, onRowClick, activeTaskId }) => {
   return (
     <TableBody>
       {rows.map((row, idx) => (
@@ -31,6 +45,7 @@ const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, onRowClick }) 
             <StyledTableRowHover
               style={{ height: rowHeight, cursor: row.onClick ? 'pointer' : 'initial' }}
               hover
+              className={row.id === activeTaskId ? 'activeTask' : ''}
               selected={selectedRows.has(row[rowAccessor])}
               onClick={e => {
                 onRowClick(row, idx, e);
@@ -58,6 +73,7 @@ InternalTableBody.propTypes = {
   emptyRows: PropTypes.number,
   rowHeight: PropTypes.number,
   onRowClick: PropTypes.func,
+  activeTaskId: PropTypes.string,
 };
 
 InternalTableBody.defaultProps = {
@@ -66,6 +82,7 @@ InternalTableBody.defaultProps = {
   emptyRows: 0,
   rowHeight: 55,
   onRowClick: () => {},
+  activeTaskId: '',
 };
 
 export default InternalTableBody;

@@ -11,11 +11,7 @@ import MOCKED_BULK_ACTION_RESPONSE from 'mocks/pda/bulkActions';
 
 export const getTasks = async (
   { connection, groups },
-  page = 0,
-  pageSize = 30,
-  sortedColumn,
-  sortOrder,
-  filter
+  { page = 0, pageSize = 30, sortedColumn, sortOrder, filter }
 ) =>
   makeRequest({
     domain: DOMAINS.PDA,
@@ -71,6 +67,29 @@ export const postTaskForm = async (connection, taskId, body) =>
     mockResponse: MOCKED_POST_TASK_FORM_RESPONSE,
     useAuthentication: true,
   });
+
+export const fetchSingleTask = async ({
+  taskPosition, // task position relative to task list
+  connection,
+  groups,
+  onError,
+}) => {
+  try {
+    const { payload: tasks, metadata } = await getTasks(
+      { connection, groups },
+      { page: taskPosition, pageSize: 1 }
+    );
+
+    if (!tasks) {
+      throw new Error('messages.errors.errorResponse');
+    }
+
+    return { task: tasks[0], metadata };
+  } catch (error) {
+    onError(error.message);
+  }
+  return {};
+};
 
 export const TASK_BULK_ACTIONS = [
   'assign',

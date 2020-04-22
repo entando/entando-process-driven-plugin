@@ -62,13 +62,15 @@ const styles = {
   },
 };
 
+const DEFAULT_ROWS_PER_PAGE = [10, 25, 50, 100];
+
 class TaskList extends React.Component {
   state = {
     loading: true,
     columns: [],
     rows: [],
     size: 0,
-    connection: {},
+    connection: '',
     filter: '',
     blocker: '',
     errorAlert: null,
@@ -82,6 +84,8 @@ class TaskList extends React.Component {
     selectedRows: [],
     groups: [],
     page: 0,
+    rowsPerPage: DEFAULT_ROWS_PER_PAGE[0],
+    activeTaskId: '',
     userDialog: {
       open: false,
       value: '',
@@ -119,7 +123,7 @@ class TaskList extends React.Component {
         : storedGroups;
 
       const taskList = lazyLoading
-        ? await getTasks({ connection, groups }, 0, 10)
+        ? await getTasks({ connection, groups }, { page: 0, pageSize: 10 })
         : await getTasks({ connection, groups });
 
       if (!taskList.payload) {
@@ -133,8 +137,10 @@ class TaskList extends React.Component {
         const rows = normalizeRows(taskList.payload);
         const { columns: storedColumns } = this.state;
 
-        // dispatch onSelectTask event for the first item on list
-        onSelectTask({ ...rows[0], pos: 0, groups });
+        // activate first item on list and dispatch onSelectTask event
+        this.setState({ activeTaskId: rows[0].id }, () => {
+          onSelectTask({ ...rows[0], pos: 0, lastPage: taskList.metadata.lastPage, groups });
+        });
 
         const columns = normalizeColumns(
           config.columns ? JSON.parse(config.columns) : storedColumns,
@@ -160,17 +166,25 @@ class TaskList extends React.Component {
   };
 
   componentDidUpdate = prevProps => {
-    const { lazyLoading } = this.props;
+    const { lazyLoading, activeTask } = this.props;
     if (prevProps.lazyLoading !== lazyLoading) {
       this.updateRows(lazyLoading ? 0 : undefined);
     }
+
+    if (prevProps.activeTask !== activeTask) {
+      this.updateActiveTask(activeTask);
+    }
+  };
+
+  updateActiveTask = id => {
+    this.setState({ activeTaskId: id });
   };
 
   updateRows = async (
     page,
     rowsPerPage = 10,
     sortedColumn,
-    sortedOrder,
+    sortOrder,
     filter,
     callback = () => {},
     withDelay
@@ -186,11 +200,7 @@ class TaskList extends React.Component {
     try {
       const res = await getTasks(
         { connection, groups },
-        page,
-        rowsPerPage,
-        sortedColumn,
-        sortedOrder,
-        filter
+        { page, pageSize: rowsPerPage, sortedColumn, sortOrder, filter }
       );
       if (!res.payload) {
         throw res.message;
@@ -305,10 +315,14 @@ class TaskList extends React.Component {
 
   handleRowClicked = (row, idx, e) => {
     const { onSelectTask } = this.props;
-    const { page, rowsPerPage } = this.state;
+    const { page, rowsPerPage, lastPage, rows } = this.state;
     const pos = page * (rowsPerPage || 10) + idx;
+
     if (e.target.type !== 'checkbox') {
-      onSelectTask({ ...row, pos });
+      const lastItem = lastPage && idx === rows.length - 1;
+      this.setState({ activeTaskId: row.id }, () => {
+        onSelectTask({ ...row, pos, lastPage: lastItem ? 1 : 0 });
+      });
     }
   };
 
@@ -358,6 +372,7 @@ class TaskList extends React.Component {
       activeTab,
       selectedRows,
       userDialog,
+      activeTaskId,
     } = this.state;
     const { classes, lazyLoading, rowAccessor } = this.props;
 
@@ -417,10 +432,11 @@ class TaskList extends React.Component {
                   loading={loading}
                   columns={columns}
                   rows={rows}
-                  rowsPerPageOptions={[10, 25, 50, 100]}
+                  rowsPerPageOptions={DEFAULT_ROWS_PER_PAGE}
                   lazyLoadingProps={lazyLoadingProps}
                   onRowClick={this.handleRowClicked}
                   onChangePage={this.handleChangePage}
+                  activeTaskId={activeTaskId}
                 />
               </TableBulkSelectContext.Provider>
             </>
@@ -473,6 +489,7 @@ TaskList.propTypes = {
   pageCode: PropTypes.string,
   frameId: PropTypes.string,
   rowAccessor: PropTypes.string,
+  activeTask: PropTypes.string,
 };
 
 TaskList.defaultProps = {
@@ -484,6 +501,7 @@ TaskList.defaultProps = {
   pageCode: '',
   frameId: '',
   rowAccessor: 'id',
+  activeTask: '',
 };
 
 const TaskListContainer = withStyles(styles)(TaskList);

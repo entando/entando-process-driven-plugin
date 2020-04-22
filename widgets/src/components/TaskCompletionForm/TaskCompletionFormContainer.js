@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
@@ -45,6 +46,7 @@ class TaskCompletionFormContainer extends React.Component {
       formData: {},
     };
 
+    this.fetchForm = this.fetchForm.bind(this);
     this.fetchTaskFormData = this.fetchTaskFormData.bind(this);
     this.fetchSchema = this.fetchSchema.bind(this);
     this.submitProcessForm = this.submitProcessForm.bind(this);
@@ -53,47 +55,16 @@ class TaskCompletionFormContainer extends React.Component {
   componentDidMount() {
     this.setState({ loading: true }, async () => {
       const config = await this.fetchWidgetConfigs();
-      this.setState({ config }, async () => {
-        const formDataPromise = this.fetchTaskFormData();
-        const formSchemaPromise = this.fetchSchema();
-
-        const taskData = await formDataPromise;
-        const formSchema = await formSchemaPromise;
-
-        const properties = TaskCompletionFormContainer.extractProperties(formSchema);
-
-        const mergedData = { ...taskData.inputData, ...taskData.outputData };
-
-        const formData = Object.keys(mergedData).reduce((acc, property) => {
-          if (properties.includes(property)) {
-            return { ...acc, [property]: mergedData[property] };
-          }
-          return acc;
-        }, {});
-
-        // TEMP PAM BUG FIX, REMOVE THIS WHEN FIXED ON PAM, PASS formData to this.setState
-        const modifiedFormData = Object.keys(formData).reduce((acc, field) => {
-          const path = field.split('.');
-
-          let property = formSchema;
-          for (let i = 0; i < path.length; i += 1) {
-            property = property.properties[path[i]];
-          }
-
-          if (property.type === 'array') {
-            if (!Array.isArray(formData[field])) {
-              return { ...acc, [field]: [formData[field]] };
-            }
-          }
-
-          return { ...acc, [field]: formData[field] };
-        }, {});
-        // ^^^ TEMP PAM BUG FIX, REMOVE THIS WHEN FIXED ON PAM, PASS formData TO this.setState()
-
-        this.setState({ formData: modifiedFormData, formSchema, loading: false });
-      });
+      this.setState({ config }, this.fetchForm);
     });
   }
+
+  componentDidUpdate = prevProps => {
+    const { taskId } = this.props;
+    if (prevProps.taskId !== taskId) {
+      this.fetchForm();
+    }
+  };
 
   async fetchWidgetConfigs() {
     const { pageCode, frameId } = this.props;
@@ -124,23 +95,67 @@ class TaskCompletionFormContainer extends React.Component {
     return null;
   }
 
+  async fetchForm() {
+    this.setState({ loading: true });
+    const formDataPromise = this.fetchTaskFormData();
+    const formSchemaPromise = this.fetchSchema();
+
+    const taskData = await formDataPromise;
+    const formSchema = await formSchemaPromise;
+
+    const properties = TaskCompletionFormContainer.extractProperties(formSchema);
+
+    const mergedData = { ...taskData.inputData, ...taskData.outputData };
+
+    const formData = Object.keys(mergedData).reduce((acc, property) => {
+      if (properties.includes(property)) {
+        return { ...acc, [property]: mergedData[property] };
+      }
+      return acc;
+    }, {});
+
+    // TEMP PAM BUG FIX, REMOVE THIS WHEN FIXED ON PAM, PASS formData to this.setState
+    const modifiedFormData = Object.keys(formData).reduce((acc, field) => {
+      const path = field.split('.');
+
+      let property = formSchema;
+      for (let i = 0; i < path.length; i += 1) {
+        property = property.properties[path[i]];
+      }
+
+      if (property.type === 'array') {
+        if (!Array.isArray(formData[field])) {
+          return { ...acc, [field]: [formData[field]] };
+        }
+      }
+
+      return { ...acc, [field]: formData[field] };
+    }, {});
+    // ^^^ TEMP PAM BUG FIX, REMOVE THIS WHEN FIXED ON PAM, PASS formData TO this.setState()
+
+    this.setState({ formData: modifiedFormData, formSchema, loading: false });
+  }
+
   async fetchTaskFormData() {
     const { config } = this.state;
     const { taskId } = this.props;
-    const connection = (config && config.knowledgeSource) || '';
+    const connection = config && config.knowledgeSource;
+    if (!connection) {
+      this.handleError(i18next.t('messages.errors.noConnection'));
+    } else {
+      try {
+        const task = await getTask(connection, taskId);
 
-    try {
-      const task = await getTask(connection, taskId);
-
-      return (
-        (task &&
-          task.payload && {
-            outputData: task.payload.outputData,
-            inputData: task.payload.inputData,
-          }) || { outputData: {}, inputData: {} }
-      );
-    } catch (error) {
-      this.handleError(error.message);
+        return (
+          (task &&
+            task.payload && {
+              outputData: task.payload.outputData,
+              inputData: task.payload.inputData,
+            }) || { outputData: {}, inputData: {} }
+        );
+      } catch (error) {
+        this.handleError(error.message);
+      }
     }
     return {};
   }
