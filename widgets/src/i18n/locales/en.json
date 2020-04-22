@@ -102,6 +102,7 @@
   },
   "processes": {
     "definition": {
+      "title": "Process Definition",
       "selectAProcess": "Select a process definition",
       "noProcesses": "There is no processes to be defined"
     }

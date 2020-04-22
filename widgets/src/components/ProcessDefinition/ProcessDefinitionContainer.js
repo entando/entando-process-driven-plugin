@@ -1,6 +1,7 @@
+import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from '@material-ui/core/styles';
+import i18next from 'i18next';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -150,22 +151,21 @@ class ProcessDefinitionContainer extends React.Component {
       >
         <ThemeProvider theme={theme}>
           <Container disableGutters>
-            <WidgetBox title="Process Definition">
+            <WidgetBox title={i18next.t('processes.definition.title')}>
               {loading ? (
                 <Skeleton variant="rect" height={35} />
               ) : processList.length ? (
                 <div>
-                  <Typography>Select a process definition</Typography>
+                  <Typography>{i18next.t('processes.definition.selectAProcess')}</Typography>
                   <Select
                     id="processDefinition"
-                    label="Select a Process Definition"
                     options={{ enumOptions: processList }}
                     onChange={this.handleProcessChange}
                     value={selectedProcess}
                   />
                 </div>
               ) : (
-                <Typography>There is no processes to be defined</Typography>
+                <Typography>{i18next.t('processes.definition.noProcesses')}</Typography>
               )}
               {selectedProcess && (
                 <div>

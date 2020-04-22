@@ -102,6 +102,7 @@
   },
   "processes": {
     "definition": {
+      "title": "Definizione del processo",
       "selectAProcess": "Seleziona una definizione del processo",
       "noProcesses": "Non ci sono processi da definire"
     }

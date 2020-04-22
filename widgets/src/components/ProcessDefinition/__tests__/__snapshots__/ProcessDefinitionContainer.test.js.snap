@@ -14,7 +14,7 @@ exports[`<ProcessDefinitionContainer /> renders snapshot correctly 1`] = `
         <h2
           class="MuiTypography-root MuiTypography-h2"
         >
-          Process Definition
+          processes.definition.title
         </h2>
         <div />
       </div>
@@ -25,7 +25,7 @@ exports[`<ProcessDefinitionContainer /> renders snapshot correctly 1`] = `
           <p
             class="MuiTypography-root MuiTypography-body1"
           >
-            Select a process definition
+            processes.definition.selectAProcess
           </p>
           <div
             class="MuiFormControl-root makeStyles-formControl-107"
@@ -84,7 +84,7 @@ exports[`<ProcessDefinitionContainer /> renders snapshot correctly on error stat
         <h2
           class="MuiTypography-root MuiTypography-h2"
         >
-          Process Definition
+          processes.definition.title
         </h2>
         <div />
       </div>
