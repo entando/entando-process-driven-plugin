@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import { FormGroup, ControlLabel, Checkbox, HelpBlock, Row, Col } from 'patternfly-react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
@@ -170,6 +169,7 @@ class TaskListConfig extends React.Component {
               },
             }));
           } catch (error) {
+            // eslint-disable-next-line no-console
             console.log('Error while trying to fetch groups and columns from PDA server', error);
           }
         }

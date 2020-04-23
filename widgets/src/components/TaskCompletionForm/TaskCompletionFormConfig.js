@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patternfly-react';

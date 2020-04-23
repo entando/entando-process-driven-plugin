@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import i18next from 'i18next';
