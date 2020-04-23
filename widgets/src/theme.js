@@ -106,7 +106,6 @@ export default createMuiTheme({
       ...entandoUiTheme.overrides.MuiInputBase,
       input: {
         ...entandoUiTheme.overrides.MuiInputBase.input,
-        maxWidth: '35em',
         width: '100%',
       },
     },

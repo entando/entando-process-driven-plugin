@@ -139,7 +139,9 @@ class TaskCompletionFormContainer extends React.Component {
   async fetchTaskFormData() {
     const { config } = this.state;
     const { taskId } = this.props;
+
     const connection = config && config.knowledgeSource;
+
     if (!connection) {
       this.handleError(i18next.t('messages.errors.noConnection'));
     } else {

@@ -50,6 +50,9 @@ import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 import AttachmentsContainer from 'components/Attachments/AttachmentsContainer';
 import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
 
+import ProcessDefinitionContainer from 'components/ProcessDefinition/ProcessDefinitionContainer';
+import ProcessDefinitionConfig from 'components/ProcessDefinition/ProcessDefinitionConfig';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -144,7 +147,9 @@ function App() {
 
             <Container className="app-container" maxWidth={false}>
               <Route path="/" exact component={Home} />
+
               <Route path="/Connections" exact component={ConnectionsContainer} />
+
               <Route
                 path="/TaskList/"
                 render={() => (
@@ -159,6 +164,7 @@ function App() {
                 path="/TaskListConfig"
                 render={() => <TaskListConfig config={SETTINGS.TASK_LIST.payload.config} />}
               />
+
               <Route
                 path="/TaskDetails/"
                 render={() => (
@@ -173,6 +179,7 @@ function App() {
                 )}
               />
               <Route path="/TaskDetailsConfig" render={() => <TaskDetailsConfig config={{}} />} />
+
               <Route
                 path="/TaskCompletionForm/"
                 render={() => (
@@ -188,6 +195,7 @@ function App() {
                 path="/TaskCompletionFormConfig"
                 render={() => <TaskCompletionFormConfig config={{}} />}
               />
+
               <Route
                 path="/TaskComments/"
                 render={() => (
@@ -200,6 +208,7 @@ function App() {
                 )}
               />
               <Route path="/TaskCommentsConfig" render={() => <TaskCommentsConfig config={{}} />} />
+
               <Route
                 path="/SummaryCard/"
                 render={() => (
@@ -211,6 +220,7 @@ function App() {
                 )}
               />
               <Route path="/SummaryCardConfig/" render={() => <SummaryCardConfig config={{}} />} />
+
               <Route
                 path="/ProcessForm"
                 render={() => (
@@ -222,6 +232,7 @@ function App() {
                 )}
               />
               <Route path="/ProcessFormConfig" render={() => <ProcessFormConfig config={{}} />} />
+
               <Route
                 path="/OvertimeGraph"
                 render={() => (
@@ -236,6 +247,7 @@ function App() {
                 path="/OvertimeGraphConfig"
                 render={() => <OvertimeGraphConfig config={{}} />}
               />
+
               <Route
                 path="/Attachments"
                 render={() => (
@@ -248,6 +260,22 @@ function App() {
                 )}
               />
               <Route path="/AttachmentsConfig" render={() => <AttachmentsConfig config={{}} />} />
+
+              <Route
+                path="/ProcessDefinition"
+                render={() => (
+                  <ProcessDefinitionContainer
+                    taskId={WIDGETS_CONFIG.PROCESS_DEFINITION.taskId}
+                    pageCode={WIDGETS_CONFIG.PROCESS_DEFINITION.pageCode}
+                    frameId={WIDGETS_CONFIG.PROCESS_DEFINITION.frameId}
+                    widgetCode={WIDGETS_CONFIG.PROCESS_DEFINITION.widgetCode}
+                  />
+                )}
+              />
+              <Route
+                path="/ProcessDefinitionConfig"
+                render={() => <ProcessDefinitionConfig config={{}} />}
+              />
             </Container>
           </Route>
         </Switch>
