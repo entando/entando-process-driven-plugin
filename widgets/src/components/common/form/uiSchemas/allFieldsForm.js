@@ -21,11 +21,15 @@ export default {
     },
     passwordField: {
       'ui:widget': 'password',
-      'ui:options': {},
+      'ui:options': {
+        size: 6,
+      },
     },
     emailField: {
       'ui:widget': 'email',
-      'ui:options': {},
+      'ui:options': {
+        size: 6,
+      },
     },
     urlField: {
       'ui:options': {},
@@ -36,8 +40,18 @@ export default {
     },
   },
   numbers: {
-    doubleField: {},
-    integerField: {},
+    doubleField: {
+      'ui:options': {
+        size: 6,
+        innerSize: 6,
+      },
+    },
+    integerField: {
+      'ui:options': {
+        size: 6,
+        innerSize: 6,
+      },
+    },
     rangeField: {
       'ui:widget': 'range',
       'ui:options': {},
@@ -51,14 +65,51 @@ export default {
       'ui:options': {},
     },
   },
+  booleans: {
+    regularBoolean: {},
+    radioBoolean: {
+      'ui:widget': 'radio',
+      'ui:options': {
+        size: 4,
+      },
+    },
+    namedRadioBoolean: {
+      'ui:widget': 'radio',
+      'ui:options': {
+        size: 4,
+      },
+    },
+    selectBoolean: {
+      'ui:widget': 'select',
+      'ui:options': {
+        size: 4,
+      },
+    },
+  },
   datetimes: {
-    date: {},
-    datetime: {},
+    date: {
+      'ui:options': {
+        size: 6,
+      },
+    },
+    datetime: {
+      'ui:options': {
+        size: 6,
+      },
+    },
   },
   multichoice: {
     checkbox: {
       'ui:widget': 'checkboxes',
-      'ui:options': {},
+      'ui:options': {
+        size: 6,
+      },
+    },
+    select: {
+      'ui:widget': 'select',
+      'ui:options': {
+        size: 6,
+      },
     },
   },
 };

@@ -5,11 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
-  container: props => ({
-    padding: props.hidden ? '0px 0px' : '0px 15px',
-  }),
   label: {
     marginTop: '5px',
+    marginBottom: '15px',
     fontWeight: 'bold',
     fontSize: '13px',
     lineHeight: '15px',
