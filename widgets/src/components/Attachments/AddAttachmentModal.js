@@ -1,8 +1,8 @@
-import { DropzoneArea } from 'material-ui-dropzone';
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
+import withStyles from '@material-ui/core/styles/withStyles';
+import { DropzoneArea } from 'material-ui-dropzone';
+import Button from '@material-ui/core/Button';
 
 const styles = {
   buttonWrapper: {
