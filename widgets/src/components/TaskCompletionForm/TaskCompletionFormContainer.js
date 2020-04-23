@@ -12,6 +12,28 @@ import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
 
 class TaskCompletionFormContainer extends React.Component {
+  static extractProperties(node, nodeName = '', path = '') {
+    // if node.type is object - it has own properties
+    if (!node) {
+      return [];
+    }
+
+    if (node.type === 'object') {
+      const nodesProperties = Object.keys(node.properties);
+      const paths = nodesProperties.map(property =>
+        TaskCompletionFormContainer.extractProperties(
+          node.properties[property],
+          property,
+          path ? `${path}.${nodeName}` : nodeName
+        )
+      );
+      return paths.flat();
+    }
+
+    // if node.type is not an object - it a final property
+    return path ? `${path}.${nodeName}` : nodeName;
+  }
+
   constructor(props) {
     super(props);
 
@@ -35,11 +57,40 @@ class TaskCompletionFormContainer extends React.Component {
         const formDataPromise = this.fetchTaskFormData();
         const formSchemaPromise = this.fetchSchema();
 
-        const formData = await formDataPromise;
-
+        const taskData = await formDataPromise;
         const formSchema = await formSchemaPromise;
 
-        this.setState({ formData, formSchema, loading: false });
+        const properties = TaskCompletionFormContainer.extractProperties(formSchema);
+
+        const mergedData = { ...taskData.inputData, ...taskData.outputData };
+
+        const formData = Object.keys(mergedData).reduce((acc, property) => {
+          if (properties.includes(property)) {
+            return { ...acc, [property]: mergedData[property] };
+          }
+          return acc;
+        }, {});
+
+        // TEMP PAM BUG FIX, REMOVE THIS WHEN FIXED ON PAM, PASS formData to this.setState
+        const modifiedFormData = Object.keys(formData).reduce((acc, field) => {
+          const path = field.split('.');
+
+          let property = formSchema;
+          for (let i = 0; i < path.length; i += 1) {
+            property = property.properties[path[i]];
+          }
+
+          if (property.type === 'array') {
+            if (!Array.isArray(formData[field])) {
+              return { ...acc, [field]: [formData[field]] };
+            }
+          }
+
+          return { ...acc, [field]: formData[field] };
+        }, {});
+        // ^^^ TEMP PAM BUG FIX, REMOVE THIS WHEN FIXED ON PAM, PASS formData TO this.setState()
+
+        this.setState({ formData: modifiedFormData, formSchema, loading: false });
       });
     });
   }
@@ -81,7 +132,13 @@ class TaskCompletionFormContainer extends React.Component {
     try {
       const task = await getTask(connection, taskId);
 
-      return (task && task.payload && task.payload.outputData) || {};
+      return (
+        (task &&
+          task.payload && {
+            outputData: task.payload.outputData,
+            inputData: task.payload.inputData,
+          }) || { outputData: {}, inputData: {} }
+      );
     } catch (error) {
       this.handleError(error.message);
     }
@@ -105,13 +162,11 @@ class TaskCompletionFormContainer extends React.Component {
   submitProcessForm(form) {
     this.setState({ submitting: true }, async () => {
       const { config } = this.state;
-      const { onSubmitForm } = this.props;
-
+      const { taskId, onSubmitForm } = this.props;
       const connection = (config && config.knowledgeSource) || '';
-      const processContainerId = (config && config.process) || '';
 
       try {
-        const response = await postTaskForm(connection, processContainerId, form.formData);
+        const response = await postTaskForm(connection, taskId, form.formData);
         onSubmitForm({ ...form, response });
       } catch (error) {
         this.handleError(error.message);

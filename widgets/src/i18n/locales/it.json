@@ -100,6 +100,13 @@
       "NodeName": "Node name"
     }
   },
+  "processes": {
+    "definition": {
+      "title": "Definizione del processo",
+      "selectAProcess": "Seleziona una definizione del processo",
+      "noProcesses": "Non ci sono processi da definire"
+    }
+  },
   "messages": {
     "success": {
       "saved": "Salvato con successo."
@@ -109,7 +116,9 @@
     },
     "warnings": {
       "noData": "Non ci sono dati da visualizzare",
-      "noFormSchema": "Form schema was not provided"
+      "noFormSchema": "Lo schema del modulo non è stato fornito",
+      "noAttachments": "Non è disponibile alcun allegato per questa attività",
+      "deleteFilePermanently": "Desideri eliminare definitivamente questo file?"
     },
     "errors": {
       "widgetConfig": "Nessuna configurazione trovata per questo widget",

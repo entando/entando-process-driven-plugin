@@ -110,9 +110,13 @@ class TaskList extends React.Component {
 
       const { config } = widgetConfigs.payload;
       const connection = config.knowledgeSource;
-      const groups = JSON.parse(config.groups)
-        .filter(group => group.checked)
-        .map(group => group.key);
+      const { groups: storedGroups } = this.state;
+
+      const groups = config.groups
+        ? JSON.parse(config.groups)
+            .filter(group => group.checked)
+            .map(group => group.key)
+        : storedGroups;
 
       const taskList = lazyLoading
         ? await getTasks({ connection, groups }, 0, 10)
@@ -125,13 +129,17 @@ class TaskList extends React.Component {
       if (!taskList.payload.length) {
         this.setState({ blocker: 'taskList.emptyList' });
       } else {
-        const options = JSON.parse(config.options);
+        const options = config.options ? JSON.parse(config.options) : [];
         const rows = normalizeRows(taskList.payload);
+        const { columns: storedColumns } = this.state;
 
         // dispatch onSelectTask event for the first item on list
         onSelectTask({ ...rows[0], pos: 0, groups });
 
-        const columns = normalizeColumns(JSON.parse(config.columns), rows[0]);
+        const columns = normalizeColumns(
+          config.columns ? JSON.parse(config.columns) : storedColumns,
+          rows[0]
+        );
 
         this.setState({
           loading: false,
@@ -288,9 +296,10 @@ class TaskList extends React.Component {
     this.setState({ activeTab });
   };
 
-  handleChangePage = page => {
+  handleChangePage = (page, rowsPerPage) => {
     this.setState({
       page,
+      ...(rowsPerPage ? { rowsPerPage } : {}),
     });
   };
 
@@ -387,6 +396,7 @@ class TaskList extends React.Component {
                 </Tabs>
                 <div className={classes.dropdown}>
                   <DropDownButton
+                    disabled={!selectedRowsSet.size}
                     options={TASK_BULK_ACTIONS.map(
                       action => `${action.charAt(0).toUpperCase()}${action.slice(1)}`
                     )}

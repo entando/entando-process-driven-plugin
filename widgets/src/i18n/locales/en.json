@@ -100,6 +100,13 @@
       "NodeName": "Node name"
     }
   },
+  "processes": {
+    "definition": {
+      "title": "Process Definition",
+      "selectAProcess": "Select a process definition",
+      "noProcesses": "There is no processes to be defined"
+    }
+  },
   "messages": {
     "success": {
       "saved": "Saved successfully."
@@ -109,7 +116,9 @@
     },
     "warnings": {
       "noData": "There is no data to be displayed",
-      "noFormSchema": "Form schema was not provided"
+      "noFormSchema": "Form schema was not provided",
+      "noAttachments": "There is no attachment available for this task",
+      "deleteFilePermanently": "Do you wish to delete this file permanently?"
     },
     "errors": {
       "widgetConfig": "No configuration found for this widget",

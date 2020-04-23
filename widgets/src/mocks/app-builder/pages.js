@@ -22,11 +22,8 @@ const taskDetailsConfigs = {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
-      settings: {
-        hasGeneralInformation: true,
-        header: 'taskDetails.overview.title',
-        destinationPageCode: 'pda_task_details',
-      },
+      settings:
+        '{"header":"taskDetails.overview.detailsTitle","hasGeneralInformation":true,"destinationPageCode":"pda_task_details"}',
     },
   },
   metaData: { status: 'draft' },
@@ -117,6 +114,18 @@ const attachments = {
   errors: [],
 };
 
+const processDefinition = {
+  payload: {
+    code: 'phase_1_widgets_process_definition',
+    config: {
+      knowledgeSource: 'kieStaging',
+      settings: '{"uiSchema":"{}"}',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
 export default {
   TASK_LIST: taskListConfigs,
   TASK_DETAILS: taskDetailsConfigs,
@@ -126,4 +135,5 @@ export default {
   PROCESS_FORM: processFormConfigs,
   OVERTIME_GRAPH: overtimeGraphConfigs,
   ATTACHMENTS: attachments,
+  PROCESS_DEFINITION: processDefinition,
 };

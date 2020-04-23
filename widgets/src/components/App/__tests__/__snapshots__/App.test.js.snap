@@ -128,7 +128,7 @@ exports[`<App /> renders snapshot correctly 1`] = `
       </div>
     </header>
     <div
-      class="MuiContainer-root app-container MuiContainer-maxWidthLg"
+      class="MuiContainer-root app-container"
     >
       <div
         class="app-home"

@@ -30,7 +30,7 @@ const DateTimeWidget = props => {
           ampm={options.ampm || false}
           format={options.format || 'YYYY-MM-DD HH:mm'}
           InputProps={{ notched: false }}
-          value={value}
+          value={value || null}
           onChange={handleOnChange}
           disabled={disabled || readonly}
           clearable

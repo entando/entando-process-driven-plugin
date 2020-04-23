@@ -31,8 +31,6 @@ exports[`<Attachment /> renders snapshot correctly 1`] = `
         >
           <a
             class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-            download=""
-            href="/test/1/download"
           >
             test
           </a>

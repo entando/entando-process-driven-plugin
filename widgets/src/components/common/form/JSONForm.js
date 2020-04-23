@@ -14,6 +14,7 @@ import generateColumnedOFT from 'components/common/form/templates/ObjectFieldTem
 import DateWidget from 'components/common/form/widgets/DateWidget';
 import DateTimeWidget from 'components/common/form/widgets/DateTimeWidget';
 import EmailWidget from 'components/common/form/widgets/EmailWidget';
+import UpDownWidget from 'components/common/form/widgets/UpDownWidget';
 import mortgageApplicationForm from 'components/common/form/uiSchemas/mortgageApplicationForm';
 import allFieldsForm from 'components/common/form/uiSchemas/allFieldsForm';
 
@@ -138,6 +139,7 @@ const JSONForm = props => {
     DateWidget,
     DateTimeWidget,
     EmailWidget,
+    UpDownWidget,
     ...widgets,
   };
 

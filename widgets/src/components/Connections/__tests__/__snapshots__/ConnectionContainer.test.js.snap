@@ -6,7 +6,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-10 MuiPaper-outlined"
+      class="MuiPaper-root ControlledWidgetBox-widgetBox-10 MuiPaper-outlined"
     >
       <div
         class="MuiBox-root MuiBox-root-40"
@@ -33,9 +33,6 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
           </button>
         </div>
       </div>
-      <hr
-        class="MuiDivider-root"
-      />
     </div>
     <div
       class="MuiGrid-root ConnectionsContainer-gridContainer-1 MuiGrid-container MuiGrid-spacing-xs-2"
@@ -74,7 +71,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardContent-root ConnectionItem-cardContent-251"
+            class="MuiCardContent-root ConnectionItem-cardContent-244"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
@@ -206,7 +203,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardContent-root ConnectionItem-cardContent-251"
+            class="MuiCardContent-root ConnectionItem-cardContent-244"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
@@ -338,7 +335,7 @@ exports[`<ConnectionsContainer /> renders snapshot correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiCardContent-root ConnectionItem-cardContent-251"
+            class="MuiCardContent-root ConnectionItem-cardContent-244"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"

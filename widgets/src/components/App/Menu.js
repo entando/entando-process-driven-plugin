@@ -22,6 +22,7 @@ import {
   DoneAll as DoneAllIcon,
   Comment as CommentsIcon,
   CloudQueue as CloudQueueIcon,
+  DeveloperBoard as DeveloperBoardIcon,
 } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -81,6 +82,12 @@ const menuItems = [
     linkText: 'Process form',
     Icon: <DescriptionIcon />,
     configLinkTo: '/ProcessFormConfig',
+  },
+  {
+    linkTo: '/ProcessDefinition',
+    linkText: 'Process Definition',
+    Icon: <DeveloperBoardIcon />,
+    configLinkTo: 'ProcessDefinitionConfig',
   },
   {
     linkTo: '/OvertimeGraph',
@@ -145,12 +152,14 @@ Menu.propTypes = {
     listItem: PropTypes.string,
     iconButton: PropTypes.string,
   }),
-  open: PropTypes.bool.isRequired,
-  setOpen: PropTypes.func.isRequired,
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
 };
 
 Menu.defaultProps = {
   classes: {},
+  open: false,
+  setOpen: () => {},
 };
 
 export default withStyles(styles)(Menu);

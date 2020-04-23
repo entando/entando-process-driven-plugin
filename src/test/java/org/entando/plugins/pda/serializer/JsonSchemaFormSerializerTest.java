@@ -44,10 +44,19 @@ public class JsonSchemaFormSerializerTest {
     }
 
     @Test
-    public void shouldSerializeTaskFormIntoJsonSchemaV7() throws Exception {
+    public void shouldSerializeSimpleTaskFormIntoJsonSchemaV7() throws Exception {
         String result = mapper.writeValueAsString(
                 new V7JsonSchemaForm(FakeTaskFormService.TASK_FORM_1));
-        String expected = readFromFile("task_form_json_schema_1.json");
+        String expected = readFromFile("simple_task_form_json_schema.json");
+
+        assertEquals(expected, result, JSONCompareMode.STRICT);
+    }
+
+    @Test
+    public void shouldSerializeFullTaskFormIntoJsonSchemaV7() throws Exception {
+        String result = mapper.writeValueAsString(
+                new V7JsonSchemaForm(FakeTaskFormService.TASK_FORM_2));
+        String expected = readFromFile("full_task_form_json_schema.json");
 
         assertEquals(expected, result, JSONCompareMode.STRICT);
     }

@@ -1,41 +1,44 @@
 import MOCKED_WIDGET_CONFIGS from 'mocks/app-builder/pages';
 
+const PAGE_CODE = 'phase_1_widgets';
+const TASK_ID = '7@forms-sample_1.0.1-SNAPSHOT';
+
 export default {
   TASK_LIST: {
-    pageCode: 'task_list',
+    pageCode: PAGE_CODE,
     frameId: '1',
-    widgetCode: 'pda_task_list',
+    widgetCode: 'phase_1_widgets_task_details',
     configs: MOCKED_WIDGET_CONFIGS.TASK_LIST,
   },
   TASK_DETAILS: {
-    taskId: '294@mortgage-process_1.0.0-SNAPSHOT',
-    pageCode: 'phase_1_widgets',
+    pageCode: PAGE_CODE,
+    taskId: TASK_ID,
     frameId: '4',
     widgetCode: 'phase_1_widgets_task_details',
     configs: MOCKED_WIDGET_CONFIGS.TASK_DETAILS,
   },
   COMPLETION_FORM: {
-    taskId: '294@mortgage-process_1.0.0-SNAPSHOT',
-    pageCode: 'phase_1_widgets',
+    pageCode: PAGE_CODE,
+    taskId: TASK_ID,
     frameId: '2',
     widgetCode: 'phase_1_widgets_completion_form',
     configs: MOCKED_WIDGET_CONFIGS.COMPLETION_FORM,
   },
   TASK_COMMENTS: {
-    taskId: '294@mortgage-process_1.0.0-SNAPSHOT',
-    pageCode: 'phase_1_widgets',
+    pageCode: PAGE_CODE,
+    taskId: TASK_ID,
     frameId: '5',
     widgetCode: 'phase_1_widgets_comments',
     configs: MOCKED_WIDGET_CONFIGS.TASK_COMMENTS,
   },
   SUMMARY_CARD: {
-    pageCode: 'phase_1_widgets',
+    pageCode: PAGE_CODE,
     frameId: '1',
     widgetCode: 'summary_card',
     configs: MOCKED_WIDGET_CONFIGS.SUMMARY_CARD,
   },
   PROCESS_FORM: {
-    pageCode: 'phase_1_widgets',
+    pageCode: PAGE_CODE,
     frameId: '3',
     widgetCode: 'process_form',
     configs: MOCKED_WIDGET_CONFIGS.PROCESS_FORM,
@@ -47,10 +50,17 @@ export default {
     configs: MOCKED_WIDGET_CONFIGS.OVERTIME_GRAPH,
   },
   ATTACHMENTS: {
-    taskId: '28@mortgage-process_1.0.0-SNAPSHOT',
-    pageCode: 'phase_1_widgets',
+    pageCode: PAGE_CODE,
+    taskId: TASK_ID,
     frameId: '2',
     widgetCode: 'phase_1_widgets_attachments',
     configs: MOCKED_WIDGET_CONFIGS.ATTACHMENTS,
+  },
+  PROCESS_DEFINITION: {
+    pageCode: PAGE_CODE,
+    taskId: TASK_ID,
+    frameId: '2',
+    widgetCode: 'phase_1_widgets_process_definition',
+    configs: MOCKED_WIDGET_CONFIGS.PROCESS_DEFINITION,
   },
 };

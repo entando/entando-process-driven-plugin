@@ -46,6 +46,9 @@ import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
 import AttachmentsContainer from 'components/Attachments/AttachmentsContainer';
 import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
 
+import ProcessDefinitionContainer from 'components/ProcessDefinition/ProcessDefinitionContainer';
+import ProcessDefinitionConfig from 'components/ProcessDefinition/ProcessDefinitionConfig';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -130,7 +133,7 @@ function App() {
 
         <Menu open={open} setOpen={setOpen} />
 
-        <Container className="app-container">
+        <Container className="app-container" maxWidth={false}>
           <Route path="/" exact component={Home} />
           <Route path="/Connections" exact component={ConnectionsContainer} />
           <Route
@@ -233,6 +236,21 @@ function App() {
             )}
           />
           <Route path="/AttachmentsConfig" render={() => <AttachmentsConfig config={{}} />} />
+          <Route
+            path="/ProcessDefinition"
+            render={() => (
+              <ProcessDefinitionContainer
+                taskId={WIDGETS_CONFIG.PROCESS_DEFINITION.taskId}
+                pageCode={WIDGETS_CONFIG.PROCESS_DEFINITION.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_DEFINITION.frameId}
+                widgetCode={WIDGETS_CONFIG.PROCESS_DEFINITION.widgetCode}
+              />
+            )}
+          />
+          <Route
+            path="/ProcessDefinitionConfig"
+            render={() => <ProcessDefinitionConfig config={{}} />}
+          />
         </Container>
       </Router>
     </div>

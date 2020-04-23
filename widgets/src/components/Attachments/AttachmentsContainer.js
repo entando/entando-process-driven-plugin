@@ -1,13 +1,19 @@
 /* eslint-disable no-console */
 import { MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
+import i18next from 'i18next';
 import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Button from '@material-ui/core/Button';
 
 import { DOMAINS, LOCAL } from 'api/constants';
-import { getAttachments, saveAttachment, deleteAttachment } from 'api/pda/attachments';
+import {
+  getAttachments,
+  saveAttachment,
+  deleteAttachment,
+  downloadAttachments,
+} from 'api/pda/attachments';
 import { Typography } from '@material-ui/core';
 import { getPageWidget } from 'api/app-builder/pages';
 import SimpleDialog from 'components/common/SimpleDialog';
@@ -57,6 +63,15 @@ class AttachmentsContainer extends React.Component {
     });
   };
 
+  componentDidUpdate = async prevProps => {
+    const { taskId } = this.props;
+    if (prevProps.taskId !== taskId) {
+      const attachments = await this.fetchAttachments();
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ attachments });
+    }
+  };
+
   fetchConfigs = async () => {
     const { pageCode, frameId } = this.props;
 
@@ -66,7 +81,7 @@ class AttachmentsContainer extends React.Component {
         throw widgetConfigs.errors[0];
       }
       if (!widgetConfigs.payload) {
-        throw new Error('No configuration found for this widget');
+        throw new Error(i18next.t('messages.errors.widgetConfig'));
       }
 
       const { config } = widgetConfigs.payload;
@@ -83,16 +98,18 @@ class AttachmentsContainer extends React.Component {
 
     let payload = [];
 
-    try {
-      const attachments = await getAttachments(connection, taskId);
-      if (attachments.errors.length) {
-        throw attachments.errors[0];
-      }
+    if (taskId) {
+      try {
+        const attachments = await getAttachments(connection, taskId);
+        if (attachments.errors.length) {
+          throw attachments.errors[0];
+        }
 
-      payload = attachments.payload;
-    } catch (error) {
-      if (!error.message.includes('404')) {
-        this.handleError(error);
+        payload = attachments.payload;
+      } catch (error) {
+        if (!error.message.includes('404')) {
+          this.handleError(error);
+        }
       }
     }
     return payload;
@@ -105,7 +122,6 @@ class AttachmentsContainer extends React.Component {
   handleUpload = async files => {
     const { connection } = this.state;
     const { taskId } = this.props;
-    console.log('begin upload of files:');
 
     this.setState({ loading: true }, this.toggleDialog);
     try {
@@ -150,9 +166,50 @@ class AttachmentsContainer extends React.Component {
     this.setState({ notification: {} });
   };
 
+  handleDownload = item => async e => {
+    const { connection } = this.state;
+    const { taskId } = this.props;
+
+    e.preventDefault();
+
+    try {
+      this.setState({ loading: true });
+      const response = await downloadAttachments(connection, taskId, item.id);
+
+      // read stream
+      const reader = response.body.getReader();
+      const chunks = [];
+      // eslint-disable-next-line no-constant-condition
+      while (true) {
+        // eslint-disable-next-line no-await-in-loop
+        const { done, value } = await reader.read();
+
+        if (done) break;
+
+        chunks.push(value);
+      }
+
+      // Create blob link to download
+      const url = window.URL.createObjectURL(new Blob(chunks));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', item.name);
+
+      // download
+      document.body.appendChild(link);
+      link.click();
+      // clean up and remove the link
+      link.parentNode.removeChild(link);
+    } catch (error) {
+      this.handleError(error);
+    } finally {
+      this.setState({ loading: false });
+    }
+  };
+
   render() {
-    const { attachments, loading, dialogOpen, connection, notification } = this.state;
-    const { classes, taskId } = this.props;
+    const { attachments, loading, dialogOpen, notification } = this.state;
+    const { classes } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
@@ -167,13 +224,13 @@ class AttachmentsContainer extends React.Component {
                   key={item.id}
                   item={item}
                   onDelete={this.handleDelete}
-                  downloadLink={`${DOMAINS.PDA}/connections/${connection}/tasks/${taskId}/attachments`}
+                  onDownload={this.handleDownload}
                 />
               ))}
             </List>
           ) : (
             <div className={classes.empty}>
-              <Typography>There is no attachment available for this task.</Typography>
+              <Typography>{`${i18next.t('messages.warnings.noAttachments')}.`}</Typography>
             </div>
           )}
           <div className={classes.footer}>
