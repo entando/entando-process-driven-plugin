@@ -3,10 +3,7 @@
   "$id": "http://entando.org/schemas/pda-form.json",
   "title": "Task-taskform.frm",
   "type": "object",
-  "required": [
-    "_bigText",
-    "_radioWithDefault"
-  ],
+  "required": ["_bigText", "_radioWithDefault"],
   "properties": {
     "_processDocument": {
       "type": "string",
@@ -132,9 +129,7 @@
     "_customObject": {
       "title": "com_myspace_forms_sample_MyObject",
       "type": "object",
-      "required": [
-        "myString"
-      ],
+      "required": ["myString"],
       "properties": {
         "myDateTime": {
           "type": "string",
