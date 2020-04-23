@@ -13,6 +13,7 @@ import 'custom-elements/TaskCompletionFormElement';
 import 'custom-elements/TaskCommentsElement';
 import 'custom-elements/SummaryCardElement';
 import 'custom-elements/ProcessFormElement';
+import 'custom-elements/ProcessDefinitionElement';
 import 'custom-elements/UserAuthElement';
 import 'custom-elements/OvertimeGraphElement';
 import 'custom-elements/ConnectionsElement';
