@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Container, Button, Grid, Typography } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 import withStyles from '@material-ui/core/styles/withStyles';

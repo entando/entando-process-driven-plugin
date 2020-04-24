@@ -309,7 +309,7 @@ class TaskList extends React.Component {
   handleChangePage = (page, rowsPerPage) => {
     this.setState({
       page,
-      rowsPerPage,
+      ...(rowsPerPage ? { rowsPerPage } : {}),
     });
   };
 

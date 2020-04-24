@@ -30,7 +30,7 @@ exports[`<Attachment /> renders snapshot correctly 1`] = `
           class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
         >
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Attachment-filename-3 MuiTypography-colorPrimary"
           >
             test
           </a>

@@ -28,6 +28,9 @@ const styles = {
     width: '80%',
     textOverflow: 'ellipsis',
   },
+  filename: {
+    lineHeight: '24px',
+  },
 };
 
 class Attachment extends React.Component {
@@ -50,7 +53,9 @@ class Attachment extends React.Component {
             <FileCopyIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText className={classes.truncate}>
-            <Link onClick={onDownload(item)}>{item.name}</Link>
+            <Link className={classes.filename} onClick={onDownload(item)}>
+              {item.name}
+            </Link>
           </ListItemText>
           <ListItemSecondaryAction>
             <IconButton size="small" onClick={this.handleDeleteDialog}>
@@ -82,6 +87,7 @@ Attachment.propTypes = {
   classes: PropTypes.shape({
     listItem: PropTypes.string,
     truncate: PropTypes.string,
+    filename: PropTypes.string,
   }),
   item: PropTypes.shape({
     id: PropTypes.string,

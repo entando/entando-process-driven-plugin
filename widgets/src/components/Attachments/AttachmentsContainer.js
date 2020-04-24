@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { MuiThemeProvider as ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import i18next from 'i18next';
@@ -6,6 +5,8 @@ import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 
 import { DOMAINS, LOCAL } from 'api/constants';
 import {
@@ -14,23 +15,24 @@ import {
   deleteAttachment,
   downloadAttachments,
 } from 'api/pda/attachments';
-import { Typography } from '@material-ui/core';
 import { getPageWidget } from 'api/app-builder/pages';
+
+import theme from 'theme';
+import WidgetBox from 'components/common/WidgetBox';
 import SimpleDialog from 'components/common/SimpleDialog';
 import Notification from 'components/common/Notification';
-import theme from 'theme';
-import AttachmentsSkeleton from './AttachmentsSkeleton';
-import AddAttachmentModal from './AddAttachmentModal';
-import Attachment from './Attachment';
+import AttachmentsSkeleton from 'components/Attachments/AttachmentsSkeleton';
+import AddAttachmentModal from 'components/Attachments/AddAttachmentModal';
+import Attachment from 'components/Attachments/Attachment';
 
 const styles = {
   footer: {
     textAlign: 'right',
   },
   empty: {
-    border: 'solid 1px #eee',
+    border: '1px solid #eeeeee',
     marginTop: 8,
-    marginBottom: 2,
+    marginBottom: 8,
     background: 'white',
     borderRadius: 3,
     padding: 18,
@@ -96,8 +98,6 @@ class AttachmentsContainer extends React.Component {
     const { connection } = this.state;
     const { taskId } = this.props;
 
-    let payload = [];
-
     if (taskId) {
       try {
         const attachments = await getAttachments(connection, taskId);
@@ -105,14 +105,14 @@ class AttachmentsContainer extends React.Component {
           throw attachments.errors[0];
         }
 
-        payload = attachments.payload;
+        return attachments.payload;
       } catch (error) {
         if (!error.message.includes('404')) {
           this.handleError(error);
         }
       }
     }
-    return payload;
+    return [];
   };
 
   toggleDialog = () => {
@@ -213,32 +213,34 @@ class AttachmentsContainer extends React.Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <div>
-          <Typography variant="h3">Attachments</Typography>
-          {loading ? (
-            <AttachmentsSkeleton rows={3} />
-          ) : attachments.length ? (
-            <List>
-              {attachments.map(item => (
-                <Attachment
-                  key={item.id}
-                  item={item}
-                  onDelete={this.handleDelete}
-                  onDownload={this.handleDownload}
-                />
-              ))}
-            </List>
-          ) : (
-            <div className={classes.empty}>
-              <Typography>{`${i18next.t('messages.warnings.noAttachments')}.`}</Typography>
+        <Container disableGutters>
+          <WidgetBox>
+            <Typography variant="h3">Attachments</Typography>
+            {loading ? (
+              <AttachmentsSkeleton rows={3} />
+            ) : attachments.length ? (
+              <List>
+                {attachments.map(item => (
+                  <Attachment
+                    key={item.id}
+                    item={item}
+                    onDelete={this.handleDelete}
+                    onDownload={this.handleDownload}
+                  />
+                ))}
+              </List>
+            ) : (
+              <div className={classes.empty}>
+                <Typography>{`${i18next.t('messages.warnings.noAttachments')}.`}</Typography>
+              </div>
+            )}
+            <div className={classes.footer}>
+              <Button variant="outlined" color="primary" onClick={this.toggleDialog}>
+                Add
+              </Button>
             </div>
-          )}
-          <div className={classes.footer}>
-            <Button variant="outlined" color="primary" onClick={this.toggleDialog}>
-              Add
-            </Button>
-          </div>
-        </div>
+          </WidgetBox>
+        </Container>
         <SimpleDialog
           title="Add new Attachment"
           open={dialogOpen}

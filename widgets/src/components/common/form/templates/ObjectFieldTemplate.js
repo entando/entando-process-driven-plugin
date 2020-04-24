@@ -8,19 +8,22 @@ const useStyles = makeStyles({
   header: {
     fontSize: ({ idSchema }) =>
       idSchema && idSchema.$id && idSchema.$id === 'root' ? '20px' : 'initial',
+    marginBottom: ({ idSchema }) =>
+      idSchema && idSchema.$id && idSchema.$id === 'root' ? '20px' : 'initial',
   },
   gridContainer: {
     padding: '0px',
   },
   divider: {
-    marginTop: '5px',
-    marginBottom: '5px',
+    marginTop: '11px',
+    marginBottom: '11px',
   },
   description: {
     fontSize: '12px',
     marginBottom: '20px',
   },
   gridItem: {
+    padding: '0px',
     marginLeft: ({ uiSchema }) =>
       uiSchema && uiSchema['ui:options'] && uiSchema['ui:options'].group ? '-12px' : 'initial',
     marginRight: ({ uiSchema }) =>
