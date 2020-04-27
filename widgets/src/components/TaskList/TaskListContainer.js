@@ -123,7 +123,7 @@ class TaskList extends React.Component {
         : storedGroups;
 
       const taskList = lazyLoading
-        ? await getTasks({ connection, groups }, { page: 0, pageSize: 10 })
+        ? await getTasks({ connection, groups, page: 0, pageSize: 10 })
         : await getTasks({ connection, groups });
 
       if (!taskList.payload) {
@@ -198,10 +198,15 @@ class TaskList extends React.Component {
 
     this.setState({ loading: true });
     try {
-      const res = await getTasks(
-        { connection, groups },
-        { page, pageSize: rowsPerPage, sortedColumn, sortOrder, filter }
-      );
+      const res = await getTasks({
+        connection,
+        groups,
+        page,
+        pageSize: rowsPerPage,
+        sortedColumn,
+        sortOrder,
+        filter,
+      });
       if (!res.payload) {
         throw res.message;
       }

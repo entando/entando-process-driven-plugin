@@ -9,8 +9,8 @@ import MOCKED_GET_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/getFormSchem
 import MOCKED_POST_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/postFormData';
 import MOCKED_BULK_ACTION_RESPONSE from 'mocks/pda/bulkActions';
 
-export const getTasks = async ({ connection, groups }, params = {}) => {
-  const { page = 0, pageSize = 30, sortedColumn, sortOrder, filter } = params;
+export const getTasks = async (params = {}) => {
+  const { connection, groups, page = 0, pageSize = 30, sortedColumn, sortOrder, filter } = params;
   return makeRequest({
     domain: DOMAINS.PDA,
     uri: `/connections/${connection}/tasks`,
@@ -74,10 +74,12 @@ export const fetchSingleTask = async ({
   onError,
 }) => {
   try {
-    const { payload: tasks, metadata } = await getTasks(
-      { connection, groups },
-      { page: taskPosition, pageSize: 1 }
-    );
+    const { payload: tasks, metadata } = await getTasks({
+      connection,
+      groups,
+      page: taskPosition,
+      pageSize: 1,
+    });
 
     if (!tasks) {
       throw new Error('messages.errors.errorResponse');
