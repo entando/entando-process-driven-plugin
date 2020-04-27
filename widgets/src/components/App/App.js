@@ -1,14 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import {
-  AppBar,
-  Checkbox,
-  Container,
-  FormControlLabel,
-  Toolbar,
-  Typography,
-  IconButton,
-} from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import Checkbox from '@material-ui/core/Checkbox';
+import Container from '@material-ui/core/Container';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
 import { Menu as MenuIcon } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -16,6 +14,7 @@ import { authenticate } from 'api/app-builder/pages';
 import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
 import SETTINGS from 'mocks/app-builder/pages';
 import Menu from 'components/App/Menu';
+import WidgetConfig from 'components/common/WidgetConfig';
 
 import 'components/App/App.css';
 
@@ -136,6 +135,7 @@ function App() {
         <Container className="app-container" maxWidth={false}>
           <Route path="/" exact component={Home} />
           <Route path="/Connections" exact component={ConnectionsContainer} />
+
           <Route
             path="/TaskList/"
             render={() => (
@@ -148,8 +148,17 @@ function App() {
           />
           <Route
             path="/TaskListConfig"
-            render={() => <TaskListConfig config={SETTINGS.TASK_LIST.payload.config} />}
+            render={() => (
+              <WidgetConfig
+                pageCode={WIDGETS_CONFIG.TASK_LIST.pageCode}
+                frameId={WIDGETS_CONFIG.TASK_LIST.frameId}
+                // config={SETTINGS.TASK_LIST.payload}
+              >
+                <TaskListConfig />
+              </WidgetConfig>
+            )}
           />
+
           <Route
             path="/TaskDetails/"
             render={() => (
@@ -163,7 +172,18 @@ function App() {
               />
             )}
           />
-          <Route path="/TaskDetailsConfig" render={() => <TaskDetailsConfig config={{}} />} />
+          <Route
+            path="/TaskDetailsConfig"
+            render={() => (
+              <WidgetConfig
+                pageCode={WIDGETS_CONFIG.TASK_DETAILS.pageCode}
+                frameId={WIDGETS_CONFIG.TASK_DETAILS.frameId}
+              >
+                <TaskDetailsConfig />
+              </WidgetConfig>
+            )}
+          />
+
           <Route
             path="/TaskCompletionForm/"
             render={() => (
@@ -177,8 +197,16 @@ function App() {
           />
           <Route
             path="/TaskCompletionFormConfig"
-            render={() => <TaskCompletionFormConfig config={{}} />}
+            render={() => (
+              <WidgetConfig
+                pageCode={WIDGETS_CONFIG.COMPLETION_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.COMPLETION_FORM.frameId}
+              >
+                <TaskCompletionFormConfig />
+              </WidgetConfig>
+            )}
           />
+
           <Route
             path="/TaskComments/"
             render={() => (
@@ -190,7 +218,18 @@ function App() {
               />
             )}
           />
-          <Route path="/TaskCommentsConfig" render={() => <TaskCommentsConfig config={{}} />} />
+          <Route
+            path="/TaskCommentsConfig"
+            render={() => (
+              <WidgetConfig
+                pageCode={WIDGETS_CONFIG.TASK_COMMENTS.pageCode}
+                frameId={WIDGETS_CONFIG.TASK_COMMENTS.frameId}
+              >
+                <TaskCommentsConfig />
+              </WidgetConfig>
+            )}
+          />
+
           <Route
             path="/SummaryCard/"
             render={() => (
@@ -201,7 +240,18 @@ function App() {
               />
             )}
           />
-          <Route path="/SummaryCardConfig/" render={() => <SummaryCardConfig config={{}} />} />
+          <Route
+            path="/SummaryCardConfig/"
+            render={() => (
+              <WidgetConfig
+                pageCode={WIDGETS_CONFIG.SUMMARY_CARD.pageCode}
+                frameId={WIDGETS_CONFIG.SUMMARY_CARD.frameId}
+              >
+                <SummaryCardConfig />
+              </WidgetConfig>
+            )}
+          />
+
           <Route
             path="/ProcessForm"
             render={() => (
@@ -212,7 +262,18 @@ function App() {
               />
             )}
           />
-          <Route path="/ProcessFormConfig" render={() => <ProcessFormConfig config={{}} />} />
+          <Route
+            path="/ProcessFormConfig"
+            render={() => (
+              <WidgetConfig
+                pageCode={WIDGETS_CONFIG.PROCESS_FORM.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_FORM.frameId}
+              >
+                <ProcessFormConfig />
+              </WidgetConfig>
+            )}
+          />
+
           <Route
             path="/OvertimeGraph"
             render={() => (
@@ -223,7 +284,18 @@ function App() {
               />
             )}
           />
-          <Route path="/OvertimeGraphConfig" render={() => <OvertimeGraphConfig config={{}} />} />
+          <Route
+            path="/OvertimeGraphConfig"
+            render={() => (
+              <WidgetConfig
+                pageCode={WIDGETS_CONFIG.OVERTIME_GRAPH.pageCode}
+                frameId={WIDGETS_CONFIG.OVERTIME_GRAPH.frameId}
+              >
+                <OvertimeGraphConfig />
+              </WidgetConfig>
+            )}
+          />
+
           <Route
             path="/Attachments"
             render={() => (
@@ -235,7 +307,18 @@ function App() {
               />
             )}
           />
-          <Route path="/AttachmentsConfig" render={() => <AttachmentsConfig config={{}} />} />
+          <Route
+            path="/AttachmentsConfig"
+            render={() => (
+              <WidgetConfig
+                pageCode={WIDGETS_CONFIG.ATTACHMENTS.pageCode}
+                frameId={WIDGETS_CONFIG.ATTACHMENTS.frameId}
+              >
+                <AttachmentsConfig />
+              </WidgetConfig>
+            )}
+          />
+
           <Route
             path="/ProcessDefinition"
             render={() => (
@@ -249,7 +332,14 @@ function App() {
           />
           <Route
             path="/ProcessDefinitionConfig"
-            render={() => <ProcessDefinitionConfig config={{}} />}
+            render={() => (
+              <WidgetConfig
+                pageCode={WIDGETS_CONFIG.PROCESS_DEFINITION.pageCode}
+                frameId={WIDGETS_CONFIG.PROCESS_DEFINITION.frameId}
+              >
+                <ProcessDefinitionConfig />
+              </WidgetConfig>
+            )}
           />
         </Container>
       </Router>

@@ -78,7 +78,7 @@ class AttachmentsContainer extends React.Component {
     const { pageCode, frameId } = this.props;
 
     try {
-      const widgetConfigs = await getPageWidget(pageCode, frameId, 'ATTACHMENTS');
+      const widgetConfigs = await getPageWidget(pageCode, frameId);
       if (widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }

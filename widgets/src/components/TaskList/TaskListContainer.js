@@ -100,7 +100,7 @@ class TaskList extends React.Component {
 
     try {
       // config will be fetched from app-builder
-      const widgetConfigs = await getPageWidget(pageCode, frameId, 'TASK_LIST');
+      const widgetConfigs = await getPageWidget(pageCode, frameId);
       if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }

@@ -1,6 +1,6 @@
 const taskListConfigs = {
   payload: {
-    code: 'pda_task_list',
+    code: 'entando_widgets_task_list',
     config: {
       groups:
         '[{"label":"Administrators","key":"Administrators","checked":true},{"label":"broker","key":"broker","checked":true},{"label":"admin","key":"admin","checked":false},{"label":"rest-all","key":"rest-all","checked":true},{"label":"kiemgmt","key":"kiemgmt","checked":false},{"label":"kie-server","key":"kie-server","checked":true},{"label":"appraiser","key":"appraiser","checked":false},{"label":"manager","key":"manager","checked":true},{"label":"supplier","key":"supplier","checked":true},{"label":"IT","key":"IT","checked":true},{"label":"PM","key":"PM","checked":true},{"label":"approver","key":"approver","checked":true}]',
@@ -17,7 +17,7 @@ const taskListConfigs = {
 
 const taskDetailsConfigs = {
   payload: {
-    code: 'phase_1_widgets_task_details',
+    code: 'entando_widgets_task_details',
     config: {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
@@ -32,7 +32,7 @@ const taskDetailsConfigs = {
 
 const completionFormConfigs = {
   payload: {
-    code: 'phase_1_widgets_completion_form',
+    code: 'entando_widgets_completion_form',
     config: {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
@@ -47,10 +47,10 @@ const completionFormConfigs = {
 
 const taskCommentsConfigs = {
   payload: {
-    code: 'phase_1_widgets_comments',
+    code: 'entando_widgets_comments',
     config: {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
-      knowledgeSource: 'kieDev',
+      knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
     },
   },
@@ -60,7 +60,7 @@ const taskCommentsConfigs = {
 
 const summaryCardConfigs = {
   payload: {
-    code: 'summary_card',
+    code: 'entando_widgets_summary_card',
     config: {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
@@ -74,7 +74,7 @@ const summaryCardConfigs = {
 
 const processFormConfigs = {
   payload: {
-    code: 'phase_1_widgets',
+    code: 'entando_widgets_process_form',
     config: {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
@@ -89,7 +89,7 @@ const processFormConfigs = {
 
 const overtimeGraphConfigs = {
   payload: {
-    code: 'phase_1_mgt_dashboard',
+    code: 'entando_widgets_overtime_graph',
     config: {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
@@ -104,7 +104,7 @@ const overtimeGraphConfigs = {
 
 const attachments = {
   payload: {
-    code: 'phase_1_widgets_attachments',
+    code: 'entando_widgets_widgets_attachments',
     config: {
       knowledgeSource: 'kieStaging',
       process: 'Mortgage_Process.MortgageApprovalProcess@mortgage-process_1.0.1-SNAPSHOT',
@@ -116,7 +116,7 @@ const attachments = {
 
 const processDefinition = {
   payload: {
-    code: 'phase_1_widgets_process_definition',
+    code: 'entando_widgets_process_definition',
     config: {
       knowledgeSource: 'kieStaging',
       settings: '{"uiSchema":"{}"}',

@@ -99,7 +99,7 @@ class TaskCompletionFormContainer extends React.Component {
     const { pageCode, frameId } = this.props;
     try {
       // config will be fetched from app-builder
-      const widgetConfigs = await getPageWidget(pageCode, frameId, 'COMPLETION_FORM');
+      const widgetConfigs = await getPageWidget(pageCode, frameId);
       if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }

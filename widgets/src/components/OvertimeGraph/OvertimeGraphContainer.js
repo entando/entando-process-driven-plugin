@@ -116,7 +116,7 @@ class OvertimeGraph extends Component {
   async fetchWidgetConfigs() {
     const { pageCode, frameId } = this.props;
     try {
-      const widgetConfigs = await getPageWidget(pageCode, frameId, 'OVERTIME_GRAPH');
+      const widgetConfigs = await getPageWidget(pageCode, frameId);
       if (widgetConfigs.errors && widgetConfigs.errors.length) {
         throw widgetConfigs.errors[0];
       }
