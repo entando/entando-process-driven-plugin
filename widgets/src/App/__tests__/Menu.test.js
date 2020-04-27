@@ -3,11 +3,11 @@ import React from 'react';
 
 import 'mocks/i18nMock';
 
-import Home from 'components/App/Home';
+import Menu from 'App/Menu';
 
-describe('<Home />', () => {
+describe('<Menu />', () => {
   it('renders snapshot correctly', () => {
-    const { container } = render(<Home />);
+    const { container } = render(<Menu />);
 
     expect(container).toMatchSnapshot();
   });

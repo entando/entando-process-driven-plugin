@@ -3,7 +3,7 @@ import React from 'react';
 
 import 'mocks/i18nMock';
 
-import App from 'components/App/App';
+import App from 'App/App';
 
 describe('<App />', () => {
   it('renders snapshot correctly', async () => {
