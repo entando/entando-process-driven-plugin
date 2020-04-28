@@ -6,7 +6,7 @@
 
     <groupId>org.entando</groupId>
     <artifactId>entando-process-driven-plugin</artifactId>
-    <version>6.0.0-SNAPSHOT</version>
+    <version>6.0.34</version>
 
     <packaging>jar</packaging>
 
