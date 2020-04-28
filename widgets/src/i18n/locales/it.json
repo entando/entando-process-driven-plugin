@@ -124,7 +124,8 @@
       "widgetConfig": "Nessuna configurazione trovata per questo widget",
       "errorResponse": "Sembra esserci un errore",
       "dataLoading": "Impossibile caricare i dati del server",
-      "dataSaving": "Impossibile salvare i dati."
+      "dataSaving": "Impossibile salvare i dati.",
+      "noConnection": "No connection set for widget"
     }
   }
 }

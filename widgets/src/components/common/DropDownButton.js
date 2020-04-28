@@ -46,13 +46,7 @@ class DropDownButton extends React.Component {
 
     return (
       <>
-        <ButtonGroup
-          color="primary"
-          ref={this.anchorRef}
-          disableElevation
-          disabled={disabled}
-          variant="outlined"
-        >
+        <ButtonGroup color="primary" ref={this.anchorRef} disabled={disabled} variant="outlined">
           <Button onClick={this.handleClick}>{options[selectedIndex]}</Button>
           <Button size="small" onClick={this.handleToggle}>
             <ArrowDropDownIcon />

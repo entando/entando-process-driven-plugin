@@ -9,15 +9,9 @@ import MOCKED_GET_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/getFormSchem
 import MOCKED_POST_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/postFormData';
 import MOCKED_BULK_ACTION_RESPONSE from 'mocks/pda/bulkActions';
 
-export const getTasks = async (
-  { connection, groups },
-  page = 0,
-  pageSize = 30,
-  sortedColumn,
-  sortOrder,
-  filter
-) =>
-  makeRequest({
+export const getTasks = async (params = {}) => {
+  const { connection, groups, page = 0, pageSize = 30, sortedColumn, sortOrder, filter } = params;
+  return makeRequest({
     domain: DOMAINS.PDA,
     uri: `/connections/${connection}/tasks`,
     queryParams: {
@@ -32,6 +26,7 @@ export const getTasks = async (
     mockResponse: getMockedTasks(page, pageSize, sortedColumn, sortOrder, filter),
     useAuthentication: true,
   });
+};
 
 export const getColumns = async connection =>
   makeRequest({
@@ -71,6 +66,31 @@ export const postTaskForm = async (connection, taskId, body) =>
     mockResponse: MOCKED_POST_TASK_FORM_RESPONSE,
     useAuthentication: true,
   });
+
+export const fetchSingleTask = async ({
+  taskPosition, // task position relative to task list
+  connection,
+  groups,
+  onError,
+}) => {
+  try {
+    const { payload: tasks, metadata } = await getTasks({
+      connection,
+      groups,
+      page: taskPosition,
+      pageSize: 1,
+    });
+
+    if (!tasks) {
+      throw new Error('messages.errors.errorResponse');
+    }
+
+    return { task: tasks[0], metadata };
+  } catch (error) {
+    onError(error.message);
+  }
+  return {};
+};
 
 export const TASK_BULK_ACTIONS = [
   'assign',

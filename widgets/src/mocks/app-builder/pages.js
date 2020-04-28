@@ -50,7 +50,7 @@ const taskCommentsConfigs = {
     code: 'phase_1_widgets_comments',
     config: {
       containerId: 'evaluation_1.0.0-SNAPSHOT',
-      knowledgeSource: 'kieDev',
+      knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
     },
   },
