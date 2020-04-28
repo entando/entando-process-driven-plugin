@@ -129,7 +129,11 @@ ProcessDefinitionConfig.propTypes = {
   config: PropTypes.shape({
     knowledgeSource: PropTypes.string,
     settings: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+ProcessDefinitionConfig.defaultProps = {
+  config: {},
 };
 
 export default ProcessDefinitionConfig;

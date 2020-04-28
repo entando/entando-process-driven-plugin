@@ -171,7 +171,11 @@ CompletionFormConfig.propTypes = {
     knowledgeSource: PropTypes.string,
     process: PropTypes.string,
     settings: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+CompletionFormConfig.defaultProps = {
+  config: {},
 };
 
 export default CompletionFormConfig;

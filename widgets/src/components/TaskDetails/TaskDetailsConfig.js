@@ -174,7 +174,11 @@ TaskDetailsConfig.propTypes = {
   config: PropTypes.shape({
     knowledgeSource: PropTypes.string,
     settings: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+TaskDetailsConfig.defaultProps = {
+  config: {},
 };
 
 export default TaskDetailsConfig;

@@ -172,7 +172,11 @@ ProcessFormConfig.propTypes = {
     knowledgeSource: PropTypes.string,
     process: PropTypes.string,
     settings: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+ProcessFormConfig.defaultProps = {
+  config: {},
 };
 
 export default ProcessFormConfig;

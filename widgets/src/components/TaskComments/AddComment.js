@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { TextareaAutosize, Button, CircularProgress, Typography } from '@material-ui/core';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Typography from '@material-ui/core/Typography';
 
 const MAX_CHARS = 200;
 

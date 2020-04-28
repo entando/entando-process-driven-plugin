@@ -1,14 +1,22 @@
 import { METHODS, DOMAINS } from 'api/constants';
+import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
 import WIDGET_CONFIG_MOCKUPS from 'mocks/app-builder/pages';
 import makeRequest from 'api/makeRequest';
 
-// TODO: widgetType should be removed
-export const getPageWidget = (pageCode, frameId, widgetType) =>
+// used to fetch mock response using frameId, it depends on WIDGETS_CONFIG setup
+const getWidgetConfigMockResponse = frameId => {
+  const widgetType = Object.keys(WIDGETS_CONFIG).find(
+    iteratedType => WIDGETS_CONFIG[iteratedType].frameId === frameId
+  );
+  return WIDGET_CONFIG_MOCKUPS[widgetType];
+};
+
+export const getPageWidget = (pageCode, frameId) =>
   makeRequest({
     domain: DOMAINS.APP_BUILDER,
     uri: `/api/pages/${pageCode}/widgets/${frameId}`,
     method: METHODS.GET,
-    mockResponse: WIDGET_CONFIG_MOCKUPS[widgetType],
+    mockResponse: getWidgetConfigMockResponse(frameId) || {},
     useAuthentication: true,
     // forceMock: true,
   });

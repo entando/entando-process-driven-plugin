@@ -143,7 +143,11 @@ SummaryCardConfig.propTypes = {
   config: PropTypes.shape({
     knowledgeSource: PropTypes.string,
     settings: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+SummaryCardConfig.defaultProps = {
+  config: {},
 };
 
 export default SummaryCardConfig;
