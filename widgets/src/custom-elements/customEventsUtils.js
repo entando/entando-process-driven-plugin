@@ -24,4 +24,11 @@ export const TD_ON_PRESS_NEXT = `${TASK_DETAILS_PREFIX}.onPressNext`;
 export const TD_ON_ERROR = `${TASK_DETAILS_PREFIX}.onError`;
 
 const TASK_LIST_PREFIX = 'task.list';
-export const TL_ON_SELECT_TASK = `${TASK_LIST_PREFIX}.onSelectTask`;
+export const TL_ON_ERROR = `${TASK_LIST_PREFIX}.onError`;
+
+const TASK_FORM_PREFIX = 'task.form';
+export const TF_ON_SUBMIT_FORM = `${TASK_FORM_PREFIX}.onSubmitForm`;
+export const TF_ON_ERROR = `${TASK_FORM_PREFIX}.onError`;
+
+const GENERIC_EVENTS_PREFIX = 'widgets';
+export const GE_ON_SELECT_TASK = `${GENERIC_EVENTS_PREFIX}.onSelectTask`;

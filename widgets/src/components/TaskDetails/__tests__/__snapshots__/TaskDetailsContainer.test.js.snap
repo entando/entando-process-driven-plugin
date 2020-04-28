@@ -13,14 +13,187 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
       >
         <div
           class="MuiBox-root MuiBox-root-62"
-        />
+        >
+          <div
+            class="MuiBox-root MuiBox-root-188"
+          >
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-h2 MuiTypography-colorPrimary"
+              href="http://localhost:8090/entando-pam-app/en/pda_task_details.page?taskId=293@evaluation_1.0.0-SNAPSHOT&taskPos=0&groups="
+            >
+              taskDetails.overview.detailsTitle - 293
+            </a>
+            <div
+              aria-label="outlined primary button group"
+              class="MuiButtonGroup-root"
+              role="group"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                      />
+                    </svg>
+                  </span>
+                  taskDetails.overview.previous
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlinedPrimary MuiButton-outlinedPrimary"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  taskDetails.overview.next
+                  <span
+                    class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root OverviewDetails-root-289 MuiGrid-container MuiGrid-spacing-xs-8"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.createdBy
+              </label>
+              <div
+                class="OverviewDetails-value-290"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  pamAdmin
+                </p>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.name
+              </label>
+              <div
+                class="OverviewDetails-value-290"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  PM Evaluation
+                </p>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.createdOn
+              </label>
+              <div
+                class="OverviewDetails-value-290"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  11/14/2019, 4:26:30 PM
+                </p>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.status
+              </label>
+              <div
+                class="OverviewDetails-value-290"
+              >
+                <div
+                  class="MuiChip-root makeStyles-root-299 makeStyles-root-300"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    CREATED
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <label
+                class="MuiFormLabel-root"
+              >
+                task.fields.due
+              </label>
+              <div
+                class="OverviewDetails-value-290"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body1"
+                >
+                  -
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div
       class="MuiPaper-root WidgetBox-widgetBox-33 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-188"
+        class="MuiBox-root MuiBox-root-331"
       >
         <h3
           class="MuiTypography-root MuiTypography-h3"
@@ -60,7 +233,145 @@ exports[`<TaskDetailsContainer /> renders snapshot correctly 1`] = `
       <div
         class="MuiBox-root MuiBox-root-177"
       >
-        taskDetails.generalInformation.noInformation
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-176"
+              >
+                task.inputData.Comment
+                :
+              </span>
+              You need to evaluate Alessio.
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-176"
+              >
+                task.inputData.reason
+                :
+              </span>
+              asasd
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-176"
+              >
+                task.inputData.performance
+                :
+              </span>
+              12
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-176"
+              >
+                task.inputData.TaskName
+                :
+              </span>
+              PerformanceEvaluation
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-176"
+              >
+                task.inputData.NodeName
+                :
+              </span>
+              PM Evaluation
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-176"
+              >
+                task.inputData.Skippable
+                :
+              </span>
+              false
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-176"
+              >
+                task.inputData.ActorId
+                :
+              </span>
+              pamAdmin
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-176"
+              >
+                task.inputData.BusinessAdministratorId
+                :
+              </span>
+              pamAdmin
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1"
+            >
+              <span
+                class="GeneralInformation-label-176"
+              >
+                task.inputData.GroupId
+                :
+              </span>
+              PM
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import i18next from 'i18next';
-import App from 'components/App/App';
+import App from 'App/App';
 import 'i18n';
 import 'index.css';
 

@@ -117,6 +117,7 @@ class Table extends React.Component {
       lazyLoadingProps,
       loading,
       onRowClick,
+      activeTaskId,
     } = this.props;
     const { rowsPerPage, page, sortedColumn, sortOrder, sortFunction, filter } = this.state;
 
@@ -172,6 +173,7 @@ class Table extends React.Component {
             />
             {displayRows.length ? (
               <InternalTableBody
+                activeTaskId={activeTaskId}
                 columns={columns}
                 rows={displayRows}
                 emptyRows={rowsPerPage - displayRows.length}
@@ -238,6 +240,7 @@ Table.propTypes = {
   rowsPerPageOptions: PropTypes.arrayOf(PropTypes.number),
   onRowClick: PropTypes.func,
   onChangePage: PropTypes.func,
+  activeTaskId: PropTypes.string,
 };
 
 Table.defaultProps = {
@@ -252,6 +255,7 @@ Table.defaultProps = {
   columns: [],
   onRowClick: () => {},
   onChangePage: () => {},
+  activeTaskId: '',
 };
 
 export default withStyles(styles)(Table);

@@ -3,7 +3,7 @@ import React from 'react';
 
 import 'mocks/i18nMock';
 
-import Home from 'components/App/Home';
+import Home from 'App/Home';
 
 describe('<Home />', () => {
   it('renders snapshot correctly', () => {

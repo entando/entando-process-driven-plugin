@@ -1,0 +1,89 @@
+body {
+  background-color: #f3f3f4;
+}
+
+.pda-wrapper {
+  height: 100vh;
+  display: grid;
+
+  grid-template-areas:
+    'header header'
+    'sidebar content'
+    'footer footer';
+
+  grid-template-columns: 178px auto;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 0px;
+}
+
+.pda-header {
+  grid-area: header;
+}
+
+.pda-sidebar {
+  grid-area: sidebar;
+  background-color: #2f4050;
+}
+
+.pda-content {
+  grid-area: content;
+  overflow-y: auto;
+  background-color: #f3f3f3;
+}
+
+.pda-footer {
+  grid-area: footer;
+}
+
+header {
+  display: block;
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px #cccccc;
+  padding: 15px 15px 10px 10px;
+  box-sizing: border-box;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.header-container > .header-logo {
+  align-self: center;
+}
+
+.header-container > .header-controls {
+  display: flex;
+  align-self: center;
+  margin-right: 5px;
+}
+
+.frame-container {
+  margin: 15px 0px;
+}
+
+.frame-container .white-bg > h1 {
+  background-color: #fff;
+  padding: 12px 11px;
+}
+
+.dashboard-title h1 {
+  font-size: 24px;
+}
+
+.pda-navigation li {
+  padding: 10px 0;
+}
+
+.pda-navigation a {
+  color: #a2acbd;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+@media (min-width: 1600px) {
+  .container {
+    width: 100% !important;
+  }
+}

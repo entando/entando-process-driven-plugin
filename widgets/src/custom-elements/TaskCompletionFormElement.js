@@ -3,31 +3,59 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import TaskCompletionForm from 'components/TaskCompletionForm/TaskCompletionFormContainer';
-import { createWidgetEvent } from 'custom-elements/customEventsUtils';
+import {
+  createWidgetEvent,
+  addCustomEventListener,
+  GE_ON_SELECT_TASK,
+  TF_ON_SUBMIT_FORM,
+  TF_ON_ERROR,
+} from 'custom-elements/customEventsUtils';
 
-const CUSTOM_EVENT_PREFIX = 'task.details';
-const ON_SUBMIT_FORM = `${CUSTOM_EVENT_PREFIX}.onSubmitForm`;
-const ON_ERROR = `${CUSTOM_EVENT_PREFIX}.onError`;
+const ATTRIBUTES = {
+  id: 'id',
+  locale: 'locale',
+  pageCode: 'page-code',
+  frameId: 'frame-id',
+  serviceUrl: 'service-url',
+};
 
 class TaskCompletionFormElement extends HTMLElement {
   constructor(props) {
     super(props);
 
-    this.onSubmitForm = createWidgetEvent(ON_SUBMIT_FORM);
-    this.onError = createWidgetEvent(ON_ERROR);
+    this.mountPoint = null;
+    this.onSubmitForm = createWidgetEvent(TF_ON_SUBMIT_FORM);
+    this.onError = createWidgetEvent(TF_ON_ERROR);
+
+    this.updateTaskId = this.updateTaskId.bind(this);
   }
 
-  connectedCallback() {
-    const mountPoint = document.createElement('div');
-    this.appendChild(mountPoint);
+  static get observedAttributes() {
+    return Object.values(ATTRIBUTES);
+  }
 
-    const locale = this.getAttribute('locale') || 'en';
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (!Object.values(ATTRIBUTES).includes(name)) {
+      throw new Error(`Untracked changed attribute: ${name}`);
+    }
+    if (this.mountPoint && newValue !== oldValue) {
+      this.render();
+    }
+  }
+
+  updateTaskId(e) {
+    const { detail } = e;
+    this.setAttribute(ATTRIBUTES.id, detail.id);
+  }
+
+  render() {
+    const locale = this.getAttribute(ATTRIBUTES.locale) || 'en';
     i18next.changeLanguage(locale);
 
-    const pageCode = this.getAttribute('page-code');
-    const frameId = this.getAttribute('frame-id');
-    const serviceUrl = this.getAttribute('service-url');
-    const taskId = this.getAttribute('id');
+    const pageCode = this.getAttribute(ATTRIBUTES.pageCode);
+    const frameId = this.getAttribute(ATTRIBUTES.frameId);
+    const serviceUrl = this.getAttribute(ATTRIBUTES.serviceUrl);
+    const taskId = this.getAttribute(ATTRIBUTES.id);
 
     const reactRoot = React.createElement(
       TaskCompletionForm,
@@ -41,7 +69,22 @@ class TaskCompletionFormElement extends HTMLElement {
       },
       null
     );
-    ReactDOM.render(reactRoot, mountPoint);
+    ReactDOM.render(reactRoot, this.mountPoint);
+  }
+
+  connectedCallback() {
+    this.mountPoint = document.createElement('div');
+    this.appendChild(this.mountPoint);
+
+    this.unsubscribeFromOnSelectTask = addCustomEventListener(GE_ON_SELECT_TASK, this.updateTaskId);
+
+    this.render();
+  }
+
+  disconnectedCallback() {
+    if (this.unsubscribeFromOnSelectTask) {
+      this.unsubscribeFromOnSelectTask();
+    }
   }
 }
 

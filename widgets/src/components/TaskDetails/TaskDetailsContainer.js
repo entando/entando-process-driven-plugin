@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { Container, Box } from '@material-ui/core';
 
-import { getTasks, getTask } from 'api/pda/tasks';
+import { getTask, fetchSingleTask } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
 import { DOMAINS } from 'api/constants';
 import theme from 'theme';
@@ -12,7 +13,7 @@ import Overview from 'components/TaskDetails/Overview';
 import GeneralInformation from 'components/TaskDetails/GeneralInformation';
 import withAuth from 'components/common/auth/withAuth';
 
-const createLink = (pageCode = 'pda_task_details', taskId, taskPos, groups, locale = 'en') =>
+const createLink = (pageCode = 'pda_task_details', taskId, taskPos, groups = '', locale = 'en') =>
   `${DOMAINS.APP_BUILDER}/${locale}/${pageCode}.page?taskId=${taskId}&taskPos=${taskPos}&groups=${groups}`;
 
 class TaskDetailsContainer extends React.Component {
@@ -23,40 +24,31 @@ class TaskDetailsContainer extends React.Component {
       config: null,
       loadingTask: false,
       task: null,
+      taskPos: 0,
+      isLast: false,
     };
 
-    this.fetchTask = this.fetchTask.bind(this);
     this.fetchWidgetConfigs = this.fetchWidgetConfigs.bind(this);
+    this.handlePressPrevious = this.handlePressPrevious.bind(this);
+    this.handlePressNext = this.handlePressNext.bind(this);
+    this.fetchTaskListEntry = this.fetchTaskListEntry.bind(this);
+    this.fetchTask = this.fetchTask.bind(this);
   }
 
   componentDidMount() {
     this.setState({ loadingTask: true }, async () => {
-      const { config: storedConfig } = this.state;
-      const config = storedConfig || (await this.fetchWidgetConfigs());
-
-      this.setState({ config }, () => this.fetchTask());
+      const config = await this.fetchWidgetConfigs();
+      this.setState({ config }, this.fetchTask);
     });
   }
 
   componentDidUpdate = prevProps => {
     const { taskId } = this.props;
+
+    // when taskId attribute is changed, new task should be fetched
     if (prevProps.taskId !== taskId) {
       this.fetchTask();
     }
-  };
-
-  handlePressPrevious = () => {
-    const { onPressPrevious } = this.props;
-    const { taskPos } = this.state;
-    this.fetchTask(+taskPos - 1);
-    onPressPrevious();
-  };
-
-  handlePressNext = () => {
-    const { onPressNext } = this.props;
-    const { taskPos } = this.state;
-    this.fetchTask(+taskPos + 1);
-    onPressNext();
   };
 
   async fetchWidgetConfigs() {
@@ -68,59 +60,75 @@ class TaskDetailsContainer extends React.Component {
         throw widgetConfigs.errors[0];
       }
 
-      const { config } = widgetConfigs.payload;
-
-      return config;
+      return widgetConfigs.payload.config;
     } catch (error) {
       this.handleError(error.message);
     }
     return null;
   }
 
-  async fetchTask(pos) {
-    const { config, loadingTask } = this.state;
-    const { taskPos: propTaskPos, groups: propGroups } = this.props;
+  async fetchTaskListEntry(taskPosition) {
+    const { config } = this.state;
 
-    let groups = propGroups;
+    const connection = config && config.knowledgeSource;
 
-    if (groups && groups[0] === '[') {
-      groups = JSON.parse(groups);
-      if (groups[0] instanceof Object) {
-        groups = groups.filter(group => group.checked).map(group => group.key);
-      }
-    }
-
-    const connection = (config && config.knowledgeSource) || '';
-
-    const taskPos = +(pos === undefined ? propTaskPos : pos);
-
-    if (!loadingTask) {
+    if (!connection) {
+      this.handleError(i18next.t('messages.errors.noConnection'));
+    } else {
       this.setState({ loadingTask: true });
-    }
 
-    try {
-      const {
-        payload: tasks,
-        metadata: { lastPage },
-      } = await getTasks({ connection, groups }, taskPos, 1);
-
-      if (!tasks) {
-        throw new Error('messages.errors.errorResponse');
-      }
-
-      const { payload: task } = await getTask(connection, tasks[0].id);
-
-      this.setState({
-        task: task || null,
-        taskInputData: (task && task.inputData) || {},
-        taskPos,
-        isLast: lastPage === 1,
-        groups,
+      const { task, metadata } = await fetchSingleTask({
+        connection,
+        taskPosition,
+        onError: this.handleError,
       });
-    } catch (error) {
-      this.handleError(error.message);
-    } finally {
-      this.setState({ loadingTask: false });
+      return { ...task, pos: taskPosition, lastPage: metadata.lastPage };
+    }
+    return {};
+  }
+
+  async fetchTask() {
+    const { config } = this.state;
+    const { taskPos, taskId, lastPage } = this.props;
+
+    const connection = config && config.knowledgeSource;
+    if (!connection) {
+      this.handleError(i18next.t('messages.errors.noConnection'));
+    } else if (taskId) {
+      this.setState({ loadingTask: true }, async () => {
+        try {
+          const { payload: task } = await getTask(connection, taskId);
+
+          this.setState({
+            task: task || null,
+            taskPos,
+            isLast: lastPage === 1,
+          });
+        } catch (error) {
+          this.handleError(error.message);
+        } finally {
+          this.setState({ loadingTask: false });
+        }
+      });
+    }
+  }
+
+  async handlePressPrevious() {
+    const { onSelectTask, taskPos } = this.props;
+
+    if (taskPos > 0) {
+      const task = await this.fetchTaskListEntry(taskPos - 1);
+      onSelectTask(task);
+    }
+  }
+
+  async handlePressNext() {
+    const { isLast } = this.state;
+    const { onSelectTask, taskPos } = this.props;
+
+    if (!isLast) {
+      const task = await this.fetchTaskListEntry(taskPos + 1);
+      onSelectTask(task);
     }
   }
 
@@ -130,14 +138,15 @@ class TaskDetailsContainer extends React.Component {
   }
 
   render() {
-    const { loadingTask, task, taskInputData, taskPos, isLast, config, groups } = this.state;
-    const { onError } = this.props;
+    const { loadingTask, task, taskPos, isLast, config, groups } = this.state;
+    const { onError, taskId } = this.props;
     const isFirst = taskPos === 0;
     const configSettings = config && config.settings;
     const configs =
       typeof configSettings === 'string' ? JSON.parse(config.settings) : configSettings;
 
-    const hasGeneralInformation = (configs && configs.hasGeneralInformation) || false;
+    const hasGeneralInformation = (taskId && configs && configs.hasGeneralInformation) || false;
+    const taskInputData = (task && task.inputData) || {};
 
     return (
       <CustomEventContext.Provider
@@ -176,19 +185,17 @@ class TaskDetailsContainer extends React.Component {
 
 TaskDetailsContainer.propTypes = {
   taskId: PropTypes.string.isRequired,
-  taskPos: PropTypes.string.isRequired,
-  groups: PropTypes.string.isRequired,
+  taskPos: PropTypes.number.isRequired,
+  lastPage: PropTypes.number.isRequired,
   onError: PropTypes.func,
-  onPressPrevious: PropTypes.func,
-  onPressNext: PropTypes.func,
+  onSelectTask: PropTypes.func,
   pageCode: PropTypes.string,
   frameId: PropTypes.string,
 };
 
 TaskDetailsContainer.defaultProps = {
   onError: () => {},
-  onPressPrevious: () => {},
-  onPressNext: () => {},
+  onSelectTask: () => {},
   pageCode: '',
   frameId: '',
 };

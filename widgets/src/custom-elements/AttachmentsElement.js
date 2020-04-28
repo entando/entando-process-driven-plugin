@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Attachments from 'components/Attachments/AttachmentsContainer';
-import { addCustomEventListener, TL_ON_SELECT_TASK } from 'custom-elements/customEventsUtils';
+import { addCustomEventListener, GE_ON_SELECT_TASK } from 'custom-elements/customEventsUtils';
 
 const ATTRIBUTES = {
   id: 'id',
@@ -66,17 +66,14 @@ class AttachmentsElement extends HTMLElement {
     this.mountPoint = document.createElement('div');
     this.appendChild(this.mountPoint);
 
-    this.unsubscribeFromTaskListSelect = addCustomEventListener(
-      TL_ON_SELECT_TASK,
-      this.updateTaskId
-    );
+    this.unsubscribeFromOnSelectTask = addCustomEventListener(GE_ON_SELECT_TASK, this.updateTaskId);
 
     this.render();
   }
 
   disconnectedCallback() {
-    if (this.unsubscribeFromTaskListSelect) {
-      this.unsubscribeFromTaskListSelect();
+    if (this.unsubscribeFromOnSelectTask) {
+      this.unsubscribeFromOnSelectTask();
     }
   }
 }

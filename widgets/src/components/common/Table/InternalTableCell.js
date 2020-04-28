@@ -8,7 +8,6 @@ import columnType from 'types/columnType';
 const StyledTableCell = withStyles(
   {
     root: {
-      background: 'white',
       whiteSpace: 'nowrap',
       padding: '9px 16px 10px',
     },

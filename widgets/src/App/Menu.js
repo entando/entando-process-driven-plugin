@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import {
   Attachment as AttachmentIcon,
   Home as HomeIcon,
+  ViewQuilt as ViewQuiltIcon,
   List as ListIcon,
   BarChart as BarChartIcon,
   Settings as SettingsIcon,
@@ -110,6 +111,20 @@ const Menu = ({ open, setOpen, classes }) => (
             <HomeIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="Home" />
+        </ListItem>
+
+        <ListItem button component={Link} to="/task-details-page/" onClick={() => setOpen(false)}>
+          <ListItemIcon>
+            <ViewQuiltIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Task Details page" />
+        </ListItem>
+
+        <ListItem button component={Link} to="/smart-inbox-page/" onClick={() => setOpen(false)}>
+          <ListItemIcon>
+            <ViewQuiltIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Smart Inbox page" />
         </ListItem>
 
         <Typography variant="overline">Widgets</Typography>
