@@ -2,7 +2,7 @@ import React from 'react';
 import { FormGroup, ControlLabel, Checkbox, HelpBlock, Row, Col } from 'patternfly-react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
-import withStyles from '@material-ui/core/styles/withStyles';
+import { withStyles } from '@material-ui/core/styles';
 
 import { getConnections } from 'api/pda/connections';
 import { getGroups } from 'api/pda/groups';
@@ -324,7 +324,11 @@ class TaskListConfig extends React.Component {
 }
 
 TaskListConfig.propTypes = {
-  config: taskListConfigType.isRequired,
+  config: taskListConfigType,
+};
+
+TaskListConfig.defaultProps = {
+  config: {},
 };
 
 const TaskListConfigContainer = withStyles(styles)(TaskListConfig);

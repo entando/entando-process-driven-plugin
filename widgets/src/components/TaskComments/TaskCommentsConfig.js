@@ -104,7 +104,11 @@ class TaskCommentsConfig extends React.Component {
 TaskCommentsConfig.propTypes = {
   config: PropTypes.shape({
     knowledgeSource: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+TaskCommentsConfig.defaultProps = {
+  config: {},
 };
 
 export default TaskCommentsConfig;

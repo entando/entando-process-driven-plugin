@@ -93,7 +93,11 @@ class AttachmentsConfig extends React.Component {
 AttachmentsConfig.propTypes = {
   config: PropTypes.shape({
     knowledgeSource: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+AttachmentsConfig.defaultProps = {
+  config: {},
 };
 
 export default AttachmentsConfig;

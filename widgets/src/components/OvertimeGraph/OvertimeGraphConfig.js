@@ -228,7 +228,11 @@ OvertimeGraphConfig.propTypes = {
   config: PropTypes.shape({
     knowledgeSource: PropTypes.string,
     settings: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+OvertimeGraphConfig.defaultProps = {
+  config: {},
 };
 
 export default OvertimeGraphConfig;
