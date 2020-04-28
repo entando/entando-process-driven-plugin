@@ -3,7 +3,7 @@ import React from 'react';
 
 import 'mocks/i18nMock';
 
-import Menu from 'app/Menu';
+import Menu from 'App/Menu';
 
 describe('<Menu />', () => {
   it('renders snapshot correctly', () => {

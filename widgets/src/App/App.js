@@ -15,16 +15,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import { authenticate } from 'api/app-builder/pages';
 import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
 import SETTINGS from 'mocks/app-builder/pages';
-import Menu from 'app/Menu';
+import Menu from 'App/Menu';
 
-import 'app/App.css';
+import 'App/App.css';
 
 // pages
 import TaskDetailsPage from 'pages/task-details/';
 import SmartInboxPage from 'pages/smart-inbox/';
 
 // widgets
-import Home from 'app/Home';
+import Home from 'App/Home';
 import ConnectionsContainer from 'components/Connections/ConnectionsContainer';
 
 import TaskListContainer from 'components/TaskList/TaskListContainer';
