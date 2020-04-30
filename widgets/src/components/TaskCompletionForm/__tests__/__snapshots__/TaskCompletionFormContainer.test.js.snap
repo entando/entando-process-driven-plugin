@@ -77,14 +77,14 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                                           Reason
                                         </label>
                                         <div
-                                          class="MuiInputBase-root-248 MuiOutlinedInput-root-233 MuiInputBase-formControl-249 MuiInputBase-multiline-256 MuiOutlinedInput-multiline-241"
+                                          class="MuiInputBase-root-248 MuiOutlinedInput-root-233 MuiInputBase-formControl-249"
                                         >
-                                          <textarea
+                                          <input
                                             aria-invalid="false"
-                                            class="MuiInputBase-input-259 MuiOutlinedInput-input-243 MuiInputBase-inputMultiline-261 MuiOutlinedInput-inputMultiline-245 MuiInputBase-inputHiddenLabel-265"
+                                            class="MuiInputBase-input-259 MuiOutlinedInput-input-243 MuiInputBase-inputHiddenLabel-265"
                                             id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_reason"
-                                            placeholder=""
-                                            rows="5"
+                                            type="string"
+                                            value=""
                                           />
                                           <fieldset
                                             aria-hidden="true"
@@ -119,18 +119,24 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                                   </label>
                                   <div>
                                     <div
-                                      class="MuiFormControl-root-208 makeStyles-formControl-270"
+                                      class="MuiFormControl-root-208 MuiFormControl-fullWidth-211"
                                     >
                                       <div
                                         class="MuiFormControl-root-208 MuiTextField-root-212"
                                       >
                                         <label
-                                          class="MuiFormLabel-root-225 MuiInputLabel-root-213 MuiInputLabel-formControl-219 MuiInputLabel-animated-222 MuiInputLabel-shrink-221 MuiInputLabel-outlined-224"
+                                          class="MuiFormLabel-root-225 MuiInputLabel-root-213 MuiInputLabel-formControl-219 MuiInputLabel-animated-222 MuiInputLabel-shrink-221 MuiInputLabel-outlined-224 Mui-required Mui-required"
                                           data-shrink="true"
                                           for="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance"
                                           id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance-label"
                                         >
                                           Performance
+                                          <span
+                                            class="MuiFormLabel-asterisk-232 MuiInputLabel-asterisk-218"
+                                          >
+                                             
+                                            *
+                                          </span>
                                         </label>
                                         <div
                                           class="MuiInputBase-root-248 MuiOutlinedInput-root-233 MuiInputBase-formControl-249"
@@ -139,7 +145,8 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                                             aria-invalid="false"
                                             class="MuiInputBase-input-259 MuiOutlinedInput-input-243 MuiInputBase-inputHiddenLabel-265"
                                             id="root_47078d21-7da5-4d3f-8355-0fcd78b09f39_performance"
-                                            type="number"
+                                            required=""
+                                            type="integer"
                                             value=""
                                           />
                                           <fieldset
@@ -151,6 +158,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                                             >
                                               <span>
                                                 Performance
+                                                 *
                                               </span>
                                             </legend>
                                           </fieldset>
@@ -173,17 +181,17 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
               class="JSONForm-actionButtons-62"
             >
               <button
-                class="MuiButtonBase-root-300 MuiButton-root-271 MuiButton-contained-279 MuiButton-containedPrimary-280"
+                class="MuiButtonBase-root-299 MuiButton-root-270 MuiButton-contained-278 MuiButton-containedPrimary-279"
                 tabindex="0"
                 type="submit"
               >
                 <span
-                  class="MuiButton-label-272"
+                  class="MuiButton-label-271"
                 >
                   common.submit
                 </span>
                 <span
-                  class="MuiTouchRipple-root-303"
+                  class="MuiTouchRipple-root-302"
                 />
               </button>
             </div>
@@ -201,10 +209,10 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly on error sta
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-343 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-342 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-373"
+        class="MuiBox-root MuiBox-root-372"
       >
         messages.warnings.noFormSchema
       </div>

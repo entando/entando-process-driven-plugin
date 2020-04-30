@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patternfly-react';
+import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
+import JsonMultiFieldContainer from 'components/common/form/SchemaEditor/JsonMultiFieldContainer';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';
@@ -17,14 +18,14 @@ class CompletionFormConfig extends React.Component {
       config: {
         knowledgeSource: '',
         settings: {
-          uiSchema: '{}',
+          uiSchemas: '[]',
           defaultColumnSize: '',
         },
       },
     };
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
-    this.onChangeUiSchema = this.onChangeUiSchema.bind(this);
+    this.onChangeUiSchemas = this.onChangeUiSchemas.bind(this);
     this.onChangeSettingValue = this.onChangeSettingValue.bind(this);
     this.fetchScreen = this.fetchScreen.bind(this);
   }
@@ -50,16 +51,12 @@ class CompletionFormConfig extends React.Component {
     this.setState({ config: { ...config, knowledgeSource } }, afterKnowledgeSourceChange);
   }
 
-  onChangeUiSchema(e) {
-    const {
-      target: { value: uiSchema },
-    } = e;
-
+  onChangeUiSchemas(uiSchemas) {
     const { config } = this.state;
     this.setState({
       config: {
         ...config,
-        settings: { ...config.settings, uiSchema },
+        settings: { ...config.settings, uiSchemas },
       },
     });
   }
@@ -90,10 +87,6 @@ class CompletionFormConfig extends React.Component {
               ...config,
               settings: {
                 ...parsedSettings,
-                uiSchema: JSON.stringify(JSON.parse(parsedSettings.uiSchema), null, 2).replace(
-                  '\\"',
-                  '"'
-                ),
               },
             },
           });
@@ -134,12 +127,10 @@ class CompletionFormConfig extends React.Component {
             <Row>
               <Col xs={12}>
                 <FormGroup bsClass="form-group" controlId="textarea">
-                  <ControlLabel bsClass="control-label">UI Schema</ControlLabel>
-                  <FormControl
-                    bsClass="form-control"
-                    componentClass="textarea"
-                    value={settings.uiSchema}
-                    onChange={this.onChangeUiSchema}
+                  <ControlLabel bsClass="control-label">UI Schemas</ControlLabel>
+                  <JsonMultiFieldContainer
+                    schemas={settings.uiSchemas}
+                    onChange={this.onChangeUiSchemas}
                   />
                 </FormGroup>
               </Col>
