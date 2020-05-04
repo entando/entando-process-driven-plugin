@@ -4,10 +4,6 @@ import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patte
 
 import { getConnections } from 'api/pda/connections';
 
-import 'patternfly-react/dist/css/patternfly-react.css';
-import 'patternfly/dist/css/patternfly.css';
-import 'patternfly/dist/css/patternfly-additions.css';
-
 class CompletionFormConfig extends React.Component {
   constructor(props) {
     super(props);

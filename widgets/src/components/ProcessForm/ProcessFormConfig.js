@@ -5,10 +5,6 @@ import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patte
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
 
-import 'patternfly-react/dist/css/patternfly-react.css';
-import 'patternfly/dist/css/patternfly.css';
-import 'patternfly/dist/css/patternfly-additions.css';
-
 class ProcessFormConfig extends React.Component {
   constructor(props) {
     super(props);

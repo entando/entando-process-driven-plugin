@@ -9,9 +9,6 @@ import { getGroups } from 'api/pda/groups';
 import { getColumns } from 'api/pda/tasks';
 import { normalizeConfigColumns, normalizeConfigGroups } from 'components/TaskList/normalizeData';
 import taskListConfigType from 'types/taskListConfigType';
-import 'patternfly-react/dist/css/patternfly-react.css';
-import 'patternfly/dist/css/patternfly.css';
-import 'patternfly/dist/css/patternfly-additions.css';
 import RenderSwitch from 'components/common/RenderSwitch';
 import Notification from 'components/common/Notification';
 
