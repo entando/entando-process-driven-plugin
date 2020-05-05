@@ -23,7 +23,6 @@ class ProcessFormConfig extends React.Component {
 
       config: {
         settings: {
-          uiSchema: '{}',
           uiSchemas: '[]',
         },
         knowledgeSource: '',
@@ -75,13 +74,13 @@ class ProcessFormConfig extends React.Component {
     });
   }
 
-  onChangeProcess({ target: { value: selectedProcess } }) {
+  onChangeProcess({ target: { value } }) {
     const { config } = this.state;
 
     this.setState({
       config: {
         ...config,
-        process: selectedProcess,
+        process: value,
       },
     });
   }
@@ -180,7 +179,7 @@ class ProcessFormConfig extends React.Component {
 
       return {
         processList,
-        ...(isSelectable ? { selectedProcess: process } : {}),
+        ...(isSelectable ? { selectedProcess: process } : { selectedProcess: '' }),
       };
     }
     return {};
@@ -203,7 +202,9 @@ class ProcessFormConfig extends React.Component {
                   value={knowledgeSource}
                   onChange={this.onChangeKnowledgeSource}
                 >
-                  <option value="">Select...</option>
+                  <option disabled value="">
+                    Select...
+                  </option>
                   {sourceList &&
                     sourceList.map(source => (
                       <option key={source.name} value={source.name}>
