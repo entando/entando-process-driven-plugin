@@ -92,7 +92,7 @@ class CompletionFormConfig extends React.Component {
         selectedKnowledgeSource = '',
       } = await this.fetchFromKnowledgeSource();
 
-      const parsedSettings = JSON.parse(config.settings);
+      const parsedSettings = config.settings ? JSON.parse(config.settings) : {};
 
       this.setState({
         loading: false,
