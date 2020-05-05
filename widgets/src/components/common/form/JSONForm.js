@@ -40,8 +40,7 @@ const JSONForm = props => {
     submitting,
     formSchema,
     formData,
-    uiSchema: userUiSchema,
-    uiSchemas: userDefinedUiSchemas,
+    uiSchemas,
     defaultColumnSize,
     customization: { fields = {}, templates = {}, widgets = {} },
   } = props;
@@ -140,20 +139,13 @@ const JSONForm = props => {
   const schemaId = formSchema.$id;
 
   const getUiSchema = () => {
-    if (userUiSchema) {
-      return userUiSchema;
+    const matchingIdUiSchema = uiSchemas.find(mapping => mapping.formSchemaId === schemaId);
+    if (matchingIdUiSchema) {
+      return matchingIdUiSchema.uiSchema;
     }
-    const matchingIdUserDefinedSchema = userDefinedUiSchemas.find(
-      mapping => mapping.formSchemaId === schemaId
-    );
-    if (matchingIdUserDefinedSchema) {
-      return matchingIdUserDefinedSchema.uiSchema;
-    }
-    const genericUserDefinedSchema = userDefinedUiSchemas.find(
-      mapping => mapping.formSchemaId === '*'
-    );
-    if (genericUserDefinedSchema) {
-      return genericUserDefinedSchema.uiSchema;
+    const genericUiSchema = uiSchemas.find(mapping => mapping.formSchemaId === '*');
+    if (genericUiSchema) {
+      return genericUiSchema.uiSchema;
     }
     return {};
   };
@@ -203,7 +195,6 @@ JSONForm.propTypes = {
     $id: PropTypes.string,
   }),
   formData: PropTypes.shape({}),
-  uiSchema: PropTypes.shape({}),
   uiSchemas: PropTypes.arrayOf(
     PropTypes.shape({
       formSchemaId: PropTypes.string,
@@ -251,8 +242,7 @@ JSONForm.defaultProps = {
   submitting: false,
   formSchema: null,
   formData: {},
-  uiSchema: null, // Used by Process Form
-  uiSchemas: [], // Used by Completion Form
+  uiSchemas: [],
   defaultColumnSize: 12,
   customization: {},
 };

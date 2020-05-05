@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patternfly-react';
+import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
+
+import JsonMultiFieldContainer from 'components/common/form/SchemaEditor/JsonMultiFieldContainer';
 
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
@@ -14,91 +16,178 @@ class ProcessFormConfig extends React.Component {
     super(props);
 
     this.state = {
-      sourceList: [],
-      processList: [],
+      loading: false,
+
+      sourceList: null,
+      processList: null,
+
       config: {
         settings: {
           uiSchema: '{}',
+          uiSchemas: '[]',
         },
         knowledgeSource: '',
         process: '',
       },
     };
 
+    this.fetchOnLoad = this.fetchOnLoad.bind(this);
+    this.fetchFromKnowledgeSource = this.fetchFromKnowledgeSource.bind(this);
+    this.fetchFromProcesses = this.fetchFromProcesses.bind(this);
+
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeProcess = this.onChangeProcess.bind(this);
-    this.onChangeUiSchema = this.onChangeUiSchema.bind(this);
-    this.fetchScreen = this.fetchScreen.bind(this);
+    this.onChangeUiSchemas = this.onChangeUiSchemas.bind(this);
   }
 
-  async componentDidMount() {
-    // getting list of Kie server connections
-    const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
+  componentDidMount() {
+    this.fetchOnLoad();
   }
 
   componentDidUpdate(prevProps) {
     const { config } = this.props;
 
-    // refetch state if config changes
+    // refill state if passed (props) config changes
     if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
-      this.fetchScreen();
+      this.fetchOnLoad();
     }
   }
 
-  onChangeKnowledgeSource(e, cb = () => {}) {
+  onChangeKnowledgeSource({ target: { value: selectedKnowledgeSource } }) {
     const { config } = this.state;
-    const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, knowledgeSource } });
 
-    getProcesses(knowledgeSource).then(data => {
-      this.setState({ processList: data.payload });
+    this.setState({ loading: true }, async () => {
+      // fetching all the values that depend on connection (knowledgeSource)
+      // in this case, it's only processes
+      const availableProcesses = await this.fetchFromProcesses(selectedKnowledgeSource);
 
-      cb();
+      this.setState({
+        loading: false,
+
+        ...availableProcesses,
+
+        config: {
+          ...config,
+          knowledgeSource: selectedKnowledgeSource,
+          process: '',
+        },
+      });
     });
   }
 
-  onChangeProcess(e, cb = () => {}) {
+  onChangeProcess({ target: { value: selectedProcess } }) {
     const { config } = this.state;
-    const process = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, process } });
 
-    cb();
-  }
-
-  onChangeUiSchema({ target: { value: uiSchema } }) {
-    const { config } = this.state;
-    const { settings } = config;
     this.setState({
       config: {
         ...config,
-        settings: { ...settings, uiSchema },
+        process: selectedProcess,
       },
     });
   }
 
-  fetchScreen() {
+  onChangeUiSchemas(uiSchemas) {
+    const { config } = this.state;
+    this.setState({
+      config: {
+        ...config,
+        settings: { ...config.settings, uiSchemas },
+      },
+    });
+  }
+
+  fetchOnLoad() {
     const { config } = this.props;
 
-    if (config && config.knowledgeSource) {
-      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
-        if (config.process) {
-          this.onChangeProcess(config.process, () => {
-            if (config.settings) {
-              this.setState({
-                config: {
-                  settings: JSON.parse(config.settings),
-                },
-              });
-            }
-          });
-        }
+    // getting list of Kie server connections
+    this.setState({ loading: true }, async () => {
+      const {
+        sourceList = null,
+        selectedKnowledgeSource = '',
+        processList = null,
+        selectedProcess = '',
+      } = await this.fetchFromKnowledgeSource();
+
+      const parsedSettings = JSON.parse(config.settings);
+
+      this.setState({
+        loading: false,
+
+        sourceList,
+        processList,
+
+        config: {
+          ...config,
+          settings: parsedSettings,
+          knowledgeSource: selectedKnowledgeSource,
+          process: selectedProcess,
+        },
       });
+    });
+  }
+
+  async fetchFromKnowledgeSource() {
+    const {
+      config: { knowledgeSource },
+    } = this.props;
+
+    const { payload: sourceList } = await getConnections();
+
+    // checking if connection (knowledgeSource) was previously selected and exists in the
+    // list of available connections - processes are defined per connection
+    const isSelectable =
+      knowledgeSource &&
+      sourceList.some(iteratedConnection => iteratedConnection.name === knowledgeSource);
+
+    if (isSelectable) {
+      // fetching all the values that depend on connection (knowledgeSource),
+      // in this case it's only processes
+      const availableProcesses = await this.fetchFromProcesses(knowledgeSource);
+
+      return {
+        sourceList,
+        selectedKnowledgeSource: knowledgeSource,
+        ...availableProcesses,
+      };
     }
+
+    // if previously selected connection (knowledgeSource) is not available, it should be deselected
+    return {
+      sourceList,
+      selectedKnowledgeSource: '',
+    };
+  }
+
+  async fetchFromProcesses(connection) {
+    if (connection) {
+      const {
+        config: { process },
+      } = this.props;
+
+      const { payload: processList } = await getProcesses(connection);
+
+      // checking if connection (knowledgeSource) was previously selected and exists in the
+      // list of available connections - processes are defined per connection
+      const isSelectable =
+        process &&
+        processList.some(
+          ({ 'process-id': processId, 'container-id': containerId }) =>
+            `${processId}@${containerId}` === process
+        );
+
+      // fetching other values that depend on both connection (knowledgeSource)
+      // and process could be done here by further chaining them
+
+      return {
+        processList,
+        ...(isSelectable ? { selectedProcess: process } : {}),
+      };
+    }
+    return {};
   }
 
   render() {
-    const { config, sourceList, processList = [] } = this.state;
+    const { config, sourceList, processList, loading } = this.state;
     const { knowledgeSource, process: selectedProcess = '', settings } = config;
 
     return (
@@ -109,35 +198,41 @@ class ProcessFormConfig extends React.Component {
               <FormGroup controlId="connection">
                 <ControlLabel>Knowledge Source</ControlLabel>
                 <select
+                  disabled={loading}
                   className="form-control"
                   value={knowledgeSource}
                   onChange={this.onChangeKnowledgeSource}
                 >
                   <option value="">Select...</option>
-                  {sourceList.map(source => (
-                    <option key={source.name} value={source.name}>
-                      {source.name}
-                    </option>
-                  ))}
+                  {sourceList &&
+                    sourceList.map(source => (
+                      <option key={source.name} value={source.name}>
+                        {source.name}
+                      </option>
+                    ))}
                 </select>
                 <HelpBlock>Select one of the Kie server connections.</HelpBlock>
               </FormGroup>
               <FormGroup controlId="connection">
                 <ControlLabel>Process</ControlLabel>
                 <select
+                  disabled={loading}
                   className="form-control"
                   value={selectedProcess}
                   onChange={this.onChangeProcess}
                 >
-                  <option value="">Select...</option>
-                  {processList.map(process => (
-                    <option
-                      key={`${process['process-id']}@${process['container-id']}`}
-                      value={`${process['process-id']}@${process['container-id']}`}
-                    >
-                      {`${process['process-name']} @ ${process['container-id']}`}
-                    </option>
-                  ))}
+                  <option disabled value="">
+                    Select...
+                  </option>
+                  {processList &&
+                    processList.map(process => (
+                      <option
+                        key={`${process['process-id']}@${process['container-id']}`}
+                        value={`${process['process-id']}@${process['container-id']}`}
+                      >
+                        {`${process['process-name']} @ ${process['container-id']}`}
+                      </option>
+                    ))}
                 </select>
                 <HelpBlock>Select one BPM Process.</HelpBlock>
               </FormGroup>
@@ -149,12 +244,10 @@ class ProcessFormConfig extends React.Component {
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group" controlId="textarea">
-                    <ControlLabel bsClass="control-label">UI Schema</ControlLabel>
-                    <FormControl
-                      bsClass="form-control"
-                      componentClass="textarea"
-                      value={settings.uiSchema}
-                      onChange={this.onChangeUiSchema}
+                    <ControlLabel bsClass="control-label">UI Schemas</ControlLabel>
+                    <JsonMultiFieldContainer
+                      schemas={settings.uiSchemas}
+                      onChange={this.onChangeUiSchemas}
                     />
                   </FormGroup>
                 </Col>
