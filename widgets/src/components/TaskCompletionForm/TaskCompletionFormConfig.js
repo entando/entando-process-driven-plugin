@@ -14,6 +14,8 @@ class CompletionFormConfig extends React.Component {
     super(props);
 
     this.state = {
+      loading: false,
+
       sourceList: [],
       config: {
         knowledgeSource: '',
@@ -24,31 +26,36 @@ class CompletionFormConfig extends React.Component {
       },
     };
 
+    this.fetchOnLoad = this.fetchOnLoad.bind(this);
+    this.fetchFromKnowledgeSource = this.fetchFromKnowledgeSource.bind(this);
+
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
     this.onChangeUiSchemas = this.onChangeUiSchemas.bind(this);
     this.onChangeSettingValue = this.onChangeSettingValue.bind(this);
-    this.fetchScreen = this.fetchScreen.bind(this);
   }
 
-  async componentDidMount() {
-    // getting list of Kie server connections
-    const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
+  componentDidMount() {
+    this.fetchOnLoad();
   }
 
   componentDidUpdate(prevProps) {
     const { config } = this.props;
 
-    // refetch state if config changes
+    // refill state if passed (props) config changes
     if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
-      this.fetchScreen();
+      this.fetchOnLoad();
     }
   }
 
-  onChangeKnowledgeSource(e, afterKnowledgeSourceChange = () => {}) {
+  onChangeKnowledgeSource({ target: { value } }) {
     const { config } = this.state;
-    const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, knowledgeSource } }, afterKnowledgeSourceChange);
+
+    this.setState({
+      config: {
+        ...config,
+        knowledgeSource: value,
+      },
+    });
   }
 
   onChangeUiSchemas(uiSchemas) {
@@ -75,28 +82,59 @@ class CompletionFormConfig extends React.Component {
     });
   }
 
-  fetchScreen() {
+  fetchOnLoad() {
     const { config } = this.props;
 
-    if (config && config.knowledgeSource) {
-      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
-        if (config.settings) {
-          const parsedSettings = JSON.parse(config.settings);
-          this.setState({
-            config: {
-              ...config,
-              settings: {
-                ...parsedSettings,
-              },
-            },
-          });
-        }
+    // getting list of Kie server connections
+    this.setState({ loading: true }, async () => {
+      const {
+        sourceList = null,
+        selectedKnowledgeSource = '',
+      } = await this.fetchFromKnowledgeSource();
+
+      const parsedSettings = JSON.parse(config.settings);
+
+      this.setState({
+        loading: false,
+
+        sourceList,
+
+        config: {
+          ...config,
+          settings: parsedSettings,
+          knowledgeSource: selectedKnowledgeSource,
+        },
       });
-    }
+    });
+  }
+
+  async fetchFromKnowledgeSource() {
+    const {
+      config: { knowledgeSource },
+    } = this.props;
+
+    const { payload: sourceList } = await getConnections();
+
+    // checking if connection (knowledgeSource) was previously selected and exists in the
+    // list of available connections - processes are defined per connection
+    const isSelectable =
+      knowledgeSource &&
+      sourceList.some(iteratedConnection => iteratedConnection.name === knowledgeSource);
+
+    // fetching other values (like process) that depend on connection (knowledgeSource)
+    // could be done here by further chaining them (for an example, refer to ProcessForm)
+
+    // if previously selected connection (knowledgeSource) is not available, it should be deselected
+    return {
+      sourceList,
+      ...(isSelectable
+        ? { selectedKnowledgeSource: knowledgeSource }
+        : { selectedKnowledgeSource: '' }),
+    };
   }
 
   render() {
-    const { sourceList, config } = this.state;
+    const { sourceList, config, loading } = this.state;
     const { knowledgeSource, settings } = config;
 
     return (
@@ -107,11 +145,14 @@ class CompletionFormConfig extends React.Component {
               <FormGroup controlId="connection">
                 <ControlLabel>Knowledge Source</ControlLabel>
                 <select
+                  disabled={loading}
                   className="form-control"
                   value={knowledgeSource}
                   onChange={this.onChangeKnowledgeSource}
                 >
-                  <option value="">Select...</option>
+                  <option disabled value="">
+                    Select...
+                  </option>
                   {sourceList.map(source => (
                     <option key={source.name} value={source.name}>
                       {source.name}
@@ -122,35 +163,37 @@ class CompletionFormConfig extends React.Component {
               </FormGroup>
             </Col>
           </Row>
-          <section>
-            <legend>Settings</legend>
-            <Row>
-              <Col xs={12}>
-                <FormGroup bsClass="form-group" controlId="textarea">
-                  <ControlLabel bsClass="control-label">UI Schemas</ControlLabel>
-                  <JsonMultiFieldContainer
-                    schemas={settings.uiSchemas}
-                    onChange={this.onChangeUiSchemas}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12}>
-                <FormGroup bsClass="form-group">
-                  <ControlLabel bsClass="control-label">Default column size</ControlLabel>
-                  <input
-                    className="form-control"
-                    type="number"
-                    value={settings.defaultColumnSize}
-                    onChange={event => {
-                      this.onChangeSettingValue('defaultColumnSize', event);
-                    }}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-          </section>
+          {knowledgeSource && (
+            <section>
+              <legend>Settings</legend>
+              <Row>
+                <Col xs={12}>
+                  <FormGroup bsClass="form-group" controlId="textarea">
+                    <ControlLabel bsClass="control-label">UI Schemas</ControlLabel>
+                    <JsonMultiFieldContainer
+                      schemas={settings.uiSchemas}
+                      onChange={this.onChangeUiSchemas}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12}>
+                  <FormGroup bsClass="form-group">
+                    <ControlLabel bsClass="control-label">Default column size</ControlLabel>
+                    <input
+                      className="form-control"
+                      type="number"
+                      value={settings.defaultColumnSize}
+                      onChange={event => {
+                        this.onChangeSettingValue('defaultColumnSize', event);
+                      }}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+            </section>
+          )}
         </form>
       </div>
     );
