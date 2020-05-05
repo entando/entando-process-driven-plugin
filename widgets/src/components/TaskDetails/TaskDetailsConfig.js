@@ -6,10 +6,6 @@ import i18next from 'i18next';
 import { getConnections } from 'api/pda/connections';
 import RenderSwitch from 'components/common/RenderSwitch';
 
-import 'patternfly-react/dist/css/patternfly-react.css';
-import 'patternfly/dist/css/patternfly.css';
-import 'patternfly/dist/css/patternfly-additions.css';
-
 const headerLabels = ['taskDetails.overview.title', 'taskDetails.overview.detailsTitle'];
 
 class TaskDetailsConfig extends React.Component {

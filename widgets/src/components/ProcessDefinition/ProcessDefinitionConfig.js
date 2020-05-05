@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
-import 'patternfly-react/dist/css/patternfly-react.css';
-import 'patternfly/dist/css/patternfly.css';
-import 'patternfly/dist/css/patternfly-additions.css';
 
 class ProcessDefinitionConfig extends React.Component {
   constructor(props) {
