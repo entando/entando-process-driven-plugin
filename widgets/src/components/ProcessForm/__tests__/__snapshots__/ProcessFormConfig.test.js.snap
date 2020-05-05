@@ -23,6 +23,7 @@ exports[`<ProcessFormConfig /> renders snapshot correctly 1`] = `
               class="form-control"
             >
               <option
+                disabled=""
                 value=""
               >
                 Select...
@@ -62,6 +63,7 @@ exports[`<ProcessFormConfig /> renders snapshot correctly 1`] = `
               class="form-control"
             >
               <option
+                disabled=""
                 value=""
               >
                 Select...
