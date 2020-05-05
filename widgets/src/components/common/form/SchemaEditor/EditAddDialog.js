@@ -98,6 +98,8 @@ const EditDialog = ({
     if (validName && validSchema) {
       onClickAccept(formSchemaId, name, JSON.parse(schema));
       onClickClose();
+      setName('');
+      setSchema('{}');
     }
   };
 
