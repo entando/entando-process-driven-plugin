@@ -30,7 +30,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                     class="MuiGrid-root-96 makeStyles-gridContainer-90 MuiGrid-container-97 MuiGrid-spacing-xs-3-121"
                   >
                     <div
-                      class="MuiGrid-root-96 makeStyles-gridItem-93 makeStyles-gridItem-95 MuiGrid-item-98 MuiGrid-grid-xs-12-142"
+                      class="MuiGrid-root-96 makeStyles-gridItem-93 makeStyles-gridItem-95 MuiGrid-item-98 MuiGrid-grid-xs-6-136"
                     >
                       <div
                         class=""
@@ -50,7 +50,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                               class="MuiGrid-root-96 makeStyles-gridContainer-90 MuiGrid-container-97 MuiGrid-spacing-xs-3-121"
                             >
                               <div
-                                class="MuiGrid-root-96 makeStyles-gridItem-93 makeStyles-gridItem-200 MuiGrid-item-98 MuiGrid-grid-xs-12-142"
+                                class="MuiGrid-root-96 makeStyles-gridItem-93 makeStyles-gridItem-200 MuiGrid-item-98 MuiGrid-grid-xs-6-136"
                               >
                                 <div
                                   class=""
@@ -105,7 +105,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
                                 </div>
                               </div>
                               <div
-                                class="MuiGrid-root-96 makeStyles-gridItem-93 makeStyles-gridItem-200 MuiGrid-item-98 MuiGrid-grid-xs-12-142"
+                                class="MuiGrid-root-96 makeStyles-gridItem-93 makeStyles-gridItem-200 MuiGrid-item-98 MuiGrid-grid-xs-6-136"
                               >
                                 <div
                                   class=""

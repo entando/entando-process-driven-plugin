@@ -70,7 +70,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                         class="MuiFormControl-root-214 MuiTextField-root-218"
                                       >
                                         <label
-                                          class="MuiFormLabel-root-231 MuiInputLabel-root-219 MuiInputLabel-formControl-225 MuiInputLabel-animated-228 MuiInputLabel-shrink-227 MuiInputLabel-outlined-230 Mui-focused Mui-focused Mui-required Mui-required"
+                                          class="MuiFormLabel-root-231 MuiInputLabel-root-219 MuiInputLabel-formControl-225 MuiInputLabel-animated-228 MuiInputLabel-shrink-227 MuiInputLabel-outlined-230 Mui-required Mui-required"
                                           data-shrink="true"
                                           for="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee"
                                           id="root_d1e6dd47-b24c-4f93-ba25-337832926124_employee-label"
@@ -84,7 +84,7 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                           </span>
                                         </label>
                                         <div
-                                          class="MuiInputBase-root-254 MuiOutlinedInput-root-239 Mui-focused Mui-focused MuiInputBase-formControl-255"
+                                          class="MuiInputBase-root-254 MuiOutlinedInput-root-239 MuiInputBase-formControl-255"
                                         >
                                           <input
                                             aria-invalid="false"
@@ -148,15 +148,15 @@ exports[`<ProcessFormContainer /> renders snapshot correctly 1`] = `
                                           </span>
                                         </label>
                                         <div
-                                          class="MuiInputBase-root-254 MuiOutlinedInput-root-239 MuiInputBase-formControl-255 MuiInputBase-multiline-262 MuiOutlinedInput-multiline-247"
+                                          class="MuiInputBase-root-254 MuiOutlinedInput-root-239 MuiInputBase-formControl-255"
                                         >
-                                          <textarea
+                                          <input
                                             aria-invalid="false"
-                                            class="MuiInputBase-input-265 MuiOutlinedInput-input-249 MuiInputBase-inputMultiline-267 MuiOutlinedInput-inputMultiline-251 MuiInputBase-inputHiddenLabel-271"
+                                            class="MuiInputBase-input-265 MuiOutlinedInput-input-249 MuiInputBase-inputHiddenLabel-271"
                                             id="root_d1e6dd47-b24c-4f93-ba25-337832926124_reason"
-                                            placeholder=""
                                             required=""
-                                            rows="5"
+                                            type="string"
+                                            value=""
                                           />
                                           <fieldset
                                             aria-hidden="true"
