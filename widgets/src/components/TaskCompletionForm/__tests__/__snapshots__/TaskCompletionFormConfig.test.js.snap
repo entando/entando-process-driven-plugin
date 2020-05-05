@@ -23,6 +23,7 @@ exports[`<TaskCompletionFormConfig /> renders snapshot correctly 1`] = `
               class="form-control"
             >
               <option
+                disabled=""
                 value=""
               >
                 Select...
@@ -51,77 +52,7 @@ exports[`<TaskCompletionFormConfig /> renders snapshot correctly 1`] = `
           </div>
         </div>
       </div>
-      <section>
-        <legend>
-          Settings
-        </legend>
-        <div
-          class="row"
-        >
-          <div
-            class="col-xs-12"
-          >
-            <div
-              class="form-group"
-            >
-              <label
-                class="control-label"
-                for="textarea"
-              >
-                UI Schemas
-              </label>
-              <div>
-                <div>
-                  <button
-                    class="JsonMultiFieldContainer-addButton-1"
-                    title="Add new UI Schema"
-                    type="button"
-                  >
-                    <svg
-                      height="14"
-                      viewBox="0 0 512 512"
-                      width="14"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M490.667 85.333h-64v-64C426.667 9.551 417.115 0 405.333 0h-384C9.551 0 0 9.551 0 21.333V448c0 11.782 9.551 21.333 21.333 21.333h64v21.333c0 11.782 9.551 21.333 21.333 21.333h384c11.782 0 21.333-9.551 21.333-21.333v-384c.001-11.781-9.55-21.333-21.332-21.333zm-448 341.334v-384H384v42.667H106.667c-11.782 0-21.333 9.551-21.333 21.333v320H42.667zm426.666 42.666H128V128h341.333v341.333z"
-                      />
-                      <path
-                        d="M320 277.333V192c0-11.782-9.551-21.333-21.333-21.333-11.782 0-21.333 9.551-21.333 21.333v85.333H192c-11.782 0-21.333 9.551-21.333 21.333 0 11.782 9.551 21.333 21.333 21.333h85.333v85.333c0 11.782 9.551 21.333 21.333 21.333 11.782 0 21.333-9.551 21.333-21.333V320h85.333c11.782 0 21.333-9.551 21.333-21.333 0-11.782-9.551-21.333-21.333-21.333H320z"
-                      />
-                    </svg>
-                    <span>
-                      Add new schema
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="row"
-        >
-          <div
-            class="col-xs-12"
-          >
-            <div
-              class="form-group"
-            >
-              <label
-                class="control-label"
-              >
-                Default column size
-              </label>
-              <input
-                class="form-control"
-                type="number"
-                value=""
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </form>
   </div>
 </div>
