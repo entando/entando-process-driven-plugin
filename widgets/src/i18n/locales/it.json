@@ -6,7 +6,10 @@
     "yes": "Yes",
     "no": "No",
     "edit": "Modificare",
-    "delete": "Elimina"
+    "delete": "Elimina",
+    "remove": "Remove",
+    "cancel": "Cancel",
+    "change": "Change"
   },
   "config": {
     "knowledgeSource": "Knowledge Source",
@@ -14,7 +17,15 @@
     "selectOption": "Select...",
     "settings": "Settings",
     "uiSchemas": "UI Schemas",
-    "defaultColumnSize": "UI Schemas"
+    "uiSchema": "UI Schema",
+    "formSchemaId": "Form schema ID:",
+    "defaultColumnSize": "Default column size",
+    "addNewSchema": "Add new schema",
+    "addNewSchemaTitle": "Add new UI Schema",
+    "editUiSchema": "Edit UI schema",
+    "removeUiSchema": "Remove UI schema",
+    "createUiSchema": "Create UI schema",
+    "genericSchemaRule": "If you would like to create generic rules, use * as Form schema ID."
   },
   "summary": {
     "frequency": {

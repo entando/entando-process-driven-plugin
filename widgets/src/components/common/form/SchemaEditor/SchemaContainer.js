@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import { withStyles } from '@material-ui/core/styles';
 import { ExpandMore as ExpandMoreIcon, ExpandLess as ExpandLessIcon } from '@material-ui/icons';
 
@@ -59,7 +60,7 @@ const SchemaContainer = ({ classes, name, uiSchema, onChangeValues, onClickRemov
     <div className={classes.container}>
       <div className={classes.top}>
         <div className={classes.field}>
-          <div className={classes.fieldLabel}>Form schema ID:</div>
+          <div className={classes.fieldLabel}>{i18next.t('config.formSchemaId')}</div>
           <div>{name}</div>
         </div>
         <SchemaContainerControls
@@ -70,7 +71,7 @@ const SchemaContainer = ({ classes, name, uiSchema, onChangeValues, onClickRemov
       </div>
       <div className={classes.field}>
         <button type="button" onClick={toggleShowSchema} className={classes.expandButton}>
-          <div className={classes.fieldLabel}>UI Schema</div>
+          <div className={classes.fieldLabel}>{i18next.t('config.uiSchemas')}</div>
           {showSchema ? <ExpandLessIcon /> : <ExpandMoreIcon />}
         </button>
         {showSchema && <textarea disabled rows={5} className={classes.uiSchema} value={uiSchema} />}

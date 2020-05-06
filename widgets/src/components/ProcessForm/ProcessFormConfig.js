@@ -150,7 +150,9 @@ class ProcessFormConfig extends React.Component {
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group" controlId="textarea">
-                    <ControlLabel bsClass="control-label">UI Schema</ControlLabel>
+                    <ControlLabel bsClass="control-label">
+                      {i18next.t('config.uiSchemas')}
+                    </ControlLabel>
                     <FormControl
                       bsClass="form-control"
                       componentClass="textarea"

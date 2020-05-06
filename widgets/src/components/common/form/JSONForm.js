@@ -251,8 +251,8 @@ JSONForm.defaultProps = {
   submitting: false,
   formSchema: null,
   formData: {},
-  uiSchema: null, // Used by Process Form
-  uiSchemas: [], // Used by Completion Form
+  uiSchema: null,
+  uiSchemas: [],
   defaultColumnSize: 12,
   customization: {},
 };
