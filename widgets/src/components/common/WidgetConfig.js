@@ -6,6 +6,10 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
 
+import 'patternfly-react/dist/css/patternfly-react.css';
+import 'patternfly/dist/css/patternfly.css';
+import 'patternfly/dist/css/patternfly-additions.css';
+
 const WidgetConfig = ({ children, config: passedConfig, ...rest }) => {
   const [loaded, setLoaded] = useState(false);
   const [code, setCode] = useState({});

@@ -6,10 +6,6 @@ import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 import { getConnections } from 'api/pda/connections';
 import JsonMultiFieldContainer from 'components/common/form/SchemaEditor/JsonMultiFieldContainer';
 
-import 'patternfly-react/dist/css/patternfly-react.css';
-import 'patternfly/dist/css/patternfly.css';
-import 'patternfly/dist/css/patternfly-additions.css';
-
 class CompletionFormConfig extends React.Component {
   constructor(props) {
     super(props);

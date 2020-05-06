@@ -4,9 +4,6 @@ import i18next from 'i18next';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
-import 'patternfly-react/dist/css/patternfly-react.css';
-import 'patternfly/dist/css/patternfly.css';
-import 'patternfly/dist/css/patternfly-additions.css';
 
 class ProcessDefinitionConfig extends React.Component {
   constructor(props) {

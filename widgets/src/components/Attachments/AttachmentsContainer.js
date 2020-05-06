@@ -37,7 +37,7 @@ const styles = {
     borderRadius: 3,
     padding: 18,
     textAlign: 'center',
-    height: 52,
+    minHeight: 52,
   },
 };
 
