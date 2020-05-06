@@ -195,6 +195,7 @@ JSONForm.propTypes = {
     $id: PropTypes.string,
   }),
   formData: PropTypes.shape({}),
+  uiSchema: PropTypes.shape({}),
   uiSchemas: PropTypes.arrayOf(
     PropTypes.shape({
       formSchemaId: PropTypes.string,
@@ -242,6 +243,7 @@ JSONForm.defaultProps = {
   submitting: false,
   formSchema: null,
   formData: {},
+  uiSchema: null,
   uiSchemas: [],
   defaultColumnSize: 12,
   customization: {},

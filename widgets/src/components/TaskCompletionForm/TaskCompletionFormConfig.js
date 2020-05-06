@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
 import JsonMultiFieldContainer from 'components/common/form/SchemaEditor/JsonMultiFieldContainer';
-
-import 'patternfly-react/dist/css/patternfly-react.css';
-import 'patternfly/dist/css/patternfly.css';
-import 'patternfly/dist/css/patternfly-additions.css';
 
 class CompletionFormConfig extends React.Component {
   constructor(props) {
@@ -143,7 +140,7 @@ class CompletionFormConfig extends React.Component {
           <Row>
             <Col xs={12}>
               <FormGroup controlId="connection">
-                <ControlLabel>Knowledge Source</ControlLabel>
+                <ControlLabel>{i18next.t('config.knowledgeSource')}</ControlLabel>
                 <select
                   disabled={loading}
                   className="form-control"
@@ -151,7 +148,7 @@ class CompletionFormConfig extends React.Component {
                   onChange={this.onChangeKnowledgeSource}
                 >
                   <option disabled value="">
-                    Select...
+                    {i18next.t('config.selectOption')}
                   </option>
                   {sourceList.map(source => (
                     <option key={source.name} value={source.name}>
@@ -159,17 +156,19 @@ class CompletionFormConfig extends React.Component {
                     </option>
                   ))}
                 </select>
-                <HelpBlock>Select one of the Kie server connections.</HelpBlock>
+                <HelpBlock>{i18next.t('config.selectConnections')}</HelpBlock>
               </FormGroup>
             </Col>
           </Row>
           {knowledgeSource && (
             <section>
-              <legend>Settings</legend>
+              <legend>{i18next.t('config.settings')}</legend>
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group" controlId="textarea">
-                    <ControlLabel bsClass="control-label">UI Schemas</ControlLabel>
+                    <ControlLabel bsClass="control-label">
+                      {i18next.t('config.uiSchemas')}
+                    </ControlLabel>
                     <JsonMultiFieldContainer
                       schemas={settings.uiSchemas}
                       onChange={this.onChangeUiSchemas}
@@ -180,7 +179,9 @@ class CompletionFormConfig extends React.Component {
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group">
-                    <ControlLabel bsClass="control-label">Default column size</ControlLabel>
+                    <ControlLabel bsClass="control-label">
+                      {i18next.t('config.defaultColumnSize')}
+                    </ControlLabel>
                     <input
                       className="form-control"
                       type="number"

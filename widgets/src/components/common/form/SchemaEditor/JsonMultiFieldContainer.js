@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import { withStyles } from '@material-ui/core/styles';
 import { QueueOutlined as AddIcon } from '@material-ui/icons';
 
@@ -106,10 +107,10 @@ class JsonMultiFieldContainer extends React.Component {
             type="button"
             onClick={this.toggleDialog}
             className={classes.addButton}
-            title="Add new UI Schema"
+            title={i18next.t('config.addNewSchemaTitle')}
           >
             <AddIcon fontSize="small" />
-            <span>Add new schema</span>
+            <span>{i18next.t('config.addNewSchema')}</span>
           </button>
         </div>
         {uiSchemas.map(({ formSchemaId, uiSchema }) => (

@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import JsonMultiFieldContainer from 'components/common/form/SchemaEditor/JsonMultiFieldContainer';
 
 import { getConnections } from 'api/pda/connections';
 import { getProcesses } from 'api/pda/processes';
-
-import 'patternfly-react/dist/css/patternfly-react.css';
-import 'patternfly/dist/css/patternfly.css';
-import 'patternfly/dist/css/patternfly-additions.css';
 
 class ProcessFormConfig extends React.Component {
   constructor(props) {
@@ -195,7 +192,7 @@ class ProcessFormConfig extends React.Component {
           <Row>
             <Col xs={12}>
               <FormGroup controlId="connection">
-                <ControlLabel>Knowledge Source</ControlLabel>
+                <ControlLabel>{i18next.t('config.knowledgeSource')}</ControlLabel>
                 <select
                   disabled={loading}
                   className="form-control"
@@ -203,7 +200,7 @@ class ProcessFormConfig extends React.Component {
                   onChange={this.onChangeKnowledgeSource}
                 >
                   <option disabled value="">
-                    Select...
+                    {i18next.t('config.selectOption')}
                   </option>
                   {sourceList &&
                     sourceList.map(source => (
@@ -212,7 +209,7 @@ class ProcessFormConfig extends React.Component {
                       </option>
                     ))}
                 </select>
-                <HelpBlock>Select one of the Kie server connections.</HelpBlock>
+                <HelpBlock>{i18next.t('config.selectConnections')}</HelpBlock>
               </FormGroup>
               <FormGroup controlId="connection">
                 <ControlLabel>Process</ControlLabel>
@@ -223,7 +220,7 @@ class ProcessFormConfig extends React.Component {
                   onChange={this.onChangeProcess}
                 >
                   <option disabled value="">
-                    Select...
+                    {i18next.t('config.selectOption')}
                   </option>
                   {processList &&
                     processList.map(process => (
@@ -241,11 +238,13 @@ class ProcessFormConfig extends React.Component {
           </Row>
           {selectedProcess && (
             <section>
-              <legend>Settings</legend>
+              <legend>{i18next.t('config.settings')}</legend>
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group" controlId="textarea">
-                    <ControlLabel bsClass="control-label">UI Schemas</ControlLabel>
+                    <ControlLabel bsClass="control-label">
+                      {i18next.t('config.uiSchemas')}
+                    </ControlLabel>
                     <JsonMultiFieldContainer
                       schemas={settings.uiSchemas}
                       onChange={this.onChangeUiSchemas}

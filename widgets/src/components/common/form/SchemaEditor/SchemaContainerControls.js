@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import { withStyles } from '@material-ui/core/styles';
 import { EditOutlined as EditIcon, HighlightOffOutlined as RemoveIcon } from '@material-ui/icons';
 
@@ -40,19 +41,19 @@ const SchemaContainerControls = ({ classes, name, onClickEdit, onClickRemove }) 
         type="button"
         onClick={handleClickEdit}
         className={classes.button}
-        title="Edit UI Schema"
+        title={i18next.t('config.editUiSchema')}
       >
         <EditIcon fontSize="small" />
-        <span>Edit</span>
+        <span>{i18next.t('common.edit')}</span>
       </button>
       <button
         type="button"
         onClick={handleClickRemove}
         className={classes.button}
-        title="Remove UI Schema"
+        title={i18next.t('config.removeUiSchema')}
       >
         <RemoveIcon fontSize="small" />
-        <span>Remove</span>
+        <span>{i18next.t('common.remove')}</span>
       </button>
     </div>
   );

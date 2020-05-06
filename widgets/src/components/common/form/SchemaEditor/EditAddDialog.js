@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -109,17 +110,17 @@ const EditDialog = ({
     <Dialog
       open={isOpen}
       onClose={onClickClose}
-      aria-labelledby="Edit UI schema"
+      aria-labelledby={i18next.t('config.editUiSchema')}
       fullWidth
       maxWidth="lg"
     >
       <DialogTitle id="form-dialog-title">
-        {isNew ? 'Create UI schema' : 'Edit UI schema'}
+        {isNew ? i18next.t('config.createUiSchema') : i18next.t('config.editUiSchema')}
       </DialogTitle>
       <DialogContent>
         <div className={classes.container}>
           <div className={classes.field}>
-            <div className={classes.fieldLabel}>Form schema ID:</div>
+            <div className={classes.fieldLabel}>{i18next.t('config.formSchemaId')}</div>
             <div>
               <input
                 required
@@ -128,13 +129,11 @@ const EditDialog = ({
                 onChange={handleNameChange}
                 onKeyDown={handleNameChange}
               />
-              <span className={classes.note}>
-                If you would like to create generic rules, use * as Form schema ID.
-              </span>
+              <span className={classes.note}>{i18next.t('config.genericSchemaRule')}</span>
             </div>
           </div>
           <div className={classes.field}>
-            <div className={classes.fieldLabel}>UI Schema:</div>
+            <div className={classes.fieldLabel}>{i18next.t('config.uiSchemas')}:</div>
             <textarea
               rows={10}
               className={classNames(classes.uiSchema, !validSchema && classes.invalid)}
@@ -147,10 +146,10 @@ const EditDialog = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={onClickClose} color="primary">
-          Cancel
+          {i18next.t('common.cancel')}
         </Button>
         <Button disabled={isDisabled} onClick={handleClickAccept} color="primary">
-          {isNew ? 'Add' : 'Change'}
+          {isNew ? i18next.t('common.add') : i18next.t('common.change')}
         </Button>
       </DialogActions>
     </Dialog>
