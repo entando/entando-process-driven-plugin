@@ -8,6 +8,14 @@
     "edit": "Edit",
     "delete": "Delete"
   },
+  "config": {
+    "knowledgeSource": "Knowledge Source",
+    "selectConnections": "Select one of the Kie server connections.",
+    "selectOption": "Select...",
+    "settings": "Settings",
+    "uiSchemas": "UI Schemas",
+    "defaultColumnSize": "UI Schemas"
+  },
   "summary": {
     "frequency": {
       "monthly": "Monthly",

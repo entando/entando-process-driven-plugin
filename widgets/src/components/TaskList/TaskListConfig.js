@@ -1,4 +1,5 @@
 import React from 'react';
+import i18next from 'i18next';
 import { FormGroup, ControlLabel, Checkbox, HelpBlock, Row, Col } from 'patternfly-react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
@@ -246,20 +247,20 @@ class TaskListConfig extends React.Component {
           <Row>
             <Col xs={12}>
               <FormGroup controlId="connection">
-                <ControlLabel>Knowledge Source</ControlLabel>
+                <ControlLabel>{i18next.t('config.knowledgeSource')}</ControlLabel>
                 <select
                   className="form-control"
                   value={knowledgeSource}
                   onChange={this.onChangeSource}
                 >
-                  <option value="">Select...</option>
+                  <option value="">{i18next.t('config.selectOption')}</option>
                   {sourceList.map(source => (
                     <option key={source.name} value={source.name}>
                       {source.name}
                     </option>
                   ))}
                 </select>
-                <HelpBlock>Select one of the Kie server connections.</HelpBlock>
+                <HelpBlock>{i18next.t('config.selectConnections')}</HelpBlock>
               </FormGroup>
             </Col>
           </Row>
