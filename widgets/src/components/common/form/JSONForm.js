@@ -40,6 +40,7 @@ const JSONForm = props => {
     submitting,
     formSchema,
     formData,
+    uiSchema: userUiSchema,
     uiSchemas,
     defaultColumnSize,
     customization: { fields = {}, templates = {}, widgets = {} },
@@ -139,6 +140,9 @@ const JSONForm = props => {
   const schemaId = formSchema.$id;
 
   const getUiSchema = () => {
+    if (userUiSchema) {
+      return userUiSchema;
+    }
     const matchingIdUiSchema = uiSchemas.find(mapping => mapping.formSchemaId === schemaId);
     if (matchingIdUiSchema) {
       return matchingIdUiSchema.uiSchema;

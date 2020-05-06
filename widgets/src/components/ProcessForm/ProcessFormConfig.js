@@ -232,7 +232,7 @@ class ProcessFormConfig extends React.Component {
                       </option>
                     ))}
                 </select>
-                <HelpBlock>Select one BPM Process.</HelpBlock>
+                <HelpBlock>{i18next.t('config.selectBpmProcess')}</HelpBlock>
               </FormGroup>
             </Col>
           </Row>
