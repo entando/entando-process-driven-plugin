@@ -71,7 +71,7 @@ const SchemaContainer = ({ classes, name, uiSchema, onChangeValues, onClickRemov
       </div>
       <div className={classes.field}>
         <button type="button" onClick={toggleShowSchema} className={classes.expandButton}>
-          <div className={classes.fieldLabel}>{i18next.t('config.uiSchemas')}</div>
+          <div className={classes.fieldLabel}>{i18next.t('config.uiSchema')}</div>
           {showSchema ? <ExpandLessIcon /> : <ExpandMoreIcon />}
         </button>
         {showSchema && <textarea disabled rows={5} className={classes.uiSchema} value={uiSchema} />}
