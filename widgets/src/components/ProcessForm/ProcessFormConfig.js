@@ -202,16 +202,17 @@ class ProcessFormConfig extends React.Component {
                   <option disabled value="">
                     {i18next.t('config.selectOption')}
                   </option>
-                  {sourceList.map(source => (
-                    <option key={source.name} value={source.name}>
-                      {source.name}
-                    </option>
-                  ))}
+                  {sourceList &&
+                    sourceList.map(source => (
+                      <option key={source.name} value={source.name}>
+                        {source.name}
+                      </option>
+                    ))}
                 </select>
                 <HelpBlock>{i18next.t('config.selectConnections')}</HelpBlock>
               </FormGroup>
               <FormGroup controlId="connection">
-                <ControlLabel>Process</ControlLabel>
+                <ControlLabel>{i18next.t('config.process')}</ControlLabel>
                 <select
                   disabled={loading}
                   className="form-control"

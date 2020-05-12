@@ -17,7 +17,7 @@ exports[`<SummaryCardConfig /> renders snapshot correctly 1`] = `
               class="control-label"
               for="connection"
             >
-              Knowledge Source
+              config.knowledgeSource
             </label>
             <select
               class="form-control"
@@ -25,7 +25,7 @@ exports[`<SummaryCardConfig /> renders snapshot correctly 1`] = `
               <option
                 value=""
               >
-                Select...
+                config.selectOption
               </option>
               <option
                 value="kieStaging"
@@ -46,7 +46,7 @@ exports[`<SummaryCardConfig /> renders snapshot correctly 1`] = `
             <span
               class="help-block"
             >
-              Select one of the Kie server connections.
+              config.selectConnections
             </span>
           </div>
         </div>
