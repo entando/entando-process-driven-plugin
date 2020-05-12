@@ -57,7 +57,7 @@ exports[`<ProcessFormConfig /> renders snapshot correctly 1`] = `
               class="control-label"
               for="connection"
             >
-              Process
+              config.process
             </label>
             <select
               class="form-control"

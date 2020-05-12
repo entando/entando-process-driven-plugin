@@ -212,7 +212,7 @@ class ProcessFormConfig extends React.Component {
                 <HelpBlock>{i18next.t('config.selectConnections')}</HelpBlock>
               </FormGroup>
               <FormGroup controlId="connection">
-                <ControlLabel>Process</ControlLabel>
+                <ControlLabel>{i18next.t('config.process')}</ControlLabel>
                 <select
                   disabled={loading}
                   className="form-control"
