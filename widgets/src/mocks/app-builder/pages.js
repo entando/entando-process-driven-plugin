@@ -38,7 +38,9 @@ const completionFormConfigs = {
       knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
       settings:
-        '{"uiSchema":"{\\n  \\"47078d21-7da5-4d3f-8355-0fcd78b09f39\\": {\\n    \\"reason\\": {\\n      \\"ui:widget\\": \\"textarea\\"\\n    },\\n    \\"performance\\": {\\n      \\"ui:widget\\": \\"updown\\"\\n    }\\n  }\\n}"}',
+        '{"uiSchema":"{\\"_sliderInteger\\":{\\"ui:widget\\":\\"range\\",\\"ui:options\\":{}},\\"_multipleSelector\\":{\\"ui:widget\\":\\"select\\",\\"ui:options\\":{}},\\"_bigText\\":{\\"ui:widget\\":\\"textarea\\",\\"ui:options\\":{\\"rows\\":3}},\\"__unbound_field_field_62054\\":{\\"ui:widget\\":\\"range\\",\\"ui:options\\":{}},\\"_processList\\":{\\"ui:widget\\":\\"select\\",\\"ui:options\\":{}},\\"_radioWithDefault\\":{\\"ui:widget\\":\\"radio\\",\\"ui:options\\":{}},\\"_radioWithoutDefault\\":{\\"ui:widget\\":\\"radio\\",\\"ui:options\\":{}},\\"_customObject\\":{\\"myDateTime\\":{\\"ui:options\\":{\\"size\\":6}},\\"myBoolean\\":{\\"ui:widget\\":\\"radio\\",\\"ui:options\\":{}},\\"myString\\":{\\"ui:widget\\":\\"uri\\"}}}",' +
+        '"uiSchemas":"[{\\"formSchemaId\\":\\"http://entando.org/schemas/MortgageApplicationForm.json\\",\\"uiSchema\\":{\\"myMortgageAmount\\":{\\"ui:options\\":{\\"size\\":6}}}},{\\"formSchemaId\\":\\"http://entando.org/schemas/pda-all-fields-form.json\\",\\"uiSchema\\":{\\"allFielder\\":{\\"ui:options\\":{\\"size\\":12}}}}]",' +
+        '"defaultColumnSize":"6"}',
     },
   },
   metaData: { status: 'draft' },
@@ -80,7 +82,7 @@ const processFormConfigs = {
       knowledgeSource: 'kieStaging',
       process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
       settings:
-        '{"uiSchema":"{\\n  \\"d1e6dd47-b24c-4f93-ba25-337832926124\\": {\\n    \\"employee\\": {\\n      \\"ui:autofocus\\": true\\n    },\\n    \\"reason\\": {\\n      \\"ui:widget\\": \\"textarea\\"\\n    },\\n    \\"list\\": {},\\n    \\"checkbox\\": {}  }\\n}"}',
+        '{"uiSchemas":"[{\\"formSchemaId\\":\\"http://entando.org/schemas/MortgageApplicationForm.json\\",\\"uiSchema\\":{\\"myMortgageAmount\\":{\\"ui:options\\":{\\"size\\":6}}}},{\\"formSchemaId\\":\\"http://entando.org/schemas/pda-all-fields-form.json\\",\\"uiSchema\\":{\\"allFielder\\":{\\"ui:options\\":{\\"size\\":12}}}}]","defaultColumnSize":"6"}',
     },
   },
   metaData: { status: 'draft' },

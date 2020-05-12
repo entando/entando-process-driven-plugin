@@ -15,8 +15,6 @@ import DateWidget from 'components/common/form/widgets/DateWidget';
 import DateTimeWidget from 'components/common/form/widgets/DateTimeWidget';
 import EmailWidget from 'components/common/form/widgets/EmailWidget';
 import UpDownWidget from 'components/common/form/widgets/UpDownWidget';
-import mortgageApplicationForm from 'components/common/form/uiSchemas/mortgageApplicationForm';
-import allFieldsForm from 'components/common/form/uiSchemas/allFieldsForm';
 
 const styles = {
   actionButtons: {
@@ -35,11 +33,6 @@ const styles = {
   },
 };
 
-const PREDEFINED_SCHEMAS = {
-  'http://entando.org/schemas/MortgageApplicationForm.json': mortgageApplicationForm,
-  'http://entando.org/schemas/pda-all-fields-form.json': allFieldsForm,
-};
-
 const JSONForm = props => {
   const {
     classes,
@@ -48,6 +41,7 @@ const JSONForm = props => {
     formSchema,
     formData,
     uiSchema: userUiSchema,
+    uiSchemas: userDefinedUiSchemas,
     defaultColumnSize,
     customization: { fields = {}, templates = {}, widgets = {} },
   } = props;
@@ -145,10 +139,26 @@ const JSONForm = props => {
 
   const schemaId = formSchema.$id;
 
-  const uiSchema = {
-    ...(PREDEFINED_SCHEMAS[schemaId] ? PREDEFINED_SCHEMAS[schemaId] : {}),
-    ...userUiSchema,
+  const getUiSchema = () => {
+    if (userUiSchema) {
+      return userUiSchema;
+    }
+    const matchingIdUserDefinedSchema = userDefinedUiSchemas.find(
+      mapping => mapping.formSchemaId === schemaId
+    );
+    if (matchingIdUserDefinedSchema) {
+      return matchingIdUserDefinedSchema.uiSchema;
+    }
+    const genericUserDefinedSchema = userDefinedUiSchemas.find(
+      mapping => mapping.formSchemaId === '*'
+    );
+    if (genericUserDefinedSchema) {
+      return genericUserDefinedSchema.uiSchema;
+    }
+    return {};
   };
+
+  const uiSchema = getUiSchema();
 
   return (
     <CustomEventContext.Consumer>
@@ -194,6 +204,12 @@ JSONForm.propTypes = {
   }),
   formData: PropTypes.shape({}),
   uiSchema: PropTypes.shape({}),
+  uiSchemas: PropTypes.arrayOf(
+    PropTypes.shape({
+      formSchemaId: PropTypes.string,
+      uiSchema: PropTypes.shape({}),
+    })
+  ),
   customization: PropTypes.shape({
     fields: PropTypes.shape({
       SchemaField: PropTypes.elementType,
@@ -235,7 +251,8 @@ JSONForm.defaultProps = {
   submitting: false,
   formSchema: null,
   formData: {},
-  uiSchema: {},
+  uiSchema: null,
+  uiSchemas: [],
   defaultColumnSize: 12,
   customization: {},
 };

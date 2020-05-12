@@ -23,6 +23,7 @@ exports[`<TaskCompletionFormConfig /> renders snapshot correctly 1`] = `
               class="form-control"
             >
               <option
+                disabled=""
                 value=""
               >
                 Select...
@@ -51,57 +52,7 @@ exports[`<TaskCompletionFormConfig /> renders snapshot correctly 1`] = `
           </div>
         </div>
       </div>
-      <section>
-        <legend>
-          Settings
-        </legend>
-        <div
-          class="row"
-        >
-          <div
-            class="col-xs-12"
-          >
-            <div
-              class="form-group"
-            >
-              <label
-                class="control-label"
-                for="textarea"
-              >
-                UI Schema
-              </label>
-              <textarea
-                class="form-control"
-                id="textarea"
-              >
-                {}
-              </textarea>
-            </div>
-          </div>
-        </div>
-        <div
-          class="row"
-        >
-          <div
-            class="col-xs-12"
-          >
-            <div
-              class="form-group"
-            >
-              <label
-                class="control-label"
-              >
-                Default column size
-              </label>
-              <input
-                class="form-control"
-                type="number"
-                value=""
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </form>
   </div>
 </div>
