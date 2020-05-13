@@ -17,15 +17,16 @@ exports[`<ProcessFormConfig /> renders snapshot correctly 1`] = `
               class="control-label"
               for="connection"
             >
-              Knowledge Source
+              config.knowledgeSource
             </label>
             <select
               class="form-control"
             >
               <option
+                disabled=""
                 value=""
               >
-                Select...
+                config.selectOption
               </option>
               <option
                 value="kieStaging"
@@ -46,7 +47,7 @@ exports[`<ProcessFormConfig /> renders snapshot correctly 1`] = `
             <span
               class="help-block"
             >
-              Select one of the Kie server connections.
+              config.selectConnections
             </span>
           </div>
           <div
@@ -56,21 +57,22 @@ exports[`<ProcessFormConfig /> renders snapshot correctly 1`] = `
               class="control-label"
               for="connection"
             >
-              Process
+              config.process
             </label>
             <select
               class="form-control"
             >
               <option
+                disabled=""
                 value=""
               >
-                Select...
+                config.selectOption
               </option>
             </select>
             <span
               class="help-block"
             >
-              Select one BPM Process.
+              config.selectBpmProcess
             </span>
           </div>
         </div>

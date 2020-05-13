@@ -118,7 +118,7 @@ class ProcessFormContainer extends React.Component {
     const { loading, formSchema, config, submitting, errorMessage } = this.state;
     const { onError } = this.props;
 
-    const uiSchema = (config && config.settings && config.settings.uiSchema) || {};
+    const uiSchemas = (config && config.settings && config.settings.uiSchemas) || [];
 
     return (
       <CustomEventContext.Provider
@@ -133,7 +133,7 @@ class ProcessFormContainer extends React.Component {
               <JSONForm
                 loading={loading}
                 formSchema={formSchema}
-                uiSchema={uiSchema}
+                uiSchemas={uiSchemas}
                 submitting={submitting}
               />
             </WidgetBox>

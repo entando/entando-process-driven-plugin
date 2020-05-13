@@ -41,7 +41,7 @@ const JSONForm = props => {
     formSchema,
     formData,
     uiSchema: userUiSchema,
-    uiSchemas: userDefinedUiSchemas,
+    uiSchemas,
     defaultColumnSize,
     customization: { fields = {}, templates = {}, widgets = {} },
   } = props;
@@ -143,17 +143,13 @@ const JSONForm = props => {
     if (userUiSchema) {
       return userUiSchema;
     }
-    const matchingIdUserDefinedSchema = userDefinedUiSchemas.find(
-      mapping => mapping.formSchemaId === schemaId
-    );
-    if (matchingIdUserDefinedSchema) {
-      return matchingIdUserDefinedSchema.uiSchema;
+    const matchingIdUiSchema = uiSchemas.find(mapping => mapping.formSchemaId === schemaId);
+    if (matchingIdUiSchema) {
+      return matchingIdUiSchema.uiSchema;
     }
-    const genericUserDefinedSchema = userDefinedUiSchemas.find(
-      mapping => mapping.formSchemaId === '*'
-    );
-    if (genericUserDefinedSchema) {
-      return genericUserDefinedSchema.uiSchema;
+    const genericUiSchema = uiSchemas.find(mapping => mapping.formSchemaId === '*');
+    if (genericUiSchema) {
+      return genericUiSchema.uiSchema;
     }
     return {};
   };

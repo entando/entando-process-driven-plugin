@@ -44,7 +44,7 @@
                       "    COMPLETION_FORM:{",
                       "        config: {",
                       "            knowledgeSource: CONNECTION,",
-                      "            settings: \"{\\\"uiSchema\\\":\\\"{\\\\n  \\\\\\\"_sliderInteger\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"range\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_multipleSelector\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"select\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_bigText\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"textarea\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {\\\\n      \\\\\\\"rows\\\\\\\": 3\\\\n    }\\\\n  },\\\\n  \\\\\\\"__unbound_field_field_62054\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"range\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_processList\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"select\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_radioWithDefault\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"radio\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_radioWithoutDefault\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"radio\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_customObject\\\\\\\": {\\\\n    \\\\\\\"myDateTime\\\\\\\": {\\\\n      \\\\\\\"ui:options\\\\\\\": {\\\\n        \\\\\\\"size\\\\\\\": 6\\\\n      }\\\\n    },\\\\n    \\\\\\\"myBoolean\\\\\\\": {\\\\n      \\\\\\\"ui:widget\\\\\\\": \\\\\\\"radio\\\\\\\",\\\\n      \\\\\\\"ui:options\\\\\\\": {}\\\\n    },\\\\n    \\\\\\\"myString\\\\\\\": {\\\\n      \\\\\\\"ui:widget\\\\\\\": \\\\\\\"uri\\\\\\\"\\\\n    }\\\\n  }\\\\n}\\\",\\\"defaultColumnSize\\\":\\\"6\\\"}\"",
+                      "            settings: \"{\\\"uiSchema\\\":\\\"{\\\\\\\"_sliderInteger\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"range\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_multipleSelector\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"select\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_bigText\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"textarea\\\\\\\",\\\\\\\"ui:options\\\\\\\":{\\\\\\\"rows\\\\\\\":3}},\\\\\\\"__unbound_field_field_62054\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"range\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_processList\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"select\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_radioWithDefault\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"radio\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_radioWithoutDefault\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"radio\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_customObject\\\\\\\":{\\\\\\\"myDateTime\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":6}},\\\\\\\"myBoolean\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"radio\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"myString\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"uri\\\\\\\"}}}\\\",\\\"uiSchemas\\\":\\\"[{\\\\\\\"formSchemaId\\\\\\\":\\\\\\\"http://entando.org/schemas/MortgageApplicationForm.json\\\\\\\",\\\\\\\"uiSchema\\\\\\\":{\\\\\\\"myMortgageAmount\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":6}}}},{\\\\\\\"formSchemaId\\\\\\\":\\\\\\\"http://entando.org/schemas/pda-all-fields-form.json\\\\\\\",\\\\\\\"uiSchema\\\\\\\":{\\\\\\\"allFielder\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":12}}}}]\\\",\\\"defaultColumnSize\\\":\\\"6\\\"}\"",
                       "        }",
                       "    },",
                       "    TASK_COMMENTS: {",
@@ -61,7 +61,7 @@
                       "    PROCESS_FORM: {",
                       "        config: {",
                       "            knowledgeSource: CONNECTION,",
-                      "            settings: \"{\\\"uiSchema\\\":\\\"{}\\\"}\",",
+                      "            settings: \"{\\\"uiSchemas\\\":\\\"[{\\\\\\\"formSchemaId\\\\\\\":\\\\\\\"http://entando.org/schemas/MortgageApplicationForm.json\\\\\\\",\\\\\\\"uiSchema\\\\\\\":{\\\\\\\"myMortgageAmount\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":6}}}},{\\\\\\\"formSchemaId\\\\\\\":\\\\\\\"http://entando.org/schemas/pda-all-fields-form.json\\\\\\\",\\\\\\\"uiSchema\\\\\\\":{\\\\\\\"allFielder\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":12}}}}]\\\",\\\"defaultColumnSize\\\":\\\"6\\\"}\",",
                       "            process: \"Mortgage_Process.MortgageApprovalProcess@mortgage-process_1.0.1-SNAPSHOT\",",
                       "        }",
                       "    },",
@@ -1224,7 +1224,7 @@
                   "response": []
                 },
                 {
-                  "name": "add TASK_DETAILS to dev page",
+                  "name": "add COMPLETION_FORM to dev page",
                   "event": [
                     {
                       "listen": "test",
@@ -1243,7 +1243,7 @@
                       "script": {
                         "id": "b494ae66-497b-4015-8d70-edb483405e77",
                         "exec": [
-                          "const WIDGET = 'TASK_DETAILS';",
+                          "const WIDGET = 'COMPLETION_FORM';",
                           "",
                           "",
                           "const WIDGETS_CONFIGS = JSON.parse(pm.environment.get('WIDGETS_CONFIGS'));",
@@ -1293,7 +1293,7 @@
                   "response": []
                 },
                 {
-                  "name": "add COMPLETION_FORM to dev page",
+                  "name": "add TASK_DETAILS to dev page",
                   "event": [
                     {
                       "listen": "test",
@@ -1312,7 +1312,7 @@
                       "script": {
                         "id": "b494ae66-497b-4015-8d70-edb483405e77",
                         "exec": [
-                          "const WIDGET = 'COMPLETION_FORM';",
+                          "const WIDGET = 'TASK_DETAILS';",
                           "",
                           "",
                           "const WIDGETS_CONFIGS = JSON.parse(pm.environment.get('WIDGETS_CONFIGS'));",
