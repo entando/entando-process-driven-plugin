@@ -1,5 +1,6 @@
 package org.entando.plugins.pda.controller.process;
 
+import static org.entando.plugins.pda.controller.AuthPermissions.PROCESS_INSTANCE_LIST;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import io.swagger.annotations.Api;
@@ -14,6 +15,7 @@ import org.entando.plugins.pda.core.model.ProcessInstance;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.web.response.SimpleRestResponse;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,11 +33,13 @@ public class ProcessInstanceController {
 
     private final EngineFactory engineFactory;
 
+    @Secured(PROCESS_INSTANCE_LIST)
     @ApiOperation(notes = "Lists process instances", nickname = "listProcessInstances",
             value = "LIST Process instances")
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public SimpleRestResponse<List<ProcessInstance>> listProcessInstances(@PathVariable String connId,
             @RequestParam String processDefinitionId, AuthenticatedUser user) {
+        log.debug("Listing processes instances for connection {}", connId);
         Connection connection = connectionService.get(connId);
         Engine engine = engineFactory.getEngine(connection.getEngine());
         return new SimpleRestResponse<>(engine.getProcessInstanceService().list(connection, processDefinitionId, user));
