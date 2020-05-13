@@ -44,7 +44,7 @@
                       "    COMPLETION_FORM:{",
                       "        config: {",
                       "            knowledgeSource: CONNECTION,",
-                      "            settings: \"{\\\"uiSchema\\\":\\\"{\\\\n  \\\\\\\"_sliderInteger\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"range\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_multipleSelector\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"select\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_bigText\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"textarea\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {\\\\n      \\\\\\\"rows\\\\\\\": 3\\\\n    }\\\\n  },\\\\n  \\\\\\\"__unbound_field_field_62054\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"range\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_processList\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"select\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_radioWithDefault\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"radio\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_radioWithoutDefault\\\\\\\": {\\\\n    \\\\\\\"ui:widget\\\\\\\": \\\\\\\"radio\\\\\\\",\\\\n    \\\\\\\"ui:options\\\\\\\": {}\\\\n  },\\\\n  \\\\\\\"_customObject\\\\\\\": {\\\\n    \\\\\\\"myDateTime\\\\\\\": {\\\\n      \\\\\\\"ui:options\\\\\\\": {\\\\n        \\\\\\\"size\\\\\\\": 6\\\\n      }\\\\n    },\\\\n    \\\\\\\"myBoolean\\\\\\\": {\\\\n      \\\\\\\"ui:widget\\\\\\\": \\\\\\\"radio\\\\\\\",\\\\n      \\\\\\\"ui:options\\\\\\\": {}\\\\n    },\\\\n    \\\\\\\"myString\\\\\\\": {\\\\n      \\\\\\\"ui:widget\\\\\\\": \\\\\\\"uri\\\\\\\"\\\\n    }\\\\n  }\\\\n}\\\",\\\"defaultColumnSize\\\":\\\"6\\\"}\"",
+                      "            settings: \"{\\\"uiSchema\\\":\\\"{\\\\\\\"_sliderInteger\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"range\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_multipleSelector\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"select\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_bigText\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"textarea\\\\\\\",\\\\\\\"ui:options\\\\\\\":{\\\\\\\"rows\\\\\\\":3}},\\\\\\\"__unbound_field_field_62054\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"range\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_processList\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"select\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_radioWithDefault\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"radio\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_radioWithoutDefault\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"radio\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"_customObject\\\\\\\":{\\\\\\\"myDateTime\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":6}},\\\\\\\"myBoolean\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"radio\\\\\\\",\\\\\\\"ui:options\\\\\\\":{}},\\\\\\\"myString\\\\\\\":{\\\\\\\"ui:widget\\\\\\\":\\\\\\\"uri\\\\\\\"}}}\\\",\" + \"\\\"uiSchemas\\\":\\\"[{\\\\\\\"formSchemaId\\\\\\\":\\\\\\\"http://entando.org/schemas/MortgageApplicationForm.json\\\\\\\",\\\\\\\"uiSchema\\\\\\\":{\\\\\\\"myMortgageAmount\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":6}}}},{\\\\\\\"formSchemaId\\\\\\\":\\\\\\\"http://entando.org/schemas/pda-all-fields-form.json\\\\\\\",\\\\\\\"uiSchema\\\\\\\":{\\\\\\\"allFielder\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":12}}}}]\\\",\" + \"\\\"defaultColumnSize\\\":\\\"6\\\"}\"",
                       "        }",
                       "    },",
                       "    TASK_COMMENTS: {",
@@ -61,7 +61,7 @@
                       "    PROCESS_FORM: {",
                       "        config: {",
                       "            knowledgeSource: CONNECTION,",
-                      "            settings: \"{\\\"uiSchema\\\":\\\"{}\\\"}\",",
+                      "            settings: \"{\\\"uiSchemas\\\":\\\"[{\\\\\\\"formSchemaId\\\\\\\":\\\\\\\"http://entando.org/schemas/MortgageApplicationForm.json\\\\\\\",\\\\\\\"uiSchema\\\\\\\":{\\\\\\\"myMortgageAmount\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":6}}}},{\\\\\\\"formSchemaId\\\\\\\":\\\\\\\"http://entando.org/schemas/pda-all-fields-form.json\\\\\\\",\\\\\\\"uiSchema\\\\\\\":{\\\\\\\"allFielder\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":12}}}}]\\\"}\",",
                       "            process: \"Mortgage_Process.MortgageApprovalProcess@mortgage-process_1.0.1-SNAPSHOT\",",
                       "        }",
                       "    },",
@@ -80,7 +80,7 @@
                       "    PROCESS_DEFINITION: {",
                       "        config: {",
                       "            knowledgeSource: CONNECTION,",
-                      "            settings: \"{\\\"uiSchema\\\":\\\"{}\\\"}\",",
+                      "            settings: \"{\\\"uiSchemas\\\":\\\"[{\\\\\\\"formSchemaId\\\\\\\":\\\\\\\"http://entando.org/schemas/MortgageApplicationForm.json\\\\\\\",\\\\\\\"uiSchema\\\\\\\":{\\\\\\\"myMortgageAmount\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":6}}}},{\\\\\\\"formSchemaId\\\\\\\":\\\\\\\"http://entando.org/schemas/pda-all-fields-form.json\\\\\\\",\\\\\\\"uiSchema\\\\\\\":{\\\\\\\"allFielder\\\\\\\":{\\\\\\\"ui:options\\\\\\\":{\\\\\\\"size\\\\\\\":12}}}}]\\\"}\",",
                       "        },",
                       "    }",
                       "}; ",
@@ -163,7 +163,11 @@
                 "header": [],
                 "url": {
                   "raw": "www.entando.com",
-                  "host": ["www", "entando", "com"]
+                  "host": [
+                    "www",
+                    "entando",
+                    "com"
+                  ]
                 }
               },
               "response": []
@@ -194,8 +198,15 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/status",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "pages", "{{DEV_PAGE_CODE}}", "status"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "pages",
+                        "{{DEV_PAGE_CODE}}",
+                        "status"
+                      ]
                     }
                   },
                   "response": []
@@ -207,8 +218,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "pages", "{{DEV_PAGE_CODE}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "pages",
+                        "{{DEV_PAGE_CODE}}"
+                      ]
                     }
                   },
                   "response": []
@@ -220,8 +237,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/pageModels/{{DEV_PAGE_MODEL}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "pageModels", "{{DEV_PAGE_MODEL}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "pageModels",
+                        "{{DEV_PAGE_MODEL}}"
+                      ]
                     }
                   },
                   "response": []
@@ -248,7 +271,9 @@
                       "listen": "test",
                       "script": {
                         "id": "265e1a0a-3473-4784-a948-7915d4fe618e",
-                        "exec": ["pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"],
+                        "exec": [
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -258,8 +283,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/{{BOOTSTRAPING_WIDGET_CODE}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", "{{BOOTSTRAPING_WIDGET_CODE}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        "{{BOOTSTRAPING_WIDGET_CODE}}"
+                      ]
                     }
                   },
                   "response": []
@@ -286,7 +317,10 @@
                       "listen": "test",
                       "script": {
                         "id": "265e1a0a-3473-4784-a948-7915d4fe618e",
-                        "exec": ["pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');", ""],
+                        "exec": [
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');",
+                          ""
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -296,8 +330,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/{{BOOTSTRAPING_WIDGET_CODE}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", "{{BOOTSTRAPING_WIDGET_CODE}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        "{{BOOTSTRAPING_WIDGET_CODE}}"
+                      ]
                     }
                   },
                   "response": []
@@ -324,7 +364,9 @@
                       "listen": "test",
                       "script": {
                         "id": "265e1a0a-3473-4784-a948-7915d4fe618e",
-                        "exec": ["pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"],
+                        "exec": [
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -334,8 +376,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/{{BOOTSTRAPING_WIDGET_CODE}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", "{{BOOTSTRAPING_WIDGET_CODE}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        "{{BOOTSTRAPING_WIDGET_CODE}}"
+                      ]
                     }
                   },
                   "response": []
@@ -362,7 +410,9 @@
                       "listen": "test",
                       "script": {
                         "id": "265e1a0a-3473-4784-a948-7915d4fe618e",
-                        "exec": ["pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"],
+                        "exec": [
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -372,8 +422,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/{{BOOTSTRAPING_WIDGET_CODE}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", "{{BOOTSTRAPING_WIDGET_CODE}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        "{{BOOTSTRAPING_WIDGET_CODE}}"
+                      ]
                     }
                   },
                   "response": []
@@ -400,7 +456,9 @@
                       "listen": "test",
                       "script": {
                         "id": "265e1a0a-3473-4784-a948-7915d4fe618e",
-                        "exec": ["pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"],
+                        "exec": [
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -410,8 +468,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/{{BOOTSTRAPING_WIDGET_CODE}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", "{{BOOTSTRAPING_WIDGET_CODE}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        "{{BOOTSTRAPING_WIDGET_CODE}}"
+                      ]
                     }
                   },
                   "response": []
@@ -438,7 +502,9 @@
                       "listen": "test",
                       "script": {
                         "id": "265e1a0a-3473-4784-a948-7915d4fe618e",
-                        "exec": ["pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"],
+                        "exec": [
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -448,8 +514,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/{{BOOTSTRAPING_WIDGET_CODE}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", "{{BOOTSTRAPING_WIDGET_CODE}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        "{{BOOTSTRAPING_WIDGET_CODE}}"
+                      ]
                     }
                   },
                   "response": []
@@ -476,7 +548,9 @@
                       "listen": "test",
                       "script": {
                         "id": "265e1a0a-3473-4784-a948-7915d4fe618e",
-                        "exec": ["pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"],
+                        "exec": [
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -486,8 +560,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/{{BOOTSTRAPING_WIDGET_CODE}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", "{{BOOTSTRAPING_WIDGET_CODE}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        "{{BOOTSTRAPING_WIDGET_CODE}}"
+                      ]
                     }
                   },
                   "response": []
@@ -514,7 +594,9 @@
                       "listen": "test",
                       "script": {
                         "id": "265e1a0a-3473-4784-a948-7915d4fe618e",
-                        "exec": ["pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"],
+                        "exec": [
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -524,8 +606,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/{{BOOTSTRAPING_WIDGET_CODE}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", "{{BOOTSTRAPING_WIDGET_CODE}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        "{{BOOTSTRAPING_WIDGET_CODE}}"
+                      ]
                     }
                   },
                   "response": []
@@ -552,7 +640,9 @@
                       "listen": "test",
                       "script": {
                         "id": "265e1a0a-3473-4784-a948-7915d4fe618e",
-                        "exec": ["pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"],
+                        "exec": [
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');"
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -562,8 +652,14 @@
                     "header": [],
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/{{BOOTSTRAPING_WIDGET_CODE}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", "{{BOOTSTRAPING_WIDGET_CODE}}"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        "{{BOOTSTRAPING_WIDGET_CODE}}"
+                      ]
                     }
                   },
                   "response": []
@@ -627,8 +723,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -684,8 +786,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -741,8 +849,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -798,8 +912,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -855,8 +975,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -912,8 +1038,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -969,8 +1101,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -1026,8 +1164,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -1083,8 +1227,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/widgets/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "widgets", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "widgets",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -1112,8 +1262,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pageModels/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "pageModels", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "pageModels",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -1141,8 +1297,14 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "pages", ""]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "pages",
+                        ""
+                      ]
                     }
                   },
                   "response": []
@@ -1211,76 +1373,9 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/{{BOOTSTRAPING_WIDGET_FRAME_ID}}",
-                      "host": ["{{CORE_URL}}"],
-                      "path": [
-                        "api",
-                        "pages",
-                        "{{DEV_PAGE_CODE}}",
-                        "widgets",
-                        "{{BOOTSTRAPING_WIDGET_FRAME_ID}}"
-                      ]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "add TASK_DETAILS to dev page",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "1d709a64-e958-43b2-aa5d-9c3dbca628d1",
-                        "exec": [
-                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');",
-                          "pm.environment.unset('BOOTSTRAPING_WIDGET_FRAME_ID');",
-                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CONFIG');"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    },
-                    {
-                      "listen": "prerequest",
-                      "script": {
-                        "id": "b494ae66-497b-4015-8d70-edb483405e77",
-                        "exec": [
-                          "const WIDGET = 'TASK_DETAILS';",
-                          "",
-                          "",
-                          "const WIDGETS_CONFIGS = JSON.parse(pm.environment.get('WIDGETS_CONFIGS'));",
-                          "",
-                          "const widgetCode = WIDGETS_CONFIGS[WIDGET].widgetCode;",
-                          "const widgetFrameId = WIDGETS_CONFIGS[WIDGET].frameId;",
-                          "const widgetConfigs = WIDGETS_CONFIGS[WIDGET].configs;",
-                          "",
-                          "const configs = {",
-                          "    code: widgetCode,",
-                          "    ...widgetConfigs",
-                          "};",
-                          "",
-                          "pm.environment.set('BOOTSTRAPING_WIDGET_CODE', widgetCode)",
-                          "pm.environment.set('BOOTSTRAPING_WIDGET_FRAME_ID', widgetFrameId);",
-                          "pm.environment.set('BOOTSTRAPING_WIDGET_CONFIG', JSON.stringify(configs));",
-                          ""
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{{BOOTSTRAPING_WIDGET_CONFIG}}",
-                      "options": {
-                        "raw": {
-                          "language": "json"
-                        }
-                      }
-                    },
-                    "url": {
-                      "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/{{BOOTSTRAPING_WIDGET_FRAME_ID}}",
-                      "host": ["{{CORE_URL}}"],
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
                       "path": [
                         "api",
                         "pages",
@@ -1349,7 +1444,80 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/{{BOOTSTRAPING_WIDGET_FRAME_ID}}",
-                      "host": ["{{CORE_URL}}"],
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "pages",
+                        "{{DEV_PAGE_CODE}}",
+                        "widgets",
+                        "{{BOOTSTRAPING_WIDGET_FRAME_ID}}"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "add TASK_DETAILS to dev page",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "1d709a64-e958-43b2-aa5d-9c3dbca628d1",
+                        "exec": [
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CODE');",
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_FRAME_ID');",
+                          "pm.environment.unset('BOOTSTRAPING_WIDGET_CONFIG');"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "b494ae66-497b-4015-8d70-edb483405e77",
+                        "exec": [
+                          "const WIDGET = 'TASK_DETAILS';",
+                          "",
+                          "",
+                          "const WIDGETS_CONFIGS = JSON.parse(pm.environment.get('WIDGETS_CONFIGS'));",
+                          "",
+                          "const widgetCode = WIDGETS_CONFIGS[WIDGET].widgetCode;",
+                          "const widgetFrameId = WIDGETS_CONFIGS[WIDGET].frameId;",
+                          "const widgetConfigs = WIDGETS_CONFIGS[WIDGET].configs;",
+                          "",
+                          "const configs = {",
+                          "    code: widgetCode,",
+                          "    ...widgetConfigs",
+                          "};",
+                          "",
+                          "pm.environment.set('BOOTSTRAPING_WIDGET_CODE', widgetCode)",
+                          "pm.environment.set('BOOTSTRAPING_WIDGET_FRAME_ID', widgetFrameId);",
+                          "pm.environment.set('BOOTSTRAPING_WIDGET_CONFIG', JSON.stringify(configs));",
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{{BOOTSTRAPING_WIDGET_CONFIG}}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/{{BOOTSTRAPING_WIDGET_FRAME_ID}}",
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
                       "path": [
                         "api",
                         "pages",
@@ -1418,7 +1586,9 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/{{BOOTSTRAPING_WIDGET_FRAME_ID}}",
-                      "host": ["{{CORE_URL}}"],
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
                       "path": [
                         "api",
                         "pages",
@@ -1487,7 +1657,9 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/{{BOOTSTRAPING_WIDGET_FRAME_ID}}",
-                      "host": ["{{CORE_URL}}"],
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
                       "path": [
                         "api",
                         "pages",
@@ -1556,7 +1728,9 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/{{BOOTSTRAPING_WIDGET_FRAME_ID}}",
-                      "host": ["{{CORE_URL}}"],
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
                       "path": [
                         "api",
                         "pages",
@@ -1625,7 +1799,9 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/{{BOOTSTRAPING_WIDGET_FRAME_ID}}",
-                      "host": ["{{CORE_URL}}"],
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
                       "path": [
                         "api",
                         "pages",
@@ -1694,7 +1870,9 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/{{BOOTSTRAPING_WIDGET_FRAME_ID}}",
-                      "host": ["{{CORE_URL}}"],
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
                       "path": [
                         "api",
                         "pages",
@@ -1763,7 +1941,9 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/{{BOOTSTRAPING_WIDGET_FRAME_ID}}",
-                      "host": ["{{CORE_URL}}"],
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
                       "path": [
                         "api",
                         "pages",
@@ -1798,8 +1978,15 @@
                     },
                     "url": {
                       "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/status",
-                      "host": ["{{CORE_URL}}"],
-                      "path": ["api", "pages", "{{DEV_PAGE_CODE}}", "status"]
+                      "host": [
+                        "{{CORE_URL}}"
+                      ],
+                      "path": [
+                        "api",
+                        "pages",
+                        "{{DEV_PAGE_CODE}}",
+                        "status"
+                      ]
                     }
                   },
                   "response": []
@@ -1864,7 +2051,9 @@
               "script": {
                 "id": "ec4734ac-4421-47fa-bbd0-f6007fbb28de",
                 "type": "text/javascript",
-                "exec": [""]
+                "exec": [
+                  ""
+                ]
               }
             }
           ],
@@ -1884,7 +2073,9 @@
                       "listen": "test",
                       "script": {
                         "id": "d84951c0-8a08-4ce5-b6e4-1ff77e976b1d",
-                        "exec": [""],
+                        "exec": [
+                          ""
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -1910,8 +2101,12 @@
                     },
                     "url": {
                       "raw": "{{PDA_URL}}/connections",
-                      "host": ["{{PDA_URL}}"],
-                      "path": ["connections"]
+                      "host": [
+                        "{{PDA_URL}}"
+                      ],
+                      "path": [
+                        "connections"
+                      ]
                     }
                   },
                   "response": []
@@ -1923,7 +2118,9 @@
                       "listen": "test",
                       "script": {
                         "id": "d84951c0-8a08-4ce5-b6e4-1ff77e976b1d",
-                        "exec": [""],
+                        "exec": [
+                          ""
+                        ],
                         "type": "text/javascript"
                       }
                     }
@@ -1949,8 +2146,12 @@
                     },
                     "url": {
                       "raw": "{{PDA_URL}}/connections",
-                      "host": ["{{PDA_URL}}"],
-                      "path": ["connections"]
+                      "host": [
+                        "{{PDA_URL}}"
+                      ],
+                      "path": [
+                        "connections"
+                      ]
                     }
                   },
                   "response": []
@@ -1990,8 +2191,14 @@
                     ],
                     "url": {
                       "raw": "{{PDA_URL}}/connections/kieStaging/test",
-                      "host": ["{{PDA_URL}}"],
-                      "path": ["connections", "kieStaging", "test"]
+                      "host": [
+                        "{{PDA_URL}}"
+                      ],
+                      "path": [
+                        "connections",
+                        "kieStaging",
+                        "test"
+                      ]
                     },
                     "description": "Tests connection and if it's working - sets {{KIE_CONNECTION}} variable."
                   },
@@ -2021,8 +2228,13 @@
                 "header": [],
                 "url": {
                   "raw": "{{CORE_URL}}/api/widgets",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "widgets"]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "widgets"
+                  ]
                 }
               },
               "response": []
@@ -2043,8 +2255,13 @@
                 },
                 "url": {
                   "raw": "{{CORE_URL}}/api/widgets",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "widgets"]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "widgets"
+                  ]
                 }
               },
               "response": []
@@ -2056,8 +2273,14 @@
                 "header": [],
                 "url": {
                   "raw": "{{CORE_URL}}/api/widgets/dev_widget_0",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "widgets", "dev_widget_0"]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "widgets",
+                    "dev_widget_0"
+                  ]
                 }
               },
               "response": []
@@ -2076,8 +2299,14 @@
                 "header": [],
                 "url": {
                   "raw": "{{CORE_URL}}/api/pageModels/",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "pageModels", ""]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "pageModels",
+                    ""
+                  ]
                 }
               },
               "response": []
@@ -2098,8 +2327,14 @@
                 },
                 "url": {
                   "raw": "{{CORE_URL}}/api/pageModels/",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "pageModels", ""]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "pageModels",
+                    ""
+                  ]
                 }
               },
               "response": []
@@ -2118,8 +2353,14 @@
                 "header": [],
                 "url": {
                   "raw": "{{CORE_URL}}/api/pages/",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "pages", ""]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "pages",
+                    ""
+                  ]
                 }
               },
               "response": []
@@ -2147,8 +2388,14 @@
                 "header": [],
                 "url": {
                   "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "pages", "{{DEV_PAGE_CODE}}"]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "pages",
+                    "{{DEV_PAGE_CODE}}"
+                  ]
                 }
               },
               "response": []
@@ -2169,8 +2416,14 @@
                 },
                 "url": {
                   "raw": "{{CORE_URL}}/api/pages/",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "pages", ""]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "pages",
+                    ""
+                  ]
                 }
               },
               "response": []
@@ -2191,8 +2444,15 @@
                 },
                 "url": {
                   "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/status",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "pages", "{{DEV_PAGE_CODE}}", "status"]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "pages",
+                    "{{DEV_PAGE_CODE}}",
+                    "status"
+                  ]
                 }
               },
               "response": []
@@ -2204,7 +2464,9 @@
               "script": {
                 "id": "06afa8f1-a2fe-46ca-bb5d-e9dd2f37484d",
                 "type": "text/javascript",
-                "exec": [""]
+                "exec": [
+                  ""
+                ]
               }
             },
             {
@@ -2212,7 +2474,9 @@
               "script": {
                 "id": "bdab54be-5460-4598-9b90-776dbc1d60cb",
                 "type": "text/javascript",
-                "exec": [""]
+                "exec": [
+                  ""
+                ]
               }
             }
           ],
@@ -2245,8 +2509,15 @@
                 "header": [],
                 "url": {
                   "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "pages", "{{DEV_PAGE_CODE}}", "widgets"]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "pages",
+                    "{{DEV_PAGE_CODE}}",
+                    "widgets"
+                  ]
                 }
               },
               "response": []
@@ -2274,8 +2545,16 @@
                 "header": [],
                 "url": {
                   "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/0",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "pages", "{{DEV_PAGE_CODE}}", "widgets", "0"]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "pages",
+                    "{{DEV_PAGE_CODE}}",
+                    "widgets",
+                    "0"
+                  ]
                 }
               },
               "response": []
@@ -2320,8 +2599,16 @@
                 },
                 "url": {
                   "raw": "{{CORE_URL}}/api/pages/{{DEV_PAGE_CODE}}/widgets/0",
-                  "host": ["{{CORE_URL}}"],
-                  "path": ["api", "pages", "{{DEV_PAGE_CODE}}", "widgets", "0"]
+                  "host": [
+                    "{{CORE_URL}}"
+                  ],
+                  "path": [
+                    "api",
+                    "pages",
+                    "{{DEV_PAGE_CODE}}",
+                    "widgets",
+                    "0"
+                  ]
                 }
               },
               "response": []
@@ -2359,8 +2646,16 @@
                 },
                 "url": {
                   "raw": "{{url}}/api/pages/phase_1_widgets/widgets/2",
-                  "host": ["{{url}}"],
-                  "path": ["api", "pages", "phase_1_widgets", "widgets", "2"]
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "pages",
+                    "phase_1_widgets",
+                    "widgets",
+                    "2"
+                  ]
                 }
               },
               "response": []
@@ -2382,7 +2677,9 @@
               "script": {
                 "id": "3cadb6aa-603d-4160-9460-4e47e9095654",
                 "type": "text/javascript",
-                "exec": [""]
+                "exec": [
+                  ""
+                ]
               }
             },
             {
@@ -2390,7 +2687,9 @@
               "script": {
                 "id": "bfeec589-6c15-4f2b-9fd3-aeb840768ce8",
                 "type": "text/javascript",
-                "exec": [""]
+                "exec": [
+                  ""
+                ]
               }
             }
           ],
@@ -2453,7 +2752,9 @@
           "script": {
             "id": "03723345-c475-4b9a-8d51-0a0db7afc4a4",
             "type": "text/javascript",
-            "exec": [""]
+            "exec": [
+              ""
+            ]
           }
         }
       ],
@@ -2500,8 +2801,14 @@
                 ],
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/test",
-                  "host": ["{{PDA_URL}}"],
-                  "path": ["connections", "kieStaging", "test"]
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
+                  "path": [
+                    "connections",
+                    "kieStaging",
+                    "test"
+                  ]
                 },
                 "description": "Tests connection and if it's working - sets {{KIE_CONNECTION}} variable."
               },
@@ -2542,8 +2849,14 @@
                 ],
                 "url": {
                   "raw": "{{PDA_URL}}/connections/lab/test",
-                  "host": ["{{PDA_URL}}"],
-                  "path": ["connections", "lab", "test"]
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
+                  "path": [
+                    "connections",
+                    "lab",
+                    "test"
+                  ]
                 },
                 "description": "Tests connection and if it's working - sets {{KIE_CONNECTION}} variable."
               },
@@ -2561,8 +2874,12 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections"
+              ]
             }
           },
           "response": []
@@ -2574,7 +2891,9 @@
               "listen": "test",
               "script": {
                 "id": "d84951c0-8a08-4ce5-b6e4-1ff77e976b1d",
-                "exec": [""],
+                "exec": [
+                  ""
+                ],
                 "type": "text/javascript"
               }
             }
@@ -2600,8 +2919,12 @@
             },
             "url": {
               "raw": "{{PDA_URL}}/connections",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections"
+              ]
             }
           },
           "response": []
@@ -2613,7 +2936,9 @@
               "listen": "test",
               "script": {
                 "id": "d84951c0-8a08-4ce5-b6e4-1ff77e976b1d",
-                "exec": [""],
+                "exec": [
+                  ""
+                ],
                 "type": "text/javascript"
               }
             }
@@ -2639,8 +2964,12 @@
             },
             "url": {
               "raw": "{{PDA_URL}}/connections",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections"
+              ]
             }
           },
           "response": []
@@ -2680,8 +3009,14 @@
             },
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections", "{{KIE_CONNECTION}}", "tasks"],
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{KIE_CONNECTION}}",
+                "tasks"
+              ],
               "query": [
                 {
                   "key": "pageSize",
@@ -2716,8 +3051,15 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/columns",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections", "{{KIE_CONNECTION}}", "tasks", "columns"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{KIE_CONNECTION}}",
+                "tasks",
+                "columns"
+              ]
             }
           },
           "response": []
@@ -2729,8 +3071,15 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{FIRST_TASK}}",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections", "{{KIE_CONNECTION}}", "tasks", "{{FIRST_TASK}}"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{KIE_CONNECTION}}",
+                "tasks",
+                "{{FIRST_TASK}}"
+              ]
             },
             "description": "Fetches first task in the KIE server connection. GET tasks request has to be called first."
           },
@@ -2758,7 +3107,9 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/30@mortgage-process_1.0.0-SNAPSHOT",
-              "host": ["{{PDA_URL}}"],
+              "host": [
+                "{{PDA_URL}}"
+              ],
               "path": [
                 "connections",
                 "{{KIE_CONNECTION}}",
@@ -2786,7 +3137,9 @@
                 "header": [],
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/tasks/30@mortgage-process_1.0.0-SNAPSHOT/form",
-                  "host": ["{{PDA_URL}}"],
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
                   "path": [
                     "connections",
                     "kieStaging",
@@ -2821,7 +3174,9 @@
                 },
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/tasks/30@mortgage-process_1.0.0-SNAPSHOT/form",
-                  "host": ["{{PDA_URL}}"],
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
                   "path": [
                     "connections",
                     "kieStaging",
@@ -2844,8 +3199,16 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/form",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections", "{{KIE_CONNECTION}}", "tasks", "{{TASK_ID}}", "form"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{KIE_CONNECTION}}",
+                "tasks",
+                "{{TASK_ID}}",
+                "form"
+              ]
             }
           },
           "response": []
@@ -2873,8 +3236,15 @@
             },
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections", "{{KIE_CONNECTION}}", "tasks", "{{TASK_ID}}"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{KIE_CONNECTION}}",
+                "tasks",
+                "{{TASK_ID}}"
+              ]
             }
           },
           "response": []
@@ -2895,7 +3265,9 @@
                 "header": [],
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/tasks/30@mortgage-process_1.0.0-SNAPSHOT/comments",
-                  "host": ["{{PDA_URL}}"],
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
                   "path": [
                     "connections",
                     "kieStaging",
@@ -2945,7 +3317,9 @@
                 },
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/tasks/30@mortgage-process_1.0.0-SNAPSHOT/comments",
-                  "host": ["{{PDA_URL}}"],
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
                   "path": [
                     "connections",
                     "kieStaging",
@@ -2964,7 +3338,9 @@
                 "header": [],
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/tasks/30@mortgage-process_1.0.0-SNAPSHOT/comments/{{tmp_example_comment}}",
-                  "host": ["{{PDA_URL}}"],
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
                   "path": [
                     "connections",
                     "kieStaging",
@@ -2984,7 +3360,9 @@
                 "header": [],
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/tasks/30@mortgage-process_1.0.0-SNAPSHOT/comments/{{tmp_example_comment}}",
-                  "host": ["{{PDA_URL}}"],
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
                   "path": [
                     "connections",
                     "kieStaging",
@@ -3008,8 +3386,16 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/comments",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections", "{{KIE_CONNECTION}}", "tasks", "{{TASK_ID}}", "comments"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{KIE_CONNECTION}}",
+                "tasks",
+                "{{TASK_ID}}",
+                "comments"
+              ]
             }
           },
           "response": []
@@ -3052,8 +3438,16 @@
             },
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/comments",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections", "{{KIE_CONNECTION}}", "tasks", "{{TASK_ID}}", "comments"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{KIE_CONNECTION}}",
+                "tasks",
+                "{{TASK_ID}}",
+                "comments"
+              ]
             }
           },
           "response": []
@@ -3065,7 +3459,9 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/comments/{{tmp_task_comment}}",
-              "host": ["{{PDA_URL}}"],
+              "host": [
+                "{{PDA_URL}}"
+              ],
               "path": [
                 "connections",
                 "{{KIE_CONNECTION}}",
@@ -3085,7 +3481,9 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/comments/{{tmp_task_comment}}",
-              "host": ["{{PDA_URL}}"],
+              "host": [
+                "{{PDA_URL}}"
+              ],
               "path": [
                 "connections",
                 "{{KIE_CONNECTION}}",
@@ -3114,7 +3512,9 @@
                 "header": [],
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/tasks/30@mortgage-process_1.0.0-SNAPSHOT/attachments",
-                  "host": ["{{PDA_URL}}"],
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
                   "path": [
                     "connections",
                     "kieStaging",
@@ -3164,7 +3564,9 @@
                 },
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/tasks/30@mortgage-process_1.0.0-SNAPSHOT/attachments",
-                  "host": ["{{PDA_URL}}"],
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
                   "path": [
                     "connections",
                     "kieStaging",
@@ -3183,7 +3585,9 @@
                 "header": [],
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/tasks/30@mortgage-process_1.0.0-SNAPSHOT/comments/{{tmp_example_comment}}",
-                  "host": ["{{PDA_URL}}"],
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
                   "path": [
                     "connections",
                     "kieStaging",
@@ -3203,7 +3607,9 @@
                 "header": [],
                 "url": {
                   "raw": "{{PDA_URL}}/connections/kieStaging/tasks/30@mortgage-process_1.0.0-SNAPSHOT/comments/{{tmp_example_comment}}",
-                  "host": ["{{PDA_URL}}"],
+                  "host": [
+                    "{{PDA_URL}}"
+                  ],
                   "path": [
                     "connections",
                     "kieStaging",
@@ -3227,8 +3633,16 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/attachments",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections", "{{KIE_CONNECTION}}", "tasks", "{{TASK_ID}}", "attachments"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{KIE_CONNECTION}}",
+                "tasks",
+                "{{TASK_ID}}",
+                "attachments"
+              ]
             }
           },
           "response": []
@@ -3263,8 +3677,16 @@
             },
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/attachments",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections", "{{KIE_CONNECTION}}", "tasks", "{{TASK_ID}}", "attachments"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{KIE_CONNECTION}}",
+                "tasks",
+                "{{TASK_ID}}",
+                "attachments"
+              ]
             }
           },
           "response": []
@@ -3276,7 +3698,9 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/attachments/39",
-              "host": ["{{PDA_URL}}"],
+              "host": [
+                "{{PDA_URL}}"
+              ],
               "path": [
                 "connections",
                 "{{KIE_CONNECTION}}",
@@ -3296,7 +3720,9 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/attachments/39",
-              "host": ["{{PDA_URL}}"],
+              "host": [
+                "{{PDA_URL}}"
+              ],
               "path": [
                 "connections",
                 "{{KIE_CONNECTION}}",
@@ -3323,7 +3749,9 @@
             ],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/attachments/39/file",
-              "host": ["{{PDA_URL}}"],
+              "host": [
+                "{{PDA_URL}}"
+              ],
               "path": [
                 "connections",
                 "{{KIE_CONNECTION}}",
@@ -3350,8 +3778,16 @@
             "header": [],
             "url": {
               "raw": "{{PDA_URL}}/connections/{{KIE_CONNECTION}}/tasks/{{TASK_ID}}/diagram",
-              "host": ["{{PDA_URL}}"],
-              "path": ["connections", "{{KIE_CONNECTION}}", "tasks", "{{TASK_ID}}", "diagram"]
+              "host": [
+                "{{PDA_URL}}"
+              ],
+              "path": [
+                "connections",
+                "{{KIE_CONNECTION}}",
+                "tasks",
+                "{{TASK_ID}}",
+                "diagram"
+              ]
             }
           },
           "response": []
@@ -3366,7 +3802,9 @@
       "script": {
         "id": "04d3c535-ccf6-42ad-9cc4-1310a034bd7b",
         "type": "text/javascript",
-        "exec": [""]
+        "exec": [
+          ""
+        ]
       }
     },
     {
@@ -3374,7 +3812,9 @@
       "script": {
         "id": "ec2f9274-9ae5-406b-8671-ad03346e8a93",
         "type": "text/javascript",
-        "exec": [""]
+        "exec": [
+          ""
+        ]
       }
     }
   ],

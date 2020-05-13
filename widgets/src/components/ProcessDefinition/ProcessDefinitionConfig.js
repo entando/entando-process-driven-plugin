@@ -1,78 +1,121 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, ControlLabel, HelpBlock, Row, Col, FormControl } from 'patternfly-react';
+import i18next from 'i18next';
+import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
+import JsonMultiFieldContainer from 'components/common/form/SchemaEditor/JsonMultiFieldContainer';
 
 class ProcessDefinitionConfig extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      loading: false,
+
       sourceList: [],
       config: {
         settings: {
-          uiSchema: '{}',
+          uiSchemas: '[]',
         },
         knowledgeSource: '',
       },
     };
 
+    this.fetchOnLoad = this.fetchOnLoad.bind(this);
+    this.fetchFromKnowledgeSource = this.fetchFromKnowledgeSource.bind(this);
+
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
-    this.onChangeUiSchema = this.onChangeUiSchema.bind(this);
-    this.fetchScreen = this.fetchScreen.bind(this);
+    this.onChangeUiSchemas = this.onChangeUiSchemas.bind(this);
   }
 
-  async componentDidMount() {
-    // getting list of Kie server connections
-    const sourceList = await getConnections();
-    this.setState({ sourceList: sourceList.payload }, this.fetchScreen);
+  componentDidMount() {
+    this.fetchOnLoad();
   }
 
   componentDidUpdate(prevProps) {
     const { config } = this.props;
 
-    // refetch state if config changes
+    // refill state if passed (props) config changes
     if (JSON.stringify(config) !== JSON.stringify(prevProps.config)) {
-      this.fetchScreen();
+      this.fetchOnLoad();
     }
   }
 
-  onChangeKnowledgeSource(e) {
+  onChangeKnowledgeSource({ target: { value } }) {
     const { config } = this.state;
-    const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, knowledgeSource } });
-  }
 
-  onChangeUiSchema({ target: { value: uiSchema } }) {
-    const { config } = this.state;
-    const { settings } = config;
     this.setState({
       config: {
         ...config,
-        settings: { ...settings, uiSchema },
+        knowledgeSource: value,
       },
     });
   }
 
-  fetchScreen() {
+  onChangeUiSchemas(uiSchemas) {
+    const { config } = this.state;
+    this.setState({
+      config: {
+        ...config,
+        settings: { ...config.settings, uiSchemas },
+      },
+    });
+  }
+
+  fetchOnLoad() {
     const { config } = this.props;
 
-    if (config && config.knowledgeSource) {
-      this.onChangeKnowledgeSource(config.knowledgeSource, () => {
-        if (config.settings) {
-          this.setState({
-            config: {
-              settings: JSON.parse(config.settings),
-            },
-          });
-        }
+    // getting list of Kie server connections
+    this.setState({ loading: true }, async () => {
+      const {
+        sourceList = null,
+        selectedKnowledgeSource = '',
+      } = await this.fetchFromKnowledgeSource();
+
+      const parsedSettings = config.settings ? JSON.parse(config.settings) : {};
+
+      this.setState({
+        loading: false,
+
+        sourceList,
+
+        config: {
+          ...config,
+          settings: parsedSettings,
+          knowledgeSource: selectedKnowledgeSource,
+        },
       });
-    }
+    });
+  }
+
+  async fetchFromKnowledgeSource() {
+    const {
+      config: { knowledgeSource },
+    } = this.props;
+
+    const { payload: sourceList } = await getConnections();
+
+    // checking if connection (knowledgeSource) was previously selected and exists in the
+    // list of available connections - processes are defined per connection
+    const isSelectable =
+      knowledgeSource &&
+      sourceList.some(iteratedConnection => iteratedConnection.name === knowledgeSource);
+
+    // fetching other values (like process) that depend on connection (knowledgeSource)
+    // could be done here by further chaining them (for an example, refer to ProcessForm)
+
+    // if previously selected connection (knowledgeSource) is not available, it should be deselected
+    return {
+      sourceList,
+      ...(isSelectable
+        ? { selectedKnowledgeSource: knowledgeSource }
+        : { selectedKnowledgeSource: '' }),
+    };
   }
 
   render() {
-    const { config, sourceList } = this.state;
+    const { config, sourceList, loading } = this.state;
     const { knowledgeSource, settings } = config;
 
     return (
@@ -81,35 +124,38 @@ class ProcessDefinitionConfig extends React.Component {
           <Row>
             <Col xs={12}>
               <FormGroup controlId="connection">
-                <ControlLabel>Knowledge Source</ControlLabel>
+                <ControlLabel>{i18next.t('config.knowledgeSource')}</ControlLabel>
                 <select
+                  disabled={loading}
                   className="form-control"
                   value={knowledgeSource}
                   onChange={this.onChangeKnowledgeSource}
                 >
-                  <option value="">Select...</option>
+                  <option disabled value="">
+                    {i18next.t('config.selectOption')}
+                  </option>
                   {sourceList.map(source => (
                     <option key={source.name} value={source.name}>
                       {source.name}
                     </option>
                   ))}
                 </select>
-                <HelpBlock>Select one of the Kie server connections.</HelpBlock>
+                <HelpBlock>{i18next.t('config.selectConnections')}</HelpBlock>
               </FormGroup>
             </Col>
           </Row>
           {knowledgeSource && (
             <section>
-              <legend>Settings</legend>
+              <legend>{i18next.t('config.settings')}</legend>
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group" controlId="textarea">
-                    <ControlLabel bsClass="control-label">UI Schema</ControlLabel>
-                    <FormControl
-                      bsClass="form-control"
-                      componentClass="textarea"
-                      value={settings.uiSchema}
-                      onChange={this.onChangeUiSchema}
+                    <ControlLabel bsClass="control-label">
+                      {i18next.t('config.uiSchemas')}
+                    </ControlLabel>
+                    <JsonMultiFieldContainer
+                      schemas={settings.uiSchemas}
+                      onChange={this.onChangeUiSchemas}
                     />
                   </FormGroup>
                 </Col>

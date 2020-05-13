@@ -202,7 +202,7 @@ class TaskCompletionFormContainer extends React.Component {
     const { loading, submitting, formData, formSchema, config } = this.state;
     const { onError } = this.props;
 
-    const uiSchema = (config && config.settings && config.settings.uiSchema) || {};
+    const uiSchemas = (config && config.settings && config.settings.uiSchemas) || [];
     const defaultColumnSize =
       (config && config.settings && config.settings.defaultColumnSize) || 12;
 
@@ -215,7 +215,7 @@ class TaskCompletionFormContainer extends React.Component {
                 loading={loading}
                 formSchema={formSchema}
                 formData={formData}
-                uiSchema={uiSchema}
+                uiSchemas={uiSchemas}
                 submitting={submitting}
                 defaultColumnSize={defaultColumnSize}
               />

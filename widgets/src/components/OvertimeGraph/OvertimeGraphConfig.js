@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
 import { getConnections } from 'api/pda/connections';
@@ -102,26 +103,26 @@ class OvertimeGraphConfig extends React.Component {
           <Row>
             <Col xs={12}>
               <FormGroup controlId="connection">
-                <ControlLabel>Knowledge Source</ControlLabel>
+                <ControlLabel>{i18next.t('config.knowledgeSource')}</ControlLabel>
                 <select
                   className="form-control"
                   value={knowledgeSource}
                   onChange={this.onChangeKnowledgeSource}
                 >
-                  <option value="">Select...</option>
+                  <option value="">{i18next.t('config.selectOption')}</option>
                   {sourceList.map(source => (
                     <option key={source.name} value={source.name}>
                       {source.name}
                     </option>
                   ))}
                 </select>
-                <HelpBlock>Select one of the Kie server connections.</HelpBlock>
+                <HelpBlock>{i18next.t('config.selectConnections')}</HelpBlock>
               </FormGroup>
             </Col>
           </Row>
           {knowledgeSource && (
             <section>
-              <legend>Settings</legend>
+              <legend>{i18next.t('config.settings')}</legend>
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group">
@@ -133,7 +134,7 @@ class OvertimeGraphConfig extends React.Component {
                         this.handleSeriesDataTypeChange(1, value);
                       }}
                     >
-                      <option value="">Select...</option>
+                      <option value="">{i18next.t('config.selectOption')}</option>
                       {dataTypes.map(dataType => (
                         <option key={dataType} value={dataType}>
                           {dataType}
@@ -154,7 +155,7 @@ class OvertimeGraphConfig extends React.Component {
                         this.handleSeriesDataTypeChange(2, value);
                       }}
                     >
-                      <option value="">Select...</option>
+                      <option value="">{i18next.t('config.selectOption')}</option>
                       {dataTypes.map(dataType => (
                         <option key={dataType} value={dataType}>
                           {dataType}
