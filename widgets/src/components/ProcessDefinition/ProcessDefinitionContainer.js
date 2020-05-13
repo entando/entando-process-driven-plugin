@@ -48,9 +48,19 @@ class ProcessDefinitionContainer extends React.Component {
         throw widgetConfigs.errors[0];
       }
       const { config } = widgetConfigs.payload;
+      const settings = (config.settings && JSON.parse(config.settings)) || {};
+
+      const parsedSettings = Object.keys(settings).reduce(
+        (acc, settingKey) => ({
+          ...acc,
+          [settingKey]: JSON.parse(settings[settingKey]),
+        }),
+        {}
+      );
 
       return {
         ...config,
+        settings: parsedSettings,
       };
     } catch (error) {
       this.handleError(error.message);
@@ -140,7 +150,7 @@ class ProcessDefinitionContainer extends React.Component {
     } = this.state;
     const { onError } = this.props;
 
-    const uiSchema = (config && config.settings && config.settings.uiSchema) || {};
+    const uiSchemas = (config && config.settings && config.settings.uiSchemas) || [];
 
     return (
       <CustomEventContext.Provider
@@ -173,7 +183,7 @@ class ProcessDefinitionContainer extends React.Component {
                   <JSONForm
                     loading={loading}
                     formSchema={formSchema}
-                    uiSchema={uiSchema}
+                    uiSchemas={uiSchemas}
                     submitting={submitting}
                   />
                 </div>

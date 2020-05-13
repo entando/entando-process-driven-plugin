@@ -23,6 +23,7 @@ exports[`<ProcessDefinitionConfig /> renders snapshot correctly 1`] = `
               class="form-control"
             >
               <option
+                disabled=""
                 value=""
               >
                 config.selectOption
