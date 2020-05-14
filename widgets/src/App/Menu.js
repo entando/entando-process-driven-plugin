@@ -100,6 +100,12 @@ const menuItems = [
     Icon: <AttachmentIcon />,
     configLinkTo: '/AttachmentsConfig',
   },
+  {
+    linkTo: '/ProcessList',
+    linkText: 'Process List',
+    Icon: <ListIcon />,
+    configLinkTo: '/ProcessListConfig',
+  },
 ];
 
 const Menu = ({ open, setOpen, classes }) => (

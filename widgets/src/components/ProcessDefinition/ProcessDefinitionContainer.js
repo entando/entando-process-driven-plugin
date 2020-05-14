@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-import { getProcesses, getProcessForm, postProcessForm } from 'api/pda/processes';
+import { getProcessDefinitions, getProcessForm, postProcessForm } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
 import CustomEventContext from 'components/common/CustomEventContext';
@@ -78,7 +78,7 @@ class ProcessDefinitionContainer extends React.Component {
     const connection = (config && config.knowledgeSource) || '';
 
     try {
-      const processList = await getProcesses(connection);
+      const processList = await getProcessDefinitions(connection);
       const { payload, errors } = processList;
       if (errors && errors.length) {
         throw errors[0];
