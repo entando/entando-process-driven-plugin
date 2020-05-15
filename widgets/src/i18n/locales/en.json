@@ -56,9 +56,9 @@
         "total_label": "Total Rejected",
         "value": "{{value, number}}"
       },
-      "applications-dollar-value": {
-        "title": "Dollar Value of Applications",
-        "total_label": "Dollar Value",
+      "applications-total": {
+        "title": "Total Applications",
+        "total_label": "Total Applications",
         "value": "{{value, number}}"
       },
       "chart": {

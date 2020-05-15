@@ -56,9 +56,9 @@
         "total_label": "Totale Rifiutato",
         "value": "{{value, number}}"
       },
-      "applications-dollar-value": {
-        "title": "Valore in dollari delle applicazioni",
-        "total_label": "Valore del dollaro",
+      "applications-total": {
+        "title": "Totale Applicazioni",
+        "total_label": "Totale Applicazioni",
         "value": "{{value, number}}"
       },
       "chart": {
