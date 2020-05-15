@@ -46,17 +46,17 @@
         "total_label": "Casi Totali",
         "value": "{{value, number}}"
       },
-      "applicationsAccepted": {
+      "applications-accepted": {
         "title": "Richieste Accettate",
         "total_label": "Totale accettato",
         "value": "{{value, number}}"
       },
-      "applicationsRejected": {
+      "applications-rejected": {
         "title": "Applicazioni Respinte",
         "total_label": "Totale Rifiutato",
         "value": "{{value, number}}"
       },
-      "applicationsDollarValue": {
+      "applications-dollar-value": {
         "title": "Valore in dollari delle applicazioni",
         "total_label": "Valore del dollaro",
         "value": "{{value, number}}"
