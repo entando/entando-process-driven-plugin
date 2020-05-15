@@ -46,6 +46,21 @@
         "total_label": "Casi Totali",
         "value": "{{value, number}}"
       },
+      "applicationsAccepted": {
+        "title": "Richieste Accettate",
+        "total_label": "Totale accettato",
+        "value": "{{value, number}}"
+      },
+      "applicationsRejected": {
+        "title": "Applicazioni Respinte",
+        "total_label": "Totale Rifiutato",
+        "value": "{{value, number}}"
+      },
+      "applicationsDollarValue": {
+        "title": "Valore in dollari delle applicazioni",
+        "total_label": "Valore del dollaro",
+        "value": "{{value, number}}"
+      },
       "chart": {
         "title": "Volume delle richieste",
         "subtitle": "Richieste",
