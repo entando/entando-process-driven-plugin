@@ -1,0 +1,16 @@
+code: entando-pda-plugin-bundle 
+description: Bundle for PDA - Process Driven Apps
+
+components:
+  plugins:
+    - plugins/pda-plugin.yaml
+
+  widgets:
+    - widgets/task-details-descriptor.yaml
+    - widgets/task-list-descriptor.yaml
+
+  pageModels:
+
+  contentTypes:
+
+  contentModels:

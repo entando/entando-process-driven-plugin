@@ -1,0 +1,6 @@
+code: pda-task-details
+titles:
+  en: PDA - Task Details
+  it: PDA - Task Details
+group: free
+customUiPath: task-details.ftl
