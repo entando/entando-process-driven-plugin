@@ -4,4 +4,3 @@ titles:
   it: Entando PDA User authentication (keycloak)
 group: free
 customUiPath: user-auth.ftl
-# entando_resource_injection_point

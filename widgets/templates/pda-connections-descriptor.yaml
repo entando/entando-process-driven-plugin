@@ -4,7 +4,3 @@ titles:
   it: PDA - Connections
 group: free
 customUiPath: pda-connections.ftl
-configUi:
-  customElement: pda-connections-config
-  resources:
-# entando_resource_injection_point
