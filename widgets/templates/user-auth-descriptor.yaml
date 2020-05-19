@@ -1,6 +1,0 @@
-code: pda-user-auth
-titles:
-  en: Entando PDA User authentication (keycloak)
-  it: Entando PDA User authentication (keycloak)
-group: free
-customUiPath: user-auth.ftl
