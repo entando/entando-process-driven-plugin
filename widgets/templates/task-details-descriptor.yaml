@@ -4,3 +4,6 @@ titles:
   it: PDA - Task Details
 group: free
 customUiPath: task-details.ftl
+  customElement: task-details-config
+  resources:
+# entando_resource_injection_point
