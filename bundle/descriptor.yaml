@@ -6,6 +6,14 @@ components:
     - plugins/pda-plugin.yaml
 
   widgets:
+    - widgets/overtime-graph-descriptor.yaml
+    - widgets/pda-connections-descriptor.yaml
+    - widgets/process-definition-descriptor.yaml
+    - widgets/process-form-descriptor.yaml
+    - widgets/summary-card-descriptor.yaml
+    - widgets/task-attachments-descriptor.yaml
+    - widgets/task-comments-descriptor.yaml
+    - widgets/task-completion-form-descriptor.yaml
     - widgets/task-details-descriptor.yaml
     - widgets/task-list-descriptor.yaml
 
