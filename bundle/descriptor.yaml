@@ -17,6 +17,14 @@ components:
     - widgets/task-details-descriptor.yaml
     - widgets/task-list-descriptor.yaml
 
+  fragments:
+    - fragments/entando_keycloak_check.yaml
+    - fragments/entando_pda_styles.yaml
+    - fragments/entando_pda_header.yaml
+    - fragments/entando_pda_css_reset.yaml
+    - fragments/entando_pda_import_react.yaml
+    - fragments/entando_pda_shared_css_js.yaml
+
   pageModels:
     - page-models/pda-dashboard.yaml
     - page-models/pda-keycloak.yaml
