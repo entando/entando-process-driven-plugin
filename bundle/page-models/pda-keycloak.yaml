@@ -1,8 +1,8 @@
-code: pda_key_cloak
-description: PDA Key cloak
+code: pda_keycloak
+description: PDA Keycloak
 titles:
-  en: PDA Key cloak
-  it: PDA Key cloak
+  en: PDA Keycloak
+  it: PDA Keycloak
 
 configuration:
   frames:
@@ -11,4 +11,4 @@ configuration:
       mainFrame: false
       sketch: null
 
-templatePath: pda-key-cloak.ftl
+templatePath: pda-keycloak.ftl

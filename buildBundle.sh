@@ -34,11 +34,9 @@ rm -rf ${output_dir}
 # Copy files to output directory
 echo "- Copying resources to ${output_dir}"
 mkdir -p ${output_dir}/resources/static/{js,css}
-cp -r bundle/* ${output_dir}/
 cp -r widgets/build/static/js/*.js ${output_dir}/resources/static/js
 cp -r widgets/build/static/css/*.css ${output_dir}/resources/static/css
-mkdir -p ${output_dir}/widgets
-cp -r widgets/templates/* ${output_dir}/widgets
+cp -r bundle/* ${output_dir}/
 
 # JS resources
 for jspath in ${output_dir}/resources/static/js/*;
@@ -76,3 +74,4 @@ done
 # Remove backup files
 echo "- Remove backup files"
 rm ${output_dir}/widgets/*.bak;
+

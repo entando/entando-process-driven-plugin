@@ -18,6 +18,11 @@ components:
     - widgets/task-list-descriptor.yaml
 
   pageModels:
+    - page-models/pda-dashboard.yaml
+    - page-models/pda-keycloak.yaml
+    - page-models/pda-single-widget.yaml
+    - page-models/pda-smart-inbox.yaml
+    - page-models/pda-task-details.yaml
 
   contentTypes:
 
