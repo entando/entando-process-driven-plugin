@@ -13,13 +13,16 @@ Jenkins X:
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=entando_entando-process-driven-plugin&metric=security_rating)](https://sonarcloud.io/dashboard?id=entando_entando-process-driven-plugin)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=entando_entando-process-driven-plugin&metric=sqale_index)](https://sonarcloud.io/dashboard?id=entando_entando-process-driven-plugin)
 
+# Introduction
+
+For more information and documentation visit: http://docs.entando.com, or http://forum.entando.org. Or for the latest news or product information please visit the main website: https://www.entando.com.
+
+Information below is for running locally or building from source. For usage information see the links above.
+
+
 ## Scope
 
 The scope of this service is to provide a clean and simple API to allow Micro Frontend Widgets to integrate with BPM Providers:
-
-####Supported BPM Engines:
-
-- Red Hat PAM 7.6: https://github.com/entando/pda-redhatpam-engine
 
 ## Environment Configuration
 
