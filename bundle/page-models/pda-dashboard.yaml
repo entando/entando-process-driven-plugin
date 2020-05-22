@@ -1,5 +1,5 @@
 code: pda_dashboard
-description: PDA Dashboard UI Page Model
+description: PDA Dashboard
 titles:
   en: PDA Dashboard
   it: PDA Dashboard
@@ -39,7 +39,7 @@ configuration:
     - pos: 6
       description: Summary Card 1
       mainFrame: false
-      sketch: { x1: 2, y1: 1, x2: 11, y2: 1 }
+      sketch: { x1: 2, y1: 2, x2: 4, y2: 3 }
 
     - pos: 7
       description: Summary Card 2
