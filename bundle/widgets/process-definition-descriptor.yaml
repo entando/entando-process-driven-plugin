@@ -1,0 +1,10 @@
+code: pda-process-definition
+titles:
+  en: PDA - Process Definition
+  it: PDA - Process Definition
+group: free
+customUiPath: process-definition.ftl
+configUi:
+  customElement: process-definition-config
+  resources:
+# entando_resource_injection_point
