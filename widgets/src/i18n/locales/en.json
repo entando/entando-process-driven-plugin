@@ -14,6 +14,7 @@
   "config": {
     "knowledgeSource": "Knowledge Source",
     "process": "Process",
+    "processDefinition": "Process Definition",
     "selectConnections": "Select one of the Kie server connections.",
     "selectBpmProcess": "Select one BPM Process.",
     "selectOption": "Select...",

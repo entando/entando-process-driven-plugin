@@ -15,7 +15,10 @@ describe('<ProcessDefinitionContainer />', () => {
   it('renders snapshot correctly', async () => {
     const configUrl = `${DOMAINS.APP_BUILDER}/api/pages//widgets/`;
     const connection = 'kieStaging';
-    const processUrl = `${DOMAINS.PDA}/connections/${connection}/processes/definitions`;
+    const { processDefinition } = JSON.parse(
+      WIDGET_CONFIGS.PROCESS_DEFINITION.payload.config.settings
+    );
+    const processUrl = `${DOMAINS.PDA}/connections/${connection}/processes/definitions/${processDefinition}/form`;
 
     fetch
       .once(JSON.stringify(WIDGET_CONFIGS.PROCESS_DEFINITION))

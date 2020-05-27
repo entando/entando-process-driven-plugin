@@ -121,7 +121,8 @@ const processDefinition = {
     code: 'entando_widgets_process_definition',
     config: {
       knowledgeSource: 'kieStaging',
-      settings: '{"uiSchema":"{}"}',
+      settings:
+        '{"uiSchema":"{}", "processDefinition":"Mortgage_Process.MortgageApprovalProcess@mortgage-process_1.0.0-SNAPSHOT"}',
     },
   },
   metaData: { status: 'draft' },
