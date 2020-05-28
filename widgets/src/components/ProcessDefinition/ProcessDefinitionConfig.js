@@ -46,7 +46,7 @@ class ProcessDefinitionConfig extends React.Component {
     }
   }
 
-  onChangeKnowledgeSource({ target: { value } }) {
+  async onChangeKnowledgeSource({ target: { value } }) {
     const { config } = this.state;
 
     this.setState(
@@ -107,7 +107,7 @@ class ProcessDefinitionConfig extends React.Component {
         this.handleError(error.message);
       }
     }
-    return null;
+    return [];
   };
 
   fetchOnLoad() {
@@ -116,20 +116,17 @@ class ProcessDefinitionConfig extends React.Component {
     // getting list of Kie server connections
     this.setState({ loading: true }, async () => {
       const {
-        sourceList = null,
+        sourceList = [],
         selectedKnowledgeSource = '',
       } = await this.fetchFromKnowledgeSource();
 
       const parsedSettings = config.settings ? JSON.parse(config.settings) : {};
 
-      if (selectedKnowledgeSource.length) {
-        this.fetchProcess();
-      }
-
       this.setState(
         {
           loading: false,
           sourceList,
+          processList: [],
           config: {
             ...config,
             settings: parsedSettings,
