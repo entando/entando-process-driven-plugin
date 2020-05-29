@@ -24,7 +24,6 @@ function isJsonString(str) {
 class ProcessDefinitionContainer extends React.Component {
   state = {
     config: null,
-    selectedProcess: '',
     loading: false,
     submitting: false,
     formSchema: null,
@@ -94,18 +93,18 @@ class ProcessDefinitionContainer extends React.Component {
 
   submitProcessForm = form => {
     this.setState({ submitting: true }, async () => {
-      const { config, selectedProcess } = this.state;
+      const { config } = this.state;
       const { onSubmitForm } = this.props;
-
-      const connection = (config && config.knowledgeSource) || '';
+      const { knowledgeSource = '', settings = {} } = config;
+      const { processDefinition } = settings;
 
       try {
-        const response = await postProcessForm(connection, selectedProcess, form.formData);
+        const response = await postProcessForm(knowledgeSource, processDefinition, form.formData);
         onSubmitForm({ ...form, response });
       } catch (error) {
         this.handleError(error.message);
       } finally {
-        this.setState({ submitting: false, selectedProcess: '' });
+        this.setState({ submitting: false });
       }
     });
   };
