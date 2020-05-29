@@ -67,9 +67,15 @@
         "subtitle": "Requests",
         "requests": "Number of Requests",
         "cases": "Number of Cases",
+        "applications-accepted": "Number of applications accepted",
+        "applications-rejected": "Number of applications rejected",
+        "applications-total": "Number of applications",
         "card": {
           "requests": "Total requests",
-          "cases": "Total cases"
+          "cases": "Total cases",
+          "applications-accepted": "Total applications accepted",
+          "applications-rejected": "Total applications rejected",
+          "applications-total": "Total applications"
         }
       }
     }
