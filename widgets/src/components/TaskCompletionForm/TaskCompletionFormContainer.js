@@ -11,6 +11,7 @@ import { getPageWidget } from 'api/app-builder/pages';
 import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
+import utils from '../../utils';
 
 class TaskCompletionFormContainer extends React.Component {
   static extractProperties(node, nodeName = '', path = '') {
@@ -133,7 +134,7 @@ class TaskCompletionFormContainer extends React.Component {
     }, {});
     // ^^^ TEMP PAM BUG FIX, REMOVE THIS WHEN FIXED ON PAM, PASS formData TO this.setState()
 
-    this.setState({ formData: modifiedFormData, formSchema, loading: false });
+    this.setState({ formData: utils.unflat(modifiedFormData), formSchema, loading: false });
   }
 
   async fetchTaskFormData() {
