@@ -50,31 +50,6 @@ exports[`<ProcessFormConfig /> renders snapshot correctly 1`] = `
               config.selectConnections
             </span>
           </div>
-          <div
-            class="form-group"
-          >
-            <label
-              class="control-label"
-              for="connection"
-            >
-              config.process
-            </label>
-            <select
-              class="form-control"
-            >
-              <option
-                disabled=""
-                value=""
-              >
-                config.selectOption
-              </option>
-            </select>
-            <span
-              class="help-block"
-            >
-              config.selectBpmProcess
-            </span>
-          </div>
         </div>
       </div>
       

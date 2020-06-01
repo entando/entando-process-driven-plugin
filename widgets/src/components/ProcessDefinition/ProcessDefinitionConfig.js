@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
-import { getProcesses } from 'api/pda/processes';
 import { getConnections } from 'api/pda/connections';
 import JsonMultiFieldContainer from 'components/common/form/SchemaEditor/JsonMultiFieldContainer';
 
@@ -15,11 +14,9 @@ class ProcessDefinitionConfig extends React.Component {
       loading: false,
 
       sourceList: [],
-      processList: [],
       config: {
         settings: {
           uiSchemas: '[]',
-          processDefinition: '',
         },
         knowledgeSource: '',
       },
@@ -29,7 +26,6 @@ class ProcessDefinitionConfig extends React.Component {
     this.fetchFromKnowledgeSource = this.fetchFromKnowledgeSource.bind(this);
 
     this.onChangeKnowledgeSource = this.onChangeKnowledgeSource.bind(this);
-    this.onChangeProcessDefinition = this.onChangeProcessDefinition.bind(this);
     this.onChangeUiSchemas = this.onChangeUiSchemas.bind(this);
   }
 
@@ -46,33 +42,13 @@ class ProcessDefinitionConfig extends React.Component {
     }
   }
 
-  async onChangeKnowledgeSource({ target: { value } }) {
-    const { config } = this.state;
-
-    this.setState(
-      {
-        config: {
-          ...config,
-          knowledgeSource: value,
-        },
-      },
-      async () => {
-        const processList = await this.fetchProcess();
-        this.setState({ processList });
-      }
-    );
-  }
-
-  onChangeProcessDefinition({ target: { value } }) {
+  onChangeKnowledgeSource({ target: { value } }) {
     const { config } = this.state;
 
     this.setState({
       config: {
         ...config,
-        settings: {
-          ...config.settings,
-          processDefinition: value,
-        },
+        knowledgeSource: value,
       },
     });
   }
@@ -87,57 +63,29 @@ class ProcessDefinitionConfig extends React.Component {
     });
   }
 
-  fetchProcess = async () => {
-    const { config } = this.state;
-
-    const connection = (config && config.knowledgeSource) || '';
-
-    if (connection.length) {
-      try {
-        const processList = await getProcesses(connection);
-        const { payload, errors } = processList;
-        if (errors && errors.length) {
-          throw errors[0];
-        }
-        return payload.map(proc => ({
-          label: proc['process-name'],
-          value: `${proc['process-id']}@${proc['container-id']}`,
-        }));
-      } catch (error) {
-        this.handleError(error.message);
-      }
-    }
-    return [];
-  };
-
   fetchOnLoad() {
     const { config } = this.props;
 
     // getting list of Kie server connections
     this.setState({ loading: true }, async () => {
       const {
-        sourceList = [],
+        sourceList = null,
         selectedKnowledgeSource = '',
       } = await this.fetchFromKnowledgeSource();
 
       const parsedSettings = config.settings ? JSON.parse(config.settings) : {};
 
-      this.setState(
-        {
-          loading: false,
-          sourceList,
-          processList: [],
-          config: {
-            ...config,
-            settings: parsedSettings,
-            knowledgeSource: selectedKnowledgeSource,
-          },
+      this.setState({
+        loading: false,
+
+        sourceList,
+
+        config: {
+          ...config,
+          settings: parsedSettings,
+          knowledgeSource: selectedKnowledgeSource,
         },
-        async () => {
-          const processList = await this.fetchProcess();
-          this.setState({ processList });
-        }
-      );
+      });
     });
   }
 
@@ -167,7 +115,7 @@ class ProcessDefinitionConfig extends React.Component {
   }
 
   render() {
-    const { config, sourceList, loading, processList } = this.state;
+    const { config, sourceList, loading } = this.state;
     const { knowledgeSource, settings } = config;
 
     return (
@@ -199,30 +147,6 @@ class ProcessDefinitionConfig extends React.Component {
           {knowledgeSource && (
             <section>
               <legend>{i18next.t('config.settings')}</legend>
-              <Row>
-                <Col xs={12}>
-                  <FormGroup bsClass="form-group" controlId="textarea">
-                    <ControlLabel bsClass="control-label">
-                      {i18next.t('config.processDefinition')}
-                    </ControlLabel>
-                    <select
-                      disabled={loading}
-                      className="form-control"
-                      value={settings.processDefinition}
-                      onChange={this.onChangeProcessDefinition}
-                    >
-                      <option disabled value="">
-                        {i18next.t('config.selectOption')}
-                      </option>
-                      {processList.map(process => (
-                        <option key={process.value} value={process.value}>
-                          {process.label}
-                        </option>
-                      ))}
-                    </select>
-                  </FormGroup>
-                </Col>
-              </Row>
               <Row>
                 <Col xs={12}>
                   <FormGroup bsClass="form-group" controlId="textarea">

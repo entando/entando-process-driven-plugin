@@ -1,29 +1,26 @@
 import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Skeleton from '@material-ui/lab/Skeleton';
 
-import { getProcessForm, postProcessForm } from 'api/pda/processes';
+import { getProcesses, getProcessForm, postProcessForm } from 'api/pda/processes';
 import { getPageWidget } from 'api/app-builder/pages';
 import theme from 'theme';
 import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
+import Select from 'components/common/form/widgets/SelectWidget';
 import Notification from 'components/common/Notification';
 import withAuth from 'components/common/auth/withAuth';
-
-function isJsonString(str) {
-  try {
-    JSON.parse(str);
-  } catch (e) {
-    return false;
-  }
-  return true;
-}
 
 class ProcessDefinitionContainer extends React.Component {
   state = {
     config: null,
+    processList: [],
+    selectedProcess: '',
     loading: false,
     submitting: false,
     formSchema: null,
@@ -34,9 +31,9 @@ class ProcessDefinitionContainer extends React.Component {
     this.setState({ loading: true }, async () => {
       const config = await this.fetchWidgetConfigs();
       if (config) {
-        this.setState({ config, loading: false }, async () => {
-          const formSchema = await this.fetchSchema();
-          this.setState({ formSchema });
+        this.setState({ config }, async () => {
+          const processList = await this.fetchProcess();
+          this.setState({ processList, loading: false });
         });
       }
     });
@@ -56,9 +53,7 @@ class ProcessDefinitionContainer extends React.Component {
       const parsedSettings = Object.keys(settings).reduce(
         (acc, settingKey) => ({
           ...acc,
-          [settingKey]: isJsonString(settings[settingKey])
-            ? JSON.parse(settings[settingKey])
-            : settings[settingKey],
+          [settingKey]: JSON.parse(settings[settingKey]),
         }),
         {}
       );
@@ -77,13 +72,34 @@ class ProcessDefinitionContainer extends React.Component {
     this.setState({ errorMessage: '' });
   };
 
-  fetchSchema = async () => {
+  fetchProcess = async () => {
     const { config } = this.state;
-    const { knowledgeSource = '', settings = {} } = config;
-    const { processDefinition } = settings;
+
+    const connection = (config && config.knowledgeSource) || '';
 
     try {
-      const formSchema = await getProcessForm(knowledgeSource, processDefinition);
+      const processList = await getProcesses(connection);
+      const { payload, errors } = processList;
+      if (errors && errors.length) {
+        throw errors[0];
+      }
+      return payload.map(proc => ({
+        label: proc['process-name'],
+        value: `${proc['process-id']}@${proc['container-id']}`,
+      }));
+    } catch (error) {
+      this.handleError(error.message);
+    }
+    return null;
+  };
+
+  fetchSchema = async () => {
+    const { config, selectedProcess } = this.state;
+
+    const connection = (config && config.knowledgeSource) || '';
+
+    try {
+      const formSchema = await getProcessForm(connection, selectedProcess);
       return formSchema;
     } catch (error) {
       this.handleError(error.message);
@@ -93,19 +109,26 @@ class ProcessDefinitionContainer extends React.Component {
 
   submitProcessForm = form => {
     this.setState({ submitting: true }, async () => {
-      const { config } = this.state;
+      const { config, selectedProcess } = this.state;
       const { onSubmitForm } = this.props;
-      const { knowledgeSource = '', settings = {} } = config;
-      const { processDefinition } = settings;
+
+      const connection = (config && config.knowledgeSource) || '';
 
       try {
-        const response = await postProcessForm(knowledgeSource, processDefinition, form.formData);
+        const response = await postProcessForm(connection, selectedProcess, form.formData);
         onSubmitForm({ ...form, response });
       } catch (error) {
         this.handleError(error.message);
       } finally {
-        this.setState({ submitting: false });
+        this.setState({ submitting: false, selectedProcess: '' });
       }
+    });
+  };
+
+  handleProcessChange = (_, selectedProcess) => {
+    this.setState({ selectedProcess }, async () => {
+      const formSchema = await this.fetchSchema();
+      this.setState({ formSchema });
     });
   };
 
@@ -116,7 +139,15 @@ class ProcessDefinitionContainer extends React.Component {
   };
 
   render() {
-    const { loading, formSchema, config, submitting, errorMessage } = this.state;
+    const {
+      loading,
+      formSchema,
+      config,
+      submitting,
+      errorMessage,
+      processList,
+      selectedProcess,
+    } = this.state;
     const { onError } = this.props;
 
     const uiSchemas = (config && config.settings && config.settings.uiSchemas) || [];
@@ -130,13 +161,33 @@ class ProcessDefinitionContainer extends React.Component {
       >
         <ThemeProvider theme={theme}>
           <Container disableGutters>
-            <WidgetBox>
-              <JSONForm
-                loading={loading}
-                formSchema={formSchema}
-                uiSchemas={uiSchemas}
-                submitting={submitting}
-              />
+            <WidgetBox title={i18next.t('processes.definition.title')}>
+              {loading ? (
+                <Skeleton variant="rect" height={35} />
+              ) : processList.length ? (
+                <div>
+                  <Typography>{i18next.t('processes.definition.selectAProcess')}</Typography>
+                  <Select
+                    id="processDefinition"
+                    options={{ enumOptions: processList }}
+                    onChange={this.handleProcessChange}
+                    value={selectedProcess}
+                  />
+                </div>
+              ) : (
+                <Typography>{i18next.t('processes.definition.noProcesses')}</Typography>
+              )}
+              {selectedProcess && (
+                <div>
+                  <hr />
+                  <JSONForm
+                    loading={loading}
+                    formSchema={formSchema}
+                    uiSchemas={uiSchemas}
+                    submitting={submitting}
+                  />
+                </div>
+              )}
             </WidgetBox>
           </Container>
           <Notification message={errorMessage} type="error" onClose={this.closeNotification} />

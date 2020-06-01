@@ -16,7 +16,8 @@ describe('<ProcessFormContainer />', () => {
   it('renders snapshot correctly', async () => {
     const configUrl = `${DOMAINS.APP_BUILDER}/api/pages/${WIDGETS.PROCESS_FORM.pageCode}/widgets/${WIDGETS.PROCESS_FORM.frameId}`;
     const { config } = WIDGET_CONFIGS.PROCESS_FORM.payload;
-    const processUrl = `${DOMAINS.PDA}/connections/${config.knowledgeSource}/processes/definitions/${config.process}/form`;
+    const { processDefinition } = JSON.parse(WIDGET_CONFIGS.PROCESS_FORM.payload.config.settings);
+    const processUrl = `${DOMAINS.PDA}/connections/${config.knowledgeSource}/processes/definitions/${processDefinition}/form`;
 
     fetch
       .once(JSON.stringify(WIDGET_CONFIGS.PROCESS_FORM))
