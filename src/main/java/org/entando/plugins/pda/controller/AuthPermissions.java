@@ -45,6 +45,8 @@ public class AuthPermissions {
     public static final String PROCESS_DEFINITION_FORM_GET = "process-definition-form-get";
     public static final String PROCESS_DEFINITION_FORM_SUBMIT = "process-definition-form-submit";
 
+    public static final String PROCESS_INSTANCE_LIST = "process-instance-list";
+
     public static final String GROUP_LIST = "group-list";
 
     public static final String SUMMARY_DATA_REPOSITORY_LIST = "summary-data-repository-list";
