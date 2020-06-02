@@ -3,7 +3,7 @@
 exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
+    class="MuiContainer-root MuiContainer-disableGutters"
   >
     <div
       class="MuiPaper-root WidgetBox-widgetBox-31 MuiPaper-outlined"
@@ -206,7 +206,7 @@ exports[`<TaskCompletionFormContainer /> renders snapshot correctly 1`] = `
 exports[`<TaskCompletionFormContainer /> renders snapshot correctly on error state 1`] = `
 <div>
   <div
-    class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
+    class="MuiContainer-root MuiContainer-disableGutters"
   >
     <div
       class="MuiPaper-root WidgetBox-widgetBox-342 MuiPaper-outlined"

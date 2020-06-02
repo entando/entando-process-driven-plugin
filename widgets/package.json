@@ -91,7 +91,8 @@
         {
           "devDependencies": true
         }
-      ]
+      ],
+      "import/no-named-as-default": 0
     }
   },
   "browserslist": {

@@ -60,7 +60,7 @@ const InternalTableBody = ({ columns, rows, emptyRows, rowHeight, onRowClick, ac
       ))}
       {emptyRows > 0 && (
         <TableRow style={{ height: rowHeight * emptyRows, background: 'white' }}>
-          <TableCell />
+          <TableCell colspan={columns.length} />
         </TableRow>
       )}
     </TableBody>

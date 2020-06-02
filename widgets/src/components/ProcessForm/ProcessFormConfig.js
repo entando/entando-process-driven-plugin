@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
-import { getProcesses } from 'api/pda/processes';
+import { getProcessDefinitions } from 'api/pda/processes';
 import { getConnections } from 'api/pda/connections';
 import JsonMultiFieldContainer from 'components/common/form/SchemaEditor/JsonMultiFieldContainer';
 
@@ -94,7 +94,7 @@ class ProcessFormConfig extends React.Component {
 
     if (connection.length) {
       try {
-        const processList = await getProcesses(connection);
+        const processList = await getProcessDefinitions(connection);
         const { payload, errors } = processList;
         if (errors && errors.length) {
           throw errors[0];

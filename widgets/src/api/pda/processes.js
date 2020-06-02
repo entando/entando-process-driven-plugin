@@ -1,12 +1,25 @@
 import { METHODS, DOMAINS } from 'api/constants';
 
 import MOCK_PROCESSES from 'mocks/pda/processes';
+import MOCK_PROCESSES_LIST from 'mocks/pda/processList';
 import MOCKED_PROCESS_FORM from 'mocks/process-form/formSchema';
 import { postResponse as MOCK_FORM_SUBMIT_RESPONSE } from 'mocks/process-form/formData';
 import MOCK_DIAGRAM from 'mocks/pda/diagram.svg';
 import makeRequest from 'api/makeRequest';
 
-export const getProcesses = async connection =>
+export const getProcesses = async (connection, processDefinitionId) =>
+  makeRequest({
+    domain: DOMAINS.PDA,
+    uri: `/connections/${connection}/processes/instances`,
+    queryParams: {
+      processDefinitionId,
+    },
+    method: METHODS.GET,
+    mockResponse: MOCK_PROCESSES_LIST,
+    useAuthentication: true,
+  });
+
+export const getProcessDefinitions = async connection =>
   makeRequest({
     domain: DOMAINS.PDA,
     uri: `/connections/${connection}/processes/definitions`,

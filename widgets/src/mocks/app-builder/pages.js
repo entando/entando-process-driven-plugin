@@ -127,6 +127,18 @@ const processDefinition = {
   errors: [],
 };
 
+const processList = {
+  payload: {
+    code: 'entando_widgets_process_list',
+    config: {
+      knowledgeSource: 'kieStaging',
+      settings: '{"processDefinitionId":"Mortgage_Process.MortgageApprovalProcess"}',
+    },
+  },
+  metaData: { status: 'draft' },
+  errors: [],
+};
+
 export default {
   TASK_LIST: taskListConfigs,
   TASK_DETAILS: taskDetailsConfigs,
@@ -137,4 +149,5 @@ export default {
   OVERTIME_GRAPH: overtimeGraphConfigs,
   ATTACHMENTS: attachments,
   PROCESS_DEFINITION: processDefinition,
+  PROCESS_LIST: processList,
 };
