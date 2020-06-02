@@ -8,20 +8,17 @@ const detectKeycloak = () => window && window.entando && window.entando.keycloak
 const withAuth = (WrappedComponent, permissions = []) => props => {
   const [authLoaded, setAuthLoaded] = useState(false);
   const [missingPermissions, setMissingPermissions] = useState([]);
-  const [userRoles, setUserRoles] = useState([]);
 
   const loadPermissions = keycloak => {
     if (keycloak) {
-      const roles =
-        (keycloak.clientId &&
-          keycloak.resourceAccess &&
-          keycloak.resourceAccess[keycloak.clientId] &&
-          keycloak.resourceAccess[keycloak.clientId].roles) ||
-        [];
-      setMissingPermissions(
-        permissions.filter(neededPermission => !roles.includes(neededPermission))
-      );
-      setUserRoles(roles);
+      let missing = [...permissions];
+      Object.keys(keycloak.resourceAccess).forEach(key => {
+        const { roles } = keycloak.resourceAccess[key];
+        const remaining = missing.filter(p => !roles.includes(p));
+        missing = [...remaining];
+      });
+
+      setMissingPermissions(missing);
     }
     setAuthLoaded(true);
   };
@@ -49,7 +46,7 @@ const withAuth = (WrappedComponent, permissions = []) => props => {
   }
 
   // eslint-disable-next-line react/jsx-props-no-spreading
-  return <WrappedComponent {...props} userRoles={userRoles} />;
+  return <WrappedComponent {...props} />;
 };
 
 export default withAuth;

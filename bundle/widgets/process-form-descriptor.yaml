@@ -1,0 +1,10 @@
+code: pda-process-form
+titles:
+  en: PDA - Process Form
+  it: PDA - Process Form
+group: free
+customUiPath: process-form.ftl
+configUi:
+  customElement: process-form-config
+  resources:
+# entando_resource_injection_point

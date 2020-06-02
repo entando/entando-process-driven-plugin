@@ -1,0 +1,6 @@
+code: pda-connections
+titles:
+  en: PDA - Connections
+  it: PDA - Connections
+group: free
+customUiPath: pda-connections.ftl
