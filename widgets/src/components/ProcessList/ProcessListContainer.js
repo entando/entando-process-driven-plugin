@@ -15,14 +15,12 @@ import withAuth from 'components/common/auth/withAuth';
 import Table from 'components/common/Table/Table';
 
 const DisplayArray = ({ row }) => (
-  <span>
-    {Array.isArray(row.activeUserTasks) ? row.activeUserTasks.join(', ') : row.activeUserTasks}
-  </span>
+  <span>{Array.isArray(row.userTasks) ? row.userTasks.join(', ') : row.userTasks}</span>
 );
 
 DisplayArray.propTypes = {
   row: PropTypes.shape({
-    activeUserTasks: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    userTasks: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   }).isRequired,
 };
 
@@ -40,7 +38,7 @@ const columns = [
     header: 'Created At',
   },
   {
-    accessor: 'activeUserTasks',
+    accessor: 'userTasks',
     header: 'Status',
     customCell: DisplayArray,
   },

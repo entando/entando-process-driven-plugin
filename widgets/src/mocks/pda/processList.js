@@ -2,7 +2,7 @@ export default {
   errors: [],
   payload: [
     {
-      activeUserTasks: ['Qualify', 'test'],
+      userTasks: ['Qualify', 'test'],
       date: '2020-04-09T11:53:52.999',
       id: '4',
       initiator: 'pamAdmin',
@@ -12,7 +12,7 @@ export default {
       state: '1',
     },
     {
-      activeUserTasks: ['Qualify'],
+      userTasks: ['Qualify'],
       date: '2020-04-09T11:53:55.557',
       id: '5',
       initiator: 'pamAdmin',
@@ -22,7 +22,7 @@ export default {
       state: '1',
     },
     {
-      activeUserTasks: ['Qualify'],
+      userTasks: ['Qualify'],
       date: '2020-05-07T09:38:13.505',
       id: '38',
       initiator: 'pamAdmin',
@@ -32,7 +32,7 @@ export default {
       state: '1',
     },
     {
-      activeUserTasks: ['Qualify'],
+      userTasks: ['Qualify'],
       date: '2020-05-12T08:46:15.116',
       id: '39',
       initiator: 'pamAdmin',
@@ -42,7 +42,7 @@ export default {
       state: '1',
     },
     {
-      activeUserTasks: ['Qualify'],
+      userTasks: ['Qualify'],
       date: '2020-05-12T10:41:54.418',
       id: '41',
       initiator: 'pamAdmin',
