@@ -6,7 +6,7 @@ import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 import JsonMultiFieldContainer from 'components/common/form/SchemaEditor/JsonMultiFieldContainer';
 
 import { getConnections } from 'api/pda/connections';
-import { getProcesses } from 'api/pda/processes';
+import { getProcessDefinitions } from 'api/pda/processes';
 
 class ProcessFormConfig extends React.Component {
   constructor(props) {
@@ -160,7 +160,7 @@ class ProcessFormConfig extends React.Component {
         config: { process },
       } = this.props;
 
-      const { payload: processList } = await getProcesses(connection);
+      const { payload: processList } = await getProcessDefinitions(connection);
 
       // checking if connection (knowledgeSource) was previously selected and exists in the
       // list of available connections - processes are defined per connection

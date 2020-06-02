@@ -18,6 +18,7 @@ import 'custom-elements/UserAuthElement';
 import 'custom-elements/OvertimeGraphElement';
 import 'custom-elements/ConnectionsElement';
 import 'custom-elements/AttachmentsElement';
+import 'custom-elements/ProcessListElement';
 
 // We only want to show the App demo in DEV mode.
 if (process.env.REACT_APP_LOCAL === 'true') {

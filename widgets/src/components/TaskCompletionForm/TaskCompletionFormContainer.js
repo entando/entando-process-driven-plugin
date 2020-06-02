@@ -209,7 +209,7 @@ class TaskCompletionFormContainer extends React.Component {
     return (
       <CustomEventContext.Provider value={{ onSubmitForm: this.submitProcessForm, onError }}>
         <ThemeProvider theme={theme}>
-          <Container disableGutters>
+          <Container maxWidth={false} disableGutters>
             <WidgetBox>
               <JSONForm
                 loading={loading}

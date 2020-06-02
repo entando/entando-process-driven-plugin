@@ -63,4 +63,10 @@ export default {
     widgetCode: 'entando_widgets_process_definition',
     configs: MOCKED_WIDGET_CONFIGS.PROCESS_DEFINITION,
   },
+  PROCESS_LIST: {
+    pageCode: PAGE_CODE,
+    frameId: '9',
+    widgetCode: 'entando_widgets_process_list',
+    configs: MOCKED_WIDGET_CONFIGS.PROCESS_LIST,
+  },
 };

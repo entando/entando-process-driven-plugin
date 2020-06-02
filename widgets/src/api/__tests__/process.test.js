@@ -1,4 +1,9 @@
-import { getProcesses, getDiagram, getProcessForm, postProcessForm } from 'api/pda/processes';
+import {
+  getProcessDefinitions,
+  getDiagram,
+  getProcessForm,
+  postProcessForm,
+} from 'api/pda/processes';
 import { DOMAINS } from 'api/constants';
 import PROCESS from 'mocks/pda/connections';
 import MOCKED_PROCESS_FORM from 'mocks/process-form/formSchema';
@@ -13,9 +18,9 @@ describe('Process API', () => {
     fetch.resetMocks();
   });
 
-  it('getProcesses to return expected data', async () => {
+  it('getProcessDefinitions to return expected data', async () => {
     fetch.mockResponseOnce(JSON.stringify(PROCESS));
-    const result = await getProcesses(connection);
+    const result = await getProcessDefinitions(connection);
     expect(fetch.mock.calls.length).toBe(1);
     expect(fetch.mock.calls[0][0]).toEqual(
       `${DOMAINS.PDA}/connections/${connection}/processes/definitions`

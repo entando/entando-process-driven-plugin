@@ -52,6 +52,9 @@ import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
 import ProcessDefinitionContainer from 'components/ProcessDefinition/ProcessDefinitionContainer';
 import ProcessDefinitionConfig from 'components/ProcessDefinition/ProcessDefinitionConfig';
 
+import ProcessListContainer from 'components/ProcessList/ProcessListContainer';
+import ProcessListConfig from 'components/ProcessList/ProcessListConfig';
+
 const useStyles = makeStyles(theme => ({
   appBar: {
     flexGrow: 1,
@@ -351,6 +354,29 @@ function App() {
                     frameId={WIDGETS_CONFIG.PROCESS_DEFINITION.frameId}
                   >
                     <ProcessDefinitionConfig />
+                  </WidgetConfig>
+                )}
+              />
+
+              <Route
+                path="/ProcessList"
+                render={() => (
+                  <ProcessListContainer
+                    taskId={WIDGETS_CONFIG.PROCESS_DEFINITION.taskId}
+                    pageCode={WIDGETS_CONFIG.PROCESS_DEFINITION.pageCode}
+                    frameId={WIDGETS_CONFIG.PROCESS_DEFINITION.frameId}
+                    widgetCode={WIDGETS_CONFIG.PROCESS_DEFINITION.widgetCode}
+                  />
+                )}
+              />
+              <Route
+                path="/ProcessListConfig"
+                render={() => (
+                  <WidgetConfig
+                    pageCode={WIDGETS_CONFIG.PROCESS_DEFINITION.pageCode}
+                    frameId={WIDGETS_CONFIG.PROCESS_DEFINITION.frameId}
+                  >
+                    <ProcessListConfig />
                   </WidgetConfig>
                 )}
               />

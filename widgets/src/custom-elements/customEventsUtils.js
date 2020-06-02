@@ -32,3 +32,6 @@ export const TF_ON_ERROR = `${TASK_FORM_PREFIX}.onError`;
 
 const GENERIC_EVENTS_PREFIX = 'widgets';
 export const GE_ON_SELECT_TASK = `${GENERIC_EVENTS_PREFIX}.onSelectTask`;
+
+const PROCESS_LIST_PREFIX = 'process.list';
+export const PL_ON_ERROR = `${PROCESS_LIST_PREFIX}.onError`;
