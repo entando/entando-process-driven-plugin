@@ -11,140 +11,58 @@ exports[`<ProcessDefinitionContainer /> renders snapshot correctly 1`] = `
       <div
         class="MuiBox-root MuiBox-root-61"
       >
+        <h2
+          class="MuiTypography-root MuiTypography-h2"
+        >
+          processes.definition.title
+        </h2>
+        <div />
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-92"
+      >
         <div>
-          <form
-            class="JSONForm-themedForm-64"
+          <p
+            class="MuiTypography-root MuiTypography-body1"
+          >
+            processes.definition.selectAProcess
+          </p>
+          <div
+            class="MuiFormControl-root makeStyles-formControl-107"
           >
             <div
-              class=""
+              class="MuiInputBase-root MuiInputBase-formControl"
             >
-              <label
-                class="makeStyles-label-91"
-                for="root"
-              >
-                
-              </label>
-              <div>
-                <div
-                  class="unsupported-field"
-                >
-                  <p>
-                    Unsupported field schema
-                    <span>
-                       for
-                       field 
-                      <code>
-                        root
-                      </code>
-                    </span>
-                    <em>
-                      : 
-                      Unknown field type undefined
-                    </em>
-                    .
-                  </p>
-                  <pre>
-                    {
-  "payload": [
-    {
-      "reusableSubProcesses": null,
-      "process-id": "Mortgage_Process.MortgageApprovalProcess",
-      "associatedEntities": null,
-      "container-id": "mortgage-process_1.0.0-SNAPSHOT",
-      "package": "com.myspace.mortgage_app",
-      "process-name": "MortgageApprovalProcess",
-      "dynamic": false,
-      "serviceTasks": null,
-      "processVariables": null,
-      "process-version": "1.0"
-    },
-    {
-      "reusableSubProcesses": null,
-      "process-id": "evaluation",
-      "associatedEntities": null,
-      "container-id": "evaluation_1.0.0-SNAPSHOT",
-      "package": "Evaluation.src.main.resources",
-      "process-name": "Evaluation",
-      "dynamic": false,
-      "serviceTasks": null,
-      "processVariables": null,
-      "process-version": "1"
-    },
-    {
-      "reusableSubProcesses": null,
-      "process-id": "itorders.orderhardware",
-      "associatedEntities": null,
-      "container-id": "itorders_1.0.0-SNAPSHOT",
-      "package": "org.jbpm.demo.itorders",
-      "process-name": "Order for IT hardware",
-      "dynamic": true,
-      "serviceTasks": null,
-      "processVariables": null,
-      "process-version": "1.0"
-    },
-    {
-      "reusableSubProcesses": null,
-      "process-id": "Mortgage_Process.MortgageApprovalProcess",
-      "associatedEntities": null,
-      "container-id": "mortgage-process_1.0.1-SNAPSHOT",
-      "package": "com.myspace.mortgage_app",
-      "process-name": "MortgageApprovalProcess",
-      "dynamic": false,
-      "serviceTasks": null,
-      "processVariables": null,
-      "process-version": "1.0"
-    },
-    {
-      "reusableSubProcesses": null,
-      "process-id": "com.redhat.bpms.examples.mortgage.MortgageApplication",
-      "associatedEntities": null,
-      "container-id": "mortgage_1.0",
-      "package": "com.redhat.bpms.examples.mortgage",
-      "process-name": "MortgageApplication",
-      "dynamic": false,
-      "serviceTasks": null,
-      "processVariables": null,
-      "process-version": "1.0"
-    },
-    {
-      "reusableSubProcesses": null,
-      "process-id": "itorders-data.place-order",
-      "associatedEntities": null,
-      "container-id": "itorders_1.0.0-SNAPSHOT",
-      "package": "org.jbpm.demo.itorders",
-      "process-name": "place-order",
-      "dynamic": false,
-      "serviceTasks": null,
-      "processVariables": null,
-      "process-version": "1.0"
-    }
-  ],
-  "errors": []
-}
-                  </pre>
-                </div>
-              </div>
-            </div>
-            <div
-              class="JSONForm-actionButtons-62"
-            >
-              <button
-                class="MuiButtonBase-root-124 MuiButton-root-95 MuiButton-contained-103 MuiButton-containedPrimary-104"
+              <div
+                aria-haspopup="listbox"
+                aria-labelledby=" "
+                class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input WithStyles(ForwardRef(InputBase))-input-122"
+                role="button"
                 tabindex="0"
-                type="submit"
               >
-                <span
-                  class="MuiButton-label-96"
-                >
-                  common.submit
+                <span>
+                  ​
                 </span>
-                <span
-                  class="MuiTouchRipple-root-127"
+              </div>
+              <input
+                type="hidden"
+                value=""
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
                 />
-              </button>
+              </svg>
             </div>
-          </form>
+          </div>
         </div>
+        
       </div>
     </div>
   </div>
@@ -158,56 +76,26 @@ exports[`<ProcessDefinitionContainer /> renders snapshot correctly on error stat
     class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiPaper-root WidgetBox-widgetBox-167 MuiPaper-outlined"
+      class="MuiPaper-root WidgetBox-widgetBox-184 MuiPaper-outlined"
     >
       <div
-        class="MuiBox-root MuiBox-root-197"
+        class="MuiBox-root MuiBox-root-214"
       >
-        <div>
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect JSONFormSkeleton-header-207 MuiSkeleton-pulse"
-            style="width: 280px; height: 18px;"
-          />
-          <hr
-            class="MuiDivider-root JSONFormSkeleton-divider-208"
-          />
-        </div>
-        <div
-          class="JSONFormSkeleton-item-209"
+        <h2
+          class="MuiTypography-root MuiTypography-h2"
         >
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
-            style="width: 80px; height: 15px;"
-          />
-          <hr
-            class="MuiDivider-root JSONFormSkeleton-field-210"
-          />
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
-            style="width: 120px; height: 12px;"
-          />
-        </div>
-        <div>
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
-            style="width: 80px; height: 15px;"
-          />
-          <hr
-            class="MuiDivider-root JSONFormSkeleton-field-210"
-          />
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
-            style="width: 160px; height: 12px;"
-          />
-        </div>
-        <div
-          class="JSONFormSkeleton-controls-211"
-        >
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
-            style="width: 80px; height: 30px;"
-          />
-        </div>
+          processes.definition.title
+        </h2>
+        <div />
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-245"
+      >
+        <span
+          class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+          style="height: 35px;"
+        />
+        
       </div>
     </div>
   </div>
@@ -215,7 +103,7 @@ exports[`<ProcessDefinitionContainer /> renders snapshot correctly on error stat
     class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
   >
     <div
-      class="MuiPaper-root MuiSnackbarContent-root Notification-error-204 MuiPaper-elevation6"
+      class="MuiPaper-root MuiSnackbarContent-root Notification-error-249 MuiPaper-elevation6"
       direction="up"
       role="alert"
       style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
@@ -224,11 +112,11 @@ exports[`<ProcessDefinitionContainer /> renders snapshot correctly on error stat
         class="MuiSnackbarContent-message"
       >
         <span
-          class="Notification-message-201"
+          class="Notification-message-246"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root Notification-icon-202 Notification-iconVariant-203"
+            class="MuiSvgIcon-root Notification-icon-247 Notification-iconVariant-248"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -254,7 +142,7 @@ exports[`<ProcessDefinitionContainer /> renders snapshot correctly on error stat
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root Notification-icon-202"
+              class="MuiSvgIcon-root Notification-icon-247"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"
