@@ -211,9 +211,7 @@ class ProcessFormConfig extends React.Component {
                       value={settings.processDefinition}
                       onChange={this.onChangeProcessDefinition}
                     >
-                      <option disabled value="">
-                        {i18next.t('config.selectOption')}
-                      </option>
+                      <option value="">{i18next.t('config.selectOption')}</option>
                       {processList.map(process => (
                         <option key={process.value} value={process.value}>
                           {process.label}
