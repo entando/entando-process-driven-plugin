@@ -145,4 +145,4 @@ ProcessListContainer.defaultProps = {
   title: '',
 };
 
-export default withAuth(withStyles(styles)(ProcessListContainer), ['process-list']);
+export default withAuth(withStyles(styles)(ProcessListContainer), ['process-instance-list']);
