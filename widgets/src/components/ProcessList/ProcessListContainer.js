@@ -58,6 +58,7 @@ const styles = {
 export class ProcessListContainer extends React.Component {
   state = {
     processes: [],
+    processDefinitionId: '',
     loading: false,
     errorAlert: null,
   };
@@ -76,18 +77,19 @@ export class ProcessListContainer extends React.Component {
 
       const { config } = widgetConfigs.payload;
       const connection = config.knowledgeSource;
+      const { processDefinitionId } = JSON.parse(config.settings);
 
-      this.setState({ connection }, this.fetchProcesses);
+      this.setState({ connection, processDefinitionId }, this.fetchProcesses);
     } catch (error) {
       this.handleError(error.message, 'messages.errors.dataLoading');
     }
   };
 
   fetchProcesses = async () => {
-    const { connection } = this.state;
+    const { connection, processDefinitionId } = this.state;
 
     try {
-      const processes = await getProcesses(connection);
+      const processes = await getProcesses(connection, processDefinitionId);
       this.setState({ processes: processes.payload });
     } catch (error) {
       this.handleError(error.message, 'messages.errors.dataLoading');

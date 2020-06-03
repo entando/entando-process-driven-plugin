@@ -33,7 +33,7 @@ class ProcessDefinitionContainer extends React.Component {
       if (config) {
         this.setState({ config }, async () => {
           const processList = await this.fetchProcess();
-          this.setState({ processList, loading: false });
+          this.setState({ processList: processList || [], loading: false });
         });
       }
     });
