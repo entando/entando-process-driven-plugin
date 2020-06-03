@@ -10,6 +10,7 @@ components:
     - widgets/pda-connections-descriptor.yaml
     - widgets/process-definition-descriptor.yaml
     - widgets/process-form-descriptor.yaml
+    - widgets/process-list-descriptor.yaml
     - widgets/summary-card-descriptor.yaml
     - widgets/task-attachments-descriptor.yaml
     - widgets/task-comments-descriptor.yaml
