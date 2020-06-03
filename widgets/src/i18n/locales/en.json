@@ -152,7 +152,8 @@
   },
   "messages": {
     "success": {
-      "saved": "Saved successfully."
+      "saved": "Saved successfully.",
+      "formSubmitted": "The form was submitted successfully."
     },
     "notify": {
       "submitting": "Sending..."

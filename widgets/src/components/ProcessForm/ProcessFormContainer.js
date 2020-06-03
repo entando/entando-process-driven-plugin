@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import PropTypes from 'prop-types';
+import i18next from 'i18next';
 import Container from '@material-ui/core/Container';
 
 import { getProcessForm, postProcessForm } from 'api/pda/processes';
@@ -27,7 +28,8 @@ class ProcessFormContainer extends React.Component {
     loading: false,
     submitting: false,
     formSchema: null,
-    errorMessage: '',
+    message: '',
+    notificationType: 'error',
   };
 
   componentDidMount() {
@@ -74,7 +76,7 @@ class ProcessFormContainer extends React.Component {
   };
 
   closeNotification = () => {
-    this.setState({ errorMessage: '' });
+    this.setState({ message: '' });
   };
 
   fetchSchema = async () => {
@@ -101,6 +103,13 @@ class ProcessFormContainer extends React.Component {
       try {
         const response = await postProcessForm(knowledgeSource, processDefinition, form.formData);
         onSubmitForm({ ...form, response });
+        if (response.errors.length) {
+          throw new Error(response.errors.join(', '));
+        }
+        this.setState({
+          message: i18next.t('messages.success.formSubmitted'),
+          notificationType: 'success',
+        });
       } catch (error) {
         this.handleError(error.message);
       } finally {
@@ -109,14 +118,14 @@ class ProcessFormContainer extends React.Component {
     });
   };
 
-  handleError = errorMessage => {
-    this.setState({ errorMessage });
+  handleError = message => {
+    this.setState({ message, notificationType: 'error' });
     const { onError } = this.props;
-    onError(errorMessage);
+    onError(message);
   };
 
   render() {
-    const { loading, formSchema, config, submitting, errorMessage } = this.state;
+    const { loading, formSchema, config, submitting, message, notificationType } = this.state;
     const { onError } = this.props;
 
     const uiSchemas = (config && config.settings && config.settings.uiSchemas) || [];
@@ -139,7 +148,11 @@ class ProcessFormContainer extends React.Component {
               />
             </WidgetBox>
           </Container>
-          <Notification message={errorMessage} type="error" onClose={this.closeNotification} />
+          <Notification
+            message={message}
+            type={notificationType}
+            onClose={this.closeNotification}
+          />
         </ThemeProvider>
       </CustomEventContext.Provider>
     );

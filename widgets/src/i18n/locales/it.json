@@ -152,7 +152,8 @@
   },
   "messages": {
     "success": {
-      "saved": "Salvato con successo."
+      "saved": "Salvato con successo.",
+      "formSubmitted": "Il modulo è stato inviato con successo."
     },
     "notify": {
       "submitting": "Invio..."
