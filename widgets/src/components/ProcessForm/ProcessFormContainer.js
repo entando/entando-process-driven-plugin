@@ -29,7 +29,7 @@ class ProcessFormContainer extends React.Component {
     submitting: false,
     formSchema: null,
     message: '',
-    notificationType: 'error',
+    notificationType: '',
   };
 
   componentDidMount() {

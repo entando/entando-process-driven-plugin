@@ -8,6 +8,7 @@ import theme from 'theme';
 import withAuth from 'components/common/auth/withAuth';
 import { getTask, getTaskForm, postTaskForm } from 'api/pda/tasks';
 import { getPageWidget } from 'api/app-builder/pages';
+import Notification from 'components/common/Notification';
 import CustomEventContext from 'components/common/CustomEventContext';
 import WidgetBox from 'components/common/WidgetBox';
 import JSONForm from 'components/common/form/JSONForm';
@@ -45,12 +46,16 @@ class TaskCompletionFormContainer extends React.Component {
       submitting: false,
       formSchema: null,
       formData: {},
+      message: '',
+      notificationType: '',
     };
 
     this.fetchForm = this.fetchForm.bind(this);
     this.fetchTaskFormData = this.fetchTaskFormData.bind(this);
     this.fetchSchema = this.fetchSchema.bind(this);
     this.submitProcessForm = this.submitProcessForm.bind(this);
+    this.handleError = this.handleError.bind(this);
+    this.closeNotification = this.closeNotification.bind(this);
   }
 
   componentDidMount() {
@@ -186,6 +191,13 @@ class TaskCompletionFormContainer extends React.Component {
       try {
         const response = await postTaskForm(connection, taskId, form.formData);
         onSubmitForm({ ...form, response });
+        if (response.errors.length) {
+          throw new Error(response.errors.join(', '));
+        }
+        this.setState({
+          message: i18next.t('messages.success.formSubmitted'),
+          notificationType: 'success',
+        });
       } catch (error) {
         this.handleError(error.message);
       } finally {
@@ -194,13 +206,26 @@ class TaskCompletionFormContainer extends React.Component {
     });
   }
 
-  handleError(err) {
+  closeNotification() {
+    this.setState({ message: '' });
+  }
+
+  handleError(message) {
+    this.setState({ message, notificationType: 'error' });
     const { onError } = this.props;
-    onError(err);
+    onError(message);
   }
 
   render() {
-    const { loading, submitting, formData, formSchema, config } = this.state;
+    const {
+      loading,
+      submitting,
+      formData,
+      formSchema,
+      config,
+      message,
+      notificationType,
+    } = this.state;
     const { onError } = this.props;
 
     const uiSchemas = (config && config.settings && config.settings.uiSchemas) || [];
@@ -222,6 +247,11 @@ class TaskCompletionFormContainer extends React.Component {
               />
             </WidgetBox>
           </Container>
+          <Notification
+            message={message}
+            type={notificationType}
+            onClose={this.closeNotification}
+          />
         </ThemeProvider>
       </CustomEventContext.Provider>
     );
