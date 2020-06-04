@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import i18next from 'i18next';
-import App from 'App/App';
 import 'i18n';
-import 'index.css';
 
 // insert the custom elements to the scope
 import 'custom-elements/GenericConfigElement';
@@ -22,6 +20,8 @@ import 'custom-elements/ProcessListElement';
 
 // We only want to show the App demo in DEV mode.
 if (process.env.REACT_APP_LOCAL === 'true') {
+  // eslint-disable-next-line
+  const App = require('App/App').default;
   i18next.changeLanguage('en');
   ReactDOM.render(<App />, document.getElementById('root'));
 }

@@ -22,8 +22,6 @@ class ProcessListElement extends HTMLElement {
     this.container = null;
 
     this.onError = createWidgetEvent(PL_ON_ERROR);
-
-    this.updateTask = this.updateTask.bind(this);
   }
 
   static get observedAttributes() {

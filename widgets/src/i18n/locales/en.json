@@ -14,6 +14,7 @@
   "config": {
     "knowledgeSource": "Knowledge Source",
     "process": "Process",
+    "processDefinition": "Process Definition",
     "selectConnections": "Select one of the Kie server connections.",
     "selectBpmProcess": "Select one BPM Process.",
     "selectOption": "Select...",
@@ -66,9 +67,15 @@
         "subtitle": "Requests",
         "requests": "Number of Requests",
         "cases": "Number of Cases",
+        "applications-accepted": "Number of applications accepted",
+        "applications-rejected": "Number of applications rejected",
+        "applications-total": "Number of applications",
         "card": {
           "requests": "Total requests",
-          "cases": "Total cases"
+          "cases": "Total cases",
+          "applications-accepted": "Total applications accepted",
+          "applications-rejected": "Total applications rejected",
+          "applications-total": "Total applications"
         }
       }
     }
@@ -145,7 +152,8 @@
   },
   "messages": {
     "success": {
-      "saved": "Saved successfully."
+      "saved": "Saved successfully.",
+      "formSubmitted": "The form was submitted successfully."
     },
     "notify": {
       "submitting": "Sending..."

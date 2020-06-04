@@ -47,17 +47,21 @@ class ProcessListConfig extends React.Component {
     }
   }
 
-  onChangeKnowledgeSource(e, cb = () => {}) {
+  onChangeKnowledgeSource(e) {
     const { config } = this.state;
     const knowledgeSource = e.target ? e.target.value : e;
-    this.setState({ config: { ...config, knowledgeSource } }, cb);
+    this.setState({ config: { ...config, knowledgeSource } }, this.fetchProcesses);
   }
+
+  closeNotification = () => {
+    this.setState({ errorMessage: '' });
+  };
 
   fetchScreen() {
     const { config } = this.props;
 
     if (config && config.knowledgeSource) {
-      this.onChangeKnowledgeSource(config.knowledgeSource, this.fetchProcesses);
+      this.onChangeKnowledgeSource(config.knowledgeSource);
     }
   }
 

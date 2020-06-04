@@ -11,6 +11,7 @@ import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
 import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
 import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
 import ProcessDefinitionConfig from 'components/ProcessDefinition/ProcessDefinitionConfig';
+import ProcessListConfig from 'components/ProcessList/ProcessListConfig';
 
 const configNames = [
   {
@@ -57,6 +58,11 @@ const configNames = [
     name: 'process-definition-config',
     Component: ProcessDefinitionConfig,
     className: 'ProcessDefinitionConfigElement',
+  },
+  {
+    name: 'process-list-config',
+    Component: ProcessListConfig,
+    className: 'ProcessListConfigElement',
   },
 ];
 

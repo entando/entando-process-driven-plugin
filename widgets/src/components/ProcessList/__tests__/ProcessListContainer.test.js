@@ -11,7 +11,8 @@ describe('<ProcessListContainer />', () => {
   it('renders snapshot correctly', async () => {
     const configUrl = `${DOMAINS.APP_BUILDER}/api/pages//widgets/`;
     const connection = 'kieStaging';
-    const processList = `/connections/${connection}/processes/instances?`;
+    const { processDefinitionId } = JSON.parse(WIDGET_CONFIGS.PROCESS_LIST.payload.config.settings);
+    const processList = `/connections/${connection}/processes/instances?processDefinitionId=${processDefinitionId}`;
 
     fetch.once(JSON.stringify(WIDGET_CONFIGS.PROCESS_LIST)).once(JSON.stringify(MOCKED_RESPONSE));
 

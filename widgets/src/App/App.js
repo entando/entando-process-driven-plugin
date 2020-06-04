@@ -362,10 +362,10 @@ function App() {
                 path="/ProcessList"
                 render={() => (
                   <ProcessListContainer
-                    taskId={WIDGETS_CONFIG.PROCESS_DEFINITION.taskId}
-                    pageCode={WIDGETS_CONFIG.PROCESS_DEFINITION.pageCode}
-                    frameId={WIDGETS_CONFIG.PROCESS_DEFINITION.frameId}
-                    widgetCode={WIDGETS_CONFIG.PROCESS_DEFINITION.widgetCode}
+                    taskId={WIDGETS_CONFIG.PROCESS_LIST.taskId}
+                    pageCode={WIDGETS_CONFIG.PROCESS_LIST.pageCode}
+                    frameId={WIDGETS_CONFIG.PROCESS_LIST.frameId}
+                    widgetCode={WIDGETS_CONFIG.PROCESS_LIST.widgetCode}
                   />
                 )}
               />
@@ -373,8 +373,8 @@ function App() {
                 path="/ProcessListConfig"
                 render={() => (
                   <WidgetConfig
-                    pageCode={WIDGETS_CONFIG.PROCESS_DEFINITION.pageCode}
-                    frameId={WIDGETS_CONFIG.PROCESS_DEFINITION.frameId}
+                    pageCode={WIDGETS_CONFIG.PROCESS_LIST.pageCode}
+                    frameId={WIDGETS_CONFIG.PROCESS_LIST.frameId}
                   >
                     <ProcessListConfig />
                   </WidgetConfig>

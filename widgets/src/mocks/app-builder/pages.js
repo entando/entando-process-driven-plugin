@@ -76,13 +76,11 @@ const summaryCardConfigs = {
 
 const processFormConfigs = {
   payload: {
-    code: 'entando_widgets_process_form',
+    code: 'entando_widgets_process_definition',
     config: {
-      containerId: 'evaluation_1.0.0-SNAPSHOT',
       knowledgeSource: 'kieStaging',
-      process: 'evaluation@evaluation_1.0.0-SNAPSHOT',
       settings:
-        '{"uiSchemas":"[{\\"formSchemaId\\":\\"http://entando.org/schemas/MortgageApplicationForm.json\\",\\"uiSchema\\":{\\"myMortgageAmount\\":{\\"ui:options\\":{\\"size\\":6}}}},{\\"formSchemaId\\":\\"http://entando.org/schemas/pda-all-fields-form.json\\",\\"uiSchema\\":{\\"allFielder\\":{\\"ui:options\\":{\\"size\\":12}}}}]","defaultColumnSize":"6"}',
+        '{"uiSchema":"{}", "processDefinition":"Mortgage_Process.MortgageApprovalProcess@mortgage-process_1.0.0-SNAPSHOT"}',
     },
   },
   metaData: { status: 'draft' },
@@ -121,7 +119,8 @@ const processDefinition = {
     code: 'entando_widgets_process_definition',
     config: {
       knowledgeSource: 'kieStaging',
-      settings: '{"uiSchema":"{}"}',
+      settings:
+        '{"uiSchemas":"[{\\"formSchemaId\\":\\"http://entando.org/schemas/MortgageApplicationForm.json\\",\\"uiSchema\\":{\\"myMortgageAmount\\":{\\"ui:options\\":{\\"size\\":6}}}},{\\"formSchemaId\\":\\"http://entando.org/schemas/pda-all-fields-form.json\\",\\"uiSchema\\":{\\"allFielder\\":{\\"ui:options\\":{\\"size\\":12}}}}]","defaultColumnSize":"6"}',
     },
   },
   metaData: { status: 'draft' },

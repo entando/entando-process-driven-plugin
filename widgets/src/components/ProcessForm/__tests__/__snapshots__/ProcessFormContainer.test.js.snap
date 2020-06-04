@@ -341,7 +341,51 @@ exports[`<ProcessFormContainer /> renders snapshot correctly on error state 1`] 
       <div
         class="MuiBox-root MuiBox-root-442"
       >
-        messages.warnings.noFormSchema
+        <div>
+          <span
+            class="MuiSkeleton-root MuiSkeleton-rect JSONFormSkeleton-header-452 MuiSkeleton-pulse"
+            style="width: 280px; height: 18px;"
+          />
+          <hr
+            class="MuiDivider-root JSONFormSkeleton-divider-453"
+          />
+        </div>
+        <div
+          class="JSONFormSkeleton-item-454"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+            style="width: 80px; height: 15px;"
+          />
+          <hr
+            class="MuiDivider-root JSONFormSkeleton-field-455"
+          />
+          <span
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+            style="width: 120px; height: 12px;"
+          />
+        </div>
+        <div>
+          <span
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+            style="width: 80px; height: 15px;"
+          />
+          <hr
+            class="MuiDivider-root JSONFormSkeleton-field-455"
+          />
+          <span
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+            style="width: 160px; height: 12px;"
+          />
+        </div>
+        <div
+          class="JSONFormSkeleton-controls-456"
+        >
+          <span
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+            style="width: 80px; height: 30px;"
+          />
+        </div>
       </div>
     </div>
   </div>

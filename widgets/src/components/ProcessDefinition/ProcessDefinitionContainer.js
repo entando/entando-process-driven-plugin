@@ -24,7 +24,8 @@ class ProcessDefinitionContainer extends React.Component {
     loading: false,
     submitting: false,
     formSchema: null,
-    errorMessage: '',
+    message: '',
+    notificationType: '',
   };
 
   componentDidMount() {
@@ -33,7 +34,7 @@ class ProcessDefinitionContainer extends React.Component {
       if (config) {
         this.setState({ config }, async () => {
           const processList = await this.fetchProcess();
-          this.setState({ processList, loading: false });
+          this.setState({ processList: processList || [], loading: false });
         });
       }
     });
@@ -69,7 +70,7 @@ class ProcessDefinitionContainer extends React.Component {
   };
 
   closeNotification = () => {
-    this.setState({ errorMessage: '' });
+    this.setState({ message: '' });
   };
 
   fetchProcess = async () => {
@@ -117,6 +118,13 @@ class ProcessDefinitionContainer extends React.Component {
       try {
         const response = await postProcessForm(connection, selectedProcess, form.formData);
         onSubmitForm({ ...form, response });
+        if (response.errors.length) {
+          throw new Error(response.errors.join(', '));
+        }
+        this.setState({
+          message: i18next.t('messages.success.formSubmitted'),
+          notificationType: 'success',
+        });
       } catch (error) {
         this.handleError(error.message);
       } finally {
@@ -132,10 +140,10 @@ class ProcessDefinitionContainer extends React.Component {
     });
   };
 
-  handleError = errorMessage => {
-    this.setState({ errorMessage });
+  handleError = message => {
+    this.setState({ message, notificationType: 'error' });
     const { onError } = this.props;
-    onError(errorMessage);
+    onError(message);
   };
 
   render() {
@@ -144,9 +152,10 @@ class ProcessDefinitionContainer extends React.Component {
       formSchema,
       config,
       submitting,
-      errorMessage,
+      message,
       processList,
       selectedProcess,
+      notificationType,
     } = this.state;
     const { onError } = this.props;
 
@@ -190,7 +199,11 @@ class ProcessDefinitionContainer extends React.Component {
               )}
             </WidgetBox>
           </Container>
-          <Notification message={errorMessage} type="error" onClose={this.closeNotification} />
+          <Notification
+            message={message}
+            type={notificationType}
+            onClose={this.closeNotification}
+          />
         </ThemeProvider>
       </CustomEventContext.Provider>
     );
