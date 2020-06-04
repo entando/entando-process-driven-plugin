@@ -36,9 +36,9 @@ class ProcessFormContainer extends React.Component {
     this.setState({ loading: true }, async () => {
       const config = await this.fetchWidgetConfigs();
       if (config) {
-        this.setState({ config, loading: false }, async () => {
+        this.setState({ config }, async () => {
           const formSchema = await this.fetchSchema();
-          this.setState({ formSchema });
+          this.setState({ formSchema, loading: false });
         });
       }
     });
