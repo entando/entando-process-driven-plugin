@@ -18,7 +18,7 @@ export const getTasks = async (params = {}) => {
       page: page + 1,
       pageSize,
       sort: sortedColumn,
-      direction: sortOrder,
+      direction: sortOrder && sortOrder.toUpperCase(),
       filter,
       groups,
     },
