@@ -35,7 +35,9 @@ rm -rf ${output_dir}
 echo "- Copying resources to ${output_dir}"
 mkdir -p ${output_dir}/resources/static/{js,css}
 cp -r widgets/build/static/js/*.js ${output_dir}/resources/static/js
+cp -r widgets/build/static/js/*.map ${output_dir}/resources/static/js
 cp -r widgets/build/static/css/*.css ${output_dir}/resources/static/css
+rm ${output_dir}/resources/static/css/main.*.chunk.css
 cp -r bundle/* ${output_dir}/
 
 # JS resources
