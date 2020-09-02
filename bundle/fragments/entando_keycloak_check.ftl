@@ -37,7 +37,7 @@
       keycloak.onTokenExpired = () => {
         console.log('dispatching onTokenExpired()');
         createKcDispatcher({ eventType: 'onTokenExpired' });
-        keycloak.login({ redirectUri: location.protocol+'//'+location.host+'/entando-de-app/en/pda_after_login.page?redirectUri='+location.pathname });
+        keycloak.login({ redirectUri: location.protocol+'//'+location.host+'/entando-de-app/?redirectUri='+location.pathname });
       };
       const onInit = (isAuth) => {
         console.log('dispatching onInit()');
@@ -45,7 +45,7 @@
         if (isAuth) {
           localStorage.setItem('token', keycloak.token);
         } else {
-          keycloak.login({ redirectUri: location.protocol+'//'+location.host+'/entando-de-app/en/pda_after_login.page?redirectUri='+location.pathname });
+          keycloak.login({ redirectUri: location.protocol+'//'+location.host+'/entando-de-app/?redirectUri='+location.pathname });
         }
       };
 
