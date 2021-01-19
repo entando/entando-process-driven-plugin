@@ -14,8 +14,11 @@ export INJECTION_POINT="<#-- entando_resource_injection_point -->"
 export INJECTION_POINT_CONFIG="# entando_resource_injection_point"
 
 export _NL=$'\\\n'
-BUNDLE_NAME=$(awk -F':' 'NR==1 {gsub(/ /, "", $2); print $2}' ./bundle/descriptor.yaml)
-output_dir=bundle_out
+
+input_dir=bundle_src
+output_dir=bundle
+
+BUNDLE_NAME=$(awk -F':' 'NR==1 {gsub(/ /, "", $2); print $2}' ./${input_dir}/descriptor.yaml)
 
 echo "Generation of the $BUNDLE_NAME bundle"
 echo "====================================="
@@ -37,7 +40,7 @@ mkdir -p ${output_dir}/resources/static/{js,css}
 cp -r widgets/build/static/js/*.js ${output_dir}/resources/static/js
 cp -r widgets/build/static/css/*.css ${output_dir}/resources/static/css
 rm -f ${output_dir}/resources/static/css/main.*.chunk.css
-cp -r bundle/* ${output_dir}/
+cp -r ${input_dir}/* ${output_dir}/
 
 # JS resources
 for jspath in ${output_dir}/resources/static/js/*;

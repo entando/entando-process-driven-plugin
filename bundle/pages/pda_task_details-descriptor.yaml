@@ -1,0 +1,32 @@
+code: pda_task_details
+parentCode: homepage
+titles:
+  en: PDA Task Details
+pageModel: pda_task_details
+ownerGroup: free
+joinGroups: []
+displayedInMenu: true
+seo: false
+charset: utf-8
+status: published
+widgets:
+  - code: pda_login_buttons
+    config: null
+    pos: 2
+  - code: pda_sidebar_navigation
+    config: null
+    pos: 4
+  - code: pda-task-details
+    config:
+      settings: '{"header":"taskDetails.overview.detailsTitle","hasGeneralInformation":true,"destinationPageCode":""}'
+      knowledgeSource: pam-demo
+    pos: 5
+  - code: pda-task-completion-form
+    config:
+      settings: '{"uiSchemas":"[{\"formSchemaId\":\"*\",\"uiSchema\":{\"ui:options\":{\"size\":12},\"application\":{\"ui:options\":{\"size\":12},\"mortgageamount\":{\"ui:options\":{\"size\":6}},\"downpayment\":{\"ui:options\":{\"size\":6}},\"amortization\":{\"ui:options\":{\"size\":6}},\"applicant\":{\"ui:options\":{\"size\":12},\"name\":{\"ui:options\":{\"size\":6}},\"annualincome\":{\"ui:options\":{\"size\":6}},\"ssn\":{\"ui:options\":{\"size\":6}}},\"property\":{\"ui:options\":{\"size\":12},\"age\":{\"ui:options\":{\"size\":6}},\"address\":{\"ui:options\":{\"size\":6}},\"locale\":{\"ui:options\":{\"size\":6}},\"saleprice\":{\"ui:options\":{\"size\":6}}}}}}]"}'
+      knowledgeSource: pam-demo
+    pos: 6
+  - code: pda-task-comments
+    config:
+      knowledgeSource: pam-demo
+    pos: 7

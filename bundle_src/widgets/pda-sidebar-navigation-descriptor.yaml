@@ -1,0 +1,6 @@
+code: pda_sidebar_navigation
+titles:
+  en: PDA Sidebar Navigation
+  it: PDA Sidebar Navigation
+group: free
+customUi: "<#assign wp=JspTaglibs[\"/aps-core\"]>\r\n        <div style=\"padding: 30px 12px 12px 12px; display: flex;\">\r\n            <ul class=\"pda-navigation\">\r\n<li><a href=\"<@wp.url page=\"pda_smart_inbox\" />\"><i class=\"far fa-calendar-check\"></i> Smart Inbox</a></li>\r\n<li><a href=\"<@wp.url page=\"pda_process_definition\" />\"><i class=\"fab fa-buffer\"></i> New Request</a></li>\r\n<li><a href=\"<@wp.url page=\"pda_dashboard\" />\"><i class=\"fas fa-chart-line\"></i> Dashboard</a></li>\r\n<li><a href=\"<@wp.url page=\"pda_connections\" />\"><i class=\"fas fa-cloud\"></i> Connections</a></li>\r\n</ul>\r\n        </div>"
