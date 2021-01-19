@@ -1,0 +1,10 @@
+code: pda-task-completion-form
+titles:
+  en: PDA - Task Completion Form
+  it: PDA - Task Completion Form
+group: free
+customUiPath: task-completion-form.ftl
+configUi:
+  customElement: task-completion-form-config
+  resources:
+# entando_resource_injection_point
