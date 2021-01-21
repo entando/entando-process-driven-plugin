@@ -30,10 +30,10 @@ components:
 
   pages:
     - pages/pda_connections-descriptor.yaml
-#    - pages/pda_smart_inbox-descriptor.yaml
-#    - pages/pda_task_details-descriptor.yaml
-#    - pages/pda_process_definition-descriptor.yaml
-#    - pages/pda_dashboard-descriptor.yaml
+    - pages/pda_smart_inbox-descriptor.yaml
+    - pages/pda_task_details-descriptor.yaml
+    - pages/pda_process_definition-descriptor.yaml
+    - pages/pda_dashboard-descriptor.yaml
 
   pageModels:
     - page-models/pda-dashboard.yaml
