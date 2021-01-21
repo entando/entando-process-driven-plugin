@@ -31,8 +31,8 @@ npm install
 npm run build
 cd ../
 
-# Clean previous build
-rm -rf ${output_dir}
+# Clean previous build but retain .git so ent CLI retains its context for publishing the bundle
+find ${output_dir} -type f -not -path "${output_dir}/.git*" -exec rm {} \;
 
 # Copy files to output directory
 echo "- Copying resources to ${output_dir}"
