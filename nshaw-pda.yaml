@@ -1,0 +1,57 @@
+---
+apiVersion: entando.org/v1
+kind: EntandoDeBundle
+metadata:
+  name: entando-process-driven-plugin
+  labels:
+    plugin: 'true'
+    widget: 'true'
+    fragment: 'true'
+    pages: 'true'
+    pageTemplate: 'true'
+spec:
+  details:
+    name: entando-pda-plugin-bundle
+    description: Bundle for PDA - Process Driven Apps
+    dist-tags:
+      latest: v0.0.7
+    versions:
+      - v0.0.7
+      - v0.0.6
+      - v0.0.5
+      - v0.0.4
+      - v0.0.3
+      - v0.0.2
+      - v0.0.1
+    thumbnail: >-
+      data:image/png;base64,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
+  tags:
+    - version: v0.0.7
+      shasum: 834d20c1abadd30b9e713fae55f69dfb4084e166
+      integrity: 834d20c1abadd30b9e713fae55f69dfb4084e166
+      tarball: 'https://github.com/nshaw/entando-process-driven-plugin-bundle.git'
+    - version: v0.0.6
+      shasum: 40057e832a7b5ac4280fa866e302b2017277bb21
+      integrity: 40057e832a7b5ac4280fa866e302b2017277bb21
+      tarball: 'https://github.com/nshaw/entando-process-driven-plugin-bundle.git'
+    - version: v0.0.5
+      shasum: 8c3a2559f252e8c7923b0650abfefcfe6792464e
+      integrity: 8c3a2559f252e8c7923b0650abfefcfe6792464e
+      tarball: 'https://github.com/nshaw/entando-process-driven-plugin-bundle.git'
+    - version: v0.0.4
+      shasum: b817bfba24433751d3e885e705869fc8587c0673
+      integrity: b817bfba24433751d3e885e705869fc8587c0673
+      tarball: 'https://github.com/nshaw/entando-process-driven-plugin-bundle.git'
+    - version: v0.0.3
+      shasum: 502d40f4cf2a220040fa90cda07afb47bc30ecfd
+      integrity: 502d40f4cf2a220040fa90cda07afb47bc30ecfd
+      tarball: 'https://github.com/nshaw/entando-process-driven-plugin-bundle.git'
+    - version: v0.0.2
+      shasum: 57bf7658f255b29425173c590fc6f8506a97bb95
+      integrity: 57bf7658f255b29425173c590fc6f8506a97bb95
+      tarball: 'https://github.com/nshaw/entando-process-driven-plugin-bundle.git'
+    - version: v0.0.1
+      shasum: 61cc9b151f4e3cd1e8d4ff72e647964bec4ed496
+      integrity: 61cc9b151f4e3cd1e8d4ff72e647964bec4ed496
+      tarball: 'https://github.com/nshaw/entando-process-driven-plugin-bundle.git'
+

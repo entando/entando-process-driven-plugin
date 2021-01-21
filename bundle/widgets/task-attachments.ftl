@@ -13,4 +13,4 @@
     <#assign taskId= "">
 </#if>
 
-<task-attachments service-url="/pda" page-code="${Request.reqCtx.getExtraParam('currentPage').code}" frame-id="${Request.reqCtx.getExtraParam('currentFrame')}" id="${taskId}"/>
+<task-attachments service-url="/entando/entando-process-driven-plugin/latest" page-code="${Request.reqCtx.getExtraParam('currentPage').code}" frame-id="${Request.reqCtx.getExtraParam('currentFrame')}" id="${taskId}"/>
