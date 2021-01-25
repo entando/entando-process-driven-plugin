@@ -11,18 +11,13 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
 
-        <@wp.fragment code="entando_keycloak_check" escapeXml=false />
+        <@wp.fragment code="entando_pda_keycloak_with_redirect" escapeXml=false />
         <@wp.fragment code="entando_pda_css_reset" escapeXml=false />
         <@wp.fragment code="entando_pda_import_react" escapeXml=false />
-
         <@wp.fragment code="entando_pda_shared_css_js" escapeXml=false />
-    	<@wp.fragment code="entando_pda_styles" escapeXml=false />
+        <@wp.fragment code="entando_pda_styles" escapeXml=false />
 
-        
         <link rel="icon" href="<@wp.info key=" systemParam" paramName="applicationBaseURL" />favicon.png" type="image/png" />
-
-        <@wp.fragment code="entando_pda_import_react" escapeXml=false />
-
     </head>
 
     <body>
