@@ -21,7 +21,7 @@ components:
     - widgets/task-list-descriptor.yaml
 
   fragments:
-    - fragments/entando_keycloak_check.yaml
+    - fragments/entando_pda_keycloak_with_redirect.yaml
     - fragments/entando_pda_styles.yaml
     - fragments/entando_pda_header.yaml
     - fragments/entando_pda_css_reset.yaml
