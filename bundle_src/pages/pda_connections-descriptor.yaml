@@ -1,7 +1,7 @@
 code: pda_connections
 parentCode: homepage
 titles:
-  en: PDA - Connections
+  en: PDA Connections
 pageModel: pda_single_widget
 ownerGroup: free
 joinGroups: []
