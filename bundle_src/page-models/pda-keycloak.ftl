@@ -8,7 +8,6 @@
     </head>
 
     <body>
-        <@wp.fragment code="entando_keycloak_check" escapeXml=false />
-        <@wp.fragment code="entando_keycloak_token_setter" escapeXml=false />
+        <@wp.fragment code="entando_pda_keycloak_with_redirect" escapeXml=false />
     </body>
 </html>
