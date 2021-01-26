@@ -17,7 +17,7 @@
         <@wp.fragment code="entando_pda_shared_css_js" escapeXml=false />
         <@wp.fragment code="entando_pda_styles" escapeXml=false />
 
-        <link rel="icon" href="<@wp.info key=" systemParam" paramName="applicationBaseURL" />favicon.png" type="image/png" />
+        <link rel="icon" href="<@wp.info key="systemParam" paramName="applicationBaseURL" />favicon.png" type="image/png" />
     </head>
 
     <body>
