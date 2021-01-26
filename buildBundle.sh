@@ -56,7 +56,8 @@ for csspath in ${output_dir}/resources/static/css/*;
 do
     # This moves the referenced file to the top level ${output_dir}/resources/static dir for correct processing when loaded
     cssfile=$(basename "$csspath")
-    config_ui_resources=${config_ui_resources}"    - ${BUNDLE_NAME}/static/css/${cssfile}$_NL"
+# Don't include CSS files in the widgets since the Material UI styles conflict with App Builder's PatternFly styles
+#    config_ui_resources=${config_ui_resources}"    - ${BUNDLE_NAME}/static/css/${cssfile}$_NL"
     css_resources=${css_resources}"<link href=\"<@wp.resourceURL />${BUNDLE_NAME}/static/css/${cssfile}\" rel=\"stylesheet\">$_NL"
 done
 
