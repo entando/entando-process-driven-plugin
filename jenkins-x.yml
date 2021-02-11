@@ -1,7 +1,7 @@
 buildPack: maven-java11
 pipelineConfig:
   agent:
-    image: entando-jx-maven-java11
+    image: entando-jx-maven
   env:
     - name: PIPELINE_CODE
       value: epdp
