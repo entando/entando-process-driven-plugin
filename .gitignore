@@ -8,4 +8,10 @@ target/
 .settings/
 bin/
 
-bundle_out/
+########
+.ent-prj
+
+####
+bundle/
+
+.ent-state

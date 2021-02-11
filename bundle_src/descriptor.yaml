@@ -1,0 +1,47 @@
+code: entando-pda-plugin-bundle 
+description: Bundle for PDA - Process Driven Apps
+
+components:
+  plugins:
+    - plugins/pda-plugin.yaml
+
+  widgets:
+    - widgets/overtime-graph-descriptor.yaml
+    - widgets/pda-connections-descriptor.yaml
+    - widgets/pda-login-buttons-descriptor.yaml
+    - widgets/pda-sidebar-navigation-descriptor.yaml
+    - widgets/process-definition-descriptor.yaml
+    - widgets/process-form-descriptor.yaml
+    - widgets/process-list-descriptor.yaml
+    - widgets/summary-card-descriptor.yaml
+    - widgets/task-attachments-descriptor.yaml
+    - widgets/task-comments-descriptor.yaml
+    - widgets/task-completion-form-descriptor.yaml
+    - widgets/task-details-descriptor.yaml
+    - widgets/task-list-descriptor.yaml
+
+  fragments:
+    - fragments/entando_pda_keycloak_with_redirect.yaml
+    - fragments/entando_pda_styles.yaml
+    - fragments/entando_pda_header.yaml
+    - fragments/entando_pda_css_reset.yaml
+    - fragments/entando_pda_import_react.yaml
+    - fragments/entando_pda_shared_css_js.yaml
+
+  pages:
+    - pages/pda_connections-descriptor.yaml
+    - pages/pda_smart_inbox-descriptor.yaml
+    - pages/pda_task_details-descriptor.yaml
+    - pages/pda_process_definition-descriptor.yaml
+    - pages/pda_dashboard-descriptor.yaml
+
+  pageModels:
+    - page-models/pda-dashboard.yaml
+    - page-models/pda-keycloak.yaml
+    - page-models/pda-single-widget.yaml
+    - page-models/pda-smart-inbox.yaml
+    - page-models/pda-task-details.yaml
+
+  contentTypes:
+
+  contentModels:

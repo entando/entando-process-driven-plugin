@@ -1,0 +1,10 @@
+code: pda-task-attachments
+titles:
+  en: PDA - Task Attachments
+  it: PDA - Task Attachments
+group: free
+customUiPath: task-attachments.ftl
+configUi:
+  customElement: task-attachments-config
+  resources:
+# entando_resource_injection_point

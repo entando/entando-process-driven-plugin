@@ -1,0 +1,21 @@
+code: pda_connections
+parentCode: homepage
+titles:
+  en: PDA Connections
+pageModel: pda_single_widget
+ownerGroup: free
+joinGroups: []
+displayedInMenu: true
+seo: false
+charset: utf-8
+status: published
+widgets:
+  - code: pda_login_buttons
+    config: null
+    pos: 2
+  - code: pda_sidebar_navigation
+    config: null
+    pos: 4
+  - code: pda-connections
+    config: null
+    pos: 5

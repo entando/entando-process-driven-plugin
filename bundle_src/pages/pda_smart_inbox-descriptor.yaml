@@ -1,0 +1,34 @@
+code: pda_smart_inbox
+parentCode: homepage
+titles:
+  en: PDA Smart Inbox
+pageModel: pda_smart_inbox
+ownerGroup: free
+joinGroups: []
+displayedInMenu: true
+seo: false
+charset: utf-8
+status: draft
+widgets:
+  - code: pda_login_buttons
+    config: null
+    pos: 2
+  - code: pda_sidebar_navigation
+    config: null
+    pos: 4
+  - code: pda-task-list
+    config:
+      groups: '[{"label":"Administrators","key":"Administrators","checked":true},{"label":"approver","key":"approver","checked":true},{"label":"kie-server","key":"kie-server","checked":true},{"label":"kiemgmt","key":"kiemgmt","checked":true},{"label":"manager","key":"manager","checked":true},{"label":"rest-all","key":"rest-all","checked":true},{"label":"user","key":"user","checked":true}]'
+      options: '[{"key":"newPageOnClick","label":"Open new page on table row click","checked":false},{"key":"showClaim","label":"Show Claim Button","checked":true},{"key":"showComplete","label":"Show Complete Button","checked":true}]'
+      columns: '[{"name":"id","position":0,"isVisible":false},{"name":"name","position":1,"isVisible":true},{"name":"description","position":2,"isVisible":false},{"name":"createdBy","position":3,"isVisible":false},{"name":"createdAt","position":4,"isVisible":true},{"name":"dueTo","position":5,"isVisible":true},{"name":"status","position":6,"isVisible":true},{"name":"owner","position":7,"isVisible":true},{"name":"instanceId","position":8,"isVisible":false},{"name":"containerId","position":9,"isVisible":false},{"name":"priority","position":10,"isVisible":false},{"name":"subject","position":11,"isVisible":false},{"name":"activatedAt","position":12,"isVisible":true},{"name":"skipable","position":13,"isVisible":true},{"name":"processDefinitionId","position":14,"isVisible":false},{"name":"processId","position":15,"isVisible":false},{"name":"parentId","position":16,"isVisible":false}]'
+      knowledgeSource: pam-demo
+    pos: 5
+  - code: pda-task-details
+    config:
+      settings: '{"header":"taskDetails.overview.title","hasGeneralInformation":true,"destinationPageCode":"pda_task_details"}'
+      knowledgeSource: pam-demo
+    pos: 6
+  - code: pda-task-comments
+    config:
+      knowledgeSource: pam-demo
+    pos: 7

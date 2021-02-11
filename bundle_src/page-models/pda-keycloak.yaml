@@ -1,0 +1,18 @@
+code: pda_keycloak
+description: PDA Keycloak
+titles:
+  en: PDA Keycloak
+  it: PDA Keycloak
+
+configuration:
+  frames:
+    - pos: 0
+      description: No Frame Required
+      mainFrame: false
+      sketch:
+        x1: 0
+        y1: 0
+        x2: 1
+        y2: 0
+
+templatePath: pda-keycloak.ftl

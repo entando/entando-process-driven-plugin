@@ -64,6 +64,27 @@ Latest version deployed on Docker Hub:
 
 - https://hub.docker.com/r/entando/entando-process-driven-plugin
 
-##Sonar Cloud Report:
+## Sonar Cloud Report:
 
 - https://sonarcloud.io/dashboard?id=entando_entando-process-driven-plugin
+
+## Configuration and Manual Steps
+Initial Deploy:
+1. (Bug fix pending) Edit the ENTANDO_PLUGIN_SECURITY_LEVEL to change it from STRICT to LENIENT.
+``` kubee edit deploy/entando-pda-plugin-server-deployment```
+2. Log in to Keycloak as an admin and add the PDA roles to your user account. Go to Users → admin → Role Mappings and add the roles for the 
+entando-pda-plugin-server and entando-pda-plugin-sidecar.
+3. Log in to the App Builder and configure the PDA Connection. 
+* The Page Templates hardcode the name of the datasource. You can choose to change the name there or simply use 'pam-demo' as the connection name.
+* Set the engine to 'pam' which will work for jBPM or PAM.
+* Provide your connection URL to the KIE Server rest services, e.g  http://my.server.net:8080/kie-server/services/rest/server
+* Username/password should be for a service account user in jBPM or PAM itself, e.g. krisv.
+* The Timeout is in milliseconds, e.g. 60000.
+4. Go to Pages → Management and for the following pages configure the data source for their widgets. Click Design on the page, then Settings on any widgets with Settings available to review and update the config settings.
+* PDA Smart Inbox
+* PDA Dashboard
+
+Updating the bundle:
+* (Feature request pending) To update to a newer version of the bundle, you'll need to first remove the PDA Pages and Templates.
+* Uninstall the current version of the bundle, then install the new version of the bundle. (Feature request pending to do this in one step)
+* (Bug fix pending) After deploy you'll need to repeat at least steps 1 and 2 above. 

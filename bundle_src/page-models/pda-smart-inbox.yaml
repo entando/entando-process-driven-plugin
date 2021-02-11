@@ -1,0 +1,54 @@
+code: pda_smart_inbox
+description: PDA Smart Inbox
+titles:
+  en: PDA Smart Inbox
+  it: PDA Smart Inbox
+
+configuration:
+  frames:
+    - pos: 0
+      description: Search
+      mainFrame: false
+      sketch: { x1: 7, y1: 0, x2: 8, y2: 0 }
+
+    - pos: 1
+      description: Notifications
+      mainFrame: false
+      sketch: { x1: 9, y1: 0, x2: 10, y2: 0 }
+
+    - pos: 2
+      description: Authentication
+      mainFrame: false
+      sketch: { x1: 11, y1: 0, x2: 11, y2: 0 }
+
+    - pos: 3
+      description: User details
+      mainFrame: false
+      sketch: { x1: 0, y1: 1, x2: 1, y2: 1 }
+
+    - pos: 4
+      description: Navigation
+      mainFrame: false
+      sketch: { x1: 0, y1: 2, x2: 1, y2: 3 }
+
+    - pos: 5
+      description: Task list widget
+      mainFrame: false
+      sketch: { x1: 2, y1: 1, x2: 11, y2: 1 }
+
+    - pos: 6
+      description: Task details widget
+      mainFrame: false
+      sketch: { x1: 2, y1: 2, x2: 11, y2: 3 }
+
+    - pos: 7
+      description: Notes
+      mainFrame: false
+      sketch: { x1: 2, y1: 4, x2: 7, y2: 4 }
+
+    - pos: 8
+      description: Attachments
+      mainFrame: false
+      sketch: { x1: 8, y1: 4, x2: 11, y2: 4 }
+
+templatePath: pda-smart-inbox.ftl
