@@ -71,7 +71,7 @@ Latest version deployed on Docker Hub:
 ## Configuration and Manual Steps
 Initial Deploy:
 1. (Bug fix pending) Edit the ENTANDO_PLUGIN_SECURITY_LEVEL to change it from STRICT to LENIENT.
-``` kubee edit deploy/entando-pda-plugin-server-deployment```
+``` kubectl edit deploy/entando-pda-plugin-server-deployment```
 2. Log in to Keycloak as an admin and add the PDA roles to your user account. Go to Users → admin → Role Mappings and add the roles for the 
 entando-pda-plugin-server and entando-pda-plugin-sidecar.
 3. Log in to the App Builder and configure the PDA Connection. 
