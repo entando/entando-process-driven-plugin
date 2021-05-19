@@ -70,7 +70,7 @@ Latest version deployed on Docker Hub:
 
 ## Configuration and Manual Steps
 Initial Deploy:
-1. (Bug fix pending) Edit the ENTANDO_PLUGIN_SECURITY_LEVEL to change it from STRICT to LENIENT.
+1. (Entando v6.3.0 only, fixed on v6.3.2+) Edit the ENTANDO_PLUGIN_SECURITY_LEVEL to change it from STRICT to LENIENT.
 ``` kubectl edit deploy/entando-pda-plugin-server-deployment```
 2. Log in to Keycloak as an admin and add the PDA roles to your user account. Go to Users → admin → Role Mappings and add the roles for the 
 entando-pda-plugin-server and entando-pda-plugin-sidecar.
