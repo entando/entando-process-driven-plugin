@@ -19,11 +19,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import org.apache.http.entity.ContentType;
-import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
-import org.entando.connectionconfigconnector.model.ConnectionConfig;
+import org.entando.plugins.pda.config.ConnectionConfigConfiguration;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
+import org.entando.plugins.pda.model.ConnectionConfig;
 import org.entando.plugins.pda.service.ConnectionService;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;

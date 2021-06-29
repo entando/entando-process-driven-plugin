@@ -27,10 +27,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 import java.io.IOException;
-import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
-import org.entando.connectionconfigconnector.model.ConnectionConfig;
+import org.entando.plugins.pda.config.ConnectionConfigConfiguration;
 import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
 import org.entando.plugins.pda.core.service.task.request.CreateCommentRequest;
+import org.entando.plugins.pda.model.ConnectionConfig;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Before;
 import org.junit.Test;

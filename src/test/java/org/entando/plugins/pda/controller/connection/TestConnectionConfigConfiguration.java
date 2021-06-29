@@ -1,6 +1,6 @@
 package org.entando.plugins.pda.controller.connection;
 
-import static org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration.CONFIG_REST_TEMPLATE;
+import static org.entando.plugins.pda.config.ConnectionConfigConfiguration.CONFIG_REST_TEMPLATE;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.TestConfiguration;

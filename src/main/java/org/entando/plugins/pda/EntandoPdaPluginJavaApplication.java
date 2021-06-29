@@ -1,9 +1,9 @@
 package org.entando.plugins.pda;
 
-import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
-import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
-import org.entando.connectionconfigconnector.service.impl.ConnectionConfigConnectorImpl;
-import org.entando.connectionconfigconnector.service.impl.InMemoryConnectionConfigConnector;
+import org.entando.plugins.pda.config.ConnectionConfigConfiguration;
+import org.entando.plugins.pda.service.ConnectionConfigConnector;
+import org.entando.plugins.pda.service.impl.ConnectionConfigConnectorImpl;
+import org.entando.plugins.pda.service.impl.InMemoryConnectionConfigConnector;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -2,9 +2,9 @@ package org.entando.plugins.pda.mapper;
 
 import java.util.HashMap;
 import lombok.experimental.UtilityClass;
-import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
+import org.entando.plugins.pda.model.ConnectionConfig;
 
 @UtilityClass
 public class ConnectionConfigMapper {
