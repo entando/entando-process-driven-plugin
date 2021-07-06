@@ -1,5 +1,6 @@
 package org.entando.plugins.pda.service.impl;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,6 +11,7 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import lombok.extern.slf4j.Slf4j;
 import org.entando.plugins.pda.exception.ConnectionNotFoundException;
 import org.entando.plugins.pda.model.ConnectionConfig;
@@ -47,10 +49,10 @@ public class ConnectionConfigConnectorFileSystem {
         }
     }
 
+    @SuppressFBWarnings("RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE")
     public List<ConnectionConfig> getConnectionConfigs() {
-        try {
-            return Files.walk(Paths.get(rootDirectory))
-                    .map(Path::toFile)
+        try (Stream<Path> stream = Files.walk(Paths.get(rootDirectory))) {
+            return stream.map(Path::toFile)
                     .filter(File::isDirectory)
                     .filter(e -> !e.getAbsolutePath().equals(rootDirectory))
                     .map(File::getName)
