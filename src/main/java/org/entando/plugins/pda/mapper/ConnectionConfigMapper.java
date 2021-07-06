@@ -29,13 +29,14 @@ public class ConnectionConfigMapper {
     }
 
     public Connection fromConnectionConfig(ConnectionConfig connectionConfig) {
+        String timeout = connectionConfig.getProperties().get(CONNECTION_TIMEOUT);
         return Connection.builder()
                 .name(connectionConfig.getName())
                 .username(connectionConfig.getProperties().get(USERNAME))
                 .password(connectionConfig.getProperties().get(PASSWORD))
                 .engine(connectionConfig.getProperties().get(ENGINE))
                 .url(connectionConfig.getProperties().get(URL))
-                .connectionTimeout(Integer.valueOf(connectionConfig.getProperties().get(CONNECTION_TIMEOUT)))
+                .connectionTimeout(timeout == null ? null : Integer.valueOf(timeout))
                 .build();
     }
 

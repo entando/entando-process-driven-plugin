@@ -2,77 +2,75 @@ package org.entando.plugins.pda.controller.process;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
-import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import io.fabric8.kubernetes.client.KubernetesClient;
+import io.fabric8.kubernetes.client.server.mock.EnableKubernetesMockClient;
 import java.io.IOException;
 import java.util.UUID;
-import org.entando.plugins.pda.config.ConnectionConfigConfiguration;
-import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
+import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.service.process.FakeProcessService;
+import org.entando.plugins.pda.dto.connection.ConnectionDto;
+import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 import org.entando.plugins.pda.model.ConnectionConfig;
+import org.entando.plugins.pda.service.ConnectionConfigService;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.entando.plugins.pda.util.EntandoPluginTestHelper;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.web.client.ExpectedCount;
-import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.web.client.RestTemplate;
 
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-@RunWith(SpringRunner.class)
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class})
-@SpringBootTest(classes = TestConnectionConfigConfiguration.class, webEnvironment = WebEnvironment.RANDOM_PORT,
-        properties = "entando.plugin.security.level=LENIENT")
-public class ProcessControllerIntegrationTest {
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, properties = "entando.plugin.security.level=LENIENT")
+@EnableKubernetesMockClient(crud = true, https = false)
+class ProcessControllerIntegrationTest {
+
+    private static final String FAKE_CONNECTION = "fakeConnection";
 
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
-    @Qualifier(ConnectionConfigConfiguration.CONFIG_REST_TEMPLATE)
-    private RestTemplate configRestTemplate;
+    private ConnectionConfigService connectionConfigService;
 
-    private ObjectMapper mapper = new ObjectMapper();
+    @Value("${entando.plugin.name}")
+    private String entandoPluginName;
 
-    @Before
+    static KubernetesClient client;
+
+    @BeforeEach
     public void setup() throws IOException {
-        ConnectionConfig connectionConfig = ConnectionTestHelper.generateConnectionConfig();
-        MockRestServiceServer mockServer = MockRestServiceServer.createServer(configRestTemplate);
-        mockServer.expect(ExpectedCount.manyTimes(), requestTo(
-                containsString(TestConnectionConfigConfiguration.URL_PREFIX + "/config/fakeProduction")))
-                .andExpect(method(HttpMethod.GET))
-                .andRespond(
-                        withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
+        connectionConfigService.setClient(client);
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setName(FAKE_CONNECTION);
+        Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
+        ConnectionConfig connectionConfig = ConnectionConfigMapper.fromConnection(connection);
+        connectionConfig.getProperties().put(ConnectionConfigMapper.PASSWORD, null);
+        EntandoPluginTestHelper.createSecret(client, connectionConfig);
+        EntandoPluginTestHelper.createEntandoPluginWithConfigNames(client, entandoPluginName, FAKE_CONNECTION);
     }
 
     @Test
-    public void testListProcessesDefinitions() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/processes/definitions"))
+    void testListProcessesDefinitions() throws Exception {
+        mockMvc.perform(get(String.format("/connections/%s/processes/definitions", FAKE_CONNECTION)))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
@@ -82,9 +80,9 @@ public class ProcessControllerIntegrationTest {
     }
 
     @Test
-    public void testGetProcessDiagram() throws Exception {
-        MvcResult result = mockMvc.perform(get("/connections/fakeProduction/processes/{id}/diagram"
-                    .replace("{id}", FakeProcessService.PROCESS_ID_1)))
+    void testGetProcessDiagram() throws Exception {
+        MvcResult result = mockMvc.perform(get(String.format("/connections/%s/processes/{id}/diagram", FAKE_CONNECTION)
+                .replace("{id}", FakeProcessService.PROCESS_ID_1)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn();
@@ -96,8 +94,8 @@ public class ProcessControllerIntegrationTest {
     }
 
     @Test
-    public void testGetProcessDiagramShouldThrowNotFound() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/processes/{id}/diagram"
+    void testGetProcessDiagramShouldThrowNotFound() throws Exception {
+        mockMvc.perform(get(String.format("/connections/%s/processes/{id}/diagram", FAKE_CONNECTION)
                 .replace("{id}", UUID.randomUUID().toString())))
                 .andDo(print())
                 .andExpect(status().isNotFound())

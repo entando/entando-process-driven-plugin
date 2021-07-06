@@ -42,7 +42,7 @@ public class ConnectionConfigConnectorStrictTest {
         ConnectionConfigConnectorFileSystem connectionConfigConnectorFileSystem = new ConnectionConfigConnectorFileSystem(
                 rootDirectory.getRoot().getAbsolutePath());
         connectionConfigConnector = new ConnectionConfigConnectorImpl(SecurityLevel.STRICT.toString(),
-                mock(RestTemplate.class), connectionConfigConnectorFileSystem);
+                connectionConfigConnectorFileSystem, mock(ConnectionConfigService.class));
     }
 
     @Test
@@ -84,7 +84,7 @@ public class ConnectionConfigConnectorStrictTest {
         ConnectionConfigConnectorFileSystem connectionConfigConnectorFileSystem = new ConnectionConfigConnectorFileSystem(
                 "/wrong_path");
         connectionConfigConnector = new ConnectionConfigConnectorImpl(SecurityLevel.STRICT.toString(),
-                mock(RestTemplate.class), connectionConfigConnectorFileSystem);
+                connectionConfigConnectorFileSystem, mock(ConnectionConfigService.class));
 
         // When
         List<ConnectionConfig> connectionConfigs = connectionConfigConnector.getConnectionConfigs();

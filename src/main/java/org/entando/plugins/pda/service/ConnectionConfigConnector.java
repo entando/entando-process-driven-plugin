@@ -1,8 +1,7 @@
 package org.entando.plugins.pda.service;
 
-import org.entando.plugins.pda.model.ConnectionConfig;
-
 import java.util.List;
+import org.entando.plugins.pda.model.ConnectionConfig;
 
 public interface ConnectionConfigConnector {
 
