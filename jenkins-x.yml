@@ -1,4 +1,5 @@
 buildPack: maven-java11
+buildPackGitURL: https://github.com/entando-k8s/jenkins-x-kubernetes.git
 pipelineConfig:
   agent:
     image: entando-jx-maven
