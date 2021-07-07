@@ -21,6 +21,9 @@ import org.entando.kubernetes.model.plugin.EntandoPlugin;
 import org.entando.kubernetes.model.plugin.EntandoPluginBuilder;
 import org.entando.kubernetes.model.plugin.EntandoPluginList;
 import org.entando.kubernetes.model.plugin.PluginSecurityLevel;
+import org.entando.plugins.pda.core.engine.Connection;
+import org.entando.plugins.pda.dto.connection.ConnectionDto;
+import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 import org.entando.plugins.pda.model.ConnectionConfig;
 import org.springframework.core.io.ClassPathResource;
 
@@ -118,5 +121,15 @@ public class EntandoPluginTestHelper {
                 .withNewMetadata().withName(configDto.getName()).endMetadata()
                 .withStringData(Collections.singletonMap(CONFIG_YAML, YamlUtils.toYaml(configDto)))
                 .done();
+    }
+
+    public void setupEntandoPluginAndSecret(KubernetesClient client, String connectionName, String pluginName) throws IOException {
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setName(connectionName);
+        Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
+        ConnectionConfig connectionConfig = ConnectionConfigMapper.fromConnection(connection);
+        connectionConfig.getProperties().put(ConnectionConfigMapper.PASSWORD, null);
+        EntandoPluginTestHelper.createSecret(client, connectionConfig);
+        EntandoPluginTestHelper.createEntandoPluginWithConfigNames(client, pluginName, connectionName);
     }
 }

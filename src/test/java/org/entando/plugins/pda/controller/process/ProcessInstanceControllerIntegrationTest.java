@@ -59,13 +59,7 @@ class ProcessInstanceControllerIntegrationTest {
     @BeforeEach
     public void setup() throws IOException {
         connectionConfigService.setClient(client);
-        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
-        connectionDto.setName(FAKE_CONNECTION);
-        Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
-        ConnectionConfig connectionConfig = ConnectionConfigMapper.fromConnection(connection);
-        connectionConfig.getProperties().put(ConnectionConfigMapper.PASSWORD, null);
-        EntandoPluginTestHelper.createSecret(client, connectionConfig);
-        EntandoPluginTestHelper.createEntandoPluginWithConfigNames(client, entandoPluginName, FAKE_CONNECTION);
+        EntandoPluginTestHelper.setupEntandoPluginAndSecret(client, FAKE_CONNECTION, entandoPluginName);
     }
 
     @Test

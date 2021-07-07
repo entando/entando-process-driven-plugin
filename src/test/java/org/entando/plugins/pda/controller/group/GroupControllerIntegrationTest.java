@@ -9,6 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.server.mock.EnableKubernetesMockClient;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import org.entando.plugins.pda.core.engine.Connection;
@@ -66,14 +67,9 @@ class GroupControllerIntegrationTest {
     @BeforeEach
     public void init() throws Exception {
         connectionConfigService.setClient(client);
-        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
-        connectionDto.setName(FAKE_CONNECTION);
-        Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
-        ConnectionConfig connectionConfig = ConnectionConfigMapper.fromConnection(connection);
-        connectionConfig.getProperties().put(ConnectionConfigMapper.PASSWORD, null);
-        EntandoPluginTestHelper.createSecret(client, connectionConfig);
-        EntandoPluginTestHelper.createEntandoPluginWithConfigNames(client, entandoPluginName, FAKE_CONNECTION);
+        EntandoPluginTestHelper.setupEntandoPluginAndSecret(client, FAKE_CONNECTION, entandoPluginName);
     }
+
 
     @Test
     void shouldListAllGroups() throws Exception {
