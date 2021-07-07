@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang.RandomStringUtils;
-import org.entando.connectionconfigconnector.model.ConnectionConfig;
-import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
 import org.entando.plugins.pda.core.engine.FakeEngine;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
+import org.entando.plugins.pda.model.ConnectionConfig;
+import org.entando.plugins.pda.service.ConnectionConfigConnector;
 
 @UtilityClass
 public class ConnectionTestHelper {
