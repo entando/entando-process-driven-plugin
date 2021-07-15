@@ -1,6 +1,8 @@
 package org.entando.plugins.pda.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.entando.plugins.pda.service.ConnectionConfigService.IGNORE_VALUE;
+import static org.entando.plugins.pda.service.ConnectionConfigService.PROCESSING_INSTRUCTION_ANNOTATION;
 import static org.entando.plugins.pda.util.EntandoPluginTestHelper.ENTANDO_PLUGIN_NAME;
 
 import com.google.common.collect.ImmutableMap;
@@ -9,6 +11,7 @@ import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.server.mock.EnableKubernetesMockClient;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.assertj.core.api.Assertions;
+import org.entando.kubernetes.model.plugin.EntandoPlugin;
 import org.entando.plugins.pda.model.ConnectionConfig;
 import org.entando.plugins.pda.util.EntandoPluginTestHelper;
 import org.entando.plugins.pda.util.YamlUtils;
@@ -50,6 +53,9 @@ class ConnectionConfigServiceEditTest {
         ConnectionConfig fromYaml = YamlUtils
                 .fromYaml(secret.getStringData().get(ConnectionConfigService.CONFIG_YAML));
         assertThat(fromYaml).isEqualTo(configDto);
+        EntandoPlugin entandoPlugin = EntandoPluginTestHelper.getEntandoPlugin(client, ENTANDO_PLUGIN_NAME);
+        assertThat(entandoPlugin.getMetadata().getAnnotations())
+                .containsEntry(PROCESSING_INSTRUCTION_ANNOTATION, IGNORE_VALUE);
     }
 
     @Test

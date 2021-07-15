@@ -1,6 +1,8 @@
 package org.entando.plugins.pda.service;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.entando.plugins.pda.service.ConnectionConfigService.IGNORE_VALUE;
+import static org.entando.plugins.pda.service.ConnectionConfigService.PROCESSING_INSTRUCTION_ANNOTATION;
 import static org.entando.plugins.pda.util.EntandoPluginTestHelper.ENTANDO_PLUGIN_NAME;
 
 import io.fabric8.kubernetes.api.model.Secret;
@@ -8,7 +10,6 @@ import io.fabric8.kubernetes.api.model.apiextensions.CustomResourceDefinition;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.server.mock.EnableKubernetesMockClient;
 import org.assertj.core.api.Assertions;
-import org.assertj.core.api.SoftAssertions;
 import org.entando.kubernetes.model.plugin.DoneableEntandoPlugin;
 import org.entando.kubernetes.model.plugin.EntandoPlugin;
 import org.entando.kubernetes.model.plugin.EntandoPluginList;
@@ -25,8 +26,6 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @EnableKubernetesMockClient(crud = true, https = false)
 class ConnectionConfigServiceAddTest {
-
-    public SoftAssertions safely = new SoftAssertions();
 
     private ConnectionConfigService connectionConfigService;
 
@@ -48,13 +47,15 @@ class ConnectionConfigServiceAddTest {
 
         // Then
         Secret secret = client.secrets().withName(configDto.getName()).get();
-        safely.assertThat(secret.getMetadata().getName()).isEqualTo(configDto.getName());
+        assertThat(secret.getMetadata().getName()).isEqualTo(configDto.getName());
         ConnectionConfig fromYaml = YamlUtils
                 .fromYaml(secret.getStringData().get(ConnectionConfigService.CONFIG_YAML));
-        safely.assertThat(fromYaml.getName()).isEqualTo(configDto.getName());
-        safely.assertThat(fromYaml.getProperties()).isEqualTo(configDto.getProperties());
+        assertThat(fromYaml.getName()).isEqualTo(configDto.getName());
+        assertThat(fromYaml.getProperties()).isEqualTo(configDto.getProperties());
         EntandoPlugin entandoPlugin = EntandoPluginTestHelper.getEntandoPlugin(client, ENTANDO_PLUGIN_NAME);
-        safely.assertThat(entandoPlugin.getSpec().getConnectionConfigNames()).contains(configDto.getName());
+        assertThat(entandoPlugin.getSpec().getConnectionConfigNames()).contains(configDto.getName());
+        assertThat(entandoPlugin.getMetadata().getAnnotations())
+                .containsEntry(PROCESSING_INSTRUCTION_ANNOTATION, IGNORE_VALUE);
     }
 
     @Test

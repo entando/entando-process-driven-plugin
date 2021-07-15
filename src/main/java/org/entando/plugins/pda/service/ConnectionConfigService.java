@@ -7,8 +7,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +37,8 @@ public class ConnectionConfigService {
     public static final String ERROR_PLUGIN_NOT_FOUND = "org.entando.error.plugin.notFound";
     public static final String ERROR_SECRET_NOT_FOUND = "org.entando.error.secret.notFound";
     public static final String ERROR_SECRET_ALREADY_EXISTS = "org.entando.error.secret.alreadyExists";
+    public static final String PROCESSING_INSTRUCTION_ANNOTATION = "entando.org/processing-instruction";
+    public static final String IGNORE_VALUE = "ignore";
 
     private KubernetesClient client;
     private final String entandoPluginName;
@@ -54,6 +58,7 @@ public class ConnectionConfigService {
         if (entandoPlugin == null) {
             throw new NotFoundException(ERROR_PLUGIN_NOT_FOUND);
         }
+        ensureAnnotations(entandoPlugin);
         Set<String> connectionConfigNames = new HashSet<>();
         if (entandoPlugin.getSpec().getConnectionConfigNames() != null) {
             connectionConfigNames.addAll(entandoPlugin.getSpec().getConnectionConfigNames());
@@ -77,6 +82,19 @@ public class ConnectionConfigService {
                 .withStringData(Collections.singletonMap(CONFIG_YAML, YamlUtils.toYaml(connectionConfig)))
                 .withType(OPAQUE_TYPE)
                 .done();
+    }
+
+    private void ensureAnnotations(EntandoPlugin entandoPlugin) {
+        Map<String, String> annotations = entandoPlugin.getMetadata().getAnnotations();
+        if (annotations == null) {
+            annotations = new HashMap<>();
+        }
+        String processingInstruction = annotations.get(PROCESSING_INSTRUCTION_ANNOTATION);
+        if (processingInstruction == null || !processingInstruction.equals(IGNORE_VALUE)) {
+            annotations.put(PROCESSING_INSTRUCTION_ANNOTATION, IGNORE_VALUE);
+            entandoPlugin.getMetadata().setAnnotations(annotations);
+            entandoPlugin().createOrReplace(entandoPlugin);
+        }
     }
 
     public ConnectionConfig getConnectionConfig(String name) {
@@ -107,6 +125,7 @@ public class ConnectionConfigService {
 
     public void removeConnectionConfig(String configName) {
         EntandoPlugin entandoPlugin = entandoPlugin().get();
+        ensureAnnotations(entandoPlugin);
         entandoPlugin.getSpec().getConnectionConfigNames().remove(configName);
         entandoPlugin().createOrReplace(entandoPlugin);
 
@@ -134,6 +153,7 @@ public class ConnectionConfigService {
         if (entandoPlugin == null) {
             throw new NotFoundException(ERROR_PLUGIN_NOT_FOUND);
         }
+        ensureAnnotations(entandoPlugin);
         Secret secret = client.secrets().inNamespace(client.getConfiguration().getNamespace())
                 .withName(configDto.getName())
                 .get();

@@ -1,10 +1,13 @@
 package org.entando.plugins.pda.service;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.entando.plugins.pda.service.ConnectionConfigService.IGNORE_VALUE;
+import static org.entando.plugins.pda.service.ConnectionConfigService.PROCESSING_INSTRUCTION_ANNOTATION;
 import static org.entando.plugins.pda.util.EntandoPluginTestHelper.ENTANDO_PLUGIN_NAME;
 
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.server.mock.EnableKubernetesMockClient;
+import org.assertj.core.api.Assertions;
 import org.entando.kubernetes.model.plugin.EntandoPlugin;
 import org.entando.plugins.pda.model.ConnectionConfig;
 import org.entando.plugins.pda.util.EntandoPluginTestHelper;
@@ -40,5 +43,7 @@ class ConnectionConfigServiceDeleteTest {
         EntandoPlugin entandoPlugin = EntandoPluginTestHelper.getEntandoPlugin(client, ENTANDO_PLUGIN_NAME);
         assertThat(entandoPlugin.getSpec().getConnectionConfigNames()).doesNotContain(configDto.getName());
         assertThat(client.secrets().withName(configDto.getName()).get()).isNull();
+        Assertions.assertThat(entandoPlugin.getMetadata().getAnnotations())
+                .containsEntry(PROCESSING_INSTRUCTION_ANNOTATION, IGNORE_VALUE);
     }
 }
