@@ -13,6 +13,7 @@ import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
+import org.entando.web.exception.BadRequestException;
 import org.entando.web.request.PagedListRequest;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Component;
 public class ConnectionService {
 
     public static final String OK = "OK";
+    public static final String REQUIRED_MESSAGE_KEY = "org.entando.error.connection.required";
     private final EngineFactory engineFactory;
     private final ConnectionConfigConnector connectionConfigConnector;
 
@@ -52,6 +54,9 @@ public class ConnectionService {
 
     public Connection create(ConnectionDto request) {
         Connection connection = fromConnectionDto(request);
+        if (connection.getConnectionTimeout() == null) {
+            throw new BadRequestException(REQUIRED_MESSAGE_KEY);
+        }
         connectionConfigConnector.addConnectionConfig(ConnectionConfigMapper.fromConnection(connection));
         return connection;
     }

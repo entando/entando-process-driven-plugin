@@ -20,6 +20,7 @@ import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
+import org.entando.web.exception.BadRequestException;
 import org.entando.web.response.PagedMetadata;
 import org.entando.web.response.PagedRestResponse;
 import org.junit.Before;
@@ -192,6 +193,16 @@ public class ConnectionServiceUnitTest {
 
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
         connectionService.create(connectionDto);
+        connectionService.create(connectionDto);
+    }
+
+    @Test
+    public void shouldNotAllowNullConnectionTimeout() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setConnectionTimeout(null);
         connectionService.create(connectionDto);
     }
 
