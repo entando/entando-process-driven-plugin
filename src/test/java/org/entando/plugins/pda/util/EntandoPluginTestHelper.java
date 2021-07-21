@@ -95,14 +95,9 @@ public class EntandoPluginTestHelper {
     public static ConnectionConfig getRandomConnectionConfigDto() {
         return ConnectionConfig.builder()
                 .name(RandomStringUtils.randomAlphabetic(20).toLowerCase())
-                .properties(new ImmutableMap.Builder<String, String>()
-                        .put("name", RandomStringUtils.randomAlphabetic(10))
-                        .put("engine", RandomStringUtils.randomAlphabetic(10))
-                        .put("url", RandomStringUtils.randomAlphabetic(10))
-                        .put("username", RandomStringUtils.randomAlphabetic(10))
-                        .put("password", RandomStringUtils.randomAlphabetic(10))
-                        .put("timeout", RandomStringUtils.randomNumeric(5))
-                        .build())
+                .properties(ImmutableMap
+                        .of(RandomStringUtils.randomAlphabetic(10), RandomStringUtils.randomAlphabetic(10),
+                                RandomStringUtils.randomAlphabetic(10), RandomStringUtils.randomAlphabetic(10)))
                 .build();
     }
 
@@ -128,8 +123,7 @@ public class EntandoPluginTestHelper {
                 .done();
     }
 
-    public void setupEntandoPluginAndSecret(KubernetesClient client, String connectionName, String pluginName)
-            throws IOException {
+    public void setupEntandoPluginAndSecret(KubernetesClient client, String connectionName, String pluginName) throws IOException {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
         connectionDto.setName(connectionName);
         Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
