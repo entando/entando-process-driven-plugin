@@ -199,11 +199,121 @@ public class ConnectionServiceUnitTest {
     @Test
     public void shouldNotAllowNullConnectionTimeout() {
         expectedException.expect(BadRequestException.class);
-        expectedException.expectMessage(ConnectionService.REQUIRED_MESSAGE_KEY);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
 
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
         connectionDto.setConnectionTimeout(null);
         connectionService.create(connectionDto);
+    }
+
+    @Test
+    public void shouldNotAllowNullConnectionTimeoutOnEdit() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setConnectionTimeout(null);
+        connectionService.edit(connectionDto);
+    }
+
+    @Test
+    public void shouldRequireNameOnCreate() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setName(null);
+        connectionService.create(connectionDto);
+    }
+
+    @Test
+    public void shouldRequireNameOnEdit() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setName(null);
+        connectionService.edit(connectionDto);
+    }
+
+    @Test
+    public void shouldRequireEngineOnCreate() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setEngine(null);
+        connectionService.create(connectionDto);
+    }
+
+    @Test
+    public void shouldRequireEngineOnEdit() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setEngine(null);
+        connectionService.edit(connectionDto);
+    }
+
+    @Test
+    public void shouldRequireUrlOnCreate() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setUrl(null);
+        connectionService.create(connectionDto);
+    }
+
+    @Test
+    public void shouldRequireUrlOnEdit() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setUrl(null);
+        connectionService.edit(connectionDto);
+    }
+
+    @Test
+    public void shouldRequireUsernameOnCreate() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setUsername(null);
+        connectionService.create(connectionDto);
+    }
+
+    @Test
+    public void shouldRequireUsernameOnEdit() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setUsername(null);
+        connectionService.edit(connectionDto);
+    }
+
+    @Test
+    public void shouldRequirePasswordOnCreate() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setPassword(null);
+        connectionService.create(connectionDto);
+    }
+
+    @Test
+    public void shouldRequirePasswordOnEdit() {
+        expectedException.expect(BadRequestException.class);
+        expectedException.expectMessage(ConnectionService.CONNECTION_REQUIRED_MESSAGE_KEY);
+
+        ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        connectionDto.setPassword(null);
+        connectionService.edit(connectionDto);
     }
 
     private void assertThatIsEqual(Connection connection, ConnectionConfig config1) {

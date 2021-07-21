@@ -6,6 +6,7 @@ import static org.entando.web.request.PagedListRequest.SORT_VALUE_DEFAULT;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.entando.connectionconfigconnector.model.ConnectionConfig;
 import org.entando.connectionconfigconnector.service.ConnectionConfigConnector;
 import org.entando.plugins.pda.core.engine.Connection;
@@ -22,7 +23,7 @@ import org.springframework.stereotype.Component;
 public class ConnectionService {
 
     public static final String OK = "OK";
-    public static final String REQUIRED_MESSAGE_KEY = "org.entando.error.connection.required";
+    public static final String CONNECTION_REQUIRED_MESSAGE_KEY = "org.entando.error.connection.required";
     private final EngineFactory engineFactory;
     private final ConnectionConfigConnector connectionConfigConnector;
 
@@ -48,15 +49,22 @@ public class ConnectionService {
 
     public Connection edit(ConnectionDto request) {
         Connection connection = fromConnectionDto(request);
+        validateConnection(connection);
         connectionConfigConnector.editConnectionConfig(ConnectionConfigMapper.fromConnection(connection));
         return connection;
     }
 
+    private void validateConnection(Connection connection) {
+        if (connection.getConnectionTimeout() == null
+                || StringUtils.isAnyBlank(connection.getName(), connection.getEngine(), connection.getUrl(),
+                connection.getUsername(), connection.getPassword())) {
+            throw new BadRequestException(CONNECTION_REQUIRED_MESSAGE_KEY);
+        }
+    }
+
     public Connection create(ConnectionDto request) {
         Connection connection = fromConnectionDto(request);
-        if (connection.getConnectionTimeout() == null) {
-            throw new BadRequestException(REQUIRED_MESSAGE_KEY);
-        }
+        validateConnection(connection);
         connectionConfigConnector.addConnectionConfig(ConnectionConfigMapper.fromConnection(connection));
         return connection;
     }
