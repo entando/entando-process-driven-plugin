@@ -120,13 +120,12 @@ public class ConnectionsControllerIntegrationTest {
         mockRestServiceServer.expect(ExpectedCount.once(),
                 requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config"))
                 .andExpect(method(HttpMethod.POST))
-                .andExpect(content().json(mapper.writeValueAsString(connectionConfig)))
                 .andRespond(withStatus(HttpStatus.CREATED)
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(mapper.writeValueAsString(connectionConfig)));
 
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(connectionDto)))
+                .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
@@ -145,7 +144,6 @@ public class ConnectionsControllerIntegrationTest {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
         Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
         ConnectionConfig connectionConfig = ConnectionConfigMapper.fromConnection(connection);
-        connectionConfig.getProperties().put(ConnectionConfigMapper.PASSWORD, null);
         mockRestServiceServer.expect(ExpectedCount.once(),
                 requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config"))
                 .andExpect(method(HttpMethod.PUT))
@@ -154,7 +152,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(put("/connections")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(connectionDto)))
+                .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
@@ -197,6 +195,7 @@ public class ConnectionsControllerIntegrationTest {
     @Test
     public void shouldHandleConflictErrorWhenAdding() throws Exception {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
 
         mockRestServiceServer
                 .expect(requestTo(TestConnectionConfigConfiguration.URL_PREFIX + "/config"))
@@ -204,7 +203,7 @@ public class ConnectionsControllerIntegrationTest {
                 .andRespond(withStatus(HttpStatus.CONFLICT));
 
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(connectionDto)))
+                .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isConflict())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.message", containsString("already exists")));
