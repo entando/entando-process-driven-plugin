@@ -11,18 +11,19 @@
     <packaging>jar</packaging>
 
     <name>Entando Process Driven Plugin</name>
-    <description>The Entando microservice plugin for managing process driven applications and adapting BPM engines</description>
+    <description>The Entando microservice plugin for managing process driven applications and adapting BPM engines
+    </description>
     <url>http://www.entando.com/</url>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.8.RELEASE</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <licenses>
         <license>
-            <name>GNU LESSER GENERAL PUBLIC LICENSE,  Version 3, June 2007</name>
+            <name>GNU LESSER GENERAL PUBLIC LICENSE, Version 3, June 2007</name>
             <url>https://www.gnu.org/licenses/lgpl-3.0.en.html</url>
             <distribution>repo</distribution>
         </license>
@@ -61,6 +62,16 @@
                 <updatePolicy>never</updatePolicy>
             </snapshots>
         </repository>
+        <repository>
+            <id>jx-releases</id>
+            <url>https://nexus-jx.apps.serv.run/repository/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
     </repositories>
     <distributionManagement>
         <repository>
@@ -78,9 +89,11 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.snapshot.repository.id>sonatype-nexus-snapshot</maven.snapshot.repository.id>
-        <maven.snapshot.repository.url>https://oss.sonatype.org/content/repositories/snapshots</maven.snapshot.repository.url>
+        <maven.snapshot.repository.url>https://oss.sonatype.org/content/repositories/snapshots
+        </maven.snapshot.repository.url>
         <maven.relase.repository.id>sonatype-nexus-staging</maven.relase.repository.id>
-        <maven.release.repository.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</maven.release.repository.url>
+        <maven.release.repository.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/
+        </maven.release.repository.url>
         <jib.registry>docker.io</jib.registry>
         <jib-maven-plugin.version>1.2.0</jib-maven-plugin.version>
 
@@ -95,7 +108,7 @@
         <sonar.projectKey>${github.organization}_${project.artifactId}</sonar.projectKey>
         <!--        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>-->
         <sonar.java.checkstyle.reportPaths>target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
-
+        <fabric8.version>4.10.3</fabric8.version>
     </properties>
 
     <dependencies>
@@ -113,12 +126,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.entando</groupId>
-            <artifactId>connection-config-connector</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -181,6 +188,46 @@
             <groupId>org.skyscreamer</groupId>
             <artifactId>jsonassert</artifactId>
             <version>1.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.21</version>
+        </dependency>
+        <dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>kubernetes-client</artifactId>
+            <version>${fabric8.version}</version>
+            <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jul-to-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>kubernetes-server-mock</artifactId>
+            <version>${fabric8.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.entando</groupId>
+            <artifactId>entando-k8s-custom-model</artifactId>
+            <version>6.1.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-jdk14</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.slf4j</groupId>
+                    <artifactId>slf4j-jboss-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
@@ -364,7 +411,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version></plugin>
+                <version>2.8.2</version>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
