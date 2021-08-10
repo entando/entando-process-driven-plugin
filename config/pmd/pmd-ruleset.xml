@@ -18,7 +18,7 @@ http://pmd.sourceforge.net/ruleset/2.0.0 ">
 
   <rule ref="category/java/codestyle.xml">
     <exclude name="TooManyStaticImports"/>
-    <exclude name="OnlyOneReturn"/>    
+    <exclude name="OnlyOneReturn"/>
     <exclude name="ShortVariable"/>
     <exclude name="ShortClassName"/>
     <exclude name="LongVariable"/>
@@ -37,6 +37,7 @@ http://pmd.sourceforge.net/ruleset/2.0.0 ">
   <rule ref="category/java/design.xml">
     <exclude name="LawOfDemeter"/>
     <exclude name="DataClass"/>
+    <exclude name="UseUtilityClass"/>
   </rule>
 
   <rule ref="category/java/design.xml/SignatureDeclareThrowsException">

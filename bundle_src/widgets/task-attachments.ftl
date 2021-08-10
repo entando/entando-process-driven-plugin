@@ -5,8 +5,8 @@
 
 <#if RequestParameters.taskId?exists>
     <#assign taskId= RequestParameters.taskId>
-<#else>   
+<#else>
     <#assign taskId= "">
 </#if>
 
-<task-attachments service-url="/entando/entando-process-driven-plugin/latest" page-code="${Request.reqCtx.getExtraParam('currentPage').code}" frame-id="${Request.reqCtx.getExtraParam('currentFrame')}" id="${taskId}"/>
+<task-attachments service-url="/entandoPdaPlugin" page-code="${Request.reqCtx.getExtraParam('currentPage').code}" frame-id="${Request.reqCtx.getExtraParam('currentFrame')}" id="${taskId}"/>

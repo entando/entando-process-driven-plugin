@@ -14,4 +14,4 @@
     <#assign taskPos= "">
 </#if>
 
-<task-details service-url="/entando/entando-process-driven-plugin/latest" page-code="${Request.reqCtx.getExtraParam('currentPage').code}" frame-id="${Request.reqCtx.getExtraParam('currentFrame')}" id="${taskId}" task-pos="${taskPos}"/>
+<task-details service-url="/entandoPdaPlugin" page-code="${Request.reqCtx.getExtraParam('currentPage').code}" frame-id="${Request.reqCtx.getExtraParam('currentFrame')}" id="${taskId}" task-pos="${taskPos}"/>

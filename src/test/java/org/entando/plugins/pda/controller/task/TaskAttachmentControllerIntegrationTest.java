@@ -13,12 +13,8 @@ import static org.entando.plugins.pda.core.utils.TestUtils.TASK_ATTACHMENT_NAME_
 import static org.entando.plugins.pda.core.utils.TestUtils.TASK_ID_1;
 import static org.entando.plugins.pda.core.utils.TestUtils.TASK_ID_2;
 import static org.entando.plugins.pda.core.utils.TestUtils.readFromFile;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
-import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -30,65 +26,64 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
+import io.fabric8.kubernetes.client.KubernetesClient;
+import io.fabric8.kubernetes.client.server.mock.EnableKubernetesMockClient;
 import java.io.IOException;
-import org.entando.connectionconfigconnector.config.ConnectionConfigConfiguration;
-import org.entando.connectionconfigconnector.model.ConnectionConfig;
-import org.entando.plugins.pda.controller.connection.TestConnectionConfigConfiguration;
+import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.model.File;
 import org.entando.plugins.pda.core.request.CreateAttachmentRequest;
+import org.entando.plugins.pda.dto.connection.ConnectionDto;
+import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
+import org.entando.plugins.pda.model.ConnectionConfig;
+import org.entando.plugins.pda.service.ConnectionConfigService;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.entando.plugins.pda.util.EntandoPluginTestHelper;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.web.client.ExpectedCount;
-import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.web.client.RestTemplate;
 
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-@RunWith(SpringRunner.class)
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class})
-@SpringBootTest(classes = TestConnectionConfigConfiguration.class, webEnvironment = WebEnvironment.RANDOM_PORT,
-        properties = "entando.plugin.security.level=LENIENT")
-public class TaskAttachmentControllerIntegrationTest {
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, properties = "entando.plugin.security.level=LENIENT")
+@EnableKubernetesMockClient(crud = true, https = false)
+class TaskAttachmentControllerIntegrationTest {
+
+    private static final String FAKE_CONNECTION = "fakeConnection";
 
     @Autowired
     private MockMvc mockMvc;
 
+    private final ObjectMapper mapper = new ObjectMapper();
+
     @Autowired
-    @Qualifier(ConnectionConfigConfiguration.CONFIG_REST_TEMPLATE)
-    private RestTemplate configRestTemplate;
+    private ConnectionConfigService connectionConfigService;
 
-    private ObjectMapper mapper = new ObjectMapper();
+    @Value("${entando.plugin.name}")
+    private String entandoPluginName;
 
-    @Before
+    static KubernetesClient client;
+
+    @BeforeEach
     public void setup() throws IOException {
-        ConnectionConfig connectionConfig = ConnectionTestHelper.generateConnectionConfig();
-        MockRestServiceServer mockServer = MockRestServiceServer.createServer(configRestTemplate);
-        mockServer.expect(ExpectedCount.manyTimes(), requestTo(
-                containsString(TestConnectionConfigConfiguration.URL_PREFIX + "/config/fakeProduction")))
-                .andExpect(method(HttpMethod.GET))
-                .andRespond(
-                        withSuccess(mapper.writeValueAsString(connectionConfig), MediaType.APPLICATION_JSON));
+        connectionConfigService.setClient(client);
+        EntandoPluginTestHelper.setupEntandoPluginAndSecret(client, FAKE_CONNECTION, entandoPluginName);
     }
 
     @Test
-    public void testListTaskAttachments() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/tasks/{taskId}/attachments"
-                    .replace("{taskId}", TASK_ID_1)))
+    void testListTaskAttachments() throws Exception {
+        mockMvc.perform(get(String.format("/connections/%s/tasks/{taskId}/attachments", FAKE_CONNECTION)
+                .replace("{taskId}", TASK_ID_1)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
@@ -98,8 +93,8 @@ public class TaskAttachmentControllerIntegrationTest {
                 .andExpect(jsonPath("payload[1].id", is(TASK_ATTACHMENT_ID_1_2)))
                 .andExpect(jsonPath("payload[1].name", is(TASK_ATTACHMENT_NAME_1_2)));
 
-        mockMvc.perform(get("/connections/fakeProduction/tasks/{taskId}/attachments"
-                    .replace("{taskId}", TASK_ID_2)))
+        mockMvc.perform(get(String.format("/connections/%s/tasks/{taskId}/attachments", FAKE_CONNECTION)
+                .replace("{taskId}", TASK_ID_2)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
@@ -109,10 +104,10 @@ public class TaskAttachmentControllerIntegrationTest {
     }
 
     @Test
-    public void testGetTaskAttachment() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/tasks/{taskId}/attachments/{attachmentId}"
-                    .replace("{taskId}", TASK_ID_1)
-                    .replace("{attachmentId}", TASK_ATTACHMENT_ID_1_2)))
+    void testGetTaskAttachment() throws Exception {
+        mockMvc.perform(get(String.format("/connections/%s/tasks/{taskId}/attachments/{attachmentId}", FAKE_CONNECTION)
+                .replace("{taskId}", TASK_ID_1)
+                .replace("{attachmentId}", TASK_ATTACHMENT_ID_1_2)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("errors", hasSize(0)))
@@ -121,39 +116,40 @@ public class TaskAttachmentControllerIntegrationTest {
     }
 
     @Test
-    public void testGetInvalidAttachmentShouldThrowNotFound() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/tasks/{taskId}/attachments/{attachmentId}"
-                    .replace("{taskId}", "invalid")
-                    .replace("{attachmentId}", TASK_ATTACHMENT_ID_1_1)))
+    void testGetInvalidAttachmentShouldThrowNotFound() throws Exception {
+        mockMvc.perform(get(String.format("/connections/%s/tasks/{taskId}/attachments/{attachmentId}", FAKE_CONNECTION)
+                .replace("{taskId}", "invalid")
+                .replace("{attachmentId}", TASK_ATTACHMENT_ID_1_1)))
                 .andDo(print())
                 .andExpect(status().isNotFound());
 
-        mockMvc.perform(get("/connections/fakeProduction/tasks/{taskId}/attachments/{attachmentId}"
-                    .replace("{taskId}", TASK_ID_1)
-                    .replace("{attachmentId}", "invalid")))
-                .andDo(print())
-                .andExpect(status().isNotFound());
-    }
-
-    @Test
-    public void testGetAttachmentFromWrongTaskShouldThrowNotFound() throws Exception {
-        mockMvc.perform(get("/connections/fakeProduction/tasks/{taskId}/attachments/{attachmentId}"
-                    .replace("{taskId}", TASK_ID_2)
-                    .replace("{attachmentId}", TASK_ATTACHMENT_ID_1_1)))
+        mockMvc.perform(get(String.format("/connections/%s/tasks/{taskId}/attachments/{attachmentId}", FAKE_CONNECTION)
+                .replace("{taskId}", TASK_ID_1)
+                .replace("{attachmentId}", "invalid")))
                 .andDo(print())
                 .andExpect(status().isNotFound());
     }
 
     @Test
-    public void testCreateDeleteTaskAttachment() throws Exception {
+    void testGetAttachmentFromWrongTaskShouldThrowNotFound() throws Exception {
+        mockMvc.perform(get(String.format("/connections/%s/tasks/{taskId}/attachments/{attachmentId}", FAKE_CONNECTION)
+                .replace("{taskId}", TASK_ID_2)
+                .replace("{attachmentId}", TASK_ATTACHMENT_ID_1_1)))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void testCreateDeleteTaskAttachment() throws Exception {
         CreateAttachmentRequest request = CreateAttachmentRequest.builder()
                 .file(readFromFile("task_attachment_file.txt"))
                 .build();
 
-        MvcResult result = mockMvc.perform(post("/connections/fakeProduction/tasks/{taskId}/attachments"
-                    .replace("{taskId}", TASK_ID_2))
-                    .header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
-                    .content(mapper.writeValueAsString(request)))
+        MvcResult result = mockMvc
+                .perform(post(String.format("/connections/%s/tasks/{taskId}/attachments", FAKE_CONNECTION)
+                        .replace("{taskId}", TASK_ID_2))
+                        .header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+                        .content(mapper.writeValueAsString(request)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -163,25 +159,26 @@ public class TaskAttachmentControllerIntegrationTest {
 
         String createdId = JsonPath.read(result.getResponse().getContentAsString(), "$.payload.id");
 
-        mockMvc.perform(get("/connections/fakeProduction/tasks/{taskId}/attachments"
-                    .replace("{taskId}", TASK_ID_2)))
+        mockMvc.perform(get(String.format("/connections/%s/tasks/{taskId}/attachments", FAKE_CONNECTION)
+                .replace("{taskId}", TASK_ID_2)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(TASK_ATTACHMENTS_2.length + 1)));
 
-        mockMvc.perform(delete("/connections/fakeProduction/tasks/{taskId}/attachments/{attachmentId}"
-                    .replace("{taskId}", TASK_ID_2)
-                    .replace("{attachmentId}", createdId)))
+        mockMvc.perform(
+                delete(String.format("/connections/%s/tasks/{taskId}/attachments/{attachmentId}", FAKE_CONNECTION)
+                        .replace("{taskId}", TASK_ID_2)
+                        .replace("{attachmentId}", createdId)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload", is(createdId)));
 
-        mockMvc.perform(get("/connections/fakeProduction/tasks/{taskId}/attachments"
-                    .replace("{taskId}", TASK_ID_2)))
+        mockMvc.perform(get(String.format("/connections/%s/tasks/{taskId}/attachments", FAKE_CONNECTION)
+                .replace("{taskId}", TASK_ID_2)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -192,12 +189,14 @@ public class TaskAttachmentControllerIntegrationTest {
     }
 
     @Test
-    public void testDownloadTaskAttachment() throws Exception {
+    void testDownloadTaskAttachment() throws Exception {
         File expected = new File(readFromFile("task_attachment_file.txt"));
 
-        MvcResult result = mockMvc.perform(get("/connections/fakeProduction/tasks/{taskId}/attachments/{attachmentId}/download"
-                .replace("{taskId}", TASK_ID_1)
-                .replace("{attachmentId}", TASK_ATTACHMENT_ID_1_2)))
+        MvcResult result = mockMvc
+                .perform(get(String
+                        .format("/connections/%s/tasks/{taskId}/attachments/{attachmentId}/download", FAKE_CONNECTION)
+                        .replace("{taskId}", TASK_ID_1)
+                        .replace("{attachmentId}", TASK_ATTACHMENT_ID_1_2)))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(header().string("Content-Disposition",

@@ -3,6 +3,7 @@ dbms: "none"
 deploymentBaseName: "entando-pda-plugin"
 healthCheckPath: "/actuator/health"
 securityLevel: lenient
+ingressPath: /entandoPdaPlugin
 roles:
   - "task-list"
   - "task-get"
