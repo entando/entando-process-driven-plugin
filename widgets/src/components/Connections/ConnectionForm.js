@@ -65,6 +65,7 @@ const ConnectionForm = ({ classes, onChange, onCancel, onSave, form }) => {
                 value={form[field.key]}
                 type={field.key === 'password' ? field.key : 'text'}
                 disabled={field.key === 'name' && form.edit}
+                required
                 fullWidth
                 InputLabelProps={{
                   shrink: true,
