@@ -28,10 +28,10 @@ const styles = {
 };
 
 const initialForm = {
-  name: '',
-  engine: '',
+  name: 'pam-demo',
+  engine: 'pam',
   url: '',
-  connectionTimeout: '',
+  connectionTimeout: '60000',
   username: '',
   password: '',
 };

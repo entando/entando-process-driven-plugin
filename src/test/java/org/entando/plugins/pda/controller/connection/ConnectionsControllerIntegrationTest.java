@@ -107,7 +107,7 @@ public class ConnectionsControllerIntegrationTest {
         EntandoPluginTestHelper.createEntandoPlugin(client, entandoPluginName);
 
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(connectionDto)))
+                .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
@@ -130,7 +130,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(put("/connections")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(connectionDto)))
+                .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("errors", hasSize(0)))
@@ -178,7 +178,7 @@ public class ConnectionsControllerIntegrationTest {
         connectionConfigService.addConnectionConfig(connectionConfig);
 
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(connectionDto)))
+                .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isConflict())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.message", containsString("already exists")));

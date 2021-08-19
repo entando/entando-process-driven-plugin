@@ -9,7 +9,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
+import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,9 +44,10 @@ public class ConnectionsControllerStrictIntegrationTest {
     @Test
     public void shouldReturnErrorWhenCreatingConnectionConfigOnStrictLevel() throws Exception {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
 
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(connectionDto)))
+                .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isUnprocessableEntity())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.message", containsString("not allowed")));
@@ -53,9 +56,10 @@ public class ConnectionsControllerStrictIntegrationTest {
     @Test
     public void shouldReturnErrorWhenEditingConnectionConfigOnStrictLevel() throws Exception {
         ConnectionDto connectionDto = ConnectionTestHelper.generateConnectionDto();
+        Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
 
         mockMvc.perform(put("/connections").contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(connectionDto)))
+                .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isUnprocessableEntity())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.message", containsString("not allowed")));
