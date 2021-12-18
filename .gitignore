@@ -8,10 +8,7 @@ target/
 .settings/
 bin/
 
-########
-.ent-prj
-
 ####
 bundle/
 
-.ent-state
+.ent/ent-state
