@@ -88,6 +88,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <entando.commons.version>1.0.0-SNAPSHOT</entando.commons.version>
+        <log4j.version>2.17.0</log4j.version>
 
         <github.organization>entando</github.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -95,7 +96,6 @@
         <sonar.projectKey>${github.organization}_${project.artifactId}</sonar.projectKey>
         <!--        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>-->
         <sonar.java.checkstyle.reportPaths>target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
-
     </properties>
 
     <dependencies>
@@ -154,12 +154,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>br.com.six2six</groupId>
-            <artifactId>fixture-factory</artifactId>
-            <version>3.1.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.4.1</version>
@@ -183,6 +177,21 @@
             <version>1.5.0</version>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-to-slf4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <reporting>
         <plugins>
