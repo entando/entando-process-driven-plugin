@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - release/*
 
 env:
   ENTANDO_OPT_USE_PPL_TAG: "v1.1.2"
