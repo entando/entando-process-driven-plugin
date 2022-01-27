@@ -89,11 +89,14 @@ entando-pda-plugin-server
    * PDA Smart Inbox
    * PDA Task Details
 
-### Updating the bundle
-If you customized the PDA bundle then you have 2 options for updating it in Entando.
-1. Use the `ent prj deploy` then `ent prj install --conflict-strategy=OVERRIDE` commands from a directory containing the built project.  
-2. Use the App Builder to re-install the bundle:
-   * Remove the PDA Pages and Templates.
-   * Uninstall the current version of the bundle 
-   * Install the new version of the bundle.
-* (Entando 6.3.0 only) After an update/re-deploy you'll need to repeat steps 1 and 2 from the initial deploy. 
+### Setup the project directory after customization
+1. Prepare the bundle directory: `cp -r bundle_src bundle`
+2. Initialize the project: `ent prj init`
+3. Initialize publication: `ent prj pbs-init` (requires the git bundle repo url)
+
+### Publish the bundle after customization
+1. Build: `ent prj build` (build the frontend and backend) or `ent prj fe-build -a` (to just build the frontend, including changes from bundle_src)
+2. Publish: `ent prj pub` or `ent prj fe-push` (publish all or just the frontend)
+3. Deploy (after connecting to k8s): `ent prj deploy`
+4. Install the bundle via 1) App Builder, 2) `ent prj install`, or 3) `ent prj install --conflict-strategy=OVERRIDE` on subsequent installs.
+5. Iterate steps 1-4 to publish new versions.
