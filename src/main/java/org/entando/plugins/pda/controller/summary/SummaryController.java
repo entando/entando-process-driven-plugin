@@ -11,10 +11,10 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.model.summary.Summary;
+import org.entando.plugins.pda.core.response.SimpleRestResponse;
 import org.entando.plugins.pda.core.service.summary.DataService;
 import org.entando.plugins.pda.core.service.summary.SummaryService;
 import org.entando.plugins.pda.service.ConnectionService;
-import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "Summary")
 @RequestMapping(path = "/connections/{connId}/summaries")
 @RequiredArgsConstructor
+@SuppressWarnings("PMD.CloseResource")
 public class SummaryController {
 
     private final ConnectionService connectionService;

@@ -74,7 +74,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(get("/connections"))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(1)))
                 .andExpect(jsonPath("payload[0].name", is(configDto.getName())));
@@ -91,7 +91,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(get("/connections/" + configDto.getName()))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(configDto.getName())))
                 .andExpect(jsonPath("payload.username", is(configDto.getProperties().get(USERNAME))));
@@ -109,7 +109,7 @@ public class ConnectionsControllerIntegrationTest {
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(connectionDto.getName())))
                 .andExpect(jsonPath("payload.url", is(connectionDto.getUrl())))
@@ -132,7 +132,7 @@ public class ConnectionsControllerIntegrationTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(connectionDto.getName())))
                 .andExpect(jsonPath("payload.url", is(connectionDto.getUrl())))
@@ -153,7 +153,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(delete("/connections/" + connectionDto.getName()))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)));
     }
 
@@ -164,7 +164,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(post("/connections").contentType(ContentType.APPLICATION_JSON.getMimeType())
                 .content(mapper.writeValueAsString(connectionDto)))
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()).andExpect(status().isNotFound());
     }
 
@@ -180,7 +180,7 @@ public class ConnectionsControllerIntegrationTest {
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isConflict())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.message", containsString("already exists")));
     }
 
@@ -195,7 +195,7 @@ public class ConnectionsControllerIntegrationTest {
 
         mockMvc.perform(get("/connections/{connId}/test".replace("{connId}", connectionConfig.getName())))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload", is(ConnectionService.OK)));
     }

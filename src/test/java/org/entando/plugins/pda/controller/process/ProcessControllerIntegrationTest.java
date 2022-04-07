@@ -66,7 +66,7 @@ class ProcessControllerIntegrationTest {
     void testListProcessesDefinitions() throws Exception {
         mockMvc.perform(get(String.format("/connections/%s/processes/definitions", FAKE_CONNECTION)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload[0].name", is(FakeProcessService.PROCESS_NAME_1)))

@@ -1,6 +1,6 @@
 package org.entando.plugins.pda.exception;
 
-import org.entando.web.exception.ConflictException;
+import org.entando.plugins.pda.core.exception.ConflictException;
 
 public class ConnectionAlreadyExistsException extends ConflictException {
 

@@ -62,7 +62,7 @@ class TaskDefinitionControllerIntegrationTest {
     void testListTaskColumns() throws Exception {
         mockMvc.perform(get(String.format("/connections/%s/tasks/columns", FAKE_CONNECTION)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload", contains(TASK_COLUMNS.toArray())));
     }

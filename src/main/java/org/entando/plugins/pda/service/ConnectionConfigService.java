@@ -19,10 +19,10 @@ import org.entando.kubernetes.model.plugin.EntandoPlugin;
 import org.entando.kubernetes.model.plugin.EntandoPluginOperationFactory;
 import org.entando.kubernetes.model.plugin.EntandoPluginSpec;
 import org.entando.kubernetes.model.plugin.EntandoPluginSpecBuilder;
+import org.entando.plugins.pda.core.exception.ConflictException;
+import org.entando.plugins.pda.core.exception.NotFoundException;
 import org.entando.plugins.pda.model.ConnectionConfig;
 import org.entando.plugins.pda.util.YamlUtils;
-import org.entando.web.exception.ConflictException;
-import org.entando.web.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

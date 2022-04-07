@@ -88,7 +88,7 @@ public class SummaryServiceControllerIntegrationTest {
         mockMvc.perform(get(String.format("/connections/%s/summaries/summaryTypes", FAKE_CONNECTION)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(3)))
                 .andExpect(jsonPath("payload", containsInAnyOrder(
@@ -100,7 +100,7 @@ public class SummaryServiceControllerIntegrationTest {
         mockMvc.perform(get(String.format("/connections/%s/summaries/repositories", FAKE_CONNECTION)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload", containsInAnyOrder(TYPE_1, TYPE_2)));
@@ -115,7 +115,7 @@ public class SummaryServiceControllerIntegrationTest {
                         .content(request))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.myField", is(request)));
     }
@@ -126,7 +126,7 @@ public class SummaryServiceControllerIntegrationTest {
                 .content("{}"))
                 .andDo(print())
                 .andExpect(status().isNotFound())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 
     private DataRepository createDataRepository(String type) {

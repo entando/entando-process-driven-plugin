@@ -1,6 +1,6 @@
 package org.entando.plugins.pda.exception;
 
-import org.entando.web.exception.UnprocessableEntityException;
+import org.entando.plugins.pda.core.exception.UnprocessableEntityException;
 
 public class InvalidStrictOperationException extends UnprocessableEntityException {
 
