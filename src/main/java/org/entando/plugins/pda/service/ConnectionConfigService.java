@@ -43,7 +43,9 @@ public class ConnectionConfigService {
     private KubernetesClient client;
     private final String entandoPluginName;
 
-    public ConnectionConfigService(KubernetesClient client, @Value("${entando.plugin.name}") String entandoPluginName) {
+    public ConnectionConfigService(KubernetesClient client,
+            @Value("#{'${entando.resource.name}' > '' ? '${entando.resource.name}' : '${entando.plugin.name}'}")
+            String entandoPluginName) {
         this.client = client;
         this.entandoPluginName = entandoPluginName;
     }
