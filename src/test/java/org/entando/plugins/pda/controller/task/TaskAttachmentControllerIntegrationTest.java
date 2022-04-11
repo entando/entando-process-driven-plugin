@@ -152,7 +152,7 @@ class TaskAttachmentControllerIntegrationTest {
                         .content(mapper.writeValueAsString(request)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.name", is(TASK_ATTACHMENT_NAME_2_2)))
                 .andReturn();
@@ -163,7 +163,7 @@ class TaskAttachmentControllerIntegrationTest {
                 .replace("{taskId}", TASK_ID_2)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(TASK_ATTACHMENTS_2.length + 1)));
 
@@ -173,7 +173,7 @@ class TaskAttachmentControllerIntegrationTest {
                         .replace("{attachmentId}", createdId)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload", is(createdId)));
 
@@ -181,7 +181,7 @@ class TaskAttachmentControllerIntegrationTest {
                 .replace("{taskId}", TASK_ID_2)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(TASK_ATTACHMENTS_2.length)))
                 .andExpect(jsonPath("payload[0].id", is(TASK_ATTACHMENT_ID_2_1)))

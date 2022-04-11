@@ -17,9 +17,9 @@ import org.entando.keycloak.security.AuthenticatedUser;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.model.Task;
+import org.entando.plugins.pda.core.response.SimpleRestResponse;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
-import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "TaskLifecycle")
 @RequestMapping(path = "/connections/{connId}/tasks/{taskId}")
 @RequiredArgsConstructor
+@SuppressWarnings("PMD.CloseResource")
 public class TaskLifecycleController {
 
     private final ConnectionService connectionService;

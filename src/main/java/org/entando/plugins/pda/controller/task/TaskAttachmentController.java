@@ -20,9 +20,9 @@ import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.model.Attachment;
 import org.entando.plugins.pda.core.model.File;
 import org.entando.plugins.pda.core.request.CreateAttachmentRequest;
+import org.entando.plugins.pda.core.response.SimpleRestResponse;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
-import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +38,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "TaskAttachment")
 @RequestMapping(path = "/connections/{connId}/tasks/{taskId}/attachments")
 @RequiredArgsConstructor
-@SuppressWarnings("PMD.ExcessiveImports")
+@SuppressWarnings({"PMD.ExcessiveImports", "PMD.CloseResource"})
 public class TaskAttachmentController {
 
     private final ConnectionService connectionService;
@@ -101,7 +101,8 @@ public class TaskAttachmentController {
     @ApiOperation(notes = "Returns the file of a task attachment", nickname = "downloadTaskAttachment",
             value = "DOWNLOAD Task Attachment")
     @GetMapping(value = "/{attachmentId}/download", produces = APPLICATION_OCTET_STREAM_VALUE)
-    public @ResponseBody byte[] downloadTaskAttachment(@PathVariable final String connId,
+    public @ResponseBody
+    byte[] downloadTaskAttachment(@PathVariable final String connId,
             @PathVariable final String taskId, @PathVariable final String attachmentId, AuthenticatedUser user,
             HttpServletResponse response) {
         log.debug("Returning attachment file {} from task {}", attachmentId, taskId);

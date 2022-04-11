@@ -13,11 +13,11 @@ import org.entando.keycloak.security.AuthenticatedUser;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.model.Task;
+import org.entando.plugins.pda.core.request.PagedListRequest;
+import org.entando.plugins.pda.core.response.PagedRestResponse;
+import org.entando.plugins.pda.core.response.SimpleRestResponse;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
-import org.entando.web.request.PagedListRequest;
-import org.entando.web.response.PagedRestResponse;
-import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "Task")
 @RequestMapping(path = "/connections/{connId}/tasks")
 @RequiredArgsConstructor
+@SuppressWarnings("PMD.CloseResource")
 public class TaskController {
 
     private final ConnectionService connectionService;

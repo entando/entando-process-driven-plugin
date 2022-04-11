@@ -10,14 +10,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.server.mock.EnableKubernetesMockClient;
 import java.io.IOException;
-import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.model.ProcessInstance;
 import org.entando.plugins.pda.core.service.process.FakeProcessInstanceService;
-import org.entando.plugins.pda.dto.connection.ConnectionDto;
-import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
-import org.entando.plugins.pda.model.ConnectionConfig;
 import org.entando.plugins.pda.service.ConnectionConfigService;
-import org.entando.plugins.pda.util.ConnectionTestHelper;
 import org.entando.plugins.pda.util.EntandoPluginTestHelper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -71,10 +66,10 @@ class ProcessInstanceControllerIntegrationTest {
                 ProcessInstance.builder().id("2").processName("Process 2").build());
 
         mockMvc.perform(
-                get(String.format("/connections/%s/processes/instances?processDefinitionId=%s", FAKE_CONNECTION,
-                        processDefinitionId)))
+                        get(String.format("/connections/%s/processes/instances?processDefinitionId=%s", FAKE_CONNECTION,
+                                processDefinitionId)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload[0].id", is("1")))

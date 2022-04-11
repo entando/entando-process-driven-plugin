@@ -13,8 +13,7 @@ import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 import org.entando.plugins.pda.util.ConnectionTestHelper;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -23,7 +22,6 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -31,7 +29,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @EnableConfigurationProperties
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-@RunWith(SpringRunner.class)
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class})
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class ConnectionsControllerStrictIntegrationTest {
@@ -47,9 +44,9 @@ public class ConnectionsControllerStrictIntegrationTest {
         Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
 
         mockMvc.perform(post("/connections").contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(connection)))
+                        .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isUnprocessableEntity())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.message", containsString("not allowed")));
     }
 
@@ -59,9 +56,9 @@ public class ConnectionsControllerStrictIntegrationTest {
         Connection connection = ConnectionConfigMapper.fromDto(connectionDto);
 
         mockMvc.perform(put("/connections").contentType(MediaType.APPLICATION_JSON)
-                .content(mapper.writeValueAsString(connection)))
+                        .content(mapper.writeValueAsString(connection)))
                 .andDo(print()).andExpect(status().isUnprocessableEntity())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.message", containsString("not allowed")));
     }
 
@@ -71,7 +68,7 @@ public class ConnectionsControllerStrictIntegrationTest {
 
         mockMvc.perform(delete("/connections/" + connectionDto.getName()).contentType(MediaType.APPLICATION_JSON))
                 .andDo(print()).andExpect(status().isUnprocessableEntity())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.message", containsString("not allowed")));
     }
 }

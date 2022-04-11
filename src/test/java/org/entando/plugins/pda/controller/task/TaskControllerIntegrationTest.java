@@ -65,7 +65,7 @@ class TaskControllerIntegrationTest {
     void testListTasks() throws Exception {
         mockMvc.perform(get(String.format("/connections/%s/tasks", FAKE_CONNECTION)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(2)))
                 .andExpect(jsonPath("payload[0].name", is(TASK_NAME_1)))
@@ -78,7 +78,7 @@ class TaskControllerIntegrationTest {
 
         mockMvc.perform(get(String.format("/connections/%s/tasks?filter=%s", FAKE_CONNECTION, filter)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(1)))
                 .andExpect(jsonPath("payload[0].name", is(TASK_NAME_1)));
@@ -88,14 +88,14 @@ class TaskControllerIntegrationTest {
     void testGetTask() throws Exception {
         mockMvc.perform(get(String.format("/connections/%s/tasks/%s", FAKE_CONNECTION, TASK_ID_1)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.id", is(TASK_ID_1)))
                 .andExpect(jsonPath("payload.name", is(TASK_NAME_1)));
 
         mockMvc.perform(get(String.format("/connections/%s/tasks/%s", FAKE_CONNECTION, TASK_ID_2)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.id", is(TASK_ID_2)))
                 .andExpect(jsonPath("payload.name", is(TASK_NAME_2)));
@@ -105,6 +105,6 @@ class TaskControllerIntegrationTest {
     void testGetTaskShouldThrowNotFound() throws Exception {
         mockMvc.perform(get(String.format("/connections/%s/tasks/%s", FAKE_CONNECTION, UUID.randomUUID())))
                 .andDo(print()).andExpect(status().isNotFound())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 }

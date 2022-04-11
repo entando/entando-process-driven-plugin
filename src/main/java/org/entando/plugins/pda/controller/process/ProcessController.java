@@ -13,9 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
 import org.entando.plugins.pda.core.model.ProcessDefinition;
+import org.entando.plugins.pda.core.response.SimpleRestResponse;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.service.ConnectionService;
-import org.entando.web.response.SimpleRestResponse;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "Process")
 @RequestMapping(path = "/connections/{connId}/processes")
 @RequiredArgsConstructor
+@SuppressWarnings("PMD.CloseResource")
 public class ProcessController {
 
     private final ConnectionService connectionService;

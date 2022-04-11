@@ -9,9 +9,13 @@ target/
 bin/
 
 ########
-.ent-prj
+.ent/ent-state
+
 
 ####
 bundle/
 
-.ent-state
+####
+bundle/
+
+.ent/ent-state

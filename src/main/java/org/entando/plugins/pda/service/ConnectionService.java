@@ -1,7 +1,7 @@
 package org.entando.plugins.pda.service;
 
-import static org.entando.web.request.PagedListRequest.DIRECTION_VALUE_DEFAULT;
-import static org.entando.web.request.PagedListRequest.SORT_VALUE_DEFAULT;
+import static org.entando.plugins.pda.core.request.PagedListRequest.DIRECTION_VALUE_DEFAULT;
+import static org.entando.plugins.pda.core.request.PagedListRequest.SORT_VALUE_DEFAULT;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,16 +9,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.core.engine.Engine;
+import org.entando.plugins.pda.core.exception.BadRequestException;
+import org.entando.plugins.pda.core.request.PagedListRequest;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
 import org.entando.plugins.pda.engine.EngineFactory;
 import org.entando.plugins.pda.mapper.ConnectionConfigMapper;
 import org.entando.plugins.pda.model.ConnectionConfig;
-import org.entando.web.exception.BadRequestException;
-import org.entando.web.request.PagedListRequest;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
+@SuppressWarnings("PMD.CloseResource")
 public class ConnectionService {
 
     public static final String OK = "OK";

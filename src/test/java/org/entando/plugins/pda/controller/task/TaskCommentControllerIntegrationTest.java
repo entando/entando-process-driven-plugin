@@ -147,7 +147,7 @@ class TaskCommentControllerIntegrationTest {
                 .content(mapper.writeValueAsString(request)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.text", is(newComment)))
                 .andReturn();
@@ -158,7 +158,7 @@ class TaskCommentControllerIntegrationTest {
                 .replace("{taskId}", TASK_ID_2)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(TASK_COMMENTS_2.length + 1)));
 
@@ -167,7 +167,7 @@ class TaskCommentControllerIntegrationTest {
                 .replace("{commentId}", commentId)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload", is(commentId)));
 
@@ -175,7 +175,7 @@ class TaskCommentControllerIntegrationTest {
                 .replace("{taskId}", TASK_ID_2)))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(jsonPath("payload.size()", is(TASK_COMMENTS_2.length)))
                 .andExpect(jsonPath("payload[0].id", is(TASK_COMMENT_ID_2_1)))

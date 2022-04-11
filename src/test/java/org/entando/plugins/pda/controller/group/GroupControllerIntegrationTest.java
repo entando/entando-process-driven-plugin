@@ -78,7 +78,7 @@ class GroupControllerIntegrationTest {
 
         mockMvc.perform(get(String.format("/connections/%s/groups", FAKE_CONNECTION)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(MockMvcResultMatchers
                         .jsonPath("payload", containsInAnyOrder(GROUP_1, GROUP_2, GROUP_3, GROUP_4)));
@@ -92,7 +92,7 @@ class GroupControllerIntegrationTest {
         mockMvc.perform(get(String
                 .format("/connections/%s/groups?processId=%s", FAKE_CONNECTION, processId)))
                 .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("errors", hasSize(0)))
                 .andExpect(MockMvcResultMatchers.jsonPath("payload", containsInAnyOrder(GROUP_1, GROUP_2)));
     }
