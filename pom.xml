@@ -125,14 +125,14 @@
         <dependency>
             <groupId>org.entando</groupId>
             <artifactId>pda-core-engine</artifactId>
-            <version>1.0.0-PDA-308-PR-49</version>
+            <version>1.0.0-PDA-309-PR-50</version>
         </dependency>
 
         <!-- BPM Engines -->
         <dependency>
             <groupId>org.entando</groupId>
             <artifactId>pda-redhatpam-engine</artifactId>
-            <version>1.0.0-PDA-308-PR-51</version>
+            <version>1.0.0-PDA-309-PR-52</version>
         </dependency>
         <!-- BPM Engines -->
 
@@ -140,7 +140,7 @@
         <dependency>
             <groupId>org.entando</groupId>
             <artifactId>pda-core-engine</artifactId>
-            <version>1.0.0-PDA-308-PR-49</version>
+            <version>1.0.0-PDA-309-PR-50</version>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
