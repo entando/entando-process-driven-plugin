@@ -6,7 +6,8 @@ import static org.entando.plugins.pda.service.ConnectionConfigService.CONFIG_YAM
 import com.google.common.collect.ImmutableMap;
 import io.fabric8.kubernetes.api.model.HasMetadata;
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
-import io.fabric8.kubernetes.api.model.apiextensions.CustomResourceDefinition;
+import io.fabric8.kubernetes.api.model.SecretBuilder;
+import io.fabric8.kubernetes.api.model.apiextensions.v1.CustomResourceDefinition;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.internal.KubernetesDeserializer;
 import java.io.IOException;
@@ -15,11 +16,9 @@ import java.util.Collections;
 import java.util.List;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.entando.kubernetes.model.DbmsVendor;
-import org.entando.kubernetes.model.plugin.DoneableEntandoPlugin;
+import org.entando.kubernetes.model.common.DbmsVendor;
 import org.entando.kubernetes.model.plugin.EntandoPlugin;
 import org.entando.kubernetes.model.plugin.EntandoPluginBuilder;
-import org.entando.kubernetes.model.plugin.EntandoPluginList;
 import org.entando.kubernetes.model.plugin.PluginSecurityLevel;
 import org.entando.plugins.pda.core.engine.Connection;
 import org.entando.plugins.pda.dto.connection.ConnectionDto;
@@ -63,30 +62,27 @@ public class EntandoPluginTestHelper {
 
         CustomResourceDefinition entandoPluginCrd = createEntandoPluginCrd(client);
 
-        client.customResources(entandoPluginCrd, EntandoPlugin.class, EntandoPluginList.class,
-                DoneableEntandoPlugin.class)
+        client.customResources(EntandoPlugin.class)
                 .inNamespace(client.getConfiguration().getNamespace())
                 .createOrReplace(entandoPlugin);
     }
 
     public static EntandoPlugin getEntandoPlugin(KubernetesClient client, String entandoPluginName) {
-        CustomResourceDefinition definition = getEntandoPluginCrd(client);
         return client
-                .customResources(definition, EntandoPlugin.class, EntandoPluginList.class, DoneableEntandoPlugin.class)
+                .customResources(EntandoPlugin.class)
                 .inNamespace(client.getConfiguration().getNamespace())
                 .withName(entandoPluginName).get();
     }
 
     public static CustomResourceDefinition getEntandoPluginCrd(KubernetesClient client) {
-        return client.customResourceDefinitions()
+        return client.apiextensions().v1().customResourceDefinitions()
                 .withName(EntandoPlugin.CRD_NAME).get();
     }
 
     public static void deleteEntandoPlugin(KubernetesClient client, String entandoPluginName) {
         CustomResourceDefinition definition = getEntandoPluginCrd(client);
         if (definition != null) {
-            client.customResources(definition, EntandoPlugin.class, EntandoPluginList.class,
-                    DoneableEntandoPlugin.class)
+            client.customResources(EntandoPlugin.class)
                     .inNamespace(client.getConfiguration().getNamespace())
                     .withName(entandoPluginName).delete();
         }
@@ -102,25 +98,24 @@ public class EntandoPluginTestHelper {
     }
 
     public static CustomResourceDefinition createEntandoPluginCrd(KubernetesClient client) throws IOException {
-        CustomResourceDefinition entandoPluginCrd = client.customResourceDefinitions().withName(EntandoPlugin.CRD_NAME)
+        CustomResourceDefinition entandoPluginCrd = client.apiextensions().v1().customResourceDefinitions().withName(EntandoPlugin.CRD_NAME)
                 .get();
         if (entandoPluginCrd == null) {
             List<HasMetadata> list = client.load(new ClassPathResource(ENTANDO_PLUGIN_CRD).getInputStream())
                     .get();
             entandoPluginCrd = (CustomResourceDefinition) list.get(0);
             // see issue https://github.com/fabric8io/kubernetes-client/issues/1486
-            entandoPluginCrd.getSpec().getValidation().getOpenAPIV3Schema().setDependencies(null);
-            return client.customResourceDefinitions().createOrReplace(entandoPluginCrd);
+            entandoPluginCrd.getSpec().getVersions().stream().forEach(x -> x.getSchema().getOpenAPIV3Schema().setDependencies(null));
+            return client.apiextensions().v1().customResourceDefinitions().createOrReplace(entandoPluginCrd);
         }
         return entandoPluginCrd;
     }
 
     public static void createSecret(KubernetesClient client, ConnectionConfig configDto) {
-        client.secrets().createNew()
-                .withApiVersion(API_VERSION)
+        client.secrets().create(new SecretBuilder().withApiVersion(API_VERSION)
                 .withNewMetadata().withName(configDto.getName()).endMetadata()
-                .withStringData(Collections.singletonMap(CONFIG_YAML, YamlUtils.toYaml(configDto)))
-                .done();
+                .withStringData(Collections.singletonMap(CONFIG_YAML, YamlUtils.toYaml(configDto))).build());
+
     }
 
     public void setupEntandoPluginAndSecret(KubernetesClient client, String connectionName, String pluginName) throws IOException {

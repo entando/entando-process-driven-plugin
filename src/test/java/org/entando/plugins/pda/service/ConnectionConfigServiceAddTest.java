@@ -6,13 +6,11 @@ import static org.entando.plugins.pda.service.ConnectionConfigService.PROCESSING
 import static org.entando.plugins.pda.util.EntandoPluginTestHelper.ENTANDO_PLUGIN_NAME;
 
 import io.fabric8.kubernetes.api.model.Secret;
-import io.fabric8.kubernetes.api.model.apiextensions.CustomResourceDefinition;
+import io.fabric8.kubernetes.api.model.apiextensions.v1.CustomResourceDefinition;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.server.mock.EnableKubernetesMockClient;
 import org.assertj.core.api.Assertions;
-import org.entando.kubernetes.model.plugin.DoneableEntandoPlugin;
 import org.entando.kubernetes.model.plugin.EntandoPlugin;
-import org.entando.kubernetes.model.plugin.EntandoPluginList;
 import org.entando.plugins.pda.core.exception.ConflictException;
 import org.entando.plugins.pda.core.exception.NotFoundException;
 import org.entando.plugins.pda.model.ConnectionConfig;
@@ -70,7 +68,7 @@ class ConnectionConfigServiceAddTest {
         // Then
         CustomResourceDefinition definition = EntandoPluginTestHelper.getEntandoPluginCrd(client);
         EntandoPlugin retrievedPlugin = client
-                .customResources(definition, EntandoPlugin.class, EntandoPluginList.class, DoneableEntandoPlugin.class)
+                .customResources(EntandoPlugin.class)
                 .withName(ENTANDO_PLUGIN_NAME).get();
         assertThat(retrievedPlugin.getSpec().getConnectionConfigNames()).contains(configDto.getName());
     }

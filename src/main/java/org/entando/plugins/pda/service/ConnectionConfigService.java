@@ -14,12 +14,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
-import org.entando.kubernetes.model.plugin.DoneableEntandoPlugin;
 import org.entando.kubernetes.model.plugin.EntandoPlugin;
-import org.entando.kubernetes.model.plugin.EntandoPluginOperationFactory;
 import org.entando.kubernetes.model.plugin.EntandoPluginSpec;
 import org.entando.kubernetes.model.plugin.EntandoPluginSpecBuilder;
-import org.entando.plugins.pda.core.exception.ConflictException;
 import org.entando.plugins.pda.core.exception.NotFoundException;
 import org.entando.plugins.pda.model.ConnectionConfig;
 import org.entando.plugins.pda.util.YamlUtils;
@@ -75,15 +72,7 @@ public class ConnectionConfigService {
         Secret secret = client.secrets().inNamespace(client.getConfiguration().getNamespace())
                 .withName(connectionConfig.getName())
                 .get();
-        if (secret != null) {
-            throw new ConflictException(ERROR_SECRET_ALREADY_EXISTS);
-        }
-        client.secrets().inNamespace(client.getConfiguration().getNamespace()).createNew()
-                .withApiVersion(API_VERSION)
-                .withNewMetadata().withName(connectionConfig.getName()).endMetadata()
-                .withStringData(Collections.singletonMap(CONFIG_YAML, YamlUtils.toYaml(connectionConfig)))
-                .withType(OPAQUE_TYPE)
-                .done();
+        client.secrets().inNamespace(client.getConfiguration().getNamespace()).createOrReplace(secret);
     }
 
     private void ensureAnnotations(EntandoPlugin entandoPlugin) {
@@ -145,9 +134,9 @@ public class ConnectionConfigService {
         throw new NotFoundException(ERROR_SECRET_NOT_FOUND);
     }
 
-    private Resource<EntandoPlugin, DoneableEntandoPlugin> entandoPlugin() {
-        return EntandoPluginOperationFactory.produceAllEntandoPlugins(client)
-                .inNamespace(client.getConfiguration().getNamespace()).withName(entandoPluginName);
+    private Resource<EntandoPlugin> entandoPlugin() {
+        return client.customResources(EntandoPlugin.class).inNamespace(client.getConfiguration().getNamespace())
+                .withName(entandoPluginName);
     }
 
     public ConnectionConfig editConnectionConfig(ConnectionConfig configDto) {

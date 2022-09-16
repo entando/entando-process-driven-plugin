@@ -108,7 +108,7 @@
         <sonar.projectKey>${github.organization}_${project.artifactId}</sonar.projectKey>
         <!--        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>-->
         <sonar.java.checkstyle.reportPaths>target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
-        <fabric8.version>4.10.3</fabric8.version>
+        <fabric8.version>5.3.2</fabric8.version>
     </properties>
 
     <dependencies>
