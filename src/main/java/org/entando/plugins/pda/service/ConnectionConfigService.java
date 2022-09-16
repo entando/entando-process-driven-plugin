@@ -29,8 +29,7 @@ public class ConnectionConfigService {
 
     public static final String API_VERSION = "v1";
     public static final String CONFIG_YAML = "config.yaml";
-    private static final String OPAQUE_TYPE = "Opaque";
-
+    
     public static final String ERROR_PLUGIN_NOT_FOUND = "org.entando.error.plugin.notFound";
     public static final String ERROR_SECRET_NOT_FOUND = "org.entando.error.secret.notFound";
     public static final String ERROR_SECRET_ALREADY_EXISTS = "org.entando.error.secret.alreadyExists";
