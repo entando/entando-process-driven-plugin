@@ -1,0 +1,341 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: entandoplugins.entando.org
+spec:
+  group: entando.org
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      subresources:
+        status: {}
+      additionalPrinterColumns:
+        - name: Phase
+          type: string
+          jsonPath: .status.entandoDeploymentPhase
+        - name: Observed Generation
+          type: number
+          jsonPath: .status.observedGeneration
+        - name: Age
+          type: date
+          jsonPath: .metadata.creationTimestamp
+        - name: Host
+          type: string
+          jsonPath: .spec.ingressHostName
+        - name: Image
+          type: string
+          jsonPath: .spec.image
+        - name: DBMS
+          type: string
+          jsonPath: .spec.dbms
+        - name: Replicas
+          type: integer
+          jsonPath: .spec.replicas
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                image:
+                  description: The Docker image URI where the container of this EntandoPlugin microservice can be found.
+                  type: string
+                replicas:
+                  description: The number of pods that should participate in the cluster of Plugin microservices.
+                  type: integer
+                  minimum: 1
+                  maximum: 10
+                dbms:
+                  description: >
+                    The database management system (DBMS) to use for persistence of this EntandoPlugin microservice. Can be any of mysql, oracle
+                    postgresql, embedded or none. Set this to 'none' if this EntandoPlugin microservice does not require a database.
+                    When 'embedded' is used, an in-process H2 database will be used and mounted on
+                    a persistent volume. Since the supporting database files can only be opened by one process at a time,
+                    only 1 replica can be supported when the value is 'embedded'. If an EntandoDatabaseService has been
+                    deployed in this EntandoPlugin's namespace, and the DBMS specified on this EntandoDatabaseService
+                    is the same as the DBMS specified on this EntandoPlugin, the Entando Operator will create a dedicated
+                    schema (in the case of PostgreSQL or Oracle), or a database in the case of MySQL for this EntandoPlugin
+                    to persist its data. If a matching EntandoDatabaseService does not exist in this namespace, the Entando Operator
+                    will automatically deploy the appropriate container to host the DBMS specified. This last option is not
+                    yet supported for Oracle.
+                  type: string
+                  pattern: '^(mysql|oracle|postgresql|embedded|none)$'
+                ingressHostName:
+                  description: >
+                    The hostname that will be used to access this EntandoPlugin microservice from outside the cluster. The Entando
+                    Operator will create an Ingress reflecting this hostname, and expose the microservice on the
+                    path specified in 'EntandoPlugin.spec.ingressPath' on
+                    this host. If omitted, the Entando Operator will automatically generate a hostname using the value of
+                    the ENTANDO_DEFAULT_ROUTING_SUFFIX environment variable that the Entando Operator was configured with.
+                    It will prefix the name and namespace of the EntandoPlugin to this default routing suffix.
+                  type: string
+                  pattern: '^([A-Za-z0-9-]{1,63}\.)*[[A-Za-z0-9-]{1,63}$'
+                ingressPath:
+                  description: >
+                    The path that will be used to expose this EntandoPlugin microservice on the ingress host
+                    specified in 'EntandoPlugin.spec.ingressHostname'. This property will also be used to specify
+                    the SERVER_SERVLET_CONTEXT_PATH environment variable for the Spring Boot application inside this
+                    container.
+                  type: string
+                tlsSecretName:
+                  description: >
+                    The name of a standard Kubernetes TLS Secret, assumed to be in the same Namespace as the EntandoPlugin
+                    being created. This Secret is expected to have a private key, and a certificate for the hostname that
+                    the EntandoPlugin microservice will be exposed on. Please refer to the 'ingressHostname' property for more
+                    information on how the hostname is determined. If absent, the Entando Operator will evaluate the
+                    value of the ENTANDO_PATH_TO_TLS_KEYPAIR which is expected to contain two files: tls.key and tls.crt.
+                    If a keypair is found in the folder specified, it will revert to the keypair found. Alternatively,
+                    the Entando Operator will evaluate the value of the ENTANDO_USE_AUTO_CERT_GENERATION. If set to 'true'
+                    the Entando Operator will assume that the cluster has been configured with a valid CA and leave it to
+                    the Ingress controller in use to generate its own certificates.
+                  type: string
+                  pattern: '^([a-z])+([a-z0-9-\.])*[a-z0-9]$'
+                serviceAccountToUse:
+                  description: >
+                    The Kubernetes ServiceAccount in the Namespace of the EntandoPlugin that is to be used for
+                    the Pods hosting the EntandoPlugin microservices. The default is 'entando-plugin'.
+                    This is mainly relevant when using the
+                    entando-k8s-plugin-sidecar image as a companion container. This image needs access to the
+                    underlying EntandoPlugin custom resource.
+                  type: string
+                  pattern: '^([a-z])+([a-z0-9-\.])*[a-z0-9]$'
+                environmentVariables:
+                  description: >
+                    A list of environment variable following the standard structure of Kubernetes Environment Variables
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      value:
+                        type: string
+                      valueFrom:
+                        type: object
+                        properties:
+                          configMapKeyRef:
+                            type: object
+                            properties:
+                              name:
+                                description: Name of a ConfigMap in the same namespace as the EntandoPlugin
+                                type: string
+                              key:
+                                description: Key of the ConfigMap entry in that holds the value to be used for the EnvironmentVariable
+                                type: string
+                          fieldRef:
+                            type: object
+                            properties:
+                              apiVersion:
+                                description: Version of the API to used for the field expression
+                                type: string
+                              fieldPath:
+                                description: Full expression starting from the Pod resource
+                                type: string
+                          resourceFieldRef:
+                            type: object
+                            properties:
+                              containerName:
+                                description: Name of the container to use
+                                type: string
+                              resource:
+                                description: Name of the resource to use
+                                type: string
+                          secretKeyRef:
+                            type: object
+                            properties:
+                              name:
+                                description: Name of a Secret in the same namespace as the EntandoPlugin
+                                type: string
+                              key:
+                                description: Key of the Secret entry in that holds the value to be used for the EnvironmentVariable
+                                type: string
+                resourceRequirements:
+                  description: >
+                    The projected resource requirements of the given EntandoPlugin microservice deployment. Specifies the limits that the
+                    container is expected to respect, and the size of requests that will be initiated on behalf of the
+                    container. When omitted our known defaults will be applied.
+                  type: object
+                  properties:
+                    storageRequest:
+                      description: >
+                        Size of persistent storage that will be requested when deployed. Can be omitted. Supported only
+                        by a small subset of Kubernetes storage providers.
+                      type: string
+                    storageLimit:
+                      description: >
+                        The maximum amount of persistent storage require by the EntandoPlugin microservice. Mainly used
+                        when the 'embedded' DBMS option is used. Limits and requests for memory are measured in bytes. You can
+                        express storage as a plain integer using one of these suffixes: T, G, M, K. You can also
+                        use the power-of-two equivalents: Ti, Gi, Mi, Ki.
+                      type: string
+                    memoryRequest:
+                      description: >
+                        The amount of memory that will be requested when deployed. A pod will only be deployed to a node
+                        that has this amount of memory available. You can  express memory as a plain integer using one of
+                        these suffixes: T, G, M, K. You can also use the power-of-two equivalents: Ti, Gi, Mi, Ki.
+                      type: string
+                    memoryLimit:
+                      description: >
+                        The maximum amount of memory that the container is expected to use. Kubernetes will limit the amount
+                        of memory to the container the to amount specified. You can  express memory as a plain integer using one of
+                        these suffixes: T, G, M, K. You can also use the power-of-two equivalents: Ti, Gi, Mi, Ki.
+                      type: string
+                    cpuRequest:
+                      description: >
+                        The amount of CPU units that will be requested from a node at deployment time. A pod will only be
+                        deployed to a node if the node has this amount of CPU units available. Supports decimal numbers, or
+                        alternatively the suffix 'm' can be used to specify a milicore. Precision lower than 1m is not supported.
+                      type: string
+                    cpuLimit:
+                      description: >
+                        The maximum amount of CPU units that will be required by the container.Supports decimal numbers, or
+                        alternatively the suffix 'm' can be used to specify a milicore. Precision lower than 1m is not supported.
+                      type: string
+                    fileUploadLimit:
+                      description: >
+                        The maximum file upload size. This limit will be enforced by NGINX compliant Ingress controllers.
+                        The suffix 'm' allows the limit to be specified in megabytes, eg. '120m'.
+                      type: string
+                keycloakToUse:
+                  type: object
+                  description: >
+                    The properties of this object configure which Keycloak server this EntandoPlugin microservice will be using,
+                    and allows the user to override the default Realm and PublicClientID to use.
+                  properties:
+                    realm:
+                      description: >
+                        The realm that will be used to create the OIDC Client for this EntandoPlugin microservice. If omitted, the
+                        default realm will be 'Entando'. If another realm is specified, and it doesn't exist by
+                        the time the EntandoPlugin microservice is deployed, the realm will be created on demand.
+                      type: string
+                    publicClientId:
+                      description: >
+                        The Client ID for the Public client that will be created this EntandoPlugin microservice.
+                        Only required if this microservice should be accessible from outside the cluster. The
+                        default is 'entando-web'.
+                      type: string
+                    name:
+                      description: >
+                        The name of the EntandoKeycloakServer to use as OIDC provider. If no name is provided, the
+                        Entando Operator will then look for any EntandoKeycloakServer in the same Namespace as this
+                        EntandoPlugin microservice and use it as OIDC provider. If no EntandoKeycloakServer is found,
+                        it will then use the (last) EntandoKeycloakServer that was marked as the cluster wide  default
+                        using the property EntandoKeycloakServer.spec.isDefault.
+                      type: string
+                    namespace:
+                      description: >
+                        The Namespace of the EntandoKeycloakServer to use as OIDC provider. This value is only
+                        evaluated if the 'spec.keycloakToUse.name' property has been set on this
+                        EntandoClusterInfrastructure.  If no Namespace is provided,
+                        but a name was provided, the Entando Operator will then look for the
+                        EntandoKeycloakServer with the name specified in the same Namespace as this
+                        EntandoPlugin microservice and use it as OIDC provider.
+                      type: string
+                clusterInfrastructureToUse:
+                  type: object
+                  description: >
+                    The properties of this object configure which Entando K8S Service will be used.
+                  properties:
+                    name:
+                      description: >
+                        The name of the EntandoClusterInfrastructure to use as Entando K8S Service. If no name is provided, the
+                        Entando Operator will then look for any EntandoClusterInfrastructure in the same Namespace as this
+                        EntandoPlugin microservice and use it. If no EntandoClusterInfrastructure is found,
+                        it will then use the (last) EntandoClusterInfrastructure that was marked as the cluster wide  default
+                        using the property EntandoClusterInfrastructure.spec.isDefault.
+                      type: string
+                    namespace:
+                      description: >
+                        The Namespace of the EntandoClusterInfrastructure to use. This value is only
+                        evaluated if the 'spec.clusterInfrastructureToUse.name' property has been set on this
+                        EntandoPlugin.  If no Namespace is provided,
+                        but a name was provided, the Entando Operator will then look for the
+                        EntandoClusterInfrastructure with the name specified in the same Namespace as this
+                        EntandoPlugin microservice and use it.
+                      type: string
+                healthCheckPath:
+                  description: >
+                    A path that will be appended to the 'EntandoPlugin.spec.ingressPath' and used to determine whether
+                    this EntandoPlugin microservice is ready to consume HTTP traffic. The service is considered ready
+                    when it returns an HTTP code in the 200 range.
+                  type: string
+                securityLevel:
+                  type: string
+                  description: >
+                    One of 'STRICT' or 'LENIENT'.
+
+                    In 'STRICT' mode, the Entando Plugin Sidecar will not be deployed in
+                    this EntandoPlugin microservice Pod. Secrets will be statically mounted in the EntandoPlugin microservice
+                    container, and will be accessed as files.
+
+                    In 'LENIENT' mode, the Entando Plugin Sidecar will be deployed, and it will be used to setup
+                    Secrets that are used to connect to external services. This requires read/write access to Secrets
+                    in the same namespace as the EntandPlugin microservice.
+                connectionConfigNames:
+                  type: array
+                  items:
+                    type: string
+                  description: >
+                    A list of the names of Secrets that are associated with this EntandoPlugin microservice. These
+                    Secrets will be automatically mounted in the /etc/entando/connectionconfigs folder in the
+                    EntandoPlugin microservice container.
+                companionContainers:
+                  type: array
+                  items:
+                    type: string
+                  description: >
+                    A list of known containers that can be deployed in the same Pod as this EntandoPlugin microservice.
+                    Only the entando-plugin-sidecar container is currently supported.
+                roles:
+                  type: array
+                  description: >
+                    A list of roles required by this EntandoPlugin microservice. These roles will be created
+                    automatically in Keycloak.
+                  items:
+                    type: object
+                    properties:
+                      code:
+                        description: A short code used to identify this role.
+                        type: string
+                      name:
+                        description: A human readible name used to identify this role.
+                        type: string
+                permissions:
+                  type: array
+                  description: >
+                    A list of permissions that this EntandoPlugin microservice requires on existing Keycloak OIDC clients
+                    in the cluster. This is only required if this EntandoPlugin microservice needs to talk to Keycloak
+                    itself, or to other EntandoPlugin microservices in the cluster. For each permission configured, the
+                    Entando Operator will assign the role specified to the Keycloak service account user associated
+                    with the OIDC client that was created for this EntandoPlugin microservice.
+                  items:
+                    type: object
+                    properties:
+                      clientId:
+                        description: >
+                          The clientId of the other deployment (Keycloak, microservice) that this EntandoPlugin microservice
+                          needs access too.
+                        type: string
+                      role:
+                        description: >
+                          The role required on the OIDC client of the service that this EntandoPlugin microservice
+                          needs access too.
+                        type: string
+            status:
+              type: object
+              properties:
+                observedGeneration:
+                  type: number
+                entandoDeploymentPhase:
+                  type: string
+                serverStatuses:
+                  type: object
+                  x-kubernetes-preserve-unknown-fields: true
+  names:
+    kind: EntandoPlugin
+    plural: entandoplugins
+    shortNames:
+      - eps
+  scope: Namespaced
