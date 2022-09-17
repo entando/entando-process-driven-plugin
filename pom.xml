@@ -347,7 +347,7 @@
                 <configuration>
                     <allowInsecureRegistries>true</allowInsecureRegistries>
                     <from>
-                        <image>openjdk:8-jre-alpine</image>
+                        <image>openjdk:11</image>
                     </from>
                     <to>
                         <image>${jib.registry}/entando/${project.artifactId}:${project.version}</image>
