@@ -1,5 +1,6 @@
 package org.entando.plugins.pda.service;
 
+import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.kubernetes.api.model.Secret;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.dsl.Resource;
@@ -17,6 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.entando.kubernetes.model.plugin.EntandoPlugin;
 import org.entando.kubernetes.model.plugin.EntandoPluginSpec;
 import org.entando.kubernetes.model.plugin.EntandoPluginSpecBuilder;
+import org.entando.plugins.pda.core.exception.ConflictException;
 import org.entando.plugins.pda.core.exception.NotFoundException;
 import org.entando.plugins.pda.model.ConnectionConfig;
 import org.entando.plugins.pda.util.YamlUtils;
@@ -29,7 +31,8 @@ public class ConnectionConfigService {
 
     public static final String API_VERSION = "v1";
     public static final String CONFIG_YAML = "config.yaml";
-    
+    private static final String OPAQUE_TYPE = "Opaque";
+
     public static final String ERROR_PLUGIN_NOT_FOUND = "org.entando.error.plugin.notFound";
     public static final String ERROR_SECRET_NOT_FOUND = "org.entando.error.secret.notFound";
     public static final String ERROR_SECRET_ALREADY_EXISTS = "org.entando.error.secret.alreadyExists";
@@ -71,7 +74,21 @@ public class ConnectionConfigService {
         Secret secret = client.secrets().inNamespace(client.getConfiguration().getNamespace())
                 .withName(connectionConfig.getName())
                 .get();
-        client.secrets().inNamespace(client.getConfiguration().getNamespace()).createOrReplace(secret);
+        if (secret != null) {
+            throw new ConflictException(ERROR_SECRET_ALREADY_EXISTS);
+        }
+
+        ObjectMeta meta = new ObjectMeta();
+        meta.setName(connectionConfig.getName());
+
+        secret = new Secret();
+        secret.setApiVersion(API_VERSION);
+        secret.setMetadata(meta);
+        secret.setStringData(Collections.singletonMap(CONFIG_YAML, YamlUtils.toYaml(connectionConfig)));
+        secret.setType(OPAQUE_TYPE);
+        client.secrets().inNamespace(client.getConfiguration().getNamespace())
+                .withName(connectionConfig.getName()).create(secret);
+
     }
 
     private void ensureAnnotations(EntandoPlugin entandoPlugin) {
