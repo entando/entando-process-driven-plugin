@@ -15,7 +15,7 @@ Jenkins X:
 
 # Introduction
 
-For more information and documentation visit: https://dev.entando.org, or https://forum.entando.org. Or for the latest
+For more information and documentation visit: https://developer.entando.com, or https://forum.entando.org. Or for the latest
 news or product information please visit the main website: https://www.entando.com.
 
 Information below is for running locally or building from source. For usage information see the links above.
@@ -71,19 +71,16 @@ Latest version deployed on Docker Hub:
 
 ## Configuration and Manual Steps
 ### Initial Deploy
-1. (Entando 6.3.0 only) Edit the ENTANDO_PLUGIN_SECURITY_LEVEL to change it from STRICT to LENIENT.
-``` kubectl edit deploy/entando-pda-plugin-server-deployment```
-2. Log in to Keycloak as an admin and add the PDA roles to your user account. 
+1. Log in to Keycloak as an admin and add the PDA roles to your user account. 
    * Go to `Users → admin → Role Mappings` and add the roles for the 
 entando-pda-plugin-server
-   * (Entando 6.3.0 only) Also add the connection-config role for the entando-pda-plugin-sidecar.
-3. Log in to the App Builder and configure the PDA Connection. 
+2. Log in to the App Builder and configure the PDA Connection. 
    * The Page Templates hardcode the name of the datasource. You can choose to change the name there or simply use 'pam-demo' as the connection name.
    * Set the engine to 'pam' which will work for jBPM or PAM.
    * Provide your connection URL to the KIE Server rest services, e.g  http://my.server.net:8080/kie-server/services/rest/server
    * Username/password should be for a service account user in jBPM or PAM itself, e.g. krisv.
    * The Timeout is in milliseconds, e.g. 60000.
-4. (If you didn't use pam-demo as your datasource name) Go to `Pages → Management` and for the following pages configure the data source for their widgets. Click `Design` on the page, then `Settings` on any widgets with `Settings` to review and update the config settings.
+3. (If you didn't use pam-demo as your datasource name) Go to `Pages → Management` and for the following pages configure the data source for their widgets. Click `Design` on the page, then `Settings` on any widgets with `Settings` to review and update the config settings.
    * PDA Dashboard
    * PDA Process Definition
    * PDA Smart Inbox
