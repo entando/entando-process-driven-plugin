@@ -1,7 +1,7 @@
-import { METHODS, DOMAINS } from 'api/constants';
-import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
-import WIDGET_CONFIG_MOCKUPS from 'mocks/app-builder/pages';
-import makeRequest from 'api/makeRequest';
+import { METHODS, DOMAINS } from '../constants';
+import WIDGETS_CONFIG from '../../mocks/app-builder/widgets';
+import WIDGET_CONFIG_MOCKUPS from '../../mocks/app-builder/pages';
+import makeRequest from '../makeRequest';
 
 // used to fetch mock response using frameId, it depends on WIDGETS_CONFIG setup
 const getWidgetConfigMockResponse = frameId => {

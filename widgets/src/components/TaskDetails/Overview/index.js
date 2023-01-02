@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 
-import OverviewHeader from 'components/TaskDetails/Overview/OverviewHeader';
-import OverviewDetails from 'components/TaskDetails/Overview/OverviewDetails';
-import OverviewSkeleton from 'components/TaskDetails/Overview/OverviewSkeleton';
-import WidgetBox from 'components/common/WidgetBox';
+import OverviewHeader from './OverviewHeader';
+import OverviewDetails from './OverviewDetails';
+import OverviewSkeleton from './OverviewSkeleton';
+import WidgetBox from '../../common/WidgetBox';
 
 const Overview = ({ task, loadingTask, headerLabel, taskLink }) => {
   return (

@@ -13,7 +13,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Link from '@material-ui/core/Link';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import ConfirmDialog from 'components/common/ConfirmDialog';
+import ConfirmDialog from '../common/ConfirmDialog';
 
 const styles = {
   listItem: {

@@ -1,4 +1,4 @@
-import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
+import { compareDates, compareNumbers, compareStrings } from '../../components/common/Table/utils';
 import tasks from './tasks.json';
 
 export default function(page, rowsPerPage, sortedColumn, sortOrder = 'asc', filter) {

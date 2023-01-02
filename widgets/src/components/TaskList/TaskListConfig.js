@@ -2,16 +2,16 @@ import React from 'react';
 import i18next from 'i18next';
 import { FormGroup, ControlLabel, Checkbox, HelpBlock, Row, Col } from 'patternfly-react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
-import arrayMove from 'array-move';
+import { arrayMoveMutable } from 'array-move';
 import { withStyles } from '@material-ui/core/styles';
 
-import { getConnections } from 'api/pda/connections';
-import { getGroups } from 'api/pda/groups';
-import { getColumns } from 'api/pda/tasks';
-import { normalizeConfigColumns, normalizeConfigGroups } from 'components/TaskList/normalizeData';
-import taskListConfigType from 'types/taskListConfigType';
-import RenderSwitch from 'components/common/RenderSwitch';
-import Notification from 'components/common/Notification';
+import { getConnections } from '../../api/pda/connections';
+import { getGroups } from '../../api/pda/groups';
+import { getColumns } from '../../api/pda/tasks';
+import { normalizeConfigColumns, normalizeConfigGroups } from './normalizeData';
+import taskListConfigType from '../../types/taskListConfigType';
+import RenderSwitch from '../common/RenderSwitch';
+import Notification from '../common/Notification';
 
 const generalOptions = [
   {
@@ -186,7 +186,7 @@ class TaskListConfig extends React.Component {
     this.setState(({ config }) => ({
       config: {
         ...config,
-        columns: arrayMove(config.columns, oldIndex, newIndex).map((column, i) => ({
+        columns: arrayMoveMutable(config.columns, oldIndex, newIndex).map((column, i) => ({
           ...column,
           position: i,
         })),

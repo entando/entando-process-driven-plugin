@@ -2,8 +2,8 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Attachments from 'components/Attachments/AttachmentsContainer';
-import { addCustomEventListener, GE_ON_SELECT_TASK } from 'custom-elements/customEventsUtils';
+import Attachments from '../components/Attachments/AttachmentsContainer';
+import { addCustomEventListener, GE_ON_SELECT_TASK } from './customEventsUtils';
 
 const ATTRIBUTES = {
   id: 'id',

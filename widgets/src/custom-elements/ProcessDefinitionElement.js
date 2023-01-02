@@ -2,8 +2,8 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ProcessDefinition from 'components/ProcessDefinition/ProcessDefinitionContainer';
-import { createWidgetEvent } from 'custom-elements/customEventsUtils';
+import ProcessDefinition from '../components/ProcessDefinition/ProcessDefinitionContainer';
+import { createWidgetEvent } from './customEventsUtils';
 
 const CUSTOM_EVENT_PREFIX = 'processdefinition';
 const ON_SUBMIT_FORM = `${CUSTOM_EVENT_PREFIX}.onSubmitForm`;

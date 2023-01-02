@@ -6,14 +6,14 @@ import { MuiThemeProvider as ThemeProvider, withStyles } from '@material-ui/core
 import { Paper, Typography, Grid, Box, Tabs, Tab, Divider } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-import theme from 'theme';
-import BarAreaChart from 'components/OvertimeGraph/BarAreaChart';
-import DataSummary from 'components/OvertimeGraph/DataSummary';
-import CustomEventContext from 'components/OvertimeGraph/CustomEventContext';
-import { getPageWidget } from 'api/app-builder/pages';
-import { getSummaryByType } from 'api/pda/summary';
-import { DOMAINS, LOCAL } from 'api/constants';
-import withAuth from 'components/common/auth/withAuth';
+import theme from '../../theme';
+import BarAreaChart from './BarAreaChart';
+import DataSummary from './DataSummary';
+import CustomEventContext from './CustomEventContext';
+import { getPageWidget } from '../../api/app-builder/pages';
+import { getSummaryByType } from '../../api/pda/summary';
+import { DOMAINS, LOCAL } from '../../api/constants';
+import withAuth from '../common/auth/withAuth';
 
 const roundTo2Dec = num => Math.round((num + Number.EPSILON) * 100) / 100;
 

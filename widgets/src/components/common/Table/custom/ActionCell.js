@@ -4,7 +4,7 @@ import HowToRegIcon from '@material-ui/icons/HowToReg';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import i18next from 'i18next';
 
-import IconMenuButton from 'components/common/IconMenuButton';
+import IconMenuButton from '../../IconMenuButton';
 
 const ActionCell = (options, { openDiagram }) => data => {
   const menuItems = [];

@@ -1,10 +1,10 @@
 import React from 'react';
 import moment from 'moment';
-import ActionCell from 'components/common/Table/custom/ActionCell';
-import CheckboxCell from 'components/common/Table/custom/CheckboxCell';
+import ActionCell from '../common/Table/custom/ActionCell';
+import CheckboxCell from '../common/Table/custom/CheckboxCell';
 
-import { compareDates, compareNumbers, compareStrings } from 'components/common/Table/utils';
-import BadgeChip from 'components/common/BadgeChip';
+import { compareDates, compareNumbers, compareStrings } from '../common/Table/utils';
+import BadgeChip from '../common/BadgeChip';
 
 export const getType = (column, firstRow) => {
   let sortFunction = compareStrings;

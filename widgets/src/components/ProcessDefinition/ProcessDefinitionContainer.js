@@ -6,15 +6,15 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-import { getProcessDefinitions, getProcessForm, postProcessForm } from 'api/pda/processes';
-import { getPageWidget } from 'api/app-builder/pages';
-import theme from 'theme';
-import CustomEventContext from 'components/common/CustomEventContext';
-import WidgetBox from 'components/common/WidgetBox';
-import JSONForm from 'components/common/form/JSONForm';
-import Select from 'components/common/form/widgets/SelectWidget';
-import Notification from 'components/common/Notification';
-import withAuth from 'components/common/auth/withAuth';
+import { getProcessDefinitions, getProcessForm, postProcessForm } from '../../api/pda/processes';
+import { getPageWidget } from '../../api/app-builder/pages';
+import theme from '../../theme';
+import CustomEventContext from '../common/CustomEventContext';
+import WidgetBox from '../common/WidgetBox';
+import JSONForm from '../common/form/JSONForm';
+import Select from '../common/form/widgets/SelectWidget';
+import Notification from '../common/Notification';
+import withAuth from '../common/auth/withAuth';
 
 class ProcessDefinitionContainer extends React.Component {
   state = {

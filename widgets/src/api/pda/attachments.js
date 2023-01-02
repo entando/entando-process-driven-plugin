@@ -1,7 +1,7 @@
-import { METHODS, DOMAINS } from 'api/constants';
-import utils from 'utils';
-import MOCK_ATTACHMENTS from 'mocks/pda/attachments';
-import makeRequest from 'api/makeRequest';
+import { METHODS, DOMAINS } from '../constants';
+import utils from '../../utils';
+import MOCK_ATTACHMENTS from '../../mocks/pda/attachments';
+import makeRequest from '../makeRequest';
 
 export const getAttachments = async (connection, taskId) =>
   makeRequest({

@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { Close, Check } from '@material-ui/icons';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import { getPageWidget, putPageWidget } from 'api/app-builder/pages';
+import { getPageWidget, putPageWidget } from '../../api/app-builder/pages';
 
 import 'patternfly-react/dist/css/patternfly-react.css';
 import 'patternfly/dist/css/patternfly.css';

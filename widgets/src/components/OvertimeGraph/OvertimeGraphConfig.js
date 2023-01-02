@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
-import { getConnections } from 'api/pda/connections';
-import { getSummaryRepositories } from 'api/pda/summary';
+import { getConnections } from '../../api/pda/connections';
+import { getSummaryRepositories } from '../../api/pda/summary';
 
 class OvertimeGraphConfig extends React.Component {
   constructor(props) {

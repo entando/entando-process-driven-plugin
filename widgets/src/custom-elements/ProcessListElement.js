@@ -2,9 +2,9 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ProcessList from 'components/ProcessList/ProcessListContainer';
+import ProcessList from '../components/ProcessList/ProcessListContainer';
 
-import { createWidgetEvent, PL_ON_ERROR } from 'custom-elements/customEventsUtils';
+import { createWidgetEvent, PL_ON_ERROR } from './customEventsUtils';
 
 const ATTRIBUTES = {
   id: 'id',

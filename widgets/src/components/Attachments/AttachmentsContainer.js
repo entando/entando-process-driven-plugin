@@ -8,22 +8,22 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
-import { DOMAINS, LOCAL } from 'api/constants';
+import { DOMAINS, LOCAL } from '../../api/constants';
 import {
   getAttachments,
   saveAttachment,
   deleteAttachment,
   downloadAttachments,
-} from 'api/pda/attachments';
-import { getPageWidget } from 'api/app-builder/pages';
+} from '../../api/pda/attachments';
+import { getPageWidget } from '../../api/app-builder/pages';
 
-import theme from 'theme';
-import WidgetBox from 'components/common/WidgetBox';
-import SimpleDialog from 'components/common/SimpleDialog';
-import Notification from 'components/common/Notification';
-import AttachmentsSkeleton from 'components/Attachments/AttachmentsSkeleton';
-import AddAttachmentModal from 'components/Attachments/AddAttachmentModal';
-import Attachment from 'components/Attachments/Attachment';
+import theme from '../../theme';
+import WidgetBox from '../common/WidgetBox';
+import SimpleDialog from '../common/SimpleDialog';
+import Notification from '../common/Notification';
+import AttachmentsSkeleton from './AttachmentsSkeleton';
+import AddAttachmentModal from './AddAttachmentModal';
+import Attachment from './Attachment';
 
 const styles = {
   footer: {

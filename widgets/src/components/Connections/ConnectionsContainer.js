@@ -5,21 +5,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
 
-import { DOMAINS, LOCAL } from 'api/constants';
+import { DOMAINS, LOCAL } from '../../api/constants';
 import {
   getConnections,
   deleteConnection,
   testConnection,
   saveConnection,
   createConnection,
-} from 'api/pda/connections';
-import theme from 'theme';
-import ControlledWidgetBox from 'components/common/ControlledWidgetBox';
-import ConnectionItem from 'components/Connections/ConnectionItem';
-import ConnectionItemSkeleton from 'components/Connections/ConnectionItemSkeleton';
-import ConnectionForm from 'components/Connections/ConnectionForm';
-import Notification from 'components/common/Notification';
-import Loader from 'components/common/Loader';
+} from '../../api/pda/connections';
+import theme from '../../theme';
+import ControlledWidgetBox from '../common/ControlledWidgetBox';
+import ConnectionItem from '../Connections/ConnectionItem';
+import ConnectionItemSkeleton from '../Connections/ConnectionItemSkeleton';
+import ConnectionForm from '../Connections/ConnectionForm';
+import Notification from '../common/Notification';
+import Loader from '../common/Loader';
 
 const styles = {
   gridContainer: {

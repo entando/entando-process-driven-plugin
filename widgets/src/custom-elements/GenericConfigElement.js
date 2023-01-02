@@ -2,16 +2,16 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TaskListConfig from 'components/TaskList/TaskListConfig';
-import TaskCommentsConfig from 'components/TaskComments/TaskCommentsConfig';
-import TaskCompletionFormConfig from 'components/TaskCompletionForm/TaskCompletionFormConfig';
-import TaskDetailsConfig from 'components/TaskDetails/TaskDetailsConfig';
-import ProcessFormConfig from 'components/ProcessForm/ProcessFormConfig';
-import SummaryCardConfig from 'components/SummaryCard/SummaryCardConfig';
-import OvertimeGraphConfig from 'components/OvertimeGraph/OvertimeGraphConfig';
-import AttachmentsConfig from 'components/Attachments/AttachmentsConfig';
-import ProcessDefinitionConfig from 'components/ProcessDefinition/ProcessDefinitionConfig';
-import ProcessListConfig from 'components/ProcessList/ProcessListConfig';
+import TaskListConfig from '../components/TaskList/TaskListConfig';
+import TaskCommentsConfig from '../components/TaskComments/TaskCommentsConfig';
+import TaskCompletionFormConfig from '../components/TaskCompletionForm/TaskCompletionFormConfig';
+import TaskDetailsConfig from '../components/TaskDetails/TaskDetailsConfig';
+import ProcessFormConfig from '../components/ProcessForm/ProcessFormConfig';
+import SummaryCardConfig from '../components/SummaryCard/SummaryCardConfig';
+import OvertimeGraphConfig from '../components/OvertimeGraph/OvertimeGraphConfig';
+import AttachmentsConfig from '../components/Attachments/AttachmentsConfig';
+import ProcessDefinitionConfig from '../components/ProcessDefinition/ProcessDefinitionConfig';
+import ProcessListConfig from '../components/ProcessList/ProcessListConfig';
 
 const configNames = [
   {

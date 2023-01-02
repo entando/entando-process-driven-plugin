@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import TableCell from '@material-ui/core/TableCell';
 
-import columnType from 'types/columnType';
-import TableSortLabel from 'components/common/Table/TableSortLabel';
+import columnType from '../../../types/columnType';
+import TableSortLabel from './TableSortLabel';
 import withStyles from '@material-ui/core/styles/withStyles';
-import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
-import { StyledCheckbox } from 'components/common/Table/custom/CheckboxCell';
+import TableBulkSelectContext from './TableBulkSelectContext';
+import { StyledCheckbox } from './custom/CheckboxCell';
 
 const StyledHeaderCell = withStyles(
   {

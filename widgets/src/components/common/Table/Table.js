@@ -7,15 +7,15 @@ import TableRow from '@material-ui/core/TableRow';
 import MuiTable from '@material-ui/core/Table';
 import i18next from 'i18next';
 
-import columnType from 'types/columnType';
+import columnType from '../../../types/columnType';
 
-import TablePagination from 'components/common/Table/TablePagination';
-import EmptyRow from 'components/common/Table/EmptyRow';
-import InternalTableBody from 'components/common/Table/InternalTableBody';
-import InternalTableHead from 'components/common/Table/InternalTableHead';
-import InternalTablePaginationActions from 'components/common/Table/InternalTablePaginationActions';
-import LazyTablePagination from 'components/common/Table/LazyTablePagination';
-import TaskListSkeleton from 'components/TaskList/TaskListSkeleton';
+import TablePagination from './TablePagination';
+import EmptyRow from './EmptyRow';
+import InternalTableBody from './InternalTableBody';
+import InternalTableHead from './InternalTableHead';
+import InternalTablePaginationActions from './InternalTablePaginationActions';
+import LazyTablePagination from './LazyTablePagination';
+import TaskListSkeleton from '../../TaskList/TaskListSkeleton';
 
 export const labelDisplayedRows = ({ from, to, count }) =>
   i18next

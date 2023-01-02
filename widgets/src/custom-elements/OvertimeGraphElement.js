@@ -2,8 +2,8 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { createWidgetEvent } from 'custom-elements/customEventsUtils';
-import OvertimeGraph from 'components/OvertimeGraph/OvertimeGraphContainer';
+import { createWidgetEvent } from './customEventsUtils';
+import OvertimeGraph from '../components/OvertimeGraph/OvertimeGraphContainer';
 
 const CUSTOM_EVENT_PREFIX = 'overtimegraph';
 const ON_ERROR = `${CUSTOM_EVENT_PREFIX}.onError`;

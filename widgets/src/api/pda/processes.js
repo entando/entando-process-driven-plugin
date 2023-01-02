@@ -1,11 +1,11 @@
-import { METHODS, DOMAINS } from 'api/constants';
+import { METHODS, DOMAINS } from '../constants';
 
-import MOCK_PROCESSES from 'mocks/pda/processes';
-import MOCK_PROCESSES_LIST from 'mocks/pda/processList';
-import MOCKED_PROCESS_FORM from 'mocks/process-form/formSchema';
-import { postResponse as MOCK_FORM_SUBMIT_RESPONSE } from 'mocks/process-form/formData';
-import MOCK_DIAGRAM from 'mocks/pda/diagram.svg';
-import makeRequest from 'api/makeRequest';
+import MOCK_PROCESSES from '../../mocks/pda/processes';
+import MOCK_PROCESSES_LIST from '../../mocks/pda/processList';
+import MOCKED_PROCESS_FORM from '../../mocks/process-form/formSchema';
+import { postResponse as MOCK_FORM_SUBMIT_RESPONSE } from '../../mocks/process-form/formData';
+import MOCK_DIAGRAM from '../../mocks/pda/diagram.svg';
+import makeRequest from '../makeRequest';
 
 export const getProcesses = async (connection, processDefinitionId) =>
   makeRequest({

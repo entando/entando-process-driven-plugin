@@ -2,12 +2,12 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TaskComments from 'components/TaskComments/TaskCommentsContainer';
+import TaskComments from '../components/TaskComments/TaskCommentsContainer';
 import {
   createWidgetEvent,
   addCustomEventListener,
   GE_ON_SELECT_TASK,
-} from 'custom-elements/customEventsUtils';
+} from './customEventsUtils';
 
 const CUSTOM_EVENT_PREFIX = 'task.comments';
 const ON_CLICK_ADD_COMMENT = `${CUSTOM_EVENT_PREFIX}.onClickAddComment`;

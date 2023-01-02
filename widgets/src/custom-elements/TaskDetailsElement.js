@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TaskDetails from 'components/TaskDetails/TaskDetailsContainer';
+import TaskDetails from '../components/TaskDetails/TaskDetailsContainer';
 import {
   addCustomEventListener,
   createWidgetEvent,
@@ -10,7 +10,7 @@ import {
   TD_ON_PRESS_NEXT,
   TD_ON_ERROR,
   GE_ON_SELECT_TASK,
-} from 'custom-elements/customEventsUtils';
+} from './customEventsUtils';
 
 const ATTRIBUTES = {
   id: 'id',

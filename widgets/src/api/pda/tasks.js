@@ -1,13 +1,13 @@
-import { METHODS, DOMAINS } from 'api/constants';
-import getMockedTasks from 'mocks/pda/taskList.api';
+import { METHODS, DOMAINS } from '../constants';
+import getMockedTasks from '../../mocks/pda/taskList.api';
 
-import makeRequest from 'api/makeRequest';
+import makeRequest from '../makeRequest';
 
-import COLUMNS from 'mocks/pda/columns';
-import MOCKED_GET_TASK_RESPONSE from 'mocks/taskDetails/getTask';
-import MOCKED_GET_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/getFormSchema';
-import MOCKED_POST_TASK_FORM_RESPONSE from 'mocks/taskCompletionForm/postFormData';
-import MOCKED_BULK_ACTION_RESPONSE from 'mocks/pda/bulkActions';
+import COLUMNS from '../../mocks/pda/columns';
+import MOCKED_GET_TASK_RESPONSE from '../../mocks/taskDetails/getTask';
+import MOCKED_GET_TASK_FORM_RESPONSE from '../../mocks/taskCompletionForm/getFormSchema';
+import MOCKED_POST_TASK_FORM_RESPONSE from '../../mocks/taskCompletionForm/postFormData';
+import MOCKED_BULK_ACTION_RESPONSE from '../../mocks/pda/bulkActions';
 
 export const getTasks = async (params = {}) => {
   const { connection, groups, page = 0, pageSize = 30, sortedColumn, sortOrder, filter } = params;

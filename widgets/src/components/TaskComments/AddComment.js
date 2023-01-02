@@ -68,7 +68,7 @@ class AddComment extends React.Component {
         <TextareaAutosize
           id="comment-entry"
           className={classes.addNoteField}
-          rowsMin={2}
+          minRows={2}
           value={comment}
           onChange={this.onChangeComment}
           disabled={loading}

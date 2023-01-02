@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
-import { getConnections } from 'api/pda/connections';
-import RenderSwitch from 'components/common/RenderSwitch';
+import { getConnections } from '../../api/pda/connections';
+import RenderSwitch from '../common/RenderSwitch';
 
 const headerLabels = ['taskDetails.overview.title', 'taskDetails.overview.detailsTitle'];
 

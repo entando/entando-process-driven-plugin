@@ -2,14 +2,14 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TaskList from 'components/TaskList/TaskListContainer';
+import TaskList from '../components/TaskList/TaskListContainer';
 
 import {
   addCustomEventListener,
   createWidgetEvent,
   GE_ON_SELECT_TASK,
   TL_ON_ERROR,
-} from 'custom-elements/customEventsUtils';
+} from './customEventsUtils';
 
 const ATTRIBUTES = {
   id: 'id',

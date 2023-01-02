@@ -6,13 +6,13 @@ import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import { DOMAINS, LOCAL } from 'api/constants';
-import { getPageWidget } from 'api/app-builder/pages';
-import { getProcesses } from 'api/pda/processes';
-import theme from 'theme';
-import Notification from 'components/common/Notification';
-import withAuth from 'components/common/auth/withAuth';
-import Table from 'components/common/Table/Table';
+import { DOMAINS, LOCAL } from '../../api/constants';
+import { getPageWidget } from '../../api/app-builder/pages';
+import { getProcesses } from '../../api/pda/processes';
+import theme from '../../theme';
+import Notification from '../common/Notification';
+import withAuth from '../common/auth/withAuth';
+import Table from '../common/Table/Table';
 
 const DisplayArray = ({ row }) => (
   <span>{Array.isArray(row.userTasks) ? row.userTasks.join(', ') : row.userTasks}</span>

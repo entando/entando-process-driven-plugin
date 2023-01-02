@@ -11,27 +11,27 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import TextField from '@material-ui/core/TextField';
 
-import { DOMAINS, LOCAL } from 'api/constants';
-import { getTasks, TASK_BULK_ACTIONS, putTasksBulkAction } from 'api/pda/tasks';
-import { getDiagram } from 'api/pda/processes';
-import { getPageWidget } from 'api/app-builder/pages';
-import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
-import utils from 'utils';
-import withAuth from 'components/common/auth/withAuth';
-import DropDownButton from 'components/common/DropDownButton';
+import { DOMAINS, LOCAL } from '../../api/constants';
+import { getTasks, TASK_BULK_ACTIONS, putTasksBulkAction } from '../../api/pda/tasks';
+import { getDiagram } from '../../api/pda/processes';
+import { getPageWidget } from '../../api/app-builder/pages';
+import TableBulkSelectContext from '../common/Table/TableBulkSelectContext';
+import utils from '../../utils';
+import withAuth from '../common/auth/withAuth';
+import DropDownButton from '../common/DropDownButton';
 
 import {
   normalizeColumns,
   insertRowControls,
   normalizeRows,
-} from 'components/TaskList/normalizeData';
-import SearchInput from 'components/common/SearchInput';
-import Notification from 'components/common/Notification';
-import ErrorComponent from 'components/common/ErrorComponent';
-import Table from 'components/common/Table/Table';
-import SimpleDialog from 'components/common/SimpleDialog';
-import ConfirmDialog from 'components/common/ConfirmDialog';
-import theme from 'theme';
+} from './normalizeData';
+import SearchInput from '../common/SearchInput';
+import Notification from '../common/Notification';
+import ErrorComponent from '../common/ErrorComponent';
+import Table from '../common/Table/Table';
+import SimpleDialog from '../common/SimpleDialog';
+import ConfirmDialog from '../common/ConfirmDialog';
+import theme from '../../theme';
 
 const styles = {
   toolbar: {

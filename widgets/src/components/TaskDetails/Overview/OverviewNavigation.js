@@ -5,7 +5,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import ArrowForward from '@material-ui/icons/ArrowForward';
 
-import CustomEventContext from 'components/TaskDetails/CustomEventContext';
+import CustomEventContext from '../CustomEventContext';
 
 const OverviewNavigation = () => {
   return (

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Keycloak from 'keycloak-js';
 
-import Notification from 'components/common/Notification';
-import LoggedIn from 'components/UserAuth/LoggedIn';
-import LoggedOut from 'components/UserAuth/LoggedOut';
+import Notification from '../common/Notification';
+import LoggedIn from '../UserAuth/LoggedIn';
+import LoggedOut from '../UserAuth/LoggedOut';
 
 class UserAuth extends React.Component {
   static createKcDispatcher(payload) {

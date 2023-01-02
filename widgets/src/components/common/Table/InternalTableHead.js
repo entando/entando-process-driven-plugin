@@ -3,8 +3,8 @@ import React from 'react';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-import columnType from 'types/columnType';
-import InternalTableHeader from 'components/common/Table/InternalTableHeader';
+import columnType from '../../../types/columnType';
+import InternalTableHeader from './InternalTableHeader';
 
 export default function InternalTableHead({ columns, createSortHandler, sortedColumn, sortOrder }) {
   return (

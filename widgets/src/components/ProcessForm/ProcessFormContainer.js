@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import Container from '@material-ui/core/Container';
 
-import { getProcessForm, postProcessForm } from 'api/pda/processes';
-import { getPageWidget } from 'api/app-builder/pages';
-import theme from 'theme';
-import CustomEventContext from 'components/common/CustomEventContext';
-import WidgetBox from 'components/common/WidgetBox';
-import JSONForm from 'components/common/form/JSONForm';
-import Notification from 'components/common/Notification';
-import withAuth from 'components/common/auth/withAuth';
+import { getProcessForm, postProcessForm } from '../../api/pda/processes';
+import { getPageWidget } from '../../api/app-builder/pages';
+import theme from '../../theme';
+import CustomEventContext from '../common/CustomEventContext';
+import WidgetBox from '../common/WidgetBox';
+import JSONForm from '../common/form/JSONForm';
+import Notification from '../common/Notification';
+import withAuth from '../common/auth/withAuth';
 
 function isJsonString(str) {
   try {

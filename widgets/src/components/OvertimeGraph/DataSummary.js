@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Grid, Typography, Box, withStyles } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-import { UpTrend, DownTrend } from 'components/common/Icons';
+import { UpTrend, DownTrend } from '../common/Icons';
 
 const PercentBar = ({ value, barColor }) => (
   <div

@@ -4,8 +4,8 @@ import i18next from 'i18next';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Typography, Grid } from '@material-ui/core';
 
-import GeneralInformationSkeleton from 'components/TaskDetails/GeneralInformation/GeneralInformationSkeleton';
-import WidgetBox from 'components/common/WidgetBox';
+import GeneralInformationSkeleton from './GeneralInformationSkeleton';
+import WidgetBox from '../../common/WidgetBox';
 
 const styles = {
   label: {

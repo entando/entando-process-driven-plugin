@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import locales from 'i18n/locales';
-import i18nextOptions from 'i18n/i18nextOptions';
+import locales from './locales';
+import i18nextOptions from './i18nextOptions';
 
 i18next.use(initReactI18next).init(i18nextOptions);
 

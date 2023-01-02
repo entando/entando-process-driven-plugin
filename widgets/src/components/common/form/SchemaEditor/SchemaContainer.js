@@ -4,8 +4,8 @@ import i18next from 'i18next';
 import { withStyles } from '@material-ui/core/styles';
 import { ExpandMore as ExpandMoreIcon, ExpandLess as ExpandLessIcon } from '@material-ui/icons';
 
-import EditDialog from 'components/common/form/SchemaEditor/EditAddDialog';
-import SchemaContainerControls from 'components/common/form/SchemaEditor/SchemaContainerControls';
+import EditDialog from './EditAddDialog';
+import SchemaContainerControls from './SchemaContainerControls';
 
 const styles = {
   container: {

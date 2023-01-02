@@ -1,5 +1,5 @@
-import { IS_MOCKED_API, MOCK_API_DELAY, DOMAINS, METHODS } from 'api/constants';
-import utils from 'utils';
+import { IS_MOCKED_API, MOCK_API_DELAY, DOMAINS, METHODS } from './constants';
+import utils from '../utils';
 
 const getParams = queryParams =>
   Object.keys(queryParams)

@@ -2,14 +2,14 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TaskCompletionForm from 'components/TaskCompletionForm/TaskCompletionFormContainer';
+import TaskCompletionForm from '../components/TaskCompletionForm/TaskCompletionFormContainer';
 import {
   createWidgetEvent,
   addCustomEventListener,
   GE_ON_SELECT_TASK,
   TF_ON_SUBMIT_FORM,
   TF_ON_ERROR,
-} from 'custom-elements/customEventsUtils';
+} from './customEventsUtils';
 
 const ATTRIBUTES = {
   id: 'id',

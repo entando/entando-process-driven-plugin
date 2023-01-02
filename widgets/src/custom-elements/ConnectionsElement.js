@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Connections from 'components/Connections/ConnectionsContainer';
+import Connections from '../components/Connections/ConnectionsContainer';
 
 class ConnectionsElement extends HTMLElement {
   connectedCallback() {

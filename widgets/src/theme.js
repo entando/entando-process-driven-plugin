@@ -1,7 +1,7 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import entandoUiTheme from '@entando/ui';
 
-export default createMuiTheme({
+export default createTheme({
   ...entandoUiTheme,
   typography: {
     ...entandoUiTheme.typography,

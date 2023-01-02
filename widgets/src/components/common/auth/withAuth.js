@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { IS_MOCKED_API, LOCAL } from 'api/constants';
-import Loader from 'components/common/auth/Loader';
-import MissingPermissions from 'components/common/auth/MissingPermissions';
+import { IS_MOCKED_API, LOCAL } from '../../../api/constants';
+import Loader from './Loader';
+import MissingPermissions from './MissingPermissions';
 
 const detectKeycloak = () => window && window.entando && window.entando.keycloak;
 

@@ -1,10 +1,10 @@
-import { METHODS, DOMAINS } from 'api/constants';
+import { METHODS, DOMAINS } from '../constants';
 
-import makeRequest from 'api/makeRequest';
+import makeRequest from '../makeRequest';
 
-import MOCKED_GET_TASK_COMMENTS_RESPONSE from 'mocks/taskComments/getComments';
-import MOCKED_POST_COMMENT_RESPONSE from 'mocks/taskComments/postComment';
-import MOCKED_DELETE_COMMENT_RESPONSE from 'mocks/taskComments/deleteComment';
+import MOCKED_GET_TASK_COMMENTS_RESPONSE from '../../mocks/taskComments/getComments';
+import MOCKED_POST_COMMENT_RESPONSE from '../../mocks/taskComments/postComment';
+import MOCKED_DELETE_COMMENT_RESPONSE from '../../mocks/taskComments/deleteComment';
 
 export const getTaskComments = async (connection, taskId) => {
   return makeRequest({
