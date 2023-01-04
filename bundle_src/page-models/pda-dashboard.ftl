@@ -19,7 +19,7 @@
     <link rel="icon" href="<@wp.info key="systemParam" paramName="applicationBaseURL" />favicon.png" type="image/png" />
   </head>
   <body>
-    <@wp.fragment code="entando_pda_keycloak_with_redirect" escapeXml=false />
+    <@wp.fragment code="keycloak_auth" escapeXml=false />
     <div class="pda-content">
       <div class="pda-header">
         <@wp.fragment code="entando_pda_header" escapeXml=false />
