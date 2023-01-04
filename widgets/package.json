@@ -1,6 +1,6 @@
 {
-  "name": "20221223_cra",
-  "version": "0.1.0",
+  "name": "entando-pam-widgets",
+  "version": "0.2.0",
   "private": true,
   "main": "index.js",
   "dependencies": {
@@ -34,8 +34,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --verbose --setupFilesAfterEnv ./setupTests.js",
+    "eject": "react-scripts eject",
+    "test:coverage": "npm test -- --coverage --watchAll=false",
+    "lint": "npx eslint --fix ./src",
+    "i18n": "./node_modules/i18next-scanner/bin/cli.js --config ./scripts/i18next-scanner.config.js"
   },
   "eslintConfig": {
     "extends": [
