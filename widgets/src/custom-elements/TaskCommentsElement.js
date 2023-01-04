@@ -2,12 +2,12 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TaskComments from 'components/TaskComments/TaskCommentsContainer';
+import TaskComments from '../components/TaskComments/TaskCommentsContainer';
 import {
   createWidgetEvent,
   addCustomEventListener,
-  GE_ON_SELECT_TASK,
-} from 'custom-elements/customEventsUtils';
+  GE_ON_SELECT_TASK, getKeycloakInstance, KEYCLOAK_EVENT_TYPE,
+} from './customEventsUtils';
 
 const CUSTOM_EVENT_PREFIX = 'task.comments';
 const ON_CLICK_ADD_COMMENT = `${CUSTOM_EVENT_PREFIX}.onClickAddComment`;
@@ -52,6 +52,21 @@ class TaskCommentsElement extends HTMLElement {
     this.setAttribute(ATTRIBUTES.id, detail.id);
   }
 
+  connectedCallback() {
+    this.mountPoint = document.createElement('div')
+    this.appendChild(this.mountPoint);
+
+    this.unsubscribeFromOnSelectTask = addCustomEventListener(GE_ON_SELECT_TASK, this.updateTaskId);
+
+    this.keycloak = {...getKeycloakInstance(), initialized: true}
+    this.unsubscribeFromKeycloakEvent = addCustomEventListener(KEYCLOAK_EVENT_TYPE, (e) => {
+      if(e.detail.eventType==="onReady"){
+        this.keycloak = {...getKeycloakInstance(), initialized: true}
+        this.render()
+      }
+    })
+  }
+
   render() {
     const locale = this.getAttribute(ATTRIBUTES.locale) || 'en';
     i18next.changeLanguage(locale);
@@ -77,15 +92,6 @@ class TaskCommentsElement extends HTMLElement {
     ReactDOM.render(reactRoot, this.mountPoint);
   }
 
-  connectedCallback() {
-    this.mountPoint = document.createElement('div');
-    this.appendChild(this.mountPoint);
-
-    this.unsubscribeFromOnSelectTask = addCustomEventListener(GE_ON_SELECT_TASK, this.updateTaskId);
-
-    this.render();
-  }
-
   disconnectedCallback() {
     if (this.unsubscribeFromOnSelectTask) {
       this.unsubscribeFromOnSelectTask();
@@ -93,6 +99,6 @@ class TaskCommentsElement extends HTMLElement {
   }
 }
 
-customElements.define('task-comments', TaskCommentsElement);
+customElements.get('task-comments') || customElements.define('task-comments', TaskCommentsElement);
 
 export default TaskCommentsElement;

@@ -1,4 +1,4 @@
-import utils from 'utils';
+import utils from '../utils';
 
 describe('Utils', () => {
   it('timeout should pass setTimeout ref', async () => {

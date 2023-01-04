@@ -2,14 +2,14 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TaskCompletionForm from 'components/TaskCompletionForm/TaskCompletionFormContainer';
+import TaskCompletionForm from '../components/TaskCompletionForm/TaskCompletionFormContainer';
 import {
   createWidgetEvent,
   addCustomEventListener,
   GE_ON_SELECT_TASK,
   TF_ON_SUBMIT_FORM,
-  TF_ON_ERROR,
-} from 'custom-elements/customEventsUtils';
+  TF_ON_ERROR, getKeycloakInstance, KEYCLOAK_EVENT_TYPE,
+} from './customEventsUtils';
 
 const ATTRIBUTES = {
   id: 'id',
@@ -73,12 +73,18 @@ class TaskCompletionFormElement extends HTMLElement {
   }
 
   connectedCallback() {
-    this.mountPoint = document.createElement('div');
+    this.mountPoint = document.createElement('div')
     this.appendChild(this.mountPoint);
 
     this.unsubscribeFromOnSelectTask = addCustomEventListener(GE_ON_SELECT_TASK, this.updateTaskId);
 
-    this.render();
+    this.keycloak = {...getKeycloakInstance(), initialized: true}
+    this.unsubscribeFromKeycloakEvent = addCustomEventListener(KEYCLOAK_EVENT_TYPE, (e) => {
+      if(e.detail.eventType==="onReady"){
+        this.keycloak = {...getKeycloakInstance(), initialized: true}
+        this.render()
+      }
+    })
   }
 
   disconnectedCallback() {
@@ -88,6 +94,6 @@ class TaskCompletionFormElement extends HTMLElement {
   }
 }
 
-customElements.define('task-completion-form', TaskCompletionFormElement);
+customElements.get('task-completion-form') || customElements.define('task-completion-form', TaskCompletionFormElement);
 
 export default TaskCompletionFormElement;

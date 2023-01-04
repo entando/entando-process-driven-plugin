@@ -1,98 +1,52 @@
 {
   "name": "entando-pam-widgets",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "@date-io/moment": "^1.3.13",
-    "@entando/ui": "^0.5.4",
-    "@material-ui/core": "^4.8.1",
-    "@material-ui/icons": "^4.5.1",
-    "@material-ui/lab": "^4.0.0-alpha.37",
-    "@material-ui/pickers": "^3.2.10",
-    "classnames": "^2.2.6",
-    "clsx": "^1.0.4",
-    "i18next": "^17.3.1",
-    "keycloak-js": "^8.0.2",
-    "material-ui-dropzone": "^2.4.7",
-    "moment": "^2.24.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-i18next": "^10.13.2",
-    "react-inlinesvg": "^1.2.0",
+    "@date-io/moment": "^2.16.1",
+    "@entando/ui": "^0.6.0",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@material-ui/lab": "^4.0.0-alpha.61",
+    "@material-ui/pickers": "^3.3.10",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "array-move": "^4.0.0",
+    "i18next": "^22.4.6",
+    "keycloak-js": "^20.0.2",
+    "material-ui-dropzone": "^3.5.0",
+    "patternfly-react": "^1.19.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.1.1",
+    "react-inlinesvg": "^3.0.1",
     "react-jsonschema-form": "^1.8.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.0",
-    "recharts": "^2.0.0-beta.1",
-    "rjsf-material-ui": "^0.3.9"
+    "react-router-dom": "^6.6.1",
+    "react-scripts": "5.0.1",
+    "react-sortable-hoc": "^2.0.0",
+    "reactabular-table": "^8.14.0",
+    "recharts": "^2.2.0",
+    "rjsf-material-ui": "^0.3.9",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose --setupFilesAfterEnv ./setupTests.js",
-    "test:coverage": "npm test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
+    "test:coverage": "npm test -- --coverage --watchAll=false",
     "lint": "npx eslint --fix ./src",
     "i18n": "./node_modules/i18next-scanner/bin/cli.js --config ./scripts/i18next-scanner.config.js"
   },
   "eslintConfig": {
     "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "airbnb",
-      "prettier"
+      "react-app",
+      "react-app/jest"
     ],
-    "parser": "babel-eslint",
-    "plugins": [
-      "prettier"
-    ],
-    "env": {
-      "browser": true,
-      "node": true,
-      "jest": true
-    },
-    "settings": {
-      "import/resolver": {
-        "node": {
-          "moduleDirectory": [
-            "node_modules",
-            "src"
-          ]
-        }
-      }
-    },
     "rules": {
-      "prettier/prettier": [
-        "error"
-      ],
-      "react/jsx-one-expression-per-line": 0,
-      "react/jsx-filename-extension": [
-        1,
-        {
-          "extensions": [
-            ".js",
-            ".jsx"
-          ]
-        }
-      ],
-      "react/jsx-props-no-spreading": 0,
-      "react/state-in-constructor": 0,
-      "react/jsx-wrap-multilines": 0,
-      "no-nested-ternary": 0,
-      "no-param-reassign": [
-        "error",
-        {
-          "props": false
-        }
-      ],
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": true
-        }
-      ],
-      "import/no-named-as-default": 0
+      "import/no-anonymous-default-export": 0
     }
   },
   "browserslist": {
@@ -106,71 +60,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/runtime": "^7.0.0-beta.55",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "array-move": "^2.2.1",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.8.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "husky": "^3.1.0",
-    "i18next-scanner": "^2.10.3",
-    "jest-dom": "^4.0.0",
-    "jest-fetch-mock": "^2.1.2",
-    "jest-junit": "^10.0.0",
-    "lint-staged": "^9.5.0",
-    "patternfly": "^3.59.4",
-    "patternfly-react": "^1.19.1",
-    "prettier": "^1.19.1",
-    "pretty-quick": "^1.11.1",
-    "react-sortable-hoc": "^1.10.1",
-    "regenerator-runtime": "0.13.5"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/i18n/**/*.*",
-      "!src/**/mocks/**/*.*",
-      "!src/**/types/**/*.*",
-      "!<rootDir>/node_modules/",
-      "!<rootDir>/path/to/dir/",
-      "!src/**/custom-elements/*.*",
-      "!src/**/custom-elements/common/*.*",
-      "!src/**/index.js",
-      "!src/theme.js",
-      "!src/utils.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 50,
-        "functions": 50,
-        "lines": 50,
-        "statements": 50
-      }
-    }
-  },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "printWidth": 100
-  },
-  "lint-staged": {
-    "*.js": [
-      "pretty-quick --staged",
-      "npm run lint",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }

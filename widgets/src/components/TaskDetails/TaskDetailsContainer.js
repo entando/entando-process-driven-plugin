@@ -4,14 +4,14 @@ import i18next from 'i18next';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { Container, Box } from '@material-ui/core';
 
-import { getTask, fetchSingleTask } from 'api/pda/tasks';
-import { getPageWidget } from 'api/app-builder/pages';
-import { DOMAINS } from 'api/constants';
-import theme from 'theme';
-import CustomEventContext from 'components/TaskDetails/CustomEventContext';
-import Overview from 'components/TaskDetails/Overview';
-import GeneralInformation from 'components/TaskDetails/GeneralInformation';
-import withAuth from 'components/common/auth/withAuth';
+import { getTask, fetchSingleTask } from '../../api/pda/tasks';
+import { getPageWidget } from '../../api/app-builder/pages';
+import { DOMAINS } from '../../api/constants';
+import theme from '../../theme';
+import CustomEventContext from '../TaskDetails/CustomEventContext';
+import Overview from '../TaskDetails/Overview';
+import GeneralInformation from '../TaskDetails/GeneralInformation';
+import withAuth from '../common/auth/withAuth';
 
 const createLink = (pageCode = 'pda_task_details', taskId, taskPos, groups = '', locale = 'en') =>
   `${DOMAINS.APP_BUILDER}/${locale}/${pageCode}.page?taskId=${taskId}&taskPos=${taskPos}&groups=${groups}`;

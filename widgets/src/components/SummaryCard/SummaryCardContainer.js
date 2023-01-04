@@ -8,15 +8,15 @@ import Divider from '@material-ui/core/Divider';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { DOMAINS, LOCAL } from 'api/constants';
-import theme from 'theme';
-import { getPageWidget } from 'api/app-builder/pages';
-import { getSummaryByType } from 'api/pda/summary';
-import CustomEventContext from 'components/SummaryCard/CustomEventContext';
-import Notification from 'components/common/Notification';
+import { DOMAINS, LOCAL } from '../../api/constants';
+import theme from '../../theme';
+import { getPageWidget } from '../../api/app-builder/pages';
+import { getSummaryByType } from '../../api/pda/summary';
+import CustomEventContext from './CustomEventContext';
+import Notification from '../common/Notification';
 import Skeleton from '@material-ui/lab/Skeleton';
-import SummaryCardValues from 'components/SummaryCard/SummaryCardValues';
-import withAuth from 'components/common/auth/withAuth';
+import SummaryCardValues from './SummaryCardValues';
+import withAuth from '../common/auth/withAuth';
 
 const styles = ({ palette }) => {
   return {

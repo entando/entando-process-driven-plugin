@@ -1,6 +1,6 @@
-import makeRequest from 'api/makeRequest';
-import { DOMAINS, METHODS } from 'api/constants';
-import getMockSummary, { MOCK_SUMMARY_TYPES } from 'mocks/summary/summary';
+import makeRequest from '../makeRequest';
+import { DOMAINS, METHODS } from '../constants';
+import getMockSummary, { MOCK_SUMMARY_TYPES } from '../../mocks/summary/summary';
 
 export const getSummaryRepositories = async connection =>
   makeRequest({

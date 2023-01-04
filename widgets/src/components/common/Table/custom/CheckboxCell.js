@@ -1,7 +1,7 @@
 import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import { withStyles } from '@material-ui/core/styles';
-import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
+import TableBulkSelectContext from '../TableBulkSelectContext';
 
 export const StyledCheckbox = withStyles({
   root: {

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
-import { getProcessDefinitions } from 'api/pda/processes';
-import { getConnections } from 'api/pda/connections';
-import JsonMultiFieldContainer from 'components/common/form/SchemaEditor/JsonMultiFieldContainer';
+import { getProcessDefinitions } from '../../api/pda/processes';
+import { getConnections } from '../../api/pda/connections';
+import JsonMultiFieldContainer from '../common/form/SchemaEditor/JsonMultiFieldContainer';
 
 class ProcessFormConfig extends React.Component {
   constructor(props) {

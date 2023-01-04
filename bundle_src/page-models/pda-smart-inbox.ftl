@@ -20,7 +20,7 @@
     </head>
 
     <body>
-        <@wp.fragment code="entando_pda_keycloak_with_redirect" escapeXml=false />
+        <@wp.fragment code="keycloak_auth_with_redirect" escapeXml=false />
         <div class="pda-content">
             <div class="pda-header">
                 <@wp.fragment code="entando_pda_header" escapeXml=false />

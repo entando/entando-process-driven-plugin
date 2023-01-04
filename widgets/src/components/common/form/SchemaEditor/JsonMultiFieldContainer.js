@@ -4,8 +4,8 @@ import i18next from 'i18next';
 import { withStyles } from '@material-ui/core/styles';
 import { QueueOutlined as AddIcon } from '@material-ui/icons';
 
-import SchemaContainer from 'components/common/form/SchemaEditor/SchemaContainer';
-import AddDialog from 'components/common/form/SchemaEditor/EditAddDialog';
+import SchemaContainer from './SchemaContainer';
+import AddDialog from './EditAddDialog';
 
 const styles = {
   addButton: {

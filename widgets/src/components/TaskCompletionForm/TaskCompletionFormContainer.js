@@ -4,14 +4,14 @@ import i18next from 'i18next';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import theme from 'theme';
-import withAuth from 'components/common/auth/withAuth';
-import { getTask, getTaskForm, postTaskForm } from 'api/pda/tasks';
-import { getPageWidget } from 'api/app-builder/pages';
-import Notification from 'components/common/Notification';
-import CustomEventContext from 'components/common/CustomEventContext';
-import WidgetBox from 'components/common/WidgetBox';
-import JSONForm from 'components/common/form/JSONForm';
+import theme from '../../theme';
+import withAuth from '../common/auth/withAuth';
+import { getTask, getTaskForm, postTaskForm } from '../../api/pda/tasks';
+import { getPageWidget } from '../../api/app-builder/pages';
+import Notification from '../common/Notification';
+import CustomEventContext from '../common/CustomEventContext';
+import WidgetBox from '../common/WidgetBox';
+import JSONForm from '../common/form/JSONForm';
 import utils from '../../utils';
 
 class TaskCompletionFormContainer extends React.Component {

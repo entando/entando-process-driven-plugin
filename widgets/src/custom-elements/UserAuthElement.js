@@ -2,8 +2,8 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import UserAuth from 'components/UserAuth';
-import { createWidgetEvent } from 'custom-elements/customEventsUtils';
+import UserAuth from '../components/UserAuth';
+import { createWidgetEvent } from './customEventsUtils';
 
 const CUSTOM_EVENT_PREFIX = 'userAuth';
 const ON_ERROR = `${CUSTOM_EVENT_PREFIX}.onError`;
@@ -35,6 +35,6 @@ class UserAuthElement extends HTMLElement {
   }
 }
 
-customElements.define('user-auth', UserAuthElement);
+customElements.get('user-auth') || customElements.define('user-auth', UserAuthElement);
 
 export default UserAuthElement;

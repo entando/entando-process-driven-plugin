@@ -1,4 +1,4 @@
-import MOCKED_WIDGET_CONFIGS from 'mocks/app-builder/pages';
+import MOCKED_WIDGET_CONFIGS from './pages';
 
 const PAGE_CODE = 'dev_env_page';
 const TASK_ID = '30@mortgage-process_1.0.0-SNAPSHOT';

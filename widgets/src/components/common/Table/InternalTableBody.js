@@ -4,8 +4,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
-import columnType from 'types/columnType';
-import TableBulkSelectContext from 'components/common/Table/TableBulkSelectContext';
+import columnType from '../../../types/columnType';
+import TableBulkSelectContext from './TableBulkSelectContext';
 import withStyles from '@material-ui/core/styles/withStyles';
 import InternalTableCell from './InternalTableCell';
 

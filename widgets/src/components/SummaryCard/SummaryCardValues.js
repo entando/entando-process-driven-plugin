@@ -5,7 +5,7 @@ import i18next from 'i18next';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
-import { UpTrend as UpTrendIcon, DownTrend as DownTrendIcon } from 'components/common/Icons';
+import { UpTrend as UpTrendIcon, DownTrend as DownTrendIcon } from '../common/Icons';
 
 const styles = {
   root: {

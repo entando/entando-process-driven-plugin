@@ -1,11 +1,11 @@
-import { METHODS, DOMAINS } from 'api/constants';
+import { METHODS, DOMAINS } from '../constants';
 
 import MOCK_CONNECTIONS, {
   TEST_CONNECTION,
   SAVE_CONNECTION,
   DELETE_CONNECTION,
-} from 'mocks/pda/connections';
-import makeRequest from 'api/makeRequest';
+} from '../../mocks/pda/connections';
+import makeRequest from '../makeRequest';
 
 export const getConnections = async () =>
   makeRequest({

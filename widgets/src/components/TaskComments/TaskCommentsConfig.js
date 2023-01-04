@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import i18next from 'i18next';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
-import { getConnections } from 'api/pda/connections';
-import Notification from 'components/common/Notification';
+import { getConnections } from '../../api/pda/connections';
+import Notification from '../common/Notification';
 
 class TaskCommentsConfig extends React.Component {
   constructor(props) {

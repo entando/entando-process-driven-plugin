@@ -1,7 +1,7 @@
-import { METHODS, DOMAINS } from 'api/constants';
+import { METHODS, DOMAINS } from '../constants';
 
-import GROUPS from 'mocks/pda/groups';
-import makeRequest from 'api/makeRequest';
+import GROUPS from '../../mocks/pda/groups';
+import makeRequest from '../makeRequest';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getGroups = async connection =>

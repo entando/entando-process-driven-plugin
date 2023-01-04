@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, HelpBlock, Row, Col } from 'patternfly-react';
 
-import { getConnections } from 'api/pda/connections';
-import { getProcessDefinitions } from 'api/pda/processes';
-import Notification from 'components/common/Notification';
+import { getConnections } from '../../api/pda/connections';
+import { getProcessDefinitions } from '../../api/pda/processes';
+import Notification from '../common/Notification';
 
 class ProcessListConfig extends React.Component {
   constructor(props) {

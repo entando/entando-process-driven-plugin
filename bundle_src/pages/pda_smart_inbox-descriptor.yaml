@@ -8,9 +8,9 @@ joinGroups: []
 displayedInMenu: true
 seo: false
 charset: utf-8
-status: draft
+status: published
 widgets:
-  - code: pda_login_buttons
+  - code: keycloak-login
     config: null
     pos: 2
   - code: pda_sidebar_navigation
@@ -32,3 +32,7 @@ widgets:
     config:
       knowledgeSource: pam-demo
     pos: 7
+  - code: pda-task-attachments
+    config:
+      knowledgeSource: pam-demo
+    pos: 8

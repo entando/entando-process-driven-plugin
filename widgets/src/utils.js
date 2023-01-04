@@ -52,8 +52,9 @@ function unflat(data) {
   return mergeDeep({}, ...result);
 }
 
-export default {
+const result = {
   timeout,
   toBase64,
   unflat,
 };
+export default result;

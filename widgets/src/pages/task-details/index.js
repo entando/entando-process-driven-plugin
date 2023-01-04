@@ -1,9 +1,9 @@
 import React from 'react';
 
-import WIDGETS_CONFIG from 'mocks/app-builder/widgets';
+import WIDGETS_CONFIG from '../../mocks/app-builder/widgets';
 
-import 'pages/index.css';
-import 'pages/main-content-layouts.css';
+import '../index.css';
+import '../main-content-layouts.css';
 
 const TaskDetailsPage = () => {
   const urlParams = new URLSearchParams(window.location.search);

@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import FormLabel from '@material-ui/core/FormLabel';
 import moment from 'moment';
 
-import BadgeChip from 'components/common/BadgeChip';
+import BadgeChip from '../../common/BadgeChip';
 
 const getColorByDate = date => {
   const today = moment();

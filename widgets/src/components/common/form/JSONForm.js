@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import i18next from 'i18next';
-import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
 import { withTheme } from 'react-jsonschema-form';
 import { Theme as MuiRJSForm } from 'rjsf-material-ui';
 
 import Button from '@material-ui/core/Button';
 
-import CustomEventContext from 'components/common/CustomEventContext';
-import JSONFormSkeleton from 'components/common/form/JSONFormSkeleton';
-import FieldTemplate from 'components/common/form/templates/FieldTemplate';
-import generateColumnedOFT from 'components/common/form/templates/ObjectFieldTemplate';
-import DateWidget from 'components/common/form/widgets/DateWidget';
-import DateTimeWidget from 'components/common/form/widgets/DateTimeWidget';
-import EmailWidget from 'components/common/form/widgets/EmailWidget';
-import UpDownWidget from 'components/common/form/widgets/UpDownWidget';
+import CustomEventContext from '../CustomEventContext';
+import JSONFormSkeleton from './JSONFormSkeleton';
+import FieldTemplate from './templates/FieldTemplate';
+import generateColumnedOFT from './templates/ObjectFieldTemplate';
+import DateWidget from './widgets/DateWidget';
+import DateTimeWidget from './widgets/DateTimeWidget';
+import EmailWidget from './widgets/EmailWidget';
+import UpDownWidget from './widgets/UpDownWidget';
 
 const styles = {
   actionButtons: {
@@ -54,7 +54,7 @@ const JSONForm = props => {
     return i18next.t('messages.warnings.noFormSchema');
   }
 
-  const formTheme = createMuiTheme({
+  const formTheme = createTheme({
     overrides: {
       MuiOutlinedInput: {
         root: {

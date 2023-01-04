@@ -6,15 +6,15 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
-import withAuth from 'components/common/auth/withAuth';
-import { getTaskComments, postTaskComment, deleteTaskComment } from 'api/pda/comments';
-import { getPageWidget } from 'api/app-builder/pages';
-import theme from 'theme';
-import Notification from 'components/common/Notification';
-import WidgetBox from 'components/common/WidgetBox';
-import Comment from 'components/TaskComments/Comment';
-import AddComment from 'components/TaskComments/AddComment';
-import TaskCommentsSkeleton from 'components/TaskComments/TaskCommentsSkeleton';
+import withAuth from '../common/auth/withAuth';
+import { getTaskComments, postTaskComment, deleteTaskComment } from '../../api/pda/comments';
+import { getPageWidget } from '../../api/app-builder/pages';
+import theme from '../../theme';
+import Notification from '../common/Notification';
+import WidgetBox from '../common/WidgetBox';
+import Comment from '../TaskComments/Comment';
+import AddComment from '../TaskComments/AddComment';
+import TaskCommentsSkeleton from '../TaskComments/TaskCommentsSkeleton';
 
 const styles = {
   noComments: {

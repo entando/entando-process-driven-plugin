@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { IS_MOCKED_API, LOCAL } from 'api/constants';
-import Loader from 'components/common/auth/Loader';
-import MissingPermissions from 'components/common/auth/MissingPermissions';
+import { IS_MOCKED_API, LOCAL } from '../../../api/constants';
+import Loader from './Loader';
+import MissingPermissions from './MissingPermissions';
+import {KEYCLOAK_EVENT_TYPE} from '../../../custom-elements/customEventsUtils';
 
 const detectKeycloak = () => window && window.entando && window.entando.keycloak;
 
@@ -27,6 +28,9 @@ const withAuth = (WrappedComponent, permissions = []) => props => {
     const keycloak = detectKeycloak();
     if (LOCAL || IS_MOCKED_API || (!keycloak && localStorage.getItem('token'))) {
       loadPermissions();
+      //Simulate onReady event for keycloak in local/mock mode
+      const widgetEvent = new CustomEvent(KEYCLOAK_EVENT_TYPE, { detail: {eventType:'onReady'} });
+      window.dispatchEvent(widgetEvent);
     } else if (keycloak.authenticated) {
       loadPermissions(keycloak);
     } else {
