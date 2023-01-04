@@ -30,3 +30,9 @@ widgets:
     config:
       knowledgeSource: pam-demo
     pos: 7
+  - code: pda-task-attachments
+    config:
+      knowledgeSource: pam-demo
+    pos: 8
+
+
