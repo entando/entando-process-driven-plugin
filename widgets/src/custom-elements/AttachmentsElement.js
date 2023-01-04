@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Attachments from '../components/Attachments/AttachmentsContainer';
-import { addCustomEventListener, GE_ON_SELECT_TASK } from './customEventsUtils';
+import {addCustomEventListener, GE_ON_SELECT_TASK, getKeycloakInstance, KEYCLOAK_EVENT_TYPE} from './customEventsUtils';
 
 const ATTRIBUTES = {
   id: 'id',
@@ -40,6 +40,21 @@ class AttachmentsElement extends HTMLElement {
     this.setAttribute(ATTRIBUTES.id, detail.id);
   }
 
+  connectedCallback() {
+    this.mountPoint = document.createElement('div')
+    this.appendChild(this.mountPoint);
+
+    this.unsubscribeFromOnSelectTask = addCustomEventListener(GE_ON_SELECT_TASK, this.updateTaskId);
+
+    this.keycloak = {...getKeycloakInstance(), initialized: true}
+    this.unsubscribeFromKeycloakEvent = addCustomEventListener(KEYCLOAK_EVENT_TYPE, (e) => {
+      if(e.detail.eventType==="onReady"){
+        this.keycloak = {...getKeycloakInstance(), initialized: true}
+        this.render()
+      }
+    })
+  }
+
   render() {
     const locale = this.getAttribute(ATTRIBUTES.locale) || 'en';
     i18next.changeLanguage(locale);
@@ -62,15 +77,6 @@ class AttachmentsElement extends HTMLElement {
     ReactDOM.render(reactRoot, this.mountPoint);
   }
 
-  connectedCallback() {
-    this.mountPoint = document.createElement('div');
-    this.appendChild(this.mountPoint);
-
-    this.unsubscribeFromOnSelectTask = addCustomEventListener(GE_ON_SELECT_TASK, this.updateTaskId);
-
-    this.render();
-  }
-
   disconnectedCallback() {
     if (this.unsubscribeFromOnSelectTask) {
       this.unsubscribeFromOnSelectTask();
@@ -78,6 +84,6 @@ class AttachmentsElement extends HTMLElement {
   }
 }
 
-customElements.define('task-attachments', AttachmentsElement);
+customElements.get('task-attachments') || customElements.define('task-attachments', AttachmentsElement);
 
 export default AttachmentsElement;

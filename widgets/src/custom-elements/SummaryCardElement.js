@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { createWidgetEvent } from './customEventsUtils';
+import {addCustomEventListener, createWidgetEvent, getKeycloakInstance, KEYCLOAK_EVENT_TYPE} from './customEventsUtils';
 import SummaryCard from '../components/SummaryCard/SummaryCardContainer';
 
 const CUSTOM_EVENT_PREFIX = 'summarycard';
@@ -15,9 +15,18 @@ class SummaryCardElement extends HTMLElement {
   }
 
   connectedCallback() {
-    const mountPoint = document.createElement('div');
-    this.appendChild(mountPoint);
+    this.mountPoint = document.createElement('div')
+    this.appendChild(this.mountPoint);
+    this.keycloak = {...getKeycloakInstance(), initialized: true}
+    this.unsubscribeFromKeycloakEvent = addCustomEventListener(KEYCLOAK_EVENT_TYPE, (e) => {
+      if(e.detail.eventType==="onReady"){
+        this.keycloak = {...getKeycloakInstance(), initialized: true}
+        this.render()
+      }
+    })
+  }
 
+  render() {
     const locale = this.getAttribute('locale') || 'en';
     i18next.changeLanguage(locale);
 
@@ -35,10 +44,10 @@ class SummaryCardElement extends HTMLElement {
       },
       null
     );
-    ReactDOM.render(reactRoot, mountPoint);
+    ReactDOM.render(reactRoot, this.mountPoint);
   }
 }
 
-customElements.define('summary-card', SummaryCardElement);
+customElements.get('summary-card') || customElements.define('summary-card', SummaryCardElement);
 
 export default SummaryCardElement;

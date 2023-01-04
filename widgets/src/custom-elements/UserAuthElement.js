@@ -35,6 +35,6 @@ class UserAuthElement extends HTMLElement {
   }
 }
 
-customElements.define('user-auth', UserAuthElement);
+customElements.get('user-auth') || customElements.define('user-auth', UserAuthElement);
 
 export default UserAuthElement;

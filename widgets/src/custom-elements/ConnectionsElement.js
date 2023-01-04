@@ -3,12 +3,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Connections from '../components/Connections/ConnectionsContainer';
+import {addCustomEventListener, getKeycloakInstance, KEYCLOAK_EVENT_TYPE} from './customEventsUtils';
 
 class ConnectionsElement extends HTMLElement {
   connectedCallback() {
-    const mountPoint = document.createElement('div');
-    this.appendChild(mountPoint);
+    this.mountPoint = document.createElement('div')
+    this.appendChild(this.mountPoint);
+    this.keycloak = {...getKeycloakInstance(), initialized: true}
+    this.unsubscribeFromKeycloakEvent = addCustomEventListener(KEYCLOAK_EVENT_TYPE, (e) => {
+      if(e.detail.eventType==="onReady"){
+        this.keycloak = {...getKeycloakInstance(), initialized: true}
+        this.render()
+      }
+    })
+  }
 
+  render() {
     const locale = this.getAttribute('locale') || 'en';
     i18next.changeLanguage(locale);
 
@@ -17,10 +27,10 @@ class ConnectionsElement extends HTMLElement {
     const serviceUrl = this.getAttribute('service-url');
 
     const reactRoot = React.createElement(Connections, { pageCode, frameId, serviceUrl }, null);
-    ReactDOM.render(reactRoot, mountPoint);
+    ReactDOM.render(reactRoot, this.mountPoint);
   }
 }
 
-customElements.define('pda-connections', ConnectionsElement);
+customElements.get('pda-connections') || customElements.define('pda-connections', ConnectionsElement);
 
 export default ConnectionsElement;

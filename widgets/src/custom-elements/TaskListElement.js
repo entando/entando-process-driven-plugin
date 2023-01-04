@@ -7,7 +7,7 @@ import TaskList from '../components/TaskList/TaskListContainer';
 import {
   addCustomEventListener,
   createWidgetEvent,
-  GE_ON_SELECT_TASK,
+  GE_ON_SELECT_TASK, getKeycloakInstance, KEYCLOAK_EVENT_TYPE,
   TL_ON_ERROR,
 } from './customEventsUtils';
 
@@ -56,15 +56,21 @@ class TaskListElement extends HTMLElement {
   }
 
   connectedCallback() {
-    this.container = document.createElement('div');
-    this.appendChild(this.container);
+    this.mountPoint = document.createElement('div')
+    this.appendChild(this.mountPoint);
 
     this.unsubscribeFromOnSelectTaskEvent = addCustomEventListener(
-      GE_ON_SELECT_TASK,
-      this.updateTask
+        GE_ON_SELECT_TASK,
+        this.updateTask
     );
 
-    this.render();
+    this.keycloak = {...getKeycloakInstance(), initialized: true}
+    this.unsubscribeFromKeycloakEvent = addCustomEventListener(KEYCLOAK_EVENT_TYPE, (e) => {
+      if(e.detail.eventType==="onReady"){
+        this.keycloak = {...getKeycloakInstance(), initialized: true}
+        this.render()
+      }
+    })
   }
 
   render() {
@@ -88,7 +94,7 @@ class TaskListElement extends HTMLElement {
       },
       null
     );
-    ReactDOM.render(reactRoot, this.container);
+    ReactDOM.render(reactRoot, this.mountPoint);
   }
 
   disconnectedCallback() {
@@ -98,6 +104,6 @@ class TaskListElement extends HTMLElement {
   }
 }
 
-customElements.define('task-list', TaskListElement);
+customElements.get('task-list') || customElements.define('task-list', TaskListElement);
 
 export default TaskListElement;

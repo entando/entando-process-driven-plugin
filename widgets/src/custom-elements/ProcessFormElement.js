@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ProcessForm from '../components/ProcessForm/ProcessFormContainer';
-import { createWidgetEvent } from './customEventsUtils';
+import {addCustomEventListener, createWidgetEvent, getKeycloakInstance, KEYCLOAK_EVENT_TYPE} from './customEventsUtils';
 
 const CUSTOM_EVENT_PREFIX = 'processform';
 const ON_SUBMIT_FORM = `${CUSTOM_EVENT_PREFIX}.onSubmitForm`;
@@ -16,11 +16,19 @@ class ProcessFormElement extends HTMLElement {
     this.onSubmitForm = createWidgetEvent(ON_SUBMIT_FORM);
     this.onError = createWidgetEvent(ON_ERROR);
   }
+    connectedCallback() {
+        this.mountPoint = document.createElement('div')
+        this.appendChild(this.mountPoint);
+        this.keycloak = {...getKeycloakInstance(), initialized: true}
+        this.unsubscribeFromKeycloakEvent = addCustomEventListener(KEYCLOAK_EVENT_TYPE, (e) => {
+            if(e.detail.eventType==="onReady"){
+                this.keycloak = {...getKeycloakInstance(), initialized: true}
+                this.render()
+            }
+        })
+    }
 
-  connectedCallback() {
-    const mountPoint = document.createElement('div');
-    this.appendChild(mountPoint);
-
+  render() {
     const locale = this.getAttribute('locale') || 'en';
     i18next.changeLanguage(locale);
 
@@ -39,10 +47,10 @@ class ProcessFormElement extends HTMLElement {
       },
       null
     );
-    ReactDOM.render(reactRoot, mountPoint);
+    ReactDOM.render(reactRoot, this.mountPoint);
   }
 }
 
-customElements.define('process-form', ProcessFormElement);
+customElements.get('process-form') || customElements.define('process-form', ProcessFormElement);
 
 export default ProcessFormElement;

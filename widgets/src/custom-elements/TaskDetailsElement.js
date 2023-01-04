@@ -9,7 +9,7 @@ import {
   TD_ON_PRESS_PREVIOUS,
   TD_ON_PRESS_NEXT,
   TD_ON_ERROR,
-  GE_ON_SELECT_TASK,
+  GE_ON_SELECT_TASK, getKeycloakInstance, KEYCLOAK_EVENT_TYPE,
 } from './customEventsUtils';
 
 const ATTRIBUTES = {
@@ -100,11 +100,19 @@ class TaskDetailsElement extends HTMLElement {
     this.appendChild(this.container);
 
     this.unsubscribeFromOnSelectTaskEvent = addCustomEventListener(
-      GE_ON_SELECT_TASK,
-      this.updateTask
+        GE_ON_SELECT_TASK,
+        this.updateTask
     );
 
     this.render();
+
+    this.keycloak = {...getKeycloakInstance(), initialized: true}
+    this.unsubscribeFromKeycloakEvent = addCustomEventListener(KEYCLOAK_EVENT_TYPE, (e) => {
+      if(e.detail.eventType==="onReady"){
+        this.keycloak = {...getKeycloakInstance(), initialized: true}
+        this.render()
+      }
+    })
   }
 
   disconnectedCallback() {
@@ -114,6 +122,6 @@ class TaskDetailsElement extends HTMLElement {
   }
 }
 
-customElements.define('task-details', TaskDetailsElement);
+customElements.get('task-details') || customElements.define('task-details', TaskDetailsElement);
 
 export default TaskDetailsElement;

@@ -112,7 +112,7 @@ configNames.forEach(({ name, Component, className }) => {
     }
   };
 
-  customElements.define(name, elements[className]);
+  customElements.get(name) || customElements.define(name, elements[className]);
 });
 
 export default elements;

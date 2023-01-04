@@ -4,7 +4,13 @@ import ReactDOM from 'react-dom';
 
 import ProcessList from '../components/ProcessList/ProcessListContainer';
 
-import { createWidgetEvent, PL_ON_ERROR } from './customEventsUtils';
+import {
+  addCustomEventListener,
+  createWidgetEvent,
+  getKeycloakInstance,
+  KEYCLOAK_EVENT_TYPE,
+  PL_ON_ERROR
+} from './customEventsUtils';
 
 const ATTRIBUTES = {
   id: 'id',
@@ -38,10 +44,15 @@ class ProcessListElement extends HTMLElement {
   }
 
   connectedCallback() {
-    this.container = document.createElement('div');
-    this.appendChild(this.container);
-
-    this.render();
+    this.mountPoint = document.createElement('div')
+    this.appendChild(this.mountPoint);
+    this.keycloak = {...getKeycloakInstance(), initialized: true}
+    this.unsubscribeFromKeycloakEvent = addCustomEventListener(KEYCLOAK_EVENT_TYPE, (e) => {
+      if(e.detail.eventType==="onReady"){
+        this.keycloak = {...getKeycloakInstance(), initialized: true}
+        this.render()
+      }
+    })
   }
 
   render() {
@@ -64,7 +75,7 @@ class ProcessListElement extends HTMLElement {
       },
       null
     );
-    ReactDOM.render(reactRoot, this.container);
+    ReactDOM.render(reactRoot, this.mountPoint);
   }
 
   disconnectedCallback() {
@@ -74,6 +85,6 @@ class ProcessListElement extends HTMLElement {
   }
 }
 
-customElements.define('process-list', ProcessListElement);
+customElements.get('process-list') || customElements.define('process-list', ProcessListElement);
 
 export default ProcessListElement;
